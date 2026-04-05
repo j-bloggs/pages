@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Intelligence Brief — 5 April 2026</title>
+<!-- Template: reports/templates/introduction.html | Styles: reports/templates/base.css -->
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --red: #f85149;
+    --orange: #d29922;
+    --green: #3fb950;
+    --purple: #bc8cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  header .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  header h1 span { color: var(--accent); }
+  header .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 700px;
+  }
+  header .meta-line {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  header .meta-line a { color: var(--accent); text-decoration: none; }
+
+  section { margin-bottom: 2.5rem; }
+  h2 {
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    margin-top: 1.25rem;
+  }
+  p { margin-bottom: 0.85rem; color: var(--muted); font-size: 0.95rem; }
+  p strong { color: var(--text); }
+
+  .callout {
+    background: linear-gradient(135deg, #1a1e2e, #161b22);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.3rem;
+    margin: 1.25rem 0;
+  }
+  .callout p { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-orange { background: rgba(210,153,34,0.15); color: var(--orange); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--accent); }
+
+  .category-list {
+    list-style: none;
+    margin: 1rem 0;
+  }
+  .category-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .category-list li:last-child { border-bottom: none; }
+  .category-list .cat-name { color: var(--text); font-weight: 600; min-width: 140px; }
+  .category-list .cat-desc { color: var(--muted); }
+
+  .snapshot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .snapshot-card h4 {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .snapshot-card .price-line {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .snapshot-card .context {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  .market-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .market-card:hover { border-color: var(--accent); }
+  .market-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text); }
+  .market-card .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .market-card .delta { font-size: 0.85rem; margin-left: 0.5rem; }
+  .delta-up { color: var(--green); }
+  .delta-down { color: var(--red); }
+  .market-card .meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.5rem; }
+  .market-card .analysis { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); }
+
+  .bar-chart {
+    display: flex;
+    align-items: end;
+    gap: 3px;
+    height: 40px;
+    margin: 0.75rem 0;
+  }
+  .bar {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    min-width: 4px;
+    position: relative;
+  }
+  .bar-label {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .transmission-chain {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .chain-node {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 100px;
+  }
+  .chain-arrow { color: var(--muted); font-size: 1.2rem; padding: 0 0.4rem; }
+  .chain-node.geo { background: rgba(248,81,73,0.12); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .chain-node.commodity { background: rgba(210,153,34,0.12); color: var(--orange); border: 1px solid rgba(210,153,34,0.3); }
+  .chain-node.macro { background: rgba(188,140,255,0.12); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+  .chain-node.aus { background: rgba(88,166,255,0.12); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+
+  .trigger-table { width: 100%; border-collapse: collapse; }
+  .trigger-table th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  .trigger-table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .trigger-table .distance { font-family: monospace; }
+
+  .aus-box {
+    background: linear-gradient(135deg, #0d1a2e, #161b22);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+  }
+  .aus-box h3 { color: var(--accent); margin-top: 0; }
+  .aus-box ul { margin-left: 1.2rem; margin-top: 0.5rem; }
+  .aus-box li { margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--muted); }
+  .aus-box li strong { color: var(--text); }
+
+  .portfolio-section { margin-top: 1.5rem; }
+  .allocation-bar {
+    display: flex;
+    height: 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+  }
+  .allocation-bar .seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 4px;
+  }
+  .sector-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  .sector-table th {
+    text-align: left;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  .sector-table td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .sector-table td:first-child { font-weight: 500; color: var(--text); }
+  .sector-table .outlook-up { color: var(--green); font-weight: 600; }
+  .sector-table .outlook-down { color: var(--red); font-weight: 600; }
+  .sector-table .outlook-mixed { color: var(--orange); font-weight: 600; }
+  .sector-table .outlook-flat { color: var(--muted); font-weight: 600; }
+  .portfolio-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .portfolio-note strong { color: var(--text); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  .disclaimer {
+    background: rgba(210,153,34,0.08);
+    border: 1px solid rgba(210,153,34,0.3);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--orange);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Introductory Brief</div>
+  <h1>Polymarket <span>Intelligence Report</span></h1>
+  <div class="subtitle">
+    Tracking real-money prediction markets for signals that move global and Australian financial markets.
+  </div>
+  <div class="meta-line">
+    5 April 2026, 15:14 AEST &bull; Data from <a href="https://polymarket.com">polymarket.com</a> &bull; Updated from 13:06 AEST run
+  </div>
+</header>
+
+<!-- WHAT THIS IS -->
+<section>
+  <h2>What This Is</h2>
+
+  <p>
+    This is an automated intelligence report that monitors <strong>Polymarket</strong> &mdash; the world's largest prediction market &mdash; and translates its signals into what they mean for financial markets, with a focus on Australia.
+  </p>
+
+  <p>
+    On Polymarket, people bet real money on the outcomes of future events. A market reading <strong>"99.7% Yes"</strong> means the aggregate of all bettors &mdash; weighted by capital committed &mdash; estimates a 99.7% chance the event will happen. Markets with tens of millions in volume represent serious conviction, not casual opinion. Because bettors lose money when they're wrong, these prices tend to reflect genuine probability estimates faster and more honestly than polls or pundit forecasts.
+  </p>
+
+  <p>
+    We track roughly <strong>69 markets</strong> across six categories, selected because their outcomes have plausible transmission mechanisms to asset prices, central bank decisions, and trade flows:
+  </p>
+
+  <ul class="category-list">
+    <li>
+      <span class="cat-name"><span class="tag tag-red">Geopolitics</span></span>
+      <span class="cat-desc">Conflicts, regime change, territorial control &mdash; currently dominated by the US-Iran theatre and Gulf state involvement.</span>
+    </li>
+    <li>
+      <span class="cat-name"><span class="tag tag-purple">Monetary Policy</span></span>
+      <span class="cat-desc">US Federal Reserve rate decisions, hike/cut probabilities. The US Fed sets the global cost of money; every central bank responds to it.</span>
+    </li>
+    <li>
+      <span class="cat-name"><span class="tag tag-orange">Commodities</span></span>
+      <span class="cat-desc">Oil price targets, supply infrastructure (Kharg Island, Strait of Hormuz), and actions that affect production or shipping.</span>
+    </li>
+    <li>
+      <span class="cat-name"><span class="tag tag-blue">Trade &amp; Diplomacy</span></span>
+      <span class="cat-desc">US-China relations, state visits, tariff signals. Australia's economy is deeply coupled to China.</span>
+    </li>
+    <li>
+      <span class="cat-name"><span class="tag tag-green">Crypto</span></span>
+      <span class="cat-desc">Bitcoin and major token price levels &mdash; useful as a risk-sentiment gauge.</span>
+    </li>
+    <li>
+      <span class="cat-name"><span class="tag tag-orange">Macro Signals</span></span>
+      <span class="cat-desc">Recession and stagflation indicators. We also watch for markets that <em>don't exist yet</em> &mdash; their creation is itself a signal.</span>
+    </li>
+  </ul>
+</section>
+
+<!-- WHY AUSTRALIA -->
+<section>
+  <h2>Why Australia</h2>
+
+  <p>
+    Australia sits in a uniquely exposed position: a developed, Western-aligned economy with deep commodity export dependence on China and near-total import dependence for refined fuel. This means global shocks hit Australia from multiple directions simultaneously.
+  </p>
+
+  <div class="aus-box">
+    <h3>Key Exposure Points</h3>
+    <ul>
+      <li><strong>Fuel imports (~90%):</strong> Any sustained oil shock flows directly into petrol, freight, and CPI with minimal domestic buffer.</li>
+      <li><strong>China trade:</strong> Australia's largest partner by a wide margin. Iron ore, coal, LNG all flow north. US-China friction hits Australian exporters first.</li>
+      <li><strong>RBA positioning:</strong> The RBA watches the US Fed closely. When the US Fed is paralysed, the RBA's options narrow too.</li>
+      <li><strong>AUD as a risk currency:</strong> In conflict-driven commodity spikes (stagflationary, not growth-driven), the AUD tends to weaken against USD despite high commodity prices.</li>
+      <li><strong>Trade route proximity:</strong> Australian LNG exports transit near contested Gulf shipping corridors.</li>
+    </ul>
+  </div>
+
+  <p>
+    Each report maps <strong>transmission chains</strong> from prediction market events to Australian instruments: AUD/USD, ASX 200, RBA rate expectations, and key sectors.
+  </p>
+</section>
+
+<!-- TODAY'S SNAPSHOT -->
+<section>
+  <h2>Where Things Stand Today</h2>
+
+  <p>
+    Here are the four most important signals as of 5 April 2026, 15:14 AEST:
+  </p>
+
+  <div class="grid-2">
+    <div class="snapshot-card">
+      <h4><span class="tag tag-red">Geopolitics</span> US Forces Enter Iran by Apr 30</h4>
+      <div class="price-line" style="color: var(--red);">99.7%</div>
+      <div class="context">+18.1pp in 24h &bull; +36.1pp in 7 days &bull; $126M total volume &bull; Effectively resolved</div>
+    </div>
+    <div class="snapshot-card">
+      <h4><span class="tag tag-orange">Commodities</span> WTI Hits $130 in April</h4>
+      <div class="price-line" style="color: var(--orange);">49.5%</div>
+      <div class="context">+2.0pp in 24h &bull; Coin flip on $130 oil &bull; $140: 34.5% (+7.5pp) &bull; $200: 2.9% and rising</div>
+    </div>
+    <div class="snapshot-card">
+      <h4><span class="tag tag-purple">Monetary Policy</span> US Fed Holds Rates in April</h4>
+      <div class="price-line" style="color: var(--purple);">98.4%</div>
+      <div class="context">Cut: 0.7% &bull; Hike: 0.7% &bull; Completely frozen in both directions</div>
+    </div>
+    <div class="snapshot-card">
+      <h4><span class="tag tag-blue">Diplomacy</span> Trump Visits China by May 31</h4>
+      <div class="price-line" style="color: var(--accent);">65.0%</div>
+      <div class="context">Down 6.5pp in 24h &bull; Fading &bull; No diplomatic channels opening on any front</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>
+      <strong>The connecting story:</strong> The US-Iran conflict has crossed into near-certainty (99.7%, up from 92.5% just hours ago). Oil is repricing rapidly &mdash; WTI $130 is a coin flip (49.5%) and $140 jumped to 34.5%. The Strait of Hormuz remains disrupted (normalisation at just 10.5%), and the US Fed is paralysed (98.4% hold). Meanwhile the Trump-China visit is fading (65.0%) with no diplomatic channels opening. For Australia, this is a two-front squeeze: energy costs surging from the Middle East and trade volumes threatened from the Pacific.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--  DEEP ANALYSIS BEGINS                                        -->
+<!-- ============================================================ -->
+
+<!-- IRAN CONFLICT -->
+<section>
+  <h2><span class="tag tag-red">Critical</span> The Iran Conflict &mdash; Primary Risk Vector</h2>
+
+  <div class="grid-2">
+    <div class="market-card">
+      <h4>US Forces Enter Iran by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--red);">99.7%</span>
+        <span class="delta delta-up">+18.1pp / 24h</span>
+        <span class="delta delta-up">+36.1pp / 7d</span>
+      </div>
+      <div class="meta">$126M total volume &bull; $10.6M in last 24h</div>
+      <div class="bar-chart">
+        <div class="bar" style="height:45.5%; background: var(--red);"><span class="bar-label">Mar 24</span></div>
+        <div class="bar" style="height:49.5%; background: var(--red);"></div>
+        <div class="bar" style="height:58.5%; background: var(--red);"></div>
+        <div class="bar" style="height:61.5%; background: var(--red);"></div>
+        <div class="bar" style="height:58.5%; background: var(--red);"></div>
+        <div class="bar" style="height:91.5%; background: var(--red);"></div>
+        <div class="bar" style="height:99.7%; background: var(--red);"><span class="bar-label">Apr 5</span></div>
+      </div>
+      <div class="analysis">
+        The market has moved from a coin-flip (45%) to virtual certainty (99.7%) in under two weeks. This is no longer a forecast &mdash; it's priced as a fait accompli. The Dec 31 variant is also at 99.8%, confirming no one expects a reversal.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>US-Iran Ceasefire by April 7</h4>
+      <div>
+        <span class="price" style="color: var(--red);">0.9%</span>
+        <span class="delta delta-down">-8.6pp / 7d</span>
+      </div>
+      <div class="meta">$90M total volume &bull; $2.7M in last 24h</div>
+      <div class="bar-chart">
+        <div class="bar" style="height:32.5%; background: var(--muted);"><span class="bar-label">Mar 25</span></div>
+        <div class="bar" style="height:26%; background: var(--muted);"></div>
+        <div class="bar" style="height:21.5%; background: var(--muted);"></div>
+        <div class="bar" style="height:12%; background: var(--muted);"></div>
+        <div class="bar" style="height:10.5%; background: var(--muted);"></div>
+        <div class="bar" style="height:0.9%; background: var(--red); min-height: 2px;"><span class="bar-label">Apr 5</span></div>
+      </div>
+      <div class="analysis">
+        Ceasefire is dead &mdash; 2 days from expiry at 0.9%. The broader Apr 30 ceasefire is at 17.5% and falling, Apr 15 at just 4.5%.
+        No diplomatic off-ramp is being priced in at any horizon.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 0;">
+    <div class="market-card">
+      <h4>Kharg Island Falls by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">18.5%</span>
+        <span class="delta delta-up">+1.0pp / 24h</span>
+      </div>
+      <div class="meta">$12.7M total volume &bull; Trigger threshold: 30%</div>
+      <div class="analysis">
+        Kharg Island handles ~90% of Iran's oil exports. If this market crosses 30%, the crowd is pricing in a direct strike on Iran's oil infrastructure &mdash; a global supply shock. Apr 15 variant at 6.5% (down 3pp).
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>UAE Strikes Iran by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">23.5%</span>
+        <span class="delta delta-up">+3.5pp / 24h</span>
+      </div>
+      <div class="meta">Trigger: 35% &bull; Saudi Arabia: 15.5% &bull; Kuwait: 11.2%</div>
+      <div class="analysis">
+        Regional escalation beyond a US-Iran bilateral conflict. Gulf states entering the war would dramatically widen its scope and impact on oil infrastructure. Kuwait jumped +4.6pp today.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 0;">
+    <div class="market-card">
+      <h4>Iranian Regime Falls by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--muted);">3.8%</span>
+        <span class="delta delta-up">+0.3pp / 24h</span>
+      </div>
+      <div class="meta">$20.2M total volume &bull; Down from 8.5% on Mar 28</div>
+      <div class="analysis">Low probability and declining &mdash; bettors see prolonged conflict, not regime collapse. Market has halved since late March despite ground forces being priced as certain.</div>
+    </div>
+
+    <div class="market-card">
+      <h4>Trump Ends Iran Ops by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">29.5%</span>
+      </div>
+      <div class="meta">Trigger threshold: &darr;20% ("quagmire scenario")</div>
+      <div class="analysis">If this drops below 20%, the market is pricing in a protracted military engagement with no exit strategy &mdash; sustained oil premium and escalation risk. Currently 9.5pp from trigger.</div>
+    </div>
+  </div>
+
+  <div class="market-card">
+    <h4>Trump Declares War on Iran by April 30</h4>
+    <div>
+      <span class="price" style="color: var(--muted);">8.9%</span>
+      <span class="delta delta-down">-13.8pp / 24h</span>
+    </div>
+    <div class="meta">Significant 24h drop</div>
+    <div class="analysis">A notable divergence: ground operations are near-certain (99.7%) but a formal war declaration is fading (-13.8pp). The market sees an undeclared operation that continues without congressional authorization &mdash; consistent with modern US military precedent.</div>
+  </div>
+</section>
+
+<!-- OIL & COMMODITIES -->
+<section>
+  <h2><span class="tag tag-orange">Elevated</span> Oil &amp; Commodities</h2>
+
+  <div class="grid-2">
+    <div class="market-card">
+      <h4>WTI Hits $130 in April</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">49.5%</span>
+        <span class="delta delta-up">+2.0pp / 24h</span>
+      </div>
+      <div class="meta">Trigger threshold: 65% &mdash; "stagflation consensus"</div>
+      <div class="analysis">
+        A coin flip that oil reaches $130. At that level, virtually every economy on earth feels the pain.
+        For context, WTI was $70-80 before the Iran escalation began.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>WTI Hits $140 in April</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">34.5%</span>
+        <span class="delta delta-up">+7.5pp / 24h</span>
+      </div>
+      <div class="meta">Big 24h move &bull; One-in-three chance</div>
+      <div class="analysis">
+        The $140 market jumped 7.5pp today &mdash; the largest move in the oil complex. This suggests traders are not just pricing $130 as a ceiling but expecting the possibility of overshoot.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 0;">
+    <div class="market-card">
+      <h4>WTI Hits $200 in April</h4>
+      <div>
+        <span class="price" style="color: var(--orange);">2.9%</span>
+      </div>
+      <div class="meta">Trigger threshold: 10% &mdash; "crisis pricing" &bull; Up from 1.6% on Apr 2</div>
+      <div class="analysis">
+        Still a tail risk, but nearly doubled in 3 days. If this crosses 10%, markets are pricing in catastrophic supply disruption &mdash; potentially a Strait of Hormuz closure. Volume is high at $1.1M/24h.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>Strait of Hormuz Normalises by April 30</h4>
+      <div>
+        <span class="price" style="color: var(--red);">10.5%</span>
+      </div>
+      <div class="meta">Trigger threshold: 20% &bull; Carries ~20% of global oil</div>
+      <div class="analysis">
+        With normalisation at just 10.5%, disruption is the base case through April. This is the key chokepoint that transmits Middle East conflict into global oil prices.
+      </div>
+    </div>
+  </div>
+
+  <div class="market-card">
+    <h4>Crude Oil $150 by End of June</h4>
+    <div>
+      <span class="price" style="color: var(--orange);">25.5%</span>
+      <span class="delta delta-up">+0.5pp / 24h</span>
+    </div>
+    <div class="meta">$7.4M total volume &bull; $200 by June: 10.0%</div>
+    <div class="analysis">One-in-four chance of $150 oil by mid-year. The $200-by-June market is already at 10% &mdash; crisis pricing is not just an April phenomenon but extends through Q2.</div>
+  </div>
+</section>
+
+<!-- REGIONAL ESCALATION -->
+<section>
+  <h2><span class="tag tag-red">Developing</span> Regional Escalation</h2>
+
+  <p>The conflict is no longer bilateral. Multiple Gulf states are being priced into the theatre:</p>
+
+  <div class="grid-3">
+    <div class="market-card">
+      <h4>UAE Strikes Iran</h4>
+      <div><span class="price" style="color: var(--orange);">23.5%</span></div>
+      <div class="meta">+3.5pp / 24h</div>
+    </div>
+    <div class="market-card">
+      <h4>Saudi Strikes Iran</h4>
+      <div><span class="price" style="color: var(--orange);">15.5%</span></div>
+      <div class="meta">+1.0pp / 24h</div>
+    </div>
+    <div class="market-card">
+      <h4>Kuwait Strikes Iran</h4>
+      <div><span class="price" style="color: var(--orange);">11.2%</span></div>
+      <div class="meta">+4.6pp / 24h</div>
+    </div>
+  </div>
+
+  <p>Iran is also striking back. Iran has already hit Bahrain (100% resolved), and strikes on UAE by April 30 are at 92.8%. Iran striking Oman: 34.5%.</p>
+
+  <div class="callout">
+    <p><strong>Key signal:</strong> This is evolving from a US-Iran conflict into a broader Gulf regional war. The combined probability of <em>any</em> non-US country striking Iran by April 30 is 26% and rising. For oil markets, multi-front conflict means more infrastructure at risk and harder-to-negotiate ceasefires.</p>
+  </div>
+</section>
+
+<!-- TRANSMISSION TO AUSTRALIA -->
+<section>
+  <h2>Transmission to Australia</h2>
+
+  <div class="transmission-chain">
+    <div class="chain-node geo">Iran Conflict<br><small>99.7%</small></div>
+    <span class="chain-arrow">&rarr;</span>
+    <div class="chain-node commodity">Oil to $130<br><small>49.5%</small></div>
+    <span class="chain-arrow">&rarr;</span>
+    <div class="chain-node commodity">Hormuz Disrupted<br><small>89.5% implied</small></div>
+    <span class="chain-arrow">&rarr;</span>
+    <div class="chain-node macro">US Fed Frozen<br><small>98.4% hold</small></div>
+    <span class="chain-arrow">&rarr;</span>
+    <div class="chain-node aus">AUD / ASX / RBA</div>
+  </div>
+
+  <div class="aus-box">
+    <h3>Australia Impact Assessment</h3>
+    <ul>
+      <li><strong>Fuel &amp; CPI:</strong> WTI at $130+ translates to petrol well above $2.50/L, possibly approaching $3.00/L. Feeds directly into CPI via transport, logistics, and food costs. The RBA's inflation fight gets harder.</li>
+      <li><strong>RBA rate path:</strong> Same trap as the US Fed &mdash; oil inflation argues for tightening, but growth is slowing. Expect the RBA to hold and jawbone rather than act.</li>
+      <li><strong>AUD vulnerability:</strong> A conflict-driven oil spike is stagflationary, not growth-driven. If risk-off intensifies, AUD/USD weakens despite high commodity prices as capital flows to USD safety.</li>
+      <li><strong>ASX sectors:</strong> Energy stocks (Woodside, Santos) benefit. Banks and consumer discretionary get hit. Iron ore miners face mixed signals &mdash; China demand uncertainty versus supply tightness.</li>
+      <li><strong>LNG trade routes:</strong> Australian exports transit near contested waterways. Broader Gulf conflict could paradoxically constrain Australia's own energy exports &mdash; higher prices but potentially reduced volume.</li>
+      <li><strong>China-US friction:</strong> Fading Trump-China visit (65.0%, down 6.5pp) signals ongoing trade tension. Iron ore and coal demand directly exposed.</li>
+    </ul>
+  </div>
+
+  <div class="aus-box">
+    <h3>Scenario Matrix</h3>
+    <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+      <tr style="border-bottom: 1px solid var(--border);">
+        <th style="text-align: left; padding: 0.5rem; color: var(--muted);">Scenario</th>
+        <th style="text-align: left; padding: 0.5rem; color: var(--muted);">Prob.</th>
+        <th style="text-align: left; padding: 0.5rem; color: var(--muted);">AUD</th>
+        <th style="text-align: left; padding: 0.5rem; color: var(--muted);">ASX 200</th>
+        <th style="text-align: left; padding: 0.5rem; color: var(--muted);">RBA</th>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 0.5rem;">Iran conflict + oil at $130</td>
+        <td style="padding: 0.5rem; color: var(--orange);">~50%</td>
+        <td style="padding: 0.5rem; color: var(--red);">&darr; Weaker</td>
+        <td style="padding: 0.5rem; color: var(--red);">&darr; Sell-off ex-energy</td>
+        <td style="padding: 0.5rem;">Hold / hawkish bias</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 0.5rem;">Regional war + oil &gt;$150</td>
+        <td style="padding: 0.5rem; color: var(--red);">~20-25%</td>
+        <td style="padding: 0.5rem; color: var(--red);">&darr;&darr; Sharp decline</td>
+        <td style="padding: 0.5rem; color: var(--red);">&darr;&darr; Correction</td>
+        <td style="padding: 0.5rem;">Emergency hold</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 0.5rem;">Ceasefire / de-escalation</td>
+        <td style="padding: 0.5rem; color: var(--green);">~15%</td>
+        <td style="padding: 0.5rem; color: var(--green);">&uarr; Recovery rally</td>
+        <td style="padding: 0.5rem; color: var(--green);">&uarr; Broad relief rally</td>
+        <td style="padding: 0.5rem;">Resume easing path</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5rem;">Conflict contained + China deal</td>
+        <td style="padding: 0.5rem; color: var(--green);">~5-10%</td>
+        <td style="padding: 0.5rem; color: var(--green);">&uarr;&uarr; Strong</td>
+        <td style="padding: 0.5rem; color: var(--green);">&uarr;&uarr; Resource boom</td>
+        <td style="padding: 0.5rem;">Cut cycle resumes</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- PORTFOLIO IMPACT -->
+<section>
+  <h2><span class="tag tag-blue">Portfolio</span> Super Fund Impact Assessment</h2>
+
+  <p>
+    How today's prediction market signals map to a typical Australian balanced super fund.
+    Based on a standard 70/30 growth/defensive split with home-country bias.
+  </p>
+
+  <h3>Reference Allocation</h3>
+  <div class="allocation-bar">
+    <div class="seg" style="width:27%; background: rgba(88,166,255,0.3); color: var(--accent);">Aus Equity 27%</div>
+    <div class="seg" style="width:25%; background: rgba(188,140,255,0.3); color: var(--purple);">Intl Equity 25%</div>
+    <div class="seg" style="width:5%; background: rgba(210,153,34,0.3); color: var(--orange);">Property 5%</div>
+    <div class="seg" style="width:8%; background: rgba(63,185,80,0.25); color: var(--green);">Infra 8%</div>
+    <div class="seg" style="width:17%; background: rgba(248,81,73,0.2); color: var(--red);">Fixed Inc 17%</div>
+    <div class="seg" style="width:5%; background: rgba(139,148,158,0.3); color: var(--muted);">Alts 5%</div>
+    <div class="seg" style="width:8%; background: rgba(139,148,158,0.15); color: var(--muted);">PE 5% Cash 3%</div>
+  </div>
+
+  <h3>Australian Equities (~27% of portfolio)</h3>
+  <table class="sector-table">
+    <thead>
+      <tr><th>Sector</th><th>ASX Weight</th><th>Outlook</th><th>Key Driver</th><th>Signal</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Energy <small>(WDS, STO, WHC)</small></td>
+        <td>~5%</td>
+        <td class="outlook-up">&uarr;&uarr; Strong</td>
+        <td>WTI $130: 49.5%, $140: 34.5%</td>
+        <td>Direct beneficiary of oil spike. Woodside/Santos revenue scales with price. Offset: LNG route disruption risk.</td>
+      </tr>
+      <tr>
+        <td>Materials <small>(BHP, RIO, FMG)</small></td>
+        <td>~20%</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Trump-China: 65% &darr;6.5pp, Taiwan: 9.8%</td>
+        <td>Iron ore/coal demand depends on China. Fading diplomacy is negative. Gold miners (NCM, NST) benefit from risk-off.</td>
+      </tr>
+      <tr>
+        <td>Financials <small>(CBA, NAB, WBC, ANZ)</small></td>
+        <td>~28%</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>RBA frozen (follows US Fed), oil-driven CPI, slowdown</td>
+        <td>Higher energy costs squeeze household budgets &rarr; higher mortgage stress. Net interest margins compressed if RBA can't cut. Largest drag on ASX index.</td>
+      </tr>
+      <tr>
+        <td>Healthcare <small>(CSL, RMD, COH)</small></td>
+        <td>~10%</td>
+        <td class="outlook-flat">&harr; Neutral</td>
+        <td>Defensive, USD-earning</td>
+        <td>Largely insulated. CSL benefits from weaker AUD (USD revenue). Defensive positioning in risk-off.</td>
+      </tr>
+      <tr>
+        <td>Consumer Disc. <small>(WES, HVN, JBH)</small></td>
+        <td>~5%</td>
+        <td class="outlook-down">&darr;&darr; Weak</td>
+        <td>Petrol &gt;$2.50/L, no rate cuts coming</td>
+        <td>Disposable income crushed by fuel costs and stalled rate relief. Retail most exposed.</td>
+      </tr>
+      <tr>
+        <td>Consumer Staples <small>(WOW, COL)</small></td>
+        <td>~5%</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Food inflation vs defensive demand</td>
+        <td>Transport/logistics costs push up food prices. Volume pressure but pricing power. Defensive tilt helps.</td>
+      </tr>
+      <tr>
+        <td>REITs <small>(GMG, SCG, GPT)</small></td>
+        <td>~5%</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>Rates frozen high, no relief</td>
+        <td>Rate-sensitive sector. No RBA cuts = no cap rate compression. Retail REITs hit by consumer slowdown.</td>
+      </tr>
+      <tr>
+        <td>Tech <small>(XRO, WTC, TNE)</small></td>
+        <td>~3%</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>Growth de-rating, risk-off</td>
+        <td>Duration-sensitive in a rates-frozen environment. Risk-off rotates away from growth. Small ASX weight limits impact.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>International Equities (~25% of portfolio)</h3>
+  <table class="sector-table">
+    <thead>
+      <tr><th>Region/Sector</th><th>Outlook</th><th>Key Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US Equities (broad)</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>US Fed paralysis (98.4% hold), oil-driven margin compression across S&amp;P 500. Defence sector is the exception.</td>
+      </tr>
+      <tr>
+        <td>US Defence <small>(LMT, RTX, NOC)</small></td>
+        <td class="outlook-up">&uarr;&uarr; Strong</td>
+        <td>Iran conflict (99.7%), regional escalation. Defence budgets increasing across US + Gulf allies.</td>
+      </tr>
+      <tr>
+        <td>European Equities</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>Energy import dependent. Hungary election (Orb&aacute;n 33.5%) adds political uncertainty. Oil shock hits harder than US.</td>
+      </tr>
+      <tr>
+        <td>Emerging Markets</td>
+        <td class="outlook-down">&darr;&darr; Weak</td>
+        <td>Strong USD + oil spike = EM double squeeze. Capital flight to USD safety. Oil importers (India, SE Asia) worst hit.</td>
+      </tr>
+      <tr>
+        <td>Japan</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Oil importer but yen weakness helps exporters. Bank of Japan in same trap as US Fed/RBA.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Fixed Income &amp; Bonds (~17% of portfolio)</h3>
+  <table class="sector-table">
+    <thead>
+      <tr><th>Segment</th><th>Outlook</th><th>Key Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Australian Govt Bonds</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Flight-to-safety bid supports prices, but oil-driven inflation pressures yields higher. Curve likely steepens.</td>
+      </tr>
+      <tr>
+        <td>US Treasuries</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Same tension: risk-off demand vs inflation expectations. US Fed frozen at 98.4%. Short end anchored, long end volatile.</td>
+      </tr>
+      <tr>
+        <td>Corporate / Credit</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>Spreads widening on recession risk + energy cost pass-through. Airlines, transport, retail credits most vulnerable.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Other Asset Classes</h3>
+  <table class="sector-table">
+    <thead>
+      <tr><th>Asset</th><th>~Weight</th><th>Outlook</th><th>Key Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Infrastructure</td>
+        <td>~8%</td>
+        <td class="outlook-mixed">&harr; Mixed</td>
+        <td>Toll roads/airports benefit from inflation-linked revenue. Energy infra positive. But rate sensitivity caps upside.</td>
+      </tr>
+      <tr>
+        <td>Property (direct)</td>
+        <td>~5%</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>No rate relief. Office vacancy still elevated. Industrial/logistics resilient on supply chain re-routing.</td>
+      </tr>
+      <tr>
+        <td>Private Equity</td>
+        <td>~5%</td>
+        <td class="outlook-down">&darr; Negative</td>
+        <td>Exit multiples compressing. Fundraising environment tough. Lagged marks may not yet reflect reality.</td>
+      </tr>
+      <tr>
+        <td>Gold</td>
+        <td>~2%</td>
+        <td class="outlook-up">&uarr;&uarr; Strong</td>
+        <td>Classic conflict/inflation hedge. Geopolitical certainty at 99.7% + oil uncertainty = strong bid.</td>
+      </tr>
+      <tr>
+        <td>Cash</td>
+        <td>~3%</td>
+        <td class="outlook-up">&uarr; Positive</td>
+        <td>Rates frozen at high levels = competitive cash yields. Optionality value high in volatile environment.</td>
+      </tr>
+      <tr>
+        <td>Crypto (Bitcoin)</td>
+        <td>0-2%</td>
+        <td class="outlook-flat">&harr; Neutral</td>
+        <td>Holding ~$66-68K. $45K dip risk at 3.8%. Acting as store-of-value rather than risk asset in this crisis.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="border-left-color: var(--orange);">
+    <p>
+      <strong>Net portfolio read:</strong> A typical balanced super fund faces headwinds across ~60% of its allocation (banks, consumer, REITs, international equities, property, PE) with only ~15% in outright tailwinds (energy, gold, defence exposure, cash). The remaining ~25% (materials, healthcare, infrastructure, bonds) is mixed or neutral. The key risk is that the largest ASX sector by weight &mdash; financials at ~28% &mdash; is negatively exposed, making index-level performance heavily dependent on whether banks can hold up under mortgage stress without rate cuts.
+    </p>
+  </div>
+
+  <div class="portfolio-note">
+    <strong>Note on timing:</strong> These signals reflect <em>current</em> prediction market pricing as of 5 April 2026. Sector impacts assume the base-case scenario (~50% probability) of sustained conflict with oil near $130. In the ceasefire scenario (~15%), most of these readings reverse sharply. Portfolio positioning should weight the probability distribution, not just the base case.
+  </div>
+</section>
+
+<!-- FED & MONETARY POLICY -->
+<section>
+  <h2><span class="tag tag-purple">Watching</span> US Federal Reserve &amp; Monetary Policy</h2>
+
+  <div class="grid-2">
+    <div class="market-card">
+      <h4>US Fed Holds Rates in April</h4>
+      <div>
+        <span class="price" style="color: var(--purple);">98.4%</span>
+        <span class="delta delta-up">+0.1pp / 24h</span>
+      </div>
+      <div class="meta">$11.2M volume &bull; Cut: 0.7% &bull; Hike: 0.7%</div>
+      <div class="analysis">
+        Near-zero probability of any move in either direction. Oil inflation makes cutting impossible; recession risk makes hiking impossible. This paralysis flows through to every central bank including the RBA.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>US Fed June Hold</h4>
+      <div>
+        <span class="price" style="color: var(--purple);">90.5%</span>
+      </div>
+      <div class="meta">June cut 25bp: 6.5% (+1.0pp) &bull; June hike 50+bp: 0.8%</div>
+      <div class="analysis">
+        June shows marginally more optionality than April, with a 6.5% chance of a 25bp cut. But 90.5% hold is the overwhelming base case &mdash; the US Fed stays frozen through Q2.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 0;">
+    <div class="market-card">
+      <h4>US Fed June Hike Probability</h4>
+      <div>
+        <span class="price" style="color: var(--muted);">2.5%</span>
+      </div>
+      <div class="meta">Trigger: 5% &mdash; "oil forcing US Fed's hand"</div>
+      <div class="analysis">
+        If this crosses 5%, oil-driven inflation is severe enough to force the US Fed to hike into a slowdown &mdash; the textbook stagflation nightmare. Currently 2.5pp from the trigger.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>US Fed Chair Confirmation</h4>
+      <div>
+        <span class="price" style="color: var(--muted);">Judy Shelton: 1.2%</span>
+      </div>
+      <div class="meta">$20.8M total volume &bull; Bessent: 0.2% &bull; Waller: 0.1%</div>
+      <div class="analysis">No clear front-runner for US Fed Chair, adding to monetary policy uncertainty. The market sees no imminent change in US Fed leadership.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRADE & DIPLOMACY -->
+<section>
+  <h2><span class="tag tag-blue">Developing</span> Trade &amp; Diplomacy</h2>
+
+  <div class="grid-2">
+    <div class="market-card">
+      <h4>Trump Visits China by May 31</h4>
+      <div>
+        <span class="price" style="color: var(--accent);">65.0%</span>
+        <span class="delta delta-down">-6.5pp / 24h</span>
+      </div>
+      <div class="meta">$20.3M total volume &bull; By June 30: 76.0% (also falling, -5.0pp)</div>
+      <div class="analysis">
+        Still more likely than not, but fading fast. A successful visit could signal tariff de-escalation &mdash; a major positive for Australian commodity exports to China. The decline is concerning, and the Trump-Xi March call expired at 0.1% with no contact made.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>China Invades Taiwan by End 2026</h4>
+      <div>
+        <span class="price" style="color: var(--muted);">9.8%</span>
+      </div>
+      <div class="meta">Trigger threshold: 15% &bull; 5.1pp from trigger</div>
+      <div class="analysis">
+        Low probability but existential tail risk. A Taiwan conflict would crash global semiconductor supply chains and devastate Australian trade. Fading diplomacy could push this higher.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRYPTO -->
+<section>
+  <h2><span class="tag tag-green">Stable</span> Crypto &amp; Digital Assets</h2>
+
+  <div class="grid-2">
+    <div class="market-card">
+      <h4>Bitcoin</h4>
+      <div>
+        <span class="price" style="color: var(--green);">~$66-68K</span>
+      </div>
+      <div class="meta">Above $60K: 100% &bull; Above $66K on Apr 6: 78.5% &bull; $150K in April: 0.5%</div>
+      <div class="analysis">
+        Holding steady above $66K despite geopolitical turmoil. The $45K dip market at 3.8% suggests limited downside fear. Bitcoin is acting more as a store-of-value than a risk asset in this crisis.
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h4>XRP</h4>
+      <div>
+        <span class="price" style="color: var(--green);">~$1.30-1.40</span>
+      </div>
+      <div class="meta">Above $1.00: 99.9% &bull; $1.30-$1.40 range: 77.5%</div>
+      <div class="analysis">
+        Stable in a defined range. Not showing the geopolitical sensitivity of traditional markets.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIGGER WATCHBOARD -->
+<section>
+  <h2>Trigger Watchboard</h2>
+  <p>
+    Predefined thresholds that signal a regime change in market expectations. None have fired yet &mdash; but several are closing in.
+  </p>
+
+  <table class="trigger-table">
+    <thead>
+      <tr>
+        <th>Trigger</th>
+        <th>Current</th>
+        <th>Threshold</th>
+        <th>Distance</th>
+        <th>Significance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US-Iran ceasefire (Apr 30)</td>
+        <td style="color: var(--orange);">17.5%</td>
+        <td>&darr; 10%</td>
+        <td class="distance" style="color: var(--orange);">7.5pp</td>
+        <td style="color: var(--muted);">Prolonged conflict lock-in</td>
+      </tr>
+      <tr>
+        <td>Trump ends Iran ops</td>
+        <td style="color: var(--orange);">29.5%</td>
+        <td>&darr; 20%</td>
+        <td class="distance" style="color: var(--orange);">9.5pp</td>
+        <td style="color: var(--muted);">Quagmire scenario</td>
+      </tr>
+      <tr>
+        <td>Kharg Island falls</td>
+        <td>18.5%</td>
+        <td>&uarr; 30%</td>
+        <td class="distance">11.5pp</td>
+        <td style="color: var(--muted);">90% of Iran's oil exports disrupted</td>
+      </tr>
+      <tr>
+        <td>UAE strikes Iran</td>
+        <td>23.5%</td>
+        <td>&uarr; 35%</td>
+        <td class="distance">11.5pp</td>
+        <td style="color: var(--muted);">Gulf states enter the war</td>
+      </tr>
+      <tr>
+        <td>WTI $130 in April</td>
+        <td style="color: var(--orange);">49.5%</td>
+        <td>&uarr; 65%</td>
+        <td class="distance" style="color: var(--orange);">15.5pp</td>
+        <td style="color: var(--muted);">Stagflation becomes consensus</td>
+      </tr>
+      <tr>
+        <td>WTI $200 in April</td>
+        <td>2.9%</td>
+        <td>&uarr; 10%</td>
+        <td class="distance">7.1pp</td>
+        <td style="color: var(--muted);">Crisis-level supply disruption</td>
+      </tr>
+      <tr>
+        <td>Hormuz normalises</td>
+        <td>10.5%</td>
+        <td>&uarr; 20%</td>
+        <td class="distance">9.5pp</td>
+        <td style="color: var(--muted);">Oil relief signal</td>
+      </tr>
+      <tr>
+        <td>Trump visits China (May)</td>
+        <td>65.0%</td>
+        <td>&darr; 40%</td>
+        <td class="distance">25.0pp</td>
+        <td style="color: var(--muted);">Trade war re-escalation</td>
+      </tr>
+      <tr>
+        <td>China invades Taiwan</td>
+        <td>9.8%</td>
+        <td>&uarr; 15%</td>
+        <td class="distance" style="color: var(--orange);">5.1pp</td>
+        <td style="color: var(--muted);">Semiconductor + trade catastrophe</td>
+      </tr>
+      <tr>
+        <td>US Fed June hike</td>
+        <td>2.5%</td>
+        <td>&uarr; 5%</td>
+        <td class="distance" style="color: var(--orange);">2.5pp</td>
+        <td style="color: var(--muted);">Oil inflation forcing US Fed rate hikes</td>
+      </tr>
+      <tr>
+        <td>US Fed April hike</td>
+        <td>0.7%</td>
+        <td>&uarr; 2%</td>
+        <td class="distance">1.3pp</td>
+        <td style="color: var(--muted);">Hawkish surprise signal</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CALENDAR -->
+<section>
+  <h2>Key Dates Ahead</h2>
+  <div class="market-card">
+    <ul style="list-style: none;">
+      <li style="padding: 0.4rem 0;"><span class="tag tag-red">Apr 7</span> US-Iran ceasefire deadline &mdash; near-certain to expire without deal (0.9%)</li>
+      <li style="padding: 0.4rem 0;"><span class="tag tag-orange">Apr 12</span> Hungary PM election &mdash; Orb&aacute;n at 33.5%, potential EU political shift</li>
+      <li style="padding: 0.4rem 0;"><span class="tag tag-red">Apr 15</span> Kharg Island market (Apr 15 variant at 6.5%) &mdash; near-term oil disruption signal</li>
+      <li style="padding: 0.4rem 0;"><span class="tag tag-purple">Apr 29</span> US Fed April meeting &mdash; 98.4% hold, but watch statement language on oil</li>
+      <li style="padding: 0.4rem 0;"><span class="tag tag-red">Apr 30</span> Multiple Iran deadlines &mdash; ceasefire (17.5%), regime fall (3.8%), UAE strike (23.5%), Kharg Island (18.5%)</li>
+      <li style="padding: 0.4rem 0;"><span class="tag tag-blue">May 31</span> Trump-China visit deadline &mdash; critical for tariff/trade trajectory (65.0%)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Polymarket Intelligence Report &bull; 5 April 2026 &bull; 15:14 AEST</p>
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This report is for informational purposes only and does not constitute financial advice or a recommendation to participate in prediction markets. Probabilities reflect crowd estimates, not certainties. Always conduct your own research.
+  </div>
+</footer>
+
+</body>
+</html>
