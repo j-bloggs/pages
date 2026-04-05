@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: War Confirmed + Resign Paradox — 2026-04-06 02:16 AEST</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    background: #0f1117;
+    color: #e2e8f0;
+    padding: 0 0 60px;
+  }
+  a { color: #63b3ed; text-decoration: none; }
+  code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.85em;
+    background: #1e2230;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #f6ad55;
+  }
+
+  /* ── Alert Banner ── */
+  .alert-banner {
+    background: linear-gradient(135deg, #7b341e 0%, #9b2c2c 50%, #7b341e 100%);
+    border-bottom: 3px solid #fc8181;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .alert-icon { font-size: 2rem; flex-shrink: 0; }
+  .alert-banner h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff5f5;
+    letter-spacing: -0.3px;
+  }
+  .alert-banner .meta {
+    font-size: 0.8rem;
+    color: #fed7d7;
+    margin-top: 3px;
+  }
+  .alert-banner .meta span { margin-right: 16px; }
+
+  /* ── Layout ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Hero KPIs ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    padding: 28px 0 20px;
+  }
+  .kpi {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .kpi.red::before { background: #fc8181; }
+  .kpi.orange::before { background: #f6ad55; }
+  .kpi.yellow::before { background: #faf089; }
+  .kpi.green::before { background: #68d391; }
+  .kpi.blue::before { background: #63b3ed; }
+  .kpi.purple::before { background: #b794f4; }
+  .kpi-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #718096; margin-bottom: 6px; }
+  .kpi-value { font-size: 2rem; font-weight: 700; color: #fff; line-height: 1; }
+  .kpi-delta { font-size: 0.8rem; margin-top: 5px; }
+  .up { color: #68d391; }
+  .down { color: #fc8181; }
+  .warn { color: #f6ad55; }
+  .neutral { color: #a0aec0; }
+
+  /* ── Bar Spark ── */
+  .spark-bar {
+    display: inline-block;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 8px;
+    width: 100%;
+    background: #2d3748;
+    position: relative;
+  }
+  .spark-bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    border-radius: 3px;
+  }
+
+  /* ── Sections ── */
+  section { margin-top: 36px; }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    border-left: 4px solid #f6ad55;
+    padding-left: 12px;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #cbd5e0;
+    margin: 20px 0 10px;
+  }
+  p { margin-bottom: 12px; color: #cbd5e0; }
+  ul, ol { padding-left: 20px; color: #cbd5e0; }
+  li { margin-bottom: 6px; }
+  strong { color: #e2e8f0; }
+  em { color: #faf089; font-style: normal; font-weight: 500; }
+
+  /* ── Blockquote ── */
+  blockquote {
+    border-left: 3px solid #4a5568;
+    padding: 10px 16px;
+    margin: 14px 0;
+    background: #1a1f2e;
+    border-radius: 0 6px 6px 0;
+    color: #a0aec0;
+    font-style: italic;
+  }
+  blockquote strong { color: #f6ad55; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: #1e2230; }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    color: #718096;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    border-bottom: 1px solid #2d3748;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #1e2230;
+    vertical-align: top;
+  }
+  tr:hover td { background: #1a1f2e; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-red { background: #742a2a; color: #fc8181; }
+  .badge-orange { background: #7b341e; color: #f6ad55; }
+  .badge-yellow { background: #5f4700; color: #faf089; }
+  .badge-green { background: #1c4532; color: #68d391; }
+  .badge-blue { background: #1a365d; color: #90cdf4; }
+  .badge-new { background: #44337a; color: #d6bcfa; }
+  .badge-watch { background: #3c2a00; color: #fbd38d; }
+
+  /* ── Oscillation Chart ── */
+  .osc-chart {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .osc-chart-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #718096;
+    margin-bottom: 16px;
+  }
+  .osc-timeline {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 90px;
+    position: relative;
+  }
+  .osc-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .osc-bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: opacity 0.2s;
+    min-height: 4px;
+  }
+  .osc-bar.peak { background: #fc8181; }
+  .osc-bar.dip { background: #4299e1; }
+  .osc-bar.current { background: #63b3ed; outline: 2px solid #90cdf4; }
+  .osc-label { font-size: 0.6rem; color: #718096; text-align: center; white-space: nowrap; }
+  .osc-val { font-size: 0.65rem; color: #a0aec0; font-weight: 600; }
+  .osc-ref-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    border-top: 1px dashed #4a5568;
+  }
+  .osc-ref-label {
+    position: absolute;
+    right: 0;
+    font-size: 0.6rem;
+    color: #718096;
+    transform: translateY(-12px);
+  }
+
+  /* ── Regime Shift Box ── */
+  .regime-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .regime {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .regime.old { border-color: #4a5568; opacity: 0.7; }
+  .regime.new { border-color: #f6ad55; }
+  .regime-tag {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #718096;
+    margin-bottom: 8px;
+  }
+  .regime.new .regime-tag { color: #f6ad55; }
+  .regime-chain {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+  .regime-arrow { color: #718096; font-size: 0.75rem; }
+
+  /* ── ASX Table ── */
+  .asx-impact { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.77rem; font-weight: 600; }
+  .asx-pos { background: #1c4532; color: #68d391; }
+  .asx-neg { background: #742a2a; color: #fc8181; }
+  .asx-neu { background: #2d3748; color: #a0aec0; }
+  .asx-cau { background: #5f4700; color: #fbd38d; }
+
+  /* ── Forward View ── */
+  .fwd-item {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .fwd-num {
+    background: #2d3748;
+    color: #f6ad55;
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .fwd-content { flex: 1; font-size: 0.88rem; color: #cbd5e0; }
+  .fwd-content strong { color: #e2e8f0; }
+
+  /* ── Actions Table ── */
+  .action-row td:first-child { font-size: 0.75rem; }
+  .action-row.added td:first-child .badge { background: #44337a; color: #d6bcfa; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding: 20px 24px;
+    border-top: 1px solid #2d3748;
+    font-size: 0.75rem;
+    color: #4a5568;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* ── Trigger status badge colors ── */
+  .ts-watch { color: #a0aec0; }
+  .ts-close { color: #f6ad55; font-weight: 600; }
+  .ts-alert { color: #fc8181; font-weight: 700; }
+  .ts-new { color: #d6bcfa; font-weight: 600; }
+  .ts-osc { color: #4299e1; font-weight: 600; }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .regime-box { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .alert-banner { padding: 16px 18px; }
+    .alert-banner h1 { font-size: 1.1rem; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ─── ALERT BANNER ─── -->
+<div class="alert-banner">
+  <div class="alert-icon">🚨</div>
+  <div>
+    <h1>ALERT: War Confirmed + Resign Paradox</h1>
+    <div class="meta">
+      <span>📅 2026-04-06 02:16 AEST</span>
+      <span>📊 Polymarket + Kalshi</span>
+      <span>🔗 Prev: STAGFLATION-TRAP-THIRD-PEAK (01:54 AEST)</span>
+      <span>⚡ Triggers: Unemployment 4th oscillation (-7.0pp) | Trump resign reversal (+3.0pp)</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ─── HERO KPIs ─── -->
+  <div class="kpi-grid">
+    <div class="kpi red">
+      <div class="kpi-label">US Enters Iran (Polymarket)</div>
+      <div class="kpi-value">99.9%</div>
+      <div class="kpi-delta up">▲ +19.4pp / 24h &nbsp;·&nbsp; +31.4pp / 7d</div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:99.9%;background:#fc8181;"></div></div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">Kalshi: Unemployment ≥7% by 2030</div>
+      <div class="kpi-value">66.0%</div>
+      <div class="kpi-delta down">▼ −7.0pp &nbsp;·&nbsp; <em>4th oscillation to floor</em></div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:66%;background:#f6ad55;"></div></div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-label">Kalshi: Trump Resign (before term)</div>
+      <div class="kpi-value">21.0%</div>
+      <div class="kpi-delta up">▲ +3.0pp &nbsp;·&nbsp; <em>Wartime entrenchment REVERSED</em></div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:21%;background:#fc8181;"></div></div>
+    </div>
+    <div class="kpi yellow">
+      <div class="kpi-label">WTI $130 in April (Polymarket)</div>
+      <div class="kpi-value">47.5%</div>
+      <div class="kpi-delta down">▼ −1.0pp &nbsp;·&nbsp; <em>Softening despite war</em></div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:47.5%;background:#faf089;"></div></div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-label">US–Iran Ceasefire Apr 7</div>
+      <div class="kpi-value">2.8%</div>
+      <div class="kpi-delta down">▼ Dead &nbsp;·&nbsp; was 32.5% on Mar 25</div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:2.8%;background:#63b3ed;"></div></div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">Kalshi: Trump Impeached &amp; Removed</div>
+      <div class="kpi-value">26.0%</div>
+      <div class="kpi-delta up">▲ +1.0pp &nbsp;·&nbsp; elevated wartime signal</div>
+      <div class="spark-bar"><div class="spark-bar-fill" style="width:26%;background:#b794f4;"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── EXECUTIVE SUMMARY ─── -->
+  <section>
+    <h2>Executive Summary</h2>
+    <p>The US is now at war with Iran — Polymarket prices US entry at <strong>99.9%</strong> (+19.4pp/24h), a near-certainty. Yet the market is delivering three deeply counter-intuitive signals that contradict the "rally-around-the-flag" playbook:</p>
+    <ol>
+      <li><strong>Oil is SOFTENING:</strong> WTI $130 fell to 47.5% (−1pp) despite confirmed war entry. The war was already priced in during the 13-day journey from 45.5% to 99.9%.</li>
+      <li><strong>Trump resign is RISING:</strong> 21% (+3pp from 18%), reversing the wartime entrenchment declared just 29 minutes ago in the prior report. No rally-around-the-flag.</li>
+      <li><strong>Impeachment elevated:</strong> 26% (+1pp on Kalshi). Combined resign + impeach signals domestic political toxicity — this war is not popular.</li>
+    </ol>
+    <p>Meanwhile, the Kalshi unemployment ≥7% market is executing its <strong>fourth oscillation</strong> to 66% (−7pp from 73%), confirming a structural bid-ask range rather than a pre-breakout setup.</p>
+    <p style="font-size:1.05em;"><strong>The dominant narrative has shifted: political risk is now priced higher than commodity risk for the first time since the Iran escalation began.</strong></p>
+  </section>
+
+  <!-- ─── ALERT 1: UNEMPLOYMENT ─── -->
+  <section>
+    <h2>Alert 1: Unemployment ≥7% — 4th Oscillation to 66.0%</h2>
+
+    <!-- Oscillation chart -->
+    <div class="osc-chart">
+      <div class="osc-chart-title">Kalshi ≥7% Unemployment Before 2030 — Intraday Oscillation (02:16 AEST)</div>
+      <div class="osc-timeline" style="position:relative;">
+        <!-- Trigger line at 74% = 74/90 = 82.2% of 90px height -->
+        <div class="osc-ref-line" style="bottom: calc(74% * 90px / 100);"></div>
+        <div class="osc-ref-label" style="bottom: calc(74% * 90px / 100);">74% trigger</div>
+        <!-- Bars: scale 60-80% range for visual clarity. 60%=0px, 80%=90px → (val-60)/20 * 90 -->
+        <!-- P1: 73% = (73-60)/20*90 = 58.5px -->
+        <div class="osc-col">
+          <div class="osc-val">73%</div>
+          <div class="osc-bar peak" style="height:58.5px;"></div>
+          <div class="osc-label">~00:30<br>Peak 1</div>
+        </div>
+        <!-- D1: 66% = (66-60)/20*90 = 27px -->
+        <div class="osc-col">
+          <div class="osc-val">66%</div>
+          <div class="osc-bar dip" style="height:27px;"></div>
+          <div class="osc-label">~01:00<br>Dip 1</div>
+        </div>
+        <!-- P2: 73% -->
+        <div class="osc-col">
+          <div class="osc-val">73%</div>
+          <div class="osc-bar peak" style="height:58.5px;"></div>
+          <div class="osc-label">~01:15<br>Peak 2</div>
+        </div>
+        <!-- D2: 66% -->
+        <div class="osc-col">
+          <div class="osc-val">66%</div>
+          <div class="osc-bar dip" style="height:27px;"></div>
+          <div class="osc-label">~01:31<br>Dip 2</div>
+        </div>
+        <!-- P3: 73% -->
+        <div class="osc-col">
+          <div class="osc-val">73%</div>
+          <div class="osc-bar peak" style="height:58.5px;"></div>
+          <div class="osc-label">~01:47<br>Peak 3</div>
+        </div>
+        <!-- D4 current: 66% -->
+        <div class="osc-col">
+          <div class="osc-val" style="color:#90cdf4;font-weight:700;">66%</div>
+          <div class="osc-bar current" style="height:27px;"></div>
+          <div class="osc-label" style="color:#90cdf4;">02:16<br>Dip 4 ←NOW</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:0.75rem;color:#718096;">
+        <span style="display:inline-block;width:12px;height:8px;background:#fc8181;border-radius:2px;margin-right:4px;"></span> Peak (73%) — structural seller active &nbsp;&nbsp;
+        <span style="display:inline-block;width:12px;height:8px;background:#4299e1;border-radius:2px;margin-right:4px;"></span> Dip (66%) — structural buyer active &nbsp;&nbsp;
+        <span style="display:inline-block;width:12px;height:8px;background:#63b3ed;border-radius:2px;border:2px solid #90cdf4;margin-right:4px;"></span> Current run
+      </div>
+    </div>
+
+    <p>After four complete cycles, the 66–73% range is <strong>confirmed structural</strong>. Two large-order counterparties are systematically trading this range:</p>
+    <ul>
+      <li><strong>66% = structural buyer</strong> — believes ≥7% unemployment is underpriced; buys here every time</li>
+      <li><strong>73% = structural seller</strong> — believes ≥7% unemployment is overpriced at 73%; sells every bounce</li>
+    </ul>
+    <p>The debate resolves via hard data only. The trigger at <strong>74% is now 8pp away</strong>. On the next bounce to ~73%, it will again be 1pp from firing. Decision: <strong>do not lower the threshold further</strong> — chasing the oscillation creates false fires. Hold at 74% and wait for a genuine range break driven by news.</p>
+    <h3>What Would Break the Range?</h3>
+    <ul>
+      <li>Surprise major layoff announcement (manufacturer/retailer closing US operations)</li>
+      <li>CPI/PCE data showing tariff + oil inflation forcing pre-emptive demand destruction</li>
+      <li>Congressional Budget Office downward GDP revision</li>
+      <li>April payrolls (releases ~May 1 AEST) — the definitive test of the 7%+ thesis</li>
+    </ul>
+  </section>
+
+  <!-- ─── ALERT 2: TRUMP RESIGN ─── -->
+  <section>
+    <h2>Alert 2: Trump Resign — 21.0% (+3.0pp) — Wartime Entrenchment Thesis Invalidated</h2>
+
+    <p>The 01:47 AEST report declared "wartime entrenchment" when resign fell to 18%. That thesis has collapsed in 29 minutes. <strong>Resign at 21% during an active war is historically elevated</strong> — a president commencing a popular war typically sees resign probabilities fall to 5–10%.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Market</th><th>Platform</th><th>Price</th><th>Move</th><th>Signal</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Trump resign before term ends</td>
+            <td>Kalshi</td>
+            <td><strong>21.0%</strong></td>
+            <td class="up">▲ +3.0pp</td>
+            <td><span class="badge badge-red">War politically toxic</span></td>
+          </tr>
+          <tr>
+            <td>Trump impeached &amp; removed</td>
+            <td>Kalshi</td>
+            <td><strong>26.0%</strong></td>
+            <td class="up">▲ +1.0pp</td>
+            <td><span class="badge badge-red">Congressional pressure</span></td>
+          </tr>
+          <tr>
+            <td>Hegseth next to leave cabinet</td>
+            <td>Kalshi</td>
+            <td><strong>17.0%</strong></td>
+            <td class="up">▲ +1.0pp</td>
+            <td><span class="badge badge-orange">Cabinet instability</span></td>
+          </tr>
+          <tr>
+            <td>Trump out by Apr 30</td>
+            <td>Polymarket</td>
+            <td><strong>1.6%</strong></td>
+            <td class="up">▲ +0.4pp/24h</td>
+            <td><span class="badge badge-blue">Short-term exit unlikely</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The Polymarket "Trump out by Apr 30" at 1.6% vs Kalshi "resign before term" at 21% are not contradictory — they measure different timeframes (24-day window vs. multi-year window). Both are directionally aligned: <strong>elevated but not imminent</strong>.</p>
+    <p>At 21% resign + 26% impeachment during an active war, the market is pricing this conflict as politically toxic — the exact opposite of a traditional rally-around-the-flag response. This has equity implications: war decisions driven by domestic political pressure rather than strategic logic are less predictable and widen the range of outcomes.</p>
+
+    <div style="background:#1a1f2e;border:1px solid #553c9a;border-radius:8px;padding:14px 18px;margin:14px 0;">
+      <strong style="color:#d6bcfa;">⚡ New trigger added:</strong>
+      <code>kalshi-trump-resign-escalation</code> — fires above <strong>25%</strong> (wartime political crisis signal). Currently 4pp away. If resign crosses 25% during active hostilities, treat as red alert: political risk has overtaken strategic risk as the primary decision driver.
+    </div>
+  </section>
+
+  <!-- ─── ALERT 3: OIL PARADOX ─── -->
+  <section>
+    <h2>Alert 3: War Confirmed, Oil Paradoxically Softening</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Oil Market</th><th>Current</th><th>Change</th><th>Trigger</th><th>Distance</th></tr></thead>
+        <tbody>
+          <tr><td>WTI $130 in April</td><td><strong>47.5%</strong></td><td class="down">▼ −1.0pp</td><td>↑65%</td><td>17.5pp</td></tr>
+          <tr><td>WTI $140 in April</td><td><strong>34.5%</strong></td><td class="neutral">0.0pp</td><td>↑48%</td><td>13.5pp</td></tr>
+          <tr><td>WTI $150 in April</td><td><strong>18.5%</strong></td><td class="neutral">0.0pp</td><td>↑35%</td><td>16.5pp</td></tr>
+          <tr><td>WTI $200 in April</td><td><strong>3.2%</strong></td><td class="neutral">0.0pp</td><td>↑10%</td><td>6.8pp</td></tr>
+          <tr><td>Kharg Island falls</td><td><strong>18.5%</strong></td><td class="neutral">0.0pp</td><td>↑30%</td><td>11.5pp</td></tr>
+          <tr><td>Hormuz normalizes</td><td><strong>15.5%</strong></td><td class="up">▲ +1.0pp</td><td>↑20%</td><td class="warn"><strong>4.5pp ⚠</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <strong>The war is priced. The next move requires a new supply shock, not continuation of the existing one.</strong>
+    </blockquote>
+
+    <p>The journey to 99.9% (from 45.5% on March 24) <em>was</em> the supply shock event. The crowd has been pricing Hormuz risk, Kharg Island risk, and regional escalation for 12+ days. Oil stays range-bound unless:</p>
+    <ul>
+      <li><strong>Scenario A (Supply Shock):</strong> Kharg Island attack OR Hormuz closure → WTI $130 breaks above 55%, $140 breaks above 45% → stagflation confirmed → US Fed forced to act</li>
+      <li><strong>Scenario B (Contained War):</strong> War stays an air campaign → oil drifts below 43% → soft-landing narrative partially restored</li>
+    </ul>
+    <p><strong>Current base case:</strong> Contained war, range-bound oil. The wildcard is Israel ground ops at 24.0% (+1.5pp this run) — if Israel enters Iran, the "contained" thesis collapses immediately.</p>
+  </section>
+
+  <!-- ─── ALERT 4: ISRAEL GROUND OPS ─── -->
+  <section>
+    <h2>Alert 4: Israel Ground Ops Drifting — 24.0% (+1.5pp)</h2>
+    <p>Slow but persistent upward drift this run. Trigger is at 45% (21pp away). At +1.5pp/run, it reaches 45% in ~14 runs, but this market has spiked +21pp in a single 24-hour window before — non-linear risk.</p>
+    <p>An Israeli ground operation in Iran transforms this from a US air campaign into a <strong>multi-front land war</strong>:</p>
+    <ul>
+      <li>Hezbollah activation (Lebanon front opens)</li>
+      <li>Hamas escalation (Gaza front intensifies)</li>
+      <li>Syrian corridor risk</li>
+      <li>Gulf state alarm — UAE/Saudi threat perception spikes (UAE trigger: 24.5%)</li>
+    </ul>
+    <p>If Israel ground ops fires → expect WTI $150 trigger to follow within 48h, UAE strikes Iran trigger to spike, and ceasefire to effectively zero (already 2.8%).</p>
+  </section>
+
+  <!-- ─── REGIME SHIFT ─── -->
+  <section>
+    <h2>Regime Shift: Political Risk Has Overtaken Commodity Risk</h2>
+
+    <div class="regime-box">
+      <div class="regime old">
+        <div class="regime-tag">Previous Regime (past 72h)</div>
+        <div class="regime-chain">
+          Oil shock<br>
+          <span class="regime-arrow">↓</span><br>
+          Inflation<br>
+          <span class="regime-arrow">↓</span><br>
+          US Fed paralysis<br>
+          <span class="regime-arrow">↓</span><br>
+          Stagflation
+        </div>
+      </div>
+      <div class="regime new">
+        <div class="regime-tag">Emerging Regime (this run)</div>
+        <div class="regime-chain">
+          War unpopularity<br>
+          <span class="regime-arrow">↓</span><br>
+          Presidential instability<br>
+          <span class="regime-arrow">↓</span><br>
+          Policy uncertainty<br>
+          <span class="regime-arrow">↓</span><br>
+          Equity discount rate risk
+        </div>
+      </div>
+    </div>
+
+    <p>Regime 2 is <strong>more dangerous for equities</strong> than Regime 1:</p>
+    <ul>
+      <li><strong>Regime 1 (Oil Shock):</strong> Clear mechanism. Oil up → inflation up → Fed holds → bonds sell off, P/E adjusts by a known amount. Manageable.</li>
+      <li><strong>Regime 2 (Political Instability):</strong> Unclear mechanism, wide outcome distribution. Erratic policy (ceasefire/escalation driven by domestic politics), cabinet turnover risk (Hegseth 17%), Congressional override risk (impeachment 26%), disorderly ceasefire.</li>
+    </ul>
+    <p><strong>US Fed:</strong> Still paralyzed (April hike 0.8%, June hike 1.8%). But if political risk premium rises (resign to 25%+), the USD could weaken even without a rate cut. Weak USD + high inflation + war uncertainty = deeply negative for long-duration US assets (Treasuries, growth stocks).</p>
+  </section>
+
+  <!-- ─── AUSTRALIAN IMPACT ─── -->
+  <section>
+    <h2>Australian Market Impact</h2>
+
+    <p><strong>Fuel/Diesel:</strong> Oil softening (WTI $130 at 47.5%) is slight relief — the "contained war" scenario prevents diesel from spiking further. Diesel remains near ~$3.23/L (structural floor from Hormuz risk). Any Kharg Island or Hormuz escalation reverses this immediately.</p>
+    <p><strong>AUD/USD:</strong> Trump resign rising (21%) is a USD-negative signal — political risk premium in the US supports AUD from relative stability. However, Kalshi unemployment at 66% (≥7% probability) caps the upside: a US recession scenario hits China demand, which hits the AUD hard via trade channel.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sector</th><th>Key ASX Stocks</th><th>Impact</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Oil / LNG</td>
+            <td><strong>WDS</strong>, <strong>STO</strong></td>
+            <td><span class="asx-impact asx-neu">NEUTRAL</span></td>
+            <td>Oil softening removes upside momentum; still structurally elevated. Watch Kharg.</td>
+          </tr>
+          <tr>
+            <td>Gold</td>
+            <td><strong>NST</strong>, <strong>EVN</strong>, <strong>NCM</strong></td>
+            <td><span class="asx-impact asx-pos">POSITIVE</span></td>
+            <td>Political uncertainty + Fed paralysis = safe-haven bid. Resign rising = political risk premium = gold up.</td>
+          </tr>
+          <tr>
+            <td>Banks</td>
+            <td><strong>ANZ</strong>, <strong>CBA</strong>, <strong>NAB</strong>, <strong>WBC</strong></td>
+            <td><span class="asx-impact asx-cau">CAUTIOUS</span></td>
+            <td>US political instability + elevated unemployment risk = wider credit spreads globally. Watch RBA response.</td>
+          </tr>
+          <tr>
+            <td>Transport / Logistics</td>
+            <td><strong>QAN</strong>, <strong>AZJ</strong>, <strong>WOW</strong>, <strong>COL</strong></td>
+            <td><span class="asx-impact asx-neu">NEUTRAL</span></td>
+            <td>Diesel not spiking further (contained war). Tail-risk of oil spike remains if Hormuz/Kharg fires.</td>
+          </tr>
+          <tr>
+            <td>Tech / Growth</td>
+            <td><strong>XRO</strong>, <strong>WTC</strong></td>
+            <td><span class="asx-impact asx-neg">NEGATIVE</span></td>
+            <td>Rising political risk premium = higher discount rates = lower growth valuations. USD weakness hurts USD revenue earners.</td>
+          </tr>
+          <tr>
+            <td>Mining</td>
+            <td><strong>BHP</strong>, <strong>RIO</strong>, <strong>FMG</strong></td>
+            <td><span class="asx-impact asx-cau">WATCH</span></td>
+            <td>China demand channel key. US recession at 66% probability = reduced China growth expectations = lower iron ore.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Key call:</strong> The regime shift to political risk is <em>good for gold (NST, EVN)</em> and <em>bad for high-multiple tech/growth (XRO, WTC)</em>. Oil stocks (WDS, STO) are range-bound until a supply event occurs.</p>
+  </section>
+
+  <!-- ─── TRIGGER DASHBOARD ─── -->
+  <section>
+    <h2>Full Trigger Status Dashboard</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Trigger</th><th>Current</th><th>Threshold</th><th>Distance</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Kharg Island falls</td><td>18.5%</td><td>↑30%</td><td>11.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>US-Iran ceasefire (Apr 30)</td><td>21.5%</td><td>↓10%</td><td>11.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>Trump ends Iran ops</td><td>30.5%</td><td>↓20%</td><td>10.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>US Fed April hike</td><td>0.8%</td><td>↑2%</td><td>1.2pp</td><td class="ts-close">⚡ CLOSE</td></tr>
+          <tr><td>Trump China visit (↑75%)</td><td>63.5%</td><td>↑75%</td><td>11.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>Trump China visit collapse (↓52%)</td><td>63.5%</td><td>↓52%</td><td>11.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>WTI $130 April</td><td>47.5%</td><td>↑65%</td><td>17.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>UAE strikes Iran</td><td>24.5%</td><td>↑35%</td><td>10.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td><strong>Hormuz normalizes</strong></td><td><strong>15.5%</strong></td><td><strong>↑20%</strong></td><td><strong>4.5pp</strong></td><td class="ts-alert">⚠ WATCH</td></tr>
+          <tr><td>WTI $200 April</td><td>3.2%</td><td>↑10%</td><td>6.8pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>China invades Taiwan</td><td>9.8%</td><td>↑15%</td><td>5.1pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>US Fed June hike</td><td>1.8%</td><td>↑5%</td><td>3.1pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>WTI $140 April</td><td>34.5%</td><td>↑48%</td><td>13.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>WTI $150 April</td><td>18.5%</td><td>↑35%</td><td>16.5pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>Israel ground op</td><td>24.0%</td><td>↑45%</td><td>21.0pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td><strong>Kalshi: Unemployment ≥7%</strong></td><td><strong>66.0%</strong></td><td><strong>↑74%</strong></td><td><strong>8.0pp</strong></td><td class="ts-osc">🔄 OSCILLATING</td></tr>
+          <tr><td>Kalshi: Unemployment floor (↓58%)</td><td>66.0%</td><td>↓58%</td><td>8.0pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td>Kalshi: Trump resign ↓ (↓15%)</td><td>21.0%</td><td>↓15%</td><td>6.0pp</td><td class="ts-watch">Watching</td></tr>
+          <tr><td><strong>Kalshi: Trump resign ↑ (↑25%) — NEW</strong></td><td><strong>21.0%</strong></td><td><strong>↑25%</strong></td><td><strong>4.0pp</strong></td><td class="ts-new">⭐ NEW</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── FORWARD VIEW ─── -->
+  <section>
+    <h2>Forward View — Next 1–4 Hours</h2>
+
+    <div class="fwd-item">
+      <div class="fwd-num">1</div>
+      <div class="fwd-content">
+        <strong>Unemployment next bounce (30–60 min):</strong> Price returns to ~73%, trigger will be 1pp away AGAIN. <strong>Do not react to the bounce</strong> unless it breaks ABOVE 74%. The break requires external news (layoffs, CPI, payrolls revision). Bouncing between 66–73% is the no-action zone.
+      </div>
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-num">2</div>
+      <div class="fwd-content">
+        <strong>Trump resign escalation (25%) — 4pp away:</strong> Two more +2pp moves fires the new trigger. Catalysts to watch: (a) Congressional war powers debate, (b) US casualty reports, (c) domestic protest news. If resign fires at 25% while impeachment remains at 26%+, treat as dual-confirmation of political crisis regime.
+      </div>
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-num">3</div>
+      <div class="fwd-content">
+        <strong>Israel ground ops (24.0%, +1.5pp trend):</strong> If it hits 27–28% intraday, upgrade from "watching" to "alert" — at that rate, the 45% trigger is within 12–24h. A single confirmed IDF movement fires the trigger non-linearly.
+      </div>
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-num">4</div>
+      <div class="fwd-content">
+        <strong>Hormuz normalization (15.5%, 4.5pp from trigger):</strong> A single diplomatic overture fires this. <strong>FALSE SIGNAL RISK:</strong> normalization without a structural ceasefire is not genuine de-escalation — do not reduce Iran war exposure if this trigger fires unless confirmed by (a) Lloyd's reinsurance premium decline and (b) verified civilian tanker transit.
+      </div>
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-num">5</div>
+      <div class="fwd-content">
+        <strong>Oil paradox resolution:</strong> WTI $130 needs to either break above 52% (new supply disruption) or fall below 43% (contained-war confirmed). Current range-bound state is the worst outcome for decision-making. <strong>Watch Kharg Island (18.5%)</strong> as the leading indicator — if Kharg moves +3pp, oil triggers will follow.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ACTIONS TAKEN ─── -->
+  <section>
+    <h2>Actions Taken This Run</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Action</th><th>Trigger ID</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr class="action-row">
+            <td><span class="badge badge-blue">UPDATED</span></td>
+            <td><code>kalshi-unemployment-7pct</code></td>
+            <td>current: 0.73 → 0.66 (4th oscillation floor); trigger threshold stays 0.74</td>
+          </tr>
+          <tr class="action-row">
+            <td><span class="badge badge-blue">UPDATED</span></td>
+            <td><code>kalshi-unemployment-7pct-floor</code></td>
+            <td>current: 0.73 → 0.66</td>
+          </tr>
+          <tr class="action-row">
+            <td><span class="badge badge-orange">REVISED</span></td>
+            <td><code>kalshi-trump-resign-consolidation</code></td>
+            <td>current: 0.18 → 0.21; reason revised — wartime entrenchment thesis INVALIDATED; 18% dip was transient noise</td>
+          </tr>
+          <tr class="action-row added">
+            <td><span class="badge badge-new">⭐ ADDED</span></td>
+            <td><code>kalshi-trump-resign-escalation</code></td>
+            <td><strong>New trigger: above 25%</strong> — wartime political crisis signal; currently 4pp away at 21%</td>
+          </tr>
+          <tr class="action-row">
+            <td><span class="badge badge-green">WRITTEN</span></td>
+            <td><code>reports/analyst_notes.md</code></td>
+            <td>02:16 AEST entry appended</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer container">
+  <span>Generated: 2026-04-06 02:16 AEST</span>
+  <span>Data: Polymarket + Kalshi</span>
+  <span>Previous report: STAGFLATION-TRAP-THIRD-PEAK-2026-04-06 (01:54 AEST)</span>
+  <span>Next report: auto-triggered on next big move</span>
+</div>
+
+</body>
+</html>
