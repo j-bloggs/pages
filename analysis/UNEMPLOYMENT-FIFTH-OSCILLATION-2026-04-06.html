@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Unemployment Fifth Oscillation — 2026-04-06</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --orange: #db6d28;
+    --purple: #bc8cff;
+    --alert: #ff7b72;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .banner {
+    background: linear-gradient(135deg, #1a0a0a 0%, #2d0f0f 50%, #1a0a0a 100%);
+    border-bottom: 2px solid var(--alert);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .banner-icon { font-size: 32px; }
+  .banner-text h1 { font-size: 22px; color: var(--alert); font-weight: 700; }
+  .banner-text .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 36px; }
+  h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  h3 { font-size: 15px; font-weight: 600; color: var(--text); margin: 16px 0 10px; }
+  p { color: var(--text); margin-bottom: 12px; }
+  strong { color: #fff; }
+  .alert-box {
+    background: linear-gradient(135deg, #1a0808, #210d0d);
+    border: 1px solid var(--alert);
+    border-left: 4px solid var(--alert);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .alert-box .headline {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--alert);
+    margin-bottom: 8px;
+  }
+  .alert-box .meta { font-size: 13px; color: var(--muted); }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-card.alert { border-color: var(--alert); background: #1a0a0a; }
+  .stat-card.warn { border-color: var(--yellow); background: #16100a; }
+  .stat-card.ok { border-color: var(--green); background: #0a160a; }
+  .stat-value { font-size: 28px; font-weight: 700; }
+  .stat-value.red { color: var(--alert); }
+  .stat-value.yellow { color: var(--yellow); }
+  .stat-value.green { color: var(--green); }
+  .stat-value.blue { color: var(--accent); }
+  .stat-delta { font-size: 13px; font-weight: 600; margin-top: 2px; }
+  .stat-delta.up { color: var(--green); }
+  .stat-delta.down { color: var(--red); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:hover td { background: var(--surface2); }
+  .highlight-row td { background: #1a1200; }
+  .highlight-row td strong { color: var(--yellow); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-alert { background: #2d0f0f; color: var(--alert); border: 1px solid var(--alert); }
+  .badge-warn { background: #16100a; color: var(--yellow); border: 1px solid var(--yellow); }
+  .badge-new { background: #0a1a0a; color: var(--green); border: 1px solid var(--green); }
+  .badge-flat { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  /* Oscillation chart */
+  .chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .chart-title { font-size: 13px; color: var(--muted); margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .osc-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    height: 180px;
+    position: relative;
+  }
+  .osc-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
+  .osc-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+  }
+  .osc-bar {
+    width: 60%;
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .osc-bar.ceiling { background: linear-gradient(180deg, #f85149 0%, #9b2620 100%); }
+  .osc-bar.floor { background: linear-gradient(180deg, #d29922 0%, #7d5a0f 100%); }
+  .osc-bar.current { background: linear-gradient(180deg, #f85149 0%, #9b2620 100%); box-shadow: 0 0 12px rgba(248,81,73,0.5); }
+  .osc-label { font-size: 11px; color: var(--muted); margin-top: 6px; text-align: center; }
+  .osc-value { font-size: 12px; font-weight: 600; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .osc-value.red { color: var(--alert); }
+  .osc-value.yellow { color: var(--yellow); }
+  .trigger-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px dashed var(--green);
+    pointer-events: none;
+  }
+  .trigger-label {
+    position: absolute;
+    right: 8px;
+    background: var(--bg);
+    color: var(--green);
+    font-size: 10px;
+    padding: 1px 4px;
+    font-weight: 600;
+  }
+  /* Unemployment curve chart */
+  .curve-chart { display: flex; align-items: flex-end; gap: 6px; height: 200px; padding: 20px 0 0; position: relative; }
+  .curve-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; position: relative; }
+  .curve-bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .curve-bar.normal { background: linear-gradient(180deg, #4493f8 0%, #1a4a8a 100%); }
+  .curve-bar.active { background: linear-gradient(180deg, #f85149 0%, #9b2620 100%); box-shadow: 0 0 10px rgba(248,81,73,0.4); }
+  .curve-val { font-size: 10px; font-weight: 600; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .curve-val.red { color: var(--alert); }
+  .curve-val.blue { color: var(--accent); }
+  .curve-xlabel { font-size: 10px; color: var(--muted); margin-top: 6px; text-align: center; }
+  .y-axis {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 0;
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .insight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .insight-box h4 { font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .insight-box p { font-size: 14px; color: var(--text); margin-bottom: 0; }
+  .new-market-box {
+    background: #0a160f;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .new-market-box h4 { font-size: 13px; color: var(--green); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .forward-list { list-style: none; padding: 0; }
+  .forward-list li {
+    padding: 12px 16px;
+    border-left: 3px solid var(--border);
+    margin-bottom: 10px;
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+  }
+  .forward-list li.hi { border-left-color: var(--alert); }
+  .forward-list li.med { border-left-color: var(--yellow); }
+  .forward-list li.lo { border-left-color: var(--accent); }
+  .asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .asset-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .asset-card h4 { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .asset-card .direction { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .direction.bull { color: var(--green); }
+  .direction.bear { color: var(--red); }
+  .direction.mixed { color: var(--yellow); }
+  .asset-card .names { font-size: 12px; color: var(--muted); }
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 16px 40px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .actions-list { list-style: none; padding: 0; }
+  .actions-list li {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+  }
+  .actions-list li:last-child { border-bottom: none; }
+  .action-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .tag-updated { background: #0a1a2a; color: var(--accent); }
+  .tag-added { background: #0a160a; color: var(--green); }
+  .mispricing-box {
+    background: #13100a;
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .mispricing-box .title { font-size: 14px; font-weight: 700; color: var(--yellow); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="banner-icon">⚡</div>
+  <div class="banner-text">
+    <h1>ALERT: UNEMPLOYMENT FIFTH OSCILLATION</h1>
+    <div class="sub">Polymarket &amp; Kalshi Intelligence | 2026-04-06 02:31 AEST &nbsp;|&nbsp; Trigger: Kalshi ≥7% unemployment +7.0pp to 73% &nbsp;|&nbsp; 1pp below trigger threshold</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Alert box -->
+  <div class="alert-box">
+    <div class="headline">Kalshi ≥7% Unemployment: 73% (+7.0pp) — Trigger at 74%</div>
+    <p style="color:#e6edf3;margin-bottom:8px;">The unemployment ≥7% before 2030 market has returned to 73% for the <strong>fifth consecutive time</strong>, bouncing +7pp from the 66% floor. The trigger threshold of 74% is now just 1pp away — but this is the same position reached four times previously without a breakout. The structural range (66–73%) is confirmed. Ceiling resistance weakens with each failed test; the sixth challenge is statistically more likely to break through.</p>
+    <div class="meta">Previous oscillation reached 66% at 02:16 AEST · Full cycle duration ~3 hours · Previous report: WAR-CONFIRMED-RESIGN-RISING-2026-04-06</div>
+  </div>
+
+  <!-- Stat grid -->
+  <div class="stat-grid">
+    <div class="stat-card alert">
+      <div class="stat-value red">73%</div>
+      <div class="stat-delta up">+7.0pp ⚡</div>
+      <div class="stat-label">Kalshi ≥7% Unemployment</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-value yellow">74%</div>
+      <div class="stat-delta" style="color:var(--muted)">1pp away</div>
+      <div class="stat-label">Our Trigger Threshold</div>
+    </div>
+    <div class="stat-card ok">
+      <div class="stat-value" style="color:#aaa">56%</div>
+      <div class="stat-delta" style="color:var(--muted)">unchanged</div>
+      <div class="stat-label">Kalshi ≥8% (stable)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value yellow">47.5%</div>
+      <div class="stat-delta up">+1.0pp</div>
+      <div class="stat-label">WTI $130 Polymarket</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--muted)">20%</div>
+      <div class="stat-delta down">-1.0pp</div>
+      <div class="stat-label">Trump Resign (Kalshi)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value green">13.5%</div>
+      <div class="stat-delta" style="color:var(--green)">NEW</div>
+      <div class="stat-label">End Iran Ops by Apr 15</div>
+    </div>
+  </div>
+
+  <!-- Section: Oscillation Chart -->
+  <div class="section">
+    <h2>The Oscillation Pattern: Five Complete Cycles</h2>
+    <div class="chart-container">
+      <div class="chart-title">Kalshi ≥7% Unemployment — Price History (02:31 AEST, 2026-04-06)</div>
+      <div style="position:relative;">
+        <!-- Trigger line at 74% of max. Max shown = 85%. 74/85 = 87% from bottom -->
+        <div class="osc-chart" id="oscChart">
+          <!-- Each bar group: label below, value above -->
+          <!-- Heights scaled: max=85%, chart height 160px. 1pp = 160/85 = ~1.88px -->
+          <!-- Times: ~00:30, ~01:00, ~01:05, ~01:30, ~01:47, ~02:16, 02:31 -->
+          <!-- Values:   73,    66,    73,    66,    73,    66,    73 -->
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar ceiling" style="height:136px;"></div>
+                <span class="osc-value red">73%</span>
+              </div>
+            </div>
+            <div class="osc-label">~00:30</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar floor" style="height:123px;"></div>
+                <span class="osc-value yellow">66%</span>
+              </div>
+            </div>
+            <div class="osc-label">~01:00</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar ceiling" style="height:136px;"></div>
+                <span class="osc-value red">73%</span>
+              </div>
+            </div>
+            <div class="osc-label">~01:05</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar floor" style="height:123px;"></div>
+                <span class="osc-value yellow">66%</span>
+              </div>
+            </div>
+            <div class="osc-label">~01:30</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar ceiling" style="height:136px;"></div>
+                <span class="osc-value red">73%</span>
+              </div>
+            </div>
+            <div class="osc-label">~01:47</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar floor" style="height:123px;"></div>
+                <span class="osc-value yellow">66%</span>
+              </div>
+            </div>
+            <div class="osc-label">02:16</div>
+          </div>
+
+          <div class="osc-bar-group">
+            <div class="osc-bar-wrap">
+              <div style="position:relative;width:60%;">
+                <div class="osc-bar current" style="height:136px;"></div>
+                <span class="osc-value red" style="font-size:14px;font-weight:800;">73% ⚡</span>
+              </div>
+            </div>
+            <div class="osc-label" style="color:var(--alert);font-weight:600;">02:31 NOW</div>
+          </div>
+
+        </div>
+        <!-- Trigger dashed line: 74/85 * 160px = ~139px from bottom, chart is 180px total, so top = 180-139 = 41px from top of osc-chart -->
+        <div style="position:absolute;top:41px;left:0;right:0;border-top:2px dashed var(--green);pointer-events:none;">
+          <span style="position:absolute;right:0;top:-16px;background:var(--bg);color:var(--green);font-size:11px;padding:1px 6px;font-weight:700;border:1px solid var(--green);border-radius:3px;">TRIGGER 74%</span>
+        </div>
+        <!-- Floor label -->
+        <div style="position:absolute;top:57px;left:0;right:0;border-top:1px dashed var(--yellow);opacity:0.4;pointer-events:none;">
+          <span style="position:absolute;left:0;top:-14px;background:var(--bg);color:var(--yellow);font-size:10px;padding:1px 4px;">FLOOR 66%</span>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:16px;">
+        ● <span style="color:var(--alert)">Red bars</span> = ceiling tests (73%) &nbsp;|&nbsp;
+        ● <span style="color:var(--yellow)">Yellow bars</span> = floor tests (66%) &nbsp;|&nbsp;
+        <span style="color:var(--green)">━━ Trigger line at 74%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: Unemployment Curve -->
+  <div class="section">
+    <h2>Full Unemployment Distribution Curve (Kalshi)</h2>
+    <p>All buckets from "How high will unemployment get before 2030?" — only the ≥7% bucket moved this run (+7pp). The entire rest of the curve is frozen, indicating the market dispute is specifically about crossing the 7% threshold.</p>
+
+    <div class="chart-container">
+      <div class="chart-title">Market-Implied Peak Unemployment Probability — 2026-04-06 02:31 AEST</div>
+      <div style="display:flex;gap:4px;align-items:flex-end;height:200px;padding-bottom:4px;position:relative;">
+        <!-- Heights as % of max (88%). 88 = 200px. 1pp = 2.27px -->
+        <!-- Values: ≥5=88, ≥6=78, ≥7=73, ≥8=56, ≥9=44, ≥10=34, ≥11=23, ≥12=12, ≥13=10, ≥14=2 -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:200px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">88%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥5%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:177px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">78%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥6%</div>
+        </div>
+        <!-- ≥7% is highlighted red (the active one) -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:166px;background:linear-gradient(180deg,#f85149,#9b2620);border-radius:3px 3px 0 0;position:relative;box-shadow:0 0 10px rgba(248,81,73,0.5);">
+              <span style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--alert);font-weight:800;">73% ⚡</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--alert);margin-top:6px;text-align:center;font-weight:600;">≥7%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:127px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">56%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥8%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:100px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">44%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥9%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:77px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">34%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥10%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:52px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">23%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥11%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:27px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">12%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥12%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:23px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">10%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥13%</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;height:100%;">
+          <div style="flex:1;display:flex;align-items:flex-end;width:100%;">
+            <div style="width:100%;height:5px;background:linear-gradient(180deg,#4493f8,#1a4a8a);border-radius:3px 3px 0 0;position:relative;">
+              <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;">2%</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:6px;text-align:center;">≥14%</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:8px;">
+        <span style="color:var(--alert)">⚡ ≥7% bucket (+7.0pp)</span> is the only active debate. All other buckets unchanged. Modal peak scenario: <strong style="color:#fff;">7–8% unemployment</strong>.
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <h4>Conditional Stop Analysis</h4>
+      <p>P(≥8% | ≥7%) = 56/73 = <strong>77%</strong> — if unemployment breaches 7%, the crowd says it likely reaches 8% before stabilising. But P(≥12% | ≥11%) = 12/23 = <strong>52%</strong> — beyond 11% is genuinely a coin flip. The market prices a <em>contained shock</em>, not a structural crisis. The 2008-style 10%+ scenario carries only 34% probability.</p>
+    </div>
+  </div>
+
+  <!-- Section: Cross-market table -->
+  <div class="section">
+    <h2>Cross-Market Status (02:30–02:31 AEST)</h2>
+
+    <h3>Polymarket</h3>
+    <table>
+      <thead>
+        <tr><th>Market</th><th>Price</th><th>Change</th><th>Trigger</th><th>Distance</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>NEW: Trump ends Iran ops by Apr 15</strong></td>
+          <td><strong>13.5%</strong></td>
+          <td><span class="badge badge-new">NEW $1.7M</span></td>
+          <td>↑25%</td>
+          <td>11.5pp</td>
+        </tr>
+        <tr>
+          <td>Trump ends Iran ops by Apr 30</td>
+          <td>31.5%</td>
+          <td><span class="badge badge-warn">+1.0pp</span></td>
+          <td>↓20%</td>
+          <td>11.5pp</td>
+        </tr>
+        <tr>
+          <td>WTI $130 in April</td>
+          <td>47.5%</td>
+          <td><span class="badge badge-warn">+1.0pp</span></td>
+          <td>↑65%</td>
+          <td>17.5pp</td>
+        </tr>
+        <tr>
+          <td>WTI $140 in April</td>
+          <td>34.5%</td>
+          <td><span class="badge badge-flat">flat</span></td>
+          <td>↑48%</td>
+          <td>13.5pp</td>
+        </tr>
+        <tr>
+          <td>WTI $150 in April</td>
+          <td>18.5%</td>
+          <td><span class="badge badge-flat">flat</span></td>
+          <td>↑35%</td>
+          <td>16.5pp</td>
+        </tr>
+        <tr>
+          <td>Hormuz normalizes by Apr 30</td>
+          <td>14.5%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-1.0pp</span></td>
+          <td>↑20%</td>
+          <td>5.5pp</td>
+        </tr>
+        <tr>
+          <td>Israel ground ops in Iran</td>
+          <td>23.5%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-0.5pp</span></td>
+          <td>↑45%</td>
+          <td>21.5pp</td>
+        </tr>
+        <tr>
+          <td>Kharg Island falls by Apr 30</td>
+          <td>18.5%</td>
+          <td><span class="badge badge-flat">flat</span></td>
+          <td>↑30%</td>
+          <td>11.5pp</td>
+        </tr>
+        <tr>
+          <td>US-Iran ceasefire by Apr 30</td>
+          <td>21.5%</td>
+          <td><span class="badge badge-flat">flat</span></td>
+          <td>↓10%</td>
+          <td>11.5pp</td>
+        </tr>
+        <tr>
+          <td>US enters Iran (war confirmed)</td>
+          <td>~99.9%</td>
+          <td><span class="badge badge-flat">resolved</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Kalshi</h3>
+    <table>
+      <thead>
+        <tr><th>Market</th><th>Price</th><th>Change</th><th>Trigger</th><th>Distance</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>≥7% unemployment before 2030</strong></td>
+          <td><strong>73%</strong></td>
+          <td><span class="badge badge-alert">+7.0pp ⚡</span></td>
+          <td>↑74%</td>
+          <td><strong>1pp</strong></td>
+        </tr>
+        <tr>
+          <td>≥8% unemployment before 2030</td>
+          <td>56%</td>
+          <td><span class="badge badge-flat">flat</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Trump resign</td>
+          <td>20%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-1.0pp</span></td>
+          <td>↑25% / ↓15%</td>
+          <td>5pp (up) / 5pp (dn)</td>
+        </tr>
+        <tr>
+          <td>Clarence Thomas resign</td>
+          <td>47%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-1.0pp</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Hegseth next to leave cabinet</td>
+          <td>16%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-1.0pp</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>National debt hits $40T</td>
+          <td>95%</td>
+          <td><span class="badge badge-flat" style="color:var(--red);border-color:var(--red);">-1.0pp</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- New market section -->
+  <div class="section">
+    <h2>New Market Discovery: Trump Ends Iran Ops by April 15</h2>
+    <div class="new-market-box">
+      <h4>New Polymarket — $1.7M Volume — April 15 Deadline</h4>
+      <p><strong>Price: 13.5%</strong> — The market says there is an <strong>86.5% chance</strong> the US Iran war continues past April 15 (9 days from now).</p>
+      <p style="margin-top:10px;">Cross-referencing with April 30 market (31.5%):</p>
+      <ul style="margin:8px 0 0 20px;color:var(--text);font-size:14px;line-height:1.8;">
+        <li>P(war ends before Apr 15) = 13.5%</li>
+        <li>P(war ends before Apr 30) = 31.5%</li>
+        <li><strong>Implied P(war ends Apr 15–30) = 18%</strong> — peace probability concentrated in the back half of April</li>
+        <li>P(war runs past April 30) = 68.5%</li>
+      </ul>
+      <p style="margin-top:10px;">This rules out a "sudden ceasefire" scenario. Any diplomatic back-channel would need to mature over 1–2 weeks before manifesting. The April 15 market is the circuit-breaker canary: a spike above 25% signals imminent breakthrough. <strong>New trigger added at 25%.</strong></p>
+    </div>
+  </div>
+
+  <!-- The core mispricing -->
+  <div class="section">
+    <h2>Core Mispricing: The ≥8% Signal Is Missing</h2>
+    <div class="mispricing-box">
+      <div class="title">⚠ Watch the ≥8% Bucket, Not ≥7%</div>
+      <p>The ≥7% bucket oscillates ±7pp every 15–30 minutes between two structural counterparties. This is <strong>range noise</strong> until the range breaks. The real macro signal is the <strong>≥8% bucket (56%)</strong>, which has not moved.</p>
+      <p style="margin-top:10px;">If ≥7% breaks above 74% (trigger fires) and the ≥8% bucket simultaneously re-rates from 56% → 65%+, the market is pricing a genuine downward spiral. That two-bucket move is the <strong>actual recession signal</strong>.</p>
+      <p style="margin-top:10px;">If ≥7% fires but ≥8% stays at 56%, it means the market priced a threshold-touch but not a deeper cycle. Buy defensive equities, not a full recession hedge.</p>
+    </div>
+  </div>
+
+  <!-- Asset implications -->
+  <div class="section">
+    <h2>Asset Class Implications (If ≥7% Trigger Fires)</h2>
+    <div class="asset-grid">
+      <div class="asset-card">
+        <h4>US Treasuries</h4>
+        <div class="direction bull">↑ Bullish short-end</div>
+        <div class="names">2yr yield falls. 10yr widens (stagflation). US Fed rate cuts priced.</div>
+      </div>
+      <div class="asset-card">
+        <h4>US Equities (S&amp;P)</h4>
+        <div class="direction bear">↓ Bearish</div>
+        <div class="names">Multiple compression. Healthcare / defensives outperform cyclicals.</div>
+      </div>
+      <div class="asset-card">
+        <h4>AUD/USD</h4>
+        <div class="direction bear">↓ Bearish AUD</div>
+        <div class="names">Australia lags US by 6–12 months but trade/commodities channel fast.</div>
+      </div>
+      <div class="asset-card">
+        <h4>ASX Resources</h4>
+        <div class="direction mixed">↕ Mixed</div>
+        <div class="names">BHP, RIO, FMG: Recession = lower iron ore. But WDS, STO get war premium.</div>
+      </div>
+      <div class="asset-card">
+        <h4>Gold / ASX Gold</h4>
+        <div class="direction bull">↑ Bullish</div>
+        <div class="names">NST, EVN: Stagflation + political risk. Gold outperforms in both scenarios.</div>
+      </div>
+      <div class="asset-card">
+        <h4>BTC / Crypto</h4>
+        <div class="direction mixed">↕ Ambiguous</div>
+        <div class="names">Recession = risk-off (bearish). But USD weakness + fiscal fear = bullish hard asset.</div>
+      </div>
+      <div class="asset-card">
+        <h4>RBA / ASX REITs</h4>
+        <div class="direction bull">↑ Rate cut path</div>
+        <div class="names">US recession removes hike pressure. Good for GMG, SCG, GPT, property.</div>
+      </div>
+      <div class="asset-card">
+        <h4>QAN, WOW, COL</h4>
+        <div class="direction bull">↑ Conditional tailwind</div>
+        <div class="names">If oil softens on demand destruction before Australia slows: lower costs, margins improve.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forward view -->
+  <div class="section">
+    <h2>Forward View (Next 1–4 Hours)</h2>
+    <ul class="forward-list">
+      <li class="hi">
+        <strong>Unemployment: Dip back to 66% is near-certain (15–30 min).</strong> Do NOT interpret as resolution. It's the structural floor, not a breakout signal. The trigger will be 1pp away again on the next bounce. Maintain 74% threshold — do not chase.
+      </li>
+      <li class="hi">
+        <strong>Breakout condition for ≥7% firing:</strong> Requires ONE of: (a) corporate layoff announcement (Fortune 500 scale), (b) negative tariff impact data, (c) US payroll revision. Scheduled catalyst: US payrolls print ~May 1 AEST. Between now and then, only surprise news breaks the range.
+      </li>
+      <li class="med">
+        <strong>WTI $130 slow creep:</strong> +1pp/run for 5+ consecutive runs. WTI $140 trigger (34.5% current, threshold 48%) = 13.5pp away, ~13 runs, ~6 hours at current pace. Any overnight supply-side news accelerates this.
+      </li>
+      <li class="med">
+        <strong>Trump resign 5pp from escalation trigger (25%):</strong> Two consecutive +2.5pp moves fires it. Slight cooling this run (-1pp to 20%) but wartime rally-around-the-flag is structurally absent. Monitor if resign approaches 22–23%.
+      </li>
+      <li class="lo">
+        <strong>The asymmetric trade:</strong> Short April-dated S&amp;P volatility, long December volatility. Current markets price a contained tariff shock (7–8% unemployment, $130 oil). Underpriced: tail risk from political disruption (resign at 20% + impeachment + active war). Political risk term structure is NOT priced into equity IV.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Actions taken -->
+  <div class="section">
+    <h2>Monitoring Actions Taken</h2>
+    <ul class="actions-list">
+      <li><span class="action-tag tag-updated">UPDATED</span> <code>kalshi-unemployment-7pct</code> current price: 0.66 → 0.73 (fifth bounce to ceiling)</li>
+      <li><span class="action-tag tag-updated">UPDATED</span> <code>kalshi-unemployment-7pct-floor</code> current price: 0.66 → 0.73</li>
+      <li><span class="action-tag tag-updated">UPDATED</span> <code>kalshi-trump-resign-consolidation</code> current: 0.21 → 0.20 (marginal cooling)</li>
+      <li><span class="action-tag tag-updated">UPDATED</span> <code>kalshi-trump-resign-escalation</code> current: 0.21 → 0.20</li>
+      <li><span class="action-tag tag-added">ADDED</span> <code>trump-ends-iran-apr15</code> trigger: above 25% — New Polymarket, $1.7M volume, currently 13.5%, 9-day deadline. Diplomatic circuit-breaker market.</li>
+      <li><span class="action-tag tag-updated">HOLDING</span> Unemployment trigger at 74% — maintaining against oscillation; five cycles confirmed the range; chasing with threshold would create false fires</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Polymarket &amp; Kalshi Intelligence Report | Generated: 2026-04-06 02:31 AEST</span>
+  <span>Trigger: BIG MOVE alert — Kalshi ≥7% unemployment +7.0pp | 5th oscillation to 73%</span>
+  <span>Previous: WAR-CONFIRMED-RESIGN-RISING (02:16) · STAGFLATION-TRAP-THIRD-PEAK (01:47)</span>
+</div>
+
+</body>
+</html>
