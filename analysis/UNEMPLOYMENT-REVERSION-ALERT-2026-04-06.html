@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Kalshi Unemployment ≥7% Reversion — 2026-04-06</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #ffa657;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a0a00 0%, #1a1500 50%, #0d1117 100%);
+    border: 1px solid var(--orange);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green));
+  }
+  .alert-badge {
+    display: inline-block;
+    background: rgba(255,166,87,0.15);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .header .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+  .header .meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+  /* Summary box */
+  .summary-box {
+    background: rgba(59,185,80,0.08);
+    border: 1px solid rgba(59,185,80,0.3);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .summary-box h3 {
+    color: var(--green);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  .summary-box p { color: var(--text); line-height: 1.7; }
+
+  /* Sections */
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blue);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin: 2rem 0 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.5rem 0 0.75rem;
+  }
+  p { margin-bottom: 0.75rem; color: var(--text); }
+  strong { color: var(--text); font-weight: 700; }
+
+  /* Timeline chart */
+  .arc-chart {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  .arc-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .arc-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .arc-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+  }
+  .arc-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  .arc-dot.ceiling { background: rgba(248,81,73,0.2); border: 2px solid var(--red); color: var(--red); }
+  .arc-dot.mid { background: rgba(88,166,255,0.15); border: 2px solid rgba(88,166,255,0.5); color: var(--blue); }
+  .arc-dot.crash { background: rgba(248,81,73,0.3); border: 2px solid var(--red); color: var(--red); font-size: 0.6rem; }
+  .arc-dot.revert { background: rgba(59,185,80,0.2); border: 2px solid var(--green); color: var(--green); }
+  .arc-label { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; text-align: center; }
+  .arc-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    min-width: 20px;
+    margin-top: -8px;
+  }
+  .arc-connector.down { background: linear-gradient(90deg, var(--blue), var(--red)); }
+  .arc-connector.up { background: linear-gradient(90deg, var(--red), var(--green)); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.88rem;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  tr:last-child td { border-bottom: none; }
+  .td-highlight { background: rgba(88,166,255,0.06); }
+  .td-warn { background: rgba(248,81,73,0.06); }
+  .td-good { background: rgba(59,185,80,0.06); }
+
+  /* Probability bars */
+  .prob-bar-wrap { display: flex; align-items: center; gap: 0.5rem; }
+  .prob-bar {
+    height: 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .prob-val { font-weight: 700; font-size: 0.9rem; min-width: 40px; }
+
+  /* Delta badges */
+  .delta-pos { color: var(--green); font-weight: 700; }
+  .delta-neg { color: var(--red); font-weight: 700; }
+  .delta-zero { color: var(--muted); }
+
+  /* Trigger table */
+  .dist-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .dist-near { background: rgba(248,81,73,0.2); color: var(--red); }
+  .dist-mid { background: rgba(210,153,34,0.2); color: var(--yellow); }
+  .dist-safe { background: rgba(59,185,80,0.15); color: var(--green); }
+
+  /* Cross-bucket diagnostic */
+  .diagnostic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .diag-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .diag-card.mover { border-color: var(--green); background: rgba(59,185,80,0.08); }
+  .diag-card.flat { opacity: 0.6; }
+  .diag-bucket { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-bottom: 0.25rem; }
+  .diag-price { font-size: 1.2rem; font-weight: 700; }
+  .diag-delta { font-size: 0.75rem; margin-top: 0.2rem; }
+
+  /* Forward watch */
+  .watch-list { list-style: none; }
+  .watch-list li {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .watch-list li:last-child { border-bottom: none; }
+  .watch-num {
+    background: var(--surface2);
+    color: var(--blue);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ASX table */
+  .asx-tag-bull { color: var(--green); font-size: 0.75rem; font-weight: 700; }
+  .asx-tag-bear { color: var(--red); font-size: 0.75rem; font-weight: 700; }
+  .asx-tag-hold { color: var(--muted); font-size: 0.75rem; }
+
+  /* Mispricing callout */
+  .mispricing {
+    background: rgba(188,140,255,0.08);
+    border: 1px solid rgba(188,140,255,0.3);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .mispricing h4 { color: var(--purple); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Footer */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="alert-badge">⚡ Alert Report — Pattern Confirmed</div>
+    <h1>Kalshi Unemployment ≥7%: Position Unwind Confirmed</h1>
+    <div class="meta">
+      <span>📅 2026-04-06 05:35 AEST</span>
+      <span>🔔 Trigger: +8.0pp (63% → 71%)</span>
+      <span>⚠️ Severity: MEDIUM</span>
+      <span>📊 Kalshi + Polymarket Cross-Reference</span>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <h3>✅ Diagnostic Confirmed</h3>
+    <p>The Kalshi ≥7% unemployment bucket bounced from 63% back to <strong>71% (+8pp)</strong> — perfectly reverting the -8pp crash from one hour prior. The prior call (04:45 AEST report) that this was a <strong>single-position unwind</strong>, not fundamental repricing, is now confirmed. All other buckets remained flat throughout. The market's true equilibrium for "US unemployment ≥7% before 2030" is <strong>~71%</strong>, and the ceiling trigger at 74% is back within 3pp.</p>
+  </div>
+
+  <!-- Full Arc Timeline -->
+  <h2>The Full Session Arc</h2>
+  <div class="arc-chart">
+    <div class="arc-title">Kalshi ≥7% Unemployment Before 2030 — Session Price Arc</div>
+    <div class="arc-track">
+      <div class="arc-node"><div class="arc-dot ceiling">73%</div><div class="arc-label">Ceiling test</div></div>
+      <div class="arc-connector down"></div>
+      <div class="arc-node"><div class="arc-dot mid">66%</div><div class="arc-label">Rejection</div></div>
+      <div class="arc-connector up"></div>
+      <div class="arc-node"><div class="arc-dot ceiling">73%</div><div class="arc-label">Retest</div></div>
+      <div class="arc-connector down"></div>
+      <div class="arc-node"><div class="arc-dot mid">66%</div><div class="arc-label">Reject ×2</div></div>
+      <div class="arc-connector up"></div>
+      <div class="arc-node"><div class="arc-dot ceiling">73%</div><div class="arc-label">×3</div></div>
+      <div class="arc-connector down"></div>
+      <div class="arc-node"><div class="arc-dot mid">67%</div><div class="arc-label">Weaker</div></div>
+      <div class="arc-connector up"></div>
+      <div class="arc-node"><div class="arc-dot mid">71%</div><div class="arc-label">Recovery</div></div>
+      <div class="arc-connector down"></div>
+      <div class="arc-node"><div class="arc-dot crash">63%</div><div class="arc-label">⚠️ Unwind<br>04:31</div></div>
+      <div class="arc-connector up"></div>
+      <div class="arc-node"><div class="arc-dot revert">71%</div><div class="arc-label">✅ Revert<br>05:31</div></div>
+    </div>
+  </div>
+
+  <!-- Cross-bucket diagnostic -->
+  <h2>Why This Was Noise: Cross-Bucket Diagnostic</h2>
+  <p>At 04:31 AEST, <strong>only the ≥7% bucket moved (-8pp)</strong>. All other buckets were unchanged. A genuine fundamental repricing would shift <em>all</em> buckets proportionally.</p>
+
+  <div class="diagnostic-grid">
+    <div class="diag-card flat">
+      <div class="diag-bucket">≥6%</div>
+      <div class="diag-price" style="color:#8b949e">77%</div>
+      <div class="diag-delta delta-zero">0pp</div>
+    </div>
+    <div class="diag-card mover">
+      <div class="diag-bucket">≥7% ← ONLY MOVER</div>
+      <div class="diag-price" style="color:#3fb950">71%</div>
+      <div class="diag-delta delta-pos">+8pp (reverted)</div>
+    </div>
+    <div class="diag-card flat">
+      <div class="diag-bucket">≥8%</div>
+      <div class="diag-price" style="color:#8b949e">56%</div>
+      <div class="diag-delta delta-zero">0pp</div>
+    </div>
+    <div class="diag-card flat">
+      <div class="diag-bucket">≥9%</div>
+      <div class="diag-price" style="color:#8b949e">44%</div>
+      <div class="diag-delta delta-zero">0pp</div>
+    </div>
+    <div class="diag-card flat">
+      <div class="diag-bucket">≥10-11%</div>
+      <div class="diag-price" style="color:#8b949e">25%</div>
+      <div class="diag-delta delta-zero">0pp</div>
+    </div>
+    <div class="diag-card flat">
+      <div class="diag-bucket">≥12-13%</div>
+      <div class="diag-price" style="color:#8b949e">15%</div>
+      <div class="diag-delta delta-pos">+1pp</div>
+    </div>
+  </div>
+
+  <!-- Unemployment curve -->
+  <h2>Current Unemployment Probability Curve</h2>
+  <p>As of 05:31 AEST — Kalshi "How high will unemployment get before 2030?"</p>
+
+  <table>
+    <thead>
+      <tr><th>Bucket</th><th>Probability</th><th>Visual</th><th>Label</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>≥6%</td>
+        <td><span class="prob-val" style="color:#8b949e">77%</span></td>
+        <td><div class="prob-bar" style="width:154px;background:linear-gradient(90deg,#3fb950,#3fb950);opacity:0.6"></div></td>
+        <td style="color:#8b949e">Base case — virtually certain</td>
+      </tr>
+      <tr class="td-highlight">
+        <td><strong>≥7% ⚠️</strong></td>
+        <td><span class="prob-val" style="color:#58a6ff">71%</span></td>
+        <td><div class="prob-bar" style="width:142px;background:#58a6ff"></div></td>
+        <td style="color:#58a6ff"><strong>LIKELY — ceiling test 74% just 3pp away</strong></td>
+      </tr>
+      <tr>
+        <td>≥8%</td>
+        <td><span class="prob-val" style="color:#d29922">56%</span></td>
+        <td><div class="prob-bar" style="width:112px;background:#d29922"></div></td>
+        <td style="color:#d29922">Coin flip — moderate recession</td>
+      </tr>
+      <tr>
+        <td>≥9%</td>
+        <td><span class="prob-val" style="color:#ffa657">44%</span></td>
+        <td><div class="prob-bar" style="width:88px;background:#ffa657"></div></td>
+        <td>Possible — deep recession</td>
+      </tr>
+      <tr>
+        <td>≥10-11%</td>
+        <td><span class="prob-val" style="color:#f85149">25%</span></td>
+        <td><div class="prob-bar" style="width:50px;background:#f85149"></div></td>
+        <td style="color:#f85149">Tail risk — severe recession</td>
+      </tr>
+      <tr>
+        <td>≥12-13%</td>
+        <td><span class="prob-val" style="color:#f85149">15%</span></td>
+        <td><div class="prob-bar" style="width:30px;background:#f85149"></div></td>
+        <td style="color:#f85149">Extreme tail — near-depression</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Mispricing callout -->
+  <div class="mispricing">
+    <h4>🔮 The Asymmetric Bet: Long ≥8% Bucket</h4>
+    <p>With Iran war at 99.8% certainty, Hormuz closed, and oil at $120 floor / $130 coin-flip, the ≥8% bucket at <strong>56%</strong> looks modestly underpriced. The market treats a deep recession (8%+ unemployment) as barely above 50/50 in a confirmed-war, Hormuz-closed world. Historically, sustained oil above $100-120 for 6+ months precedes significant job losses. If the war runs past July with no ceasefire, this bucket should be pricing closer to 65-70%.</p>
+  </div>
+
+  <!-- Trigger status -->
+  <h2>All Trigger Status</h2>
+  <table>
+    <thead>
+      <tr><th>Trigger</th><th>Current</th><th>Threshold</th><th>Distance</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr class="td-warn">
+        <td><strong>Kalshi ≥7% ceiling ↑74%</strong></td>
+        <td>71%</td>
+        <td>74%</td>
+        <td><span class="dist-badge dist-near">3pp ⚠️</span></td>
+        <td style="color:#f85149">MOST IMMINENT</td>
+      </tr>
+      <tr>
+        <td>WTI $200 April ↑8%</td>
+        <td>3.8%</td>
+        <td>8%</td>
+        <td><span class="dist-badge dist-mid">4.2pp</span></td>
+        <td style="color:#d29922">Watching</td>
+      </tr>
+      <tr>
+        <td>G7 Withdrawal ↑12%</td>
+        <td>8%</td>
+        <td>12%</td>
+        <td><span class="dist-badge dist-mid">4pp</span></td>
+        <td style="color:#d29922">Watching</td>
+      </tr>
+      <tr>
+        <td>Clarence Thomas resign ↑55%</td>
+        <td>51%</td>
+        <td>55%</td>
+        <td><span class="dist-badge dist-mid">4pp</span></td>
+        <td style="color:#d29922">Watching</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥12-13% catastrophe ↑20%</td>
+        <td>15%</td>
+        <td>20%</td>
+        <td><span class="dist-badge dist-mid">5pp</span></td>
+        <td style="color:#d29922">Watching</td>
+      </tr>
+      <tr>
+        <td>Trump resign escalation ↑25%</td>
+        <td>20%</td>
+        <td>25%</td>
+        <td><span class="dist-badge dist-mid">5pp</span></td>
+        <td style="color:#d29922">Watching</td>
+      </tr>
+      <tr class="td-good">
+        <td>Kalshi ≥7% floor ↓58%</td>
+        <td>71%</td>
+        <td>58%</td>
+        <td><span class="dist-badge dist-safe">13pp ✅</span></td>
+        <td style="color:#3fb950">Resolved</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Polymarket snapshot -->
+  <h2>Polymarket Snapshot (05:31 AEST)</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>24h Δ</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US forces enter Iran by Apr 30</td>
+        <td style="color:#3fb950;font-weight:700">99.8%</td>
+        <td class="delta-pos">+17.2pp</td>
+        <td>Certainty — $155M volume</td>
+      </tr>
+      <tr>
+        <td>US-Iran ceasefire April 7</td>
+        <td style="color:#f85149;font-weight:700">2.9%</td>
+        <td class="delta-pos">+1.6pp</td>
+        <td>Resolves in hours — NO</td>
+      </tr>
+      <tr>
+        <td>WTI $120 April</td>
+        <td style="color:#3fb950;font-weight:700">80.0%</td>
+        <td class="delta-pos">+5.5pp</td>
+        <td>Oil floor confirmed</td>
+      </tr>
+      <tr class="td-highlight">
+        <td>WTI $130 April</td>
+        <td style="color:#d29922;font-weight:700">49.5%</td>
+        <td class="delta-neg">-0.5pp</td>
+        <td>Coin flip — slight fade</td>
+      </tr>
+      <tr>
+        <td>WTI $140 April</td>
+        <td>31.5%</td>
+        <td class="delta-pos">+0.5pp</td>
+        <td>16.5pp from trigger</td>
+      </tr>
+      <tr>
+        <td>WTI $150 April</td>
+        <td>19.5%</td>
+        <td class="delta-pos">+0.5pp</td>
+        <td>15.5pp from trigger</td>
+      </tr>
+      <tr class="td-warn">
+        <td><strong>WTI $200 April ⚠️</strong></td>
+        <td style="color:#f85149;font-weight:700">3.8%</td>
+        <td class="delta-pos">+0.1pp</td>
+        <td><strong>4.2pp from trigger — mispriced vs. oil exec warnings</strong></td>
+      </tr>
+      <tr>
+        <td>Hormuz normalizes Apr 30</td>
+        <td>14.0%</td>
+        <td class="delta-zero">—</td>
+        <td>6pp from trigger</td>
+      </tr>
+      <tr>
+        <td>Fed holds April</td>
+        <td style="color:#3fb950">98.0%</td>
+        <td class="delta-neg">-0.4pp</td>
+        <td>Stable — minor wobble</td>
+      </tr>
+      <tr>
+        <td>Trump visits China by May 31</td>
+        <td>64.5%</td>
+        <td class="delta-pos">+0.5pp</td>
+        <td>Key tariff signal — 10.5pp from trigger</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Australian impact -->
+  <h2>Australian Market Impact</h2>
+
+  <table>
+    <thead>
+      <tr><th>ASX Sector / Stock</th><th>Bias</th><th>Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr class="td-good">
+        <td><strong>WDS (Woodside), STO (Santos)</strong></td>
+        <td><span class="asx-tag-bull">▲ BULLISH</span></td>
+        <td>WTI $120 floor confirmed; LNG price linkage. $120+ oil = meaningful earnings upside vs. budgeted ~$90-95.</td>
+      </tr>
+      <tr class="td-good">
+        <td><strong>NST (Northern Star), EVN (Evolution)</strong></td>
+        <td><span class="asx-tag-bull">▲ BULLISH</span></td>
+        <td>War risk premium + USD uncertainty supports gold. AUD weakness amplifies AUD-denominated gold revenue.</td>
+      </tr>
+      <tr>
+        <td><strong>BHP, RIO, FMG</strong></td>
+        <td><span class="asx-tag-hold">◼ MIXED</span></td>
+        <td>Oil cost input rises but iron ore/copper prices depend on Chinese demand. China GDP at risk from global slowdown.</td>
+      </tr>
+      <tr class="td-warn">
+        <td><strong>QAN (Qantas)</strong></td>
+        <td><span class="asx-tag-bear">▼ BEARISH</span></td>
+        <td>Jet fuel ~30% of costs. $120+ oil = significant margin compression. Profit warning risk if oil holds above $130.</td>
+      </tr>
+      <tr class="td-warn">
+        <td><strong>WOW (Woolworths), COL (Coles)</strong></td>
+        <td><span class="asx-tag-bear">▼ HEADWIND</span></td>
+        <td>Diesel at ~322c/litre squeezes supply chain costs. Freight surcharges being absorbed or passed to consumers.</td>
+      </tr>
+      <tr class="td-warn">
+        <td><strong>AZJ (Aurizon), GNC (GrainCorp)</strong></td>
+        <td><span class="asx-tag-bear">▼ HEADWIND</span></td>
+        <td>Rail/freight (diesel-intensive) and agricultural (diesel + fertiliser input) costs rising. Margin squeeze ongoing.</td>
+      </tr>
+      <tr>
+        <td><strong>ANZ, CBA, NAB, WBC</strong></td>
+        <td><span class="asx-tag-hold">◼ WATCH</span></td>
+        <td>RBA holding rate (mirrors US Fed at 98%). Housing stress if unemployment ≥7% scenario plays out — monitor credit quality.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:0.85rem;color:var(--muted);margin-top:0.5rem">Fuel reference (early April 2026): Petrol ~232c/litre | Diesel ~322c/litre | Excise half-cut effective April 1, 2026 (~26.3c/litre cut)</p>
+
+  <!-- Forward watch -->
+  <h2>Forward Watch: Next 2–6 Hours</h2>
+  <ul class="watch-list">
+    <li>
+      <div class="watch-num">1</div>
+      <div><strong style="color:#f85149">≥7% ceiling test (74%) — MOST IMMINENT, 3pp away.</strong> The equilibrium has reverted to 71%. Any macro catalyst — oil inventory data, Fed commentary, jobs revision — could spike this above the trigger. Alert if next run shows 73%+. Ceiling break = market conviction that recession is BASE CASE.</div>
+    </li>
+    <li>
+      <div class="watch-num">2</div>
+      <div><strong>April 7 ceasefire resolution (hours away)</strong> — Clears at 3%. Immediately watch WTI $130: if it rises above 51% within 1 hour of resolution, the market is locking in indefinite-war oil pricing. Adds conviction to WTI $140 trigger approaching.</div>
+    </li>
+    <li>
+      <div class="watch-num">3</div>
+      <div><strong>WTI $200 at 3.8% → 8% trigger (4.2pp gap)</strong> — Slow creep but one Hormuz incident = instant +2-3pp spike. Mid-April oil executive deadline window remains the primary catalyst. The asymmetric mispricing: $200 at 3.8% in a world where Hormuz has been closed for 2+ weeks.</div>
+    </li>
+    <li>
+      <div class="watch-num">4</div>
+      <div><strong>Kalshi ≥12-13% at 15% (+1pp this run)</strong> — Independent of the ≥7% noise. If this approaches 17%, watch for coordinated bucket movement across the full distribution — that's the genuine signal of a distribution shift, not a single-trader position move.</div>
+    </li>
+    <li>
+      <div class="watch-num">5</div>
+      <div><strong>Trump China visit at 64.5%</strong> — Key tariff/trade war signal. Does the Iran war make a Xi visit more likely (diplomatic validation) or less (distraction + leverage)? Both ceiling (75%) and floor (52%) triggers are 10-12pp away but moving slowly.</div>
+    </li>
+  </ul>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>Generated 2026-04-06 05:35 AEST | Automated collection run 05:31 AEST</span>
+    <span>Sources: Polymarket Gamma API + Kalshi | Previous: <a href="OMAN-BACKCH-WTI120-ALERT-2026-04-06.html">Oman/WTI120</a> · <a href="unemployment-ceiling-wti200-2026-04-06.html">Unemployment Ceiling</a></span>
+  </div>
+
+</div>
+</body>
+</html>
