@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚨 ALERT: Unemployment Tail Reversal | 2026-04-06 03:16 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .alert-banner {
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    border-bottom: 3px solid #ef4444;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .alert-banner .icon { font-size: 2rem; }
+  .alert-banner .title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+  .alert-banner .sub { font-size: 0.85rem; color: #fca5a5; margin-top: 2px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+  .exec-summary {
+    background: linear-gradient(135deg, #1c1c2e, #16213e);
+    border: 1px solid #30363d;
+    border-left: 4px solid #ef4444;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  .exec-summary h2 { font-size: 1rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .exec-summary p { color: #c9d1d9; font-size: 0.97rem; line-height: 1.7; }
+  .exec-summary p strong { color: #f0f6fc; }
+  h2.section-title {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8b949e;
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 20px; }
+  th { background: #161b22; color: #8b949e; text-transform: uppercase; font-size: 0.77rem; letter-spacing: 0.05em; padding: 10px 12px; text-align: left; border-bottom: 1px solid #30363d; }
+  td { padding: 9px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; vertical-align: middle; }
+  tr:hover td { background: #161b22; }
+  .up { color: #f87171; font-weight: 700; }
+  .down { color: #4ade80; font-weight: 700; }
+  .flat { color: #8b949e; }
+  .big-move { background: rgba(239,68,68,0.08) !important; }
+  .big-move td { color: #fca5a5; }
+  .alert-pill {
+    display: inline-block;
+    background: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .bar-label { width: 220px; font-size: 0.82rem; color: #8b949e; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #21262d; border-radius: 3px; height: 18px; position: relative; }
+  .bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .bar-prev { background: #374151; opacity: 0.5; }
+  .bar-fill.danger { background: linear-gradient(90deg, #b91c1c, #ef4444); }
+  .bar-fill.warning { background: linear-gradient(90deg, #92400e, #f59e0b); }
+  .bar-fill.neutral { background: linear-gradient(90deg, #1e3a5f, #3b82f6); }
+  .bar-fill.positive { background: linear-gradient(90deg, #14532d, #22c55e); }
+  .bar-pct { width: 48px; text-align: right; font-size: 0.85rem; font-weight: 700; color: #f0f6fc; }
+  .bar-delta { width: 64px; font-size: 0.78rem; font-weight: 700; }
+  .timeline {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    margin-bottom: 20px;
+  }
+  .timeline-row { display: flex; gap: 16px; padding: 5px 0; border-bottom: 1px solid #21262d; align-items: center; }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-time { color: #8b949e; width: 90px; flex-shrink: 0; }
+  .timeline-pct { width: 50px; font-weight: 700; }
+  .timeline-bar { flex: 1; background: #21262d; border-radius: 2px; height: 12px; }
+  .timeline-fill { height: 100%; border-radius: 2px; }
+  .timeline-label { width: 220px; font-size: 0.79rem; color: #8b949e; }
+  .t-base { background: #374151; }
+  .t-dip { background: #22c55e; }
+  .t-reversal { background: #ef4444; }
+  .mispricing-box {
+    background: #1c1407;
+    border: 1px solid #d97706;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .mispricing-box h3 { color: #fbbf24; font-size: 0.95rem; margin-bottom: 10px; }
+  .mispricing-box p { color: #d1c4a0; font-size: 0.9rem; line-height: 1.65; }
+  .mispricing-box strong { color: #fde68a; }
+  .forward-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #21262d;
+  }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-num { font-size: 1.1rem; color: #8b949e; font-weight: 700; flex-shrink: 0; width: 24px; }
+  .forward-text { font-size: 0.9rem; color: #c9d1d9; line-height: 1.6; }
+  .forward-text strong { color: #f0f6fc; }
+  .asx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .asx-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .asx-card .sector { font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .asx-card .tickers { font-size: 0.88rem; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; }
+  .asx-card .verdict { font-size: 0.78rem; line-height: 1.4; }
+  .asx-card.bullish { border-left: 3px solid #22c55e; }
+  .asx-card.bearish { border-left: 3px solid #ef4444; }
+  .asx-card.neutral { border-left: 3px solid #f59e0b; }
+  .actions-table td { font-size: 0.85rem; }
+  .action-added { color: #4ade80; }
+  .action-updated { color: #fbbf24; }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #21262d;
+    font-size: 0.78rem;
+    color: #484f58;
+    text-align: center;
+  }
+  .stat-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .stat-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    flex: 1;
+    min-width: 140px;
+  }
+  .stat-card .label { font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+  .stat-card .change { font-size: 0.78rem; margin-top: 4px; }
+  .v-danger { color: #ef4444; }
+  .v-warning { color: #f59e0b; }
+  .v-neutral { color: #60a5fa; }
+  .v-flat { color: #6b7280; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="alert-banner">
+  <div class="icon">🚨</div>
+  <div>
+    <div class="title">ALERT: Unemployment Tail Reversal — Structural Flattening Thesis Destroyed</div>
+    <div class="sub">Polymarket &amp; Kalshi Intelligence Briefing &nbsp;|&nbsp; 2026-04-06 03:16 AEST &nbsp;|&nbsp; Alert-triggered run</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- EXEC SUMMARY -->
+  <div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>
+      Fifteen minutes ago, we published a "structural flattening" alert declaring the Kalshi unemployment tail was being priced out — the ≥12-13% bucket had dropped to 9% (-4pp). <strong>That thesis has been demolished.</strong> The ≥12-13% bucket just reversed <strong>+7pp back to 16% — a new session high</strong>. The brief dip to 9% was a single large seller clearing the order book. Bears immediately re-entered. The macro picture is now self-consistent and bearish: Iran war at 99.9% certainty, WTI $130 a coin-flip at 48.5%, no ceasefire before April 7 (2.5%), and a 16% probability of US unemployment exceeding 12% before 2030.
+    </p>
+  </div>
+
+  <!-- KEY STATS -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="label">≥12-13% Unemployment</div>
+      <div class="value v-danger">16.0%</div>
+      <div class="change up">+7.0pp — New Session High</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">≥7% Unemployment</div>
+      <div class="value v-warning">67.0%</div>
+      <div class="change v-flat">0.0pp — At Oscillation Floor</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Iran War Certainty</div>
+      <div class="value v-danger">99.9%</div>
+      <div class="change up">+17.3pp / 24h</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">WTI $130 (April)</div>
+      <div class="value v-warning">48.5%</div>
+      <div class="change v-flat">0.0pp — Near Coin-flip</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">US Fed Holds April</div>
+      <div class="value v-neutral">98.2%</div>
+      <div class="change v-flat">-0.1pp — Locked In</div>
+    </div>
+  </div>
+
+  <!-- REVERSAL DETAIL -->
+  <h2 class="section-title">The Reversal: ≥12-13% Unemployment Bucket</h2>
+  <p style="font-size:0.88rem;color:#8b949e;margin-bottom:16px;">15-minute cycle: structural flattening called at 03:01 AEST → reversed by 03:16 AEST</p>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <span class="timeline-time">~00:30 AEST</span>
+      <span class="timeline-pct" style="color:#8b949e">~13%</span>
+      <div class="timeline-bar"><div class="timeline-fill t-base" style="width:13%"></div></div>
+      <span class="timeline-label">Session baseline</span>
+    </div>
+    <div class="timeline-row">
+      <span class="timeline-time">~03:01 AEST</span>
+      <span class="timeline-pct" style="color:#4ade80">9%</span>
+      <div class="timeline-bar"><div class="timeline-fill t-dip" style="width:9%"></div></div>
+      <span class="timeline-label">-4pp "structural flattening" — seller clears book</span>
+    </div>
+    <div class="timeline-row">
+      <span class="timeline-time">03:16 AEST</span>
+      <span class="timeline-pct" style="color:#ef4444;font-size:1rem">16%</span>
+      <div class="timeline-bar"><div class="timeline-fill t-reversal" style="width:16%"></div></div>
+      <span class="timeline-label">+7pp BEARS RE-ENTER — new session high 🚨</span>
+    </div>
+  </div>
+
+  <!-- FULL DISTRIBUTION -->
+  <h2 class="section-title">Full Unemployment Distribution — Current vs. Prior Run</h2>
+
+  <div style="margin-bottom:24px;">
+    <div class="bar-row">
+      <span class="bar-label">≥6% unemployment</span>
+      <div class="bar-track">
+        <div class="bar-fill neutral" style="width:78%"></div>
+      </div>
+      <span class="bar-pct">78%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">≥7% unemployment (KXU3MAX)</span>
+      <div class="bar-track">
+        <div class="bar-fill warning" style="width:67%"></div>
+      </div>
+      <span class="bar-pct">67%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">≥8% unemployment</span>
+      <div class="bar-track">
+        <div class="bar-fill warning" style="width:56%"></div>
+      </div>
+      <span class="bar-pct">56%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">≥9% unemployment</span>
+      <div class="bar-track">
+        <div class="bar-fill warning" style="width:44%"></div>
+      </div>
+      <span class="bar-pct">44%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">≥10-11% unemployment</span>
+      <div class="bar-track">
+        <div class="bar-fill warning" style="width:23%"></div>
+      </div>
+      <span class="bar-pct">23%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">≥12-13% unemployment ⚡</span>
+      <div class="bar-track">
+        <!-- previous (9%) shadow -->
+        <div style="position:absolute;left:0;top:0;width:9%;height:100%;background:#22c55e;opacity:0.25;border-radius:3px"></div>
+        <div class="bar-fill danger" style="width:16%"></div>
+      </div>
+      <span class="bar-pct" style="color:#ef4444">16%</span>
+      <span class="bar-delta up">+7.0pp</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Extreme tail (≥15%+)</span>
+      <div class="bar-track">
+        <div class="bar-fill danger" style="width:2%"></div>
+      </div>
+      <span class="bar-pct">2%</span>
+      <span class="bar-delta flat">0.0pp</span>
+    </div>
+  </div>
+  <p style="font-size:0.78rem;color:#484f58;margin-bottom:24px;">Green ghost bar on ≥12-13% row shows prior reading of 9%. Red bar is current 16%.</p>
+
+  <!-- CROSS-MARKET CONTEXT -->
+  <h2 class="section-title">Cross-Market Snapshot</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>24h Change</th><th>Implication</th></tr>
+    </thead>
+    <tbody>
+      <tr class="big-move">
+        <td>Kalshi ≥12-13% Unemployment <span class="alert-pill">BIG MOVE</span></td>
+        <td class="up">16.0%</td>
+        <td class="up">+7.0pp</td>
+        <td>Catastrophe tail back — new session high</td>
+      </tr>
+      <tr>
+        <td>US Forces Enter Iran by Apr 30</td>
+        <td class="up">99.9%</td>
+        <td class="up">+17.3pp/24h</td>
+        <td>War is the baseline; certainty pricing</td>
+      </tr>
+      <tr>
+        <td>US-Iran Ceasefire Apr 7</td>
+        <td style="color:#ef4444">2.5%</td>
+        <td class="up">+1.1pp/24h</td>
+        <td>No ceasefire tomorrow; last gasp</td>
+      </tr>
+      <tr>
+        <td>WTI $130 in April</td>
+        <td class="v-warning">48.5%</td>
+        <td class="flat">0.0pp</td>
+        <td>Coin-flip — underpriced vs war certainty</td>
+      </tr>
+      <tr>
+        <td>WTI $140 in April</td>
+        <td class="v-warning">34.0%</td>
+        <td class="flat">0.0pp</td>
+        <td>Escalation scenario</td>
+      </tr>
+      <tr>
+        <td>WTI $150 in April</td>
+        <td>18.5%</td>
+        <td class="flat">0.0pp</td>
+        <td>Hormuz closure pricing begins</td>
+      </tr>
+      <tr>
+        <td>Hormuz Normalizes Apr 30</td>
+        <td style="color:#ef4444">14.5%</td>
+        <td class="flat">0.0pp</td>
+        <td>Disruption expected to persist</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥7% Unemployment</td>
+        <td class="v-warning">67.0%</td>
+        <td class="flat">0.0pp</td>
+        <td>Majority probability; at oscillation floor</td>
+      </tr>
+      <tr>
+        <td>US Fed Holds April</td>
+        <td class="v-neutral">98.2%</td>
+        <td class="flat">-0.1pp</td>
+        <td>No rate relief; stagflation trap locked in</td>
+      </tr>
+      <tr>
+        <td>Kalshi GDP &gt;5% any quarter 2026</td>
+        <td class="v-neutral">59.0%</td>
+        <td class="flat">-1.0pp</td>
+        <td>Nominal GDP effect; paradox with unemployment</td>
+      </tr>
+      <tr>
+        <td>Bitcoin above $68K (Apr 5)</td>
+        <td style="color:#ef4444">0.1%</td>
+        <td class="down">-19.4pp/24h</td>
+        <td>Resolved — risk-off in crypto confirmed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MISPRICING -->
+  <div class="mispricing-box">
+    <h3>⚡ Key Contradiction: Oil Is Still Underpriced</h3>
+    <p>
+      Iran war at <strong>99.9%</strong> but WTI $130 in April at only <strong>48.5%</strong>.
+      With Hormuz disruption persistent (only 14.5% normalization probability), Kharg Island at risk (18.5%),
+      and the unemployment extreme tail back at 16%, oil should be pricing closer to <strong>60–70%</strong> — not 48.5%.
+      The market appears to treat the war as "contained and fully priced." The unemployment tail reversal says otherwise:
+      if employment faces 12%+ risk, oil cannot stay at these levels. <strong>Oil is the mispriced asset. WTI $130 should catch up to the war certainty.</strong>
+    </p>
+    <p style="margin-top:10px;">
+      <strong>GDP paradox</strong>: Kalshi "quarterly GDP &gt;5% in 2026" at 59% is only coherent via <em>nominal</em> GDP inflation
+      (oil-driven CPI lifting headline figures while real output contracts). Classic stagflation signal —
+      nominal metrics look fine, real purchasing power craters.
+    </p>
+  </div>
+
+  <!-- AUSTRALIAN IMPACT -->
+  <h2 class="section-title">Australian Market Impact</h2>
+  <p style="font-size:0.88rem;color:#8b949e;margin-bottom:16px;">WTI $130 coin-flip translates directly to Australian fuel and ASX sector impacts.</p>
+
+  <div class="asx-grid">
+    <div class="asx-card bullish">
+      <div class="sector">Energy / Oil</div>
+      <div class="tickers">WDS · STO · BPT</div>
+      <div class="verdict" style="color:#4ade80">Direct beneficiaries of WTI $130+. War certainty = sustained elevated oil = re-rate higher. Strong buy thesis.</div>
+    </div>
+    <div class="asx-card bullish">
+      <div class="sector">Gold</div>
+      <div class="tickers">NST · EVN · NCM</div>
+      <div class="verdict" style="color:#4ade80">Geopolitical fear + stagflation = gold bullish. Dual tailwind: safe haven demand + inflation hedge.</div>
+    </div>
+    <div class="asx-card neutral">
+      <div class="sector">Mining / Resources</div>
+      <div class="tickers">BHP · RIO · FMG</div>
+      <div class="verdict" style="color:#fbbf24">Oil cost headwind offset by iron ore/China demand strength. Net neutral-positive.</div>
+    </div>
+    <div class="asx-card bearish">
+      <div class="sector">Transport / Logistics</div>
+      <div class="tickers">QAN · AZJ · TCL</div>
+      <div class="verdict" style="color:#ef4444">Diesel at $2.70/L = severe margin compression. Aviation fuel spikes direct hit to QAN.</div>
+    </div>
+    <div class="asx-card bearish">
+      <div class="sector">Consumer / Retail</div>
+      <div class="tickers">WOW · COL · WES</div>
+      <div class="verdict" style="color:#ef4444">Freight surcharges + declining consumer confidence. Defensive but not immune.</div>
+    </div>
+    <div class="asx-card bearish">
+      <div class="sector">Agriculture</div>
+      <div class="tickers">GNC · ELD</div>
+      <div class="verdict" style="color:#ef4444">Diesel input cost surge devastating farm margins. Logistics squeeze hits grain exports.</div>
+    </div>
+    <div class="asx-card bearish">
+      <div class="sector">Banks</div>
+      <div class="tickers">ANZ · CBA · NAB · WBC</div>
+      <div class="verdict" style="color:#ef4444">Stagflation = bad loan cycle rising. Watch credit quality deterioration. RBA stuck.</div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <h2 class="section-title">Forward View: Specific Falsifiable Predictions</h2>
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px 20px;margin-bottom:20px;">
+    <div class="forward-item">
+      <span class="forward-num">1</span>
+      <span class="forward-text"><strong>≥7% ceiling test (~30 min)</strong>: Awaiting the bounce from 67% floor. If peak exceeds 73% (old ceiling) — bearish acceleration. If capped 69-71% — structural break confirmed. This is the definitive structural test.</span>
+    </div>
+    <div class="forward-item">
+      <span class="forward-num">2</span>
+      <span class="forward-text"><strong>≥12-13% at 20% threshold (new trigger added, 4pp away)</strong>: If this fires, expect WTI $200 (currently 3.5%) to begin moving. Two catastrophe signals firing simultaneously = Great Depression scenario pricing in.</span>
+    </div>
+    <div class="forward-item">
+      <span class="forward-num">3</span>
+      <span class="forward-text"><strong>WTI $130 through 50% psychological resistance</strong>: Currently at 48.5%. A single news headline (Kharg attack, Hormuz incident, Iranian missile volley) crosses 50%. Above 50% = oil crisis is the consensus base case. Next oil trigger cascade begins.</span>
+    </div>
+    <div class="forward-item">
+      <span class="forward-num">4</span>
+      <span class="forward-text"><strong>Hormuz normalization at 14.5% — trigger at 20%</strong>: Rising ~0.5pp/run. Reaches trigger in ~5-6 hours absent acceleration. Hormuz trigger firing is the POSITIVE surprise signal — watch for a sudden spike on diplomatic news.</span>
+    </div>
+    <div class="forward-item">
+      <span class="forward-num">5</span>
+      <span class="forward-text"><strong>GDP-unemployment paradox resolution</strong>: The next US employment or CPI print will force the market to reconcile Kalshi's "GDP &gt;5%" (59%) against "≥7% unemployment" (67%). A weak jobs print is the primary catalyst for ≥12-13% crossing 20%.</span>
+    </div>
+  </div>
+
+  <!-- ACTIONS TABLE -->
+  <h2 class="section-title">Actions Taken This Run</h2>
+  <table class="actions-table">
+    <thead>
+      <tr><th>Action</th><th>Trigger ID</th><th>Detail</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="action-updated">UPDATED</td>
+        <td><code>kalshi-unemployment-7pct</code></td>
+        <td>Tail reversal narrative; structural flattening thesis invalidated; 03:01 call overturned</td>
+      </tr>
+      <tr>
+        <td class="action-updated">UPDATED</td>
+        <td><code>kalshi-unemployment-7pct-floor</code></td>
+        <td>Bears back in control; floor break now less likely</td>
+      </tr>
+      <tr>
+        <td class="action-added">ADDED</td>
+        <td><code>kalshi-unemployment-extreme-tail</code></td>
+        <td>New trigger: ≥12-13% fires above 20%; currently 16%, 4pp from trigger</td>
+      </tr>
+      <tr>
+        <td class="action-added">APPENDED</td>
+        <td><code>analyst_notes.md</code></td>
+        <td>Full alert recorded with session timeline and forward view</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    Alert generated: 2026-04-06 03:16 AEST &nbsp;|&nbsp; Next scheduled run: ~03:30 AEST
+    &nbsp;|&nbsp; Data: Polymarket API · Kalshi API · Historical analyst notes
+    &nbsp;|&nbsp; Previous report: <em>UNEMPLOYMENT-CURVE-FLATTENING-2026-04-06</em> (03:01 AEST)
+  </div>
+
+</div>
+</body>
+</html>
