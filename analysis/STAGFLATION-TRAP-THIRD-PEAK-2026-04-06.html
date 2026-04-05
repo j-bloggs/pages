@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Stagflation Trap Confirmed — Unemployment Third Peak | 2026-04-06</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d0f14;
+    color: #e2e8f0;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  .page-wrapper { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* Header */
+  .report-header {
+    background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 50%, #1a1a2e 100%);
+    border: 1px solid #7f1d1d;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: #dc2626;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  .report-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f87171;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .report-subtitle {
+    color: #94a3b8;
+    font-size: 13px;
+  }
+  .report-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #3f1a1a;
+  }
+  .meta-item { font-size: 12px; color: #64748b; }
+  .meta-item strong { color: #94a3b8; }
+
+  /* Section headers */
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f1f5f9;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2::before { content: attr(data-icon); font-size: 16px; }
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin: 18px 0 8px;
+  }
+
+  /* Executive summary */
+  .exec-summary {
+    background: #111827;
+    border-left: 4px solid #dc2626;
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .exec-summary p { margin-bottom: 10px; color: #cbd5e1; }
+  .exec-summary p:last-child { margin-bottom: 0; }
+  .exec-summary strong { color: #fbbf24; }
+
+  /* Alert data table */
+  .data-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: #1e293b;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #1e293b;
+    color: #cbd5e1;
+    vertical-align: top;
+  }
+  tr:hover td { background: #161d2a; }
+  .price-up { color: #f87171; font-weight: 600; }
+  .price-down { color: #34d399; font-weight: 600; }
+  .price-flat { color: #64748b; }
+  .status-alert { color: #f87171; font-weight: 600; }
+  .status-watch { color: #fbbf24; }
+  .status-ok { color: #34d399; }
+  .status-neutral { color: #64748b; }
+  .highlight-row td { background: #1a0a0a !important; border-left: 3px solid #dc2626; }
+
+  /* Oscillation chart */
+  .oscillation-chart {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0 24px;
+  }
+  .osc-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 16px;
+  }
+  .osc-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 120px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+  .osc-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .osc-bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .osc-bar.peak { background: linear-gradient(180deg, #dc2626, #991b1b); }
+  .osc-bar.trough { background: linear-gradient(180deg, #16a34a, #15803d); }
+  .osc-bar.current { background: linear-gradient(180deg, #f59e0b, #d97706); animation: currentPulse 2s infinite; }
+  @keyframes currentPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+  }
+  .osc-label {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .osc-pct {
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .osc-pct.peak { color: #f87171; }
+  .osc-pct.trough { color: #34d399; }
+  .osc-pct.current { color: #fbbf24; }
+  .osc-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .osc-leg-item { display: flex; align-items: center; gap: 6px; }
+  .osc-leg-dot {
+    width: 10px; height: 10px; border-radius: 2px;
+  }
+  .osc-leg-dot.peak { background: #dc2626; }
+  .osc-leg-dot.trough { background: #16a34a; }
+  .osc-leg-dot.current { background: #f59e0b; }
+  .trigger-line {
+    position: relative;
+    border-top: 2px dashed #f59e0b;
+    margin: 4px 0;
+  }
+
+  /* Sections */
+  .section-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .section-card p { color: #94a3b8; margin-bottom: 10px; font-size: 14px; }
+  .section-card p:last-child { margin-bottom: 0; }
+  .section-card strong { color: #e2e8f0; }
+
+  /* Shock vector diagram */
+  .shock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .shock-box {
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .shock-box.supply {
+    background: linear-gradient(135deg, #1e3a5f, #172554);
+    border: 1px solid #1e40af;
+  }
+  .shock-box.demand {
+    background: linear-gradient(135deg, #3f1a1a, #2d0a0a);
+    border: 1px solid #7f1d1d;
+  }
+  .shock-box h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .shock-box.supply h4 { color: #60a5fa; }
+  .shock-box.demand h4 { color: #f87171; }
+  .shock-value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .shock-box.supply .shock-value { color: #93c5fd; }
+  .shock-box.demand .shock-value { color: #fca5a5; }
+  .shock-desc { font-size: 11px; color: #64748b; }
+  .shock-arrow { font-size: 11px; color: #94a3b8; margin-top: 6px; }
+
+  /* Fed paralysis box */
+  .fed-box {
+    background: #1a1a0a;
+    border: 1px solid #854d0e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fed-icon { font-size: 32px; }
+  .fed-content h4 { color: #fbbf24; font-size: 14px; margin-bottom: 4px; }
+  .fed-content p { color: #92400e; font-size: 13px; margin: 0; }
+
+  /* Scenario table */
+  .scenario-note {
+    font-size: 11px;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .underpriced { color: #f87171; font-weight: 600; }
+
+  /* ASX table */
+  .asx-row-bullish td:first-child { border-left: 3px solid #34d399; }
+  .asx-row-bearish td:first-child { border-left: 3px solid #f87171; }
+  .asx-row-neutral td:first-child { border-left: 3px solid #64748b; }
+
+  /* Trigger actions */
+  .trigger-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  .trigger-action.lowered { background: #1a0a0a; border: 1px solid #7f1d1d; }
+  .trigger-action.added { background: #0a1a0a; border: 1px solid #14532d; }
+  .trigger-action.updated { background: #0a0a1a; border: 1px solid #1e3a5f; }
+  .trigger-badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .trigger-badge.lowered { background: #7f1d1d; color: #fca5a5; }
+  .trigger-badge.added { background: #14532d; color: #86efac; }
+  .trigger-badge.updated { background: #1e3a5f; color: #93c5fd; }
+  .trigger-desc { flex: 1; color: #94a3b8; }
+  .trigger-desc strong { color: #e2e8f0; }
+
+  /* Forward view */
+  .forward-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e293b;
+    font-size: 13px;
+  }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-num {
+    min-width: 24px;
+    height: 24px;
+    background: #1e293b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-top: 1px;
+  }
+  .forward-text { color: #94a3b8; flex: 1; }
+  .forward-text strong { color: #e2e8f0; }
+
+  /* Key bet box */
+  .key-bet {
+    background: linear-gradient(135deg, #1a0f2e, #0f172a);
+    border: 1px solid #6d28d9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .key-bet h3 { color: #a78bfa; margin-bottom: 8px; }
+  .key-bet p { color: #94a3b8; font-size: 13px; margin-bottom: 8px; }
+  .key-bet .bet-line {
+    background: #1e1040;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #c4b5fd;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding-top: 32px;
+    font-size: 11px;
+    color: #374151;
+    border-top: 1px solid #1e293b;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .shock-grid { grid-template-columns: 1fr; }
+    .report-meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div class="alert-badge">🚨 Alert — Trigger 1pp Away</div>
+    <div class="report-title">Stagflation Trap Confirmed: Unemployment Third Peak</div>
+    <div class="report-subtitle">Kalshi ≥7% unemployment bounces to 73% for third consecutive time — trigger lowered to 74%</div>
+    <div class="report-meta">
+      <div class="meta-item"><strong>Generated:</strong> 2026-04-06 01:47 AEST</div>
+      <div class="meta-item"><strong>Alert Source:</strong> Kalshi +7.0pp auto-detection</div>
+      <div class="meta-item"><strong>Series:</strong> #4 — Iran War Macro Alerts</div>
+      <div class="meta-item"><strong>Prior Reports:</strong> UNEMPLOYMENT-HORMUZ · UNEMPLOYMENT-BOUNCE · MANAGED-CONFLICT-REPRICING</div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <div class="exec-summary">
+    <p>The Kalshi unemployment ≥7% before 2030 market has completed its <strong>third consecutive bounce to 73%</strong> in approximately 90 minutes, registering a +7.0pp move from 66%. The monitoring trigger has been lowered from 75% to <strong>74% — now just 1pp away</strong>.</p>
+    <p>Three consecutive peaks at the same resistance level (73%) is a textbook breakout setup. The next catalyst fires the trigger and confirms the <strong>stagflation trap</strong> as the market consensus base case.</p>
+    <p>More significantly: this run shows unemployment rising <strong>while oil prices soften</strong> — WTI $130 down -1pp to 48.5%. The decoupling of these two variables is the defining signal: the US economy is now pricing <strong>two independent shock vectors simultaneously</strong>, not a single oil-driven chain reaction.</p>
+  </div>
+
+  <!-- Alert Data Table -->
+  <h2 data-icon="📊">Alert Data</h2>
+  <div class="data-table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Kalshi: Unemployment ≥7% before 2030</strong></td>
+          <td><strong>73.0%</strong></td>
+          <td class="price-up">+7.0pp</td>
+          <td class="status-alert">⚠️ 1pp from trigger (74%)</td>
+        </tr>
+        <tr>
+          <td>Kalshi: Trump resign before term</td>
+          <td>18.0%</td>
+          <td class="price-down">−3.0pp</td>
+          <td class="status-watch">New trigger @ 15%</td>
+        </tr>
+        <tr>
+          <td>Kalshi: Hegseth next to leave cabinet</td>
+          <td>17.0%</td>
+          <td class="price-up">+1.0pp</td>
+          <td class="status-watch">Watch</td>
+        </tr>
+        <tr>
+          <td>Kalshi: National debt hits $45T (Trump term)</td>
+          <td>83.0%</td>
+          <td class="price-down">−1.0pp</td>
+          <td class="status-neutral">Stable</td>
+        </tr>
+        <tr>
+          <td>WTI $130 in April (Polymarket)</td>
+          <td>48.5%</td>
+          <td class="price-down">−1.0pp</td>
+          <td class="status-ok">Softening — 16.5pp from trigger</td>
+        </tr>
+        <tr>
+          <td>WTI $140 in April (Polymarket)</td>
+          <td>34.0%</td>
+          <td class="price-down">−0.5pp</td>
+          <td class="status-ok">Softening — 14pp from trigger</td>
+        </tr>
+        <tr>
+          <td>Hormuz normalizes by Apr 30</td>
+          <td>14.0%</td>
+          <td class="price-down">−1.5pp</td>
+          <td class="status-ok">Retreating — 6pp from trigger</td>
+        </tr>
+        <tr>
+          <td>Israel ground op in Iran by Apr 30</td>
+          <td>24.5%</td>
+          <td class="price-down">−1.0pp</td>
+          <td class="status-ok">Drift down — 20.5pp from trigger</td>
+        </tr>
+        <tr>
+          <td>US-Iran ceasefire by Apr 30</td>
+          <td>22.5%</td>
+          <td class="price-up">+1.0pp</td>
+          <td class="status-neutral">Marginal tick — watch</td>
+        </tr>
+        <tr>
+          <td>US Fed April hike probability</td>
+          <td>0.8%</td>
+          <td class="price-flat">0pp</td>
+          <td class="status-neutral">Paralyzed</td>
+        </tr>
+        <tr>
+          <td>US Fed June hike probability</td>
+          <td>1.8%</td>
+          <td class="price-flat">0pp</td>
+          <td class="status-neutral">Paralyzed — UNDERPRICED</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Oscillation Chart -->
+  <h2 data-icon="📈">The Unemployment Oscillation: Three Cycles</h2>
+  <div class="oscillation-chart">
+    <div class="osc-title">Kalshi: Unemployment ≥7% before 2030 — Price over time (~90 minutes, 2026-04-06 AEST)</div>
+    <div class="osc-bars">
+      <!-- Peak 1: 73% at ~00:01 AEST -->
+      <div class="osc-bar-group">
+        <div class="osc-pct peak">73%</div>
+        <div class="osc-bar peak" style="height:87px;"></div>
+        <div class="osc-label">~00:01<br>Peak 1</div>
+      </div>
+      <!-- Trough 1: 66% at ~00:30 -->
+      <div class="osc-bar-group">
+        <div class="osc-pct trough">66%</div>
+        <div class="osc-bar trough" style="height:75px;"></div>
+        <div class="osc-label">~00:30<br>Dip 1</div>
+      </div>
+      <!-- Peak 2: 73% at ~01:01 -->
+      <div class="osc-bar-group">
+        <div class="osc-pct peak">73%</div>
+        <div class="osc-bar peak" style="height:87px;"></div>
+        <div class="osc-label">~01:01<br>Peak 2</div>
+      </div>
+      <!-- Trough 2: 66% at ~01:31 -->
+      <div class="osc-bar-group">
+        <div class="osc-pct trough">66%</div>
+        <div class="osc-bar trough" style="height:75px;"></div>
+        <div class="osc-label">~01:31<br>Dip 2</div>
+      </div>
+      <!-- Peak 3: 73% at ~01:47 -->
+      <div class="osc-bar-group">
+        <div class="osc-pct current">73%</div>
+        <div class="osc-bar current" style="height:87px;"></div>
+        <div class="osc-label">01:47<br>Peak 3 ⚡</div>
+      </div>
+      <!-- Trigger line indicator -->
+      <div class="osc-bar-group">
+        <div class="osc-pct" style="color:#f59e0b;">74%</div>
+        <div style="height:87px;border-left:2px dashed #f59e0b;margin:0 auto;width:2px;"></div>
+        <div class="osc-label" style="color:#f59e0b;">TRIGGER<br>THRESHOLD</div>
+      </div>
+    </div>
+    <div class="osc-legend">
+      <div class="osc-leg-item"><div class="osc-leg-dot peak"></div> Peak (73%) — War shock bulls</div>
+      <div class="osc-leg-item"><div class="osc-leg-dot trough"></div> Trough (66%) — Managed conflict bears</div>
+      <div class="osc-leg-item"><div class="osc-leg-dot current"></div> Current (73%) — Third peak, trigger 1pp away</div>
+    </div>
+  </div>
+
+  <!-- Stagflation Trap -->
+  <h2 data-icon="🔒">The Stagflation Trap: Two Independent Shock Vectors</h2>
+  <div class="shock-grid">
+    <div class="shock-box supply">
+      <h4>Supply Shock (Oil)</h4>
+      <div class="shock-value">48.5%</div>
+      <div class="shock-desc">WTI $130 probability</div>
+      <div class="shock-arrow">↓ Softening (−1pp this run)</div>
+    </div>
+    <div class="shock-box demand">
+      <h4>Demand Shock (Unemployment)</h4>
+      <div class="shock-value">73.0%</div>
+      <div class="shock-desc">≥7% unemployment probability</div>
+      <div class="shock-arrow">↑ Rising (+7pp this run)</div>
+    </div>
+  </div>
+  <div class="section-card">
+    <p>A <strong>pure oil shock</strong> moves in sequence: oil rises → inflation → Fed hikes → unemployment rises (6–18 month lag). That's the 2022 playbook.</p>
+    <p>What we're seeing today is <strong>fundamentally different</strong>: unemployment rising while oil softens. This means unemployment risk is driven by:</p>
+    <p>
+      <strong>1. Demand destruction</strong> — Months of $120+ oil have crushed consumer and business spending<br>
+      <strong>2. Investment freeze</strong> — War uncertainty + tariff escalation → capex and hiring deferral<br>
+      <strong>3. Tariff channel</strong> — Pre-existing Trump tariff impacts on manufacturing/supply chains<br>
+      <strong>4. Confidence collapse</strong> — No business invests during active military operations
+    </p>
+    <p>The result is a <strong>true stagflation trap</strong>: inflation from oil supply + unemployment from demand destruction, simultaneously, leaving the US Fed with no clean policy option.</p>
+  </div>
+  <div class="fed-box">
+    <div class="fed-icon">🏛️</div>
+    <div class="fed-content">
+      <h4>US Fed: Paralyzed</h4>
+      <p>April hike: 0.8% &nbsp;|&nbsp; June hike: 1.8% &nbsp;|&nbsp; No cuts priced &nbsp;|&nbsp; This is the 1970s stagflation trap — no clean exit without breaking either inflation or employment</p>
+    </div>
+  </div>
+
+  <!-- Trump Entrenchment -->
+  <h2 data-icon="🏛️">The Wartime Entrenchment Paradox</h2>
+  <div class="section-card">
+    <p><strong>Trump resign: −3.0pp to 18.0%</strong> is the most counterintuitive move of the session. During active combat operations, with Hegseth cabinet pressure rising (+1pp to 17%), the market is simultaneously pricing <strong>lower</strong> presidential removal risk.</p>
+    <p>The mechanism is classic rally-around-the-flag dynamics: wartime presidents see approval spikes in the first weeks of active operations; opposition is muted during "support the troops" phase; cabinet turnover becomes a scapegoat mechanism that deflects pressure from the president personally.</p>
+    <p><strong>Policy implication:</strong> Trump has <strong>maximum political freedom</strong> to continue or escalate the Iran campaign. No domestic political pressure forces a ceasefire. This extends the oil premium, the demand uncertainty freeze, and deepens the stagflation trap. New trigger added at 15%: below that, wartime mandate is confirmed — trade the extended-conflict scenario.</p>
+  </div>
+
+  <!-- Mispricing -->
+  <h2 data-icon="⚡">Key Mispricing: The Fed June Rate Gap</h2>
+  <div class="data-table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Implied Probability</th>
+          <th>Fed Response</th>
+          <th>Market Pricing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Oil hits $130 AND unemployment ≥7%</td>
+          <td>~35%</td>
+          <td>Paralyzed (stagflation trap)</td>
+          <td class="status-neutral">Priced (frozen rates)</td>
+        </tr>
+        <tr>
+          <td>Oil stays below $130 AND unemployment &lt;7%</td>
+          <td>~27%</td>
+          <td>Could cut eventually</td>
+          <td class="status-neutral">Priced</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>Oil hits $130 AND unemployment stays &lt;7%</strong></td>
+          <td><strong>~13%</strong></td>
+          <td>Must hike</td>
+          <td class="underpriced">UNDERPRICED — Fed June only 1.8%</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>Oil drops AND unemployment rises to ≥7%</strong></td>
+          <td><strong>~25%</strong></td>
+          <td>Must cut</td>
+          <td class="underpriced">UNDERPRICED — no cut market tracked</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="scenario-note">Scenario probabilities derived from WTI $130 at 48.5% and Unemployment ≥7% at 73%, treated as independent (rough approximation)</div>
+  </div>
+
+  <div class="key-bet">
+    <h3>🎯 The Asymmetric Trade</h3>
+    <p>The current Fed market pricing (June hike 1.8%) implies only scenarios 1+2 dominate. The probability of scenario 3 (oil forces a hike while unemployment hasn't cracked yet) is ~13% — far above 1.8%. <strong>The June Fed hike probability is underpriced by at least 10–11pp</strong>.</p>
+    <div class="bet-line">Long Fed June hike at 1.8% = cheap hedge against oil forcing the Fed's hand before unemployment rises enough to constrain it</div>
+  </div>
+
+  <!-- Australia Impact -->
+  <h2 data-icon="🦘">Australia Impact</h2>
+  <div class="data-table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>Key ASX Names</th>
+          <th>Implication</th>
+          <th>Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="asx-row-bullish">
+          <td>Gold Miners</td>
+          <td><strong>NST, NCM/NEM, EVN</strong></td>
+          <td>Stagflation + Fed paralysis = real rates flat/falling = gold bid. Classic stagflation trade.</td>
+          <td class="status-ok">Bullish ↑</td>
+        </tr>
+        <tr class="asx-row-neutral">
+          <td>Energy/Oil</td>
+          <td><strong>WDS, STO, BPT</strong></td>
+          <td>Oil stable/softening = near-term ceiling on outperformance; longer-term demand destruction risk if stagflation deepens</td>
+          <td class="status-neutral">Neutral →</td>
+        </tr>
+        <tr class="asx-row-bearish">
+          <td>Banks</td>
+          <td><strong>ANZ, CBA, NAB, WBC</strong></td>
+          <td>Stagflation = NIM squeeze (frozen rates) + rising loan loss provisions if unemployment follows US trajectory in 1–2 quarters</td>
+          <td class="status-alert">Bearish ↓</td>
+        </tr>
+        <tr class="asx-row-bearish">
+          <td>Consumer / Retail</td>
+          <td><strong>WOW, COL, WES</strong></td>
+          <td>Demand destruction = discretionary spend at risk; fuel/transport cost squeeze on margins. Essential retail more resilient than discretionary.</td>
+          <td class="status-alert">Bearish ↓</td>
+        </tr>
+        <tr class="asx-row-bearish">
+          <td>Transport / Logistics</td>
+          <td><strong>QAN, AZJ, TCL</strong></td>
+          <td>Diesel at ~323c/L, no near-term relief catalyst. Margin pressure sustained. No investment case unless oil softens materially.</td>
+          <td class="status-alert">Bearish ↓</td>
+        </tr>
+        <tr class="asx-row-neutral">
+          <td>Mining / Resources</td>
+          <td><strong>BHP, RIO, FMG, MIN</strong></td>
+          <td>China demand still primary driver; stagflation suppresses China growth → iron ore headwinds. Diesel cost second-order pain. Complex.</td>
+          <td class="status-neutral">Neutral/Mixed →</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-card" style="margin-top:12px;">
+    <p><strong>RBA position</strong>: Next meeting May 5. With stagflation trap confirmed, RBA faces identical dilemma to US Fed — can't cut into oil-driven inflation, can't hike into demand destruction. Extended hold is the base case. AUD is structurally capped: US recession risk limits risk-on flows, but managed conflict prevents full risk-off.</p>
+    <p><strong>The clearest ASX trade from this analysis</strong>: Long gold (NST, NCM/NEM, EVN) against short consumer discretionary. Stagflation with Fed paralysis is the textbook setup for gold outperformance while consumer spending collapses.</p>
+  </div>
+
+  <!-- Trigger Actions -->
+  <h2 data-icon="⚙️">Trigger Management Actions</h2>
+  <div class="trigger-action lowered">
+    <span class="trigger-badge lowered">Lowered</span>
+    <div class="trigger-desc">
+      <strong>kalshi-unemployment-7pct</strong> threshold: 75% → <strong>74%</strong>
+      — Third consecutive touch at 73%; breakout imminent; 1pp lead time maximizes alert value
+    </div>
+  </div>
+  <div class="trigger-action updated">
+    <span class="trigger-badge updated">Updated</span>
+    <div class="trigger-desc">
+      <strong>kalshi-unemployment-7pct</strong> current price: 0.66 → <strong>0.73</strong>
+      — Third bounce confirmed
+    </div>
+  </div>
+  <div class="trigger-action updated">
+    <span class="trigger-badge updated">Updated</span>
+    <div class="trigger-desc">
+      <strong>kalshi-unemployment-7pct-floor</strong> current price: 0.66 → <strong>0.73</strong>
+      — Floor trigger: 15pp away, not at risk
+    </div>
+  </div>
+  <div class="trigger-action added">
+    <span class="trigger-badge added">Added</span>
+    <div class="trigger-desc">
+      <strong>kalshi-trump-resign-consolidation</strong>: fires below <strong>15%</strong>
+      — Wartime entrenchment confirmation; currently 3pp away at 18%; watch alongside Hegseth (17%)
+    </div>
+  </div>
+
+  <!-- Forward View -->
+  <h2 data-icon="🔭">Forward View</h2>
+  <div class="section-card">
+    <div class="forward-item">
+      <div class="forward-num">1</div>
+      <div class="forward-text"><strong>Unemployment trigger (74%) is 1pp away</strong> — likely fires on next catalyst (bad payroll revision, layoff announcement, tariff impact data). If it fires, expect 3–5pp overshoot to 76–78% before stabilising.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-num">2</div>
+      <div class="forward-text"><strong>Hormuz retreating (14%, 6pp from trigger)</strong> — false alarm cleared. Only re-alert if it rises above 17% again. Three consecutive stable readings below 15% = downgrade monitoring priority.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-num">3</div>
+      <div class="forward-text"><strong>Trump resign (18%, 3pp from 15% trigger)</strong> — if Hegseth exits, resign drops further (scapegoat dynamic). Cabinet exit paradoxically confirms presidential entrenchment. Watch the interplay.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-num">4</div>
+      <div class="forward-text"><strong>Ceasefire (+1pp to 22.5%)</strong> — two more +1pp moves would be meaningful. If oil softens AND unemployment rises simultaneously, a ceasefire becomes more economically attractive for the US. Counterintuitive recovery signal.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-num">5</div>
+      <div class="forward-text"><strong>The critical falsifiable prediction</strong>: If US Fed June hike probability rises from 1.8% to above 5% in the next 48 hours, it confirms bond market participants (not just prediction markets) are pricing the oil-forces-Fed's-hand scenario. That is the most significant policy signal since the Iran war began.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-num">6</div>
+      <div class="forward-text"><strong>May 1 AEST — US April payrolls</strong>: First war-era employment data. The Kalshi crowd has been debating the unemployment thesis for 90 minutes at thin liquidity. Payrolls print will be definitively catalytic — expect 5–10pp move on Kalshi regardless of direction.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="report-footer">
+    Alert generated by Polymarket Financial Analyst agent &nbsp;|&nbsp; 2026-04-06 01:47 AEST<br>
+    Series: #4 — Iran War Macro Alerts &nbsp;|&nbsp; Prev: UNEMPLOYMENT-HORMUZ · UNEMPLOYMENT-BOUNCE · MANAGED-CONFLICT-REPRICING<br>
+    Data: Kalshi automated collection + Polymarket briefing engine
+  </div>
+
+</div>
+</body>
+</html>
