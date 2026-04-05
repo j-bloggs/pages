@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚨 ALERT: AG Reshuffle + Israel Ground War Signal — 5 Apr 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --red: #f85149;
+    --red-dim: #3d1f1f;
+    --orange: #e3a141;
+    --orange-dim: #3d2a10;
+    --yellow: #d29922;
+    --green: #3fb950;
+    --green-dim: #1a3520;
+    --blue: #58a6ff;
+    --blue-dim: #1b3558;
+    --purple: #a371f7;
+    --teal: #39d353;
+    --accent: #1f6feb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 0 0 60px;
+  }
+
+  /* === HEADER === */
+  .report-header {
+    background: linear-gradient(135deg, #3d0f0f 0%, #1a0808 50%, #0d1117 100%);
+    border-bottom: 2px solid var(--red);
+    padding: 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 40px,
+      rgba(248,81,73,0.03) 40px, rgba(248,81,73,0.03) 41px
+    );
+  }
+  .alert-badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  .report-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .report-header .subtitle {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .report-header .subtitle span {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  /* === LAYOUT === */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* === ALERT BANNER === */
+  .alert-banner {
+    background: var(--red-dim);
+    border: 1px solid var(--red);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 28px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .alert-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .alert-item .label { color: var(--text-dim); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .alert-item .value { color: var(--red); font-size: 20px; font-weight: 700; }
+  .alert-item .meta { color: var(--text-dim); font-size: 12px; }
+
+  /* === EXECUTIVE SUMMARY === */
+  .exec-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 28px 0;
+  }
+  .exec-summary h2 { color: var(--orange); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .exec-summary p { color: var(--text); line-height: 1.8; }
+  .exec-summary p + p { margin-top: 12px; }
+
+  /* === SECTIONS === */
+  .section {
+    margin: 36px 0;
+  }
+  .section-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .section-number {
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .tag-alert { background: rgba(248,81,73,0.2); color: var(--red); border: 1px solid var(--red); }
+  .tag-new { background: rgba(63,185,80,0.2); color: var(--green); border: 1px solid var(--green); }
+  .tag-watch { background: rgba(227,161,65,0.2); color: var(--orange); border: 1px solid var(--orange); }
+  .tag-info { background: rgba(88,166,255,0.2); color: var(--blue); border: 1px solid var(--blue); }
+
+  /* === TABLES === */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 16px 0;
+  }
+  .data-table th {
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+    vertical-align: middle;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .move-up { color: var(--green); font-weight: 700; }
+  .move-down { color: var(--red); font-weight: 700; }
+  .move-flat { color: var(--text-dim); }
+  .price-high { color: var(--red); font-weight: 700; }
+  .price-mid { color: var(--orange); font-weight: 600; }
+  .price-low { color: var(--text-dim); }
+  .row-alert { background: rgba(248,81,73,0.05) !important; }
+  .row-new { background: rgba(63,185,80,0.05) !important; }
+
+  /* === MISPRICING CARD === */
+  .mispricing-card {
+    background: var(--orange-dim);
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .mispricing-card h3 {
+    color: var(--orange);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mispricing-card .math {
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 16px;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 2;
+    margin: 12px 0;
+    color: var(--text);
+  }
+  .mispricing-card .conclusion {
+    font-size: 14px;
+    color: var(--text);
+    margin-top: 12px;
+  }
+  .highlight-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--orange);
+    display: block;
+  }
+
+  /* === ESCALATION CHART === */
+  .escalation-tree {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 16px 0;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 2;
+  }
+  .esc-tier1 { color: var(--red); font-weight: 700; font-size: 14px; }
+  .esc-tier2 { color: var(--orange); margin-left: 20px; }
+  .esc-tier3 { color: var(--text-dim); margin-left: 40px; }
+  .esc-connector { color: var(--border); }
+
+  /* === TRIGGER PROGRESS BARS === */
+  .trigger-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .trigger-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .trigger-card.new-trigger {
+    border-color: var(--green);
+    background: var(--green-dim);
+  }
+  .trigger-card .t-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .trigger-card .t-label .new-badge {
+    font-size: 9px;
+    padding: 1px 6px;
+    background: var(--green);
+    color: black;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .progress-bar {
+    height: 8px;
+    background: var(--surface2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+  }
+  .progress-bar .threshold-marker {
+    position: absolute;
+    top: -2px;
+    height: 12px;
+    width: 2px;
+    background: var(--orange);
+    border-radius: 1px;
+  }
+  .trigger-card .t-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .trigger-card .t-meta .gap { color: var(--orange); font-weight: 600; }
+
+  /* === ASX IMPACT TABLE === */
+  .impact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 16px 0;
+  }
+  .impact-table th {
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .impact-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  .impact-table tr:last-child td { border-bottom: none; }
+  .impact-bull { color: var(--green); font-weight: 600; }
+  .impact-bear { color: var(--red); font-weight: 600; }
+  .impact-mixed { color: var(--yellow); font-weight: 600; }
+  .ticker { font-family: monospace; font-size: 11px; color: var(--text-dim); }
+
+  /* === FORWARD VIEW === */
+  .forward-list {
+    list-style: none;
+    margin: 16px 0;
+  }
+  .forward-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .forward-item .fi-num {
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .forward-item .fi-content strong { color: var(--blue); }
+  .forward-item .fi-window {
+    font-size: 10px;
+    color: var(--text-dim);
+    padding: 2px 8px;
+    background: var(--surface2);
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  /* === ACTIONS TAKEN === */
+  .actions-box {
+    background: var(--green-dim);
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+  .actions-box h3 { color: var(--green); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .action-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .action-row:last-child { margin-bottom: 0; }
+  .action-icon { color: var(--green); font-size: 16px; flex-shrink: 0; }
+  .action-text strong { color: var(--green); }
+
+  /* === FOOTER === */
+  .footer {
+    margin-top: 48px;
+    padding: 20px 40px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .brand { color: var(--accent); font-weight: 600; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 700px) {
+    .container { padding: 0 16px; }
+    .report-header { padding: 20px 16px; }
+    .alert-banner { grid-template-columns: 1fr; }
+    .trigger-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="container">
+    <div class="alert-badge">⚡ URGENT ALERT — AUTO-TRIGGERED</div>
+    <h1>🚨 AG Reshuffle + Israel Ground War Signal</h1>
+    <div class="subtitle">
+      Polymarket / Kalshi Intelligence &nbsp;·&nbsp;
+      <span>5 April 2026, 23:02 AEST</span> &nbsp;·&nbsp;
+      Multi-event alert: Political + Escalation
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ALERT BANNER -->
+  <div class="alert-banner">
+    <div class="alert-item">
+      <span class="label">🏛️ Kalshi Alert — AG Candidate</span>
+      <span class="value">8.0% &nbsp;▼−5.0pp</span>
+      <span class="meta">Who will be Trump's next Attorney General?</span>
+    </div>
+    <div class="alert-item">
+      <span class="label">⚔️ Polymarket Alert — Israel Ground Ops</span>
+      <span class="value">35.5% &nbsp;▲+21.0pp</span>
+      <span class="meta">Will Israel launch a ground op in Iran by Apr 30? — LARGEST MOVE THIS CYCLE</span>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>Two simultaneous signals have fired this cycle, each material in isolation and compounding when read together. First, the <strong>Attorney General succession race</strong> has materially shifted — Lee Zeldin collapsed −17pp to 36.5% on Polymarket while a Kalshi AG candidate dropped −5pp to 8.0%, signalling a wartime cabinet reshuffle with an unknown successor.</p>
+    <p>Second, and more macro-critical, <strong>Israel launching a ground operation in Iran by April 30 surged +21pp in a single day to 35.5%</strong> — the largest one-day move in the monitoring cycle outside of the US-enters-Iran market itself. The original US-Iran bilateral conflict (99.7%) is priced history. The new risk is multi-theatre escalation: US air + Israel ground + Iran→UAE exchange + simultaneous Gaza operations. Oil markets are not pricing this correctly. <strong>WTI $150 is underpriced by approximately 12pp given the Israel ground ops probability.</strong></p>
+  </div>
+
+  <!-- SECTION 1: ATTORNEY GENERAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2>The Attorney General Reshuffle</h2>
+      <span class="section-tag tag-alert">KALSHI TRIGGER</span>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Market</th><th>Platform</th><th>Price</th><th>24h Change</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-alert">
+          <td>Who will be Trump's next AG? (candidate)</td>
+          <td>Kalshi</td>
+          <td class="price-low">8.0%</td>
+          <td class="move-down">▼ −5.0pp ⚠️ ALERT</td>
+        </tr>
+        <tr>
+          <td>Lee Zeldin as next AG by June 30</td>
+          <td>Polymarket</td>
+          <td class="price-low">36.5%</td>
+          <td class="move-down">▼ −17.0pp</td>
+        </tr>
+        <tr>
+          <td>How many AGs will Trump have? (≥3 bucket)</td>
+          <td>Kalshi</td>
+          <td class="price-low">9.0%</td>
+          <td class="move-up">▲ +1.0pp</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="color: var(--text-dim); margin-bottom:16px;">Zeldin was the market's consensus AG frontrunner as recently as 48 hours ago. A −17pp collapse to 36.5% in a single day is decisive — the market is saying he's no longer favourite. The Kalshi confirmation (−5pp on an 8% candidate) suggests a specific individual is being priced out across both platforms simultaneously.</p>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; margin:16px 0;">
+      <h3 style="color:var(--blue); margin-bottom:12px; font-size:14px;">Why It Matters for Financial Markets</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        <div style="background:var(--surface2); border-radius:6px; padding:14px;">
+          <div style="color:var(--text-dim); font-size:11px; margin-bottom:6px;">🔐 CRYPTO</div>
+          <div style="font-size:13px;">DOJ crypto enforcement posture changes. New AG = uncertainty for BTC, ETH, exchange stocks (Coinbase).</div>
+        </div>
+        <div style="background:var(--surface2); border-radius:6px; padding:14px;">
+          <div style="color:var(--text-dim); font-size:11px; margin-bottom:6px;">📊 ANTITRUST</div>
+          <div style="font-size:13px;">Big Tech (Alphabet, Meta, Amazon) benefited from current light touch. New AG risks reactivating pressure.</div>
+        </div>
+        <div style="background:var(--surface2); border-radius:6px; padding:14px;">
+          <div style="color:var(--text-dim); font-size:11px; margin-bottom:6px;">🔒 NATIONAL SECURITY</div>
+          <div style="font-size:13px;">During active war, AG succession = brief intelligence continuity risk. Markets hate uncertainty at DOJ in wartime.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: ISRAEL GROUND OPS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2>Israel Ground Operation in Iran — The Biggest Unpriced Risk</h2>
+      <span class="section-tag tag-alert">LARGEST MOVE THIS CYCLE</span>
+      <span class="section-tag tag-new">NEW TRIGGER ADDED</span>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Market</th><th>Platform</th><th>Price</th><th>24h Change</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-alert">
+          <td><strong>Israel ground op in Iran by Apr 30</strong></td>
+          <td>Polymarket</td>
+          <td class="price-mid">35.5%</td>
+          <td class="move-up">▲ +21.0pp ⚠️ LARGEST MOVE</td>
+        </tr>
+        <tr>
+          <td>US enters Iran by Apr 30</td>
+          <td>Polymarket</td>
+          <td class="price-high">99.7%</td>
+          <td class="move-up">▲ +15.2pp</td>
+        </tr>
+        <tr>
+          <td>Israel military action in Gaza Apr 5</td>
+          <td>Polymarket</td>
+          <td class="price-high">87.5%</td>
+          <td class="move-up">▲ +46.0pp</td>
+        </tr>
+        <tr>
+          <td>Iran strikes UAE in March</td>
+          <td>Polymarket</td>
+          <td class="price-high">83.5%</td>
+          <td class="move-up">▲ +30.4pp</td>
+        </tr>
+        <tr>
+          <td>Iran strikes UAE by Apr 30</td>
+          <td>Polymarket</td>
+          <td class="price-high">92.8%</td>
+          <td class="move-up">▲ +3.8pp</td>
+        </tr>
+        <tr>
+          <td>WTI $130 in April</td>
+          <td>Polymarket</td>
+          <td class="price-mid">50.5%</td>
+          <td class="move-down">▼ −3.0pp</td>
+        </tr>
+        <tr>
+          <td>WTI $140 in April</td>
+          <td>Polymarket</td>
+          <td class="price-mid">34.5%</td>
+          <td class="move-flat">▶ flat</td>
+        </tr>
+        <tr>
+          <td>WTI $150 in April</td>
+          <td>Polymarket</td>
+          <td class="price-low">19.5%</td>
+          <td class="move-flat">▶ flat</td>
+        </tr>
+        <tr>
+          <td>WTI $200 in April</td>
+          <td>Polymarket</td>
+          <td class="price-low">2.9%</td>
+          <td class="move-up">▲ +0.1pp</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Escalation Architecture -->
+    <div class="escalation-tree">
+      <div class="esc-tier1">⚔️  MULTI-THEATRE ESCALATION ARCHITECTURE (2026-04-05)</div>
+      <div class="esc-tier2">├─ US Air Operations vs Iran &nbsp;&nbsp;&nbsp; 99.7% ✓ priced history</div>
+      <div class="esc-tier2">├─ Israel Ground Operation in Iran &nbsp; 35.5% (+21pp/day) 🚨 NEW SIGNAL</div>
+      <div class="esc-tier2">├─ Israel Operations in Gaza &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 87.5% (+46pp/24h)</div>
+      <div class="esc-tier2">├─ Iran → UAE Strike in March &nbsp;&nbsp;&nbsp;&nbsp; 83.5% (+30pp/24h)</div>
+      <div class="esc-tier2">└─ Ukraine re-enters Rodynske &nbsp;&nbsp;&nbsp;&nbsp; 85.5% (+66pp/24h) — 4th theatre</div>
+      <div class="esc-tier3" style="margin-top:8px; color: var(--red);">→ This is not one war. This is four simultaneous military theatres.</div>
+    </div>
+
+    <!-- MISPRICING CARD -->
+    <div class="mispricing-card">
+      <h3>⚠️ KEY MISPRICING: WTI $150 Underpriced by ~12pp</h3>
+      <p style="color:var(--text-dim); margin-bottom:12px;">If Israel launches a ground operation in Iran, the conflict scope changes fundamentally. A ground operation means Iranian territory penetrated, IRGC full mobilisation, Hezbollah activation, and Hormuz closure becoming indefinite. WTI $150 is the <em>base case</em> under that scenario — not a tail risk.</p>
+      <div class="math">
+P(Israel ground ops)          =  35.5%
+P(WTI $150 | Israel ground)   ≈  75%   [vs current 20% implied by market]
+P(WTI $150 | no ground ops)   ≈   8%
+
+Implied P(WTI $150) = 0.355 × 0.75 + 0.645 × 0.08
+                    = 0.266 + 0.052
+                    = <strong>31.8%</strong>
+
+Market pricing WTI $150       = <strong>19.5%</strong>
+Mispricing gap                = <strong>≈ 12pp</strong> (WTI $150 is too cheap)
+      </div>
+      <div class="conclusion">
+        <strong style="color:var(--orange);">Trade implication:</strong> Long WTI $150 (19.5%) as a hedge against Israel ground ops (35.5%) is the clearest cross-market mispricing this cycle. The market hasn't yet priced the oil tail risk conditional on the Israel escalation signal.
+      </div>
+    </div>
+
+    <!-- Why WTI $130 is cooling -->
+    <div style="background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--blue); border-radius:8px; padding:20px; margin:16px 0;">
+      <h3 style="color:var(--blue); margin-bottom:12px; font-size:14px;">The WTI $130 Paradox: Cooling While War Escalates</h3>
+      <p style="color:var(--text-dim); line-height:1.8;">WTI $130 dropped −3pp to 50.5% even as Israel ground ops jumped +21pp. Two readings: (1) <strong>Demand destruction</strong> — WTI at $112 + war = stagflation fears now compressing demand enough to offset supply shock; (2) <strong>Timing lag</strong> — the Israel ground ops move happened in the same 24h window; oil markets haven't digested it yet.</p>
+      <p style="color:var(--orange); margin-top:12px; font-weight:600;">Prediction: WTI $130 snaps back toward 55%+ within 24h if Israel ground ops signal persists. The markets are not yet talking to each other.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: UKRAINE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2>Ukraine Re-Activating — Fourth Theatre Opening</h2>
+      <span class="section-tag tag-watch">CONTEXT</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; margin:16px 0;">
+      <div style="text-align:center;">
+        <span class="highlight-number">85.5%</span>
+        <span style="color:var(--text-dim); font-size:11px; display:block;">Ukraine re-enters Rodynske</span>
+        <span style="color:var(--green); font-size:13px; font-weight:700;">▲ +66.0pp in 24h</span>
+      </div>
+      <div>
+        <p style="color:var(--text-dim); line-height:1.8;">An 85.5% market surging +66pp in 24 hours means this is effectively a resolution event — Ukraine has re-entered or is imminently doing so. The strategic signal: <strong>Russia-Ukraine is re-escalating precisely when Western attention is consumed by Iran.</strong> This is either Ukrainian opportunism (NATO attention elsewhere) or pre-planned offensive coordinated with Iran distraction.</p>
+        <p style="margin-top:10px; color:var(--text);">Impact: European gas markets negative, Eastern European equities pressure, global risk appetite hit. For ASX, indirect via global sentiment and EUR/AUD correlation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: FED -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2>US Fed — The Stagflation Trap Is Complete</h2>
+      <span class="section-tag tag-info">MONETARY POLICY</span>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Market</th><th>Platform</th><th>Price</th><th>Change</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fed holds April 2026</td>
+          <td>Polymarket</td>
+          <td class="price-high">98.2%</td>
+          <td class="move-down">▼ −0.1pp</td>
+        </tr>
+        <tr>
+          <td>Fed 25bp cut April</td>
+          <td>Polymarket</td>
+          <td class="price-low">0.7%</td>
+          <td class="move-flat">▶ flat</td>
+        </tr>
+        <tr>
+          <td>Fed 25bp hike April</td>
+          <td>Polymarket</td>
+          <td class="price-low">0.8%</td>
+          <td class="move-up">▲ +0.1pp</td>
+        </tr>
+        <tr>
+          <td>Fed holds June 2026</td>
+          <td>Polymarket</td>
+          <td class="price-high">90.5%</td>
+          <td class="move-flat">▶ flat</td>
+        </tr>
+        <tr>
+          <td>Fed 25bp cut June</td>
+          <td>Polymarket</td>
+          <td class="price-low">6.5%</td>
+          <td class="move-up">▲ +1.0pp</td>
+        </tr>
+        <tr>
+          <td>Kalshi: US unemployment ≥7% before 2030</td>
+          <td>Kalshi</td>
+          <td class="price-mid">73.0%</td>
+          <td class="move-flat">▶ flat</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="color:var(--text-dim); padding:12px 0;">The US Fed is locked in the stagflation trap: multi-theatre war, oil above $110, unemployment rising. Cannot cut without capitulating to war inflation. Cannot hike without crushing a weakening economy. The +1pp on June cut is noise. The message: <strong>the Fed is irrelevant until the conflict resolves</strong> — which ceasefire markets say won't happen before April 30 (1.1%).</p>
+  </div>
+
+  <!-- SECTION 5: TRIGGER DASHBOARD -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2>Trigger Status Dashboard (15 Active)</h2>
+      <span class="section-tag tag-info">MONITORING</span>
+    </div>
+
+    <div class="trigger-grid">
+      <div class="trigger-card new-trigger">
+        <div class="t-label">Israel ground op in Iran <span class="new-badge">NEW</span></div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:35.5%; background:linear-gradient(90deg, #3fb950, #3fb950);"></div>
+          <div class="threshold-marker" style="left:45%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 35.5%</span><span class="gap">Gap: 9.5pp ↑45%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">WTI $130 in April</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:50.5%; background:linear-gradient(90deg, #e3a141, #f85149);"></div>
+          <div class="threshold-marker" style="left:65%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 50.5%</span><span class="gap">Gap: 14.5pp ↑65%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">WTI $140 in April</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:34.5%; background:linear-gradient(90deg, #d29922, #e3a141);"></div>
+          <div class="threshold-marker" style="left:48%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 34.5%</span><span class="gap">Gap: 13.5pp ↑48%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">WTI $150 in April</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:19.5%; background:linear-gradient(90deg, #58a6ff, #a371f7);"></div>
+          <div class="threshold-marker" style="left:35%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 19.5%</span><span class="gap">Gap: 15.5pp ↑35%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">UAE strikes Iran by Apr 30</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:24.5%; background:linear-gradient(90deg, #58a6ff, #e3a141);"></div>
+          <div class="threshold-marker" style="left:35%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 24.5%</span><span class="gap">Gap: 10.5pp ↑35%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">US-Iran ceasefire Apr 30</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:19.5%; background:#3fb950;"></div>
+          <div class="threshold-marker" style="left:10%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 19.5%</span><span class="gap">Gap: 9.5pp ↓10%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">Kharg Island falls Apr 30</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:18.5%; background:#58a6ff;"></div>
+          <div class="threshold-marker" style="left:30%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 18.5%</span><span class="gap">Gap: 11.5pp ↑30%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">WTI $200 in April</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:2.9%; background:#f85149;"></div>
+          <div class="threshold-marker" style="left:10%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 2.9%</span><span class="gap">Gap: 7.1pp ↑10%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">Trump China visit May 31</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:64.5%; background:#3fb950;"></div>
+          <div class="threshold-marker" style="left:75%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 64.5%</span><span class="gap">Gap: 10.5pp ↑75%</span></div>
+      </div>
+      <div class="trigger-card">
+        <div class="t-label">Trump China visit collapses</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:64.5%; background:#f85149;"></div>
+          <div class="threshold-marker" style="left:52%;"></div>
+        </div>
+        <div class="t-meta"><span>Current: 64.5%</span><span class="gap">Gap: 12.5pp ↓52%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ASX IMPACT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2>ASX / Australian Market Impact</h2>
+      <span class="section-tag tag-info">AUSTRALIA</span>
+    </div>
+
+    <p style="color:var(--text-dim); margin-bottom:16px;">With Iran war certainty at 99.7% and Israel ground ops emerging at 35.5%, Australian investors face a compounding oil shock through AUD weakness and fuel import costs.</p>
+
+    <table class="impact-table">
+      <thead>
+        <tr><th>Sector</th><th>Key Stocks</th><th>Israel Ground Ops Impact</th><th>Direction</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Energy / Oil</td>
+          <td class="ticker">WDS, STO, BPT</td>
+          <td>Multi-theatre war = sustained oil premium; LNG export prices surge</td>
+          <td class="impact-bull">▲ STRONGLY BULLISH</td>
+        </tr>
+        <tr>
+          <td>Gold</td>
+          <td class="ticker">NST, EVN, NCM</td>
+          <td>Geopolitical fear premium + USD hedge; multi-theatre war boosts gold</td>
+          <td class="impact-bull">▲ BULLISH</td>
+        </tr>
+        <tr>
+          <td>Mining / Resources</td>
+          <td class="ticker">BHP, RIO, FMG, MIN</td>
+          <td>China demand uncertain; diesel cost surge hurts margins</td>
+          <td class="impact-mixed">◆ MIXED</td>
+        </tr>
+        <tr>
+          <td>Airlines</td>
+          <td class="ticker">QAN</td>
+          <td>Jet fuel cost surge; Middle East routes disrupted; tourism risk</td>
+          <td class="impact-bear">▼ BEARISH</td>
+        </tr>
+        <tr>
+          <td>Consumer / Retail</td>
+          <td class="ticker">WOW, COL, WES</td>
+          <td>Transport cost pass-through to food/goods prices; consumer squeeze</td>
+          <td class="impact-bear">▼ BEARISH</td>
+        </tr>
+        <tr>
+          <td>Banks</td>
+          <td class="ticker">ANZ, CBA, NAB, WBC</td>
+          <td>Recession risk rising; credit quality concerns; RBA frozen = no rate relief</td>
+          <td class="impact-bear">▼ BEARISH</td>
+        </tr>
+        <tr>
+          <td>Logistics / Transport</td>
+          <td class="ticker">AZJ, TCL</td>
+          <td>Diesel cost surge; freight surcharges materialise</td>
+          <td class="impact-bear">▼ BEARISH</td>
+        </tr>
+        <tr>
+          <td>Tech</td>
+          <td class="ticker">XRO, WTC, APX</td>
+          <td>Nasdaq correlation; DOJ crypto uncertainty (AG reshuffle)</td>
+          <td class="impact-mixed">◆ MIXED</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--orange); border-radius:8px; padding:16px; margin:12px 0;">
+      <strong style="color:var(--orange);">Single trade to watch:</strong>
+      <span style="color:var(--text);"> Long WDS/STO (oil leverage) + Long NST/EVN (gold fear) + Short QAN (jet fuel) — captures the Israel ground ops scenario directly across three ASX sectors.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 7: FORWARD VIEW -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <h2>Forward View &amp; Actionable Predictions</h2>
+      <span class="section-tag tag-watch">FORWARD LOOKING</span>
+    </div>
+
+    <ul class="forward-list">
+      <li class="forward-item">
+        <div class="fi-num">1</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 12–24h (by 23:00 AEST 6 Apr)</span><br>
+          <strong>Israel ground ops trigger (45%)</strong> is 9.5pp away. At +21pp/day velocity, this fires within 12 hours if trend holds. Watch for news of Israeli ground forces crossing the Iranian border or southwestern Iran border areas. A trigger fire is the signal to immediately upgrade WTI $140 and $150 positions.
+        </div>
+      </li>
+      <li class="forward-item">
+        <div class="fi-num">2</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 12–24h</span><br>
+          <strong>WTI $130 expected to snap back toward 55%</strong>. The cooling in WTI $130 (−3pp) occurred in the same window as the Israel ground ops surge. Oil hasn't priced the Israel escalation yet. The two markets are out of sync — expect convergence upward.
+        </div>
+      </li>
+      <li class="forward-item">
+        <div class="fi-num">3</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 48–72h</span><br>
+          <strong>Iran strikes UAE in March at 83.5%</strong> — near-resolution. When confirmed, UAE retaliation trigger (24.5%, thresh 35%) could spike sharply. Watch for UAE retaliation trigger to fire within 24h of confirmed UAE strike.
+        </div>
+      </li>
+      <li class="forward-item">
+        <div class="fi-num">4</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 48–72h</span><br>
+          <strong>WTI $140 trigger (48%)</strong> currently 13.5pp away. If Israel ground ops fire AND UAE is struck, combined supply shock narrative pushes WTI $140 toward the 48% trigger within 48h.
+        </div>
+      </li>
+      <li class="forward-item">
+        <div class="fi-num">5</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 24h</span><br>
+          <strong>AG successor emerges</strong>: Watch Kalshi "Who will be next AG?" for any candidate crossing 25%+. That's the policy-change signal for DOJ direction on crypto, antitrust, and national security.
+        </div>
+      </li>
+      <li class="forward-item">
+        <div class="fi-num">6</div>
+        <div class="fi-content">
+          <span class="fi-window">Next 3–5 days</span><br>
+          <strong>Kalshi unemployment ≥7% (73%)</strong> watch for cross to 76% trigger. If WTI $130 breaks out, Goldman recession forecast will be revised; Kalshi ≥7% should follow within 3 days. Current gap: 3pp.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="actions-box">
+    <h3>✅ Actions Taken This Run</h3>
+    <div class="action-row">
+      <span class="action-icon">➕</span>
+      <div class="action-text">
+        <strong>New trigger added</strong>: <code>israel-iran-ground-ops</code> — slug <code>will-israel-launch-a-ground-operation-in-iran-by-april-30-2026</code>, threshold 45% (above), reason: largest single-day move in cycle (+21pp), fundamental conflict-scope change. Fires within ~12h at current velocity.
+      </div>
+    </div>
+    <div class="action-row">
+      <span class="action-icon">✓</span>
+      <div class="action-text">
+        <strong>No trigger removals</strong>: All 14 prior triggers remain active and appropriately calibrated. JSON validated.
+      </div>
+    </div>
+    <div class="action-row">
+      <span class="action-icon">📝</span>
+      <div class="action-text">
+        <strong>Analyst notes updated</strong>: Appended to <code>reports/analyst_notes.md</code> with full cross-market synthesis.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <span>Report generated by <span class="brand">Polymarket Analyst Agent</span></span>
+  <span>5 April 2026, 23:02 AEST &nbsp;·&nbsp; Data: Polymarket Gamma API + Kalshi automated collection</span>
+  <span>Prev: KALSHI-ALERT-JOE-EXOTIC-2026-04-05 (21:26 AEST)</span>
+</div>
+
+</body>
+</html>
