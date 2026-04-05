@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Constitutional Risk Cluster + Unemployment Tail Fired — 6 April 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --red: #f85149;
+    --orange: #d29922;
+    --yellow: #e3b341;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --teal: #39d353;
+    --fired: #ff6b35;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+
+  /* HEADER */
+  .alert-banner {
+    background: linear-gradient(135deg, #3d0000 0%, #1a0000 100%);
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .alert-banner::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(248,81,73,0.03) 10px, rgba(248,81,73,0.03) 20px);
+  }
+  .alert-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: var(--red); text-transform: uppercase; margin-bottom: 6px;
+    position: relative;
+  }
+  .alert-banner h1 {
+    font-size: 24px; font-weight: 700; color: #fff;
+    line-height: 1.2; margin-bottom: 10px; position: relative;
+  }
+  .alert-meta {
+    font-size: 13px; color: var(--muted); position: relative;
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .alert-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* HEADLINE STATS */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .stat-card.fired {
+    border-color: var(--fired);
+    background: linear-gradient(135deg, #2d1500 0%, var(--surface) 100%);
+  }
+  .stat-card.warn {
+    border-color: var(--orange);
+  }
+  .stat-card.watch {
+    border-color: var(--blue);
+  }
+  .stat-label {
+    font-size: 11px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: 28px; font-weight: 700; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-delta {
+    font-size: 13px; font-weight: 600;
+  }
+  .stat-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .fired .stat-value { color: var(--fired); }
+  .warn .stat-value { color: var(--orange); }
+  .watch .stat-value { color: var(--blue); }
+
+  /* SECTION */
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  section h2 {
+    font-size: 16px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  section h3 {
+    font-size: 14px; font-weight: 600;
+    color: var(--text); margin: 16px 0 8px;
+  }
+  p { margin-bottom: 10px; color: var(--text); }
+  ul, ol { padding-left: 20px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+
+  /* TABLES */
+  table {
+    width: 100%; border-collapse: collapse; margin: 12px 0;
+    font-size: 13px;
+  }
+  th {
+    text-align: left; padding: 8px 10px;
+    background: var(--surface2);
+    color: var(--muted); font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #1c2128;
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* PROBABILITY BARS */
+  .prob-bar-container {
+    display: flex; align-items: center; gap: 10px; min-width: 120px;
+  }
+  .prob-bar-track {
+    flex: 1; height: 6px; background: var(--surface2);
+    border-radius: 3px; overflow: hidden;
+  }
+  .prob-bar-fill {
+    height: 100%; border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .prob-val { font-weight: 700; min-width: 42px; text-align: right; font-size: 13px; }
+
+  /* BADGES */
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-fired { background: rgba(255,107,53,0.2); color: var(--fired); border: 1px solid var(--fired); }
+  .badge-new { background: rgba(57,211,83,0.1); color: var(--teal); border: 1px solid var(--teal); }
+  .badge-warn { background: rgba(210,153,34,0.15); color: var(--yellow); border: 1px solid var(--orange); }
+  .badge-watch { background: rgba(88,166,255,0.1); color: var(--blue); border: 1px solid var(--blue); }
+  .badge-bullish { background: rgba(63,185,80,0.1); color: var(--green); border: 1px solid var(--green); }
+  .badge-bearish { background: rgba(248,81,73,0.1); color: var(--red); border: 1px solid var(--red); }
+
+  /* DELTA */
+  .up { color: var(--red); font-weight: 700; }
+  .down { color: var(--green); font-weight: 700; }
+  .neutral { color: var(--muted); }
+
+  /* CHART */
+  .chart-wrapper { margin: 16px 0; }
+  .chart-title { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 60px;
+    align-items: center; gap: 10px;
+  }
+  .bar-label { font-size: 12px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-track { height: 20px; background: var(--surface2); border-radius: 4px; overflow: hidden; position: relative; }
+  .bar-fill {
+    height: 100%; border-radius: 4px;
+    display: flex; align-items: center; padding-left: 6px;
+    font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap;
+    min-width: 2px;
+  }
+  .bar-pct { font-size: 13px; font-weight: 700; text-align: right; }
+
+  /* OIL LADDER */
+  .oil-ladder {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .oil-rung {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .oil-rung.highlight { border-color: var(--orange); background: rgba(210,153,34,0.05); }
+  .oil-rung-price { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+  .oil-rung-prob { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .oil-rung-delta { font-size: 11px; }
+
+  /* SCENARIO CARDS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .scenario-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .scenario-card h4 {
+    font-size: 13px; font-weight: 700; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .scenario-card p { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .scenario-card .prob { font-size: 13px; font-weight: 700; }
+
+  /* ASX STOCKS */
+  .asx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .asx-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+  }
+  .asx-card .ticker {
+    font-size: 16px; font-weight: 700; margin-bottom: 4px;
+    font-family: monospace;
+  }
+  .asx-card .name { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .asx-card .reason { font-size: 12px; color: var(--text); }
+
+  /* AUS PRICES */
+  .aus-prices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .aus-price-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .aus-price-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; }
+  .aus-price-value { font-size: 22px; font-weight: 700; }
+  .aus-price-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* CONTRADICTION BOX */
+  .contradiction {
+    background: rgba(188,140,255,0.05);
+    border: 1px solid rgba(188,140,255,0.3);
+    border-radius: 6px;
+    padding: 14px;
+    margin: 10px 0;
+  }
+  .contradiction h4 { font-size: 13px; font-weight: 700; color: var(--purple); margin-bottom: 6px; }
+  .contradiction p { font-size: 13px; color: var(--text); margin: 0; }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(248,81,73,0.07);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout.blue {
+    background: rgba(88,166,255,0.07);
+    border-left-color: var(--blue);
+  }
+  .callout.orange {
+    background: rgba(210,153,34,0.07);
+    border-left-color: var(--orange);
+  }
+  .callout p { margin: 0; font-size: 13px; }
+
+  /* TRIGGER TABLE */
+  .trigger-fired { background: rgba(255,107,53,0.08); }
+  .trigger-new { background: rgba(57,211,83,0.05); }
+  .trigger-near { background: rgba(210,153,34,0.05); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .oil-ladder { grid-template-columns: repeat(2, 1fr); }
+    .bar-row { grid-template-columns: 140px 1fr 50px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <div class="alert-label">⚡ URGENT ALERT — 6 April 2026, 06:16 AEST</div>
+  <h1>Constitutional Risk Cluster + Unemployment Tail Fired</h1>
+  <div class="alert-meta">
+    <span>📍 Kalshi + Polymarket</span>
+    <span>⚡ 3 simultaneous Kalshi big moves</span>
+    <span>🛢 WTI ~$100/bbl | Hormuz standstill</span>
+    <span>🇦🇺 Petrol 232.3 cpl (excise cut active)</span>
+  </div>
+</div>
+
+<!-- HEADLINE STATS -->
+<div class="stat-grid">
+  <div class="stat-card fired">
+    <div class="stat-label">🔴 Trigger FIRED</div>
+    <div class="stat-value">20%</div>
+    <div class="stat-delta up">+7.0pp ↑</div>
+    <div class="stat-note">Extreme unemployment tail (≥12%+ before 2030)</div>
+  </div>
+  <div class="stat-card warn">
+    <div class="stat-label">⚠ Habeas Corpus</div>
+    <div class="stat-value">21%</div>
+    <div class="stat-delta up">+3.0pp ↑</div>
+    <div class="stat-note">Will Trump suspend habeas corpus? (NEW TRIGGER)</div>
+  </div>
+  <div class="stat-card watch">
+    <div class="stat-label">🇺🇸 US Forces in Iran</div>
+    <div class="stat-value">99.8%</div>
+    <div class="stat-delta up">+18.2pp/24h ↑</div>
+    <div class="stat-note">$38.7M 24h vol | Near certainty</div>
+  </div>
+  <div class="stat-card watch">
+    <div class="stat-label">💰 WTI $130 in April</div>
+    <div class="stat-value">49.5%</div>
+    <div class="stat-delta neutral">−1.0pp/24h</div>
+    <div class="stat-note">Coin flip — likely UNDERPRICED (see analysis)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">🕊 Ceasefire by Apr 7</div>
+    <div class="stat-value" style="color:var(--green)">3%</div>
+    <div class="stat-delta down">Resolves TODAY as NO</div>
+    <div class="stat-note">Trump's 15-point plan rejected by Tehran</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">🏦 US Fed Holds April</div>
+    <div class="stat-value" style="color:var(--green)">98.2%</div>
+    <div class="stat-delta neutral">−0.2pp/24h</div>
+    <div class="stat-note">Frozen between inflation and recession</div>
+  </div>
+</div>
+
+<!-- PART 1: UNEMPLOYMENT TAIL -->
+<section>
+  <h2>🔴 TRIGGER FIRED — Extreme Unemployment Tail Hits 20%</h2>
+
+  <div class="callout">
+    <p><strong>What happened</strong>: Kalshi "How high will unemployment get before 2030?" extreme bucket (≥12%+ peak unemployment rate) surged to <strong>20.0% (+7.0pp)</strong> in a single collection cycle at 06:16 AEST. This is the largest single-run move of the entire monitoring session — 3.5× larger than the next-biggest mover. The trigger threshold was 20%; it has now fired and been raised to 25%.</p>
+  </div>
+
+  <h3>What Does 20% Mean?</h3>
+  <p>The market is pricing a <strong>1-in-5 probability that US unemployment will peak at 12%+ before 2030.</strong></p>
+
+  <div class="chart-wrapper">
+    <div class="chart-title">Historical Unemployment Peaks vs. This Market's Scenario</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">GFC peak (Oct 2009)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%; background: var(--blue);">10.0%</div></div>
+        <div class="bar-pct" style="color:var(--blue)">10.0%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">COVID peak (Apr 2020)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:58.8%; background: var(--orange);">14.7%</div></div>
+        <div class="bar-pct" style="color:var(--orange)">14.7%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">This market's threshold (≥12%)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:48%; background: var(--red);">≥12%</div></div>
+        <div class="bar-pct" style="color:var(--red)">≥12%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Great Depression peak</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%; background: #4a0000;">~25%</div></div>
+        <div class="bar-pct" style="color:var(--red)">~25%</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Why the Market Is Pricing This</h3>
+  <ul>
+    <li><strong>Iran war certain (99.8%)</strong> → prolonged oil supply disruption</li>
+    <li><strong>Hormuz standstill</strong> → 20% of global oil + LNG supply at risk; supply loss doubling by mid-April</li>
+    <li><strong>US Fed frozen (98.2% hold)</strong> → can't cut (oil inflation) or hike (recession risk) = stagflation trap</li>
+    <li><strong>Oil up 50%+ since Feb 28</strong> → consumer spending eroding, business margins collapsing</li>
+    <li>This is the Kalshi market's version of "prolonged stagflation → mass unemployment" scenario</li>
+  </ul>
+
+  <h3>Kalshi ≥7% Bucket — Also Watching</h3>
+  <p>Separately, the ≥7% unemployment bucket sits at <strong>71.0%</strong> — just 3pp from our 74% ceiling trigger. A breakout above 74% simultaneously with the extreme tail staying above 20% would confirm coordinated multi-bucket repricing — the market genuinely believing in a severe, sustained unemployment crisis.</p>
+</section>
+
+<!-- PART 2: CONSTITUTIONAL RISK CLUSTER -->
+<section>
+  <h2>⚠️ Constitutional Risk Cluster — Five Markets, One Narrative</h2>
+
+  <p>In a single collection window at 06:16 AEST, five Kalshi political/constitutional markets moved upward in concert:</p>
+
+  <div class="bar-chart" style="margin: 16px 0;">
+    <div class="bar-row">
+      <div class="bar-label">Habeas corpus suspended</div>
+      <div class="bar-track"><div class="bar-fill" style="width:21%; background: var(--orange);">21.0%</div></div>
+      <div class="bar-pct" style="color:var(--orange)"><span class="up">+3pp</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Multiple Attorneys General</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%; background: var(--orange);">20.0%</div></div>
+      <div class="bar-pct" style="color:var(--orange)"><span class="up">+3pp</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Trump resigns</div>
+      <div class="bar-track"><div class="bar-fill" style="width:24%; background: var(--yellow);">24.0%</div></div>
+      <div class="bar-pct" style="color:var(--yellow)"><span class="up">+1pp</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">US withdraws from UN</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%; background: var(--muted);">20.0%</div></div>
+      <div class="bar-pct" style="color:var(--muted)"><span class="up">+2pp</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">DOE eliminated</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%; background: var(--muted);">20.0%</div></div>
+      <div class="bar-pct" style="color:var(--muted)"><span class="up">+2pp</span></div>
+    </div>
+  </div>
+
+  <h3>Why Habeas Corpus Is the Key Risk</h3>
+  <p>Suspension of habeas corpus — the right requiring government to justify detention — has been used only twice in US history: by Lincoln (Civil War) and FDR (WWII internment). In an active Iran war context, this represents wartime executive power expansion.</p>
+
+  <div class="callout orange">
+    <p><strong>Financial impact pathway</strong>: Suspension → institutional risk-off → equity sell-off → flight to Treasuries/gold → foreign CB concern about US rule-of-law → potential Treasury selling → dollar credibility stress → BTC as hard-money alternative bid.</p>
+  </div>
+
+  <h3>The DOJ Signal (Multiple AGs)</h3>
+  <p>Multiple AG scenario signals continued DOJ instability — with direct relevance to:</p>
+  <ul>
+    <li><strong>Crypto</strong>: DOJ/SEC enforcement posture highly AG-dependent</li>
+    <li><strong>Energy</strong>: DOJ antitrust oversight of oil majors (windfall profits scrutiny at $100/bbl)</li>
+    <li><strong>Banking</strong>: AG controls DOJ banking division and FIRREA enforcement</li>
+  </ul>
+</section>
+
+<!-- PART 3: OIL MARKETS -->
+<section>
+  <h2>🛢️ Oil Markets — Current State &amp; Scenarios</h2>
+
+  <h3>Live Oil Data (Confirmed via CNBC/Bloomberg, April 3-4 2026)</h3>
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin:12px 0;">
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">WTI (Current)</div>
+      <div style="font-size:28px;font-weight:700;color:var(--orange)">~$100</div>
+      <div style="font-size:11px;color:var(--muted)">+50% since Feb 28</div>
+    </div>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Brent (Current)</div>
+      <div style="font-size:28px;font-weight:700;color:var(--orange)">~$113</div>
+      <div style="font-size:11px;color:var(--muted)">+60% since Feb 28</div>
+    </div>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Supply Loss</div>
+      <div style="font-size:28px;font-weight:700;color:var(--red)">~5M bpd</div>
+      <div style="font-size:11px;color:var(--muted)">Doubling by mid-April</div>
+    </div>
+  </div>
+
+  <h3>Polymarket Oil Ladder (April 2026)</h3>
+  <div class="oil-ladder">
+    <div class="oil-rung">
+      <div class="oil-rung-price">$120 HIGH</div>
+      <div class="oil-rung-prob" style="color:var(--green)">78.5%</div>
+      <div class="oil-rung-delta up">+3.0pp</div>
+    </div>
+    <div class="oil-rung highlight">
+      <div class="oil-rung-price">$130 HIGH</div>
+      <div class="oil-rung-prob" style="color:var(--orange)">49.5%</div>
+      <div class="oil-rung-delta neutral">−1.0pp</div>
+    </div>
+    <div class="oil-rung">
+      <div class="oil-rung-price">$140 HIGH</div>
+      <div class="oil-rung-prob" style="color:var(--yellow)">36.5%</div>
+      <div class="oil-rung-delta up">+3.0pp</div>
+    </div>
+    <div class="oil-rung">
+      <div class="oil-rung-price">$150 HIGH</div>
+      <div class="oil-rung-prob" style="color:var(--red)">20.5%</div>
+      <div class="oil-rung-delta up">+1.0pp</div>
+    </div>
+    <div class="oil-rung">
+      <div class="oil-rung-price">$200 HIGH</div>
+      <div class="oil-rung-prob" style="color:var(--red)">3.8%</div>
+      <div class="oil-rung-delta up">+0.2pp</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted); margin-top:6px;">$130 highlighted as most actionable mispricing — see Contradictions section</p>
+</section>
+
+<!-- PART 4: CROSS-MARKET CONTRADICTIONS -->
+<section>
+  <h2>🔮 Cross-Market Contradictions (Where the Alpha Is)</h2>
+
+  <div class="contradiction">
+    <h4>Contradiction #1: WTI $130 at 49.5% vs. War at 99.8%</h4>
+    <p>WTI currently ~$100. Supply loss about to double by mid-April. Hormuz standstill confirmed. Ceasefire by April 30 only 23.5%. <strong>Blending ceasefire probability: $130 should price ~60-65%, not 50%.</strong> The market is implicitly pricing unmodeled demand destruction or a diplomatic wildcard. This looks like the most actionable mispricing in the system.</p>
+  </div>
+
+  <div class="contradiction">
+    <h4>Contradiction #2: US Fed Frozen (98.2%) vs. Extreme Unemployment at 20%</h4>
+    <p>If 1-in-5 bettors believe unemployment hits 12%+, the US Fed faces an impossible choice: can't cut (oil at $100 = inflation), can't hike (kills growth). <strong>The market is pricing "Fed frozen + economy deteriorates" simultaneously — the textbook stagflation outcome.</strong> Watch: "No Fed rate cuts in 2026" at 37.8% (+2.1pp) and rising.</p>
+  </div>
+
+  <div class="contradiction">
+    <h4>Contradiction #3: Bitcoin at $60k+ (99.8%) vs. Constitutional Crisis at 21%</h4>
+    <p>BTC remarkably stable despite constitutional risk cluster. Two interpretations: (A) market hasn't priced it yet, or (B) BTC is already pricing as hard-money alternative to rule-of-law risk. <strong>Asymmetric trade</strong>: if habeas corpus crosses 25%, BTC could RISE (not fall) as digital gold alternative. Watch for divergence from traditional risk-off correlations.</p>
+  </div>
+</section>
+
+<!-- PART 5: AUSTRALIAN IMPACT -->
+<section>
+  <h2>🇦🇺 Australian Market Impact (Verified Live Data)</h2>
+
+  <div class="aus-prices">
+    <div class="aus-price-card">
+      <div class="aus-price-label">Petrol (ULP) Natl Avg</div>
+      <div class="aus-price-value" style="color:var(--orange)">232.3¢</div>
+      <div class="aus-price-note">Down from 238¢ peak late March</div>
+    </div>
+    <div class="aus-price-card">
+      <div class="aus-price-label">Diesel (Sydney)</div>
+      <div class="aus-price-value" style="color:var(--red)">322.8¢</div>
+      <div class="aus-price-note">~280-300¢ national avg</div>
+    </div>
+    <div class="aus-price-card">
+      <div class="aus-price-label">Fuel Excise Cut</div>
+      <div class="aus-price-value" style="color:var(--green)">−26.3¢</div>
+      <div class="aus-price-note">Active Apr 1 – Jun 30 only</div>
+    </div>
+    <div class="aus-price-card">
+      <div class="aus-price-label">AUD/USD</div>
+      <div class="aus-price-value" style="color:var(--blue)">0.6872</div>
+      <div class="aus-price-note">April 3 close; oil support</div>
+    </div>
+    <div class="aus-price-card">
+      <div class="aus-price-label">RBA Cash Rate</div>
+      <div class="aus-price-value" style="color:var(--yellow)">4.10%</div>
+      <div class="aus-price-note">Raised March; ~65% May hike</div>
+    </div>
+  </div>
+
+  <div class="callout orange">
+    <p><strong>🚨 June 30 Cliff Edge</strong>: The 26.3 cpl excise cut expires June 30. With WTI at $100 and $130 at 50% probability before May 1, petrol will likely spike to ~258¢/L and diesel to 340+¢/L on July 1 — a mechanical, calendar-driven consumer confidence shock. The government must decide: extend (fiscal cost ~$3B), absorb the political pain, or hope for a ceasefire that Polymarket prices at only 23.5%.</p>
+  </div>
+
+  <h3>ASX Sector Outlook</h3>
+  <div class="asx-grid">
+    <div class="asx-card" style="border-color:var(--green)">
+      <div class="ticker" style="color:var(--green)">WDS / STO <span class="badge badge-bullish">Bullish</span></div>
+      <div class="name">Woodside / Santos</div>
+      <div class="reason">WTI at $100+, $130 at 50% probability. LNG premium with Asian buyers desperate for Hormuz alternatives. Most direct ASX play on sustained high oil.</div>
+    </div>
+    <div class="asx-card" style="border-color:var(--green)">
+      <div class="ticker" style="color:var(--green)">NST / EVN / NCM <span class="badge badge-bullish">Bullish</span></div>
+      <div class="name">Northern Star / Evolution / Newcrest</div>
+      <div class="reason">Classic gold bid: war (99.8%) + constitutional uncertainty (habeas corpus 21%) + potential dollar credibility stress. Gold stocks offer leverage to the spot price move.</div>
+    </div>
+    <div class="asx-card" style="border-color:var(--red)">
+      <div class="ticker" style="color:var(--red)">QAN <span class="badge badge-bearish">Bearish</span></div>
+      <div class="name">Qantas</div>
+      <div class="reason">Jet fuel directly correlated with WTI. At $100/bbl, margins thin. If $130 hits, margins go negative without emergency surcharges. Watch fuel hedging coverage.</div>
+    </div>
+    <div class="asx-card" style="border-color:var(--red)">
+      <div class="ticker" style="color:var(--red)">WOW / COL / WES <span class="badge badge-bearish">Bearish</span></div>
+      <div class="name">Woolworths / Coles / Wesfarmers</div>
+      <div class="reason">Diesel at 280-322¢/L is a direct freight surcharge amplifier on every truck, every delivery. Consumer confidence declining as petrol stays 230¢+ even with excise cut.</div>
+    </div>
+    <div class="asx-card" style="border-color:var(--yellow)">
+      <div class="ticker" style="color:var(--yellow)">ANZ / CBA / NAB / WBC <span class="badge badge-warn">Watch</span></div>
+      <div class="name">Big 4 Banks</div>
+      <div class="reason">RBA hiking (4.10%, 65% odds of May hike) into stagflation risk. Mortgage arrears watch as rate rises compound oil-driven cost-of-living pressure on households.</div>
+    </div>
+    <div class="asx-card" style="border-color:var(--red)">
+      <div class="ticker" style="color:var(--red)">GNC / ELD <span class="badge badge-bearish">Squeezed</span></div>
+      <div class="name">GrainCorp / Elders</div>
+      <div class="reason">Diesel is primary input cost (tractors, harvesters, grain trucks). Rising grain prices (Iran/Ukraine disruption) partially offsets but margin squeeze is real at 300¢+ diesel.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PART 6: SCENARIOS -->
+<section>
+  <h2>📊 Forward-Looking Scenarios (Next 24h)</h2>
+  <div class="scenario-grid">
+    <div class="scenario-card" style="border-color:var(--green)">
+      <h4>🕊 Ceasefire Signal</h4>
+      <p class="prob" style="color:var(--green)">~15% probability</p>
+      <p>Trump's 15-point plan accepted via Oman back-channel. WTI $130 drops below 40%; ceasefire April 30 rises above 35%.</p>
+      <p><strong>ASX impact</strong>: WDS/STO −10%, QAN/WOW relief rally, AUD/USD spike to 0.70+</p>
+    </div>
+    <div class="scenario-card" style="border-color:var(--purple)">
+      <h4>🏛 Constitutional Escalation</h4>
+      <p class="prob" style="color:var(--purple)">~20% probability</p>
+      <p>Trump invokes wartime emergency powers. Habeas corpus market spikes above 30%; G7 withdrawal approaches 12%.</p>
+      <p><strong>ASX impact</strong>: Equity multiples compress −5-8%, gold stocks surge, BTC diverges upward</p>
+    </div>
+    <div class="scenario-card" style="border-color:var(--orange)">
+      <h4>🛢 Oil Escalation</h4>
+      <p class="prob" style="color:var(--orange)">~40% probability</p>
+      <p>Supply loss doubles mid-April. WTI forces toward $120 (78.5% priced), $130 trigger approaches.</p>
+      <p><strong>ASX impact</strong>: WDS/STO +2-4%, QAN −3-5%, WOW/COL −1-2%, gold +2-3%</p>
+    </div>
+    <div class="scenario-card" style="border-color:var(--border)">
+      <h4>⚖ Stalemate Continuation</h4>
+      <p class="prob" style="color:var(--muted)">~25% probability</p>
+      <p>War continues, markets digest. WTI $130 oscillates 47-52%. All constitutional markets stable.</p>
+      <p><strong>ASX impact</strong>: Grinds lower; AUD/USD holds 0.68-0.69; RBA May hike at 65%</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRIGGERS TABLE -->
+<section>
+  <h2>🎯 Trigger Status — Full Dashboard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Trigger</th>
+        <th>Current</th>
+        <th>Threshold</th>
+        <th>Gap</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="trigger-fired">
+        <td><strong>Kalshi extreme unemployment tail</strong></td>
+        <td><span class="up">20.0%</span></td>
+        <td>25.0% ↑</td>
+        <td>5.0pp</td>
+        <td><span class="badge badge-fired">FIRED → raised</span></td>
+      </tr>
+      <tr class="trigger-new">
+        <td><strong>Kalshi habeas corpus suspension</strong></td>
+        <td>21.0%</td>
+        <td>30.0% ↑</td>
+        <td>9.0pp</td>
+        <td><span class="badge badge-new">NEW</span></td>
+      </tr>
+      <tr class="trigger-new">
+        <td><strong>Kalshi multiple AGs</strong></td>
+        <td>20.0%</td>
+        <td>30.0% ↑</td>
+        <td>10.0pp</td>
+        <td><span class="badge badge-new">NEW</span></td>
+      </tr>
+      <tr class="trigger-near">
+        <td><strong>Kalshi ≥7% unemployment ceiling</strong></td>
+        <td>71.0%</td>
+        <td>74.0% ↑</td>
+        <td>3.0pp</td>
+        <td><span class="badge badge-warn">IMMINENT</span></td>
+      </tr>
+      <tr class="trigger-near">
+        <td>WTI $200 in April</td>
+        <td>3.8%</td>
+        <td>8.0% ↑</td>
+        <td>4.2pp</td>
+        <td><span class="badge badge-warn">Near</span></td>
+      </tr>
+      <tr class="trigger-near">
+        <td>Kalshi G7 withdrawal</td>
+        <td>8.0%</td>
+        <td>12.0% ↑</td>
+        <td>4.0pp</td>
+        <td><span class="badge badge-warn">Near</span></td>
+      </tr>
+      <tr class="trigger-near">
+        <td>Kalshi Clarence Thomas resign</td>
+        <td>51.0%</td>
+        <td>55.0% ↑</td>
+        <td>4.0pp</td>
+        <td><span class="badge badge-warn">Near</span></td>
+      </tr>
+      <tr>
+        <td>China Taiwan invasion 2026</td>
+        <td>9.8%</td>
+        <td>15.0% ↑</td>
+        <td>5.1pp</td>
+        <td><span class="badge badge-watch">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Hormuz traffic normalises Apr 30</td>
+        <td>13.5%</td>
+        <td>20.0% ↑</td>
+        <td>6.5pp</td>
+        <td><span class="badge badge-watch">Watching</span></td>
+      </tr>
+      <tr>
+        <td>WTI $130 in April</td>
+        <td>49.5%</td>
+        <td>65.0% ↑</td>
+        <td>15.5pp</td>
+        <td><span class="badge badge-watch">Watching</span></td>
+      </tr>
+      <tr>
+        <td>WTI $140 in April</td>
+        <td>36.5%</td>
+        <td>48.0% ↑</td>
+        <td>11.5pp</td>
+        <td><span class="badge badge-watch">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Israel ground op in Iran Apr 30</td>
+        <td>22.5%</td>
+        <td>45.0% ↑</td>
+        <td>22.5pp</td>
+        <td><span class="badge badge-watch">Watching</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ACTIONS -->
+<section>
+  <h2>✅ Actions Taken This Run</h2>
+  <ul>
+    <li>🔴 <strong>FIRED</strong> <code>kalshi-unemployment-extreme-tail</code>: hit 20% threshold; raised to 25% to continue tracking</li>
+    <li>🟢 <strong>ADDED</strong> <code>kalshi-habeas-corpus</code>: threshold 30%, current 21%, wartime executive power risk</li>
+    <li>🟢 <strong>ADDED</strong> <code>kalshi-trump-multiple-ags</code>: threshold 30%, current 20%, DOJ instability signal</li>
+    <li>✅ triggers.json validated (JSON valid)</li>
+    <li>✅ analyst_notes.md appended</li>
+    <li>📊 Constitutional risk cluster logged to market_log.tsv</li>
+  </ul>
+</section>
+
+<footer>
+  <p><strong>Sources</strong>: Polymarket live data (briefing script) | Kalshi live data (collection script) | WTI/Brent: <a href="https://www.cnbc.com/2026/04/02/trumps-iran-war-speech-oil-price-strait-hormuz.html" style="color:var(--blue)">CNBC April 2026</a> | Australian petrol: <a href="https://petrolmate.com.au/monthly-fuel-report" style="color:var(--blue)">Petrolmate April 2026</a> | Diesel: <a href="https://www.accc.gov.au/media-release/diesel-prices-rising-faster-than-petrol-up-28-cpl-across-the-largest-cities-in-last-week" style="color:var(--blue)">ACCC</a> | AUD/USD: <a href="https://www.rba.gov.au/statistics/frequency/exchange-rates.html" style="color:var(--blue)">RBA April 2 2026</a> | Iran war: <a href="https://time.com/article/2026/04/02/trump-speech-white-house-iran-war-update-end/" style="color:var(--blue)">Time</a>, <a href="https://www.nbcnews.com/politics/trump-administration/live-blog/trump-supreme-court-birthright-citizenship-dhs-shutdown-live-updates-rcna266114" style="color:var(--blue)">NBC News</a>, <a href="https://www.bloomberg.com/graphics/2026-iran-war-hormuz-closure-oil-shock/" style="color:var(--blue)">Bloomberg</a> | Goldman Sachs oil scenarios: <a href="https://www.goldmansachs.com/insights/articles/how-will-the-iran-conflict-impact-oil-prices" style="color:var(--blue)">Goldman</a></p>
+  <p style="margin-top:8px; color:var(--muted)">Generated: 2026-04-06 06:20 AEST | Polymarket Macro Analyst | Automated alert-triggered run</p>
+</footer>
+
+</body>
+</html>
