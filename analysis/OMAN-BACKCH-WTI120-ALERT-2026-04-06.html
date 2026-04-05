@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: WTI $120 Confirmed + Oman Back-Channel + AG Uncertainty | 2026-04-06</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #f78166;
+    --accent2: #79c0ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --orange: #db6d28;
+    --purple: #bc8cff;
+    --teal: #39d353;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .page-header {
+    background: linear-gradient(135deg, #1a0a0a 0%, #1c1205 50%, #0d1117 100%);
+    border-bottom: 2px solid var(--orange);
+    padding: 28px 40px 20px;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: #000;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .page-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .page-header .meta {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .page-header .meta span { margin-right: 20px; }
+  .page-header .trigger-desc {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--orange);
+    font-style: italic;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 40px 60px; }
+
+  /* Executive summary */
+  .exec-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--orange);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .exec-summary strong { color: var(--accent2); }
+
+  /* Signal cards */
+  .signal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .signal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .signal-card.macro { border-top: 3px solid var(--orange); }
+  .signal-card.noise { border-top: 3px solid var(--text-muted); opacity: 0.7; }
+  .signal-card.political { border-top: 3px solid var(--purple); }
+  .signal-card .source {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .signal-card.macro .source { color: var(--orange); }
+  .signal-card.noise .source { color: var(--text-muted); }
+  .signal-card.political .source { color: var(--purple); }
+  .signal-card .question { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+  .signal-card .price { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .signal-card .delta { font-size: 13px; font-weight: 600; }
+  .signal-card .delta.down { color: var(--red); }
+  .signal-card .delta.up { color: var(--green); }
+  .signal-card .class-label {
+    margin-top: 10px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    padding: 3px 8px;
+    display: inline-block;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent2);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 15px; font-weight: 600; color: var(--text); margin: 20px 0 10px; }
+  p { margin-bottom: 14px; color: var(--text); }
+
+  /* Oil ladder chart */
+  .oil-ladder { margin: 20px 0 24px; }
+  .oil-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .oil-label {
+    width: 80px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .oil-bar-track {
+    flex: 1;
+    height: 28px;
+    background: var(--surface2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .oil-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    transition: width 0.3s;
+    min-width: 40px;
+  }
+  .oil-bar-fill.level-120 { background: linear-gradient(90deg, #f78166, #db6d28); }
+  .oil-bar-fill.level-130 { background: linear-gradient(90deg, #d29922, #b07d1a); }
+  .oil-bar-fill.level-140 { background: linear-gradient(90deg, #3fb950, #2ea043); }
+  .oil-bar-fill.level-150 { background: linear-gradient(90deg, #79c0ff, #58a6ff); }
+  .oil-bar-fill.level-200 { background: linear-gradient(90deg, #bc8cff, #a370f7); }
+  .oil-meta { width: 100px; font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--text-muted);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+  .badge-macro { background: rgba(219,109,40,0.2); color: var(--orange); }
+  .badge-noise { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+  .badge-political { background: rgba(188,140,255,0.2); color: var(--purple); }
+  .move-up { color: var(--green); font-weight: 700; }
+  .move-down { color: var(--red); font-weight: 700; }
+  .move-neutral { color: var(--text-muted); }
+
+  /* Trigger table */
+  .trigger-bar-cell { width: 200px; }
+  .trigger-bar {
+    height: 8px;
+    background: var(--surface2);
+    border-radius: 4px;
+    overflow: visible;
+    position: relative;
+    margin-top: 5px;
+  }
+  .trigger-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent2);
+    position: relative;
+  }
+  .trigger-marker {
+    position: absolute;
+    top: -3px;
+    height: 14px;
+    width: 2px;
+    background: var(--orange);
+  }
+  .trigger-distance { font-size: 12px; }
+  .imminent { color: var(--orange); font-weight: 700; }
+
+  /* Key contradiction box */
+  .contradiction-box {
+    background: var(--surface);
+    border: 1px solid var(--red);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .contradiction-box h3 { color: var(--red); margin-top: 0; }
+  .contradiction-box .cluster {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+  .cluster-item {
+    background: var(--surface2);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .cluster-item .cluster-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; }
+  .cluster-item .cluster-val { font-size: 20px; font-weight: 700; }
+  .cluster-item .cluster-impl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  /* Oman signal */
+  .oman-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+  .oman-box h4 { color: var(--teal); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+
+  /* Forward watch */
+  .forward-items { list-style: none; margin: 16px 0; }
+  .forward-items li {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  .forward-items li .timeframe {
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent2);
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .forward-items li .text { font-size: 14px; line-height: 1.5; }
+  .forward-items li .text strong { color: var(--accent); }
+
+  /* ASX table */
+  .stance-bullish { color: var(--green); font-weight: 700; }
+  .stance-bearish { color: var(--red); font-weight: 700; }
+  .stance-cautious { color: var(--yellow); font-weight: 700; }
+  .stance-mixed { color: var(--text-muted); font-weight: 700; }
+  .stance-neutral { color: var(--text-muted); }
+  .ticker-chip {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 1px 6px;
+    margin: 1px 2px;
+    font-family: 'SF Mono', 'Consolas', monospace;
+  }
+
+  .conviction-box {
+    background: rgba(219,109,40,0.08);
+    border: 1px solid var(--orange);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .conviction-box strong { color: var(--orange); }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="alert-badge">⚡ Alert Report</div>
+  <h1>WTI $120 Confirmed · Oman Back-Channel Signal · AG Uncertainty</h1>
+  <div class="meta">
+    <span>📅 2026-04-06 04:46 AEST</span>
+    <span>🔔 Triggered by Kalshi BIG MOVES + Polymarket divergence</span>
+    <span>16 triggers watching · 0 fired</span>
+  </div>
+  <div class="trigger-desc">Alert trigger: Kalshi — Ramp/Brex IPO −5.0pp · Trump next AG −3.0pp. Real content: WTI $120 +5.5pp, Iran-Oman −26pp, Lee Zeldin AG −14pp.</div>
+</div>
+
+<div class="container">
+
+  <!-- Executive Summary -->
+  <div class="exec-summary">
+    <strong>Three simultaneous signals fired in this run.</strong> The Kalshi alert (Ramp/Brex IPO and Trump AG) was the nominal trigger, but the macro substance lies elsewhere: <strong>WTI $120 is now the confirmed floor</strong> (80%), <strong>Iran-Oman strike probability collapsed −26pp</strong> in a single run — a potential Oman back-channel mediation signal — and <strong>Lee Zeldin as Trump's next AG cratered −14pp</strong>. The US-Iran ceasefire April 7 market resolves in ~17 hours at 2.9%, confirming the war is priced as indefinite. The core asymmetric bet remains unchanged: <strong>WTI $200 at 3.7% is materially underpriced</strong> given Hormuz closure at 85.5% probability, now +1.1pp/24h and accelerating toward the 8% trigger threshold.
+  </div>
+
+  <!-- What triggered the alert -->
+  <h2>What Triggered This Alert</h2>
+  <div class="signal-grid">
+    <div class="signal-card noise">
+      <div class="source">Kalshi · Noise</div>
+      <div class="question">Will Ramp or Brex IPO first?</div>
+      <div class="price" style="color:#8b949e;">1.0%</div>
+      <div class="delta down">−5.0pp / 24h</div>
+      <div class="class-label">Brex acquired by Capital One → noise</div>
+    </div>
+    <div class="signal-card noise">
+      <div class="source">Kalshi · Secondary</div>
+      <div class="question">Who will be Trump's next AG?</div>
+      <div class="price" style="color:#8b949e;">9.0% / 43.0%</div>
+      <div class="delta down">−3.0pp / −1.0pp</div>
+      <div class="class-label">Consistent with Zeldin −14pp</div>
+    </div>
+    <div class="signal-card macro">
+      <div class="source">Polymarket · MACRO SIGNAL</div>
+      <div class="question">WTI $120 in April</div>
+      <div class="price" style="color:#f78166;">80.0%</div>
+      <div class="delta up">+5.5pp / 24h ⬆ FLOOR CONFIRMED</div>
+      <div class="class-label">$120 is now consensus oil floor</div>
+    </div>
+    <div class="signal-card macro">
+      <div class="source">Polymarket · MACRO SIGNAL</div>
+      <div class="question">Iran strike Oman by Apr 30</div>
+      <div class="price" style="color:#39d353;">25.5%</div>
+      <div class="delta down">−26.0pp / 24h ⬇ LARGEST MOVE THIS SESSION</div>
+      <div class="class-label">Possible Oman back-channel signal</div>
+    </div>
+    <div class="signal-card political">
+      <div class="source">Polymarket · Political</div>
+      <div class="question">Lee Zeldin as Trump's next AG (by Jun 30)</div>
+      <div class="price" style="color:#bc8cff;">39.5%</div>
+      <div class="delta down">−14.0pp / 24h</div>
+      <div class="class-label">DOJ direction uncertainty</div>
+    </div>
+    <div class="signal-card macro">
+      <div class="source">Polymarket · Core Mispricing</div>
+      <div class="question">WTI $200 in April</div>
+      <div class="price" style="color:#d29922;">3.7%</div>
+      <div class="delta up">+1.1pp / 24h → 4.3pp from 8% trigger</div>
+      <div class="class-label">Most underpriced market in the system</div>
+    </div>
+  </div>
+  <p style="color:var(--text-muted); font-style:italic; font-size:13px;">The Kalshi alert was noise. The Polymarket data is what matters.</p>
+
+  <!-- Signal 1: Oil Ladder -->
+  <h2>Signal 1: WTI $120 — The Floor Is Confirmed</h2>
+  <p>WTI $120 crossed 80% (+5.5pp/24h). The oil price ladder now shows the clearest picture yet: the market's modal scenario is <strong>$120–$129 oil for April</strong>, with a coin-flip at $130 and declining conviction above that. The 30.5pp gap between $120 and $130 is the widest spread in the ladder.</p>
+
+  <div class="oil-ladder">
+    <div class="oil-bar-row">
+      <div class="oil-label">$120</div>
+      <div class="oil-bar-track">
+        <div class="oil-bar-fill level-120" style="width:80%">80.0%</div>
+      </div>
+      <div class="oil-meta"><span class="move-up">+5.5pp</span> | Floor confirmed</div>
+    </div>
+    <div class="oil-bar-row">
+      <div class="oil-label">$130</div>
+      <div class="oil-bar-track">
+        <div class="oil-bar-fill level-130" style="width:49.5%">49.5%</div>
+      </div>
+      <div class="oil-meta"><span class="move-down">−2.0pp</span> | Coin flip</div>
+    </div>
+    <div class="oil-bar-row">
+      <div class="oil-label">$140</div>
+      <div class="oil-bar-track">
+        <div class="oil-bar-fill level-140" style="width:31.5%">31.5%</div>
+      </div>
+      <div class="oil-meta"><span class="move-neutral">flat</span> | Elevated</div>
+    </div>
+    <div class="oil-bar-row">
+      <div class="oil-label">$150</div>
+      <div class="oil-bar-track">
+        <div class="oil-bar-fill level-150" style="width:18.5%">18.5%</div>
+      </div>
+      <div class="oil-meta"><span class="move-neutral">flat</span> | Crisis level</div>
+    </div>
+    <div class="oil-bar-row">
+      <div class="oil-label">$200</div>
+      <div class="oil-bar-track">
+        <div class="oil-bar-fill level-200" style="width:3.7%">3.7%</div>
+      </div>
+      <div class="oil-meta"><span class="move-up">+1.1pp</span> | <strong style="color:var(--orange)">MISPRICED</strong></div>
+    </div>
+  </div>
+
+  <div class="conviction-box">
+    <strong>The $200 mispricing:</strong> Hormuz normalization sits at 14.5% — meaning 85.5% probability Hormuz stays closed. Oil executives have publicly stated Hormuz must reopen by mid-April or supply disruptions "get significantly worse." Yet WTI $200 is priced at only 3.7%. If 85.5% Hormuz closure is right, $200 should price at 8–12%. The market is treating a physical supply crisis as a tail risk when oil industry insiders call it a base case under continued closure. At +1.1pp/day, the 8% trigger fires in ~4 days. A single Hormuz incident could do it overnight.
+  </div>
+
+  <h3>Australian Fuel Impact</h3>
+  <table>
+    <thead><tr><th>Fuel Type</th><th>Current Price</th><th>Excise Status</th><th>WTI $130 Scenario</th></tr></thead>
+    <tbody>
+      <tr><td>ULP / E10</td><td>~232 c/litre</td><td>Halved to 26.3c (eff. Apr 1)</td><td>~270c pre-excise, ~244c after</td></tr>
+      <tr><td>Diesel</td><td>~323 c/litre</td><td>Standard rate</td><td>~365c — freight surcharge spiral</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px; color:var(--text-muted);">ASX: <span class="ticker-chip">WDS</span> <span class="ticker-chip">STO</span> <span class="ticker-chip">BPT</span> directly bullish on $120+ oil. <span class="ticker-chip">QAN</span> jet fuel margin compression. <span class="ticker-chip">WOW</span> <span class="ticker-chip">COL</span> freight surcharge pass-through pressure.</p>
+
+  <!-- Signal 2: Oman -->
+  <h2>Signal 2: Oman −26pp — Back-Channel Mediation?</h2>
+  <p><strong>Iran strike Oman by April 30: 25.5% (−26.0pp/24h)</strong> — the single largest percentage-point move in the entire monitoring system this session. It demands explanation.</p>
+
+  <div class="oman-box">
+    <h4>Oman as Iran's diplomatic back-channel — historical precedent</h4>
+    <ul style="font-size:14px; line-height:1.8; padding-left:18px;">
+      <li>2013: Oman hosted secret US-Iran talks that seeded the JCPOA framework</li>
+      <li>2023: Oman brokered the Iran prisoner swap with the US</li>
+      <li>Oman maintains formal diplomatic relations with Iran while being a GCC member — a structurally unique position</li>
+      <li>Iran strike UAE by Apr 30: 90.2% (elevated) · Iran strike Bahrain by Apr 30: 100% — Iran IS striking Gulf states, but explicitly NOT Oman</li>
+    </ul>
+  </div>
+
+  <p><strong>Hypothesis:</strong> The market is pricing out an Iran-Oman military confrontation because Oman is now being activated as a mediation channel for the US-Iran conflict. Iran has structural incentive not to strike its mediator. Cross-check: US-Iran ceasefire by April 30 is now at 23.5% (+6.0pp/24h) — the highest since early March. Combined with the Oman signal, the market may be beginning to price a late-April back-channel deal.</p>
+
+  <p><strong>Confirmation threshold:</strong> If Iran-Oman Apr 30 drops below 20% in the next 1–2 runs, add a 15% trigger. If ceasefire by April 30 simultaneously rises above 30%, the hypothesis is confirmed. The oil trade in that scenario: WTI $130 from 49.5% → below 40%; WTI $120 from 80% → 65% (significant pullback trade).</p>
+
+  <!-- Signal 3: AG -->
+  <h2>Signal 3: Lee Zeldin −14pp — DOJ Direction Uncertainty</h2>
+  <table>
+    <thead><tr><th>Market</th><th>Price</th><th>24h Change</th><th>Implication</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Zeldin as next AG (Polymarket, by Jun 30)</td>
+        <td>39.5%</td>
+        <td class="move-down">−14.0pp</td>
+        <td>Zeldin likely self-removed from consideration</td>
+      </tr>
+      <tr>
+        <td>Trump's next AG (Kalshi, leading candidate)</td>
+        <td>43.0%</td>
+        <td class="move-down">−1.0pp</td>
+        <td>Consistent with Zeldin fade</td>
+      </tr>
+      <tr>
+        <td>How many AGs will Trump have? (Kalshi)</td>
+        <td>7.0%</td>
+        <td class="move-down">−1.0pp</td>
+        <td>AG transition expected, quantity uncertain</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Three market implications: (1) SEC/DOJ enforcement posture — aggressive vs. moderate; (2) crypto regulation — AG determines DOJ-SEC relationship; (3) Iran war legal framework — loyalist vs. independent pick changes Congressional challenge dynamics. <em>Current assessment: noise for markets today. Will escalate if a front-runner with clear market implications emerges.</em></p>
+
+  <!-- Core Contradiction -->
+  <h2>The Unresolved Core Contradiction</h2>
+  <div class="contradiction-box">
+    <h3>⚠ War at 99.8% + Fed Holds at 98.2% cannot both be correct</h3>
+    <div class="cluster">
+      <div class="cluster-item">
+        <div class="cluster-label">War/Oil Cluster</div>
+        <div style="margin-top:6px;">
+          <div style="margin-bottom:8px;"><span style="font-size:18px; font-weight:700; color:var(--red);">99.8%</span> <span style="font-size:12px; color:var(--text-muted);">US forces enter Iran</span></div>
+          <div style="margin-bottom:8px;"><span style="font-size:18px; font-weight:700; color:var(--red);">85.5%</span> <span style="font-size:12px; color:var(--text-muted);">Hormuz stays closed</span></div>
+          <div><span style="font-size:18px; font-weight:700; color:var(--orange);">49.5%</span> <span style="font-size:12px; color:var(--text-muted);">WTI hits $130</span></div>
+        </div>
+        <div class="cluster-impl">→ Stagflation scenario fully priced by commodity markets</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-label">Fed/Bond Cluster</div>
+        <div style="margin-top:6px;">
+          <div style="margin-bottom:8px;"><span style="font-size:18px; font-weight:700; color:var(--green);">98.2%</span> <span style="font-size:12px; color:var(--text-muted);">Fed holds April</span></div>
+          <div style="margin-bottom:8px;"><span style="font-size:18px; font-weight:700; color:var(--green);">6.5%</span> <span style="font-size:12px; color:var(--text-muted);">Fed cuts June</span></div>
+          <div><span style="font-size:18px; font-weight:700; color:var(--green);">0.9%</span> <span style="font-size:12px; color:var(--text-muted);">Fed hikes April</span></div>
+        </div>
+        <div class="cluster-impl">→ Bond market pricing a normal cycle, ignoring the oil shock</div>
+      </div>
+    </div>
+    <p style="margin-top:16px; font-size:14px;"><strong style="color:var(--orange);">Conviction:</strong> The oil cluster is correct. The bond market is sleeping through a commodity shock. WTI $130 will cross 60% before April 30. US Fed April hike probability will tick up to 2–3% within 2 weeks as oil-driven CPI data arrives. The bond market is the mispriced asset.</p>
+  </div>
+
+  <!-- Trigger Status -->
+  <h2>Trigger Status — All 16 Watching</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Trigger</th>
+        <th>Current</th>
+        <th>Direction</th>
+        <th>Distance</th>
+        <th>Progress</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hormuz normalizes by Apr 30</td>
+        <td>14.5%</td>
+        <td>↑ above 20%</td>
+        <td class="imminent">5.5pp ← CLOSEST</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:72.5%"></div><div class="trigger-marker" style="left:100%"></div></div></td>
+      </tr>
+      <tr>
+        <td>WTI $200 in April</td>
+        <td>3.7%</td>
+        <td>↑ above 8%</td>
+        <td class="imminent">4.3pp ← APPROACHING</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:46.25%"></div><div class="trigger-marker" style="left:100%"></div></div></td>
+      </tr>
+      <tr>
+        <td>China invades Taiwan 2026</td>
+        <td>9.8%</td>
+        <td>↑ above 15%</td>
+        <td>5.1pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:65.3%"></div></div></td>
+      </tr>
+      <tr>
+        <td>US-Iran ceasefire by Apr 30</td>
+        <td>23.5%</td>
+        <td>↓ below 10%</td>
+        <td>13.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:57.5%; background:var(--green);"></div></div></td>
+      </tr>
+      <tr>
+        <td>Trump ends Iran ops by Apr 30</td>
+        <td>31.5%</td>
+        <td>↓ below 20%</td>
+        <td>11.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:63.3%; background:var(--green);"></div></div></td>
+      </tr>
+      <tr>
+        <td>Kharg Island falls by Apr 30</td>
+        <td>18.5%</td>
+        <td>↑ above 30%</td>
+        <td>11.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:61.7%"></div></div></td>
+      </tr>
+      <tr>
+        <td>WTI $130 in April</td>
+        <td>49.5%</td>
+        <td>↑ above 65%</td>
+        <td>15.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:76.2%"></div></div></td>
+      </tr>
+      <tr>
+        <td>Trump visits China by May 31</td>
+        <td>64.0%</td>
+        <td>↑ above 75%</td>
+        <td>11.0pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:85.3%"></div></div></td>
+      </tr>
+      <tr>
+        <td>UAE strikes Iran by Apr 30</td>
+        <td>24.5%</td>
+        <td>↑ above 35%</td>
+        <td>10.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:70%"></div></div></td>
+      </tr>
+      <tr>
+        <td>WTI $140 in April</td>
+        <td>31.5%</td>
+        <td>↑ above 48%</td>
+        <td>16.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:65.6%"></div></div></td>
+      </tr>
+      <tr>
+        <td>WTI $150 in April</td>
+        <td>18.5%</td>
+        <td>↑ above 35%</td>
+        <td>16.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:52.9%"></div></div></td>
+      </tr>
+      <tr>
+        <td>Israel ground op in Iran</td>
+        <td>21.5%</td>
+        <td>↑ above 45%</td>
+        <td>23.5pp</td>
+        <td><div class="trigger-bar"><div class="trigger-fill" style="width:47.8%"></div></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px; color:var(--text-muted);">Progress bars show current price as % of trigger threshold. Orange = closest to firing. Green = "below" triggers (firing means price fell to threshold).</p>
+
+  <!-- Forward Watch -->
+  <h2>Forward Watch</h2>
+  <ul class="forward-items">
+    <li>
+      <div class="timeframe">~17h</div>
+      <div class="text"><strong>April 7 ceasefire resolves at 2.9%</strong> — Watch if WTI $130 immediately reprices above 51% post-resolution. If yes, confirms war-indefinite is fully discounted into oil and $130 target is live. This is the cleanest near-term signal.</div>
+    </li>
+    <li>
+      <div class="timeframe">Next 1–2 runs</div>
+      <div class="text"><strong>Oman back-channel confirmation</strong> — Does Iran-Oman Apr 30 continue declining below 20%? If yes, add a 15% trigger immediately. A move below 15% + ceasefire Apr 30 crossing 30% simultaneously = confirmed Oman mediation → oil short signal (WTI $130 drops to 35-40%).</div>
+    </li>
+    <li>
+      <div class="timeframe">Next 24h</div>
+      <div class="text"><strong>WTI $200 approaching 8% trigger</strong> — Currently 3.7% (+1.1pp/day trend). Trigger fires in ~4 days at this pace. A single Hormuz incident (ship seizure, mine strike, IRGC action) could spike this overnight. Primary alert in the system.</div>
+    </li>
+    <li>
+      <div class="timeframe">Next Kalshi run</div>
+      <div class="text"><strong>Unemployment floor at 63% (5pp from 58% trigger)</strong> — If next reading shows 61% or below, escalate: may be genuine repricing vs. war headwinds rather than position unwind settling. Kalshi's most imminent trigger.</div>
+    </li>
+    <li>
+      <div class="timeframe">Next 2–3 runs</div>
+      <div class="text"><strong>Ceasefire April 30 at 23.5%</strong> — If crosses 30%, Oman back-channel hypothesis confirmed. Reprice oil triggers downward. If stays flat or falls back, war-indefinite narrative locks in and WTI $130 target becomes consensus.</div>
+    </li>
+  </ul>
+
+  <!-- ASX -->
+  <h2>ASX Sector Implications</h2>
+  <table>
+    <thead>
+      <tr><th>Sector</th><th>Tickers</th><th>Stance</th><th>Reason</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Energy / Oil</td>
+        <td><span class="ticker-chip">WDS</span> <span class="ticker-chip">STO</span> <span class="ticker-chip">BPT</span></td>
+        <td class="stance-bullish">BULLISH</td>
+        <td>$120 floor confirmed, WTI $130 coin flip, LNG premium on Hormuz</td>
+      </tr>
+      <tr>
+        <td>Gold</td>
+        <td><span class="ticker-chip">NST</span> <span class="ticker-chip">NCM</span> <span class="ticker-chip">EVN</span></td>
+        <td class="stance-bullish">BULLISH</td>
+        <td>Institutional uncertainty premium + oil-driven inflation hedge + USD risk</td>
+      </tr>
+      <tr>
+        <td>Banks</td>
+        <td><span class="ticker-chip">ANZ</span> <span class="ticker-chip">CBA</span> <span class="ticker-chip">NAB</span> <span class="ticker-chip">WBC</span></td>
+        <td class="stance-neutral">NEUTRAL/CAUTIOUS</td>
+        <td>RBA hold confirmed; stagflation risk is medium-term, not immediate</td>
+      </tr>
+      <tr>
+        <td>Airlines</td>
+        <td><span class="ticker-chip">QAN</span></td>
+        <td class="stance-bearish">BEARISH</td>
+        <td>Jet fuel at $120+ oil = significant margin compression; watch for Q2 profit warning</td>
+      </tr>
+      <tr>
+        <td>Logistics / Freight</td>
+        <td><span class="ticker-chip">AZJ</span> <span class="ticker-chip">TCL</span></td>
+        <td class="stance-bearish">BEARISH</td>
+        <td>Diesel at 323c/litre — freight surcharges compressing margins</td>
+      </tr>
+      <tr>
+        <td>Consumer Staples</td>
+        <td><span class="ticker-chip">WOW</span> <span class="ticker-chip">COL</span> <span class="ticker-chip">WES</span></td>
+        <td class="stance-cautious">CAUTIOUS</td>
+        <td>Transport cost pass-through; consumer confidence watch with fuel excise cut limiting buffer</td>
+      </tr>
+      <tr>
+        <td>Resources</td>
+        <td><span class="ticker-chip">BHP</span> <span class="ticker-chip">RIO</span> <span class="ticker-chip">FMG</span></td>
+        <td class="stance-mixed">MIXED</td>
+        <td>China demand soft (Trump China visit −5pp to 64%); iron ore watch; diesel cost headwind</td>
+      </tr>
+      <tr>
+        <td>Tech</td>
+        <td><span class="ticker-chip">XRO</span> <span class="ticker-chip">WTC</span></td>
+        <td class="stance-cautious">CAUTIOUS</td>
+        <td>Nasdaq correlation; risk-off if oil triggers US Fed rethink; USD strength headwind</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="conviction-box">
+    <strong>Highest-conviction ASX trade:</strong> Long <span class="ticker-chip">WDS</span>/<span class="ticker-chip">STO</span> on sustained $120+ oil + Hormuz closure at 85.5% probability. Short <span class="ticker-chip">QAN</span> if jet fuel surcharges haven't been fully priced into Q2 guidance (watch next earnings update).
+  </div>
+
+  <footer>
+    Alert report auto-generated by Polymarket Financial Analyst Agent · 2026-04-06 04:46 AEST · /home/id/dev/polymarket/reports/analysis/OMAN-BACKCH-WTI120-ALERT-2026-04-06.html
+  </footer>
+</div>
+</body>
+</html>
