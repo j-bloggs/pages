@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Kharg Island Trigger Fires — 8 April 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --text: #e2e6f0;
+    --muted: #8891b0;
+    --red: #ff5c72;
+    --orange: #ff9f43;
+    --yellow: #ffd166;
+    --green: #06d6a0;
+    --blue: #4ea8de;
+    --purple: #a78bfa;
+    --fired: #ff5c72;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 0 60px 0;
+  }
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a0a0a 0%, #2a1020 50%, #1a1d27 100%);
+    border-bottom: 2px solid var(--fired);
+    padding: 36px 40px 28px;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: var(--fired);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .header .timestamp {
+    margin-top: 10px;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  /* Content */
+  .content { max-width: 860px; margin: 0 auto; padding: 36px 40px; }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    margin: 36px 0 14px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+  h2:first-child { margin-top: 0; }
+  p { margin-bottom: 12px; color: var(--text); }
+  strong { color: #fff; }
+  /* Trigger fired card */
+  .fired-card {
+    background: linear-gradient(135deg, #2a0a10 0%, #1f1525 100%);
+    border: 1.5px solid var(--fired);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .fired-card .trigger-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--fired);
+    margin-bottom: 8px;
+  }
+  .fired-card .trigger-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+  .fired-card .trigger-delta {
+    font-size: 16px;
+    color: var(--red);
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .fired-card .trigger-meta {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .fired-card .trigger-action {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: rgba(255,92,114,0.12);
+    border-left: 3px solid var(--fired);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--orange);
+  }
+  /* Market grid */
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+  .market-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .market-card.highlight { border-color: var(--orange); }
+  .market-card .label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .market-card .price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+  .market-card .delta {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+  .delta.flat { color: var(--muted); }
+  .market-card .note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  /* Insight box */
+  .insight {
+    background: var(--surface2);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .insight.warning { border-left-color: var(--orange); }
+  .insight.red { border-left-color: var(--fired); }
+  .insight p { margin-bottom: 6px; }
+  .insight p:last-child { margin-bottom: 0; }
+  /* Timeline */
+  .timeline { margin: 16px 0; }
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time { color: var(--muted); font-size: 12px; white-space: nowrap; width: 110px; flex-shrink: 0; padding-top: 2px; }
+  .tl-text { font-size: 14px; color: var(--text); }
+  .tl-text strong { color: #fff; }
+  /* Scenario table */
+  .scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+  .scenario-table th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scenario-table td {
+    padding: 10px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .scenario-table tr:last-child td { border-bottom: none; }
+  .scenario-table td:first-child { font-weight: 600; color: #fff; }
+  .prob-high { color: var(--red); font-weight: 700; }
+  .prob-low { color: var(--green); font-weight: 700; }
+  /* Forward view */
+  .forward-list { list-style: none; padding: 0; }
+  .forward-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .forward-list li:last-child { border-bottom: none; }
+  .forward-list .num {
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 13px;
+    width: 20px;
+    flex-shrink: 0;
+  }
+  /* Actions */
+  .actions-list { list-style: none; padding: 0; }
+  .actions-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text);
+  }
+  .actions-list li:last-child { border-bottom: none; }
+  .actions-list .tag {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 7px;
+    margin-right: 8px;
+    color: var(--blue);
+    vertical-align: middle;
+  }
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">&#x1F6A8; Trigger Alert</div>
+  <h1>Kharg Island Trigger Fires<br>US Strikes Iran's Key Oil Hub Directly</h1>
+  <div class="subtitle">Polymarket ALERT — Iran/Oil Escalation</div>
+  <div class="timestamp">Wednesday 8 April 2026 &bull; 03:15 AEST &bull; Hormuz deadline in ~31 hours</div>
+</div>
+
+<div class="content">
+
+  <!-- FIRED TRIGGER -->
+  <h2>Trigger Fired</h2>
+  <div class="fired-card">
+    <div class="trigger-label">&#x1F525; FIRED: Kharg Island falls by Apr 30</div>
+    <div>
+      <span class="trigger-price">30.5%</span>
+      <span class="trigger-delta">+3.0pp this run</span>
+    </div>
+    <div class="trigger-meta">Threshold: 30% &bull; 12-hour trajectory: 23.5% → 29.0% → 27.5% → <strong>30.5%</strong> &bull; Volume: $1.15M/24h</div>
+    <div class="trigger-action">Threshold raised to 40% to track next escalation level (oil terminal strike scenario)</div>
+  </div>
+
+  <!-- SUMMARY -->
+  <h2>Summary</h2>
+  <p>The US military struck <strong>dozens of military targets on Kharg Island</strong> overnight (April 7–8) — bunkers, air defence systems, storage — marking the first time American forces have engaged the island's own infrastructure directly. Oil infrastructure was deliberately spared this time. WTI spot immediately surged 3% to <strong>~$116/bbl</strong>. The Kharg Island prediction market, which had been grinding up for 12 hours, broke through the 30% trigger threshold at 03:15 AEST.</p>
+  <p>The Trump Hormuz deadline — <strong>April 8, 8pm ET (April 9, 10:00am AEST)</strong> — is 31 hours away. If Iran does not reopen Hormuz by then, Trump has threatened to strike power plants and bridges. Iran is organising human chains around threatened infrastructure and has rejected any short-term ceasefire. The diplomatic back-channel (Egypt/Iraq/Pakistan + Witkoff) is active but has not closed a deal.</p>
+  <p>This alert is genuine, not thin-market noise: multi-hour ascending pattern, high volume, confirmed news catalyst, and WTI spot independently corroborating the move.</p>
+
+  <!-- HEADLINE MARKETS -->
+  <h2>Key Markets — 03:15 AEST</h2>
+  <div class="market-grid">
+    <div class="market-card highlight">
+      <div class="label">Kharg Island falls by Apr 30</div>
+      <div class="price">30.5%</div>
+      <div class="delta up">rose from 27.5% (+3.0pp this run)</div>
+      <div class="note">FIRED. US struck military targets on island overnight. Oil terminal next step.</div>
+    </div>
+    <div class="market-card highlight">
+      <div class="label">WTI spot price (approx.)</div>
+      <div class="price">~$116/bbl</div>
+      <div class="delta up">+3% overnight post-Kharg strike</div>
+      <div class="note">WTI (proxy for Brent) — $14 below the $130 prediction market target</div>
+    </div>
+    <div class="market-card">
+      <div class="label">WTI $130 in April (prediction)</div>
+      <div class="price">49.5%</div>
+      <div class="delta down">fell from 50.0% (−0.5pp)</div>
+      <div class="note">Lagging spot badly. Trigger lowered to 58% to compensate. Mispriced vs $116 spot.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">WTI $140 in April</div>
+      <div class="price">33.5%</div>
+      <div class="delta up">rose from 31.0% (+2.5pp)</div>
+      <div class="note">Upper tail repricing faster than base case — smart money sees $130 as floor.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">WTI $150 in April</div>
+      <div class="price">19.5%</div>
+      <div class="delta flat">flat</div>
+      <div class="note">10.5pp below trigger (fires at 30%). Hormuz deadline failure could push quickly.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">Hormuz traffic normalises by Apr 30</div>
+      <div class="price">16.5%</div>
+      <div class="delta down">fell from 19.5% (−3.0pp)</div>
+      <div class="note">3.5pp below trigger (fires at 20%). Market extending disruption horizon.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">Trump ends Iran ops by Apr 15</div>
+      <div class="price">19.5%</div>
+      <div class="delta up">rose from 17.5% (+2.0pp)</div>
+      <div class="note">5.5pp below trigger (fires at 25%). Creeping up — diplomatic optionality.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">Israel ground op in Iran by Apr 30</div>
+      <div class="price">25.0%</div>
+      <div class="delta up">rose from 24.5% (+0.5pp)</div>
+      <div class="note">20pp below trigger (fires at 45%). Slow grind; Kharg attack adds pressure.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">US-Iran ceasefire by Apr 30</div>
+      <div class="price">33.5%</div>
+      <div class="delta flat">flat</div>
+      <div class="note">Diplomatic optionality holding. Witkoff channel still live.</div>
+    </div>
+    <div class="market-card">
+      <div class="label">Iran regime falls by Apr 30</div>
+      <div class="price">4.5%</div>
+      <div class="delta flat">−0.2pp</div>
+      <div class="note">Market pricing sustained conflict, not regime collapse.</div>
+    </div>
+  </div>
+
+  <!-- THE CATALYST -->
+  <h2>The Catalyst — Kharg Island Strike Confirmed</h2>
+  <p>Multiple US officials and media outlets confirmed overnight strikes on Kharg Island's military infrastructure:</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">Apr 7 (day)</div>
+      <div class="tl-text">First confirmed attack on Kharg <strong>oil hub</strong> — Mehr news agency. Oil infrastructure targeted for first time (March 13 hit military only). Kharg market rises to ~23.5%.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Apr 7 (night)</div>
+      <div class="tl-text">US military strikes <strong>dozens of military targets</strong> on Kharg Island: bunkers, storage, air defence systems. Iran reports 15+ explosions. <strong>Oil terminal spared — deliberately.</strong> WTI spot +3% to ~$116.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Apr 8 03:15 AEST</div>
+      <div class="tl-text">Kharg prediction market crosses 30% threshold: <strong>TRIGGER FIRES</strong> at 30.5% (+3.0pp). 12-hour ascending pattern confirmed genuine.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Apr 9 ~10am AEST</div>
+      <div class="tl-text"><strong>Trump Hormuz deadline</strong> (Apr 8 8pm ET). If no deal: "no bridges, no power plants." Iran organising human shields around infrastructure. Witkoff shuttle diplomacy ongoing.</div>
+    </div>
+  </div>
+
+  <div class="insight red">
+    <p><strong>Why Kharg Matters:</strong> Kharg Island processes approximately <strong>90% of Iran's oil exports</strong> (~1.8–2.0 Mb/d). Any sustained damage to the oil terminal eliminates Iranian export revenue overnight, removes Iran's last financial incentive to de-escalate, and removes ~1.8 Mb/d from global supply on top of the existing Hormuz disruption. WTI would blow through $130 spot within 48 hours of a terminal strike.</p>
+    <p>The US deliberately spared the oil terminal in this round. The next round of strikes — post-deadline — may not.</p>
+  </div>
+
+  <!-- THE MISPRICING -->
+  <h2>The Key Contradiction: Spot vs Prediction Market</h2>
+  <div class="insight warning">
+    <p><strong>WTI spot surged 3% to ~$116/bbl overnight. WTI $130 prediction market fell 0.5pp to 49.5%.</strong></p>
+    <p>These should move together. $130 is only $14 above current spot. With Hormuz still closed, Kharg now an active strike zone, and 31 hours until the deadline, a 50/50 probability of reaching $130 in 3 weeks understates the supply disruption risk. The prediction market is anchoring on demand destruction (US tariff recession) as a counterweight to supply shock. That may be correct in a 45-day demand model, but not in a 3-week spot-market window.</p>
+    <p><strong>The tell:</strong> WTI $140 rose +2.5pp while WTI $130 fell 0.5pp. Smart money is not fading $130 — it's leapfrogging to $140 as the new interesting level. This implies $130 is being treated as a floor, not a target.</p>
+  </div>
+
+  <!-- SCENARIO TABLE -->
+  <h2>Hormuz Deadline Scenarios — April 9, 10:00am AEST</h2>
+  <table class="scenario-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Probability (implied)</th>
+        <th>Oil</th>
+        <th>Australian Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A: Iran reopens Hormuz / deal struck</td>
+        <td class="prob-low">~16.5% (Hormuz market)</td>
+        <td>WTI spot crashes to $85–95; prediction markets reprice sharply down</td>
+        <td>Petrol relief; AUD rallies; WDS/STO give back 5–10%; QAN/AZJ bounce</td>
+      </tr>
+      <tr>
+        <td>B: Deadline passes, Trump strikes power plants / bridges</td>
+        <td class="prob-high">~83.5% base</td>
+        <td>WTI spot $125–135 within 48h; $130 prediction market → 70%+</td>
+        <td>Petrol A$2.70–2.80/L; AUD/USD tests 0.66; WDS/STO surge; QAN/AZJ accelerate losses</td>
+      </tr>
+      <tr>
+        <td>C: Trump strikes Kharg oil terminal</td>
+        <td class="prob-high">~30.5% (Kharg market)</td>
+        <td>WTI spot $130–145; $140 prediction → 55%+; $150 → 35%+</td>
+        <td>Petrol A$2.80–3.00/L; RBA June cut off table; stagflation confirmed; WTI $150 trigger fires</td>
+      </tr>
+      <tr>
+        <td>D: Israel launches ground operation in Iran</td>
+        <td class="prob-high">~25.0% (Israel market)</td>
+        <td>WTI $140+ spot; multi-front war premium; Hormuz closure entrenched</td>
+        <td>Severe: ASX -3%+ open; gold strongly bid; AUD/USD 0.64–0.65; WTI $200 tail rises above 8%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- AUSTRALIAN MARKET -->
+  <h2>Australian Market Implications</h2>
+  <p>The ASX opened this morning (April 8) into Kharg Island strike news. Energy sector (WDS, STO) will be bid on LNG tracking; airlines/freight/logistics (QAN, AZJ, TCL) remain under pressure. Key ASX-specific exposures:</p>
+  <ul style="padding-left: 20px; margin: 12px 0 16px; line-height: 2;">
+    <li><strong>Woodside (WDS) / Santos (STO)</strong>: Structural beneficiaries of sustained WTI $110+. LNG spot prices track crude; every $10 on WTI adds ~A$0.8–1.2 to LNG spot netback.</li>
+    <li><strong>Qantas (QAN)</strong>: Jet fuel at current levels (~$130/bbl equivalent Brent jet) is P&amp;L-negative at planned fuel hedges. If Brent reaches $130+, every unhedged quarter worsens materially.</li>
+    <li><strong>Transurban (TCL) / Aurizon (AZJ)</strong>: Diesel costs spiral with WTI; toll traffic volumes affected by consumer fuel squeeze.</li>
+    <li><strong>Petrol pricing</strong>: WTI (proxy for Brent) at $116 = ~A$2.45–2.55/L at pump with current excise cut. Brent typically $2–5 premium; if WTI $130, Australian pump price approaches A$2.70+.</li>
+    <li><strong>RBA</strong>: Hiked to 4.10% in March 2026. Stagflation trap deepens — cannot cut into oil inflation, cannot hike into war-shock unemployment. June meeting: hold confirmed.</li>
+  </ul>
+
+  <!-- FORWARD VIEW -->
+  <h2>Forward View</h2>
+  <ul class="forward-list">
+    <li><span class="num">1.</span>
+      <span><strong>Hormuz deadline (Apr 9, 10am AEST) is the next binary event.</strong> Monitor Kharg (new threshold 40%), WTI $130 (new threshold 58%), and Hormuz normalization (threshold 20%). Any two of these firing simultaneously = send emergency alert regardless of time.</span>
+    </li>
+    <li><span class="num">2.</span>
+      <span><strong>WTI $130 prediction market is mispriced at 49.5% with spot at $116.</strong> If deadline fails and Trump strikes power plants, expect WTI $130 prediction to reprice to 65%+ in a single session — may overshoot the trigger entirely. Watch for gap open.</span>
+    </li>
+    <li><span class="num">3.</span>
+      <span><strong>Trump ends Iran ops by Apr 15 (19.5%, +2.0pp)</strong> is approaching the 25% trigger. If it crosses 25%, it signals the diplomatic back-channel is gaining traction — this is the first de-escalation canary. Watch overnight.</span>
+    </li>
+    <li><span class="num">4.</span>
+      <span><strong>Kharg oil terminal strike probability is now the dominant risk.</strong> Market at 30.5% implies ~1-in-3 chance within April. If strikes proceed post-deadline and expand to oil infrastructure, Kharg fires at 40% threshold within hours.</span>
+    </li>
+    <li><span class="num">5.</span>
+      <span><strong>Kalshi unemployment (73%) divergence from oil prediction markets remains the structural alpha.</strong> If WTI $130 fires and spot hits $130+, unemployment market should reprice above 75% ceiling trigger within 1-2 weeks (freight/food/services transmission). Watch for both triggers firing simultaneously.</span>
+    </li>
+  </ul>
+
+  <!-- ACTIONS -->
+  <h2>Actions Taken</h2>
+  <ul class="actions-list">
+    <li><span class="tag">TRIGGER</span> Kharg Island threshold raised: <strong>30% → 40%</strong>. Rationale: trigger fired at 30.5%; new threshold catches oil terminal strike scenario (next escalation level).</li>
+    <li><span class="tag">TRIGGER</span> WTI $130 threshold lowered: <strong>65% → 58%</strong>. Rationale: WTI spot at $116 makes $130 target near-term; prior 65% threshold provides insufficient lead time. 8.5pp lead time preserved at 58%.</li>
+    <li><span class="tag">LOGGED</span> Analyst notes updated with full trigger status, trajectory analysis, and cross-market picture.</li>
+    <li><span class="tag">EMAIL</span> Alert dispatched to report recipients.</li>
+  </ul>
+
+  <div class="footer">
+    <p>Generated by Polymarket Analyst Agent &bull; 2026-04-08 03:15 AEST &bull; Alert: KHARG-TRIGGER-FIRES-20260408</p>
+    <p style="margin-top: 4px;">Sources: NBC News live blog, CNN, Military Times, Washington Times, Al Jazeera &bull; Prediction markets: Polymarket, Kalshi</p>
+  </div>
+
+</div>
+</body>
+</html>
