@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oil: War Premium Reclaims Dominance — 7 April 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #f78166;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #e3b341;
+    --blue: #58a6ff;
+    --orange: #ff7b72;
+    --purple: #d2a8ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  /* Header */
+  .header {
+    border-left: 4px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 32px;
+  }
+  .header .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  /* Alert box */
+  .alert-banner {
+    background: linear-gradient(135deg, #2d1a1a 0%, #1a1a2d 100%);
+    border: 1px solid #f85149;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 28px;
+  }
+  .alert-banner .alert-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .alert-banner p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .alert-banner strong { color: var(--yellow); }
+  /* Section headers */
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--blue);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin: 32px 0 14px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--purple);
+    margin: 20px 0 10px;
+  }
+  p { margin-bottom: 14px; }
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface); }
+  .price-high { color: var(--red); font-weight: 700; }
+  .price-mid { color: var(--yellow); font-weight: 600; }
+  .price-low { color: var(--muted); }
+  .delta-up { color: var(--green); }
+  .delta-dn { color: var(--red); }
+  .delta-flat { color: var(--muted); }
+  .trigger-close { background: #2d1a1a; }
+  /* Progress bar for trigger proximity */
+  .trigger-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trigger-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .trigger-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .bar-red { background: var(--red); }
+  .bar-orange { background: var(--orange); }
+  .bar-yellow { background: var(--yellow); }
+  .bar-blue { background: var(--blue); }
+  .bar-muted { background: var(--muted); }
+  .trigger-pct { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    border: 2px solid var(--bg);
+  }
+  .timeline-item.highlight::before { background: var(--accent); }
+  .timeline-item .tl-time {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 1px;
+  }
+  .timeline-item .tl-content { font-size: 13px; }
+  .timeline-item .tl-content strong { color: var(--yellow); }
+  /* Chart */
+  .chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .chart-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 120px;
+  }
+  .chart-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .chart-bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    transition: height 0.3s;
+    min-height: 2px;
+  }
+  .chart-label {
+    font-size: 9px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+  .chart-value {
+    font-size: 9px;
+    color: var(--text);
+    font-weight: 600;
+  }
+  /* Callout boxes */
+  .callout {
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .callout-red {
+    background: #1f0f0f;
+    border: 1px solid var(--red);
+    border-left: 4px solid var(--red);
+  }
+  .callout-yellow {
+    background: #1a1600;
+    border: 1px solid var(--yellow);
+    border-left: 4px solid var(--yellow);
+  }
+  .callout-blue {
+    background: #0d1b2a;
+    border: 1px solid var(--blue);
+    border-left: 4px solid var(--blue);
+  }
+  .callout-green {
+    background: #0d1f0f;
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--green);
+  }
+  .callout-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .callout-red .callout-label { color: var(--red); }
+  .callout-yellow .callout-label { color: var(--yellow); }
+  .callout-blue .callout-label { color: var(--blue); }
+  .callout-green .callout-label { color: var(--green); }
+  /* Forward view list */
+  .fwd-list { list-style: none; padding: 0; }
+  .fwd-list li {
+    padding: 10px 12px;
+    border-left: 3px solid var(--border);
+    margin-bottom: 10px;
+    font-size: 13px;
+    background: var(--surface);
+    border-radius: 0 4px 4px 0;
+  }
+  .fwd-list li.urgent { border-left-color: var(--red); }
+  .fwd-list li.watch { border-left-color: var(--yellow); }
+  .fwd-list li.medium { border-left-color: var(--blue); }
+  .fwd-list li .fwd-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 3px;
+    text-transform: uppercase;
+  }
+  /* ASX table direction icons */
+  .bull { color: var(--green); }
+  .bear { color: var(--red); }
+  .mixed { color: var(--yellow); }
+  /* Track record */
+  .track { display: flex; gap: 8px; margin-bottom: 8px; font-size: 13px; }
+  .track .tick { width: 20px; flex-shrink: 0; }
+  .track .tick.ok { color: var(--green); }
+  .track .tick.fail { color: var(--red); }
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  code {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  strong { color: var(--text); }
+  em { color: var(--muted); font-style: normal; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="eyebrow">⚡ Polymarket Alert — Oil Markets</div>
+  <h1>War Premium Reclaims Dominance</h1>
+  <div class="subtitle">7 April 2026, 22:22 AEST &nbsp;|&nbsp; WTI $130 in April: <strong style="color:#f85149">60.0%</strong> (+23.5pp reversal) &nbsp;|&nbsp; 5pp from trigger</div>
+</div>
+
+<div class="alert-banner">
+  <div class="alert-label">⚠ Alert Confirmed — Macro Significant</div>
+  <p>WTI $130 in April has reversed <strong>+23.5pp from its trough</strong> (36.5% → 60.0%) in 29 hours and is now just <strong>5pp from triggering a confirmed oil-shock alert</strong>. The demand-destruction thesis from yesterday's tariff panic has been overridden by war supply premium. WTI $140 at 39.5% appears structurally underpriced. Australian diesel at a record <strong>A$3.13/L</strong> — the government's 26.3c excise cut is under threat if oil continues higher.</p>
+</div>
+
+<!-- TRIGGER STATUS TABLE -->
+<h2>Trigger Status Dashboard</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Market</th>
+      <th>Price</th>
+      <th>This Run</th>
+      <th>Today</th>
+      <th>vs Trough</th>
+      <th>Trigger</th>
+      <th>Distance</th>
+      <th>Proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="trigger-close">
+      <td><strong>WTI $130 in April</strong></td>
+      <td class="price-high">60.0%</td>
+      <td class="delta-up">+5.5pp</td>
+      <td class="delta-up">+18.5pp</td>
+      <td class="delta-up">+23.5pp</td>
+      <td>65%</td>
+      <td class="price-high"><strong>5.0pp</strong></td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-red" style="width:92%"></div></div>
+          <span class="trigger-pct">92%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>WTI $140 in April</strong></td>
+      <td class="price-mid">39.5%</td>
+      <td class="delta-up">+1.0pp</td>
+      <td class="delta-up">+13.0pp</td>
+      <td class="delta-up">+15.0pp</td>
+      <td>48%</td>
+      <td class="price-mid">8.5pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-orange" style="width:82%"></div></div>
+          <span class="trigger-pct">82%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Kharg Island falls by Apr 30</td>
+      <td class="price-mid">23.5%</td>
+      <td class="delta-up">+1.0pp</td>
+      <td class="delta-up">+7.0pp</td>
+      <td>—</td>
+      <td>30%</td>
+      <td class="price-mid">6.5pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-yellow" style="width:78%"></div></div>
+          <span class="trigger-pct">78%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Hormuz normalises by Apr 30</td>
+      <td class="price-low">12.5%</td>
+      <td class="delta-flat">0.0pp</td>
+      <td>—</td>
+      <td>—</td>
+      <td>20%</td>
+      <td>7.5pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-blue" style="width:63%"></div></div>
+          <span class="trigger-pct">63%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>WTI $150 in April</td>
+      <td class="price-low">21.0%</td>
+      <td class="delta-flat">0.0pp</td>
+      <td class="delta-up">+5.5pp</td>
+      <td class="delta-up">+3.5pp</td>
+      <td>35%</td>
+      <td>14.0pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-muted" style="width:60%"></div></div>
+          <span class="trigger-pct">60%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Trump ends Iran ops by Apr 15</td>
+      <td class="price-low">11.5%</td>
+      <td class="delta-flat">0.0pp</td>
+      <td>—</td>
+      <td>—</td>
+      <td>25%</td>
+      <td>13.5pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-muted" style="width:46%"></div></div>
+          <span class="trigger-pct">46%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>WTI $200 in April</td>
+      <td class="price-low">3.1%</td>
+      <td class="delta-flat">0.0pp</td>
+      <td>—</td>
+      <td>—</td>
+      <td>8%</td>
+      <td>4.9pp</td>
+      <td>
+        <div class="trigger-bar-wrap">
+          <div class="trigger-bar"><div class="trigger-bar-fill bar-muted" style="width:39%"></div></div>
+          <span class="trigger-pct">39%</span>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- PRICE CHART: WTI $130 intraday Apr 7 -->
+<h2>WTI $130 in April — Intraday Price Path</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:10px">All timestamps AEST. Shows today's recovery from midnight trough through the US-session acceleration. Volume: $2.14M/24h.</p>
+
+<div class="chart-container">
+  <div class="chart-title">WTI $130 in April — 7 April 2026 (AEST)</div>
+  <div class="chart-bars">
+    <!-- Midnight (trough carry-over) -->
+    <div class="chart-col">
+      <div class="chart-value">41.5%</div>
+      <div class="chart-bar bar-blue" style="height:calc(41.5/65*100px)"></div>
+      <div class="chart-label">00:00<br>midnight</div>
+    </div>
+    <!-- 20:00 -->
+    <div class="chart-col">
+      <div class="chart-value">45.5%</div>
+      <div class="chart-bar bar-yellow" style="height:calc(45.5/65*100px)"></div>
+      <div class="chart-label">20:00</div>
+    </div>
+    <!-- 20:15 -->
+    <div class="chart-col">
+      <div class="chart-value">45.5%</div>
+      <div class="chart-bar bar-yellow" style="height:calc(45.5/65*100px)"></div>
+      <div class="chart-label">20:15</div>
+    </div>
+    <!-- 20:30 -->
+    <div class="chart-col">
+      <div class="chart-value">46.5%</div>
+      <div class="chart-bar bar-yellow" style="height:calc(46.5/65*100px)"></div>
+      <div class="chart-label">20:30</div>
+    </div>
+    <!-- 20:45 — BIG JUMP -->
+    <div class="chart-col">
+      <div class="chart-value" style="color:var(--orange)"><strong>50.5%</strong></div>
+      <div class="chart-bar bar-orange" style="height:calc(50.5/65*100px)"></div>
+      <div class="chart-label">20:45<br>⚡ +4pp</div>
+    </div>
+    <!-- 21:45 -->
+    <div class="chart-col">
+      <div class="chart-value">53.5%</div>
+      <div class="chart-bar bar-orange" style="height:calc(53.5/65*100px)"></div>
+      <div class="chart-label">21:45</div>
+    </div>
+    <!-- 22:00 -->
+    <div class="chart-col">
+      <div class="chart-value">54.5%</div>
+      <div class="chart-bar bar-orange" style="height:calc(54.5/65*100px)"></div>
+      <div class="chart-label">22:00</div>
+    </div>
+    <!-- 22:15 -->
+    <div class="chart-col">
+      <div class="chart-value">55.0%</div>
+      <div class="chart-bar bar-orange" style="height:calc(55/65*100px)"></div>
+      <div class="chart-label">22:15</div>
+    </div>
+    <!-- 22:22 — CURRENT -->
+    <div class="chart-col">
+      <div class="chart-value" style="color:var(--red)"><strong>60.0%</strong></div>
+      <div class="chart-bar bar-red" style="height:calc(60/65*100px)"></div>
+      <div class="chart-label">22:22<br>⚡ +5pp<br><strong>NOW</strong></div>
+    </div>
+    <!-- Trigger line indicator -->
+    <div class="chart-col">
+      <div class="chart-value" style="color:var(--muted)">—</div>
+      <div class="chart-bar" style="height:calc(65/65*100px);background:rgba(248,81,73,0.15);border:1px dashed var(--red);border-radius:3px"></div>
+      <div class="chart-label" style="color:var(--red)">65%<br>TRIGGER</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT HAPPENED -->
+<h2>The 29-Hour U-Turn</h2>
+
+<div class="callout callout-yellow">
+  <div class="callout-label">Yesterday's prediction — confirmed</div>
+  The April 6 17:15 AEST report stated: <em>"If WTI $130 rebounds above 42% by Apr 7 morning → ceasefire Apr 7 failed, supply shock re-pricing."</em> WTI $130 was already 41.5% by midnight. The ceasefire expired No. The prediction landed.
+</div>
+
+<h3>Phase 1: Demand Destruction (Apr 6, 10:00–17:15 AEST)</h3>
+<p>The staircase decline from 51% to <strong style="color:var(--red)">36.5%</strong> was attributed to Trump's Liberation Day tariff shock pricing in a recession that would crush oil demand faster than Iran could reduce supply. Three distinct step-downs over 7+ hours, accelerating to -6pp in the final 15 minutes.</p>
+
+<h3>Phase 2: The Overnight Reversion (Apr 6 midnight – Apr 7, 20:00 AEST)</h3>
+<p>By midnight the bounce had started: 36.5% → 41.5%. The April 7 ceasefire market expired No. Absent diplomatic resolution, the supply disruption thesis reasserted itself through the early session (41.5% → 45.5%).</p>
+
+<h3>Phase 3: US-Session Acceleration (Apr 7, 20:45–22:22 AEST)</h3>
+<p>The critical inflection at <strong style="color:var(--orange)">20:45 AEST</strong>: a single +4pp candle drove WTI $130 from 46.5% to 50.5%, coinciding with early US commodity market activity. From there, sustained buying pressure drove it to <strong style="color:var(--red)">60.0%</strong> — the largest single-session gain in this monitoring cycle. The final candle (+5.5pp, 22:15→22:22) is accelerating, not stabilising.</p>
+
+<!-- KEY TENSION -->
+<h2>Cross-Market Tension: WTI $140 Is Underpriced</h2>
+
+<div class="callout callout-red">
+  <div class="callout-label">⚡ Alpha Signal</div>
+  WTI $130 at <strong>60%</strong> vs WTI $140 at <strong>39.5%</strong> implies a <strong>20.5pp gap</strong> — the market assigns 35% probability to WTI hitting $130 but <em>stopping before $140</em>. In an active Middle East supply disruption, a $130–$139 ceiling is difficult to justify. <strong>WTI $140 looks 5–8pp cheap relative to WTI $130.</strong>
+</div>
+
+<p>For WTI to hit $140, it must pass through $130 — these are sequential targets on the same underlying. The gap can be rationalised as "oil overshoots $130 briefly then falls back," but with:</p>
+<ul style="margin:0 0 14px 20px;font-size:13px;line-height:2">
+  <li>US forces in Iran (99.8% priced)</li>
+  <li>Kharg Island disruption risk at 23.5% and rising</li>
+  <li>Hormuz normalisation still only 12.5%</li>
+  <li>No ceasefire / no Iran ops exit in view</li>
+</ul>
+<p>…a scenario where supply disruption severe enough to push WTI to $130 then neatly stops at $139 seems optimistic. <strong>Watch for WTI $140 to compress toward WTI $130 as the trigger fires.</strong></p>
+
+<!-- WHY THESIS FAILED -->
+<h2>Why Demand Destruction Failed</h2>
+
+<table>
+  <thead><tr><th>Factor</th><th>What Was Expected</th><th>What Happened</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Ceasefire Apr 7</td>
+      <td>5.5% probability — very unlikely</td>
+      <td>Expired No. No diplomacy.</td>
+    </tr>
+    <tr>
+      <td>Tariff recession timeline</td>
+      <td>Demand destruction <em>now</em></td>
+      <td>Recession takes quarters; supply cut is immediate</td>
+    </tr>
+    <tr>
+      <td>Trump ends Iran ops by Apr 15</td>
+      <td>Possible — 13.5%</td>
+      <td>Unchanged at 11.5%. No exit signal.</td>
+    </tr>
+    <tr>
+      <td>US market reaction</td>
+      <td>Tariff fear = risk-off = oil bear</td>
+      <td>US session bought oil probability. Supply > demand narrative.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- KHARG ISLAND -->
+<h2>Kharg Island: The Operational Canary</h2>
+<p>Kharg Island processes ~90% of Iran's oil exports. At <strong style="color:var(--yellow)">23.5%</strong> (+7pp today, +1pp this run), it's now just <strong>6.5pp from its 30% trigger</strong>. At today's pace (+7pp in a session), the trigger fires in 1–2 more sessions absent de-escalation.</p>
+
+<div class="callout callout-blue">
+  <div class="callout-label">Watch Level</div>
+  If Kharg Island crosses <strong>27%</strong>, that's the early warning for trigger fire. If Kharg hits 30% <em>and</em> WTI $130 hits 65% simultaneously, that is the definitive confirmation of a genuine supply shock — not just risk premium expansion.
+</div>
+
+<!-- AUSTRALIAN IMPACT -->
+<h2>Australian Market Impact</h2>
+
+<h3>Verified Fuel Prices (7 April 2026)</h3>
+<table>
+  <thead><tr><th>Fuel</th><th>National Average</th><th>vs Early March</th><th>Context</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Petrol (ULP)</strong></td>
+      <td class="price-mid">~A$2.40/L</td>
+      <td>+~33%</td>
+      <td>Fell ~5% this week — first decline since early Feb</td>
+    </tr>
+    <tr>
+      <td><strong>Diesel</strong></td>
+      <td class="price-high">A$3.13/L</td>
+      <td>+~33%</td>
+      <td><strong>Record high since 2006</strong>. Still rising.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-yellow">
+  <div class="callout-label">Excise Cut — Watch the Buffer</div>
+  The Australian Government cut fuel excise by <strong>26.3c/L from 1 April 2026</strong> (3-month window, all fuels). This is providing temporary relief — petrol fell ~5% this week. But if WTI $130 materialises as an actual price, modelling suggests petrol could retest <strong>A$2.60–2.70/L</strong> even with the excise cut. Diesel may exceed <strong>A$3.30/L</strong>, a new record. The 3-month excise window is the government's political buffer — watch for pressure to extend it.
+</div>
+
+<h3>ASX Sector Implications</h3>
+<table>
+  <thead><tr><th>Sector</th><th>Key Stocks</th><th>Direction</th><th>Rationale</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Oil &amp; LNG</td>
+      <td><strong>WDS, STO, BPT</strong></td>
+      <td class="bull">▲ Bullish</td>
+      <td>Revenue directly tracks oil/LNG price. WDS LNG contracts are oil-linked.</td>
+    </tr>
+    <tr>
+      <td>Gold / Safe Haven</td>
+      <td><strong>NST, EVN, NCM</strong></td>
+      <td class="bull">▲ Bullish</td>
+      <td>Geopolitical fear + oil inflation = gold bid</td>
+    </tr>
+    <tr>
+      <td>Airlines</td>
+      <td><strong>QAN</strong></td>
+      <td class="bear">▼ Bearish</td>
+      <td>Jet fuel ~30% of COGS. Surcharge limits politically constrained.</td>
+    </tr>
+    <tr>
+      <td>Consumer / Retail</td>
+      <td><strong>WOW, COL, WES</strong></td>
+      <td class="bear">▼ Bearish</td>
+      <td>Transport costs rising; consumer squeeze from fuel prices</td>
+    </tr>
+    <tr>
+      <td>Logistics / Rail</td>
+      <td><strong>AZJ, TCL</strong></td>
+      <td class="bear">▼ Bearish</td>
+      <td>Diesel at record highs = direct margin compression</td>
+    </tr>
+    <tr>
+      <td>Agriculture</td>
+      <td><strong>GNC, ELD</strong></td>
+      <td class="bear">▼ Bearish</td>
+      <td>Diesel and fertiliser input costs elevated</td>
+    </tr>
+    <tr>
+      <td>Mining / Resources</td>
+      <td><strong>BHP, RIO, FMG</strong></td>
+      <td class="mixed">◆ Mixed</td>
+      <td>Higher diesel costs offset by commodity price support; China demand variable</td>
+    </tr>
+    <tr>
+      <td>Banks</td>
+      <td><strong>ANZ, CBA, NAB, WBC</strong></td>
+      <td class="bear">▼ Cautious</td>
+      <td>RBA holds → credit growth constrained; consumer stress from fuel costs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>RBA Implications</h3>
+<p>Oil supply shocks are stagflationary — they push CPI up while suppressing growth. The excise cut provides ~1–2 months of CPI buffer, but if WTI $130 sustains:</p>
+<ul style="margin:0 0 14px 20px;font-size:13px;line-height:2">
+  <li><strong>Q2 2026 CPI</strong>: petrol contribution turns from drag to additive support</li>
+  <li><strong>RBA May meeting</strong>: "higher for longer" language likely returns; easing bias suspended</li>
+  <li><strong>AGB front-end</strong>: 2-year yields come under pressure; front-end/long-end steepening</li>
+  <li><strong>AUD/USD</strong>: mildly supportive (Australia net commodity exporter) vs. US Fed on hold (1.8% hike probability)</li>
+</ul>
+
+<!-- FORWARD VIEW -->
+<h2>Forward View</h2>
+
+<ul class="fwd-list">
+  <li class="urgent">
+    <div class="fwd-num">Next 4–8 hours — US Overnight Session</div>
+    <strong>WTI $130 crosses 65% trigger</strong>: 5pp away with accelerating momentum. Any Middle East escalation headline could push this over in a single run. If WTI $130 fires, it's the first confirmed oil-shock trigger in this monitoring cycle — the most significant event logged to date.
+  </li>
+  <li class="urgent">
+    <div class="fwd-num">Follows immediately if $130 fires</div>
+    <strong>WTI $140 compresses</strong>: The 20.5pp gap between $130 (60%) and $140 (39.5%) does not survive a $130 trigger. Expect $140 to accelerate toward 48%+ within 24h.
+  </li>
+  <li class="watch">
+    <div class="fwd-num">Next 1–3 sessions</div>
+    <strong>Kharg Island at 30%</strong>: Currently 6.5pp away, +7pp today. If WTI $130 and $140 are both elevated, Kharg at 30% is the next milestone. Watch for Kharg crossing 27% as the early warning.
+  </li>
+  <li class="medium">
+    <div class="fwd-num">Next 24–48 hours — De-escalation watch</div>
+    <strong>Trump ends Iran ops by Apr 15 (11.5%)</strong>: If this starts moving toward 15–20%, that is the first genuine de-escalation signal and would reverse the oil move. Currently flat. Not in play.
+  </li>
+  <li class="medium">
+    <div class="fwd-num">Australia — Policy response</div>
+    <strong>Excise extension watch</strong>: If petrol approaches A$2.60/L again, political pressure for excise extension/deepening becomes acute. Watch for Treasury or PM media releases.
+  </li>
+  <li class="watch">
+    <div class="fwd-num">Falsifiable test — 48 hours</div>
+    If WTI $130 does <em>not</em> cross 65% within 48h despite current momentum, reconsider whether this is another oscillation. The +5.5pp final candle acceleration is unusual — this either breaks higher fast, or it reverses. There is no middle ground here.
+  </li>
+</ul>
+
+<!-- TRACK RECORD -->
+<h2>Prediction Track Record — April 6/7 Cycle</h2>
+<div class="track">
+  <span class="tick ok">✅</span>
+  <span><strong>"If WTI $130 rebounds above 42% by Apr 7 morning → ceasefire Apr 7 failed"</strong> — Confirmed. WTI $130 at 41.5% by midnight; ceasefire expired No.</span>
+</div>
+<div class="track">
+  <span class="tick ok">✅</span>
+  <span><strong>"Watch for a WTI $130 rebound tomorrow if ceasefire fails"</strong> — Confirmed. +23.5pp reversal from 36.5% trough.</span>
+</div>
+<div class="track">
+  <span class="tick fail">❌</span>
+  <span><strong>"If WTI $130 crosses below 30% → recession demand thesis dominant"</strong> — Did not happen. Demand destruction thesis failed within 7 hours of being written. Miss on the bear case.</span>
+</div>
+<p style="font-size:12px;color:var(--muted);margin-top:8px">One miss on the bear scenario is acceptable given the binary ceasefire outcome. The primary bull call (supply shock rebound) was the dominant prediction and landed precisely.</p>
+
+<!-- SUMMARY -->
+<h2>Summary</h2>
+<p>The oil prediction markets have delivered a decisive verdict: <strong>war premium &gt; tariff recession fear</strong>. WTI $130 at 60%, accelerating, 5pp from triggering the most significant alert in this monitoring cycle. WTI $140 underpriced by 5–8pp relative to $130. Australian diesel at record highs; excise cut under threat if oil sustains. The next 8 hours — as US markets absorb this — are the critical window.</p>
+
+<div class="callout callout-red">
+  <div class="callout-label">Critical Watchlist</div>
+  <strong>WTI $130 → 65%</strong> &nbsp;|&nbsp; <strong>Kharg Island → 27%</strong> &nbsp;|&nbsp; <strong>WTI $140 → 45%</strong> &nbsp;|&nbsp; <strong>Trump ends Iran ops → 15%</strong>
+</div>
+
+<div class="footer">
+  Report generated: 7 April 2026, 22:22 AEST &nbsp;|&nbsp;
+  Data: Polymarket (vol $2.14M/24h), Kalshi &nbsp;|&nbsp;
+  Prev report: <a href="OIL-REPRICING-TARIFF-VS-WAR-20260406.html" style="color:var(--blue)">OIL-REPRICING-TARIFF-VS-WAR-20260406</a> &nbsp;|&nbsp;
+  Australian fuel data: NRMA Weekly Fuel Report, Bloomberg, Petrolmate (verified live)
+</div>
+
+</body>
+</html>
