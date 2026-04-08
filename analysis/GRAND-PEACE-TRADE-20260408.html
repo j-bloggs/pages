@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Middle East Peace Trade — Arc Conclusion | 2026-04-08</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --purple: #a855f7;
+    --teal: #14b8a6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1e2a45 0%, #1a1d27 100%);
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  h1 { font-size: 26px; font-weight: 700; color: white; margin-bottom: 6px; }
+  .header-meta { color: var(--muted); font-size: 13px; }
+  .exec-summary {
+    background: #1e2a20;
+    border: 1px solid #22c55e;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 28px;
+  }
+  .exec-summary h2 { color: #22c55e; font-size: 16px; margin-bottom: 14px; }
+  .exec-summary p { color: var(--text); margin-bottom: 10px; }
+  .exec-summary ul { padding-left: 20px; }
+  .exec-summary li { margin-bottom: 6px; }
+  .verdict {
+    background: #1e2a20;
+    border-left: 4px solid #22c55e;
+    padding: 12px 16px;
+    margin-top: 14px;
+    border-radius: 0 6px 6px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #22c55e;
+  }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 22px;
+  }
+  .section h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h3 { font-size: 14px; font-weight: 600; color: var(--accent); margin: 18px 0 10px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  th {
+    text-align: left;
+    padding: 8px 12px;
+    background: #12151f;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #1e2130;
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1e2130; }
+  .price-high { color: #22c55e; font-weight: 600; }
+  .price-mid { color: #eab308; font-weight: 600; }
+  .price-low { color: #ef4444; font-weight: 600; }
+  .move-up { color: #22c55e; }
+  .move-down { color: #ef4444; }
+  .tag-resolved { background: #1e3a1e; color: #22c55e; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-warning { background: #3a2a1e; color: #f97316; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-watch { background: #1e2a3a; color: #3b82f6; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .mispricing {
+    background: #1a1a2a;
+    border: 1px solid #4f46e5;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .mispricing-title {
+    color: #818cf8;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .mispricing p { color: var(--text); font-size: 13px; margin-bottom: 6px; }
+  .trade-callout {
+    background: #12201a;
+    border-left: 3px solid #22c55e;
+    padding: 8px 14px;
+    margin-top: 10px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #86efac;
+  }
+  .asx-table .bull { color: #22c55e; font-weight: 600; }
+  .asx-table .bear { color: #ef4444; font-weight: 600; }
+  .asx-table .neutral { color: #eab308; font-weight: 600; }
+  .trigger-table .near { background: #1e2a20; }
+  .trigger-table .critical { background: #2a1e1e; }
+  .binary-box {
+    background: #1a1a2e;
+    border: 1px solid #6366f1;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .binary-box h3 { color: #818cf8; font-size: 15px; margin-bottom: 12px; }
+  .binary-scenario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .scenario-yes {
+    background: #0f2a1a;
+    border: 1px solid #22c55e;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .scenario-no {
+    background: #2a0f0f;
+    border: 1px solid #ef4444;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .scenario-yes .scenario-title { color: #22c55e; font-weight: 600; margin-bottom: 8px; }
+  .scenario-no .scenario-title { color: #ef4444; font-weight: 600; margin-bottom: 8px; }
+  .scenario-yes ul, .scenario-no ul { padding-left: 16px; font-size: 13px; }
+  .scenario-yes li, .scenario-no li { margin-bottom: 4px; }
+  .scorecard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .score-card {
+    background: #12151f;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .score-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .score-value { font-size: 20px; font-weight: 700; }
+  .score-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .arc-timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+  .arc-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #ef4444, #eab308, #22c55e);
+  }
+  .arc-event {
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 12px;
+  }
+  .arc-event::before {
+    content: '';
+    position: absolute;
+    left: -17px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--muted);
+  }
+  .arc-event.key::before { background: #3b82f6; border-color: #3b82f6; }
+  .arc-event.major::before { background: #22c55e; border-color: #22c55e; width: 14px; height: 14px; left: -19px; top: 4px; }
+  .arc-time { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+  .arc-desc { font-size: 13px; color: var(--text); }
+  .arc-price { font-size: 12px; color: var(--accent); margin-top: 2px; }
+  .footer {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+  @media (max-width: 700px) {
+    .binary-scenario { grid-template-columns: 1fr; }
+    .scorecard { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">🚨 Alert Report</div>
+  <h1>Grand Middle East Peace Trade — Arc Conclusion</h1>
+  <div class="header-meta">
+    2026-04-08 &nbsp;|&nbsp; 10:05 AEST &nbsp;|&nbsp; Polymarket Macro Analyst &nbsp;|&nbsp;
+    Alert trigger: Kharg −18pp/6h · WTI $130 −38.5pp/6h · Ceasefire +96.5pp/24h
+  </div>
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec-summary">
+  <h2>📋 Executive Summary</h2>
+  <p>The Iran war escalation arc — which dominated every market brief since April 5 — has concluded. In 24 hours, the US-Iran ceasefire markets have moved from 10–58% to <strong>99%+ across all timeframes</strong>. Simultaneously, Israel-Hezbollah ceasefire markets hit <strong>84.9%</strong> (+78pp in 24h), US-Iran diplomatic meeting markets crossed <strong>83%</strong>, and WTI crude oil downside (LOW $80) reached <strong>58%</strong>.</p>
+  <p>This is not a bilateral ceasefire — this is a coordinated <strong>Grand Middle East Peace Package</strong>.</p>
+  <ul>
+    <li>Kharg Island seizure risk: <span class="move-down">−18pp/6h</span> — de-escalation fully priced</li>
+    <li>WTI $130 HIGH in April: <span class="move-down">−38.5pp total since April 5</span> (50.5%→12.0%)</li>
+    <li>Trump ends Iran ops: <span class="move-up">+16.5pp/6h</span> — peace trade hardening</li>
+    <li>Trump visits China: <span class="move-up">+11.5pp/6h</span> — second de-escalation leg at 80.5%, 4.5pp from trigger</li>
+  </ul>
+  <div class="verdict">VERDICT: REGIME CHANGE in prediction markets. Full analysis warranted. Alert is NOT noise.</div>
+</div>
+
+<!-- ARC TIMELINE -->
+<div class="section">
+  <h2>📅 The Arc: How We Got Here</h2>
+  <div class="arc-timeline">
+    <div class="arc-event">
+      <div class="arc-time">Apr 5 (all day)</div>
+      <div class="arc-desc">War confirmed — US forces enter Iran at 91.5%+</div>
+      <div class="arc-price">WTI $130: 50.5% · Kharg seizure: 23.5%</div>
+    </div>
+    <div class="arc-event key">
+      <div class="arc-time">Apr 6 (overnight)</div>
+      <div class="arc-desc">Kharg/South Pars infrastructure attacks — first time oil targets hit</div>
+      <div class="arc-price">WTI $140: 39.5% · WTI $150: 23.0% · Israel ground op: 35.5%</div>
+    </div>
+    <div class="arc-event key">
+      <div class="arc-time">Apr 8 03:15 AEST</div>
+      <div class="arc-desc">Kharg oil hub physically attacked — TRIGGER FIRED at 30.5%</div>
+      <div class="arc-price">Threshold raised 30%→40% · WTI $130 near 50%</div>
+    </div>
+    <div class="arc-event key">
+      <div class="arc-time">Apr 8 08:15 AEST</div>
+      <div class="arc-desc">Ceasefire talks confirmed via Islamabad back-channel</div>
+      <div class="arc-price">Ceasefire Apr15 jumps to 58.5% · Hormuz normalisation TRIGGER FIRED</div>
+    </div>
+    <div class="arc-event major">
+      <div class="arc-time">Apr 8 08:45 AEST (6:35 PM ET Apr 7)</div>
+      <div class="arc-desc"><strong>Trump announces 2-week pause in Iran strikes</strong></div>
+      <div class="arc-price">Ceasefire TRIGGER FIRED at 82% · WTI $130 crashes 50%→14.5% in minutes</div>
+    </div>
+    <div class="arc-event key">
+      <div class="arc-time">Apr 8 09:15 AEST</div>
+      <div class="arc-desc">China visit TRIGGER FIRED at 75.5% — Grand Bargain thesis launched</div>
+      <div class="arc-price">Iran ops +17pp to 75% · AUD/BHP long signal activated</div>
+    </div>
+    <div class="arc-event major">
+      <div class="arc-time">Apr 8 10:05 AEST — NOW</div>
+      <div class="arc-desc"><strong>Ceasefire reaches 99%+ across ALL timeframes. Peace fully priced.</strong></div>
+      <div class="arc-price">Oil LOW $80: 58% · Nuclear deal: 28.8% · Israel-Hezbollah ceasefire: 84.9%</div>
+    </div>
+  </div>
+</div>
+
+<!-- PEACE FRAMEWORK -->
+<div class="section">
+  <h2>🕊️ Peace Framework Markets</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>24h Move</th><th>Status</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US-Iran ceasefire Apr 7</td>
+        <td class="price-high">98.9%</td>
+        <td class="move-up">+96.5pp</td>
+        <td><span class="tag-resolved">RESOLVED</span></td>
+        <td>Executed — ceasefire in force as of Apr 7-8</td>
+      </tr>
+      <tr>
+        <td>US-Iran ceasefire Apr 15</td>
+        <td class="price-high">99.4%</td>
+        <td class="move-up">+84.9pp</td>
+        <td><span class="tag-resolved">NEAR CERTAIN</span></td>
+        <td>Formal framework documentation underway</td>
+      </tr>
+      <tr>
+        <td>US-Iran ceasefire Apr 30</td>
+        <td class="price-high">99.3%</td>
+        <td class="move-up">+70.8pp</td>
+        <td><span class="tag-resolved">NEAR CERTAIN</span></td>
+        <td>Long-run peace framework priced in</td>
+      </tr>
+      <tr>
+        <td>US-Iran meeting by Apr 10</td>
+        <td class="price-high">83.4%</td>
+        <td class="move-up">+75.9pp</td>
+        <td><span class="tag-watch">WATCH</span></td>
+        <td>Pakistan venue at 90% — formal talks imminent</td>
+      </tr>
+      <tr>
+        <td>JD Vance meets Iran by Apr 10</td>
+        <td class="price-mid">50.1%</td>
+        <td class="move-up">+45.8pp</td>
+        <td><span class="tag-watch">TRIGGER AT 75%</span></td>
+        <td>First formal US-Iran diplomatic contact; nuclear deal catalyst</td>
+      </tr>
+      <tr>
+        <td>US-Iran nuclear deal Apr 30</td>
+        <td class="price-mid">28.8%</td>
+        <td class="move-up">+23.2pp</td>
+        <td><span class="tag-watch">EARLY SIGNAL</span></td>
+        <td>Watching for 40% threshold — depth-of-peace gauge</td>
+      </tr>
+      <tr>
+        <td>Israel-Hezbollah ceasefire Apr 30</td>
+        <td class="price-high">84.9%</td>
+        <td class="move-up">+78.2pp</td>
+        <td><span class="tag-watch">GRAND PACKAGE</span></td>
+        <td>Not just bilateral — regional peace package emerging</td>
+      </tr>
+      <tr>
+        <td>Hormuz deadline extension today</td>
+        <td class="price-high">95.8%</td>
+        <td>—</td>
+        <td><span class="tag-resolved">CONFIRMED</span></td>
+        <td>Extension announced; Hormuz normalisation next</td>
+      </tr>
+      <tr>
+        <td>Military action ends Apr 8</td>
+        <td class="price-mid">32.0%</td>
+        <td class="move-up">+31.0pp</td>
+        <td><span class="tag-watch">TODAY</span></td>
+        <td>Today is the expected end date — watch closely</td>
+      </tr>
+      <tr>
+        <td>Military continues through Apr 30</td>
+        <td class="price-low">9.0%</td>
+        <td class="move-down">−62.5pp</td>
+        <td><span class="tag-resolved">DEAD</span></td>
+        <td>Prolonged war as base case fully priced out</td>
+      </tr>
+      <tr>
+        <td>US invades Iran before 2027</td>
+        <td class="price-low">27.5%</td>
+        <td class="move-down">−33.0pp</td>
+        <td><span class="tag-resolved">PRICED OUT</span></td>
+        <td>Full invasion scenario off the table; Grand Bargain validated</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OIL CRASH -->
+<div class="section">
+  <h2>🛢️ Oil Markets — The Crash</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>24h Move</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>WTI $130 HIGH in April</td>
+        <td class="price-low">12.0%</td>
+        <td class="move-down">−35.5pp</td>
+        <td>Total crash: 50.5%→12.0% since Apr 5 (−38.5pp)</td>
+      </tr>
+      <tr>
+        <td>WTI $120 HIGH in April</td>
+        <td class="price-low">35.0%</td>
+        <td class="move-down">−40.5pp</td>
+        <td>Even $120 now coin-flip; peace trade dominant</td>
+      </tr>
+      <tr>
+        <td>WTI $140 HIGH in April</td>
+        <td class="price-low">10.0%</td>
+        <td class="move-down">−19.5pp</td>
+        <td>War tail evaporating rapidly</td>
+      </tr>
+      <tr>
+        <td><strong>WTI $90 LOW in April</strong></td>
+        <td class="price-high">80.5%</td>
+        <td class="move-up">+39.5pp</td>
+        <td><strong>Market now pricing oil FALLS, not rises</strong></td>
+      </tr>
+      <tr>
+        <td><strong>WTI $80 LOW in April</strong></td>
+        <td class="price-high">58.0%</td>
+        <td class="move-up">+32.5pp</td>
+        <td><strong>UNDERPRICED — see mispricing analysis below</strong></td>
+      </tr>
+      <tr>
+        <td>WTI $70 LOW in April</td>
+        <td class="price-mid">21.0%</td>
+        <td class="move-up">+12.5pp</td>
+        <td>1-in-5 chance of sub-$70 WTI this month</td>
+      </tr>
+      <tr>
+        <td>Crude $115 HIGH by June</td>
+        <td class="price-mid">47.2%</td>
+        <td class="move-down">−40.8pp</td>
+        <td>Was near-certainty; now coin flip — structural repricing</td>
+      </tr>
+      <tr>
+        <td>Crude $85 HIGH by June</td>
+        <td class="price-high">84.5%</td>
+        <td class="move-up">+21.0pp</td>
+        <td>Sub-$85 by June almost certain</td>
+      </tr>
+      <tr>
+        <td>Kharg Island seizure Apr 30</td>
+        <td class="price-low">9.5%</td>
+        <td class="move-down">−4.0pp</td>
+        <td>Seizure risk fully priced out; down from 30.5% trigger level</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- RISK-ON -->
+<div class="section">
+  <h2>🚀 Risk-On Markets — Peace Dividend</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>24h Move</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bitcoin $70K in April</td>
+        <td class="price-high">100%</td>
+        <td class="move-up">+30.4pp</td>
+        <td>Confirmed; risk-on peace trade engaged</td>
+      </tr>
+      <tr>
+        <td>Bitcoin $75K in April</td>
+        <td class="price-high">72.5%</td>
+        <td class="move-up">+28.0pp</td>
+        <td>Next target; dollar weakness + peace = BTC bid</td>
+      </tr>
+      <tr>
+        <td>Bitcoin above $72K on Apr 8</td>
+        <td class="price-mid">49.9%</td>
+        <td class="move-up">+41.1pp</td>
+        <td>Today's intraday binary — coin flip</td>
+      </tr>
+      <tr>
+        <td>Ethereum $2,400 in April</td>
+        <td class="price-high">67.5%</td>
+        <td class="move-up">+26.0pp</td>
+        <td>ETH following BTC on risk-on rotation</td>
+      </tr>
+      <tr>
+        <td>Ethereum $2,200 in April</td>
+        <td class="price-high">100%</td>
+        <td class="move-up">+21.4pp</td>
+        <td>Confirmed floor</td>
+      </tr>
+      <tr>
+        <td>Trump visits China by May 31</td>
+        <td class="price-high">80.5%</td>
+        <td class="move-up">+9.0pp</td>
+        <td><strong>4.5pp from 85% trigger</strong> — second de-escalation leg</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MISPRICING -->
+<div class="section">
+  <h2>⚡ The Mispricing Analysis</h2>
+
+  <div class="mispricing">
+    <div class="mispricing-title">1. WTI $80 LOW at 58% → Should Be ~70% (Underpriced by ~12pp)</div>
+    <p>With ceasefire at 99%, Hormuz reopening is the base case. Pre-war WTI spot was <strong>$65–70</strong>. If peace holds through April, WTI returns to $75–85 range. A coin flip (58%) on oil reaching $80 downside is too low when ceasefire failure is only 1%.</p>
+    <p>The caveat: physical oil rebalancing takes 3–4 weeks even after Hormuz opens (tankers re-route, cargoes lifted, storage released). Oil may not fall to $80 within April. But 58% still underprices the directional move by ~12pp given ceasefire certainty.</p>
+    <div class="trade-callout">Trade: Short WDS (Woodside) / Short STO (Santos) / Long WTI puts. Also Long QAN (jet fuel relief), WOW, COL (freight cost relief).</div>
+  </div>
+
+  <div class="mispricing">
+    <div class="mispricing-title">2. "No Fed Rate Cuts 2026" at 35% is 5–10pp Too High</div>
+    <p>When oil was $115+, "no cuts" at 35% was defensible (Iran war inflation). With WTI crashing to $80–90:</p>
+    <p>→ Headline US CPI falls ~0.5–1pp &nbsp;·&nbsp; Iran war risk premium removed from gasoline/diesel &nbsp;·&nbsp; Tariff-driven deflation risk rises &nbsp;·&nbsp; Fed has room to cut in June/September</p>
+    <p>"No cuts" at 35% should reprice to 25–28% as the oil-inflation narrative collapses. The "3 cuts" bucket at 10.5% should also move higher.</p>
+    <div class="trade-callout">Australian impact: RBA June cut probability rises from ~40% to ~55%. Current cash rate (4.35%) — dovish rhetoric at May meeting becomes more likely.</div>
+  </div>
+
+  <div class="mispricing">
+    <div class="mispricing-title">3. Nuclear Deal at 28.8% with US-Iran Meeting at 83%</div>
+    <p>Near-certain US-Iran formal talks (83% by April 10) + Vance meeting (50%) sets the table for nuclear deal discussions. Historical JCPOA took 2013–2015, but a <em>framework agreement</em> can emerge in weeks.</p>
+    <p>If Vance meets Iran by April 10 and nuclear talks begin → 28.8% "deal by April 30" is probably still right (22 days is tight). But <strong>watch for 40% threshold</strong>: it's the depth-of-peace gauge. If nuclear deal probability crosses 40%, re-price all Iran adjacent markets sharply — oil stays suppressed, AUD rallies, materials outperform.</p>
+    <div class="trade-callout">Watch: Kalshi "US-Iran nuclear deal" market. No Gamma slug found yet; monitor via keyword scanner.</div>
+  </div>
+
+  <div class="mispricing">
+    <div class="mispricing-title">4. Trump Ends Iran Ops Apr 30 at 57% vs Ceasefire at 99%</div>
+    <p>The market distinguishes "ceasefire/pause" (99%) from "formal end of military operations" (57%). The 43% gap prices in Trump preserving executive war authority — he may keep troops forward-deployed without formally declaring ops over.</p>
+    <p>This is NOT a mispricing — it's a genuine political risk discount. The ceasefire is a fact; the formal withdrawal declaration is a policy choice. Watch this gap: if it closes toward 75%+, Trump has committed to formal de-escalation and the "wartime president" premium evaporates.</p>
+  </div>
+</div>
+
+<!-- ASX IMPACT -->
+<div class="section">
+  <h2>🇦🇺 Australian Market Impact</h2>
+  <h3>ASX Sector Winners &amp; Losers</h3>
+  <table class="asx-table">
+    <thead>
+      <tr><th>Sector</th><th>Key Stocks</th><th>Direction</th><th>Magnitude</th><th>Reason</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Oil &amp; Gas</td>
+        <td><strong>WDS, STO, BPT</strong></td>
+        <td class="bear">🔴 BEARISH</td>
+        <td class="bear">−10–20%</td>
+        <td>Oil price crash; Iran crude returns to market; LNG prices weaken</td>
+      </tr>
+      <tr>
+        <td>Gold</td>
+        <td><strong>NST, NCM, EVN</strong></td>
+        <td class="bear">🔴 BEARISH</td>
+        <td class="bear">−5–10%</td>
+        <td>Safe-haven demand collapses; risk-on rotation out of gold</td>
+      </tr>
+      <tr>
+        <td>Airlines</td>
+        <td><strong>QAN</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+5–10%</td>
+        <td>Jet fuel cost relief; oil down $30–40/bbl = major margin tailwind</td>
+      </tr>
+      <tr>
+        <td>Consumer / Retail</td>
+        <td><strong>WOW, COL, WES</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+3–5%</td>
+        <td>Freight/logistics cost relief; consumer real income recovery</td>
+      </tr>
+      <tr>
+        <td>Transport / Logistics</td>
+        <td><strong>AZJ, TCL</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+3–5%</td>
+        <td>Diesel relief; operating cost reduction</td>
+      </tr>
+      <tr>
+        <td>Mining / Materials</td>
+        <td><strong>BHP, RIO, FMG</strong></td>
+        <td class="neutral">🟡 NEUTRAL → BULL</td>
+        <td class="neutral">Flat → +5–15%</td>
+        <td>Oil neutral (not their product); China visit at 80.5% → iron ore upside if 85% trigger fires</td>
+      </tr>
+      <tr>
+        <td>Agriculture</td>
+        <td><strong>GNC, ELD</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+2–4%</td>
+        <td>Diesel cost relief; key input for farming and freight</td>
+      </tr>
+      <tr>
+        <td>Banks</td>
+        <td><strong>ANZ, CBA, NAB, WBC</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+2–3%</td>
+        <td>Inflation tail removed → fewer rate hikes; NIM stability</td>
+      </tr>
+      <tr>
+        <td>Tech</td>
+        <td><strong>XRO, WTC</strong></td>
+        <td class="bull">🟢 BULLISH</td>
+        <td class="bull">+3–5%</td>
+        <td>Risk-on global bid; Nasdaq correlation positive</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Australian Fuel Prices (Estimated Timeline)</h3>
+  <table>
+    <thead>
+      <tr><th>Fuel Type</th><th>Current Est.</th><th>Expected Move</th><th>Timeline</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ULP / E10 Petrol</td>
+        <td>~$2.05–2.20/L</td>
+        <td class="move-down">−15–25c/L</td>
+        <td>3–5 weeks</td>
+        <td>Brent crude falling $120→$90; 2–3 week pump lag</td>
+      </tr>
+      <tr>
+        <td>Diesel</td>
+        <td>~$2.15–2.30/L</td>
+        <td class="move-down">−15–25c/L</td>
+        <td>3–5 weeks</td>
+        <td>Key input for freight, agriculture, mining; same timeline</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:var(--muted); margin-top:8px;">⚠️ Verify current Australian pump prices at FuelWatch or ACCC before acting on these estimates — the lag means today's crude crash isn't at the pump yet.</p>
+
+  <h3>RBA Implications</h3>
+  <table>
+    <thead>
+      <tr><th>Factor</th><th>Direction</th><th>Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Headline CPI (oil component)</td>
+        <td class="move-down">−0.4–0.8pp</td>
+        <td>Eases "last mile" inflation concern</td>
+      </tr>
+      <tr>
+        <td>May RBA meeting</td>
+        <td>No change expected</td>
+        <td>But rhetoric becomes less hawkish</td>
+      </tr>
+      <tr>
+        <td>June RBA cut probability</td>
+        <td class="move-up">+15pp (to ~55%)</td>
+        <td>Peace dividend + oil deflation = cut room</td>
+      </tr>
+      <tr>
+        <td>Current RBA cash rate</td>
+        <td>4.35%</td>
+        <td>First cut likely June if oil sustains at $80–90</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TRIGGERS -->
+<div class="section">
+  <h2>🎯 Key Monitoring Thresholds</h2>
+  <table class="trigger-table">
+    <thead>
+      <tr><th>Market</th><th>Current</th><th>Trigger</th><th>Gap</th><th>Action if Fires</th></tr>
+    </thead>
+    <tbody>
+      <tr class="near">
+        <td><strong>Trump visits China May 31</strong></td>
+        <td class="price-high">80.5%</td>
+        <td>↑ 85%</td>
+        <td style="color:#eab308"><strong>4.5pp ⚠️</strong></td>
+        <td>Long AUD, BHP/RIO/FMG; iron ore bull thesis confirmed</td>
+      </tr>
+      <tr>
+        <td>JD Vance meets Iran Apr 10</td>
+        <td class="price-mid">50.1%</td>
+        <td>↑ 75%</td>
+        <td>24.9pp</td>
+        <td>Nuclear deal to 40%+; Hormuz to 65%+; peace deepens</td>
+      </tr>
+      <tr>
+        <td>Hormuz normalises Apr 30</td>
+        <td class="price-high">58.0%</td>
+        <td>↑ 75%</td>
+        <td>17.0pp</td>
+        <td>Oil crash confirmed; WDS/STO sell accelerates</td>
+      </tr>
+      <tr>
+        <td>WTI $130 in April</td>
+        <td class="price-low">12.0%</td>
+        <td>↑ 28%</td>
+        <td>16.0pp</td>
+        <td>Ceasefire breakdown reversal signal — cross-ref with collapse triggers</td>
+      </tr>
+      <tr class="critical">
+        <td><strong>US-Iran ceasefire Apr 30</strong></td>
+        <td class="price-high">99.3%</td>
+        <td>↓ 35%</td>
+        <td style="color:#22c55e">64.3pp 🟢</td>
+        <td>CATASTROPHIC — peace framework collapsed; full war re-escalation</td>
+      </tr>
+      <tr class="critical">
+        <td><strong>US-Iran ceasefire Apr 15</strong></td>
+        <td class="price-high">99.4%</td>
+        <td>↓ 35%</td>
+        <td style="color:#22c55e">64.4pp 🟢</td>
+        <td>CATASTROPHIC — as above; treat as sentinel only</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- APRIL 10 BINARY -->
+<div class="section">
+  <h2>🎲 The Critical Binary: April 10</h2>
+  <p style="color:var(--muted); margin-bottom:16px;">The next structural decision point. JD Vance-Iran meeting (50% by Apr 10) + formal US-Iran talks (83% by Apr 10).</p>
+  <div class="binary-scenario">
+    <div class="scenario-yes">
+      <div class="scenario-title">✅ BOTH MEETINGS CONFIRMED (Peace Deepens)</div>
+      <ul>
+        <li>Nuclear deal probability jumps to 40%+</li>
+        <li>Hormuz normalization fires at 75%</li>
+        <li>WDS/STO −10% in session</li>
+        <li>QAN, WOW, COL +5–8%</li>
+        <li>AUD/USD +1–2%</li>
+        <li>BTC consolidates $72–75K</li>
+        <li>Trump China visit fires at 85% within 48h</li>
+      </ul>
+    </div>
+    <div class="scenario-no">
+      <div class="scenario-title">❌ MEETINGS CANCELLED/DELAYED (Oscillation Risk)</div>
+      <ul>
+        <li>Ceasefire retreats from 99% to 85–90%</li>
+        <li>WTI $130 jumps from 12% toward 20%+</li>
+        <li>WDS/STO recover 3–5%</li>
+        <li>QAN gives back gains</li>
+        <li>Ceasefire framework independent — maintains 80%+</li>
+        <li>Oscillation, not full reversal</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SCORECARD -->
+<div class="section">
+  <h2>📊 Summary Scorecard</h2>
+  <div class="scorecard">
+    <div class="score-card">
+      <div class="score-label">Iran War Escalation</div>
+      <div class="score-value" style="color:#22c55e">✅ OVER</div>
+      <div class="score-note">Ceasefire 99%+; decisive</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">Oil Direction</div>
+      <div class="score-value" style="color:#22c55e">↓ DOWN</div>
+      <div class="score-note">$30–40/bbl fall expected</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">Bitcoin / Crypto</div>
+      <div class="score-value" style="color:#22c55e">↑ UP</div>
+      <div class="score-note">$70K confirmed; $75K at 72.5%</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">ASX Energy (WDS/STO)</div>
+      <div class="score-value" style="color:#ef4444">🔴 SELL</div>
+      <div class="score-note">−10–20% structural repricing</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">ASX Airlines (QAN)</div>
+      <div class="score-value" style="color:#22c55e">🟢 BUY</div>
+      <div class="score-note">Jet fuel relief; +5–10%</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">China Trade Truce (AUD/BHP)</div>
+      <div class="score-value" style="color:#eab308">⏳ PENDING</div>
+      <div class="score-note">80.5%; 4.5pp from trigger</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">US-Iran Nuclear Deal</div>
+      <div class="score-value" style="color:#eab308">🔭 EARLY</div>
+      <div class="score-note">28.8%; watch 40% threshold</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">US Fed Rate Path</div>
+      <div class="score-value" style="color:#22c55e">↓ DOVISH</div>
+      <div class="score-note">Oil deflation → 1–2 extra cuts</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">RBA June Cut</div>
+      <div class="score-value" style="color:#22c55e">↑ MORE LIKELY</div>
+      <div class="score-note">+15pp probability to ~55%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIONS TAKEN -->
+<div class="section">
+  <h2>🔧 Actions Taken — Trigger System Updates</h2>
+  <table>
+    <thead>
+      <tr><th>Action</th><th>Trigger</th><th>Change</th><th>Reason</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span style="color:#22c55e">✅ FIXED</span></td>
+        <td>US-Iran ceasefire Apr 30</td>
+        <td>Slug corrected → <code>us-x-iran-ceasefire-by-april-30</code></td>
+        <td>Old slug returning 404 from Gamma API</td>
+      </tr>
+      <tr>
+        <td><span style="color:#22c55e">✅ FIXED</span></td>
+        <td>US-Iran ceasefire Apr 15 (collapse)</td>
+        <td>Slug corrected → <code>us-x-iran-ceasefire-by-april-15</code></td>
+        <td>Old slug returning 404 from Gamma API</td>
+      </tr>
+      <tr>
+        <td><span style="color:#ef4444">🗑️ REMOVED</span></td>
+        <td>US-Iran ceasefire Apr 15 near-certainty</td>
+        <td>Trigger deleted</td>
+        <td>FIRED and resolved — market at 99.4%, purpose complete</td>
+      </tr>
+      <tr>
+        <td><span style="color:#3b82f6">➕ ADDED</span></td>
+        <td>JD Vance meets Iran by Apr 10</td>
+        <td>Trigger at 75% (current 50.1%)</td>
+        <td>First formal US-Iran diplomatic contact; nuclear deal catalyst</td>
+      </tr>
+      <tr>
+        <td><span style="color:#3b82f6">➕ ADDED</span></td>
+        <td>US-Iran nuclear deal watchlist</td>
+        <td>Keyword scan: "iran nuclear deal"</td>
+        <td>Kalshi at 28.8%; no Gamma slug yet; monitor for market creation</td>
+      </tr>
+      <tr>
+        <td><span style="color:#3b82f6">➕ ADDED</span></td>
+        <td>Israel-Hezbollah ceasefire watchlist</td>
+        <td>Keyword scan: "hezbollah ceasefire"</td>
+        <td>84.9% on Polymarket; Grand Peace Package signal</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>Polymarket Macro Analyst &nbsp;·&nbsp; 2026-04-08 10:05 AEST &nbsp;·&nbsp; Alert-Triggered Run</p>
+  <p>Data: Polymarket (78 markets, $261M+ volume on Iran entry) · Kalshi (255 markets) · Gamma API</p>
+  <p>Previous reports: IRAN-CEASEFIRE-PAUSE-20260408 · TRUMP-CHINA-GRAND-BARGAIN-20260408</p>
+</div>
+
+</body>
+</html>
