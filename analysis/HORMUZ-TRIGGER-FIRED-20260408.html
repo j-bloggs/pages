@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HORMUZ TRIGGER FIRED — 2026-04-08 21:00 AEST</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --red: #f85149;
+    --red-dim: #3d1a1a;
+    --orange: #e3b341;
+    --orange-dim: #2e2010;
+    --green: #3fb950;
+    --green-dim: #0f2a14;
+    --blue: #58a6ff;
+    --blue-dim: #102040;
+    --purple: #bc8cff;
+    --accent: #f0883e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 2rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Alert banner */
+  .alert-banner {
+    background: linear-gradient(135deg, #3d1a1a 0%, #2a0f0f 100%);
+    border: 2px solid var(--red);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .alert-icon { font-size: 2.5rem; line-height: 1; flex-shrink: 0; }
+  .alert-title { font-size: 1.05rem; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.05em; }
+  .alert-headline { font-size: 1.55rem; font-weight: 800; color: var(--text); margin: 0.25rem 0; line-height: 1.25; }
+  .alert-meta { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+  .badge-fired {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .badge-high {
+    display: inline-block;
+    background: var(--orange);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Sections */
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.25rem 0 0.5rem;
+  }
+  p { margin-bottom: 0.85rem; color: var(--text); }
+  strong { color: var(--text); font-weight: 600; }
+  em { color: var(--muted); }
+
+  /* Key stat cards */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.25rem 0; }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    text-align: center;
+  }
+  .stat-card.fired { border-color: var(--red); background: var(--red-dim); }
+  .stat-card.warning { border-color: var(--orange); background: var(--orange-dim); }
+  .stat-card.neutral { border-color: var(--border); }
+  .stat-card.positive { border-color: var(--green); background: var(--green-dim); }
+  .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+  .stat-value { font-size: 1.5rem; font-weight: 800; }
+  .stat-card.fired .stat-value { color: var(--red); }
+  .stat-card.warning .stat-value { color: var(--orange); }
+  .stat-card.positive .stat-value { color: var(--green); }
+  .stat-delta { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+  .delta-down { color: var(--red); }
+  .delta-up { color: var(--green); }
+
+  /* Chart */
+  .chart-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+  }
+  .chart-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  svg { width: 100%; overflow: visible; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+  }
+  th {
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  .fired-row td { background: var(--red-dim) !important; }
+  .imminent-row td { background: var(--orange-dim) !important; }
+  .td-pct { font-weight: 700; font-size: 1rem; }
+  .td-red { color: var(--red); }
+  .td-green { color: var(--green); }
+  .td-orange { color: var(--orange); }
+  .td-muted { color: var(--muted); font-size: 0.8rem; }
+
+  /* Scenario boxes */
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  .scenario-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+  }
+  .scenario-box.positive { border-color: var(--green); }
+  .scenario-box.negative { border-color: var(--red); }
+  .scenario-head {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .scenario-box.positive .scenario-head { color: var(--green); }
+  .scenario-box.negative .scenario-head { color: var(--red); }
+  .scenario-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; color: var(--text); }
+  .scenario-body { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .scenario-body ul { padding-left: 1.1rem; }
+  .scenario-body li { margin-bottom: 0.3rem; }
+
+  /* ASX matrix */
+  .bullish-cell { color: var(--green); font-weight: 600; }
+  .bearish-cell { color: var(--red); font-weight: 600; }
+  .neutral-cell { color: var(--orange); font-weight: 600; }
+  .watch-cell { color: var(--blue); font-weight: 600; }
+  .ticker { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.82rem; background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 3px; margin: 0 0.1rem; }
+
+  /* Callout boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .callout.red { background: var(--red-dim); border-left: 3px solid var(--red); color: var(--text); }
+  .callout.orange { background: var(--orange-dim); border-left: 3px solid var(--orange); color: var(--text); }
+  .callout.blue { background: var(--blue-dim); border-left: 3px solid var(--blue); color: var(--text); }
+  .callout-head { font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .callout.red .callout-head { color: var(--red); }
+  .callout.orange .callout-head { color: var(--orange); }
+  .callout.blue .callout-head { color: var(--blue); }
+
+  /* Mispricing bar */
+  .misprice-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .misprice-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 0.6rem; }
+  .bar-track { background: var(--surface2); border-radius: 4px; height: 10px; position: relative; overflow: visible; }
+  .bar-fill { height: 100%; border-radius: 4px; position: relative; }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+  .bar-name { font-size: 0.83rem; width: 220px; flex-shrink: 0; }
+  .bar-pct { font-size: 0.9rem; font-weight: 700; width: 50px; text-align: right; flex-shrink: 0; }
+
+  /* Footer */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-icon">🔴</div>
+    <div>
+      <div class="alert-title">
+        <span class="badge-fired">TRIGGER FIRED</span>
+        <span class="badge-high">URGENCY: HIGH</span>
+      </div>
+      <div class="alert-headline">Hormuz April 30 Deadline: Written Off</div>
+      <div class="alert-meta">
+        Alert generated 2026-04-08 21:15 AEST &nbsp;·&nbsp;
+        Trigger: <em>Hormuz normalization collapses below 32%</em> &nbsp;·&nbsp;
+        Market now: <strong style="color:var(--red)">26.5%</strong> &nbsp;·&nbsp;
+        Total collapse: −27pp in 6 hours
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Stats -->
+  <div class="stat-row">
+    <div class="stat-card fired">
+      <div class="stat-label">Hormuz Normalizes Apr 30</div>
+      <div class="stat-value">26.5%</div>
+      <div class="stat-delta delta-down">−6.5pp this run | −27pp today</div>
+    </div>
+    <div class="stat-card neutral">
+      <div class="stat-label">WTI $130 in April</div>
+      <div class="stat-value" style="color:var(--orange)">11.5%</div>
+      <div class="stat-delta">+0.0pp — NOT repricing</div>
+    </div>
+    <div class="stat-card warning">
+      <div class="stat-label">Vance Meets Iran (Apr 10)</div>
+      <div class="stat-value" style="color:var(--orange)">71.4%</div>
+      <div class="stat-delta delta-up">3.6pp from 75% trigger</div>
+    </div>
+    <div class="stat-card positive">
+      <div class="stat-label">US-Iran Ceasefire Holds</div>
+      <div class="stat-value">99.7%</div>
+      <div class="stat-delta delta-up">Political calm — corridor separate</div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <h2>Summary</h2>
+  <p>
+    The Hormuz normalization below 32% sentinel has fired. The Polymarket crowd has delivered a definitive verdict:
+    <strong>the April 30 physical corridor reopening deadline is dead.</strong> This completes the
+    "political ceasefire ≠ physical reopening" thesis documented through today's prior reports
+    (UAE-Iran Escalation 20:15 AEST; Hormuz Near-Trigger 20:48 AEST).
+  </p>
+  <p>
+    This is not noise. Volume on anchor markets: US enters Iran ($103M), US-Iran ceasefire ($61M), Hormuz ($6.2M 24h).
+    UAE strikes retreated to 21.0% (−7pp from spike peak) while Hormuz kept collapsing —
+    <strong>the two have decoupled.</strong> The collapse is no longer driven by acute escalation risk; it is driven by
+    market consensus that the physical corridor <em>cannot</em> reopen within 22 days regardless of military dynamics.
+  </p>
+
+  <!-- Collapse Chart -->
+  <h2>Six-Hour Collapse Timeline</h2>
+  <div class="chart-wrap">
+    <div class="chart-title">Hormuz Normalization by Apr 30 — Intraday % (2026-04-08 AEST)</div>
+    <svg viewBox="0 0 760 200" height="200">
+      <!-- Grid lines -->
+      <line x1="60" y1="10" x2="60" y2="165" stroke="#30363d" stroke-width="1"/>
+      <line x1="60" y1="165" x2="740" y2="165" stroke="#30363d" stroke-width="1"/>
+      <!-- Y axis labels -->
+      <text x="50" y="14" font-size="10" fill="#8b949e" text-anchor="end">60%</text>
+      <text x="50" y="56" font-size="10" fill="#8b949e" text-anchor="end">45%</text>
+      <text x="50" y="98" font-size="10" fill="#8b949e" text-anchor="end">30%</text>
+      <text x="50" y="140" font-size="10" fill="#8b949e" text-anchor="end">15%</text>
+      <!-- Grid horizontals -->
+      <line x1="60" y1="14" x2="740" y2="14" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <line x1="60" y1="56" x2="740" y2="56" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <line x1="60" y1="98" x2="740" y2="98" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <line x1="60" y1="140" x2="740" y2="140" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <!-- 32% trigger line: y = 10 + (60-32)/60 * 155 = 10 + 72.3 = 82.3 -->
+      <line x1="60" y1="82" x2="740" y2="82" stroke="#f85149" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.7"/>
+      <text x="745" y="86" font-size="9" fill="#f85149">32% trigger</text>
+      <!-- Data points: scale y = 10 + (60 - pct)/60 * 155 -->
+      <!-- (08:35, 53.5), (19:45, 39.5), (20:00, 43.5), (20:15, 39.5), (20:30, 41.5), (20:45, 33.0), (21:00, 26.5) -->
+      <!-- X positions evenly spaced: 7 points across 60-740 = 680px, step = 113px -->
+      <!-- Points: x = 60, 173, 286, 399, 512, 626, 740 (approx) -->
+      <!-- y(53.5) = 10 + (60-53.5)/60*155 = 10 + 16.8 = 26.8 -->
+      <!-- y(39.5) = 10 + (60-39.5)/60*155 = 10 + 53.0 = 63.0 -->
+      <!-- y(43.5) = 10 + (60-43.5)/60*155 = 10 + 42.7 = 52.7 -->
+      <!-- y(39.5) = 63.0 -->
+      <!-- y(41.5) = 10 + (60-41.5)/60*155 = 10 + 47.8 = 57.8 -->
+      <!-- y(33.0) = 10 + (60-33)/60*155 = 10 + 69.75 = 79.75 -->
+      <!-- y(26.5) = 10 + (60-26.5)/60*155 = 10 + 86.6 = 96.6 -->
+      <polyline
+        points="80,27 193,63 306,53 419,63 532,58 645,80 740,97"
+        fill="none"
+        stroke="#f85149"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+      />
+      <!-- Shaded area -->
+      <polygon
+        points="80,27 193,63 306,53 419,63 532,58 645,80 740,97 740,165 80,165"
+        fill="#f85149"
+        opacity="0.08"
+      />
+      <!-- Data dots -->
+      <circle cx="80" cy="27" r="4" fill="#f85149"/>
+      <circle cx="193" cy="63" r="4" fill="#f85149"/>
+      <circle cx="306" cy="53" r="4" fill="#f85149"/>
+      <circle cx="419" cy="63" r="4" fill="#f85149"/>
+      <circle cx="532" cy="58" r="4" fill="#f85149"/>
+      <circle cx="645" cy="80" r="4" fill="#f85149"/>
+      <!-- FIRED dot -->
+      <circle cx="740" cy="97" r="7" fill="#f85149" opacity="0.3"/>
+      <circle cx="740" cy="97" r="4" fill="#f85149"/>
+      <!-- FIRED label -->
+      <text x="735" y="116" font-size="9" fill="#f85149" text-anchor="middle" font-weight="700">FIRED</text>
+      <!-- X-axis labels -->
+      <text x="80" y="182" font-size="9" fill="#8b949e" text-anchor="middle">08:35</text>
+      <text x="193" y="182" font-size="9" fill="#8b949e" text-anchor="middle">19:45</text>
+      <text x="306" y="182" font-size="9" fill="#8b949e" text-anchor="middle">20:00</text>
+      <text x="419" y="182" font-size="9" fill="#8b949e" text-anchor="middle">20:15</text>
+      <text x="532" y="182" font-size="9" fill="#8b949e" text-anchor="middle">20:30</text>
+      <text x="645" y="182" font-size="9" fill="#8b949e" text-anchor="middle">20:45</text>
+      <text x="740" y="182" font-size="9" fill="#8b949e" text-anchor="middle">21:00</text>
+      <!-- Value labels -->
+      <text x="80" y="21" font-size="9" fill="#e6edf3" text-anchor="middle" font-weight="600">53.5%</text>
+      <text x="193" y="57" font-size="9" fill="#e6edf3" text-anchor="middle">39.5%</text>
+      <text x="306" y="47" font-size="9" fill="#e6edf3" text-anchor="middle">43.5%</text>
+      <text x="419" y="57" font-size="9" fill="#e6edf3" text-anchor="middle">39.5%</text>
+      <text x="532" y="52" font-size="9" fill="#e6edf3" text-anchor="middle">41.5%</text>
+      <text x="645" y="74" font-size="9" fill="#e6edf3" text-anchor="middle">33.0%</text>
+      <text x="738" y="91" font-size="10" fill="#f85149" text-anchor="middle" font-weight="700">26.5%</text>
+    </svg>
+  </div>
+
+  <p style="font-size:0.85rem; color:var(--muted)">
+    <strong style="color:var(--text)">Decoupling signal</strong>: UAE strikes peaked at 28% at 20:15 AEST and retreated to 21.0% (−7pp) while Hormuz continued collapsing.
+    The Hormuz decline is <em>not</em> driven by acute UAE escalation — it is the market writing off the April 30 physical reopening timeline entirely.
+  </p>
+
+  <!-- Why deadline is dead -->
+  <h2>Why the April 30 Deadline Is Dead</h2>
+  <table>
+    <thead><tr><th>#</th><th>Constraint</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Real-world traffic restored to normal</td><td class="td-red">~15% of pre-war (~12 ships/day vs. 80+). 22 days insufficient.</td></tr>
+      <tr><td>2</td><td>Iran toll regime eliminated</td><td class="td-red">$1.5–2M/ship still in force. No announcement of lift.</td></tr>
+      <tr><td>3</td><td>Commercial insurance returns to standard</td><td class="td-red">War-zone premiums persist. Underwriter review takes weeks after clearance.</td></tr>
+      <tr><td>4</td><td>Iran formally confirms Hormuz reciprocation</td><td class="td-orange">Ceasefire 99.7%, but no formal corridor reciprocation statement.</td></tr>
+      <tr><td>5</td><td>Physical infrastructure cleared</td><td class="td-red">Convoy requirements, transponder compliance issues — not resolved.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Central Contradiction -->
+  <h2>The Central Contradiction: WTI $130 Unmoved</h2>
+  <p>Despite Hormuz firing, <strong>WTI $130 April remains at 11.5% (+0.0pp).</strong> This is the most important current mispricing.</p>
+
+  <div class="misprice-bar">
+    <div class="misprice-label">Market Pricing vs. Implied Fair Value</div>
+    <div class="bar-row">
+      <span class="bar-name">Hormuz Normalizes by Apr 30</span>
+      <div class="bar-track" style="flex:1"><div class="bar-fill" style="width:26.5%;background:#f85149"></div></div>
+      <span class="bar-pct td-red">26.5%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-name">WTI $130 in April (current)</span>
+      <div class="bar-track" style="flex:1"><div class="bar-fill" style="width:11.5%;background:#e3b341"></div></div>
+      <span class="bar-pct td-orange">11.5%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-name">WTI $130 implied (Vance fails)</span>
+      <div class="bar-track" style="flex:1"><div class="bar-fill" style="width:16%;background:#58a6ff;opacity:0.5"></div></div>
+      <span class="bar-pct" style="color:var(--blue)">~15–17%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-name">UAE Strikes Iran by Apr 30</span>
+      <div class="bar-track" style="flex:1"><div class="bar-fill" style="width:21%;background:#bc8cff"></div></div>
+      <span class="bar-pct" style="color:var(--purple)">21.0%</span>
+    </div>
+  </div>
+
+  <div class="callout orange">
+    <div class="callout-head">Mispricing Estimate</div>
+    Hormuz at 26.5% implies ~15–17% WTI $130 fair value on a Vance failure scenario.
+    Actual WTI $130 at 11.5% = <strong>3.5–5.5pp underpriced</strong> against that scenario.
+    Not actionable until Vance meeting resolves — but the gap closes rapidly if tomorrow's meeting fails.
+  </div>
+
+  <p>
+    The crowd's implicit model: <em>"Hormuz stays closed but US-Iran ceasefire holds at 99.7%, preventing acute crisis."</em>
+    This produces a <strong>sustained friction / no catastrophic spike</strong> base case. Logical — until the diplomatic circuit-breaker fails.
+  </p>
+
+  <!-- Vance Meeting Scenarios -->
+  <h2>The Only Remaining Circuit-Breaker: Vance Meeting (April 10)</h2>
+  <div class="callout orange">
+    <div class="callout-head">Imminent Trigger</div>
+    <strong>JD Vance meets Iran by April 10: 71.4% (+0.3pp)</strong> — only <strong>3.6pp from the 75% trigger</strong>.
+    April 10 is <strong>TOMORROW</strong>. This is the entire near-term pivot.
+  </div>
+
+  <div class="scenario-grid">
+    <div class="scenario-box positive">
+      <div class="scenario-head">Scenario A</div>
+      <div class="scenario-title">✅ Meeting CONFIRMED</div>
+      <div class="scenario-body">
+        <ul>
+          <li>Diplomatic channel opens → Iran gets face-saving Hormuz extension</li>
+          <li>Hormuz bounces 26.5% → 35–40% (deadline extended narrative)</li>
+          <li>WTI $130 holds at 11–12%</li>
+          <li>Vance 75% trigger fires (benign signal)</li>
+          <li>UAE trigger stays quiet</li>
+          <li><strong>ASX read</strong>: Temporary peace trade bounce. QAN/WOW/COL short-squeeze risk. Medium-term oil friction still intact — April 30 slips.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="scenario-box negative">
+      <div class="scenario-head">Scenario B</div>
+      <div class="scenario-title">❌ Meeting CANCELLED / DELAYED</div>
+      <div class="scenario-body">
+        <ul>
+          <li>No diplomatic circuit-breaker → Hormuz → 20% (new sentinel fires)</li>
+          <li>WTI $130 reprices 11.5% → 15–17% within 2 runs</li>
+          <li>UAE creep resumes: 21% → approaches 30% trigger</li>
+          <li>Kharg Island (+1.5pp trend) accelerates</li>
+          <li>Kalshi State Dept Level 4 warning: 44% → crosses 50%</li>
+          <li><strong>ASX read</strong>: WDS/STO outperform. QAN/WOW/COL squeeze. AUD/USD mildly weaker.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trigger Dashboard -->
+  <h2>Near-Term Trigger Dashboard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Trigger</th><th>Current</th><th>Threshold</th><th>Distance</th><th>Urgency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fired-row">
+        <td>Hormuz normalizes below 32% (FIRED)</td>
+        <td class="td-pct td-red">26.5%</td>
+        <td class="td-muted">↓32%</td>
+        <td class="td-red">FIRED</td>
+        <td><span style="background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:3px">FIRED</span></td>
+      </tr>
+      <tr class="imminent-row">
+        <td>JD Vance meets Iran (≥75%)</td>
+        <td class="td-pct td-orange">71.4%</td>
+        <td class="td-muted">↑75%</td>
+        <td class="td-orange"><strong>3.6pp</strong></td>
+        <td><span style="background:var(--orange);color:#000;font-size:0.72rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:3px">IMMINENT</span></td>
+      </tr>
+      <tr>
+        <td>Trump visits China (≥85%)</td>
+        <td class="td-pct" style="color:var(--blue)">80.0%</td>
+        <td class="td-muted">↑85%</td>
+        <td style="color:var(--blue)">5.0pp</td>
+        <td class="td-muted">Next 1–2 days</td>
+      </tr>
+      <tr>
+        <td>Hormuz collapses below 20% <em>[NEW]</em></td>
+        <td class="td-pct td-red">26.5%</td>
+        <td class="td-muted">↓20%</td>
+        <td class="td-red">6.5pp</td>
+        <td class="td-muted">If Vance fails</td>
+      </tr>
+      <tr>
+        <td>UAE strikes Iran (≥30%)</td>
+        <td class="td-pct" style="color:var(--purple)">21.0%</td>
+        <td class="td-muted">↑30%</td>
+        <td style="color:var(--purple)">9.0pp</td>
+        <td class="td-muted">Medium</td>
+      </tr>
+      <tr>
+        <td>WTI $130 above 28%</td>
+        <td class="td-pct td-orange">11.5%</td>
+        <td class="td-muted">↑28%</td>
+        <td class="td-muted">16.5pp</td>
+        <td class="td-muted">Distant</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Australian Market Implications -->
+  <h2>Australian Market Implications</h2>
+  <p>
+    Australia faces disproportionate Hormuz exposure. <strong>Diesel is the key variable</strong> — it powers freight, agriculture, and mining.
+    Prolonged corridor closure = sustained Q2 fuel-driven CPI, not a temporary spike. This pushes the RBA cut timeline out materially.
+    The US Fed holds at 98.5%; RBA will not cut while fuel CPI remains elevated.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Sector</th><th>Direction</th><th>Rationale</th><th>Key Stocks</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Energy / Oil &amp; Gas</td>
+        <td class="bullish-cell">BULLISH</td>
+        <td>WTI sustained above $100; LNG export premium; Hormuz closure lifts spot gas</td>
+        <td><span class="ticker">WDS</span> <span class="ticker">STO</span> <span class="ticker">BPT</span></td>
+      </tr>
+      <tr>
+        <td>Gold / Precious Metals</td>
+        <td class="bullish-cell">BULLISH</td>
+        <td>Hormuz confirmed closed Q2 = sustained geopolitical fear bid; USD safe haven</td>
+        <td><span class="ticker">NST</span> <span class="ticker">NCM</span> <span class="ticker">EVN</span></td>
+      </tr>
+      <tr>
+        <td>Mining / Resources</td>
+        <td class="neutral-cell">NEUTRAL–BULLISH</td>
+        <td>China visit at 80% buffers iron ore sentiment vs. Hormuz friction; diesel cost headwind</td>
+        <td><span class="ticker">BHP</span> <span class="ticker">RIO</span> <span class="ticker">FMG</span></td>
+      </tr>
+      <tr>
+        <td>Transport / Aviation</td>
+        <td class="bearish-cell">BEARISH</td>
+        <td>No near-term jet/diesel relief; sustained elevated fuel costs squeeze margins</td>
+        <td><span class="ticker">QAN</span> <span class="ticker">AZJ</span></td>
+      </tr>
+      <tr>
+        <td>Consumer / Retail</td>
+        <td class="bearish-cell">BEARISH</td>
+        <td>Diesel cost pass-through to logistics and grocery; consumer confidence suppressed</td>
+        <td><span class="ticker">WOW</span> <span class="ticker">COL</span> <span class="ticker">WES</span></td>
+      </tr>
+      <tr>
+        <td>Banks</td>
+        <td class="watch-cell">WATCH</td>
+        <td>RBA cut timing pushed out by fuel CPI; mortgage rate expectations sticky</td>
+        <td><span class="ticker">ANZ</span> <span class="ticker">CBA</span> <span class="ticker">NAB</span> <span class="ticker">WBC</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Trigger Actions -->
+  <h2>Trigger Configuration Changes</h2>
+  <table>
+    <thead><tr><th>Trigger ID</th><th>Action</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code style="font-size:0.82rem;background:var(--surface2);padding:0.1rem 0.3rem;border-radius:3px">hormuz-floor-alert</code></td>
+        <td class="td-orange">THRESHOLD LOWERED</td>
+        <td>32% → <strong>20%</strong>. Prior level fired at 26.5%. New sentinel: full write-off of any 2026 Q2 normalisation hope. At 20%: WTI supply friction repriced for 6+ months.</td>
+      </tr>
+      <tr>
+        <td><code style="font-size:0.82rem;background:var(--surface2);padding:0.1rem 0.3rem;border-radius:3px">wti-130-april</code></td>
+        <td style="color:var(--blue)">REASON UPDATED</td>
+        <td>Framing changed from "ceasefire breakdown reversal" → "Hormuz prolonged closure + sustained supply friction escalation." Threshold 28% unchanged (appropriate 16.5pp buffer).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Forward View -->
+  <h2>Forward View &amp; Falsifiable Predictions</h2>
+
+  <div class="callout red">
+    <div class="callout-head">Primary Prediction</div>
+    If the Vance-Iran meeting is <strong>NOT confirmed</strong> by April 10 AEST morning,
+    <strong>WTI $130 will cross 15%</strong> within 2 subsequent runs.
+    Baseline today: 11.5%. Trigger distance: 3.5pp to 15%.
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-head">Kalshi Corroboration Watch</div>
+    State Dept Level 4 warning at <strong>44% (+1pp this run)</strong>. If this crosses 50% alongside Hormuz → 20%,
+    treat as <strong>full corridor write-off</strong> with formal government acknowledgement.
+    At 50%, foreign capital allocation to Iran-adjacent supply chains enters formal risk review cycles.
+  </div>
+
+  <div class="callout orange">
+    <div class="callout-head">China Visit Secondary Signal</div>
+    Trump China visit at <strong>80.0% (−2.0pp)</strong> — only 5pp from the 85% trigger.
+    If Vance meeting FAILS and China visit ALSO dips below 75%, treat as a double diplomatic breakdown:
+    both the Iran and China channels under simultaneous stress. AUD/USD and ASX materials would underperform sharply.
+  </div>
+
+  <h3>What to Watch in Next 12–24 Hours</h3>
+  <table>
+    <thead><tr><th>Catalyst</th><th>Signal if YES</th><th>Signal if NO</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Vance-Iran meeting confirmed (Apr 10)</td>
+        <td class="td-green">Hormuz 26→35%, WTI $130 holds 11–12%, 75% trigger fires</td>
+        <td class="td-red">Hormuz → 20% (new trigger), WTI $130 → 15–17%, UAE creeps</td>
+      </tr>
+      <tr>
+        <td>Iran formally confirms Hormuz reciprocation</td>
+        <td class="td-green">Hormuz bounces toward 40%, peace trade partially restored</td>
+        <td class="td-red">Deadline collapse confirmed; WTI $130 reprice begins</td>
+      </tr>
+      <tr>
+        <td>Trump China visit moves ≥85%</td>
+        <td class="td-green">Trade de-escalation confirmed; AUD/USD, BHP/RIO/FMG bullish</td>
+        <td class="td-muted">Non-event if stays 78–84%</td>
+      </tr>
+      <tr>
+        <td>UAE strikes Iran creeps above 25%</td>
+        <td class="td-orange">5pp from 30% trigger; escalation returning; watch Kharg too</td>
+        <td class="td-muted">Benign — staying at 21% is consistent with retreat narrative</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    Report: <strong>HORMUZ-TRIGGER-FIRED-20260408</strong> &nbsp;·&nbsp; Generated 2026-04-08 21:15 AEST &nbsp;·&nbsp;
+    Prior reports today:
+    <a href="UAE-IRAN-ESCALATION-20260408.html" style="color:var(--blue)">UAE-Iran Escalation (20:15)</a> ·
+    <a href="HORMUZ-NEAR-TRIGGER-20260408.html" style="color:var(--blue)">Hormuz Near-Trigger (20:48)</a>
+    &nbsp;·&nbsp; Data: Polymarket + Kalshi &nbsp;·&nbsp; All times AEST (UTC+10)
+  </div>
+
+</div>
+</body>
+</html>
