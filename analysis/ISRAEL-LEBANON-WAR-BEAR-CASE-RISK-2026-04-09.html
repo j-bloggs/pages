@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Israel-Lebanon War Threatens WTI Bear Case — 9 April 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 100%);
+    border: 1px solid #8b1a1a;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: #8b1a1a;
+    color: #ffa0a0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6b6b;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+  }
+  .header .meta {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    font-size: 13px;
+    color: #8b949e;
+    line-height: 1.8;
+  }
+  .header .meta strong { color: #e6edf3; }
+
+  /* Sections */
+  .section {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0883e;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #79c0ff;
+    margin: 16px 0 8px;
+  }
+  .section p { margin-bottom: 12px; font-size: 14.5px; color: #c9d1d9; }
+  .section ul { padding-left: 20px; margin-bottom: 12px; }
+  .section li { font-size: 14px; color: #c9d1d9; margin-bottom: 6px; }
+
+  /* Executive summary callout */
+  .exec-summary {
+    background: linear-gradient(135deg, #1a1400 0%, #1a1a00 100%);
+    border: 1px solid #6e5e00;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #e6c87a;
+    line-height: 1.7;
+  }
+  .exec-summary strong { color: #ffd700; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 4px; }
+  th {
+    background: #21262d;
+    color: #8b949e;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #30363d;
+  }
+  td { padding: 9px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1c2128; }
+
+  /* Price chart table */
+  .price-row td:nth-child(2) { font-weight: 700; color: #e6edf3; font-family: monospace; }
+  .price-highlight td { background: #1a0f0f !important; }
+  .price-highlight td:nth-child(2) { color: #ff6b6b !important; }
+
+  /* Trigger table */
+  .trig-imminent td { background: #1a0a00 !important; }
+  .trig-imminent td:nth-child(1) { color: #ffa04a; font-weight: 600; }
+  .trig-near td:nth-child(1) { color: #f0883e; }
+
+  /* Scenario boxes */
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  @media (max-width: 680px) { .scenario-grid { grid-template-columns: 1fr; } }
+  .scenario-card {
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .scenario-a { background: #0d2012; border: 1px solid #1a5c30; }
+  .scenario-b { background: #1a0808; border: 1px solid #5c1a1a; }
+  .scenario-c { background: #0d1220; border: 1px solid #1a3060; }
+  .scenario-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .scenario-a .label { color: #3fb950; }
+  .scenario-b .label { color: #ff6b6b; }
+  .scenario-c .label { color: #79c0ff; }
+  .scenario-card .prob { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .scenario-a .prob { color: #3fb950; }
+  .scenario-b .prob { color: #ff6b6b; }
+  .scenario-c .prob { color: #79c0ff; }
+  .scenario-card p { font-size: 12.5px; color: #8b949e; margin-bottom: 4px; }
+
+  /* Contradiction callout */
+  .contradiction {
+    background: #16100a;
+    border-left: 4px solid #f0883e;
+    padding: 16px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 16px 0;
+  }
+  .contradiction .label { font-size: 11px; font-weight: 700; color: #f0883e; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .contradiction p { font-size: 14px; color: #e6c87a; margin: 0; }
+
+  /* Trade box */
+  .trade-box {
+    background: #0a1628;
+    border: 1px solid #1a3f7a;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 12px;
+  }
+  .trade-box .label { font-size: 11px; font-weight: 700; color: #79c0ff; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .trade-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #1c2128; font-size: 13.5px; }
+  .trade-row:last-child { border-bottom: none; }
+  .trade-row .k { color: #8b949e; }
+  .trade-row .v { color: #e6edf3; font-weight: 600; }
+  .trade-row .v.pos { color: #3fb950; }
+  .trade-row .v.neg { color: #ff6b6b; }
+
+  /* Report history table */
+  .report-status-valid { color: #3fb950; }
+  .report-status-challenged { color: #f0883e; }
+  .report-status-active { color: #79c0ff; font-weight: 600; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .badge-red { background: #3d0a0a; color: #ff6b6b; border: 1px solid #8b1a1a; }
+  .badge-orange { background: #2d1a00; color: #ffa04a; border: 1px solid #6e3d00; }
+  .badge-blue { background: #0a1e3d; color: #79c0ff; border: 1px solid #1a4a8a; }
+  .badge-green { background: #0a2010; color: #3fb950; border: 1px solid #1a5c30; }
+
+  /* Catalysts */
+  .catalyst-list { list-style: none; padding: 0; }
+  .catalyst-list li {
+    padding: 10px 12px 10px 16px;
+    border-left: 3px solid #30363d;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #c9d1d9;
+  }
+  .catalyst-list li:nth-child(1) { border-color: #ff6b6b; }
+  .catalyst-list li:nth-child(2) { border-color: #ffa04a; }
+  .catalyst-list li:nth-child(3) { border-color: #e6c87a; }
+  .catalyst-list li:nth-child(4) { border-color: #3fb950; }
+  .catalyst-list li:nth-child(5) { border-color: #79c0ff; }
+  .catalyst-list li strong { color: #e6edf3; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #484f58;
+  }
+
+  /* Inline code / mono */
+  code { font-family: 'SF Mono', Consolas, monospace; font-size: 13px; color: #ffa04a; background: #21262d; padding: 2px 5px; border-radius: 3px; }
+  strong { color: #e6edf3; }
+  em { color: #8b949e; font-style: normal; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="alert-badge">⚠ Tier 1 Alert</div>
+    <h1>Israel-Lebanon War Threatens WTI Bear Case</h1>
+    <div class="subtitle">Prediction Market Intelligence — 07:30 AEST, 9 April 2026</div>
+    <div class="meta">
+      <strong>Triggered by:</strong> Israel-Hezbollah ceasefire freefall (84.9% → 32.4%, −52pp), ↓28% trigger 4.3pp away<br>
+      <strong>Context:</strong> Third alert report today — builds on <em>UAE-IRAN-GULF-WAR</em> (05:50 AEST) and <em>WTI-BEAR-CASE-ACCELERATING</em> (06:30 AEST)<br>
+      <strong>Key market:</strong> US-Iran ceasefire durability 99.2% — <strong>most overpriced instrument in coverage universe</strong>
+    </div>
+  </div>
+
+  <!-- EXEC SUMMARY -->
+  <div class="exec-summary">
+    The WTI bear case — oil hits $90 low in April, <strong>78.5% probability</strong> — rests on a single pillar: the US-Iran ceasefire holds. That pillar is under attack from an unexpected direction. Israel explicitly excluded Lebanon from the ceasefire terms, struck <strong>100+ targets across Beirut in 10 minutes</strong> on April 8 (254 killed, 1,165 wounded), and is prosecuting an active war against Hezbollah while claiming US protection from Iranian retaliation. Markets have not re-priced this risk. <strong>The US-Iran ceasefire durability market at 99.2% is structurally overpriced.</strong>
+  </div>
+
+  <!-- WHAT HAPPENED -->
+  <div class="section">
+    <h2>📰 What Happened</h2>
+    <p>Pakistan's PM announced on April 8 that the US-Iran conditional ceasefire covers <em>"Lebanon and elsewhere."</em> Within hours, Netanyahu's office released a statement: <strong>"The ceasefire does not include Lebanon."</strong></p>
+    <p>Israel then struck approximately 100 targets across Lebanon in a span of 10 minutes. Lebanon's Civil Defence reported <strong>254 killed and 1,165 wounded</strong> — one of the deadliest single days of the conflict. Hezbollah stated it was "giving mediators a chance" but has <strong>not announced adherence to the ceasefire</strong>.</p>
+
+    <h3>Prediction Market Signal — Israel-Hezbollah Ceasefire Probability</h3>
+    <table>
+      <thead>
+        <tr><th>Time (AEST)</th><th>Ceasefire %</th><th>Move</th><th>Notes</th></tr>
+      </thead>
+      <tbody class="price-row">
+        <tr><td>~04:00 (est.)</td><td>84.9%</td><td>—</td><td>Peak — Pakistan ceasefire optimism</td></tr>
+        <tr><td>06:30</td><td>42.4%</td><td>−42.5pp from peak</td><td>Lebanon exclusion registered</td></tr>
+        <tr><td>06:45</td><td>42.1%</td><td>−0.3pp</td><td>Bleeding</td></tr>
+        <tr><td>07:00</td><td>41.3%</td><td>−0.9pp</td><td>Bleeding</td></tr>
+        <tr><td>07:15</td><td>38.9%</td><td>−2.4pp</td><td>Accelerating</td></tr>
+        <tr class="price-highlight"><td><strong>07:30</strong></td><td><strong>32.4%</strong></td><td><strong>−6.5pp</strong></td><td><strong>Sharp acceleration — ↓28% trigger 4.3pp away</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px; font-size:13px; color:#8b949e;">Volume at 07:30: $542,366 — active, liquid selling. This is not a thin market.</p>
+  </div>
+
+  <!-- CROSS-MARKET CONTRADICTION -->
+  <div class="section">
+    <h2>⚡ The Cross-Market Contradiction</h2>
+    <table style="margin-bottom:16px;">
+      <thead>
+        <tr><th>Market</th><th>Price</th><th>Implication</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>US-Iran ceasefire durability</td><td><strong style="color:#3fb950;">99.2%</strong></td><td>Iran will not re-enter the war</td></tr>
+        <tr><td>Israel-Hezbollah ceasefire</td><td><strong style="color:#ff6b6b;">32.4% ↓</strong></td><td>Israel actively fighting Lebanon</td></tr>
+        <tr><td>WTI $90 low in April</td><td><strong style="color:#e6c87a;">78.5%</strong></td><td>Oil stays soft, risk contained</td></tr>
+      </tbody>
+    </table>
+
+    <div class="contradiction">
+      <div class="label">❌ These Cannot All Be Right</div>
+      <p>Unless one accepts the specific scenario: <strong>Iran tolerates Israel destroying Hezbollah and stays on the ceasefire sideline.</strong> That's possible — but pricing it at 99.2% ignores the structural logic of why Iran would re-enter.</p>
+    </div>
+
+    <ul style="margin-top:14px;">
+      <li><strong>Hezbollah is Iran's primary deterrent against Israel.</strong> Allowing its destruction eliminates Iran's forward defensive posture permanently.</li>
+      <li><strong>Domestic pressure:</strong> Hardliners positioning post-Khamenei face existential credibility questions if Hezbollah collapses on their watch.</li>
+      <li><strong>Ceasefire scope dispute:</strong> Pakistan announced Lebanon was included. If Iran accepted that framing, Israel immediately violated the deal — giving Iran political cover to re-enter.</li>
+      <li><strong>NPR (April 8):</strong> <em>"A fragile U.S.-Iran ceasefire shows cracks as attacks continue across the region."</em></li>
+    </ul>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <h2>🎯 Macro Implications by Scenario</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card scenario-a">
+        <div class="label">Scenario A</div>
+        <div class="prob">99.2%</div>
+        <p><strong style="color:#3fb950;">Iran stays out</strong></p>
+        <p>Lebanon destroyed as Hezbollah base. WTI $90 confirms. Islamabad talks proceed. Oil $88–93.</p>
+        <p style="margin-top:8px; color:#3fb950; font-size:12px;"><strong>ASX:</strong> WDS/STO drag. Resources/AUD recover.</p>
+      </div>
+      <div class="scenario-card scenario-b">
+        <div class="label">Scenario B</div>
+        <div class="prob">~1%</div>
+        <p><strong style="color:#ff6b6b;">Iran re-enters</strong></p>
+        <p>WTI → $120–130. Kharg + Hormuz risk reactivates. S&amp;P −3–5%. Gold +$80–120.</p>
+        <p style="margin-top:8px; color:#ff6b6b; font-size:12px;"><strong>ASX:</strong> WDS/STO +8–12%; QAN/WOW −4–8%; NST/EVN surge.</p>
+      </div>
+      <div class="scenario-card scenario-c">
+        <div class="label">Scenario C</div>
+        <div class="prob">—</div>
+        <p><strong style="color:#79c0ff;">Hezbollah escalates unilaterally</strong></p>
+        <p>Breaks from Iran's lead. Israel deepens strikes. Oil +$5–10. Uncertainty premium returns.</p>
+        <p style="margin-top:8px; color:#79c0ff; font-size:12px;"><strong>More likely than B, less priced.</strong></p>
+      </div>
+    </div>
+    <p style="font-size:13px; color:#8b949e; margin-top:4px;">Market probability shown for Scenario A (99.2%); B and C implied by residual. Our view: B is mispriced — should be 5–10%.</p>
+  </div>
+
+  <!-- TRIGGERS -->
+  <div class="section">
+    <h2>🔔 Key Triggers to Watch</h2>
+    <table>
+      <thead>
+        <tr><th>Trigger</th><th>Level</th><th>Distance</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="trig-imminent"><td>Israel-Hezbollah ceasefire ↓28%</td><td>28%</td><td><strong style="color:#ff6b6b;">4.3pp</strong></td><td><span class="badge badge-red">⚠ IMMINENT</span></td></tr>
+        <tr><td>Israel-Hezbollah ceasefire ↓25%</td><td>25%</td><td>7.4pp</td><td><span class="badge badge-orange">WATCHING</span></td></tr>
+        <tr class="trig-near"><td>WTI $130 in April ↑18%</td><td>18%</td><td><strong style="color:#ffa04a;">0.5pp</strong></td><td><span class="badge badge-orange">⚠ NEAR-FIRE</span></td></tr>
+        <tr><td>WTI $90 bear case ↑85%</td><td>85%</td><td>6.5pp</td><td><span class="badge badge-blue">WATCHING</span></td></tr>
+        <tr><td>Hormuz normalisation ↓20%</td><td>20%</td><td>3.5pp</td><td><span class="badge badge-orange">WATCHING</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px; color:#8b949e; margin-top:10px;"><strong>The ↓28% ceasefire trigger could fire at 07:45 AEST</strong> given the −6.5pp acceleration last run. Next collection is the key watch.</p>
+  </div>
+
+  <!-- ASYMMETRIC TRADE -->
+  <div class="section">
+    <h2>💡 The Asymmetric Trade</h2>
+    <p><strong>US-Iran ceasefire durability at 99.2% is structurally overpriced.</strong> A hedge against Iran re-entry via Lebanon offers exceptional risk/reward:</p>
+    <div class="trade-box">
+      <div class="label">Trade: Short US-Iran Ceasefire Durability</div>
+      <div class="trade-row"><span class="k">Entry cost (current price)</span><span class="v neg">~0.8¢ per dollar</span></div>
+      <div class="trade-row"><span class="k">Payoff if Iran re-enters (market re-prices 40–60%)</span><span class="v pos">40–60¢ per dollar</span></div>
+      <div class="trade-row"><span class="k">Risk/reward ratio</span><span class="v pos">~50:1</span></div>
+      <div class="trade-row"><span class="k">Scenario required</span><span class="v">Iran uses Lebanon exclusion as pretext to re-enter</span></div>
+    </div>
+    <p style="margin-top:12px; font-size:14px;"><strong>WTI $130 at 17.5%</strong> is only 0.5pp from our trigger and is <em>not deflating</em> despite the bear case advancing. If Lebanon forces Iran back in, $130 reprices before the bear case collapses — brief window of extreme cross-market dislocation.</p>
+  </div>
+
+  <!-- CATALYSTS -->
+  <div class="section">
+    <h2>📅 Forward Catalysts (Next 24 Hours)</h2>
+    <ul class="catalyst-list">
+      <li><strong>07:45 AEST (est.):</strong> Next collection run — does the ↓28% ceasefire trigger fire? Given −6.5pp last run, probability is high.</li>
+      <li><strong>Any time:</strong> UAE MoD or IDF statement on Lebanon operations — could accelerate or reverse the ceasefire decline.</li>
+      <li><strong>Tonight AEST:</strong> US and Israeli equity markets open — will traders price Lebanon escalation into energy/defense names?</li>
+      <li><strong>April 10, 13:00 AEST:</strong> Islamabad talks. Lebanon is now on the agenda. If Iran demands Lebanon inclusion as precondition: WTI $130 trigger fires.</li>
+      <li><strong>Iranian Supreme Leadership (ongoing):</strong> Post-Khamenei hardliners may use Lebanon as a rallying point. Watch IRGC statements.</li>
+    </ul>
+  </div>
+
+  <!-- REPORT HISTORY -->
+  <div class="section">
+    <h2>📋 Connection to Today's Prior Reports</h2>
+    <table>
+      <thead>
+        <tr><th>Report</th><th>Filed</th><th>Thesis</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UAE-IRAN-GULF-WAR-2026-04-09</td>
+          <td>05:50</td>
+          <td>UAE flash strike (51.5%), Gulf axis escalating</td>
+          <td class="report-status-valid">UAE retreated to 30% — CORRECTED ✅</td>
+        </tr>
+        <tr>
+          <td>WTI-BEAR-CASE-ACCELERATING-2026-04-09</td>
+          <td>06:30</td>
+          <td>UAE backing down → oil bear case wins</td>
+          <td class="report-status-challenged">Valid but NOW CHALLENGED ⚠</td>
+        </tr>
+        <tr>
+          <td><strong>This report</strong></td>
+          <td><strong>07:30</strong></td>
+          <td>Lebanon creates back-door re-escalation risk</td>
+          <td class="report-status-active">ACTIVE — monitor for trigger fire</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px; font-size:14px; color:#c9d1d9;"><strong>Key insight:</strong> The UAE/Iran story and the Lebanon/Hezbollah story are moving in <em>opposite directions simultaneously</em>. Markets are correctly pricing Gulf axis de-escalation while completely ignoring Lebanon escalation. This divergence is where the mispricing lives.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Polymarket Prediction Intelligence — automated collection + analyst review<br>
+    Next update: trigger-driven or Islamabad talks (April 10, 13:00 AEST)
+  </div>
+
+</div>
+</body>
+</html>
