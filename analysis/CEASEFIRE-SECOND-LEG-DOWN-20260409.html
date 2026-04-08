@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Lebanon Ceasefire — Second Leg Down | 2026-04-09 03:30 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .alert-banner {
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    border-left: 5px solid #ef4444;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .alert-banner h1 { font-size: 1.4rem; font-weight: 700; color: #fef2f2; margin-bottom: 6px; }
+  .alert-meta { font-size: 0.85rem; color: #fca5a5; display: flex; gap: 16px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .badge-red { background: #ef4444; color: #fff; }
+  .badge-orange { background: #f97316; color: #fff; }
+  .badge-yellow { background: #eab308; color: #000; }
+  .badge-green { background: #22c55e; color: #000; }
+  .badge-blue { background: #3b82f6; color: #fff; }
+  .badge-gray { background: #6b7280; color: #fff; }
+
+  /* Sections */
+  .section { margin-bottom: 28px; }
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #93c5fd;
+    border-bottom: 1px solid #1e3a5f;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  h3 { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; margin: 14px 0 8px; }
+  p { color: #cbd5e1; margin-bottom: 10px; font-size: 0.93rem; }
+
+  /* TL;DR box */
+  .tldr {
+    background: #1e2d3d;
+    border: 1px solid #2d4a6e;
+    border-left: 4px solid #60a5fa;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .tldr p { margin: 0; font-size: 0.95rem; color: #e2e8f0; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th {
+    background: #1e2d3d;
+    color: #93c5fd;
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 2px solid #2d4a6e;
+  }
+  td { padding: 8px 12px; border-bottom: 1px solid #1e2d3d; color: #cbd5e1; }
+  tr:hover td { background: #1a2535; }
+  .price-down { color: #f87171; font-weight: 600; }
+  .price-up { color: #4ade80; font-weight: 600; }
+  .price-neutral { color: #facc15; font-weight: 600; }
+
+  /* Market cards */
+  .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 12px 0; }
+  .market-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .market-card .label { font-size: 0.8rem; color: #8b949e; margin-bottom: 4px; }
+  .market-card .price { font-size: 1.5rem; font-weight: 700; }
+  .market-card .delta { font-size: 0.8rem; margin-top: 2px; }
+  .card-red { border-left: 3px solid #ef4444; }
+  .card-orange { border-left: 3px solid #f97316; }
+  .card-yellow { border-left: 3px solid #eab308; }
+  .card-blue { border-left: 3px solid #3b82f6; }
+  .card-green { border-left: 3px solid #22c55e; }
+
+  /* Chart bar */
+  .chart-section { margin: 12px 0; }
+  .chart-bar-row { display: flex; align-items: center; margin-bottom: 8px; gap: 10px; }
+  .chart-label { width: 160px; font-size: 0.8rem; color: #8b949e; text-align: right; flex-shrink: 0; }
+  .chart-bar-outer { flex: 1; background: #21262d; border-radius: 4px; height: 22px; position: relative; }
+  .chart-bar-inner { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .chart-value { width: 50px; font-size: 0.8rem; color: #e2e8f0; font-weight: 600; text-align: right; flex-shrink: 0; }
+
+  /* Scenario box */
+  .scenario {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .scenario-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .scenario-prob { font-size: 1.1rem; font-weight: 700; }
+  .scenario-title { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; }
+  .scenario p { font-size: 0.87rem; color: #94a3b8; margin: 0; }
+
+  /* ASX table */
+  .asx-bullish td:nth-child(3) { color: #4ade80; font-weight: 600; }
+  .asx-bearish td:nth-child(3) { color: #f87171; font-weight: 600; }
+  .asx-neutral td:nth-child(3) { color: #facc15; font-weight: 600; }
+
+  /* Action log */
+  .action-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e2d3d;
+    font-size: 0.87rem;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-tag {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #1e3a5f;
+    color: #60a5fa;
+    height: fit-content;
+    margin-top: 1px;
+  }
+  .action-text { color: #cbd5e1; }
+
+  .footer { font-size: 0.8rem; color: #4b5563; margin-top: 32px; padding-top: 12px; border-top: 1px solid #1e2d3d; }
+
+  /* Highlight box */
+  .highlight-box {
+    background: #1c2636;
+    border: 1px solid #374151;
+    border-left: 4px solid #f97316;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .highlight-box p { margin: 0; font-size: 0.9rem; color: #e2e8f0; }
+  strong { color: #f1f5f9; }
+  code { background: #1e2d3d; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; color: #93c5fd; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="alert-banner">
+    <h1>⚡ ALERT: Lebanon Ceasefire — Second Leg Down Confirms Bear Case</h1>
+    <div class="alert-meta">
+      <span>2026-04-09 · 03:30 AEST</span>
+      <span class="badge badge-red">TRIGGER FIRED</span>
+      <span class="badge badge-orange">NEW LOWS</span>
+      <span class="badge badge-red">HIGH SEVERITY</span>
+    </div>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <p>The Israel-Hezbollah ceasefire hit a new all-time low of <strong>30.9%</strong> (-9.8pp in a single 15-minute run) after partially recovering to ~40.3% between 01:00 and 02:45 AEST. The failed recovery is the critical signal — the market tried to stabilise and couldn't. Lebanon war is now priced as high-conviction base case. The hard collapse floor trigger (&lt;25%) is <strong>5.9pp away</strong>. Islamabad talks (April 10) are the only remaining catalyst for reversal — now just hours away.</p>
+  </div>
+
+  <!-- Price Snapshot -->
+  <div class="section">
+    <h2>Key Market Snapshot — 03:30 AEST</h2>
+    <div class="market-grid">
+      <div class="market-card card-red">
+        <div class="label">Israel-Hezbollah Ceasefire</div>
+        <div class="price price-down">30.9%</div>
+        <div class="delta price-down">▼ -9.8pp this run · NEW LOWS</div>
+      </div>
+      <div class="market-card card-orange">
+        <div class="label">WTI $130 in April</div>
+        <div class="price price-neutral">15.5%</div>
+        <div class="delta">▲ +0.5pp · 2.5pp from trigger</div>
+      </div>
+      <div class="market-card card-orange">
+        <div class="label">UAE Strikes Iran by Apr 30</div>
+        <div class="price price-neutral">31.5%</div>
+        <div class="delta">▲ +1.5pp · 13.5pp from trigger</div>
+      </div>
+      <div class="market-card card-blue">
+        <div class="label">Hormuz Normalizes by Apr 30</div>
+        <div class="price price-neutral">27.5%</div>
+        <div class="delta">▼ -1.0pp · stagnant</div>
+      </div>
+      <div class="market-card card-yellow">
+        <div class="label">Israel Ground Op in Iran</div>
+        <div class="price price-neutral">10.5%</div>
+        <div class="delta">▲ +1.5pp · watching</div>
+      </div>
+      <div class="market-card card-red">
+        <div class="label">Ceasefire Hard Floor (&lt;25%)</div>
+        <div class="price price-down">5.9pp</div>
+        <div class="delta price-down">away from trigger</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Trajectory -->
+  <div class="section">
+    <h2>The Pattern: Full Day Trajectory</h2>
+    <p>This is not oscillation. The ceasefire tried to recover and failed. That failure is the signal.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Time (AEST)</th><th>Price</th><th>Move</th><th>Event</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Early Apr 8</td><td class="price-up">84.9%</td><td>—</td><td>US-Iran ceasefire announced; Grand Peace Package priced</td></tr>
+          <tr><td>00:05</td><td class="price-neutral">63.9%</td><td class="price-down">-21.0pp</td><td>First Israel strike reports in Lebanon</td></tr>
+          <tr><td>00:45</td><td class="price-neutral">49.8%</td><td class="price-down">-14.1pp</td><td>IDF confirms 100+ strikes; Netanyahu: Lebanon excluded</td></tr>
+          <tr><td>01:00</td><td class="price-down">35.3%</td><td class="price-down">-14.5pp</td><td>CEASEFIRE-FLOOR-FIRES report — Lebanon war base case</td></tr>
+          <tr><td>~01:30–02:45</td><td class="price-up">~40.3%</td><td class="price-up">+5pp</td><td><em>Partial recovery — market repriced diplomatic optionality</em></td></tr>
+          <tr style="background:#2d1515;"><td><strong>03:30</strong></td><td class="price-down"><strong>30.9%</strong></td><td class="price-down"><strong>-9.8pp</strong></td><td><strong>NEW LOWS — recovery failed; bear case confirmed</strong></td></tr>
+          <tr><td><strong>Total</strong></td><td></td><td class="price-down"><strong>-54.0pp</strong></td><td><strong>~24 hours. Entire Lebanon peace dividend erased.</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <p>A failed recovery in a trending market is a momentum signal. Anyone who bought the dip at 35–40% sold into it, and new sellers emerged. At 30.9%, the market is not pricing "Lebanon might go to war" — it is pricing <strong>"Lebanon is already at war, and the question is how bad."</strong></p>
+    </div>
+  </div>
+
+  <!-- WTI Mispricing -->
+  <div class="section">
+    <h2>Critical Mispricing: WTI vs. Escalation Signals</h2>
+
+    <div class="chart-section">
+      <div class="chart-bar-row">
+        <div class="chart-label">Hezbollah ceasefire</div>
+        <div class="chart-bar-outer">
+          <div class="chart-bar-inner" style="width:30.9%;background:linear-gradient(90deg,#ef4444,#b91c1c);">Lebanon war base case</div>
+        </div>
+        <div class="chart-value price-down">30.9%</div>
+      </div>
+      <div class="chart-bar-row">
+        <div class="chart-label">UAE strikes Iran</div>
+        <div class="chart-bar-outer">
+          <div class="chart-bar-inner" style="width:31.5%;background:linear-gradient(90deg,#f97316,#c2410c);">GCC war ongoing</div>
+        </div>
+        <div class="chart-value price-neutral">31.5%</div>
+      </div>
+      <div class="chart-bar-row">
+        <div class="chart-label">Hormuz normal Apr 30</div>
+        <div class="chart-bar-outer">
+          <div class="chart-bar-inner" style="width:27.5%;background:linear-gradient(90deg,#3b82f6,#1d4ed8);">stagnant</div>
+        </div>
+        <div class="chart-value">27.5%</div>
+      </div>
+      <div class="chart-bar-row">
+        <div class="chart-label">WTI $130 in April</div>
+        <div class="chart-bar-outer">
+          <div class="chart-bar-inner" style="width:15.5%;background:linear-gradient(90deg,#eab308,#a16207);">MISPRICED</div>
+        </div>
+        <div class="chart-value price-neutral">15.5%</div>
+      </div>
+      <div class="chart-bar-row">
+        <div class="chart-label">Israel ground op Iran</div>
+        <div class="chart-bar-outer">
+          <div class="chart-bar-inner" style="width:10.5%;background:linear-gradient(90deg,#6b7280,#374151);">emerging</div>
+        </div>
+        <div class="chart-value">10.5%</div>
+      </div>
+    </div>
+
+    <p>WTI $130 at 15.5% is being dragged by <strong>three simultaneous escalation channels</strong> — Lebanon war (30.9%), UAE-Iran GCC conflict (31.5%), and Hormuz stagnation (27.5%) — yet oil barely responded (+0.5pp). The <code>CEASEFIRE-FLOOR-FIRES</code> report identified this mispricing six hours ago at the same WTI level. It has not corrected.</p>
+    <p><strong>Fair value: 20–24%.</strong> The 18% trigger should fire before the ceasefire reaches 25%. If it doesn't, it confirms structural dislocation between geopolitical and oil markets — a tradeable gap.</p>
+  </div>
+
+  <!-- Secondary Signals -->
+  <div class="section">
+    <h2>Secondary Signals</h2>
+
+    <h3>Israel Ground Op in Iran: +1.5pp to 10.5%</h3>
+    <p>The Israel ground op market (+1.5pp to 10.5%) was flat for hours and moved this same run as the ceasefire collapsed. The market is connecting Lebanon front re-opening → Netanyahu escalation ladder → ground-op tail risk repricing. Not actionable yet, but if it crosses 13–14% in 2 runs, it signals Lebanon is being used to justify broader military escalation — a materially worse geopolitical outcome. Trigger at 20% (9.5pp away).</p>
+
+    <h3>Kalshi Recession Signal (Independent Driver)</h3>
+    <p>Kalshi moved independently of the Middle East this run: "Trump bring back manufacturing" +4pp to 16%; "Unemployment before 2030" +4pp to 96% (will exceed) and +2pp at 38% threshold. This is a US tariff/trade-war recession signal — not Middle East.</p>
+    <p>The compound macro risk: <strong>stagflation</strong> (Middle East oil inflation + Trump tariff demand destruction + rising unemployment). The US Fed is already pinned at 0.7% April hike probability, 2.1% June hike. A stagflation environment leaves the US Fed paralysed — can't cut (inflation) and can't hike (employment). That's the scenario in which equities re-rate lower non-linearly.</p>
+  </div>
+
+  <!-- Scenarios -->
+  <div class="section">
+    <h2>Forward Scenarios — Islamabad Is the Pivot</h2>
+
+    <div class="scenario">
+      <div class="scenario-header">
+        <div class="scenario-prob price-up">15–20%</div>
+        <div class="scenario-title">Scenario A: Islamabad produces Lebanon/Hezbollah component</div>
+      </div>
+      <p>Iran pressures Hezbollah to stand down; Israel freezes Lebanon strikes as part of Grand Peace Package framework → ceasefire bounces to 45–50%; WTI $130 retreats to 12–13%; Hormuz stabilises. <strong>Peace trade</strong>: buy QAN, WOW, COL; sell WDS, STO, NST. Probability fallen from 30% (02:45 AEST) given magnitude and timing of collapse.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-header">
+        <div class="scenario-prob price-neutral">50–55%</div>
+        <div class="scenario-title">Scenario B: Islamabad is US-Iran only; Lebanon unresolved</div>
+      </div>
+      <p>Nuclear deal track proceeds; Hezbollah operates independently → ceasefire stabilises at 25–32%; WTI $130 drifts to 17–19% (near-trigger sustained); Israel ground op inches toward 13–15%. Grind-higher escalation pattern. <strong>Sustained longs</strong>: WDS/STO, NST/NCM, WTI exposure.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-header">
+        <div class="scenario-prob price-down">25–30%</div>
+        <div class="scenario-title">Scenario C: Islamabad collapses AND Lebanon war intensifies</div>
+      </div>
+      <p>Hezbollah launches major rocket barrage; Netanyahu escalates; Iran backs Hezbollah explicitly → ceasefire below 25% (hard collapse trigger fires); WTI $130 surges above 18%; Israel ground op approaches 15–18%. <strong>Full escalation trade</strong>: WDS/STO long, QAN/WES short, gold (NST/NCM/EVN) long.</p>
+    </div>
+  </div>
+
+  <!-- ASX Implications -->
+  <div class="section">
+    <h2>ASX Sector Implications</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Sector</th><th>Stocks</th><th>Direction</th><th>Rationale</th></tr>
+        </thead>
+        <tbody>
+          <tr class="asx-bullish"><td>Energy</td><td>WDS, STO, BPT</td><td>Bullish</td><td>Lebanon + UAE war premium sustained; WTI floor rising</td></tr>
+          <tr class="asx-bullish"><td>Gold</td><td>NST, NCM, EVN</td><td>Bullish</td><td>Geopolitical risk + US Fed pinned (stagflation hedge)</td></tr>
+          <tr class="asx-bearish"><td>Transport</td><td>QAN, AZJ, TCL</td><td>Bearish</td><td>Oil premium compresses margins; no relief in sight</td></tr>
+          <tr class="asx-bearish"><td>Consumer</td><td>WOW, COL, WES</td><td>Bearish</td><td>Fuel/freight cost inflation; consumer confidence squeeze</td></tr>
+          <tr class="asx-neutral"><td>Mining</td><td>BHP, RIO, FMG</td><td>Neutral/Neg</td><td>China demand vs. AUD hedge; tariff recession risk</td></tr>
+          <tr class="asx-neutral"><td>Banks</td><td>ANZ, CBA, NAB, WBC</td><td>Watchful</td><td>Stagflation delays RBA cuts; credit risk if recession deepens</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Actions Taken -->
+  <div class="section">
+    <h2>Actions Taken</h2>
+    <div class="action-item">
+      <div class="action-tag">TRIGGER</div>
+      <div class="action-text"><strong>Updated <code>israel-hezbollah-ceasefire-floor</code></strong>: Threshold lowered 35% → 28%. Label updated. Reason documents failed recovery pattern and 5.9pp proximity to hard &lt;25% floor. Suppresses repeat firing at stale 35% level.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-tag">MONITOR</div>
+      <div class="action-text"><strong>Flagging <code>israel-iran-ground-ops</code></strong>: +1.5pp to 10.5% this run. No threshold change yet — watching for sustained movement above 12–13%.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-tag">NO CHANGE</div>
+      <div class="action-text"><strong>WTI $130 trigger unchanged</strong>: Remains at 18% with 2.5pp buffer. Mispricing documented; awaiting market correction.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Alert generated 2026-04-09 03:30 AEST &nbsp;·&nbsp;
+    Prior reports: <a href="CEASEFIRE-FLOOR-FIRES-20260409.html" style="color:#60a5fa;">CEASEFIRE-FLOOR-FIRES</a> (01:00) &nbsp;·&nbsp;
+    <a href="UAE-TRIGGER-FIRES-20260409.html" style="color:#60a5fa;">UAE-TRIGGER-FIRES</a> (02:45)
+  </div>
+
+</div>
+</body>
+</html>
