@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚨 Islamabad Talks in Peril — Polymarket Macro Alert | 2026-04-09</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Header */
+  .report-header { background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 50%, #1a0a1a 100%); border: 1px solid #ff4444; border-radius: 10px; padding: 28px 32px; margin-bottom: 28px; }
+  .alert-badge { display: inline-block; background: #ff4444; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; text-transform: uppercase; }
+  .report-header h1 { font-size: 1.7em; font-weight: 700; color: #ff6b6b; line-height: 1.3; margin-bottom: 14px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 18px; font-size: 0.82em; color: #8b949e; }
+  .meta-item strong { color: #c9d1d9; }
+
+  /* Key number callout */
+  .key-stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 28px; }
+  .key-stat { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; text-align: center; }
+  .key-stat.danger { border-color: #ff4444; background: #1a0808; }
+  .key-stat.warning { border-color: #f0a500; background: #1a1400; }
+  .key-stat.neutral { border-color: #30363d; }
+  .key-stat .stat-value { font-size: 2em; font-weight: 700; line-height: 1.1; }
+  .key-stat .stat-value.red { color: #ff4444; }
+  .key-stat .stat-value.amber { color: #f0a500; }
+  .key-stat .stat-value.green { color: #3fb950; }
+  .key-stat .stat-value.grey { color: #8b949e; }
+  .key-stat .stat-label { font-size: 0.75em; color: #8b949e; margin-top: 4px; }
+  .key-stat .stat-delta { font-size: 0.82em; margin-top: 4px; }
+  .stat-delta.neg { color: #ff4444; }
+  .stat-delta.pos { color: #3fb950; }
+
+  /* Sections */
+  section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; margin-bottom: 20px; }
+  section.alert-section { border-color: #ff4444; background: #160808; }
+  section.mispricing-section { border-color: #f0a500; background: #141000; }
+  section.scenario-section { border-color: #1f6feb; background: #080d14; }
+  h2 { font-size: 1.1em; font-weight: 600; color: #c9d1d9; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 8px; }
+  h3 { font-size: 0.95em; font-weight: 600; color: #e6edf3; margin: 16px 0 8px 0; }
+  p { font-size: 0.9em; color: #c9d1d9; margin-bottom: 10px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th { background: #0d1117; color: #8b949e; font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid #30363d; }
+  td { padding: 8px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  .td-red { color: #ff4444; font-weight: 600; }
+  .td-amber { color: #f0a500; font-weight: 600; }
+  .td-green { color: #3fb950; }
+  .td-grey { color: #8b949e; }
+  .td-bold { font-weight: 700; }
+
+  /* Trigger distance bar */
+  .trigger-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+  .trigger-label { font-size: 0.82em; color: #8b949e; width: 220px; flex-shrink: 0; }
+  .trigger-bar-wrap { flex: 1; background: #0d1117; border-radius: 4px; height: 8px; overflow: hidden; }
+  .trigger-bar { height: 100%; border-radius: 4px; }
+  .trigger-bar.critical { background: #ff4444; }
+  .trigger-bar.warning { background: #f0a500; }
+  .trigger-bar.watch { background: #1f6feb; }
+  .trigger-dist { font-size: 0.8em; width: 80px; text-align: right; flex-shrink: 0; }
+
+  /* Scenario cards */
+  .scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
+  .scenario-card { border-radius: 8px; padding: 16px; border: 1px solid; }
+  .scenario-card.bull { border-color: #3fb950; background: #081a0a; }
+  .scenario-card.base { border-color: #f0a500; background: #1a1200; }
+  .scenario-card.bear { border-color: #ff4444; background: #1a0808; }
+  .scenario-card .prob { font-size: 1.4em; font-weight: 700; margin-bottom: 4px; }
+  .scenario-card.bull .prob { color: #3fb950; }
+  .scenario-card.base .prob { color: #f0a500; }
+  .scenario-card.bear .prob { color: #ff4444; }
+  .scenario-card .sc-title { font-size: 0.85em; font-weight: 600; color: #e6edf3; margin-bottom: 8px; }
+  .scenario-card ul { padding-left: 16px; }
+  .scenario-card li { font-size: 0.8em; color: #c9d1d9; margin-bottom: 4px; }
+
+  /* ASX table */
+  .asx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+  .asx-card { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 12px; }
+  .asx-card .ticker { font-size: 1.1em; font-weight: 700; font-family: monospace; }
+  .asx-card .ticker.bull { color: #3fb950; }
+  .asx-card .ticker.bear { color: #ff4444; }
+  .asx-card .company { font-size: 0.75em; color: #8b949e; }
+  .asx-card .direction { font-size: 0.78em; margin-top: 4px; color: #c9d1d9; }
+
+  /* Prior report table */
+  .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 0.85em; }
+  .check-icon { flex-shrink: 0; font-size: 1.1em; width: 24px; text-align: center; }
+  .check-text { color: #c9d1d9; }
+  .check-text strong { color: #e6edf3; }
+
+  /* Watch list */
+  ol { padding-left: 20px; }
+  li { font-size: 0.88em; color: #c9d1d9; margin-bottom: 8px; }
+  li strong { color: #e6edf3; }
+
+  /* Footer */
+  footer { text-align: center; padding: 20px; font-size: 0.78em; color: #484f58; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Inline highlights */
+  .highlight { background: rgba(255,68,68,0.15); border-left: 3px solid #ff4444; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 0.88em; }
+  .highlight.amber { background: rgba(240,165,0,0.1); border-left-color: #f0a500; }
+  .highlight.blue { background: rgba(31,111,235,0.1); border-left-color: #1f6feb; }
+  code { font-family: monospace; background: #0d1117; border: 1px solid #30363d; padding: 1px 6px; border-radius: 4px; font-size: 0.85em; color: #e6edf3; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .key-stat-row { grid-template-columns: 1fr 1fr; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .asx-grid { grid-template-columns: 1fr 1fr; }
+    .report-header h1 { font-size: 1.3em; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div class="alert-badge">🚨 Macro Alert — T-24h Binary</div>
+    <h1>Islamabad Talks in Peril: Hormuz Re-Blocked, Ceasefire Disputed, Four Triggers Within 7pp</h1>
+    <div class="meta-row">
+      <div class="meta-item"><strong>Date:</strong> 2026-04-09 09:30 AEST</div>
+      <div class="meta-item"><strong>Alert:</strong> US×Iran meeting Apr 10: 52.2% → 25.9% (−22.1pp/6h)</div>
+      <div class="meta-item"><strong>Classification:</strong> MACRO-SIGNIFICANT — Active cascade risk</div>
+      <div class="meta-item"><strong>Sources:</strong> Polymarket · Kalshi · Bloomberg · MarineTraffic · Al Jazeera · CFR</div>
+    </div>
+  </div>
+
+  <!-- Key Stats -->
+  <div class="key-stat-row">
+    <div class="key-stat danger">
+      <div class="stat-value red">25.9%</div>
+      <div class="stat-label">US×Iran Meeting Apr 10</div>
+      <div class="stat-delta neg">−22.1pp / 6h · −57pp/24h</div>
+    </div>
+    <div class="key-stat danger">
+      <div class="stat-value red">14.8%</div>
+      <div class="stat-label">JD Vance Meets Iran Apr 10</div>
+      <div class="stat-delta neg">Below launch price (16.2%)</div>
+    </div>
+    <div class="key-stat warning">
+      <div class="stat-value amber">23.5%</div>
+      <div class="stat-label">Hormuz Normalisation</div>
+      <div class="stat-delta neg">3.5pp from ↓20% trigger</div>
+    </div>
+    <div class="key-stat warning">
+      <div class="stat-value amber">19.5%</div>
+      <div class="stat-label">WTI $130 in April</div>
+      <div class="stat-delta neg">5.5pp from ↑25% trigger</div>
+    </div>
+    <div class="key-stat warning">
+      <div class="stat-value amber">41.5%</div>
+      <div class="stat-label">Trump Ends Iran Ops Apr 30</div>
+      <div class="stat-delta neg">6.5pp from ↓35% trigger</div>
+    </div>
+    <div class="key-stat warning">
+      <div class="stat-value amber">72.5%</div>
+      <div class="stat-label">WTI $90 Bear Case</div>
+      <div class="stat-delta neg">⚠️ Central mispricing</div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <section class="alert-section">
+    <h2>📋 Executive Summary</h2>
+    <p>The Islamabad talks (April 10) — every prior report's central pivot point — are now pricing <strong>74% failure</strong>. The "US×Iran meeting by April 10" Polymarket market crashed 26 percentage points in six hours to 25.9% on $542K volume. The cause is a triple-threat:</p>
+    <div class="highlight">Iran's IRGC has re-blocked the Strait of Hormuz. MarineTraffic vessel-tracking confirms <strong>zero ships transiting</strong> as of April 9 AEST. The White House calls it open. MarineTraffic is not Iranian state media.</div>
+    <div class="highlight">Israel killed 254+ in Lebanon post-ceasefire. Iran's position: attacking Hezbollah = attacking Iran. US position: Lebanon is outside the deal. This is not procedural — it is a <strong>fundamental incompatibility</strong>.</div>
+    <div class="highlight amber">Four triggers are now within 7pp of firing simultaneously. If April 10 talks fail, expect a sequential cascade within 2–6 collection runs.</div>
+  </section>
+
+  <!-- What Moved -->
+  <section class="alert-section">
+    <h2>📉 The Alert: What Moved and Why</h2>
+
+    <h3>US×Iran Meeting Apr 10 — Waterfall from 52% to 26%</h3>
+    <table>
+      <tr><th>Time (AEST)</th><th>Price</th><th>Move</th><th>Catalyst</th></tr>
+      <tr><td>03:00 (trigger added)</td><td class="td-amber">52.2%</td><td>—</td><td>Iran delegation confirmed for Islamabad</td></tr>
+      <tr><td>08:30</td><td>~48%</td><td class="td-red">−4pp</td><td>Ceasefire violation claims emerging</td></tr>
+      <tr><td>08:45</td><td>28.1%</td><td class="td-red">−24pp/6h</td><td>Bloomberg: "Hormuz Stays Blocked"</td></tr>
+      <tr><td>09:00</td><td>26.2%</td><td class="td-red">−34.6pp/24h</td><td>IRGC claims, MarineTraffic confirms zero vessels</td></tr>
+      <tr><td class="td-bold">09:15 (latest)</td><td class="td-red td-bold">25.9%</td><td class="td-red td-bold">−57pp/24h</td><td class="td-bold">$542K volume — informed money</td></tr>
+    </table>
+
+    <h3>JD Vance Meets Iran Apr 10 — Below Launch Price</h3>
+    <table>
+      <tr><th>Time (AEST)</th><th>Price</th><th>Interpretation</th></tr>
+      <tr><td>03:00 (launch)</td><td class="td-amber">16.2%</td><td>VP delegation scenario priced in partially</td></tr>
+      <tr><td>08:30</td><td class="td-green">27.9%</td><td>Peak: Vance delegation officially announced</td></tr>
+      <tr><td>09:00</td><td class="td-red">14.9%</td><td>Collapse: ceasefire violation claims overwhelm</td></tr>
+      <tr><td class="td-bold">09:15 (latest)</td><td class="td-red td-bold">14.8%</td><td class="td-red td-bold">BELOW launch price — market pricing walkout</td></tr>
+    </table>
+    <p style="margin-top:10px;">$615K volume. Vance peaked when his delegation was announced, then reversed to below the pre-announcement price. This is informed money pricing a walkout — not oscillation.</p>
+  </section>
+
+  <!-- Root Cause -->
+  <section>
+    <h2>🔍 Root Cause Analysis</h2>
+
+    <h3>1. IRGC Re-Blocked Hormuz — Hard Data</h3>
+    <p>Bloomberg (April 8): <em>"US-Iran Ceasefire Claims Diverge as Hormuz Stays Blocked."</em></p>
+    <p>MarineTraffic vessel-tracking shows <strong>zero ships transiting the Strait of Hormuz</strong> as of April 9 AEST. Context: even before re-blocking, Hormuz ran at ~11% of normal capacity (15 ships/day vs. 138 historical, per Seatrade Maritime). Iran's IRGC operates a de facto toll booth requiring government-to-government approval per ship. The ceasefire's "complete, immediate and safe opening" commitment has been revoked by the IRGC in response to Lebanon strikes.</p>
+
+    <h3>2. Lebanon Is the Detonator</h3>
+    <p>The ceasefire covers the <strong>US-Iran bilateral conflict only</strong>. Israel killed 254+ in Lebanon post-ceasefire (Al Jazeera April 8 liveblog). Iran's parliament speaker Ghalibaf — the person who was supposed to lead the Iranian delegation to Islamabad — publicly stated the ceasefire had already been violated before talks begin.</p>
+    <p>This is not a procedural disagreement. The Lebanon exclusion is a fundamental incompatibility. Resolving it requires the US to restrain Israel, which would require overriding Netanyahu's domestic political constraints.</p>
+
+    <h3>3. Iran Cut Diplomacy, Then Partially Reversed</h3>
+    <p><strong>April 7</strong>: WSJ reported Iran cut off direct diplomacy. NYT confirmed Iran stopped even indirect talks. <strong>April 8</strong>: Delegation nominally confirmed, but Ghalibaf made clear violations had occurred. VP Vance characterised the ceasefire as "a fragile truce" (The Hill). Iran is in a "show-cause" posture — present but primed to walk.</p>
+  </section>
+
+  <!-- Market State -->
+  <section>
+    <h2>📊 Current Market State — 09:15 AEST (Verified)</h2>
+    <table>
+      <tr><th>Market</th><th>Price</th><th>24h Delta</th><th>Trigger Distance</th></tr>
+      <tr><td>US×Iran Meeting Apr 10</td><td class="td-red">25.9%</td><td class="td-red">−57pp/24h</td><td class="td-red">↓15% abort trigger (NEW)</td></tr>
+      <tr><td>JD Vance Meets Iran Apr 10</td><td class="td-red">14.8%</td><td class="td-red">−11pp/24h</td><td class="td-red">↓10% abort trigger (NEW)</td></tr>
+      <tr><td>Hormuz Normalisation</td><td class="td-amber">23.5%</td><td class="td-red">−0.5pp</td><td class="td-amber"><strong>↓20% = 3.5pp away</strong></td></tr>
+      <tr><td>WTI $130 in April</td><td class="td-amber">19.5%</td><td class="td-green">+0.5pp</td><td class="td-amber"><strong>↑25% = 5.5pp away</strong></td></tr>
+      <tr><td>Trump Ends Iran Ops Apr 30</td><td class="td-amber">41.5%</td><td class="td-red">−0.5pp</td><td class="td-amber"><strong>↓35% = 6.5pp away</strong></td></tr>
+      <tr><td>US-Iran Nuclear Deal Apr 30</td><td class="td-amber">16.4%</td><td class="td-red">−0.1pp</td><td class="td-amber"><strong>↓12% = 4.5pp away</strong></td></tr>
+      <tr><td>Israel-Hezbollah Ceasefire</td><td>32.7%</td><td class="td-green">+0.2pp</td><td class="td-grey">↓24% = 8.7pp away</td></tr>
+      <tr><td>WTI $90 Bear Case</td><td class="td-amber">72.5%</td><td class="td-green">+0.5pp</td><td class="td-red">⚠️ MISPRICED — see below</td></tr>
+      <tr><td>WTI $200 Doomsday</td><td>1.8%</td><td>flat</td><td class="td-grey">↑4% = 2.2pp</td></tr>
+    </table>
+
+    <h3>Trigger Proximity Visualised</h3>
+    <div class="trigger-row"><span class="trigger-label">Hormuz ↓20% (3.5pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar critical" style="width:85%"></div></div><span class="trigger-dist td-red">3.5pp</span></div>
+    <div class="trigger-row"><span class="trigger-label">Nuclear deal ↓12% (4.5pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar warning" style="width:75%"></div></div><span class="trigger-dist td-amber">4.5pp</span></div>
+    <div class="trigger-row"><span class="trigger-label">WTI $130 ↑25% (5.5pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar warning" style="width:68%"></div></div><span class="trigger-dist td-amber">5.5pp</span></div>
+    <div class="trigger-row"><span class="trigger-label">Iran ops-end ↓35% (6.5pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar warning" style="width:58%"></div></div><span class="trigger-dist td-amber">6.5pp</span></div>
+    <div class="trigger-row"><span class="trigger-label">Iran meeting ↓15% (10.9pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar watch" style="width:42%"></div></div><span class="trigger-dist">10.9pp</span></div>
+    <div class="trigger-row"><span class="trigger-label">Ceasefire ↓24% (8.7pp away)</span><div class="trigger-bar-wrap"><div class="trigger-bar watch" style="width:50%"></div></div><span class="trigger-dist">8.7pp</span></div>
+
+    <h3 style="margin-top:16px;">Kalshi Cross-Reference</h3>
+    <table>
+      <tr><th>Market</th><th>Price</th><th>Signal</th></tr>
+      <tr><td>US State Dept Level 4 war warning (Iran)</td><td class="td-green">14.0%</td><td class="td-green">−4.0pp — one bullish contradictory signal</td></tr>
+      <tr><td>Trump martial law before term ends</td><td class="td-red">40.0%</td><td class="td-red">+1.0pp — domestic distraction risk</td></tr>
+      <tr><td>Trump free trade deal with China</td><td>33.0%</td><td class="td-red">−1.0pp — Iran consuming bandwidth</td></tr>
+    </table>
+  </section>
+
+  <!-- Mispricing -->
+  <section class="mispricing-section">
+    <h2>⚡ Central Mispricing: WTI $90 Bear Case (72.5%) vs. Hormuz Confirmed Blocked</h2>
+    <p>This is the most significant structural contradiction in the prediction market complex right now.</p>
+    <div class="highlight amber">
+      <strong>The gap</strong>: WTI $90 bear case at 72.5% vs. Hormuz normalization at 23.5% with confirmed zero-vessel flow. These prices cannot simultaneously be correct unless global demand collapses enough to offset a blocked Hormuz chokepoint — which is not priced in equity markets.
+    </div>
+    <table>
+      <tr><th>Scenario</th><th>$90 Bear Case</th><th>$130 Bull Case</th><th>Current Pricing</th></tr>
+      <tr><td>Talks succeed, Hormuz opens</td><td class="td-green">80-85%</td><td class="td-green">10-12%</td><td>15-20% likely</td></tr>
+      <tr><td>Talks fail, Hormuz stays blocked</td><td class="td-red">50-55%</td><td class="td-red">28-35%</td><td>80-85% likely</td></tr>
+      <tr><td class="td-bold">Market is currently pricing</td><td class="td-amber td-bold">72.5%</td><td class="td-amber td-bold">19.5%</td><td class="td-amber td-bold">Internally inconsistent</td></tr>
+    </table>
+    <p style="margin-top:12px;"><strong>Actionable implication</strong>: If talks fail (74% probability per market), WTI $90 bear case collapses from 72.5% toward 55% and WTI $130 rallies from 19.5% toward 28–35%. The spread closes violently. Australian plays: long WDS/STO/NST; short QAN/WOW/COL.</p>
+  </section>
+
+  <!-- Scenario Matrix -->
+  <section class="scenario-section">
+    <h2>🔱 April 10 Islamabad Talks — Scenario Matrix (T-24h)</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card bull">
+        <div class="prob">15–20%</div>
+        <div class="sc-title">Scenario A: Framework Achieved</div>
+        <ul>
+          <li>US restrains Israel on Lebanon, OR Iran accepts Lebanon exclusion</li>
+          <li>Hormuz re-opens → normalization bounces to 40%+</li>
+          <li>Iran ops-end rallies to 60–65%</li>
+          <li>WTI $90 bear case recovers to 80–85%</li>
+          <li>WTI $130 drops to 10–12%</li>
+          <li>AUD/USD: net positive; QAN/WOW relief rally</li>
+        </ul>
+      </div>
+      <div class="scenario-card base">
+        <div class="prob">40–45%</div>
+        <div class="sc-title">Scenario B: Talks Occur, Break Down</div>
+        <ul>
+          <li>Delegations meet; Lebanon proves irreconcilable</li>
+          <li>12–24h delay then same cascade as Scenario C</li>
+          <li>Hormuz drops to 18–20% (trigger fires)</li>
+          <li>WTI $130 rallies through 25% trigger</li>
+          <li>Iran ops-end drops toward ↓35% trigger</li>
+          <li>Lebanon ceasefire slides to 28–30%</li>
+        </ul>
+      </div>
+      <div class="scenario-card bear">
+        <div class="prob">30–35%</div>
+        <div class="sc-title">Scenario C: Talks Cancelled Pre-Meeting</div>
+        <ul>
+          <li>IRGC escalates; Ghalibaf issues formal withdrawal tonight</li>
+          <li>All four near-triggers fire within 3 runs</li>
+          <li>WTI $90 bear case collapses below 60%</li>
+          <li>WTI $130 spikes to 28–32% within 24h</li>
+          <li>WTI $200 approaches 4% doomsday threshold</li>
+          <li>AUD/USD: risk-off dominates; gold miners outperform</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASX Impact -->
+  <section>
+    <h2>🇦🇺 Australian Market Impact (Scenarios B & C)</h2>
+    <div class="asx-grid">
+      <div class="asx-card"><span class="ticker bull">WDS</span><div class="company">Woodside Energy</div><div class="direction">▲ Long — LNG premium, NWS Hormuz leverage. Target: +8–12% on $130.</div></div>
+      <div class="asx-card"><span class="ticker bull">STO</span><div class="company">Santos</div><div class="direction">▲ Long — LNG spot exposure. Direct WTI beneficiary.</div></div>
+      <div class="asx-card"><span class="ticker bull">NST</span><div class="company">Northern Star</div><div class="direction">▲ Long — Geopolitical fear premium. AUD gold margin expansion.</div></div>
+      <div class="asx-card"><span class="ticker bull">NCM</span><div class="company">Newcrest/Newmont</div><div class="direction">▲ Long — Gold + safe haven. AUD weakness compounds.</div></div>
+      <div class="asx-card"><span class="ticker bear">QAN</span><div class="company">Qantas</div><div class="direction">▼ Short — Jet fuel surcharges, Middle East route diversions. −8–12%.</div></div>
+      <div class="asx-card"><span class="ticker bear">WOW</span><div class="company">Woolworths</div><div class="direction">▼ Short — Diesel/freight margin squeeze. 6–8wk lag before pass-through.</div></div>
+      <div class="asx-card"><span class="ticker bear">COL</span><div class="company">Coles</div><div class="direction">▼ Short — Cold chain logistics cost pressure. Consumer discretionary risk.</div></div>
+      <div class="asx-card"><span class="ticker bear">AZJ</span><div class="company">Aurizon</div><div class="direction">▼ Short — Every $10/bbl WTI = ~$0.025/L diesel = $15–20M pa cost.</div></div>
+    </div>
+    <p style="margin-top:14px; font-size:0.82em; color:#8b949e;">⚠️ Australian diesel currently above $2.20/L. WTI $130 implies $2.70–$2.90/L on 6–8 week lag. Verify ACCC FuelWatch before quoting to clients.</p>
+  </section>
+
+  <!-- What to Watch -->
+  <section>
+    <h2>👁️ What to Watch (Priority Order)</h2>
+    <ol>
+      <li><strong>MarineTraffic Hormuz — check at 10:00 &amp; 11:00 AEST</strong>: First vessel transiting = Iran softening pre-talks (bullish). Zero vessels sustained = IRGC hardening (Hormuz ↓20% trigger fires next run).</li>
+      <li><strong>Ghalibaf / Iranian delegation statement</strong>: Any formal withdrawal from April 10 = Scenario C. Watch IRNA, Press TV, Al Jazeera Arabic.</li>
+      <li><strong>White House / Vance statement</strong>: Vance confirms he's on a plane to Islamabad = Scenario A/B live. "Reassessing" or "monitoring situation" = abort signal.</li>
+      <li><strong>IDF Lebanon strikes</strong>: If strikes continue at 250+/day, Iran's walk-out pretext strengthens. <em>Any IDF pause is the single most potent de-escalation signal available.</em></li>
+      <li><strong>WTI $130 crossing 22%</strong>: 3pp from 19.5%. At 22%, probability-weighted WTI spot exceeds $110/bbl implied. WDS/STO buy signal activates; QAN/WOW sell signal activates.</li>
+    </ol>
+  </section>
+
+  <!-- Prior Report Alignment -->
+  <section>
+    <h2>✅ Prior Report Accuracy Check</h2>
+    <div class="check-row"><span class="check-icon">✅</span><div class="check-text"><strong>08:55 AEST Ceasefire Collapse report</strong>: "Worst case 25%: Talks Collapse — full cascade, WTI $130 to 25%, Hormuz to 20%." <em>Materialising — market moved to 74% worst-case within 90 minutes.</em></div></div>
+    <div class="check-row"><span class="check-icon">✅</span><div class="check-text"><strong>08:55 AEST</strong>: "Nuclear deal at 16.6%: watch Islamabad pre-comms as leading indicator." <em>Islamabad pre-comms are exactly the −22.1pp signal that triggered this alert.</em></div></div>
+    <div class="check-row"><span class="check-icon">✅</span><div class="check-text"><strong>08:05 AEST WTI $130</strong>: "Islamabad talks (April 10, 13:00 AEST) remain the pivotal event." <em>Confirmed as central binary.</em></div></div>
+    <div class="check-row"><span class="check-icon">✅</span><div class="check-text"><strong>09:00 AEST Dismissal</strong>: "Ceasefire bounce is noise; new ↓24% trigger is 8.5pp away." <em>Correct — ceasefire held at 32.7%; real signal was in Iran-meeting markets, not ceasefire.</em></div></div>
+  </section>
+
+  <!-- Trigger Actions -->
+  <section>
+    <h2>⚙️ Trigger Actions Taken</h2>
+    <table>
+      <tr><th>Action</th><th>Market</th><th>Threshold</th><th>Rationale</th></tr>
+      <tr><td class="td-green">ADDED</td><td><code>iran-meeting-apr10-collapse</code></td><td class="td-red">↓15%</td><td>At 25.9%, drop to 15% = talks definitively cancelled. $542K volume = informed money. Fires before other cascades.</td></tr>
+      <tr><td class="td-green">ADDED</td><td><code>vance-meets-iran-apr10-abort</code></td><td class="td-red">↓10%</td><td>At 14.8%, 10% = near-zero Vance attendance. VP attendance is the US credibility signal. $615K vol. More sensitive than broader meeting market.</td></tr>
+      <tr><td class="td-grey">NO CHANGE</td><td>All existing Iran/Hormuz/WTI triggers</td><td>—</td><td>Existing thresholds (Hormuz ↓20%, WTI $130 ↑25%, ops-end ↓35%, deal ↓12%) will fire naturally. No adjustment needed.</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    <p>Polymarket Macro Analyst · 2026-04-09 09:30 AEST</p>
+    <p style="margin-top:6px;">Sources: <a href="https://www.bloomberg.com/news/articles/2026-04-08/us-iran-ceasefire-claims-diverge-as-hormuz-stays-blocked">Bloomberg</a> · <a href="https://www.aljazeera.com/news/2026/4/8/iran-says-talks-with-us-will-begin-in-pakistans-islamabad-on-friday">Al Jazeera</a> · <a href="https://www.cnbc.com/2026/04/08/ceasefire-iran-war-lebanon.html">CNBC</a> · <a href="https://edition.cnn.com/2026/04/08/world/live-news/iran-war-trump-us-ceasefire">CNN</a> · <a href="https://www.axios.com/2026/04/08/us-iran-peace-talks-vance-pakistan-saturday">Axios</a> · <a href="https://thehill.com/homenews/administration/5821392-jd-vance-ceasefire-leverage-iran/">The Hill</a> · <a href="https://www.cfr.org/articles/the-u-s-and-iran-struck-a-two-week-truce-now-what">CFR</a> · MarineTraffic</p>
+  </footer>
+
+</div>
+</body>
+</html>
