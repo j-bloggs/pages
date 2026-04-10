@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚠️ NEAR-TRIGGER ALERT: Ceasefire Revival 3.3pp from Firing — 2026-04-11</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; padding: 2rem 1rem; }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .alert-banner { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #7f1d1d 100%); border: 1px solid #ef4444; border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
+  .alert-banner h1 { font-size: 1.6rem; font-weight: 700; color: #fca5a5; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  .alert-meta { font-size: 0.85rem; color: #fca5a5; opacity: 0.8; }
+  .alert-meta a { color: #fca5a5; }
+  .alert-meta a:hover { text-decoration: underline; }
+
+  /* Section headers */
+  h2 { font-size: 1.1rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #1e293b; }
+  h3 { font-size: 1rem; font-weight: 600; color: #cbd5e1; margin: 1.5rem 0 0.5rem; }
+
+  /* TL;DR box */
+  .tldr { background: #1e293b; border-left: 4px solid #ef4444; border-radius: 4px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+  .tldr p { color: #e2e8f0; font-size: 1.0rem; line-height: 1.7; }
+  .tldr .tagline { font-weight: 600; color: #fca5a5; margin-top: 0.75rem; font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left; padding: 0.6rem 0.8rem; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #1e293b; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1e293b55; }
+  .up { color: #4ade80; font-weight: 600; }
+  .down { color: #f87171; font-weight: 600; }
+  .neutral { color: #94a3b8; }
+  .bold { font-weight: 700; }
+
+  /* Trigger dashboard */
+  .trigger-row td:first-child { font-weight: 500; }
+  .status-red { color: #ef4444; font-weight: 700; }
+  .status-warn { color: #f59e0b; font-weight: 600; }
+  .status-watch { color: #94a3b8; }
+  .status-ok { color: #4ade80; }
+  .trigger-highlight { background: #2d1515 !important; }
+  .trigger-highlight:hover td { background: #3d1515 !important; }
+
+  /* Scenario boxes */
+  .scenarios { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  @media (max-width: 700px) { .scenarios { grid-template-columns: 1fr; } }
+  .scenario { background: #1e293b; border-radius: 6px; padding: 1.1rem 1.2rem; border-top: 3px solid; }
+  .scenario-a { border-color: #4ade80; }
+  .scenario-b { border-color: #f59e0b; }
+  .scenario-c { border-color: #ef4444; }
+  .scenario h3 { font-size: 0.9rem; margin: 0 0 0.4rem; }
+  .scenario-a h3 { color: #4ade80; }
+  .scenario-b h3 { color: #f59e0b; }
+  .scenario-c h3 { color: #ef4444; }
+  .scenario .weight { font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .scenario ul { list-style: none; padding: 0; }
+  .scenario ul li { font-size: 0.85rem; color: #cbd5e1; padding: 0.2rem 0; padding-left: 1rem; position: relative; }
+  .scenario ul li::before { content: "→"; position: absolute; left: 0; color: #64748b; }
+
+  /* Gauge: revival trigger proximity */
+  .trigger-gauge { background: #1e293b; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; text-align: center; }
+  .trigger-gauge .label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .trigger-gauge .value { font-size: 3rem; font-weight: 800; color: #ef4444; letter-spacing: -0.03em; }
+  .trigger-gauge .sub { font-size: 0.9rem; color: #94a3b8; margin-top: 0.3rem; }
+  .progress-wrap { background: #0f172a; border-radius: 4px; height: 12px; margin: 1rem auto; max-width: 400px; overflow: hidden; }
+  .progress-bar { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #4ade80 0%, #f59e0b 60%, #ef4444 85%, #dc2626 100%); }
+
+  /* Info cards */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: #1e293b; border-radius: 6px; padding: 1rem 1.2rem; }
+  .info-card .card-title { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .info-card .card-value { font-size: 1.5rem; font-weight: 700; color: #e2e8f0; }
+  .info-card .card-delta { font-size: 0.85rem; margin-top: 0.2rem; }
+  .info-card .card-sub { font-size: 0.8rem; color: #64748b; margin-top: 0.4rem; }
+
+  /* New market highlight */
+  .new-market-callout { background: #1e293b; border: 1px solid #3b82f6; border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .new-market-callout .nm-header { font-size: 0.75rem; color: #3b82f6; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .new-market-callout p { color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; }
+  .new-market-callout strong { color: #93c5fd; }
+
+  /* Tension box */
+  .tension-box { background: #1c1a0e; border: 1px solid #b45309; border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .tension-box .tb-header { font-size: 0.75rem; color: #f59e0b; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .tension-box p { color: #fef3c7; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem; }
+  .tension-box p:last-child { margin-bottom: 0; }
+
+  /* Watch list */
+  .watch-list { background: #1e293b; border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .watch-list ol { padding-left: 1.5rem; }
+  .watch-list li { color: #cbd5e1; font-size: 0.9rem; padding: 0.35rem 0; }
+  .watch-list li strong { color: #e2e8f0; }
+
+  /* Footer */
+  footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: 0.8rem; color: #475569; }
+  footer a { color: #64748b; text-decoration: none; }
+  footer a:hover { color: #94a3b8; }
+
+  strong { color: #e2e8f0; }
+  em { color: #94a3b8; }
+  p { margin-bottom: 0.75rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+  li { color: #cbd5e1; font-size: 0.9rem; padding: 0.2rem 0; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Alert header -->
+  <div class="alert-banner">
+    <h1>⚠️ NEAR-TRIGGER ALERT: Ceasefire Revival 3.3pp from Firing</h1>
+    <div class="alert-meta">
+      2026-04-11 04:55 AEST &nbsp;|&nbsp; Polymarket Analyst &nbsp;|&nbsp; Alert-Triggered &nbsp;|&nbsp;
+      Follow-up to: <a href="./LEBANON-WASHINGTON-TALKS-20260411.html">LEBANON-WASHINGTON-TALKS-20260411</a> (03:15 AEST)
+    </div>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <p>The Israel-Hezbollah ceasefire revival trigger (&gt;70%) is <strong>3.3pp away</strong> — down from 9.4pp just 90 minutes ago. A single collection run of similar magnitude fires it. Simultaneously, a new "suspension of Lebanon offensive" market has appeared, suggesting the market is now pricing a <em>lower-bar pathway</em> (operational pause) alongside a formal ceasefire. The April 15 near-term binary is back at 52.5% — coin-flip on whether a framework is announced within 4 days.</p>
+    <p class="tagline">This is not new breaking news. This is conviction building ahead of April 15.</p>
+  </div>
+
+  <!-- Gauge -->
+  <div class="trigger-gauge">
+    <div class="label">Revival Trigger Gap — Ceasefire to 70% Threshold</div>
+    <div class="value">3.3pp</div>
+    <div class="sub">66.6% current &nbsp;→&nbsp; 70.0% threshold</div>
+    <div class="progress-wrap">
+      <div class="progress-bar" style="width: 95%;"></div>
+    </div>
+    <div class="sub" style="font-size:0.78rem; margin-top:0.5rem; color:#64748b;">90 min ago: 9.4pp away &nbsp;|&nbsp; Rate of closure: ~6.1pp/90min</div>
+  </div>
+
+  <!-- Key stats grid -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="card-title">Ceasefire (Apr 30)</div>
+      <div class="card-value" style="color:#4ade80;">66.6%</div>
+      <div class="card-delta up">+9.7pp this run</div>
+      <div class="card-sub">V-shape: 62.5→57.0→66.6%</div>
+    </div>
+    <div class="info-card">
+      <div class="card-title">Apr 15 Near-Term Binary</div>
+      <div class="card-value" style="color:#f59e0b;">52.5%</div>
+      <div class="card-delta up">+10.0pp this run</div>
+      <div class="card-sub">Coin-flip, expires in 4 days</div>
+    </div>
+    <div class="info-card">
+      <div class="card-title">Hormuz Normalization</div>
+      <div class="card-value" style="color:#f87171;">19.5%</div>
+      <div class="card-delta neutral">+1.0pp (noise)</div>
+      <div class="card-sub">NOT tracking ceasefire — divergence</div>
+    </div>
+    <div class="info-card">
+      <div class="card-title">Iran Nuclear Deal (Apr 30)</div>
+      <div class="card-value" style="color:#94a3b8;">21.7%</div>
+      <div class="card-delta down">−0.2pp</div>
+      <div class="card-sub">Decoupled from Lebanon track</div>
+    </div>
+  </div>
+
+  <!-- What changed -->
+  <h2>What Changed Since the 03:15 AEST Report</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>03:15 AEST</th><th>04:45 AEST</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Ceasefire by Apr 30</td><td>60.6%</td><td class="bold up">66.6%</td><td class="up">+6.0pp</td></tr>
+      <tr class="trigger-highlight"><td><strong>Revival trigger gap (70%)</strong></td><td>9.4pp away</td><td class="status-red bold">3.3pp away</td><td class="up">−6.1pp closed</td></tr>
+      <tr><td>Apr 15 near-term binary</td><td>~45%*</td><td class="bold up">52.5%</td><td class="up">+7.5pp</td></tr>
+      <tr><td>New "suspension" markets</td><td class="neutral">None</td><td class="up bold">4 new at 50%</td><td>New signal</td></tr>
+      <tr><td>Hormuz normalization</td><td>18.5%</td><td>19.5%</td><td class="neutral">+1.0pp (noise)</td></tr>
+      <tr><td>Iran nuclear deal by Apr 30</td><td>21.9%</td><td>21.7%</td><td class="down">−0.2pp</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.82rem; color:#64748b;">*Apr 15 binary: 04:15 run logged 36%, 04:30 at 42.5%, now 52.5%</p>
+
+  <p>The trajectory is a confirmed V-shape: ceasefire fell from 62.5% to 57.0% at 04:30 (possible noise dip), then surged +9.7pp this run to 66.6%. The April 15 binary moved in lockstep (+10.0pp this same 15-minute window). <strong>Coordinated movement across two separate markets = genuine positioning, not thin-market oscillation.</strong></p>
+
+  <!-- New signal -->
+  <h2>New Signal: "Suspension of Offensive" Market</h2>
+  <div class="new-market-callout">
+    <div class="nm-header">🆕 New Polymarket Markets (created 2026-04-10)</div>
+    <p>Four markets asking whether <strong>Israel will announce a <em>suspension</em> of the Lebanon offensive</strong> — a lower bar than a formal ceasefire. Only the April 17 market has a live price.</p>
+  </div>
+  <table>
+    <thead><tr><th>Market</th><th>Price</th><th>Expiry</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Suspension of Lebanon offensive by April 17</strong></td><td class="up bold">50.0%</td><td>Jun 30</td></tr>
+      <tr><td>Suspension of Lebanon offensive by April 30</td><td class="neutral">N/A</td><td>Jun 30</td></tr>
+      <tr><td>Suspension of Lebanon offensive by May 31</td><td class="neutral">N/A</td><td>Jun 30</td></tr>
+      <tr><td>Suspension of Lebanon offensive by June 30</td><td class="neutral">N/A</td><td>Jun 30</td></tr>
+    </tbody>
+  </table>
+  <p>The market is now pricing <strong>two parallel pathways</strong>:</p>
+  <ul>
+    <li><strong>Formal ceasefire</strong> (existing Apr 30 market at 66.6%) — requires Hezbollah agreement</li>
+    <li><strong>Unilateral operational suspension</strong> (new Apr 17 market at 50%) — Israel can do this alone, without Hezbollah consent</li>
+  </ul>
+  <p>Netanyahu has already used the word "suspend" in cabinet discussions (per Haaretz April 10). A suspension allows Israel to claim "no ceasefire" while functionally pausing hostilities to allow the April 15 Washington talks to proceed.</p>
+  <p><strong>The suspension market at 50% by April 17 is the more tradeable signal.</strong> If Israel announces a suspension ahead of or during the April 15 talks, the formal ceasefire market currently at 66.6% would likely surge toward 80–85%.</p>
+
+  <!-- Scenario map -->
+  <h2>April 15 Scenario Map</h2>
+  <div class="scenarios">
+    <div class="scenario scenario-a">
+      <h3>Scenario A: Framework + Suspension</h3>
+      <div class="weight">30–35% weight</div>
+      <ul>
+        <li>Ceasefire surges past 70% → revival trigger fires</li>
+        <li>Apr 17 suspension market resolves YES</li>
+        <li>Hormuz reprices → 25–28%</li>
+        <li>WDS/STO: mild bearish</li>
+        <li>QAN, WOW, COL: bullish</li>
+        <li>AUD/USD: 0.625 → 0.632</li>
+        <li>Gold: fear premium partially unwinds</li>
+      </ul>
+    </div>
+    <div class="scenario scenario-b">
+      <h3>Scenario B: Talks Proceed, No Suspension</h3>
+      <div class="weight">40–45% weight (base)</div>
+      <ul>
+        <li>Ceasefire holds 65–70%</li>
+        <li>Revival trigger approaches but doesn't fire</li>
+        <li>Apr 15 binary resolves near 50–55%</li>
+        <li>No cross-market repricing</li>
+        <li>Markets in holding pattern</li>
+        <li>Scenario A or C emerges +24–48h</li>
+      </ul>
+    </div>
+    <div class="scenario scenario-c">
+      <h3>Scenario C: Talks Collapse</h3>
+      <div class="weight">20–25% weight</div>
+      <ul>
+        <li>Ceasefire falls to 45–50%</li>
+        <li>Apr 15 binary resolves near 0%</li>
+        <li>Hormuz 19.5% → approaches 15% trigger</li>
+        <li>Nuclear deal dips toward 18–19%</li>
+        <li>WDS/STO: bullish (re-escalation)</li>
+        <li>QAN, logistics: bearish</li>
+        <li>Gold: mild safe-haven bid</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trigger dashboard -->
+  <h2>Trigger Proximity Dashboard</h2>
+  <table>
+    <thead><tr><th>Trigger</th><th>Current</th><th>Threshold</th><th>Distance</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr class="trigger-highlight"><td><strong>Ceasefire revival (&gt;70%)</strong></td><td class="bold">66.6%</td><td>70%</td><td class="status-red bold">3.3pp</td><td class="status-red">🔴 Near-trigger</td></tr>
+      <tr><td>Ceasefire collapse (&lt;25%)</td><td>66.6%</td><td>25%</td><td>41.6pp</td><td class="status-ok">✅ Safe</td></tr>
+      <tr><td>Ceasefire hard collapse (&lt;24%)</td><td>66.6%</td><td>24%</td><td>42.6pp</td><td class="status-ok">✅ Safe</td></tr>
+      <tr><td>Trump ends Iran ops (&lt;35%)</td><td>43.5%</td><td>35%</td><td>8.5pp</td><td class="status-watch">👁 Watch</td></tr>
+      <tr><td>Hormuz approaches zero (&lt;15%)</td><td>19.5%</td><td>15%</td><td>4.5pp</td><td class="status-warn">⚠️ Watch</td></tr>
+      <tr><td>Iran nuclear deal collapses (&lt;12%)</td><td>21.7%</td><td>12%</td><td>9.7pp</td><td class="status-watch">👁 Watch</td></tr>
+      <tr><td>Hormuz normalizes (&gt;50%)</td><td>19.5%</td><td>50%</td><td>30.5pp</td><td class="neutral">—</td></tr>
+    </tbody>
+  </table>
+  <p><strong>One trigger in imminent firing range: ceasefire revival at 3.3pp.</strong> No other trigger moved materially this run.</p>
+
+  <!-- Hormuz divergence -->
+  <h2>Key Cross-Market Tension: Ceasefire vs. Hormuz Divergence</h2>
+  <div class="tension-box">
+    <div class="tb-header">⚡ Structural Divergence — Do Not Conflate These Two Markets</div>
+    <p>The ceasefire at 66.6% and Hormuz normalization at 19.5% are increasingly diverging. If Lebanon peace improves, Hezbollah's leverage over Iran to keep Hormuz closed weakens. Hormuz should start repricing upward — but it isn't.</p>
+    <p>This tells us: the market views the Hormuz blockade as driven by Iran's <em>own</em> interests (toll revenue, reconstruction leverage) independent of the Lebanon front. Iran's $1M+/vessel toll regime is a revenue stream, not just a military tactic.</p>
+    <p><strong>Implication:</strong> Even if ceasefire revival fires (&gt;70%), do NOT expect Hormuz to immediately follow. The Hormuz trade (19.5% → 25–30%) requires nuclear deal progress, not just a Lebanon ceasefire. <strong>The oil floor narrative persists even in the ceasefire bull scenario. WDS/STO remain structurally supported.</strong></p>
+  </div>
+
+  <!-- What to watch -->
+  <h2>What to Watch</h2>
+  <div class="watch-list">
+    <ol>
+      <li><strong>Next 1–2 collection runs (05:00–05:30 AEST):</strong> Does ceasefire cross 70%? If yes, revival trigger fires — file immediate follow-up. If stalls at 66–68%, market is waiting for April 15.</li>
+      <li><strong>April 15 AEST morning (April 16 in Sydney):</strong> Washington talks outcome. Lebanon walks out = ceasefire drops, multiple triggers approach. Framework announced = revival trigger fires, write full peace-trade report.</li>
+      <li><strong>"Suspension" market (Apr 17):</strong> If crosses 65–70%, it's the leading indicator for the ceasefire market surging above 75%. This is the fastest-moving signal to watch.</li>
+      <li><strong>Hormuz divergence test:</strong> If ceasefire revival fires AND Hormuz stays below 22%, the Hormuz-Lebanon decoupling thesis is confirmed. WDS/STO remain a buy despite Lebanon resolution — the oil floor is structural, not just conflict-driven.</li>
+    </ol>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Polymarket data as at 2026-04-11 04:45 AEST &nbsp;|&nbsp; Sources:
+      <a href="https://www.washingtonpost.com/national/2026/04/09/iran-israel-us-lebanon-latest-april-9-2026/">Washington Post</a> &nbsp;|&nbsp;
+      <a href="https://www.aljazeera.com/news/2026/4/10/will-israel-and-lebanon-start-ceasefire-talks">Al Jazeera</a> &nbsp;|&nbsp;
+      <a href="https://www.npr.org/2026/04/09/nx-s1-5779000/iran-war-updates">NPR</a> &nbsp;|&nbsp;
+      <a href="https://www.axios.com/2026/04/09/israel-lebanon-negotiations-ceasefire">Axios</a> &nbsp;|&nbsp;
+      <a href="https://www.breitbart.com/politics/2026/04/09/netanyahu-israel-to-begin-direct-talks-with-lebanon-to-disarm-hezbollah-eyes-historic-peace-deal/">Breitbart</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
