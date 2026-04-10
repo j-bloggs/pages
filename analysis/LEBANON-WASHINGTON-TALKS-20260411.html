@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Lebanon-Israel Washington Talks Confirmed — Ceasefire Surges to 60.6%</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .report-header {
+    border-left: 4px solid #f0a500;
+    padding: 16px 20px;
+    background: #161b22;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 28px;
+  }
+  .report-header h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #f0a500;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .report-meta {
+    font-size: 0.82rem;
+    color: #8b949e;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: #f0a500;
+    color: #0d1117;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* Exec Summary */
+  .exec-summary {
+    background: #1c2128;
+    border: 1px solid #f0a500;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  .exec-summary h2 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f0a500;
+    margin-bottom: 10px;
+  }
+  .exec-summary p {
+    color: #c9d1d9;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  /* Sections */
+  .section {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #e6edf3;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+  .section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #79c0ff;
+    margin: 14px 0 8px 0;
+  }
+  .section p, .section li {
+    font-size: 0.9rem;
+    color: #c9d1d9;
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+  .section ul { padding-left: 20px; margin-bottom: 8px; }
+  .section li { margin-bottom: 4px; }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 3px solid #388bfd;
+    padding: 10px 16px;
+    background: #1c2128;
+    border-radius: 0 6px 6px 0;
+    margin: 12px 0;
+    font-style: italic;
+    color: #8b949e;
+    font-size: 0.88rem;
+  }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  th {
+    background: #1c2128;
+    color: #8b949e;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1c2128; }
+  .val-up { color: #3fb950; font-weight: 600; }
+  .val-warn { color: #f0a500; font-weight: 600; }
+  .val-down { color: #f85149; font-weight: 600; }
+  .val-neutral { color: #8b949e; }
+  .tag-safe { background: #1a4a1a; color: #3fb950; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem; }
+  .tag-warn { background: #4a3800; color: #f0a500; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem; }
+  .tag-watch { background: #1a2a4a; color: #79c0ff; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem; }
+
+  /* Scenario boxes */
+  .scenarios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .scenario-bull {
+    background: #0d2818;
+    border: 1px solid #238636;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .scenario-bear {
+    background: #2a1010;
+    border: 1px solid #da3633;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .scenario-bull h4 { color: #3fb950; font-size: 0.85rem; margin-bottom: 8px; }
+  .scenario-bear h4 { color: #f85149; font-size: 0.85rem; margin-bottom: 8px; }
+  .scenario-bull p, .scenario-bear p { font-size: 0.83rem; color: #c9d1d9; line-height: 1.55; }
+
+  /* Forward view numbered list */
+  .forward-item {
+    background: #1c2128;
+    border-left: 3px solid #388bfd;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .forward-item strong { color: #79c0ff; }
+  .forward-item p { font-size: 0.88rem; color: #c9d1d9; margin-top: 4px; }
+
+  /* Key metric callouts */
+  .metric-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0; }
+  .metric-card {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 130px;
+    flex: 1;
+    text-align: center;
+  }
+  .metric-card .label { font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .metric-card .value { font-size: 1.4rem; font-weight: 700; color: #f0a500; }
+  .metric-card .sub { font-size: 0.75rem; color: #8b949e; margin-top: 2px; }
+  .metric-card.green .value { color: #3fb950; }
+  .metric-card.red .value { color: #f85149; }
+  .metric-card.blue .value { color: #79c0ff; }
+
+  /* Sources */
+  .sources {
+    border-top: 1px solid #21262d;
+    padding-top: 14px;
+    margin-top: 28px;
+  }
+  .sources p { font-size: 0.8rem; color: #8b949e; margin-bottom: 4px; }
+  .sources a { color: #388bfd; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  hr { border: none; border-top: 1px solid #21262d; margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    .scenarios { grid-template-columns: 1fr; }
+    .metric-row { flex-direction: column; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="report-header">
+    <h1>Lebanon-Israel Washington Talks Confirmed — Ceasefire Surges to 60.6% <span class="alert-badge">ALERT</span></h1>
+    <div class="report-meta">2026-04-11 03:15 AEST &nbsp;·&nbsp; Polymarket Analyst &nbsp;·&nbsp; Alert-Triggered &nbsp;·&nbsp; +21.6pp move in 15 minutes</div>
+  </div>
+
+  <!-- Key Metrics -->
+  <div class="metric-row">
+    <div class="metric-card">
+      <div class="label">Ceasefire Probability</div>
+      <div class="value">60.6%</div>
+      <div class="sub">+21.6pp in 15 min</div>
+    </div>
+    <div class="metric-card blue">
+      <div class="label">Revival Trigger Distance</div>
+      <div class="value">9.4pp</div>
+      <div class="sub">fires at &gt;70%</div>
+    </div>
+    <div class="metric-card red">
+      <div class="label">Hormuz (Close Trigger)</div>
+      <div class="value">18.5%</div>
+      <div class="sub">3.5pp from 15% threshold</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">April 15 Dual Catalyst</div>
+      <div class="value">4d</div>
+      <div class="sub">Lebanon talks + Iran deadline</div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>A confirmed news catalyst drove the Israel-Hezbollah ceasefire probability up <strong>+21.6pp in 15 minutes to 60.6%</strong> at 03:00 AEST: Lebanon and Israel will hold direct talks in Washington DC on <strong>Tuesday April 15</strong>, led by Secretary Rubio's office. This is the first formal direct diplomatic engagement of the Lebanon sub-conflict. The Polymarket revival trigger (&gt;70% ceasefire probability) is now only <strong>9.4pp from firing</strong> — the closest it has been since the market's 84.9% peak on April 9.</p>
+    <p style="margin-top:10px;">Critically, April 15 is also the <strong>Iran nuclear framework deadline</strong>, creating a high-stakes dual-catalyst day that could reprice multiple markets simultaneously. The macro risk is asymmetric: a successful ceasefire unlocks a Lebanon→Iran→Hormuz de-escalation chain; a breakdown collapses all three tracks simultaneously.</p>
+  </div>
+
+  <!-- Section 1: What Changed -->
+  <div class="section">
+    <h2>1. What Changed Since Last Report (02:00 AEST)</h2>
+    <p>At 02:00 AEST the analyst noted:</p>
+    <blockquote>"April 14–15: Watch whether Lebanese PM Salam actually meets US officials in Washington. A confirmed Washington meeting = ceasefire revival probability likely crosses 55%+, revival trigger (70%) comes into range for the first time."</blockquote>
+    <p>That scenario arrived 15 minutes into the next collection cycle.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Signal</th><th>02:00 AEST</th><th>03:00 AEST</th><th>Delta</th><th>Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Israel-Hezbollah ceasefire by Apr 30</td>
+            <td>46.6%</td>
+            <td class="val-warn">60.6%</td>
+            <td class="val-up">+14.0pp</td>
+            <td>Washington talks confirmed</td>
+          </tr>
+          <tr>
+            <td>Revival trigger threshold (70%)</td>
+            <td>23.4pp away</td>
+            <td class="val-warn">9.4pp away</td>
+            <td>—</td>
+            <td>Closest approach this session</td>
+          </tr>
+          <tr>
+            <td>Collapse trigger threshold (25%)</td>
+            <td>21.6pp away</td>
+            <td class="val-up">35.6pp away</td>
+            <td>—</td>
+            <td>Risk moving away</td>
+          </tr>
+          <tr>
+            <td>Hormuz normalization by Apr 30</td>
+            <td>18.5%</td>
+            <td class="val-down">18.5%</td>
+            <td class="val-neutral">+0.0pp</td>
+            <td>Market NOT pricing Lebanon linkage</td>
+          </tr>
+          <tr>
+            <td>Iran nuclear deal by Apr 30</td>
+            <td>21.9%</td>
+            <td>21.9%</td>
+            <td class="val-neutral">+0.0pp</td>
+            <td>Nuclear track decoupled</td>
+          </tr>
+          <tr>
+            <td>Trump ends Iran ops by Apr 30</td>
+            <td>41.5%</td>
+            <td>42.5%</td>
+            <td class="val-neutral">+1.0pp</td>
+            <td>Broadly stable</td>
+          </tr>
+          <tr>
+            <td>Iran ceasefire breaks down</td>
+            <td>0.4%</td>
+            <td>0.3%</td>
+            <td class="val-neutral">-0.1pp</td>
+            <td>Near-resolved</td>
+          </tr>
+          <tr>
+            <td>Trump-China free trade (Kalshi)</td>
+            <td>~35%</td>
+            <td>39.0%</td>
+            <td class="val-up">+4.0pp</td>
+            <td>Separate risk-on signal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: The Catalyst -->
+  <div class="section">
+    <h2>2. The Catalyst: Washington DC Talks on April 15</h2>
+    <h3>What's Confirmed</h3>
+    <ul>
+      <li><strong>Date:</strong> Tuesday, April 15</li>
+      <li><strong>Format:</strong> Three-way: US (Ambassador Michel Issa), Lebanon (Ambassador Nada Hamadeh Moawad), Israel (Ambassador Yechiel Leiter)</li>
+      <li><strong>Organizer:</strong> Secretary of State Marco Rubio's office ("hastily arranged")</li>
+      <li><strong>Purpose:</strong> Craft a ceasefire framework for Lebanon — identified as primary spoiler to the broader US-Iran ceasefire</li>
+    </ul>
+    <h3>Diplomatic Background</h3>
+    <ul>
+      <li><strong>April 8:</strong> US-Iran ceasefire announced. Israel immediately launched "Operation Eternal Darkness" against Lebanon, killing 303+ people.</li>
+      <li>Israel and the US claim Lebanon/Hezbollah are <strong>not</strong> covered by the Iran ceasefire.</li>
+      <li>Pakistan and Iran insist the ceasefire includes "all fronts" including Lebanon.</li>
+      <li>Hezbollah initially halted fire, then resumed rocket attacks into northern Israel.</li>
+      <li>Netanyahu authorized direct Lebanon talks but stated explicitly: "no ceasefire first."</li>
+      <li>Lebanon's position: <strong>"no negotiations under fire."</strong></li>
+    </ul>
+    <h3>Key Tension: Talks vs. Active Conflict</h3>
+    <p>The talks are occurring while strikes continue. Lebanon's stated red line remains in place. This is the primary downside risk: Israel resumes heavy operations through April 15, Lebanon withdraws, ceasefire collapses back to 35–42%.</p>
+  </div>
+
+  <!-- Section 3: April 15 Convergence -->
+  <div class="section">
+    <h2>3. The April 15 Convergence Risk</h2>
+    <p style="margin-bottom:12px;"><strong>Both the Iran nuclear framework deadline AND Lebanon-Israel Washington talks fall on April 15.</strong> This is the single most important date in the current macro environment.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Event</th><th>Date</th><th>Market Price</th><th>Trigger Distance</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lebanon-Israel Washington talks</td>
+            <td>April 15</td>
+            <td class="val-warn">Ceasefire 60.6%</td>
+            <td class="val-warn">Revival: 9.4pp away</td>
+          </tr>
+          <tr>
+            <td>Iran nuclear framework deadline</td>
+            <td>April 15</td>
+            <td>Nuclear deal 21.9%</td>
+            <td>Deal collapse: 10.0pp away</td>
+          </tr>
+          <tr>
+            <td>Hormuz trigger threshold (ongoing)</td>
+            <td>Ongoing</td>
+            <td class="val-down">Hormuz 18.5%</td>
+            <td class="val-down">Close trigger: <strong>3.5pp away</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scenarios">
+      <div class="scenario-bull">
+        <h4>🟢 Bull Scenario (both succeed)</h4>
+        <p>Lebanon talks produce framework → ceasefire &gt;70%, revival trigger fires. Nuclear talks show progress → deal probability above 25%. Hormuz reprices upward on dual de-escalation. Oil and gold fall, equities and AUD rally. WDS/STO soften; QAN, WOW, COL benefit.</p>
+      </div>
+      <div class="scenario-bear">
+        <h4>🔴 Bear Scenario (both fail)</h4>
+        <p>Lebanon walks out under fire + nuclear deadline passes without progress → ceasefire falls to 35–40%, Hormuz slips through 15% (trigger fires), nuclear deal below 12% (second trigger). Three triggers firing simultaneously. Oil spikes, gold spikes, equities sell off. WDS/STO surge; QAN, WOW, COL squeezed.</p>
+      </div>
+    </div>
+    <p style="margin-top:12px; font-size:0.88rem; color:#c9d1d9;"><strong>Key mispricing:</strong> Lebanon ceasefire at 60.6%, Hormuz normalization at 18.5% — these are in tension. Hormuz appears underpriced relative to the Lebanon de-escalation signal, <em>unless</em> the market is correctly treating them as two separate US policy tracks (which the evidence — Iran insisting Lebanon is included; US/Israel insisting it is not — supports). This bifurcation means Hormuz could remain suppressed even as Lebanon improves, making Hormuz the dominant residual macro risk.</p>
+  </div>
+
+  <!-- Section 4: Cross-Market -->
+  <div class="section">
+    <h2>4. Cross-Market Implications</h2>
+    <h3>Oil (WTI)</h3>
+    <p>Lebanon ceasefire improving → modest downward pressure on geopolitical risk premium. But Hormuz at 18.5% is unchanged — strait closure is the dominant constraint on oil pricing. Net: mild oil bearish from Lebanon, no Hormuz signal yet. WTI risk range <strong>$95–$120</strong> unchanged.</p>
+    <h3>Gold</h3>
+    <p>Risk-on from Lebanon talks. Gold slightly bearish near-term as fear premium softens. Not materially lower until Hormuz reopens AND nuclear deal closes.</p>
+    <h3>Equities (S&P / Nasdaq)</h3>
+    <p>Mild positive. Tariff/trade war overhang remains dominant equity driver — Lebanon is secondary. Trump-China deal at 39% (+4pp) is the more relevant equity catalyst if it firms above 50%.</p>
+    <h3>AUD/USD</h3>
+    <p>Mild positive. Risk-on + potential oil softness (Australia net importer). Current ~0.625. Ceasefire by April 30 could support 0.630–0.635 range.</p>
+    <h3>ASX Sector Map</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Sector</th><th>Key Names</th><th>Lebanon Ceasefire Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Energy/Oil</td><td>WDS, STO, BPT</td><td class="val-down">Bearish — lower war premium; WDS most exposed (LNG pricing tied to oil)</td></tr>
+          <tr><td>Gold</td><td>NST, NCM/Newmont, EVN</td><td class="val-down">Slightly bearish — fear premium off</td></tr>
+          <tr><td>Banks</td><td>ANZ, CBA, NAB, WBC</td><td>Neutral to mild positive (AUD + risk appetite)</td></tr>
+          <tr><td>Resources</td><td>BHP, RIO, FMG</td><td class="val-up">Mild positive — AUD + China trade signal (+4pp)</td></tr>
+          <tr><td>Consumer/Retail</td><td>WOW, COL, WES</td><td class="val-up">Mild positive — lower fuel cost expectations</td></tr>
+          <tr><td>Transport</td><td>QAN, AZJ, TCL</td><td class="val-up">Positive — lower jet/diesel price outlook</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 5: Trigger Status -->
+  <div class="section">
+    <h2>5. Trigger Status</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Trigger</th><th>Current</th><th>Threshold</th><th>Distance</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ceasefire revival (&gt;70%)</td>
+            <td>60.6%</td>
+            <td>70%</td>
+            <td class="val-warn"><strong>9.4pp</strong></td>
+            <td><span class="tag-warn">⚠️ Approaching</span></td>
+          </tr>
+          <tr>
+            <td>Ceasefire collapse (&lt;25%)</td>
+            <td>60.6%</td>
+            <td>25%</td>
+            <td>35.6pp</td>
+            <td><span class="tag-safe">Safe</span></td>
+          </tr>
+          <tr>
+            <td>Ceasefire hard collapse (&lt;24%)</td>
+            <td>60.6%</td>
+            <td>24%</td>
+            <td>36.6pp</td>
+            <td><span class="tag-safe">Safe</span></td>
+          </tr>
+          <tr>
+            <td>Hormuz approaches zero (&lt;15%)</td>
+            <td>18.5%</td>
+            <td>15%</td>
+            <td class="val-down"><strong>3.5pp</strong></td>
+            <td><span class="tag-warn">⚠️ Close</span></td>
+          </tr>
+          <tr>
+            <td>Hormuz normalizes (&gt;50%)</td>
+            <td>18.5%</td>
+            <td>50%</td>
+            <td>31.5pp</td>
+            <td><span class="tag-safe">Far</span></td>
+          </tr>
+          <tr>
+            <td>Iran nuclear deal collapses (&lt;12%)</td>
+            <td>21.9%</td>
+            <td>12%</td>
+            <td>10.0pp</td>
+            <td><span class="tag-watch">Watch</span></td>
+          </tr>
+          <tr>
+            <td>Trump ends Iran ops (&lt;35%)</td>
+            <td>42.5%</td>
+            <td>35%</td>
+            <td>7.5pp</td>
+            <td><span class="tag-watch">Watch</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:10px; font-size:0.85rem; color:#8b949e;"><strong>No triggers fired this cycle.</strong> Two approaching: ceasefire revival at 9.4pp, Hormuz close trigger at 3.5pp.</p>
+  </div>
+
+  <!-- Section 6: Forward View -->
+  <div class="section">
+    <h2>6. Forward View</h2>
+    <p style="margin-bottom:14px;"><strong style="color:#f0a500;">April 15 (Tuesday) is the single most important day on the near-term calendar.</strong></p>
+
+    <div class="forward-item">
+      <strong>1. If Lebanon-Israel talks produce any framework or joint communiqué:</strong>
+      <p>Revival trigger fires (&gt;70%) within hours. Watch for oil drop, AUD/USD rise, WDS/STO softness, QAN/WOW lift. File revival alert immediately.</p>
+    </div>
+    <div class="forward-item">
+      <strong>2. If talks fail or are suspended due to ongoing strikes:</strong>
+      <p>Ceasefire falls back to 35–42% floor. Monitor Hormuz at 18.5% — if it crosses 15%, file Hormuz trigger alert immediately.</p>
+    </div>
+    <div class="forward-item">
+      <strong>3. Iran nuclear deadline same day — dual failure scenario:</strong>
+      <p>If Lebanon talks collapse AND nuclear deadline passes without public progress, watch for Hormuz close trigger to fire. Combined signal = most bearish ME scenario currently priced. Oil spike, gold spike, AUD/USD sell-off, WDS/STO surge.</p>
+    </div>
+    <div class="forward-item">
+      <strong>4. Hormuz-Lebanon divergence trade:</strong>
+      <p>If ceasefire hits 70%+ but Hormuz remains at 18.5%, the divergence is mispriced — Hormuz normalization should lag 24–48h and reprice toward 25–30% as Hezbollah pressure on Iran diminishes. This is the asymmetric position: fade oil-sensitive energy names (WDS/STO) vs. hold oil-sensitive beneficiaries (QAN, consumer) on the Lebanon track improving without Hormuz.</p>
+    </div>
+    <div class="forward-item">
+      <strong>5. Trump-China trade deal (Kalshi: 39%, +4pp):</strong>
+      <p>Separate risk-on signal not connected to Lebanon. If it firms above 50%, potential late-April equity catalyst. Watch for ASX resources (BHP, RIO) to reprice alongside AUD.</p>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <p><strong>Sources:</strong></p>
+    <p>
+      <a href="https://www.cbsnews.com/news/lebanon-israel-ceasefire-talks-us-washington/">CBS News — US to lead Lebanon-Israel ceasefire talks in DC</a> ·
+      <a href="https://www.businessupturn.com/world/lebanon-and-israel-to-hold-talks-in-washington-next-tuesday-in-first-direct-diplomatic-engagement-of-conflict/">BusinessUpturn — Washington talks Tuesday confirmed</a> ·
+      <a href="https://www.npr.org/2026/04/09/nx-s1-5779000/iran-war-updates">NPR — Israel vows to continue fighting Hezbollah</a> ·
+      <a href="https://www.washingtonpost.com/world/2026/04/09/lebanon-beirut-attack-israel-hezbollah-ceasefire/">Washington Post — Israel opens talks with Lebanon</a> ·
+      <a href="https://www.aljazeera.com/news/2026/4/10/will-israel-and-lebanon-start-ceasefire-talks">Al Jazeera — Will Israel and Lebanon start ceasefire talks?</a> ·
+      <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-trump-iran-hormuz-israel-lebanon-ceasefire-talks-rcna273610">NBC News Live Blog — Hormuz/Lebanon/Iran updates</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
