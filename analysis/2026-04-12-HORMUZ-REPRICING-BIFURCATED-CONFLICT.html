@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert — Hormuz Repricing: Bifurcated Conflict Signal | 2026-04-12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f35 0%, #0d1421 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .alert-badge { background: #d97706; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; margin-top: 10px; line-height: 1.3; }
+  .header-meta { color: #94a3b8; font-size: 13px; margin-top: 6px; }
+  .header-meta span { margin-right: 18px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  .tl-dr { background: #1e293b; border-left: 4px solid #f59e0b; border-radius: 6px; padding: 18px 20px; margin-bottom: 28px; }
+  .tl-dr h2 { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #f59e0b; margin-bottom: 10px; }
+  .tl-dr p { color: #cbd5e1; font-size: 14px; line-height: 1.7; }
+
+  .moves-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 28px; }
+  .move-card { background: #1e293b; border-radius: 8px; padding: 18px; border: 1px solid #2d3748; }
+  .move-card.up { border-top: 3px solid #10b981; }
+  .move-card.down { border-top: 3px solid #ef4444; }
+  .move-card.flat { border-top: 3px solid #6b7280; }
+  .move-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; margin-bottom: 6px; }
+  .move-label .quality { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-left: 6px; }
+  .quality-med { background: #78350f; color: #fde68a; }
+  .quality-low { background: #1e3a5f; color: #93c5fd; }
+  .move-price { font-size: 28px; font-weight: 700; color: #f1f5f9; }
+  .move-delta { font-size: 14px; font-weight: 600; margin-left: 8px; }
+  .delta-up { color: #10b981; }
+  .delta-down { color: #ef4444; }
+  .delta-flat { color: #6b7280; }
+  .move-desc { font-size: 13px; color: #94a3b8; margin-top: 8px; }
+  .move-vol { font-size: 11px; color: #64748b; margin-top: 6px; }
+
+  .section { background: #1e293b; border-radius: 8px; padding: 22px; margin-bottom: 20px; border: 1px solid #2d3748; }
+  .section h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 16px; }
+  .section p, .section li { font-size: 14px; color: #cbd5e1; line-height: 1.75; }
+  .section ul { padding-left: 20px; }
+  .section li { margin-bottom: 8px; }
+
+  .timeline { margin-top: 12px; }
+  .tl-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: baseline; }
+  .tl-time { font-size: 12px; color: #64748b; width: 90px; flex-shrink: 0; font-family: monospace; }
+  .tl-val { font-size: 13px; color: #e2e8f0; font-weight: 600; width: 60px; flex-shrink: 0; }
+  .tl-bar { height: 14px; border-radius: 3px; background: #10b981; opacity: 0.7; flex-shrink: 0; }
+  .tl-note { font-size: 12px; color: #94a3b8; }
+
+  .warning-box { background: #2d1b1b; border: 1px solid #7f1d1d; border-radius: 6px; padding: 16px 18px; margin-bottom: 20px; }
+  .warning-box h3 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fca5a5; margin-bottom: 8px; }
+  .warning-box p, .warning-box li { font-size: 13px; color: #fca5a5; line-height: 1.7; }
+  .warning-box ul { padding-left: 18px; }
+
+  .macro-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+  .macro-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; border-bottom: 1px solid #334155; padding: 8px 12px; }
+  .macro-table td { padding: 10px 12px; border-bottom: 1px solid #1e293b; font-size: 13px; color: #cbd5e1; vertical-align: top; }
+  .macro-table tr:hover td { background: #243045; }
+  .bull { color: #10b981; font-weight: 600; }
+  .bear { color: #ef4444; font-weight: 600; }
+  .neutral { color: #f59e0b; font-weight: 600; }
+
+  .forward { background: linear-gradient(135deg, #1e293b 0%, #162032 100%); border: 1px solid #334155; border-radius: 8px; padding: 22px; margin-bottom: 20px; }
+  .forward h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 16px; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+  .forward .event { display: flex; gap: 16px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #1e3a5f; }
+  .forward .event:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .event-date { font-size: 12px; font-weight: 700; color: #60a5fa; width: 80px; flex-shrink: 0; padding-top: 2px; }
+  .event-content h4 { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+  .event-content p { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; border-bottom: 1px solid #334155; padding: 8px 10px; }
+  .trigger-table td { padding: 9px 10px; border-bottom: 1px solid #1e293b; color: #cbd5e1; vertical-align: middle; }
+  .status-watching { color: #94a3b8; font-size: 11px; }
+  .trigger-dir-up { color: #10b981; font-size: 11px; }
+  .trigger-dir-down { color: #ef4444; font-size: 11px; }
+
+  .footer { text-align: center; padding: 24px; color: #475569; font-size: 12px; border-top: 1px solid #1e293b; margin-top: 10px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="alert-badge">Alert — Geopolitics/Oil</span>
+    <span style="color:#64748b;font-size:12px;">Sunday 2026-04-12 02:15 AEST</span>
+  </div>
+  <h1>Hormuz Repricing +11pp: Bifurcated Conflict Signal</h1>
+  <div class="header-meta">
+    <span>Run type: Alert-triggered</span>
+    <span>Markets open: ASX Mon 10:00 AEST · NYSE Mon 23:30 AEST</span>
+    <span>Triggers active: 24</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="tl-dr">
+    <h2>TL;DR — Bifurcated Conflict</h2>
+    <p>Hormuz normalization probability surged +11pp to 31.5% overnight — the largest single-session move since ceasefire week — while the Israel Lebanon offensive suspension crashed -12pp to 25.5% on confirmed news that Israel rejected Hezbollah ceasefire talks. Markets are pricing two separate tracks: <strong>US–Iran normalising</strong> (Hormuz recovering, ceasefire holding, nuclear talks ongoing) vs. <strong>Israel–Lebanon escalating</strong> (no suspension, no Hezbollah engagement, Washington talks theatre only). The risk to this bifurcated trade: the US–Iran ceasefire clock expires ~April 22. If Lebanon bombing continues through that date, Tehran faces an exit decision that reverses every de-escalation signal at once.</p>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="moves-grid">
+
+    <div class="move-card up">
+      <div class="move-label">Hormuz Normalizes Apr 30 <span class="quality quality-med">MED</span></div>
+      <div>
+        <span class="move-price">31.5%</span>
+        <span class="move-delta delta-up">+10.0pp/6h</span>
+      </div>
+      <div class="move-desc">Rose from 21.5% at 20:00 AEST to 31.5% — sustained 6-hour climb, not a spike. Largest Hormuz normalization move since ceasefire announcement April 8.</div>
+      <div class="move-vol">$457K vol 24h · Live API confirmed · 18.5pp below 50% trigger</div>
+    </div>
+
+    <div class="move-card down">
+      <div class="move-label">Lebanon Suspension Apr 17 <span class="quality quality-low">LOW</span></div>
+      <div>
+        <span class="move-price">25.5%</span>
+        <span class="move-delta delta-down">−12.0pp</span>
+      </div>
+      <div class="move-desc">Fell from 37.5% (stable all evening) to 25.5% in 15 minutes. Israel confirmed: will not discuss ceasefire with Hezbollah. April 15 Washington talks = Lebanon govt only.</div>
+      <div class="move-vol">$14K total vol · Thin market · 44.5pp from 70% revival trigger</div>
+    </div>
+
+    <div class="move-card flat">
+      <div class="move-label">Israel–Hezbollah Ceasefire Apr 30 <span class="quality quality-low">LOW</span></div>
+      <div>
+        <span class="move-price">32.9%</span>
+        <span class="move-delta delta-flat">+0.8pp</span>
+      </div>
+      <div class="move-desc">Essentially flat since 22:45 AEST report (was 33.3%). Market not pricing breakthrough — consistent with Lebanon escalation signal. 7.9pp from <25% collapse trigger.</div>
+      <div class="move-vol">$416K vol 24h · Live API confirmed · 37.1pp from 70% revival trigger</div>
+    </div>
+
+    <div class="move-card flat">
+      <div class="move-label">Ceasefire by Apr 15 <span class="quality quality-low">LOW</span></div>
+      <div>
+        <span class="move-price">11.0%</span>
+        <span class="move-delta delta-flat">−0.5pp</span>
+      </div>
+      <div class="move-desc">11% chance Washington talks (April 15) produce a formal ceasefire agreement. Drifting lower. With Israel bombing and Hezbollah excluded, this is priced close to correct.</div>
+      <div class="move-vol">$224K vol 24h · Live API confirmed</div>
+    </div>
+
+  </div>
+
+  <!-- HORMUZ TRAJECTORY -->
+  <div class="section">
+    <h2>Hormuz Normalization — 6-Hour Trajectory</h2>
+    <p style="margin-bottom:14px;color:#94a3b8;font-size:13px;">Sat flat at 20.5% all day (April 11) before an evening climb — sustained drift, not a spike-and-revert. Volume $457K/24h confirms genuine position-building.</p>
+    <div class="timeline">
+      <div class="tl-row">
+        <span class="tl-time">15:00 AEST</span>
+        <span class="tl-val">20.5%</span>
+        <div class="tl-bar" style="width:82px;background:#374151;"></div>
+        <span class="tl-note" style="color:#64748b;">Flat baseline all day</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">20:00–20:15</span>
+        <span class="tl-val">21.5%</span>
+        <div class="tl-bar" style="width:86px;"></div>
+        <span class="tl-note">First move +1pp</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">20:15–22:30</span>
+        <span class="tl-val">22.5%</span>
+        <div class="tl-bar" style="width:90px;"></div>
+        <span class="tl-note">Settling at +2pp</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">22:45</span>
+        <span class="tl-val">24.5%</span>
+        <div class="tl-bar" style="width:98px;"></div>
+        <span class="tl-note">Acceleration +2pp</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">23:00–01:30</span>
+        <span class="tl-val">25.0–25.5%</span>
+        <div class="tl-bar" style="width:102px;"></div>
+        <span class="tl-note">Consolidation</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">01:45</span>
+        <span class="tl-val">29.0%</span>
+        <div class="tl-bar" style="width:116px;"></div>
+        <span class="tl-note" style="color:#f59e0b;">Second acceleration +3.5pp</span>
+      </div>
+      <div class="tl-row">
+        <span class="tl-time">02:00</span>
+        <span class="tl-val" style="color:#10b981;font-weight:700;">31.5%</span>
+        <div class="tl-bar" style="width:126px;"></div>
+        <span class="tl-note" style="color:#10b981;font-weight:600;">+11pp from baseline — largest session move since ceasefire week</span>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:#94a3b8;">
+      <strong style="color:#e2e8f0;">Why is it rising without a specific catalyst?</strong> No single headline identified. Consistent with: (1) US–Iran ceasefire holding through Week 1 confirming the two-party framework is durable; (2) Iran signalling flexibility on the toll regime in nuclear deal pre-negotiations; (3) market recognising that even without a formal deal, partial Hormuz reopening (allowing ally-flagged tankers through) could reach the IMF Portwatch 60-ship threshold. The 31.5% still implies 68.5% chance of NO normalization by April 30 — a cautious market, but visibly repricing.
+    </p>
+  </div>
+
+  <!-- CATALYST CONFIRMED -->
+  <div class="section">
+    <h2>Lebanon Suspension — Catalyst Identified (Step C)</h2>
+    <ul>
+      <li><strong>Primary catalyst:</strong> Israeli US Ambassador Yechiel Leiter, April 11: <em>"Israel refused to discuss a ceasefire with the Hezbollah terrorist organisation, which continues to attack Israel and is the main obstacle to peace."</em></li>
+      <li><strong>April 15 Washington talks structure confirmed:</strong> Israel–Lebanon <em>government</em> meeting only. Hezbollah explicitly excluded. Best realistic outcome = technical working group on Hezbollah disarmament, not a ceasefire event.</li>
+      <li><strong>Hezbollah rejection:</strong> Lebanese MP Hassan Fadlallah (Hezbollah-affiliated) called Lebanon–Israel direct talks "a blatant violation of the national pact." Hezbollah will not participate.</li>
+      <li><strong>Cross-market validation (Step D):</strong> Ceasefire by Apr 30 flat at 32.9%. Ceasefire by Apr 15 at 11%. US ops-continue through Apr 30 at 1.1% (ceasefire holding). All consistent — Lebanon suspension drop is correctly priced.</li>
+    </ul>
+  </div>
+
+  <!-- BIFURCATED CONFLICT NARRATIVE -->
+  <div class="section">
+    <h2>The Macro Narrative: Bifurcated Conflict</h2>
+    <p style="margin-bottom:14px;">Markets are now explicitly pricing two separate resolution tracks. This architecture was <em>intentional</em> — Trump stated publicly that Lebanon is "a separate skirmish" from the US–Iran ceasefire deal.</p>
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Track</th>
+          <th>Signal</th>
+          <th>Direction</th>
+          <th>Key Expiry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>US–Iran</strong></td>
+          <td>Hormuz normalization 31.5% (+11pp) · Ops-continue 1.1%</td>
+          <td class="bull">De-escalating</td>
+          <td>~Apr 22 (2-week ceasefire)</td>
+        </tr>
+        <tr>
+          <td><strong>Israel–Lebanon</strong></td>
+          <td>Ceasefire Apr 30 32.9% (flat) · Suspension Apr 17 25.5% (−12pp)</td>
+          <td class="bear">Escalating</td>
+          <td>Apr 15 Washington talks</td>
+        </tr>
+        <tr>
+          <td><strong>Nuclear deal</strong></td>
+          <td>US–Iran nuclear deal Apr 30 21.6% (+0.1pp, flat)</td>
+          <td class="neutral">Uncertain</td>
+          <td>Apr 30 deadline</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:13px;color:#94a3b8;">
+      The critical linkage: Iran has said the ceasefire includes Lebanon. Israel and the US say it does not. If Lebanon bombing continues through the ~April 22 ceasefire expiry, Tehran will be forced to choose between accepting an Israeli exception (politically untenable at home) or walking away from the deal. If Iran exits, the Hormuz normalization repricing reverses entirely — and it reverses fast.
+    </p>
+  </div>
+
+  <!-- MARKET IMPACT TABLE -->
+  <div class="section">
+    <h2>Asset Class Implications</h2>
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Direction</th>
+          <th>Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Oil (WTI proxy for Brent)</strong></td>
+          <td class="neutral">Slight bearish bias</td>
+          <td>Hormuz +11pp is structurally bearish (supply risk lower); Lebanon risk premium partially offsets. Net: mild downward pressure on forward curve. WTI has been ~$97/bbl — Hormuz signal suggests a test of $90 support if normalization holds. NB: Brent–WTI spread typically $2–4/bbl; Australian fuel prices track Brent.</td>
+        </tr>
+        <tr>
+          <td><strong>ASX Energy (WDS, STO)</strong></td>
+          <td class="bear">Modestly bearish bias</td>
+          <td>LNG spot prices track crude. Hormuz normalising = upstream LNG premium narrows. WDS and STO have been structural beneficiaries of the Hormuz closure; partial normalization begins to compress that trade.</td>
+        </tr>
+        <tr>
+          <td><strong>Australian fuel (petrol/diesel)</strong></td>
+          <td class="bull">Mildly bullish (lower prices)</td>
+          <td>Hormuz normalization removes part of the supply disruption premium. With June 30 excise expiry still pending, any oil softening is a net positive for consumers and a marginal deflationary signal for the RBA.</td>
+        </tr>
+        <tr>
+          <td><strong>ASX (broader)</strong></td>
+          <td class="neutral">Neutral to mild positive</td>
+          <td>Hormuz normalization is an unambiguous risk-off reducer. Lebanon escalation is priced in (markets have been tracking this for days). Monday open should be slightly positive net — but contingent on no overnight escalation in Lebanon.</td>
+        </tr>
+        <tr>
+          <td><strong>AUD/USD</strong></td>
+          <td class="bull">Mild positive</td>
+          <td>Hormuz normalization reduces Australian energy import cost risk. Iron ore demand signal (China activity) unaffected. AUD should edge higher if Hormuz story continues to develop positively.</td>
+        </tr>
+        <tr>
+          <td><strong>US rates / RBA</strong></td>
+          <td class="neutral">No change</td>
+          <td>Neither move changes the policy calculus materially. RBA at 4.10% and US Fed both frozen by stagflation structure. Would need sustained Hormuz normalization + oil below $90 to shift the narrative.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DATA QUALITY WARNING -->
+  <div class="warning-box">
+    <h3>⚠ Data Quality Alert — market_descriptions.json Cache Stale</h3>
+    <ul>
+      <li>Ceasefire Apr 30 cache showed <strong>62.45%</strong> — live API returned <strong>32.9%</strong> (gap: 29.5pp)</li>
+      <li>Hormuz normalization cache showed <strong>20.5%</strong> — live API returned <strong>31.5%</strong> (gap: 11pp)</li>
+      <li>Ceasefire Apr 15 sibling in cache showed <strong>50.5%</strong> — live API returned <strong>11.0%</strong> (gap: 39.5pp)</li>
+      <li>Root cause: <code>last_updated: None</code> in cache entries — description cache is not refreshing correctly for these markets</li>
+      <li><strong>Protocol update:</strong> For any trigger market or market that moved >5pp in the alert, verify via live Polymarket API before reporting. TSV data (from market-watch.sh) is the reliable ground truth for prices.</li>
+    </ul>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="forward">
+    <h2>Forward View — What to Watch</h2>
+
+    <div class="event">
+      <div class="event-date">Apr 15<br><span style="color:#94a3b8;font-size:10px;">Tuesday</span></div>
+      <div class="event-content">
+        <h4>Washington Talks: Israel–Lebanon (no Hezbollah)</h4>
+        <p>Best realistic outcome: technical working group framework on Hezbollah disarmament. NOT a ceasefire event — Hezbollah explicitly excluded. If Israel continues bombing through the week, the Lebanon suspension market should test the 20–22% range. Watch the Apr 30 ceasefire (32.9%) — if it drops below 28% on Washington talks failure, the <25% collapse trigger becomes a real risk within days.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">~Apr 22<br><span style="color:#f59e0b;font-size:10px;">CRITICAL</span></div>
+      <div class="event-content">
+        <h4>US–Iran 2-Week Ceasefire Clock Expires</h4>
+        <p>The dominant near-term macro risk. If Lebanon bombing is still active at expiry, Iran must choose to extend or walk. A walk means: Hormuz normalization signal reverses instantly (31.5% → sub-15%); WDS/STO back to buy; WTI tests $110–120; AUD/USD under pressure. This is the event to anchor all Hormuz trades against. Maximum 10 days of runway before the signal is tested.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">Apr 30<br><span style="color:#94a3b8;font-size:10px;">Resolution</span></div>
+      <div class="event-content">
+        <h4>Hormuz Normalization — IMF Portwatch Threshold</h4>
+        <p>Resolves YES if IMF Portwatch 7-day MA of Hormuz arrivals ≥ 60. Current baseline: ~11 ships/day (8% of normal). Even if Iran opens Hormuz tomorrow, reaching a 60-ship 7-day average by April 30 requires a massive and rapid fleet repositioning. 31.5% YES feels slightly aggressive given this mechanical constraint. The market may be pricing anticipation of a deal rather than the operational reality.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">Monitor</div>
+      <div class="event-content">
+        <h4>Ceasefire Collapse Trigger — 7.9pp Gap Narrows</h4>
+        <p>The Israel–Hezbollah ceasefire by Apr 30 is at 32.9% with the collapse trigger at &lt;25% — now only 7.9pp away. Four consecutive Lebanon escalation events (April 8 mass strikes, April 11 Hezbollah talk rejection) have eroded the market from a high of ~84.9% post-ceasefire. At 25%, this trigger fires for the first time. Cross-market implication at 25%: WTI $130 re-bids, Hormuz normalization tests 20% floor, gold/NST/NCM bullish.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGERS STATUS -->
+  <div class="section">
+    <h2>Active Triggers — Status</h2>
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>Trigger</th>
+          <th>Current</th>
+          <th>Fires at</th>
+          <th>Gap</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ceasefire collapses (&lt;25%)</td>
+          <td>32.9%</td>
+          <td>↓ 25%</td>
+          <td>7.9pp above trigger</td>
+          <td class="status-watching">Watching — nearest trigger</td>
+        </tr>
+        <tr>
+          <td>Hormuz normalizes (↑50%)</td>
+          <td>31.5%</td>
+          <td>↑ 50%</td>
+          <td>18.5pp below trigger</td>
+          <td class="status-watching">Watching — rising</td>
+        </tr>
+        <tr>
+          <td>Hormuz approaches zero (&lt;15%)</td>
+          <td>31.5%</td>
+          <td>↓ 15%</td>
+          <td>16.5pp above trigger</td>
+          <td class="status-watching">Moving away</td>
+        </tr>
+        <tr>
+          <td>Lebanon suspension revival (&gt;70%)</td>
+          <td>25.5%</td>
+          <td>↑ 70%</td>
+          <td>44.5pp below trigger · expires Apr 17</td>
+          <td class="status-watching">Effectively inactive — expires 5 days</td>
+        </tr>
+        <tr>
+          <td>Ceasefire revival (&gt;70%)</td>
+          <td>32.9%</td>
+          <td>↑ 70%</td>
+          <td>37.1pp below trigger</td>
+          <td class="status-watching">Watching</td>
+        </tr>
+        <tr>
+          <td>US–Iran nuclear deal (&gt;40%)</td>
+          <td>21.6%</td>
+          <td>↑ 40%</td>
+          <td>18.4pp below trigger</td>
+          <td class="status-watching">Watching</td>
+        </tr>
+        <tr>
+          <td>Iran ops continue (&gt;20%)</td>
+          <td>1.1%</td>
+          <td>↑ 20%</td>
+          <td>18.9pp below trigger</td>
+          <td class="status-watching">Ceasefire holding</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst — Alert Report · 2026-04-12 02:15 AEST · Data: Polymarket live API + market-watch.sh TSV<br>
+  <em>Markets are probabilities, not predictions. Resolution quality: [HIGH] objective data · [MED] criteria with interpretation surface · [LOW] subjective/vote-resolved</em>
+</div>
+
+</body>
+</html>
