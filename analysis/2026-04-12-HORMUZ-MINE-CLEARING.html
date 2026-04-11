@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Hormuz Physical Reopening Signal — 2026-04-12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #0d2137 100%); border-bottom: 2px solid #2d6a9f; padding: 28px 32px; }
+  .header-meta { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f1f5f9; line-height: 1.3; }
+  .header .subtitle { font-size: 14px; color: #94a3b8; margin-top: 8px; }
+  .alert-badge { display: inline-block; background: #d97706; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 20px; }
+
+  /* Summary box */
+  .summary-box { background: #1e293b; border: 1px solid #334155; border-left: 4px solid #2d6a9f; border-radius: 6px; padding: 18px 22px; margin-bottom: 24px; }
+  .summary-box p { color: #cbd5e1; font-size: 14.5px; line-height: 1.7; }
+
+  /* Trigger alert */
+  .trigger-card { border-radius: 6px; padding: 16px 20px; margin-bottom: 16px; }
+  .trigger-approaching { background: #1a2e1a; border: 1px solid #2d5a2d; border-left: 4px solid #22c55e; }
+  .trigger-approaching .trigger-label { color: #4ade80; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .trigger-approaching .trigger-value { color: #f1f5f9; font-size: 22px; font-weight: 800; }
+  .trigger-approaching .trigger-delta { color: #4ade80; font-size: 14px; font-weight: 600; margin-left: 10px; }
+  .trigger-approaching .trigger-gap { color: #94a3b8; font-size: 13px; margin-top: 4px; }
+
+  /* Section headers */
+  h2 { font-size: 16px; font-weight: 700; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 1px solid #1e3a5f; padding-bottom: 8px; margin: 28px 0 14px; }
+  h3 { font-size: 14px; font-weight: 700; color: #e2e8f0; margin: 16px 0 8px; }
+
+  /* Key moves table */
+  .moves-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13.5px; }
+  .moves-table th { background: #1e293b; color: #64748b; text-transform: uppercase; font-size: 11px; letter-spacing: 0.8px; padding: 10px 14px; text-align: left; border-bottom: 1px solid #334155; }
+  .moves-table td { padding: 11px 14px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  .moves-table tr:hover td { background: #1e2d3d; }
+  .up { color: #4ade80; font-weight: 600; }
+  .down { color: #f87171; font-weight: 600; }
+  .neutral { color: #94a3b8; }
+  .badge-high { background: #064e3b; color: #34d399; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+  .badge-med  { background: #451a03; color: #fb923c; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+  .badge-low  { background: #2d1b47; color: #a78bfa; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+
+  /* Catalyst steps */
+  .step-list { list-style: none; padding: 0; }
+  .step-list li { display: flex; gap: 12px; margin-bottom: 12px; }
+  .step-marker { flex-shrink: 0; width: 26px; height: 26px; background: #1e3a5f; border: 1px solid #2d6a9f; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #93c5fd; margin-top: 2px; }
+  .step-content { color: #cbd5e1; font-size: 13.5px; line-height: 1.6; }
+  .step-content strong { color: #f1f5f9; }
+
+  /* Cross-market grid */
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .market-item { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 14px 16px; }
+  .market-item .label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+  .market-item .value { font-size: 18px; font-weight: 700; color: #f1f5f9; }
+  .market-item .change { font-size: 12px; margin-top: 2px; }
+  .market-item .note { font-size: 12px; color: #94a3b8; margin-top: 4px; line-height: 1.4; }
+
+  /* Contradiction check */
+  .validation-box { background: #0f2417; border: 1px solid #166534; border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+  .validation-box .check-label { color: #4ade80; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  .validation-box p { color: #cbd5e1; font-size: 13.5px; line-height: 1.6; }
+
+  /* Forward view */
+  .forward-box { background: #1e1e2e; border: 1px solid #4c3382; border-left: 4px solid #7c3aed; border-radius: 6px; padding: 18px 22px; margin-bottom: 24px; }
+  .forward-box h3 { color: #a78bfa; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; margin-top: 0; }
+  .forward-box ul { list-style: none; padding: 0; }
+  .forward-box ul li { color: #cbd5e1; font-size: 13.5px; padding: 5px 0; border-bottom: 1px solid #2d2d4e; line-height: 1.5; }
+  .forward-box ul li:last-child { border-bottom: none; }
+  .forward-box ul li::before { content: "→ "; color: #7c3aed; font-weight: 700; }
+
+  /* Australian positioning */
+  .aus-box { background: #1e2a1e; border: 1px solid #2d5a2d; border-radius: 6px; padding: 18px 22px; margin-bottom: 24px; }
+  .aus-box h3 { color: #4ade80; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; margin-top: 0; }
+  .aus-box p, .aus-box ul li { color: #cbd5e1; font-size: 13.5px; line-height: 1.6; }
+  .aus-box ul { list-style: none; padding: 0; }
+  .aus-box ul li { padding: 4px 0; }
+  .aus-box ul li::before { content: "▸ "; color: #4ade80; }
+
+  /* Actions */
+  .actions-box { background: #1e2535; border: 1px solid #334155; border-radius: 6px; padding: 14px 18px; margin-bottom: 24px; }
+  .actions-box p { color: #94a3b8; font-size: 13px; }
+  .actions-box .action-item { color: #e2e8f0; font-size: 13px; padding: 4px 0; }
+  .actions-box .action-item::before { content: "✓ "; color: #60a5fa; }
+
+  /* Dismiss */
+  .dismiss-box { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px; }
+  .dismiss-box p { color: #6b7280; font-size: 13px; }
+
+  /* Footer */
+  .footer { border-top: 1px solid #1e293b; padding: 20px 32px; text-align: center; color: #475569; font-size: 11px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Analyst — Alert Report — 2026-04-12 08:45 AEST</div>
+  <div class="alert-badge">⚡ Alert</div>
+  <h1>Hormuz Physical Reopening Signal: US Navy Mine-Clearing + First Supertanker Day</h1>
+  <div class="subtitle">Normalization market surged from 31.5% → 41.5% (+10pp) — now just 8.5pp from the 50% trigger. Three supertankers transited on April 11, the biggest day of oil exits since the war began six weeks ago.</div>
+</div>
+
+<div class="container">
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <p>US CENTCOM announced on April 11 that two destroyers transited the Strait of Hormuz for mine-clearing, and three commercial supertankers — Greek vessel <em>Serifos</em> plus Chinese supertankers <em>Cospearl Lake</em> and <em>He Rong Hai</em> — followed via Iran's controlled northerly route, marking the largest single-day vessel movement through the strait since Iran closed it in February. The Hormuz normalization market responded with a +10pp surge to 41.5%, its highest reading since the Islamabad diplomatic euphoria earlier this morning. Cross-market validation is consistent: WTI has softened from its $115 four-year high toward $95-97/bbl, confirming the market is interpreting this as genuine supply re-entry, not escalation. Manufacturing oscillation (Kalshi −7.9pp) is dismissed as noise #31+.</p>
+  </div>
+
+  <!-- Trigger Status -->
+  <h2>Trigger Status</h2>
+
+  <div class="trigger-card trigger-approaching">
+    <div class="trigger-label">⬆ Hormuz Traffic Normalizes by Apr 30 — Approaching 50% Trigger</div>
+    <div>
+      <span class="trigger-value">41.5%</span>
+      <span class="trigger-delta">+10.0pp this run</span>
+    </div>
+    <div class="trigger-gap">8.5pp below trigger (fires at ↑50%) — highest since ceasefire-week Islamabad peak · previous reading 31.5% at 08:15 AEST</div>
+  </div>
+
+  <div class="trigger-card" style="background:#1a1a2a; border:1px solid #333; border-left:4px solid #4c3382;">
+    <div style="color:#a78bfa; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:6px;">MONITORING — Hormuz Floor Alert (&lt;15%)</div>
+    <div>
+      <span style="color:#f1f5f9; font-size:20px; font-weight:800;">41.5%</span>
+      <span style="color:#4ade80; font-size:14px; font-weight:600; margin-left:10px;">Moving away ↑</span>
+    </div>
+    <div style="color:#94a3b8; font-size:13px; margin-top:4px;">26.5pp above trigger (fires at ↓15%) — alert fired on +10pp move but direction is positive, not a floor warning. Note: both triggers track same slug — see data quality flag below.</div>
+  </div>
+
+  <!-- Key Moves -->
+  <h2>Key Market Moves</h2>
+
+  <table class="moves-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Price</th>
+        <th>Move</th>
+        <th>Read</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge-med">MED</span> Hormuz traffic normalizes by Apr 30</td>
+        <td>41.5%</td>
+        <td class="up">+10.0pp (08:15→08:30)</td>
+        <td style="color:#cbd5e1; font-size:13px;">Physical ships moving. 8.5pp from 50% trigger.</td>
+      </tr>
+      <tr>
+        <td><span class="badge-med">MED</span> Hormuz approaches zero by Apr 30</td>
+        <td>41.5%</td>
+        <td class="up">Moving away from floor ↑</td>
+        <td style="color:#cbd5e1; font-size:13px;">Same market as above (identical slug). 26.5pp above ↓15% fire threshold.</td>
+      </tr>
+      <tr>
+        <td><span class="badge-low">LOW</span> Iran ops continue through Apr 30</td>
+        <td>~0.4%</td>
+        <td class="neutral">Flat</td>
+        <td style="color:#cbd5e1; font-size:13px;">Bilateral ceasefire remains intact — mine-clearing is within ceasefire framework, not escalation.</td>
+      </tr>
+      <tr>
+        <td><span class="badge-med">MED</span> US-Iran nuclear deal by Apr 30</td>
+        <td>~31.1%</td>
+        <td class="down">Reverted from 44.5% peak</td>
+        <td style="color:#cbd5e1; font-size:13px;">Islamabad overshoot fully reversed. Diplomatic track separate from physical mine-clearing.</td>
+      </tr>
+      <tr>
+        <td><span class="badge-low">LOW</span> Will Trump bring back manufacturing? (Kalshi)</td>
+        <td>6.1%</td>
+        <td class="down">−7.9pp</td>
+        <td style="color:#cbd5e1; font-size:13px;"><strong>DISMISSED</strong> — oscillation #31+. Established 6–15% mechanical band. No macro signal.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Catalyst -->
+  <h2>4-Step Catalyst Identification</h2>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-marker">A</div>
+      <div class="step-content">
+        <strong>What qualifies (description):</strong> <span class="badge-med">MED</span> "Hormuz traffic returns to normal by April 30." Resolution requires IMF Portwatch data or credible shipping intelligence showing traffic recovering toward historical norms (~129 vessels/day). Interpretation surface: "returns to normal" is UMA-resolved. Resolution quality: MEDIUM (criteria exist but "normal" is subjective). Implication: treat 41.5% as a signal with moderate confidence, not a hard fact.
+      </div>
+    </li>
+    <li>
+      <div class="step-marker">B</div>
+      <div class="step-content">
+        <strong>When did it happen:</strong> Price jumped from 31.5% (08:15 AEST) to 41.5% (08:30 AEST) — a single 15-minute window. This corresponds to approximately 22:15–22:30 UTC on April 11, which is early Asia trading hours (08:15–08:30 Tokyo/Hong Kong). Bloomberg published the supertanker story April 11; the market repriced as Asian traders opened their desks.
+      </div>
+    </li>
+    <li>
+      <div class="step-marker">C</div>
+      <div class="step-content">
+        <strong>Real-world catalyst confirmed (WebSearch):</strong>
+        <br><br>
+        <strong>1. US Navy mine-clearing transit (April 11):</strong> CENTCOM announced USS Frank E Peterson and USS Michael Murphy transited the Strait of Hormuz as part of a mine-clearing mission — the first US Navy ships through since the war began. Admiral Brad Cooper said the transit "began the process of establishing a new passage" to share with maritime industry. Iran's military headquarters "strongly denied" US ships entered and vowed "a strong response." However, no physical interdiction occurred.
+        <br><br>
+        <strong>2. Three commercial supertankers transited (April 11):</strong> Greek vessel <em>Serifos</em> (Saudi cargo), Chinese supertanker <em>He Rong Hai</em> (Saudi cargo), and Chinese supertanker <em>Cospearl Lake</em> (Iraqi cargo) all passed through — the biggest single day of oil exits since February. Critically, all three followed Iran's demanded northerly route through Iranian territorial waters (past Qeshm and Larak Islands), away from traditional shipping lanes. This northerly route is Iran's controlled corridor — transiting it implies either prior Iranian approval or toll payment.
+        <br><br>
+        <strong>3. Trump's announcement:</strong> Trump posted on social media that "all 28 of Iran's mine-dropper boats are at the bottom of the sea" and that US forces are "clearing out" the strait. The combination of presidential announcement + CENTCOM confirmation + Bloomberg AIS tracking data of commercial vessels = the market repriced normalization probability upward.
+      </div>
+    </li>
+    <li>
+      <div class="step-marker">D</div>
+      <div class="step-content">
+        <strong>Cross-market validation:</strong> No contradictions.
+        <br>• <strong>WTI (proxy for Brent) at ~$95-97/bbl</strong> — softening from $115 four-year high on April 10. Oil declining is consistent with more supply coming through Hormuz, not contradicting the normalization thesis.
+        <br>• <strong>Iran ops-continue at ~0.4%</strong> — bilateral ceasefire completely intact. Mine-clearing is within the ceasefire framework (US asserting access, Iran denying verbally but not physically blocking).
+        <br>• <strong>Nuclear deal at 31.1%</strong> — Islamabad diplomatic track is separate. Physical mine-clearing can proceed under ceasefire even without a deal.
+        <br>• <strong>Hormuz floor trigger moving away</strong> — price rising = less likely to approach zero. All signals point the same direction: partial, incremental reopening underway.
+      </div>
+    </li>
+  </ul>
+
+  <!-- Cross-Market Grid -->
+  <h2>Cross-Market State</h2>
+
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="label">WTI Crude (proxy for Brent)</div>
+      <div class="value" style="color:#4ade80;">~$95–97/bbl</div>
+      <div class="change" style="color:#4ade80;">↓ Softening from $115 Apr 10 peak</div>
+      <div class="note">Consistent with partial Hormuz reopening. Structural floor ~$90-93 if 15-20 vessels/day sustained. Toll regime still in effect for non-Chinese/non-state-approved vessels.</div>
+    </div>
+    <div class="market-item">
+      <div class="label">Hormuz Normalization (Apr 30)</div>
+      <div class="value" style="color:#4ade80;">41.5%</div>
+      <div class="change" style="color:#4ade80;">↑ +10.0pp · 8.5pp from 50% trigger</div>
+      <div class="note">Highest since Islamabad euphoria. Now driven by physical ships, not just diplomacy. More durable signal.</div>
+    </div>
+    <div class="market-item">
+      <div class="label">US-Iran Nuclear Deal (Apr 30)</div>
+      <div class="value" style="color:#f87171;">31.1%</div>
+      <div class="change" style="color:#f87171;">↓ Reverted from 44.5% Islamabad peak</div>
+      <div class="note">Diplomacy stalled ≠ physical access stalled. These two tracks are now clearly decoupled.</div>
+    </div>
+    <div class="market-item">
+      <div class="label">Iran Ops-Continue (ceasefire durability)</div>
+      <div class="value" style="color:#4ade80;">~0.4%</div>
+      <div class="change" style="color:#4ade80;">Flat — ceasefire intact</div>
+      <div class="note">Iran verbally denying US ships but not physically interdicting = maintaining the ceasefire while contesting the narrative.</div>
+    </div>
+  </div>
+
+  <!-- Validation -->
+  <div class="validation-box">
+    <div class="check-label">✓ Cross-Market Contradiction Check — CLEAR</div>
+    <p>All signals point consistently toward partial, incremental Hormuz reopening: normalization market up, oil price down, ceasefire intact, Iran not physically blocking. There are no contradictions to resolve. The Iran verbal denial + no physical interdiction pattern is consistent with Iran maintaining negotiating leverage (claiming control of the corridor) while allowing selective passage to preserve bilateral relationships (China). The three vessels following Iran's northerly route — rather than the traditional US/West lane — confirms Iran still controls the access mechanism. This is NOT a US military forced-opening scenario; it is a collaborative, selective reopening with Iran retaining gate authority.</p>
+  </div>
+
+  <!-- Macro Interpretation -->
+  <h2>Macro Interpretation</h2>
+
+  <h3>What this means — and what it doesn't</h3>
+
+  <p style="color:#cbd5e1; font-size:13.5px; margin-bottom:12px; line-height:1.7;">
+    Three supertankers in one day is 2-3% of the pre-war daily volume (~129 vessels/day). The market repricing from 31.5% to 41.5% is a directional signal, not a declaration of full normalization. The critical nuance is <em>how</em> these ships got through: by following Iran's northerly route through Iranian territorial waters. This means Iran is exercising the toll/approval regime — it is not a US-forced transit. The US Navy destroyers were a separate mine-clearing mission, not a commercial escort. Iran's "strong denial" is diplomatic cover, not operational fact.
+  </p>
+
+  <p style="color:#cbd5e1; font-size:13.5px; margin-bottom:12px; line-height:1.7;">
+    The decoupling of physical transit from the diplomatic/nuclear deal track is the key new signal. Previously the market priced normalization only when Islamabad diplomacy spiked. Now physical reopening is occurring under the ceasefire framework <em>without</em> a nuclear deal. This de-risks the April 22 ceasefire expiry binary: if Iran is already earning toll revenue and allowing selective passage, it has less incentive to formally exit the ceasefire at expiry and re-close the strait.
+  </p>
+
+  <p style="color:#cbd5e1; font-size:13.5px; margin-bottom:20px; line-height:1.7;">
+    <strong style="color:#f1f5f9;">New structural interpretation:</strong> Iran's endgame may be a "managed Hormuz" — selective passage with toll/approval authority maintained, gradually increasing volume while negotiations continue. This is a lower-volatility, longer-duration scenario than either "full reopening" or "permanent closure." Implications: WTI floor drifts lower (toward $88-95) rather than crashing (toward $70-80 pre-war), but the re-escalation tail risk from April 22 diminishes further.
+  </p>
+
+  <!-- Australian Positioning -->
+  <div class="aus-box">
+    <h3>🇦🇺 Australian Market Positioning (ASX opens Monday 14 April)</h3>
+    <ul>
+      <li><strong>WTI (proxy for Brent) declining:</strong> WTI at $95-97/bbl and drifting lower with each vessel transit. Australian fuel prices tracking: petrol ~A$2.05-2.15/L. Partial reopening means oil drifts toward $88-92 over 2-3 weeks IF daily crossing volume increases from 3 to 15-20. Full normalization (50%+ trigger) would imply $78-85 WTI.</li>
+      <li><strong>WDS / STO:</strong> Structural long thesis weakens incrementally with each vessel transit. Not yet a conviction sell — toll regime still in effect, Iran still controls access, April 22 expiry remains a binary. Reduce if normalization trigger crosses 50%.</li>
+      <li><strong>QAN:</strong> Mildly positive. Every dollar off WTI is ~A$15-20M annual fuel cost relief. At $95 vs $115 peak, QAN has already recaptured ~A$200-250M annualised. Full normalization ($80 WTI) would be ~A$500M annualised relief from war peak.</li>
+      <li><strong>AUD/USD:</strong> Risk-on bias strengthens as Hormuz normalisation signal builds. Mine-clearing + supertanker transits reduce the April 22 tail risk. AUD likely in 0.68-0.70 range with upside to 0.72 on full deal. Watch Monday ASX open for follow-through.</li>
+      <li><strong>Australian petrol:</strong> WTI used as Brent proxy (note: Brent typically $2-5/bbl premium to WTI). At current WTI ~$97, Australian retail petrol ~A$2.10-2.20/L. If WTI falls to $88-92 on sustained reopening, petrol drops to ~A$1.95-2.05/L. June 30 excise expiry (automatic +A$0.25-0.30/L) remains a shock if WTI ≥$88 — RBA May 5 meeting factors this in.</li>
+      <li><strong>RBA May 5:</strong> Every $2/bbl WTI decline is roughly -0.2pp on Australian CPI annualised energy component. From $115 peak to $88 (full normalization scenario) = ~-2.7pp CPI energy contribution. This is a meaningful cut — RBA cut probability rises materially if normalization continues.</li>
+    </ul>
+  </div>
+
+  <!-- Forward View -->
+  <div class="forward-box">
+    <h3>Forward View — What to Watch</h3>
+    <ul>
+      <li><strong>Daily vessel count through Hormuz (next 72h):</strong> The 3-vessel single-day is the signal; sustained 10-20 vessels/day would confirm a new regime. Watch Hormuz Live Tracker and Bloomberg AIS for follow-through. If volume picks up, normalization trigger (50%) fires this weekend or early next week.</li>
+      <li><strong>Iran's physical response to US destroyers:</strong> Iran verbally denied the transit but took no military action. If Iran escalates against US mine-clearing vessels, ceasefire durability (0.4%) spikes and the Hormuz floor trigger (<15%) comes back into play. Iran's inaction so far is the bullish signal.</li>
+      <li><strong>China's role:</strong> Two of three transiting vessels were Chinese. China-Iran bilateral arrangement may be enabling selective passage outside the US negotiating framework. Watch for more Chinese-flagged vessels transiting in coming days — if Chinese vessels are getting through while Western vessels still wait, the toll regime is China-specific, not a general reopening.</li>
+      <li><strong>April 22 ceasefire expiry:</strong> Physical reopening underway reduces Iran's incentive to exit. But if Lebanon bombing continues at 10+ killed/day, Iran's domestic political pressure to act remains. The mine-clearing + supertanker news reduces (but doesn't eliminate) April 22 binary risk. Still the primary macro pivot date.</li>
+      <li><strong>Islamabad Day 3 (April 12-13):</strong> Talks continue. Nuclear deal at 31.1% (reverted) but physical progress may give negotiators more to work with. Watch for Day 3 statement — if deal moves above 35%, Hormuz normalization trigger 50% becomes reachable within one session.</li>
+    </ul>
+  </div>
+
+  <!-- Actions Taken -->
+  <h2>Actions Taken</h2>
+  <div class="actions-box">
+    <div class="action-item">Manufacturing Kalshi (−7.9pp to 6.1%) dismissed — oscillation #31+, within established 6–15% mechanical band. No trigger change.</div>
+    <div class="action-item">Hormuz normalization trigger (50%) retained — 41.5% is only 8.5pp away but 50% remains the correct coin-flip threshold. Physical ships ≠ structural normalization yet. No change to threshold.</div>
+    <div class="action-item">Hormuz floor trigger (15%) retained — price now 26.5pp above floor, moving away. No change needed.</div>
+    <div class="action-item"><strong>Data quality flag:</strong> Both <code>hormuz-floor-alert</code> and <code>hormuz-normalization</code> triggers use the same slug (<code>strait-of-hormuz-traffic-returns-to-normal-by-april-30</code>). This means the BIG MOVES alert fires on upside moves for both triggers, which can appear misleading (floor alert looks like it's firing on a +10pp move when price is actually moving away from the floor). The direction: below / above parameters handle this correctly at trigger-fire time. Slug split deferred — no separate "approaches zero" Polymarket slug identified yet.</div>
+    <div class="action-item">Analyst notes updated. Email alert sent.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst — Automated Market Intelligence | Report: 2026-04-12-HORMUZ-MINE-CLEARING.html | Data as of 08:31 AEST April 12, 2026
+</div>
+
+</body>
+</html>
