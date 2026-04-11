@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 2026-04-12 07:15 AEST | Islamabad Overshoot Reverts</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%); border-bottom: 2px solid #2d3748; padding: 28px 32px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #fff; }
+  .header .subtitle { color: #94a3b8; font-size: 0.9rem; margin-top: 4px; }
+  .header .badge { display: inline-block; background: #1e40af; color: #93c5fd; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-left: 10px; vertical-align: middle; }
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+  .section { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; }
+  .section h2 { font-size: 1rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+  .section h3 { font-size: 0.95rem; font-weight: 600; color: #94a3b8; margin: 14px 0 8px; }
+  .market-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #0f1117; border-radius: 6px; margin-bottom: 8px; border-left: 3px solid #334155; }
+  .market-row.up { border-left-color: #10b981; }
+  .market-row.down { border-left-color: #ef4444; }
+  .market-row.warn { border-left-color: #f59e0b; }
+  .market-row.flat { border-left-color: #64748b; }
+  .market-label { font-size: 0.88rem; color: #e2e8f0; flex: 1; }
+  .market-price { font-size: 1.0rem; font-weight: 700; color: #fff; margin-left: 12px; white-space: nowrap; }
+  .market-delta { font-size: 0.82rem; font-weight: 600; margin-left: 8px; white-space: nowrap; }
+  .market-delta.pos { color: #10b981; }
+  .market-delta.neg { color: #ef4444; }
+  .market-delta.flat { color: #64748b; }
+  .badge-q { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; vertical-align: middle; }
+  .badge-high { background: #166534; color: #86efac; }
+  .badge-med { background: #92400e; color: #fcd34d; }
+  .badge-low { background: #1e1b4b; color: #a5b4fc; }
+  .alert-box { background: #1c1917; border: 1px solid #78350f; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .alert-box .alert-title { color: #fbbf24; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+  .story-box { background: #0f172a; border: 1px solid #1e3a5f; border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .story-box.bearish { border-color: #7f1d1d; }
+  .story-box.bullish { border-color: #14532d; }
+  p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+  ul { font-size: 0.88rem; color: #cbd5e1; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  .divider { height: 1px; background: #2d3748; margin: 18px 0; }
+  .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; background: #1e293b; color: #94a3b8; }
+  .footer { text-align: center; color: #475569; font-size: 0.78rem; padding: 24px; border-top: 1px solid #1e293b; }
+  .price-chart { display: flex; align-items: flex-end; gap: 6px; height: 50px; margin: 10px 0; }
+  .price-bar { flex: 1; border-radius: 3px 3px 0 0; min-height: 4px; }
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .scenario { background: #0f1117; border-radius: 6px; padding: 12px 14px; border-top: 3px solid #334155; }
+  .scenario.bull { border-top-color: #10b981; }
+  .scenario.base { border-top-color: #f59e0b; }
+  .scenario.bear { border-top-color: #ef4444; }
+  .scenario-odds { font-size: 1.1rem; font-weight: 700; color: #fff; }
+  .scenario-label { font-size: 0.78rem; color: #94a3b8; margin-top: 2px; }
+  .scenario-desc { font-size: 0.8rem; color: #cbd5e1; margin-top: 8px; }
+  @media (max-width: 600px) { .scenario-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Polymarket Daily <span class="badge">DAILY MORNING</span></h1>
+  <div class="subtitle">Sunday 12 April 2026 — 07:15 AEST &nbsp;|&nbsp; Islamabad Optimism Overshoot: Nuclear Deal Reverts from 44.5% to 31.1%</div>
+</div>
+
+<div class="container">
+
+  <!-- KEY ALERT -->
+  <div class="alert-box">
+    <div class="alert-title">⚠️ Islamabad Overshoot: Nuclear Deal +18.7pp Spike Followed by -13.4pp Reversion in 90 Minutes</div>
+    <p style="color:#d97706; font-size:0.88rem;">Nuclear deal: <strong>~25% (midnight) → 44.5% (06:30 AEST)</strong> on JD Vance/Islamabad euphoria, then reversed to <strong>31.1% (07:16 AEST)</strong> as structural negotiating gaps repriced. The spike was a genuine signal — JD Vance's personal attendance confirms White House commitment — but the reversion reveals the market overshot the probability of resolution by April 30 given uranium enrichment incompatibility, Lebanon scope dispute, and White House denial of frozen assets. April 22 Iran ceasefire expiry remains the key macro pivot.</p>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <h2>🎯 Trigger Status — 25 Active</h2>
+
+    <h3>Ceasefire & Iran Ops</h3>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Iran ceasefire durability (ops continue >20%)</span>
+      <span class="market-price">0.7%</span>
+      <span class="market-delta pos">+0.1pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Trump ends Iran ops by Apr 30 — trigger at 35% ↓</span>
+      <span class="market-price">~46%</span>
+      <span class="market-delta flat">—</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Trump ends Iran ops by Apr 15 — trigger at 32% ↑</span>
+      <span class="market-price">16.0%</span>
+      <span class="market-delta pos">+0.5pp</span>
+    </div>
+
+    <h3>Nuclear Deal</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>US-Iran nuclear deal by Apr 30 — trigger now reset to 40% ↑ (was 55%)</span>
+      <span class="market-price">31.1%</span>
+      <span class="market-delta neg">−4.0pp (−13.4pp from 06:30 peak)</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Nuclear deal floor — trigger at 12% ↓ (watching for collapse)</span>
+      <span class="market-price">31.1%</span>
+      <span class="market-delta flat">19.1pp above floor</span>
+    </div>
+
+    <h3>Hormuz</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Hormuz traffic normalizes by Apr 30 — trigger at 50% ↑</span>
+      <span class="market-price">32.5%</span>
+      <span class="market-delta neg">−1.0pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Hormuz approaches zero — trigger at 15% ↓</span>
+      <span class="market-price">32.5%</span>
+      <span class="market-delta flat">17.5pp above floor</span>
+    </div>
+
+    <h3>Israel-Lebanon</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel suspension of Lebanon by Apr 17 — trigger at 70% ↑</span>
+      <span class="market-price">17.5%</span>
+      <span class="market-delta neg">−6.5pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel-Hezbollah ceasefire by Apr 15 — trigger at 75% ↑</span>
+      <span class="market-price">13.0%</span>
+      <span class="market-delta neg">−0.5pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel-Hezbollah ceasefire total collapse — trigger at 12% ↓</span>
+      <span class="market-price">32.8%</span>
+      <span class="market-delta neg">−0.2pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel-Hezbollah ceasefire revival — trigger at 70% ↑</span>
+      <span class="market-price">32.8%</span>
+      <span class="market-delta flat">37.2pp below trigger</span>
+    </div>
+  </div>
+
+  <!-- MAIN STORY -->
+  <div class="section">
+    <h2>📊 Main Story: The Islamabad Overshoot</h2>
+
+    <div class="story-box">
+      <p><strong>What happened in 90 minutes:</strong> The nuclear deal market spiked <strong>+18.7pp</strong> (from ~25.8% at midnight to <strong>44.5%</strong> at 06:30 AEST) as JD Vance, Witkoff, and Kushner arrived in Islamabad for direct face-to-face talks with Iranian FM Araghchi and Parliament Speaker Ghalibaf, mediated by Pakistan PM Sharif. Simultaneously, Reuters published an exclusive claiming the US agreed to unfreeze $6B in Iranian assets held in Qatar, directly linking them to Hormuz passage.</p>
+      <p>By 07:16 AEST (45 min later), the nuclear deal had reverted to <strong>31.1%</strong> — a -13.4pp collapse from peak. The Lebanon suspension by Apr 17 fell -6.5pp to 17.5%, Hormuz fell -1pp to 32.5%.</p>
+    </div>
+
+    <div class="story-box bearish">
+      <p><strong>Why the reversal? Structural gaps re-priced:</strong></p>
+      <ul>
+        <li><strong>White House denial of frozen assets hardened:</strong> Initial Reuters claim (Iran: US agreed to $6B) met with official US rebuttal ("false, the US has not agreed to release any frozen assets"). As Western press ran the denial overnight, bettors repriced. The dispute is about <em>sequencing</em> (Iran: assets first; US: Hormuz + proxy halt first), not whether assets are in the deal — but 'sequencing dispute' is not a resolution by April 30.</li>
+        <li><strong>Uranium enrichment remains the structural break:</strong> US demands Iran cease all enrichment; Iran insists on peaceful nuclear rights including enrichment. Per public reporting, this is Iran's <em>non-negotiable</em> red line. No evidence of movement on this in Islamabad.</li>
+        <li><strong>Lebanon scope dispute remains open:</strong> Iran insists Lebanon is included in the ceasefire framework; US/Israel insist it is not. Lebanon suspension by Apr 17 at 17.5% (down from 26% cache) confirms the April 15 Washington talks are structurally dead — Hezbollah excluded, no bilateral with Lebanon's legitimate military actor present.</li>
+        <li><strong>Day 2 euphoria repriced to complexity:</strong> Vance's personal attendance is a genuine positive signal (White House commitment), but the spike to 44.5% priced a near-50/50 chance of a formal nuclear agreement by April 30. The reversion to 31% reflects markets correctly assessing that Islamabad is more likely to produce a framework/extension than a signed deal.</li>
+      </ul>
+    </div>
+
+    <p style="font-size:0.88rem;color:#94a3b8;"><strong>Note on the 44.5% reading:</strong> The 06:30 AEST trigger fire (at 40% threshold) was the correct signal. JD Vance's attendance in Islamabad is genuinely unprecedented and elevates the probability of progress. The reversal to 31% does NOT negate the significance — it calibrates it. Pre-Islamabad baseline was ~21%; fair value is probably 28–35% while talks are active. The 40% trigger is the right next alert level.</p>
+  </div>
+
+  <!-- FOUR-STEP CATALYST IDENTIFICATION -->
+  <div class="section">
+    <h2>🔍 4-Step Catalyst: Lebanon Suspension by Apr 17 (-6.5pp to 17.5%)</h2>
+
+    <p><strong>Step A — Description:</strong> <span class="badge-q badge-low">LOW</span> quality. Requires Netanyahu/Israeli government/military to publicly and definitively announce a halt to Lebanon offensive — ground operations AND airstrikes/artillery. Qualifying: unambiguous public halt announcement. Not qualifying: "restraint," "pause for negotiations," or partial reductions. High UMA subjectivity risk.</p>
+
+    <p><strong>Step B — When:</strong> The April 17 market priced at 26% in cache (stale), now 17.5% live = an 8.5pp decline. One-week change shows 0 (no historical data in cache), 1-day change −24.5%. This is an accelerating collapse over the past 24 hours, consistent with the April 12 03:35 ceasefire hard-collapse and April 15 Washington talks framing as diplomatic theater.</p>
+
+    <p><strong>Step C — Catalyst:</strong> No new single catalyst. This is a <em>confirmation move</em> from the prior session's analysis. Lebanon suspension by Apr 17 has been "effectively dead" since April 12 03:35 AEST (when ceasefire fell to 21.1%). The -6.5pp move reflects: (1) April 15 Washington talks confirmed to exclude Hezbollah, (2) Iran Parliament Speaker Ghalibaf set 3 conditions Israel cannot meet, (3) Israel killed 10+ in Lebanon April 11 including emergency workers, (4) Lebanese PM Salam postponed US trip, (5) Hezbollah MP Fadlallah rejected direct Lebanon-Israel talks. No reversal catalyst visible in Islamabad talks.</p>
+
+    <p><strong>Step D — Cross-market validation:</strong> Lebanon suspension collapse (−6.5pp) is CONSISTENT with: Hormuz −1pp (mild pressure), nuclear deal −13.4pp from peak (talks stalling), ceasefire Apr 30 stable at 32.8% (Lebanon track separate from US-Iran bilateral), ceasefire durability 0.7% (US-Iran bilateral intact). No contradictions. Bifurcated conflict thesis holds.</p>
+  </div>
+
+  <!-- SCENARIO MATRIX -->
+  <div class="section">
+    <h2>📐 Islamabad Outcomes — Scenario Matrix</h2>
+    <div class="scenario-grid">
+      <div class="scenario bull">
+        <div class="scenario-odds">~20%</div>
+        <div class="scenario-label">Islamabad Breakthrough</div>
+        <div class="scenario-desc">Trump announces ops-end by Apr 15. Framework includes Lebanon ceasefire. Sequencing dispute resolved. Oil falls $97 → $85–90 (WTI, proxy Brent). Hormuz reprices to 55–60%. AUD/USD relief bid to 0.70+. ASX WDS/STO headwind; QAN/materials relief.</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-odds">~45%</div>
+        <div class="scenario-label">Framework, No Deal</div>
+        <div class="scenario-desc">Islamabad produces extended ceasefire + working group. Trump ops-end by Apr 30 (not Apr 15). April 22 expiry defused. Nuclear deal stays 25–35%; Hormuz stays 28–35%. Oil base-case $90–97 (toll regime persists). AUD/USD stable 0.66–0.68.</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-odds">~35%</div>
+        <div class="scenario-label">Islamabad Collapse</div>
+        <div class="scenario-desc">No agreement reached. April 22 expiry becomes hard flashpoint. Iran exits ceasefire. Hormuz crashes 32% → sub-15% (floor trigger fires). Nuclear deal crashes 31% → 12–15%. WTI re-escalates $97 → $115–125. AUD/USD 0.65 → 0.62. Australian petrol A$2.20 → A$2.45.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY MARKETS DASHBOARD -->
+  <div class="section">
+    <h2>📈 Full Market Dashboard — 07:15 AEST</h2>
+
+    <h3>Iran / Nuclear / Ceasefire</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>US-Iran nuclear deal by Apr 30</span>
+      <span class="market-price">31.1%</span>
+      <span class="market-delta neg">−4.0pp (−13.4pp from 06:30 peak)</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Iran ceasefire durability (ops-continue >20%)</span>
+      <span class="market-price">0.7%</span>
+      <span class="market-delta pos">+0.1pp — bilateral intact</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Trump ends Iran ops by Apr 15</span>
+      <span class="market-price">16.0%</span>
+      <span class="market-delta pos">+0.5pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>US Iran invasion 2027 (conflict resolved signal &lt;22%)</span>
+      <span class="market-price">28.5%</span>
+      <span class="market-delta neg">−0.5pp — 6.5pp above 22% resolution trigger</span>
+    </div>
+
+    <h3>Hormuz / Oil</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Hormuz traffic normalizes by Apr 30</span>
+      <span class="market-price">32.5%</span>
+      <span class="market-delta neg">−1.0pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label" style="font-style:italic;color:#94a3b8;">WTI crude (proxy for Brent; estimated from regime)</span>
+      <span class="market-price">~$97/bbl</span>
+      <span class="market-delta flat">toll regime floor</span>
+    </div>
+
+    <h3>Israel-Lebanon</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel suspension of Lebanon by Apr 17</span>
+      <span class="market-price">17.5%</span>
+      <span class="market-delta neg">−6.5pp — effectively zero</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel-Hezbollah ceasefire by Apr 15</span>
+      <span class="market-price">13.0%</span>
+      <span class="market-delta neg">−0.5pp</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel-Hezbollah ceasefire by Apr 30</span>
+      <span class="market-price">32.8%</span>
+      <span class="market-delta neg">−0.2pp — stable</span>
+    </div>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Israel suspension of Lebanon by Apr 30</span>
+      <span class="market-price">41.5%</span>
+      <span class="market-delta flat">— (sibling, not triggered)</span>
+    </div>
+
+    <h3>China / Geopolitics</h3>
+    <div class="market-row down">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Trump visits China by May 31 — trigger at 85% ↑</span>
+      <span class="market-price">75.5%</span>
+      <span class="market-delta neg">−1.0pp — 9.5pp below trigger</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>Trump China visit collapses — trigger at 52% ↓</span>
+      <span class="market-price">75.5%</span>
+      <span class="market-delta neg">−1.0pp — 23.5pp above floor</span>
+    </div>
+
+    <h3>Kalshi</h3>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Trump Somaliland recognition</span>
+      <span class="market-price">61.0%</span>
+      <span class="market-delta neg">−2.0pp — watching</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-med">MED</span>Trump new free trade agreement with China</span>
+      <span class="market-price">37.0%</span>
+      <span class="market-delta neg">−1.0pp — no signal</span>
+    </div>
+    <div class="market-row flat">
+      <span class="market-label"><span class="badge-q badge-low">LOW</span>US State Dept Level 4 travel warning (re-escalation signal)</span>
+      <span class="market-price">3.3%</span>
+      <span class="market-delta neg">−0.7pp — ceasefire holding</span>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>🌏 Macro Implications — Australian Lens</h2>
+
+    <div class="story-box">
+      <p><strong>Oil / Energy (WTI proxy for Brent):</strong> The nuclear deal reversion from 44.5% to 31.1% removes the "de-escalation premium" briefly priced this morning. Toll regime ($1/barrel in Bitcoin/CNY) is the structural oil floor ~$90–97/bbl while Hormuz is at 32.5% and talks are active. The Islamabad collapse scenario (35% odds) puts WTI at $115–125. <strong>Australian petrol:</strong> no near-term relief; A$2.10–2.20/L persists while toll regime holds; A$2.40–2.50 if Islamabad collapses and June 30 excise expiry coincides with elevated WTI ≥$95.</p>
+      <p><strong>WDS/STO (ASX):</strong> Monday April 13 open (confirmed trading day). Structural long thesis holds — LNG premium from toll regime + oil floor. Short-term upside capped while Islamabad active. Iran exit scenario at April 22 = oil surge, major upside for WDS/STO. Framework deal scenario = oil $90–97, thesis intact. Full deal scenario = oil $85–90, structural long mildly weakens.</p>
+      <p><strong>QAN:</strong> Jet fuel headwind persists. Mild upside only in breakthrough scenario (WTI → $85–90). Islamabad framework = status quo headwind continues.</p>
+      <p><strong>AUD/USD:</strong> Watching 0.66–0.68 range. Breakthrough = sustained risk-on bid to 0.70+. Collapse = risk-off 0.65 → 0.62. Current pricing consistent with the framework/base case scenario. No material AUD move expected until Islamabad produces definitive outcome.</p>
+    </div>
+
+    <div class="story-box">
+      <p><strong>April 22 = The Macro Pivot (unchanged):</strong> The US-Iran 2-week ceasefire pause expires ~April 22. The binary at expiry:
+        <ul>
+          <li><strong>Iran extends</strong> (Islamabad framework holds): Oil floor $93–97; Hormuz stays 28–35%; AUD stable. Israeli Lebanon operations continue in parallel.</li>
+          <li><strong>Iran exits</strong> (Islamabad collapses): Hormuz 32.5% → sub-15% in 1 session (floor trigger fires). WTI $97 → $115–125. AUD/USD 0.66 → 0.62. Australian petrol A$2.45+ if June 30 excise expires at elevated oil. ASX materials/energy split: WDS/STO surge, airline/transport sell-off, broader risk-off.</li>
+        </ul>
+      </p>
+      <p><strong>Nuclear deal at 31.1%</strong> implies markets still see a 69% probability of <em>no formal deal</em> by April 30. The Islamabad spike-and-revert is consistent with "progress being made, deal not yet done." The correct base case is extension/framework (not breakthrough, not collapse).</p>
+    </div>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="section">
+    <h2>⚙️ Actions Taken</h2>
+    <ul>
+      <li><strong>Nuclear deal revival trigger lowered: 55% → 40%</strong> — with price reverting to 31.1% after the 06:30 trigger fire at 44.5%, the 55% threshold (set during the spike) is now too far above current price. Reset to 40% = next milestone for deal-above-coin-flip probability. The 40% threshold fires again if Islamabad produces a Day 2 breakthrough statement.</li>
+      <li><strong>No new triggers added.</strong> Existing Lebanon suspension (17.5%), ceasefire collapse (32.8%), and Hormuz floor (32.5%) triggers are appropriately calibrated for current regime.</li>
+      <li><strong>Lebanon suspension by Apr 17 context updated</strong> — at 17.5%, this market is 52.5pp below the 70% revival trigger. Functionally irrelevant as an upside signal; only actionable if Israeli strikes halt for independent reasons before April 17.</li>
+    </ul>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>👁️ What to Watch</h2>
+    <ul>
+      <li><strong>Islamabad Day 2/3 (now):</strong> Any joint Pakistan-US-Iran statement from talks — even "framework agreed, working groups to continue" — will reprice nuclear deal back toward 38–45%. Complete silence by Sunday night AEST = market reads as stall/collapse, expect nuclear deal 28–22% range.</li>
+      <li><strong>April 15 Washington talks (3 days):</strong> Lebanon government-only negotiations with Hezbollah excluded. Market prices 13% ceasefire by Apr 15 — priced correctly as near-zero. Watch for any back-channel signal from Hezbollah via IRGC/Araghchi. No expectation of ceasefire; watch for "disarmament framework" as partial positive signal (would push Apr 30 from 32.8% toward 40%).</li>
+      <li><strong>April 22 Iran ceasefire expiry (10 days):</strong> If Islamabad doesn't produce a framework extension by April 20, Iran faces hard binary. Every day without Islamabad progress raises collapse risk. Monitor: nuclear deal falling below 20% = collapse scenario approaching; nuclear deal rising above 40% = extension/framework scenario confirmed.</li>
+      <li><strong>ASX Monday April 13 open:</strong> Islamabad overshoot/revert is the morning story. WDS/STO structural long thesis intact but upside conviction modestly reduced vs Friday close. AUD/USD likely range-bound; no forced position changes warranted until Islamabad resolves.</li>
+      <li><strong>Oil (WTI, proxy Brent):</strong> Watching $97 structural floor. Any Islamabad collapse signal: add WTI upside exposure. Any breakthrough signal: trim WDS/STO upside target.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Generated by Polymarket Macro Analyst &nbsp;|&nbsp; Data: Polymarket CLOB + Kalshi &nbsp;|&nbsp; 2026-04-12 07:15 AEST<br>
+  Resolution quality: <strong>HIGH</strong> = objective oracle &nbsp;|&nbsp; <strong>MED</strong> = criteria with interpretation surface &nbsp;|&nbsp; <strong>LOW</strong> = UMA vote / subjective
+</div>
+
+</body>
+</html>
