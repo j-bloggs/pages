@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Islamabad Phase 2 — Iran Ops-End Timeline Accelerates | 2026-04-12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+  /* Header */
+  .header {
+    border-left: 4px solid #f59e0b;
+    padding: 20px 24px;
+    background: #1a1d2e;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 28px;
+  }
+  .header .alert-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f59e0b;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f8fafc; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; color: #94a3b8; }
+
+  /* Summary box */
+  .summary-box {
+    background: #1e2235;
+    border: 1px solid #2d3348;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+  }
+  .summary-box p { color: #cbd5e1; margin-bottom: 10px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+
+  /* Section titles */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 8px;
+    margin: 28px 0 16px;
+  }
+
+  /* Market move cards */
+  .move-grid { display: flex; flex-direction: column; gap: 12px; }
+  .move-card {
+    background: #1a1d2e;
+    border: 1px solid #2d3348;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .move-card.highlight { border-left: 3px solid #f59e0b; }
+  .move-card.positive { border-left: 3px solid #22c55e; }
+  .move-card.negative { border-left: 3px solid #ef4444; }
+  .move-card.neutral  { border-left: 3px solid #64748b; }
+  .move-card.caution  { border-left: 3px solid #f97316; }
+
+  .move-meta { flex: 1; min-width: 0; }
+  .move-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+  }
+  .move-label .quality {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .quality.LOW  { background: #7f1d1d; color: #fca5a5; }
+  .quality.MED  { background: #78350f; color: #fcd34d; }
+  .quality.HIGH { background: #14532d; color: #86efac; }
+
+  .move-detail { font-size: 13px; color: #94a3b8; }
+  .move-price {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
+  }
+  .move-price .delta {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .up   { color: #22c55e; }
+  .down { color: #ef4444; }
+  .flat { color: #94a3b8; }
+
+  /* Catalyst box */
+  .catalyst-box {
+    background: #1a1d2e;
+    border: 1px solid #2d3348;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+  }
+  .catalyst-box h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 10px;
+  }
+  .catalyst-box p { color: #cbd5e1; margin-bottom: 10px; font-size: 14px; }
+  .catalyst-box p:last-child { margin-bottom: 0; }
+  .catalyst-box ul { padding-left: 18px; color: #cbd5e1; font-size: 14px; }
+  .catalyst-box li { margin-bottom: 6px; }
+
+  /* Cross-market validation */
+  .validation-row {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e293b;
+    font-size: 13px;
+  }
+  .validation-row:last-child { border-bottom: none; }
+  .val-market { flex: 1; color: #cbd5e1; font-weight: 600; }
+  .val-price { width: 70px; text-align: right; font-weight: 700; }
+  .val-delta { width: 70px; text-align: right; font-size: 12px; }
+  .val-interp { flex: 2; color: #64748b; font-size: 12px; }
+
+  /* Scenario table */
+  .scenario-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .scenario-table th {
+    background: #1a1d2e;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid #2d3348;
+  }
+  .scenario-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #1e293b;
+    vertical-align: top;
+    color: #cbd5e1;
+  }
+  .scenario-table tr:last-child td { border-bottom: none; }
+  .scenario-table .odds {
+    font-weight: 700;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .odds.green { color: #22c55e; }
+  .odds.amber { color: #f59e0b; }
+  .odds.red   { color: #ef4444; }
+
+  /* Australia box */
+  .aus-box {
+    background: #0d1a12;
+    border: 1px solid #166534;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .aus-box h3 { color: #4ade80; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+  .aus-box ul { list-style: none; padding: 0; }
+  .aus-box li {
+    padding: 6px 0;
+    border-bottom: 1px solid #14532d;
+    font-size: 13px;
+    color: #bbf7d0;
+  }
+  .aus-box li:last-child { border-bottom: none; }
+  .aus-box li .ticker { font-weight: 700; color: #4ade80; margin-right: 6px; }
+
+  /* Trigger action */
+  .trigger-action {
+    background: #1a1d2e;
+    border: 1px solid #2d3348;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+  }
+  .trigger-action .action-label {
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-right: 8px;
+  }
+
+  /* Forward view */
+  .fwd-item {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e293b;
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+  .fwd-item:last-child { border-bottom: none; }
+  .fwd-date {
+    min-width: 100px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-size: 12px;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid #1e293b;
+    font-size: 12px;
+    color: #475569;
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="alert-tag">⚡ Polymarket Alert — 2026-04-12 05:30 AEST</div>
+    <h1>Islamabad Phase 2: Iran Ops-End Timeline Accelerates</h1>
+    <div class="meta">
+      Alert trigger: Trump ends Iran ops by Apr 15 surged from ~12.5% to 24.5% (+12pp/6h) &nbsp;·&nbsp;
+      Apr 30 ops-end +24pp/1d to 57.5% &nbsp;·&nbsp;
+      Catalyst: VP Vance–Iran direct talks, Islamabad
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <p>The most senior US–Iran direct talks since the February 28 conflict began — VP JD Vance, Steve Witkoff, and Jared Kushner vs FM Abbas Araghchi and Parliament Speaker Ghalibaf — opened Saturday in Islamabad under Pakistani mediation. Early reports cite progress on Lebanon ceasefire inclusion and Iranian asset unfreezing, with talks entering a "more detailed, technical phase."</p>
+    <p>Markets have repriced the probability that Trump makes a <strong>formal public announcement ending military operations against Iran</strong> from ~33% to 57.5% by April 30, and from ~12.5% to 24.5% by April 15 (just 3 days away). The April 22 ceasefire expiry — the macro pivot flagged in prior reports — is being partially discounted.</p>
+    <p><strong>Critical cross-market check:</strong> Hormuz normalization is NOT surging (29.5%, -1pp). This means the market is NOT pricing a full comprehensive peace deal — it's pricing a Trump announcement of ops conclusion, which the market description allows as a standalone event independent of Hormuz status. Hormuz remaining at ~30% is the ground-truth signal limiting macro enthusiasm.</p>
+  </div>
+
+  <!-- Key Moves -->
+  <h2>Key Moves</h2>
+  <div class="move-grid">
+
+    <div class="move-card highlight">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality LOW">LOW</span>
+          Trump announces end of Iran ops by Apr 15
+        </div>
+        <div class="move-detail">
+          Requires official Trump/US govt public statement that ops "have concluded." Truth Social posts qualify.
+          Now 7.5pp below the 32% alert trigger. Talks are live as of this report.
+        </div>
+      </div>
+      <div class="move-price">
+        24.5%
+        <span class="delta up">+12pp / 6h</span>
+      </div>
+    </div>
+
+    <div class="move-card positive">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality LOW">LOW</span>
+          Trump announces end of Iran ops by Apr 30
+        </div>
+        <div class="move-detail">
+          Primary endpoint (-753-882-164-769). Crossed 50% majority threshold for first time.
+          Trigger endpoint (-641-926) at 46.5%, 11.5pp above the 35% collapse sentinel.
+          13pp spread between endpoints reflects liquidity divergence, not market contradiction.
+        </div>
+      </div>
+      <div class="move-price">
+        57.5%
+        <span class="delta up">+24pp / 1d</span>
+      </div>
+    </div>
+
+    <div class="move-card caution">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality MED">MED</span>
+          Hormuz traffic normalizes by Apr 30
+        </div>
+        <div class="move-detail">
+          NOT surging — critical cross-market signal. If Islamabad were producing a full peace deal,
+          Hormuz would be repricing upward. Flat/declining tells us: formal ops-end announcement
+          possible without Hormuz fully opening. Toll regime ($1/barrel Bitcoin/CNY) stays in place.
+          Oil floor at ~$90-95 (WTI proxy for Brent) persists.
+        </div>
+      </div>
+      <div class="move-price">
+        29.5%
+        <span class="delta down">-1pp / run</span>
+      </div>
+    </div>
+
+    <div class="move-card neutral">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality LOW">LOW</span>
+          Iran ceasefire durability — ops continue through Apr 30
+        </div>
+        <div class="move-detail">
+          Near-zero. Bilateral US–Iran ceasefire intact. No re-escalation signal whatsoever.
+          Consistent with talks proceeding constructively.
+        </div>
+      </div>
+      <div class="move-price">
+        0.5%
+        <span class="delta flat">+0.1pp / run</span>
+      </div>
+    </div>
+
+    <div class="move-card neutral">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality LOW">LOW</span>
+          US–Iran nuclear deal by Apr 30
+        </div>
+        <div class="move-detail">
+          Flat — NOT repricing on Islamabad talks. Tells us: talks are about formalising
+          the ceasefire/ops-end, NOT a comprehensive nuclear deal. Full denuclearisation
+          framework remains a May–June 2026 story at earliest.
+        </div>
+      </div>
+      <div class="move-price">
+        25.8%
+        <span class="delta flat">-0.1pp / run</span>
+      </div>
+    </div>
+
+    <div class="move-card neutral">
+      <div class="move-meta">
+        <div class="move-label">
+          <span class="quality LOW">LOW</span>
+          Israel–Hezbollah ceasefire by Apr 30
+        </div>
+        <div class="move-detail">
+          23.4% (+0.6pp) — slight tick-up from the 21.1% flash crash. Islamabad "progress on Lebanon"
+          is providing marginal support. Still well within the collapsed zone (12% total-collapse
+          trigger is 11.4pp away).
+        </div>
+      </div>
+      <div class="move-price">
+        23.4%
+        <span class="delta up">+0.6pp / run</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Catalyst -->
+  <h2>Catalyst — 4-Step Verification</h2>
+  <div class="catalyst-box">
+    <h3>Step A — What qualifies for resolution?</h3>
+    <p>The market resolves YES if "President Trump, the US government, or the military publicly and officially announce that their military operations against Iran, initiated on February 28, 2026, have concluded by the listed date (ET)." Written Trump Truth Social posts qualify. Informal leaks or unnamed sources do NOT. Ceasefire extensions (pauses) do NOT qualify — only a formal "we are done" statement. Resolution quality: <strong>LOW</strong> (UMA-voted on "clearly indicates concluded" language). Trust price directionally; don't treat 24.5% as precision.</p>
+  </div>
+
+  <div class="catalyst-box">
+    <h3>Step B — When did the move happen?</h3>
+    <p>+12pp over the 6-hour window before 05:15 AEST April 12 (= April 11 19:15 UTC = April 11 23:15 Pakistan time). This is Saturday afternoon–evening Pakistan time — during active Islamabad Phase 2 talks. No move in prior runs (market was stable at ~12-15% for several days).</p>
+  </div>
+
+  <div class="catalyst-box">
+    <h3>Step C — Real-world catalyst confirmed</h3>
+    <ul>
+      <li><strong>April 11 (Saturday), Islamabad:</strong> US delegation arrived — VP JD Vance, special envoy Steve Witkoff, Jared Kushner. Iran delegation — FM Abbas Araghchi, Parliament Speaker Mohammad Bagher Ghalibaf. Highest-level direct contact since February 28 conflict began.</li>
+      <li><strong>Progress reported:</strong> Sources cited by AP and NBC: "some progress made on basic conditions, including on the need for a ceasefire in Lebanon" and "movement on unfreezing Iranian assets." Talks entered "more detailed, technical phase."</li>
+      <li><strong>Iranian Ambassador tweet:</strong> Reza Amiri-Moghaddam said talks at "critical, sensitive stage" — language consistent with approaching a framework, not collapse.</li>
+      <li><strong>Key significance:</strong> Lebanon's inclusion in the ceasefire framework has been Iran's core condition. Any progress on this directly reduces the April 22 expiry risk. If Iran gets Lebanon included (even nominally), it has political cover to extend the ceasefire and allow Trump to declare ops concluded.</li>
+    </ul>
+  </div>
+
+  <div class="catalyst-box">
+    <h3>Step D — Cross-market validation</h3>
+    <div class="validation-row">
+      <span class="val-market">Hormuz normalization</span>
+      <span class="val-price flat">29.5%</span>
+      <span class="val-delta down">-1.0pp</span>
+      <span class="val-interp">NOT rising. Full peace deal NOT priced. Ops-end = Trump announcement, not Hormuz open.</span>
+    </div>
+    <div class="validation-row">
+      <span class="val-market">Iran ops continue (durability)</span>
+      <span class="val-price flat">0.5%</span>
+      <span class="val-delta up">+0.1pp</span>
+      <span class="val-interp">Ceasefire firmly intact. No re-escalation risk.</span>
+    </div>
+    <div class="validation-row">
+      <span class="val-market">US–Iran nuclear deal</span>
+      <span class="val-price flat">25.8%</span>
+      <span class="val-delta flat">-0.1pp</span>
+      <span class="val-interp">Flat. Talks are about ops-end formalisation, NOT full denuclearisation.</span>
+    </div>
+    <div class="validation-row">
+      <span class="val-market">Israel–Hezbollah ceasefire</span>
+      <span class="val-price flat">23.4%</span>
+      <span class="val-delta up">+0.6pp</span>
+      <span class="val-interp">Slight support from "Lebanon progress" in talks. Still in collapsed zone.</span>
+    </div>
+    <p style="margin-top:12px; color:#64748b; font-size:13px;">✓ No contradiction. Rising ops-end + flat Hormuz + flat nuclear deal is internally consistent: Trump can declare ops concluded as a standalone statement without requiring full peace implementation. All cross-market signals align with "partial formalisation, not comprehensive deal."</p>
+  </div>
+
+  <!-- Scenario matrix -->
+  <h2>Scenario Matrix</h2>
+  <table class="scenario-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Odds</th>
+        <th>Macro Impact</th>
+        <th>Australian Exposure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Trump announces ops-end by Apr 15</strong><br>
+          <span style="color:#64748b; font-size:12px;">Weekend Trump Truth Social post; framework agreement Saturday or Sunday AEST</span></td>
+        <td><span class="odds green">24.5%</span></td>
+        <td>WTI (proxy Brent) falls from $97 → $88-92. Hormuz reprices toward 45-50%. Risk-on: S&amp;P500 +1-2%, AUD/USD bid, gold softens.</td>
+        <td>WDS/STO headwind (oil ceiling lower). QAN relief (jet fuel). Petrol eventual A$0.10-0.15/L downside from $97. A$0.68 AUD/USD possible.</td>
+      </tr>
+      <tr>
+        <td><strong>Ops-end announced Apr 16–30</strong><br>
+          <span style="color:#64748b; font-size:12px;">Framework this weekend, formal statement after April 15 deadline passes</span></td>
+        <td><span class="odds amber">~33%</span></td>
+        <td>April 22 expiry defused. Oil base-case $93-97 (toll regime remains through deal finalisation). Moderate risk-on.</td>
+        <td>ASX WDS/STO holds near current; April 22 no longer a binary shock. AUD/USD stability. Petrol unchanged near-term.</td>
+      </tr>
+      <tr>
+        <td><strong>No formal ops-end announcement by Apr 30</strong><br>
+          <span style="color:#64748b; font-size:12px;">Talks produce framework but no announcement; April 22 expiry becomes flashpoint</span></td>
+        <td><span class="odds red">~42.5%</span></td>
+        <td>April 22 expiry risk revives. Iran exit → Hormuz normalization crashes to 15% floor trigger in one session. WTI +$15-20. Full Lebanon war escalation.</td>
+        <td>WDS/STO +5-8% (oil re-escalation), QAN/WOW/COL crushed, AUD/USD risk-off below 0.66, petrol A$2.40-2.50 post-June 30 excise expiry.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Australia -->
+  <h2>Australian Macro Positioning</h2>
+  <div class="aus-box">
+    <h3>🇦🇺 ASX opens Monday April 13 (confirmed trading day)</h3>
+    <ul>
+      <li><span class="ticker">WDS / STO</span> Structural long maintained but reduce near-term upside conviction. Islamabad progress caps oil ceiling. Watch for Trump weekend announcement — a formal ops-end would trigger 3-5% single-day headwind. Re-escalation tail (42.5% no-deal scenario) still supports structural long.</li>
+      <li><span class="ticker">QAN</span> Mild relief if ops-end accelerates. Jet fuel cost ceiling may ease with oil from $97 → $92 scenario. No structural change until Hormuz fully normalises.</li>
+      <li><span class="ticker">AUD/USD</span> Islamabad progress = modest risk-on bid. Watch for Trump Truth Social over Sunday AEST. Ops-end announcement = AUD/USD toward 0.675-0.68. Talk collapse = immediate risk-off toward 0.655.</li>
+      <li><span class="ticker">Petrol A$</span> Toll regime floor ($1/barrel) keeps WTI (proxy Brent) structurally above $90 regardless of ops-end announcement. Current A$2.10-2.20/L unlikely to fall below A$1.95-2.00/L even in full ops-end scenario. June 30 excise expiry shock (A$0.25-0.30/L) remains if WTI ≥ $90 at that date. RBA May 5 meeting: petrol floor limits inflation relief narrative.</li>
+      <li><span class="ticker">RBA / Rates</span> Islamabad de-escalation reduces oil tail risk for May 5 RBA meeting. A formal ops-end would strengthen the case for May rate cut (lower energy inflation path). No-deal scenario (42.5%) reinstates oil uncertainty and muddies the May easing case.</li>
+    </ul>
+  </div>
+
+  <!-- Actions -->
+  <h2>Trigger Actions</h2>
+  <div class="trigger-action">
+    <span class="action-label">ADDED</span>
+    <code>trump-ends-iran-ops-above-70</code> — slug <code>...753-882-164-769</code>, direction above, threshold 70%. Currently 57.5%, 12.5pp below trigger. Fires when market prices formal ops-end confirmation as majority-and-growing consensus. At 70%+: WTI falls, Hormuz accelerates, nuclear deal reprices, full peace dividend trade activates.
+  </div>
+  <div class="trigger-action">
+    <span class="action-label">UPDATED</span>
+    <code>trump-ends-iran-apr15</code> reason updated — flagged as near-trigger (7.5pp from 32% threshold). Will monitor for Trump announcement over Sunday April 12 AEST (talk Day 2).
+  </div>
+
+  <!-- Forward View -->
+  <h2>Forward View</h2>
+  <div class="fwd-item">
+    <span class="fwd-date">Apr 12 (Sun)</span>
+    <span>Islamabad Day 2 talks. Watch Trump Truth Social for any ops-end announcement — would immediately fire Apr 15 trigger. Iran Ambassador "critical, sensitive stage" language suggests decision point imminent.</span>
+  </div>
+  <div class="fwd-item">
+    <span class="fwd-date">Apr 13 (Mon)</span>
+    <span>ASX opens. If no weekend announcement: market opens with Islamabad optimism tone; WDS/STO likely slight headwind from lower oil ceiling; AUD/USD modest risk-on bid. Watch 5pm AEST collection run for any weekend developments.</span>
+  </div>
+  <div class="fwd-item">
+    <span class="fwd-date">Apr 15 (Wed)</span>
+    <span>Triple convergence: (1) April 15 ops-end market expires YES or NO. (2) Washington Lebanon talks (diplomatic theater — ceasefire at 13.5%, near-zero). (3) Iran nuclear framework deadline. Best case: Trump tweet declaring ops concluded + Lebanon framework in principle. Base case: talks continue past April 15 with no announcement, Apr 15 market resolves NO.</span>
+  </div>
+  <div class="fwd-item">
+    <span class="fwd-date">Apr 22 (Wed)</span>
+    <span>Ceasefire expiry. Now partially discounted from Islamabad progress. Danger remains at 42.5% (no-deal scenario). If Islamabad produces a formal ops-end statement before April 22, this date becomes moot. If not: Iran faces binary exit decision — exit (WTI +$15-20, Hormuz crashes) or extend unilaterally (oil floor $93-97, bifurcated conflict confirmed durable).</span>
+  </div>
+  <div class="fwd-item">
+    <span class="fwd-date">May 5 (Tue)</span>
+    <span>RBA rate decision. Energy inflation path depends directly on Iran resolution. Ops-end by April 30 = lower oil → stronger case for May cut. No-deal by April 22 = oil re-escalation → RBA holds or hawkish pause.</span>
+  </div>
+
+  <div class="footer">
+    Generated: 2026-04-12 05:30 AEST &nbsp;·&nbsp; Data: Polymarket (CLOB API) + Kalshi + WebSearch verification &nbsp;·&nbsp; Analyst: Polymarket Macro Analyst Agent &nbsp;·&nbsp; Methodology: 4-step catalyst identification with cross-market validation. [LOW] quality markets resolved via UMA oracle — treat as directional signal, not precision probability.
+  </div>
+
+</div>
+</body>
+</html>
