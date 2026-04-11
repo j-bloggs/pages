@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT — Ceasefire Breakdown Risk + Oil Re-escalation + Governance Signal | 11 Apr 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+  /* Header */
+  .header { border-left: 4px solid #f85149; padding: 20px 24px; background: #161b22; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .header .label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #f85149; margin-bottom: 6px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f0f6fc; line-height: 1.3; margin-bottom: 8px; }
+  .header .meta { font-size: 13px; color: #8b949e; }
+
+  /* Intro box */
+  .intro { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px; font-size: 15px; color: #c9d1d9; }
+
+  /* Section headers */
+  h2 { font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8b949e; margin: 28px 0 14px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+
+  /* Market cards */
+  .market-grid { display: grid; gap: 12px; }
+  .market-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px 20px; }
+  .market-card.alert { border-left: 3px solid #f85149; }
+  .market-card.positive { border-left: 3px solid #3fb950; }
+  .market-card.neutral { border-left: 3px solid #58a6ff; }
+  .market-card.warn { border-left: 3px solid #d29922; }
+  .market-card .mq { font-size: 13px; color: #8b949e; margin-bottom: 6px; }
+  .market-card .mq .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+  .badge.high { background: #1f4620; color: #3fb950; }
+  .badge.med { background: #2d2a1f; color: #d29922; }
+  .badge.low { background: #2d1f1f; color: #f85149; }
+  .market-card .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .market-card .price { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .market-card .delta { font-size: 14px; font-weight: 600; }
+  .delta.down { color: #f85149; }
+  .delta.up { color: #3fb950; }
+  .delta.flat { color: #8b949e; }
+  .market-card .interp { font-size: 13px; color: #8b949e; }
+  .market-card .trigger-info { font-size: 12px; color: #58a6ff; margin-top: 6px; }
+
+  /* Narrative blocks */
+  .narrative { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .narrative h3 { font-size: 15px; font-weight: 700; color: #f0f6fc; margin-bottom: 10px; }
+  .narrative p { font-size: 14px; color: #c9d1d9; margin-bottom: 10px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative ul { padding-left: 20px; font-size: 14px; color: #c9d1d9; }
+  .narrative li { margin-bottom: 6px; }
+
+  /* Ticker table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { border-bottom: 1px solid #30363d; }
+  th { text-align: left; padding: 8px 12px; color: #8b949e; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .up-text { color: #3fb950; font-weight: 600; }
+  .down-text { color: #f85149; font-weight: 600; }
+  .warn-text { color: #d29922; font-weight: 600; }
+
+  /* Cross-market box */
+  .cross-market { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .cross-market h3 { font-size: 14px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+  .cross-market table td:first-child { color: #8b949e; font-weight: 600; width: 140px; }
+
+  /* Forward view */
+  .forward { background: #161b22; border: 1px solid #30363d; border-top: 3px solid #58a6ff; border-radius: 0 0 8px 8px; padding: 20px 24px; }
+  .forward h2 { border: none; padding: 0; margin-top: 0; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 14px; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-date { font-size: 12px; font-weight: 700; color: #58a6ff; min-width: 90px; padding-top: 2px; }
+  .forward-text { font-size: 14px; color: #c9d1d9; }
+
+  /* Actions */
+  .actions { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px 20px; }
+  .actions h2 { border: none; padding: 0; margin: 0 0 10px; }
+  .actions ul { padding-left: 20px; font-size: 13px; color: #c9d1d9; }
+  .actions li { margin-bottom: 5px; }
+
+  /* Footer */
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #21262d; font-size: 12px; color: #484f58; text-align: center; }
+
+  /* Alert banner */
+  .alert-banner { background: #2d1f1f; border: 1px solid #f85149; border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; font-size: 14px; color: #f85149; font-weight: 600; }
+  .alert-banner .sub { font-weight: 400; color: #c9d1d9; margin-top: 4px; font-size: 13px; }
+
+  /* Two-column layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="label">⚠ Alert Report — Prediction Markets Intelligence</div>
+    <h1>Ceasefire Breakdown Risk + Oil Re-escalation + Governance Signal</h1>
+    <div class="meta">Saturday 11 April 2026 · 10:20 AEST &nbsp;|&nbsp; Alert-triggered run &nbsp;|&nbsp; Polymarket + Kalshi</div>
+  </div>
+
+  <!-- Alert banners -->
+  <div class="alert-banner">
+    TWO ALERTS FIRING &nbsp;·&nbsp; Kalshi pardons +51–56pp across entire senior cabinet &nbsp;·&nbsp; Lebanon ceasefire Apr 15 binary: 21% (–15pp/6h)
+    <div class="sub">US-Iran ceasefire confirmed durable (ops-continue: 1.6%) · Israel-Lebanon war is the live escalation channel · WTI $130 down 31pp since April 8 ceasefire but bouncing</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    The US-Iran ceasefire (struck April 8) triggered the biggest oil de-escalation of this monitoring cycle — WTI $130 probability crashed 31pp from 51.5% to 20.5% in three days. But Israel's "Operation Eternal Darkness" (50 jets, 357 killed in Lebanon on April 8) has reopened the escalation channel. The Lebanon ceasefire-by-April-15 binary has fallen from 50% to 21% as Hezbollah rejects talks and Netanyahu continues strikes. The April 30 Lebanon ceasefire at 44.5% is the key structural anchor — it must hold above 35% to prevent trigger cascade. Separately, a WSJ report that Trump promised mass pardons to all senior staff drove a +51–56pp reprice on Kalshi across the entire Iran war decision-making team (Rubio, Vance, Hegseth) — a governance signal with secondary macro implications.
+  </div>
+
+  <!-- Context: What Changed Since Last Report -->
+  <h2>Regime Shift Since April 6 (Last Summary)</h2>
+  <div class="narrative">
+    <h3>US-Iran Ceasefire — Confirmed Durable</h3>
+    <p>The last analyst summary (April 6) described a full war-stagflation regime: WTI $130 at 51.5%, Hormuz closed, military ops confirmed at 99.9%. Since then:</p>
+    <ul>
+      <li><strong>April 8:</strong> US-Iran ceasefire struck. "Military ops continue through April 30" collapsed from ~69% → 1.6% — the ceasefire is priced as 98.4% durable on the US-Iran bilateral track.</li>
+      <li><strong>April 8:</strong> WTI $130 probability crashed from ~51% to 11% overnight. Has since bounced to 20.5% (+9pp/24h) on Lebanon uncertainty.</li>
+      <li><strong>April 8:</strong> Israel launched "Operation Eternal Darkness" — the largest single air campaign in the current war — hours after the US-Iran ceasefire announcement, declaring Lebanon excluded.</li>
+      <li><strong>April 10:</strong> Islamabad nuclear talks (Vance + Witkoff + Kushner vs Iran's Ghalibaf). Outcome unclear. Nuclear deal by April 30 at 19.6%.</li>
+      <li><strong>April 10:</strong> WSJ reported Trump promised mass pardons to all senior White House staff before leaving office in 2029.</li>
+    </ul>
+  </div>
+
+  <!-- Key Moves -->
+  <h2>Key Market Moves</h2>
+  <div class="market-grid">
+
+    <div class="market-card alert">
+      <div class="mq"><span class="badge med">MED</span> Israel-Hezbollah ceasefire by Apr 15, 2026</div>
+      <div class="price-row">
+        <span class="price">21.0%</span>
+        <span class="delta down">−15pp/6h (cumulative)</span>
+      </div>
+      <div class="interp">Near-term talks have failed to gain traction. Created April 10 at 50%, the binary has crashed as Hezbollah rejects direct talks and Israel continues strikes on Lebanon. Washington talks scheduled April 10 produced no framework. April 15 deadline will pass without a deal — base case.</div>
+      <div class="trigger-info">Revival trigger (↑75%): 54pp away — not in range. Monitor for further decline toward 10%.</div>
+    </div>
+
+    <div class="market-card warn">
+      <div class="mq"><span class="badge med">MED</span> Israel-Hezbollah ceasefire by Apr 30, 2026</div>
+      <div class="price-row">
+        <span class="price">44.5%</span>
+        <span class="delta down">−22pp from morning peak (66.6% at 04:55 AEST)</span>
+      </div>
+      <div class="interp">The 04:55 AEST surge to 66.6% (which triggered a near-trigger alert this morning) has fully unwound. At 44.5%, the Lebanon ceasefire is a genuine coin-flip. The morning rally was driven by optimism about Washington talks; the subsequent collapse reflects Hezbollah rejection and continued Israeli strikes.</div>
+      <div class="trigger-info">Collapse (↓25%): 19.5pp away · Hard collapse (↓24%): 20.5pp away · Revival (↑70%): 25.5pp away</div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="mq"><span class="badge high">HIGH</span> WTI Crude Oil hits $130 in April 2026</div>
+      <div class="price-row">
+        <span class="price">20.5%</span>
+        <span class="delta up">+9pp/24h (bouncing from ~11.5% floor)</span>
+      </div>
+      <div class="interp">Down 31pp from the pre-ceasefire level of 51.5% (April 5). The ceasefire was the trigger for this crash. The bounce back to 20.5% reflects Lebanon uncertainty re-introducing oil risk premium. WTI spot likely ~$90–95/bbl (vs ~$112 at last report). For Australian households: meaningful petrol relief ahead IF Lebanon ceasefire holds.</div>
+      <div class="trigger-info">New re-escalation trigger (↑35%): 14.5pp away — oil reversal if Lebanon war reignites</div>
+    </div>
+
+    <div class="market-card warn">
+      <div class="mq"><span class="badge med">MED</span> Strait of Hormuz traffic normalises by Apr 30</div>
+      <div class="price-row">
+        <span class="price">21.5%</span>
+        <span class="delta flat">±0pp (stable)</span>
+      </div>
+      <div class="interp">Hormuz remains blocked — Iran charging $1M+ tolls per vessel, ~5 ships/day vs 129 pre-war average. The nuclear deal (19.6%) is the only mechanism to clear the toll regime. US-Iran bilateral ceasefire does not require Iran to drop tolls. Two-week ceasefire window expires ~April 22; Islamabad talks produced no toll resolution. Hormuz normalization by April 30 looks structurally unlikely.</div>
+      <div class="trigger-info">Floor trigger (↓15%): 6.5pp away — approaching; Normalization (↑50%): 28.5pp away</div>
+    </div>
+
+    <div class="two-col">
+      <div class="market-card positive">
+        <div class="mq"><span class="badge low">LOW</span> Kalshi: Rubio presidential pardon</div>
+        <div class="price-row"><span class="price">57%</span><span class="delta up">+56pp today</span></div>
+        <div class="interp">WSJ April 10 catalyst. LOW-quality Kalshi political market.</div>
+      </div>
+      <div class="market-card positive">
+        <div class="mq"><span class="badge low">LOW</span> Kalshi: Vance presidential pardon</div>
+        <div class="price-row"><span class="price">57%</span><span class="delta up">+56pp today</span></div>
+        <div class="interp">Same catalyst. Vance was lead US-Iran negotiator at Islamabad.</div>
+      </div>
+      <div class="market-card positive">
+        <div class="mq"><span class="badge low">LOW</span> Kalshi: Hegseth presidential pardon</div>
+        <div class="price-row"><span class="price">52%</span><span class="delta up">+51pp today</span></div>
+        <div class="interp">Defense Secretary. Named in Signal chat war planning leak.</div>
+      </div>
+      <div class="market-card positive">
+        <div class="mq"><span class="badge low">LOW</span> Kalshi: Musk, Wiles, Bessent pardons</div>
+        <div class="price-row"><span class="price">52%</span><span class="delta up">+51pp each today</span></div>
+        <div class="interp">DOGE head, Chief of Staff, Treasury Secretary.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Trigger Dashboard -->
+  <h2>Full Trigger Dashboard</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Quality</th><th>Price</th><th>vs Trigger</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Iran ops continue Apr 30</td><td><span class="badge high">HIGH</span></td><td>1.6%</td><td>18.4pp below ↑20% trigger</td><td class="up-text">✓ Ceasefire holding</td></tr>
+      <tr><td>WTI $200 in April</td><td><span class="badge high">HIGH</span></td><td>1.7%</td><td>2.3pp below ↑4% panic trigger</td><td>Dormant</td></tr>
+      <tr><td>Fed April hike</td><td><span class="badge high">HIGH</span></td><td>0.8%</td><td>1.2pp below ↑2% trigger</td><td class="up-text">✓ No hike priced</td></tr>
+      <tr><td>Israel ground op in Iran by Apr 30</td><td><span class="badge med">MED</span></td><td>6.5%</td><td>13.5pp below ↑20% trigger</td><td>Watching</td></tr>
+      <tr><td>Third country military vs Iran by Apr 15</td><td><span class="badge med">MED</span></td><td>6.3%</td><td>43.7pp below ↑50% trigger</td><td>Watching</td></tr>
+      <tr><td>Kharg Island by Apr 30</td><td><span class="badge med">MED</span></td><td>8.5%</td><td>31.5pp below ↑40% trigger</td><td>Watching</td></tr>
+      <tr><td>Trump ends Iran ops by Apr 15</td><td><span class="badge med">MED</span></td><td>11.5%</td><td>20.5pp below ↑32% trigger</td><td>Watching</td></tr>
+      <tr><td>UAE strikes Iran by Apr 30</td><td><span class="badge med">MED</span></td><td>13.5%</td><td>51.5pp below ↑65% trigger</td><td>Watching</td></tr>
+      <tr><td>Gulf State military vs Iran by Apr 30</td><td><span class="badge med">MED</span></td><td>16.5%</td><td>33.5pp below ↑50% trigger</td><td>Watching</td></tr>
+      <tr><td>US-Iran nuclear deal by Apr 30</td><td><span class="badge med">MED</span></td><td>19.6%</td><td>20.4pp below ↑40% trigger</td><td>Watching</td></tr>
+      <tr><td>Hormuz approaches zero (↓15%)</td><td><span class="badge med">MED</span></td><td>21.5%</td><td class="warn-text">6.5pp above trigger — NEAR</td><td class="warn-text">⚠ Near trigger</td></tr>
+      <tr><td>WTI $130 re-escalation (↑35%) [NEW]</td><td><span class="badge high">HIGH</span></td><td>20.5%</td><td>14.5pp below trigger</td><td>Watching</td></tr>
+      <tr><td>US-Iran nuclear deal collapses (↓12%)</td><td><span class="badge med">MED</span></td><td>19.6%</td><td>7.6pp above floor trigger</td><td class="warn-text">⚠ Watch</td></tr>
+      <tr><td>Trump ends Iran ops (↓35% = collapse)</td><td><span class="badge med">MED</span></td><td>41.5%</td><td>6.5pp above ↓35% trigger</td><td class="warn-text">⚠ Watch</td></tr>
+      <tr><td>US Iran 2027 invasion (↓22% = resolved)</td><td><span class="badge med">MED</span></td><td>29.5%</td><td>7.5pp above ↓22% trigger</td><td>Watching</td></tr>
+      <tr><td>Israel-Hezbollah ceasefire Apr 30</td><td><span class="badge med">MED</span></td><td>44.5%</td><td>Collapse (↓25%): 19.5pp · Revival (↑70%): 25.5pp</td><td class="warn-text">⚠ Coin-flip</td></tr>
+      <tr><td>Israel-Hezbollah ceasefire Apr 15</td><td><span class="badge med">MED</span></td><td>21.0%</td><td>Revival (↑75%): 54pp away</td><td class="down-text">↓ Talks failing</td></tr>
+      <tr><td>Trump China visit by May 31</td><td><span class="badge high">HIGH</span></td><td>76.0%</td><td>9pp below ↑85% trigger</td><td>Watching</td></tr>
+      <tr><td>Trump China visit collapse (↓52%)</td><td><span class="badge high">HIGH</span></td><td>76.0%</td><td>24pp above ↓52% trigger</td><td class="up-text">✓ Safe</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Cross-Market Narrative -->
+  <h2>Cross-Market Interpretation</h2>
+
+  <div class="narrative">
+    <h3>Oil: De-Escalation Confirmed, But Fragile</h3>
+    <p>WTI $130 probability has more than halved since the ceasefire. WTI spot likely in the $90–95/bbl range, down from ~$112/bbl at the April 6 report. This is a direct positive for Australian households (petrol relief, WTI proxy for Brent) and a tailwind for QAN/WOW/COL. The ASX energy pair (WDS/STO) has given back ceasefire gains.</p>
+    <p>But oil is bouncing. The Lebanon war is the live escalation channel. Every Israeli strike on Lebanon that fractures the US-Iran ceasefire framework adds back oil risk premium. The new WTI $130 re-escalation trigger at 35% captures this — currently 14.5pp below. Watch: if Lebanon ceasefire by Apr 30 falls toward 35% AND Hormuz approaches 15%, oil snaps back toward $110+ and the re-escalation trigger fires within days.</p>
+    <p><strong>Hormuz is the key variable:</strong> 21.5%, 6.5pp from the 15% collapse trigger. Iran's toll regime ($1M+/vessel) persists unless a nuclear deal is struck (19.6% by April 30). The two-week ceasefire window expires ~April 22. Without nuclear deal progress, Hormuz drifts toward 15% and WDS/STO become a structural multi-month long.</p>
+  </div>
+
+  <div class="narrative">
+    <h3>Presidential Pardons: Governance Premium, Not a Trade (Yet)</h3>
+    <p>The +51–56pp pardon repricing on Kalshi is the largest coordinated Kalshi political move this monitoring cycle. <strong>These are LOW-quality markets</strong> — Kalshi political contracts resolve on subjective criteria and are effectively a vote among Kalshi bettors, not an objective fact. The White House called the original Trump comments "a joke." Do not act on this signal alone.</p>
+    <p>However, the directional read matters. Rubio, Vance, and Hegseth — the Signal chat participants who planned the Iran strikes — are now priced at 52–57% pardon probability. The market is saying: <em>these officials expect they will face legal exposure for actions taken in office.</em> A pre-pardoned cabinet has reduced institutional guardrails. This supports: (1) more aggressive Iran war posture if nuclear talks stall, (2) tariff/sanctions decisions made without DOJ oversight concern, (3) continued DOGE actions by Musk. Long-term governance discount on US institutional quality.</p>
+    <p><strong>For Australian investors</strong>: a less restrained Trump administration with protected officials is marginally negative for AUD/USD (risk premium) and positive for gold (NST/NCM) as a rule-of-law hedge. Not a primary signal, but worth tracking if it persists.</p>
+  </div>
+
+  <!-- Cross-market summary table -->
+  <div class="cross-market">
+    <h3>Asset Class Implications</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td>🛢 WTI (Brent proxy)</td>
+          <td>De-escalated to ~$90–95 from $112. Oil relief trade is live. Re-escalation risk if Lebanon escalates. New 35% trigger monitors reversal.</td>
+        </tr>
+        <tr>
+          <td>⚓ Hormuz</td>
+          <td>Still closed. 6.5pp from 15% trigger. Nuclear deal (19.6%) is the only exit. Two-week ceasefire window expires ~April 22.</td>
+        </tr>
+        <tr>
+          <td>📈 US Fed</td>
+          <td>April hike: 0.8%. June hike: 1.8%. Fed still paralysed (stagflation trap). Oil de-escalation reduces inflation pressure modestly but Hormuz still closed.</td>
+        </tr>
+        <tr>
+          <td>🇦🇺 Australian markets</td>
+          <td>WTI at $90–95 = petrol relief if sustained (vs A$3.13/L at $112). WDS/STO give back ceasefire gains. QAN/WOW/COL relief rally. RBA May 5 decision: oil de-escalation reduces hawkish pressure but Hormuz stalemate keeps it elevated. June 30 excise cut expiry risk reduced (was catastrophic at $112+).</td>
+        </tr>
+        <tr>
+          <td>🇺🇸 US equities</td>
+          <td>Oil de-escalation is positive for S&P (consumer/transport/airlines). Lebanon breakdown risk is the tail. Pardon story = governance discount, not priced in equities yet.</td>
+        </tr>
+        <tr>
+          <td>🥇 Gold</td>
+          <td>Modestly bid: ceasefire = less acute Iran fear, but Hormuz stalemate + governance discount (pardons) + US 2027 invasion at 29.5% = structural support. NST/NCM: hold.</td>
+        </tr>
+        <tr>
+          <td>₿ Crypto</td>
+          <td>De-escalation mildly positive (risk-on). No direct crypto signal this run. Governance discount (pardons, pardoned DOGE head Musk) = regulatory posture unclear.</td>
+        </tr>
+        <tr>
+          <td>🇦🇺 AUD/USD</td>
+          <td>Oil de-escalation = mild AUD positive (risk-on, commodity relief). China visit at 76% (9pp from ↑85% trigger) = iron ore/AUD upside if visit confirmed. Lebanon risk = AUD headwind. Net: range-bound 0.64–0.67 until April 15 talks resolved.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Forward View -->
+  <div class="forward">
+    <h2>Forward View</h2>
+    <div class="forward-item">
+      <div class="forward-date">April 15<br>(Apr 16 AEST)</div>
+      <div class="forward-text"><strong>Lebanon talks AND Iran nuclear framework deadline.</strong> Ceasefire by Apr 15 at 21% — failure is the base case. Watch for Lebanon Apr 30 to test 35% if talks formally collapse. If Hormuz simultaneously dips toward 17–18%, both the floor trigger AND oil re-escalation begin firing within days.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-date">April 22</div>
+      <div class="forward-text"><strong>Two-week US-Iran ceasefire window expires.</strong> If nuclear deal at 19.6% hasn't progressed, Iran has no incentive to maintain ceasefire terms. This is the structural deadline for Hormuz toll resolution. Expect Hormuz to drift toward 15% trigger in the ~April 16–22 window if talks stall.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-date">April 30</div>
+      <div class="forward-text"><strong>Multiple trigger expirations:</strong> Lebanon ceasefire (44.5%), nuclear deal (19.6%), Trump ends Iran ops (41.5%), Kharg Island (8.5%), Gulf State action (16.5%). April 30 is the resolution date for most active markets. Position for volatility in the April 20–30 window.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-date">Oil scenario</div>
+      <div class="forward-text"><strong>Base case ($90–100/bbl):</strong> US-Iran ceasefire holds, Lebanon talks fail but don't escalate, Hormuz toll stalemate persists. WTI $130 stays below 25%. <strong>Bull case ($110–120):</strong> Lebanon war reignites, Iran re-threatens Hormuz, WTI $130 trigger at 35% fires. <strong>Bear case ($75–80):</strong> Nuclear deal by April 30 (19.6%), Hormuz normalization repriced, Lebanon joins ceasefire — low probability but highest impact for WDS/STO.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-date">Pardons</div>
+      <div class="forward-text"><strong>Monitor but do not trade.</strong> LOW-quality Kalshi market. If Rubio/Vance/Hegseth pardons are formally issued (not just promised) and a HIGH-quality source confirms, revisit governance premium in gold and credit spreads. White House response ("a joke") means no near-term catalyst to convert to a trade.</div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <h2>Actions Taken This Run</h2>
+  <div class="actions">
+    <ul>
+      <li><strong>NEW TRIGGER ADDED:</strong> <code>wti-130-reescalation</code> — WTI $130 above 35% (currently 20.5%, 14.5pp away). Oil re-escalation warning for Lebanon war / ceasefire breakdown scenario. Slug: <code>will-wti-reach-130-in-april-2026-388-323-644-662</code></li>
+      <li>No triggers removed — all existing triggers remain appropriately calibrated for post-ceasefire regime.</li>
+      <li>Data quality note: Description cache (Gamma API) shows Lebanon ceasefire Apr 30 at 62.45%; trigger log (CLOB API) shows 44.5% for same slug. CLOB reading treated as authoritative. Investigating if these are genuinely separate markets or API divergence.</li>
+      <li>No watchlist changes — presidential pardon markets tracked via kalshi-watch.sh, no Polymarket equivalents to add.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst · Alert Report · Generated 2026-04-11 10:20 AEST<br>
+    Data: Polymarket (prediction markets) + Kalshi (event contracts) · Oil: WTI used as proxy for Brent in Australian fuel pricing analysis<br>
+    Resolution quality: HIGH = objective/verifiable · MED = criteria with interpretation surface · LOW = subjective/UMA-vote dependent
+  </div>
+
+</div>
+</body>
+</html>
