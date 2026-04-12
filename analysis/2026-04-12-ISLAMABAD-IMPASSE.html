@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Islamabad Day 2 Impasse — Nuclear Deal Collapse Trigger Approaching</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; padding: 20px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  .header { border-bottom: 2px solid #dc2626; padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #f87171; line-height: 1.3; }
+  .header .meta { font-size: 0.8rem; color: #64748b; margin-top: 6px; }
+  .alert-banner { background: linear-gradient(135deg, #1a0a0a, #2d0f0f); border: 1px solid #dc2626; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; }
+  .alert-banner .alert-title { font-size: 0.75rem; font-weight: 700; color: #dc2626; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .alert-banner p { font-size: 0.9rem; color: #fca5a5; }
+  .section { margin-bottom: 24px; }
+  .section h2 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; border-bottom: 1px solid #1e293b; padding-bottom: 6px; margin-bottom: 14px; }
+  .market-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 6px; margin-bottom: 8px; background: #1a1f2e; border-left: 3px solid #334155; }
+  .market-row.bearish { border-left-color: #dc2626; }
+  .market-row.bullish { border-left-color: #16a34a; }
+  .market-row.warning { border-left-color: #f59e0b; }
+  .market-row.neutral { border-left-color: #475569; }
+  .market-price { font-size: 1.2rem; font-weight: 700; min-width: 54px; text-align: right; }
+  .price-red { color: #f87171; }
+  .price-green { color: #4ade80; }
+  .price-yellow { color: #fbbf24; }
+  .price-grey { color: #94a3b8; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 0.88rem; font-weight: 600; color: #cbd5e1; }
+  .market-delta { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+  .market-interp { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+  .quality-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+  .q-high { background: #14532d; color: #86efac; }
+  .q-med { background: #78350f; color: #fde68a; }
+  .q-low { background: #1e1b4b; color: #a5b4fc; }
+  .trigger-alert { background: #1c0a0a; border: 1px solid #b91c1c; border-radius: 6px; padding: 12px 14px; margin-bottom: 12px; }
+  .trigger-alert .ta-label { font-size: 0.7rem; font-weight: 700; color: #ef4444; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .trigger-alert p { font-size: 0.85rem; color: #fca5a5; }
+  .catalyst-box { background: #0f1929; border: 1px solid #1e3a5f; border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+  .catalyst-box h3 { font-size: 0.8rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .catalyst-box ul { padding-left: 16px; }
+  .catalyst-box li { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px; }
+  .catalyst-box li strong { color: #93c5fd; }
+  .step-label { display: inline-block; font-size: 0.65rem; font-weight: 700; background: #1e3a5f; color: #93c5fd; padding: 1px 6px; border-radius: 3px; margin-right: 6px; }
+  .cross-market { background: #111a12; border: 1px solid #166534; border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+  .cross-market h3 { font-size: 0.8rem; font-weight: 700; color: #4ade80; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .cross-market p, .cross-market li { font-size: 0.85rem; color: #d1fae5; margin-bottom: 6px; }
+  .cross-market ul { padding-left: 16px; }
+  .contradiction-box { background: #1a1500; border: 1px solid #92400e; border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+  .contradiction-box h3 { font-size: 0.8rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .contradiction-box p, .contradiction-box li { font-size: 0.85rem; color: #fef3c7; margin-bottom: 6px; }
+  .contradiction-box ul { padding-left: 16px; }
+  .macro-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.82rem; }
+  .macro-table th { text-align: left; padding: 7px 10px; background: #1e293b; color: #94a3b8; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .macro-table td { padding: 8px 10px; border-bottom: 1px solid #1e293b; color: #cbd5e1; vertical-align: top; }
+  .macro-table tr:hover td { background: #1a1f2e; }
+  .outlook-box { background: #0f1a2e; border: 1px solid #1e3a5f; border-radius: 6px; padding: 14px 16px; }
+  .outlook-box h3 { font-size: 0.8rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .outlook-box p { font-size: 0.85rem; color: #bfdbfe; margin-bottom: 8px; }
+  .actions-box { background: #141a1f; border: 1px solid #334155; border-radius: 6px; padding: 12px 14px; margin-top: 16px; }
+  .actions-box h3 { font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .actions-box li { font-size: 0.8rem; color: #94a3b8; margin-bottom: 4px; }
+  .actions-box ul { padding-left: 16px; }
+  .footer { margin-top: 30px; border-top: 1px solid #1e293b; padding-top: 14px; font-size: 0.72rem; color: #475569; }
+  .highlight { color: #f87171; font-weight: 600; }
+  .hl-green { color: #4ade80; font-weight: 600; }
+  .hl-yellow { color: #fbbf24; font-weight: 600; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🚨 Islamabad Day 2 Impasse — No Deal Reached<br>Nuclear Collapse Trigger Now 4.9pp Away</h1>
+    <div class="meta">Alert Report · Sunday 12 April 2026, 11:52 AEST · Analyst: Polymarket Macro Monitor</div>
+  </div>
+
+  <div class="alert-banner">
+    <div class="alert-title">⚡ Alert Trigger</div>
+    <p>The US-Iran nuclear deal has crashed from its morning peak of <strong>44.5%</strong> to <strong>16.9%</strong> — a swing of −27.6pp in under 6 hours. The market is now just <strong>4.9pp above the "deal collapses" trigger threshold of 12%</strong>. Simultaneously, Hormuz normalization has reversed from 41.5% to 25%, fully retracing the mine-clearing surge. Wikipedia confirms: Islamabad talks concluded with <em>no deal reached</em>. This is a new session low for deal probability and represents the complete erasure of this morning's optimism.</p>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <h2>Trigger Status (25 active)</h2>
+
+    <div class="trigger-alert">
+      <div class="ta-label">⚠ Near-Miss: Nuclear Deal Collapse &lt;12% — 4.9pp Away</div>
+      <p><span class="quality-badge q-high">HIGH</span> US-Iran nuclear deal by Apr 30 now at <strong>16.9%</strong>. Collapse trigger fires at &lt;12%. If Islamabad talks formally end without a framework agreement this week, expect further slide toward the trigger. HIGH-quality resolution (publicly announced mutual agreement — not UMA-subjective) means this reading is reliable.</p>
+    </div>
+
+    <div class="market-row bearish">
+      <div class="market-price price-red">16.9%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-high">HIGH</span> US-Iran nuclear deal by Apr 30</div>
+        <div class="market-delta">Fell from 44.5% (06:30 peak) → 31.1% (07:15) → 16.9% (11:45) · −27.6pp from peak · 4.9pp above collapse trigger (&lt;12%)</div>
+        <div class="market-interp">Islamabad talks concluded Day 2 with no deal. Structural impasse on all four Iranian non-negotiable conditions (see catalyst).</div>
+      </div>
+    </div>
+
+    <div class="market-row bearish">
+      <div class="market-price price-red">25.0%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-med">MED</span> Hormuz traffic normalizes by Apr 30</div>
+        <div class="market-delta">Fell from 41.5% (08:45 mine-clearing peak) → 25.0% · −16.5pp in 3h · −10.0pp/6h · 25.0pp below 50% trigger · 10.0pp above floor trigger (&lt;15%)</div>
+        <div class="market-interp">Iran claimed a US vessel turned back after warning. Blockade remains "largely intact." 230 loaded oil tankers stranded inside Gulf. IMF Portwatch 60-ship threshold further away than the 08:45 surge implied.</div>
+      </div>
+    </div>
+
+    <div class="market-row bearish">
+      <div class="market-price price-red">12.5%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-low">LOW</span> Trump ends Iran ops by Apr 15</div>
+        <div class="market-delta">Fell from 24.5% (06:30 Islamabad euphoria) → 12.5% · −12.0pp since morning · 19.5pp below 32% trigger</div>
+        <div class="market-interp">Market pricing near-zero chance of Trump declaring formal ops-end in the next 3 days. Confirms deal timeline has slipped beyond April 15.</div>
+      </div>
+    </div>
+
+    <div class="market-row warning">
+      <div class="market-price price-yellow">33.0%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-low">LOW</span> US Iran invasion before 2027</div>
+        <div class="market-delta">Rose from 27.5% → 33.0% · +5.5pp · 11.0pp above "conflict resolved" trigger (&lt;22%)</div>
+        <div class="market-interp">Rising — wrong direction for resolution. Long-term conflict risk pricing increasing as deal prospects deteriorate. Approaching 40% would be an escalation signal; watch this closely alongside April 22 expiry.</div>
+      </div>
+    </div>
+
+    <div class="market-row neutral">
+      <div class="market-price price-grey">0.4%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-low">LOW</span> Iran ops continue through Apr 30 (&gt;20% breakdown)</div>
+        <div class="market-delta">Stable at 0.4% · No change · 19.7pp below 20% breakdown trigger</div>
+        <div class="market-interp">Critical ground-truth: bilateral US-Iran ceasefire remains intact despite deal collapse. This is the key distinction — deal failing ≠ ceasefire failing. Yet.</div>
+      </div>
+    </div>
+
+    <div class="market-row neutral">
+      <div class="market-price price-grey">35.4%</div>
+      <div class="market-info">
+        <div class="market-label"><span class="quality-badge q-low">LOW</span> Israel-Hezbollah ceasefire by Apr 30</div>
+        <div class="market-delta">−0.9pp · Stable · 34.5pp below revival trigger (70%) · 23.4pp above collapse trigger (&lt;12%)</div>
+        <div class="market-interp">Quiet session for Lebanon. April 15 talks remain structurally dead (14.0%). The Lebanon scope dispute is one of Iran's four non-negotiable conditions — its inclusion means deal failure is also Lebanon failure.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATALYST IDENTIFICATION -->
+  <div class="section">
+    <h2>Catalyst Identification (4-Step)</h2>
+
+    <div class="catalyst-box">
+      <h3>Step A — What WOULD qualify</h3>
+      <ul>
+        <li><strong>Nuclear deal (&lt;12% collapse):</strong> <span class="quality-badge q-high">HIGH</span> quality. Resolves on any publicly announced mutual agreement between US and Iran on nuclear research/weapons development by April 30. No UMA subjectivity — either announced or not. The 16.9% reading means the market gives ~83% probability of no deal.</li>
+        <li><strong>Hormuz normalization:</strong> <span class="quality-badge q-med">MED</span> quality. Resolves on IMF Portwatch 7-day moving average of transit calls ≥ 60 for any date by April 30. Mechanical threshold but "normal" has some UMA interpretation surface.</li>
+      </ul>
+    </div>
+
+    <div class="catalyst-box">
+      <h3>Step B — When did the move happen?</h3>
+      <ul>
+        <li><span class="step-label">Nuclear deal</span> Peak 44.5% at 06:30 AEST (Islamabad Day 1 euphoria + Reuters frozen assets claim). Reversion 31.1% by 07:15 (White House denial). Current crash 16.9% by 11:45 — the Day 2 Sunday session produced no deal and the market repriced across the Asia morning.</li>
+        <li><span class="step-label">Hormuz</span> Peaked 41.5% at 08:45 AEST on CENTCOM mine-clearing announcement + first supertankers transiting April 11. Reversed to 25.0% by 11:45 — a 3-hour, 16.5pp collapse that followed Iran's claim a US vessel was warned away and turned back.</li>
+      </ul>
+    </div>
+
+    <div class="catalyst-box">
+      <h3>Step C — Specific real-world catalyst confirmed</h3>
+      <ul>
+        <li><strong>Islamabad talks Day 2 outcome:</strong> Wikipedia confirms "No deal reached between Iran and the United States." Sunday session entered expert-level committees (economic, military, legal, nuclear) but concluded without framework agreement. The talks ran April 11–12 2026.</li>
+        <li><strong>Iran's four non-negotiable conditions</strong> — all structurally incompatible with US/Israel positions:
+          <ol style="margin-left:16px; margin-top:4px;">
+            <li style="margin-bottom:4px;"><strong>Full sovereignty over the Strait of Hormuz</strong> — directly conflicts with US demand for unrestricted passage</li>
+            <li style="margin-bottom:4px;"><strong>Complete war reparations by the "aggressor"</strong> — US is the aggressor in Iran's framing; politically impossible for Trump</li>
+            <li style="margin-bottom:4px;"><strong>Unconditional release of blocked assets</strong> — White House already denied the "$6B Qatar" claim; sequencing dispute</li>
+            <li style="margin-bottom:4px;"><strong>Durable ceasefire across entire West-Asia Region</strong> (= Lebanon included) — Vance/Trump explicitly insist Lebanon excluded from ceasefire scope</li>
+          </ol>
+        </li>
+        <li><strong>Hormuz reversal catalyst:</strong> Iran claimed a US vessel en route to the Strait turned back after an Iranian warning. Iran also threatened to strike any warship passing without authorisation, issuing a 30-minute countdown (later partially walked back by a state TV official). CNBC confirmed: Hormuz blockade "largely intact" as of April 12. 230 loaded oil tankers stranded inside Gulf awaiting transit.</li>
+        <li><strong>Uranium enrichment impasse:</strong> White House claimed Iran would surrender enriched uranium stockpile. Iran has not officially accepted this. FM Araghchi previously stated uranium enrichment is a "non-negotiable red line."</li>
+      </ul>
+    </div>
+
+    <div class="cross-market">
+      <h3>Step D — Cross-market validation (no contradictions found)</h3>
+      <ul>
+        <li><strong>WTI crude ~$95–97/bbl:</strong> Down ~12% on the week from ~$108. Stable — not spiking. This tells us the market is NOT pricing ceasefire collapse (which would push WTI toward $115+). It IS pricing "managed Hormuz" at reduced capacity — consistent with the 230 stranded tankers and toll regime. <em>WTI stability validates the nuclear deal crash as a "deal timing" reprice, not a "war resuming" reprice.</em></li>
+        <li><strong>Ops-continue (ceasefire durability) at 0.4%:</strong> Bilaterally intact. The US-Iran shooting war has not resumed. This critical ground truth means the nuclear deal crash is a diplomatic failure, not military re-escalation.</li>
+        <li><strong>2027 invasion rising to 33% (+5.5pp):</strong> The market is saying: "we believe the ceasefire will hold short-term but the structural conflict will persist longer than expected." This is consistent with no-deal outcome — the bilateral pause is intact but the underlying conflict is unresolved.</li>
+        <li><strong>All consistent interpretation:</strong> Islamabad talks failed on Day 2 → diplomatic track dead → deal by April 30 repriced from 44.5% to 16.9% → Hormuz normalization further away (Iran retains gate authority) → long-term conflict risk rising → but ceasefire itself holding at 0.4%. No contradiction in the complex.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Implications by Asset Class</h2>
+
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Current Read</th>
+          <th>Implication</th>
+          <th>Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Oil (WTI proxy for Brent)</strong></td>
+          <td>~$95–97/bbl, stable</td>
+          <td>Structural floor intact. "Managed Hormuz" toll regime persists. Deal failure ≠ $115+ re-escalation. New base case: $90–100 range through April 22 expiry. If Iran exits ceasefire April 22: $110–120 spike risk.</td>
+          <td>🟡 Range-bound $90–100</td>
+        </tr>
+        <tr>
+          <td><strong>Australian petrol</strong></td>
+          <td>~A$2.05–2.15/L</td>
+          <td>Brent (proxy WTI) structural floor $90–95 means no relief at the bowser before June excise cut decision. If Iran exits April 22: A$2.35–2.45/L by late April. Excise cut expiry June 30 remains the domestic risk lever.</td>
+          <td>🔴 No relief before June</td>
+        </tr>
+        <tr>
+          <td><strong>US Equities (NYSE)</strong></td>
+          <td>Closed Sunday</td>
+          <td>Monday open: deal failure is broadly negative risk sentiment, but not a shock — markets have been pricing sub-50% deal probability all week. Oil stability and intact ceasefire limit downside. Watch S&amp;P 500 futures Sunday night AEST.</td>
+          <td>🟡 Mild negative at open</td>
+        </tr>
+        <tr>
+          <td><strong>ASX (Monday 13 April)</strong></td>
+          <td>Opens 10:00 AEST Mon</td>
+          <td>WDS/STO: elevated oil floor structurally supportive — deal failure means no voluntary Hormuz opening soon. QAN: jet fuel elevated, mild headwind. Materials: China visit (77.5%) remains the dominant driver — unaffected by Iran. Gold (NST/NCM): mild bid on geopolitical uncertainty.</td>
+          <td>🟡 Mixed; WDS/STO constructive</td>
+        </tr>
+        <tr>
+          <td><strong>AUD/USD</strong></td>
+          <td>~0.68 watch</td>
+          <td>Deal collapse at 16.9% = modest risk-off; ceasefire intact = no crash. Net: AUD/USD stable unless April 22 Iran ceasefire expiry produces an exit. Iran exit = 0.65 test; ceasefire extended = 0.69–0.70 drift.</td>
+          <td>🟡 Stable; April 22 binary</td>
+        </tr>
+        <tr>
+          <td><strong>US Treasuries</strong></td>
+          <td>Low vol expected</td>
+          <td>US Fed April hike at 0.7% (unchanged) — oil-driven inflation insufficient to force US Fed's hand. Stable oil + intact ceasefire = no flight-to-quality spike. June hike at 2.8% (unchanged). Rates narrative unchanged.</td>
+          <td>🟢 No signal; rates stable</td>
+        </tr>
+        <tr>
+          <td><strong>Crypto</strong></td>
+          <td>No direct signal</td>
+          <td>Iran toll regime collects Bitcoin and CNY payments — structural crypto bid from this channel continues as long as Hormuz stays managed. Deal collapse = toll regime persists = this unusual crypto demand driver remains active.</td>
+          <td>🟢 Marginal positive (toll demand)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- APRIL 22 BINARY -->
+  <div class="section">
+    <h2>April 22 — The Only Remaining Macro Pivot</h2>
+    <div class="outlook-box">
+      <h3>Forward View</h3>
+      <p><strong>The Islamabad failure shifts all attention to April 22</strong>, when the 2-week US-Iran ceasefire pause expires. This is now the sole remaining macro pivot for the complex. Three scenarios:</p>
+      <p><strong>Scenario A — Iran extends unilaterally (base case, ~55%):</strong> Iran accepts ongoing Lebanon bombing as outside the bilateral scope, quietly extends the ceasefire without a formal deal. WTI settles $88–95 range; Hormuz stays "managed" toll regime; nuclear deal falls to sub-10% by April 30 (effectively dead for this window); 2027 invasion risk rises toward 38%. Macro read: prolonged managed conflict, no relief, no shock.</p>
+      <p><strong>Scenario B — Iran exits ceasefire at April 22 (~25%):</strong> Iran invokes Lebanon clause, declares ceasefire void, resumes IRGC posture. Hormuz floor trigger (&lt;15%) fires within 1 session. WTI spikes $110–120 within 48h. Nuclear deal dead. Ops-continue trigger (20%) approaches. ASX opens Monday April 27 with WDS/STO +5–8%, QAN −3–4%, AUD/USD 0.64–0.66. This is the short-term oil long catalyst.</p>
+      <p><strong>Scenario C — Late breakthrough via third party (~20%):</strong> Pakistan, Qatar, or Oman brokered framework allows both sides to claim partial wins. Nuclear deal bounces toward 25–30% before April 22. Hormuz partial-normalization resumes. This requires Iran to accept Lebanon exclusion OR Israel to agree to a Lebanon pause — currently both sides refuse.</p>
+      <p><strong>Watch for:</strong> Any Iran official statement on ceasefire extension or withdrawal. Araghchi has stated Iran "could abandon the ceasefire if Israeli strikes continue." Current rate of Lebanese casualties (~10+ killed/day) sets a countdown clock that makes Scenario B increasingly probable with each passing day.</p>
+    </div>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="section">
+    <h2>Actions Taken</h2>
+    <div class="actions-box">
+      <h3>Trigger Changes</h3>
+      <ul>
+        <li><strong>Nuclear deal revival (iran-nuclear-deal-apr30):</strong> Threshold kept at 40%. Rationale: 40% still represents above-coin-flip deal probability — the correct "real momentum" signal. With current 16.9%, any recovery below 40% is just noise correction, not a genuine deal signal.</li>
+        <li><strong>Nuclear deal collapse (iran-nuclear-deal-floor):</strong> Threshold kept at 12%. Now 4.9pp away. No change needed — the trigger is correctly calibrated. HIGH-quality market means this reading is reliable.</li>
+        <li><strong>NEW TRIGGER ADDED: Iran 2027 invasion escalation (&gt;40%):</strong> Added companion trigger for the 2027 invasion rising ABOVE 40% (= escalation signal, as opposed to existing &lt;22% collapse/resolution signal). Currently 33.0% (+5.5pp today), 7pp from firing. Represents the market pricing long-term conflict as more-likely-than-not by year-end.</li>
+        <li><strong>Nuclear deal revival reason updated:</strong> Noted the 44.5% → 16.9% crash and Islamabad Day 2 no-deal outcome.</li>
+        <li><strong>Hormuz triggers:</strong> No changes. Floor (&lt;15%) at 10.0pp proximity is appropriate. Normalization (50%) at 25pp distance correctly reflects deal-dependent threshold.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Generated: Sunday 12 April 2026, 11:52 AEST | Polymarket Macro Monitor | Alert-triggered run</p>
+    <p style="margin-top:4px;">Sources: Wikipedia (Islamabad Talks, 2026 Strait of Hormuz crisis), CNBC, Al Jazeera, CBS News, Stars and Stripes, Polymarket live prices, Kalshi live prices</p>
+    <p style="margin-top:4px; color:#374151;">Note: WTI used as proxy for Brent crude in Australian fuel price estimates. Brent-WTI spread typically $3–6/bbl; adjust Australian petrol estimates accordingly.</p>
+  </div>
+
+</div>
+</body>
+</html>
