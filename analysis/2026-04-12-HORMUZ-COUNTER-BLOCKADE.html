@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Hormuz Counter-Blockade — 2026-04-12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a0a0a 0%, #2d0f0f 100%); border-bottom: 3px solid #d73a49; padding: 32px 40px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #ff6b6b; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .header .timestamp { color: #8b949e; font-size: 14px; }
+  .header .subtitle { color: #cdd9e5; font-size: 15px; margin-top: 8px; }
+  .alert-banner { background: #2d0f0f; border-left: 4px solid #d73a49; padding: 14px 20px; margin: 24px 40px; border-radius: 4px; }
+  .alert-banner p { color: #ff9090; font-size: 14px; font-weight: 600; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; }
+  h2 { font-size: 17px; font-weight: 700; color: #79c0ff; margin: 28px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+  h3 { font-size: 15px; font-weight: 600; color: #e6edf3; margin: 18px 0 8px; }
+  p { font-size: 14px; color: #cdd9e5; margin-bottom: 10px; }
+  .trigger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .trigger-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+  .trigger-card.fired { border-color: #d73a49; background: #1a0d0f; }
+  .trigger-card.past { border-color: #e3b341; background: #1a1400; }
+  .trigger-card.watch { border-color: #388bfd; background: #0d1a2a; }
+  .trigger-card .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .trigger-card.fired .label { color: #ff6b6b; }
+  .trigger-card.past .label { color: #e3b341; }
+  .trigger-card.watch .label { color: #58a6ff; }
+  .trigger-card .price { font-size: 24px; font-weight: 700; color: #e6edf3; }
+  .trigger-card .delta { font-size: 13px; margin-top: 2px; }
+  .trigger-card.fired .delta { color: #ff6b6b; }
+  .trigger-card.past .delta { color: #e3b341; }
+  .trigger-card.watch .delta { color: #8b949e; }
+  .trigger-card .note { font-size: 11px; color: #8b949e; margin-top: 6px; }
+  .quality-tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; margin-right: 4px; }
+  .quality-high { background: #0d4429; color: #3fb950; }
+  .quality-med { background: #2d2000; color: #e3b341; }
+  .quality-low { background: #2a1f00; color: #d29922; }
+  .catalyst-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .catalyst-box blockquote { border-left: 3px solid #e3b341; padding-left: 14px; margin: 12px 0; font-style: italic; color: #f0d060; font-size: 13px; }
+  .cross-market { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .cross-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; }
+  .cross-card .asset { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #58a6ff; margin-bottom: 4px; }
+  .cross-card .value { font-size: 16px; font-weight: 700; color: #e6edf3; }
+  .cross-card .interp { font-size: 12px; color: #8b949e; margin-top: 4px; }
+  .aus-box { background: #0c1a26; border: 1px solid #1f6feb; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .aus-box h3 { color: #79c0ff; margin-top: 0; }
+  .aus-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #21262d; }
+  .aus-item:last-child { border-bottom: none; }
+  .aus-item .sector { font-size: 13px; font-weight: 600; color: #cdd9e5; }
+  .aus-item .impact { font-size: 13px; color: #8b949e; text-align: right; max-width: 55%; }
+  .aus-item .impact.bearish { color: #ff6b6b; }
+  .aus-item .impact.bullish { color: #3fb950; }
+  .aus-item .impact.neutral { color: #e3b341; }
+  .steps-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 16px 0; counter-reset: step; }
+  .step { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #21262d; }
+  .step:last-child { border-bottom: none; }
+  .step-num { background: #1f6feb; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-content { font-size: 13px; color: #cdd9e5; }
+  .step-content strong { color: #e6edf3; }
+  .forward-box { background: #0d1f0d; border: 1px solid #238636; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .forward-box h3 { color: #3fb950; margin-top: 0; }
+  .forward-item { padding: 8px 0; border-bottom: 1px solid #1b3a1b; font-size: 13px; color: #cdd9e5; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-item strong { color: #3fb950; }
+  .actions-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .action-item { padding: 6px 0; font-size: 13px; color: #cdd9e5; border-bottom: 1px solid #21262d; }
+  .action-item:last-child { border-bottom: none; }
+  .action-item strong { color: #58a6ff; }
+  .contradiction-box { background: #1a1400; border: 1px solid #e3b341; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .contradiction-box h3 { color: #e3b341; margin-top: 0; }
+  .footer { border-top: 1px solid #21262d; padding: 20px 40px; margin-top: 40px; color: #6e7681; font-size: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚨 HORMUZ COUNTER-BLOCKADE: TRUMP ANNOUNCES US NAVAL INTERDICTION</h1>
+  <div class="timestamp">Sunday 2026-04-12 23:20 AEST | Alert-triggered run</div>
+  <div class="subtitle">Trump Truth Social post post-Islamabad: US Navy to blockade all ships entering/leaving Hormuz and interdict toll-payers. Dual blockade confirmed. WTI $96.57 on Sunday thin trading — Monday gap-up expected.</div>
+</div>
+
+<div class="alert-banner">
+  <p>🔴 HORMUZ FLOOR TRIGGER FIRED: 14.5% (threshold &lt;15%) | 🟡 IRAN INVASION 2027 ABOVE 40% TRIGGER: 46.5% (+6pp in 14 min) | 🟠 NUCLEAR DEAL 1.7pp FROM COLLAPSE TRIGGER</p>
+</div>
+
+<div class="container">
+
+  <h2>Trigger Status</h2>
+
+  <div class="trigger-grid">
+    <div class="trigger-card fired">
+      <div class="label"><span class="quality-tag quality-med">MED</span>Hormuz Normalization by Apr 30 — FIRED</div>
+      <div class="price">14.5%</div>
+      <div class="delta">−3.0pp this run | threshold &lt;15% CROSSED</div>
+      <div class="note">Dual blockade (Iran toll regime + US Navy counter-blockade). Market now 5.5pp below trigger. Reset to &lt;10% threshold.</div>
+    </div>
+    <div class="trigger-card past">
+      <div class="label"><span class="quality-tag quality-low">LOW</span>Iran Invasion 2027 Escalation &gt;40% — PAST</div>
+      <div class="price">46.5%</div>
+      <div class="delta">+6.0pp in 14-min window | 6.5pp above threshold</div>
+      <div class="note">Trump counter-blockade = direct naval confrontation risk. Threshold raised to 55%.</div>
+    </div>
+    <div class="trigger-card watch">
+      <div class="label"><span class="quality-tag quality-high">HIGH</span>Nuclear Deal Collapse &lt;12% — NEAR-FIRE</div>
+      <div class="price">13.7%</div>
+      <div class="delta">−0.8pp | only 1.7pp above 12% trigger</div>
+      <div class="note">HIGH-quality market. Structural negotiations dead post-Islamabad. Any deterioration fires.</div>
+    </div>
+    <div class="trigger-card watch">
+      <div class="label"><span class="quality-tag quality-low">LOW</span>Trump Ends Iran Ops by Apr 30</div>
+      <div class="price">22.5%</div>
+      <div class="delta">−5.0pp this run | 7.5pp above ↓15% trigger</div>
+      <div class="note">Counter-blockade is the opposite of ops-end. Continued decline expected.</div>
+    </div>
+  </div>
+
+  <h2>The Catalyst — 4-Step Identification</h2>
+
+  <div class="steps-box">
+    <div class="step">
+      <div class="step-num">A</div>
+      <div class="step-content">
+        <strong>What qualifies:</strong> [MED] Hormuz normalization resolves YES if Strait of Hormuz traffic returns to normal levels by April 30. [LOW] Iran invasion 2027 resolves YES on consensus of credible reporting that the US has launched a full invasion of Iran.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">B</div>
+      <div class="step-content">
+        <strong>When it happened:</strong> Hormuz dropped 17.5% → 14.5% (−3.0pp) in a single 14-minute collection window between 23:01 and 23:15 AEST. Invasion 2027 moved 40.5% → 46.5% (+6.0pp) in the same window. The 1h/1d velocity on the invasion market was near-zero in prior collections; this is a discrete event repricing.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">C</div>
+      <div class="step-content">
+        <strong>Catalyst confirmed:</strong> Trump published a Truth Social post on Sunday April 12 (US Sunday morning) following the Islamabad talks collapse. Key text: <em>"Effective immediately, the United States Navy, the Finest in the World, will begin the process of BLOCKADING any and all Ships trying to enter, or leave, the Strait of Hormuz"</em> and <em>"seek and interdict every vessel in International Waters that has paid a toll to Iran"</em> and <em>"Any Iranian who fires at us, or at peaceful vessels, will be BLOWN TO HELL!"</em> — (Jerusalem Post, Bloomberg, CNBC). Turkish media also reported Iranian FM Araghchi and US Special Envoy Witkoff nearly came to blows in final Islamabad session.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">D</div>
+      <div class="step-content">
+        <strong>Cross-market validation:</strong> WTI at $96.57 (Sunday thin, range $95.51–$100.42) does NOT contradict — Sunday oil markets are illiquid and haven't priced the announcement. Military action ends Apr 30 at 97.5% shows market still treats the original AIR WAR as over; the naval counter-blockade is a new dimension outside that market's resolution criteria. Iran ops-continue at 1.3% confirms the ceasefire is formally intact — but the dual blockade renders the ceasefire economically irrelevant. Prediction markets are <strong>leading</strong> thin Sunday oil futures; Monday open is the true test.
+      </div>
+    </div>
+  </div>
+
+  <h2>The Dual Blockade — What Changed</h2>
+
+  <div class="catalyst-box">
+    <h3>Before April 12 (post-ceasefire regime)</h3>
+    <p>Iran was running a unilateral toll blockade — $1M+ per ship, government approvals required, ~5 ships/day vs 100+ normal. 230 tankers stranded inside Gulf. The US was in "open-sea mine clearing" mode, transiting destroyers as a show of force without formally interdicting commercial traffic. This was a managed standoff: Iran controlling the gate, US signaling displeasure.</p>
+
+    <h3 style="margin-top:14px;">After April 12 (dual blockade)</h3>
+    <p>Trump's announcement inverts the dynamic. The US Navy will now interdict <em>any ship</em> that paid Iranian tolls — meaning ships seeking to USE Iran's toll passage are now also subject to US seizure. This creates a complete chokepoint from both ends:</p>
+    <blockquote>Any ship trying to enter or leave Hormuz is subject to interdiction by either the IRGC (toll regime) or the US Navy (counter-blockade). The strait is functionally shut until one side backs down.</blockquote>
+    <p>The IRGC had already responded on April 11: "This is the last warning" — launched a drone toward US destroyers USS Frank E. Peterson and USS Michael Murphy, which reportedly turned back. The counter-blockade announcement raises the stakes to a direct shooting-war trigger.</p>
+  </div>
+
+  <h2>Cross-Market Check</h2>
+
+  <div class="cross-market">
+    <div class="cross-card">
+      <div class="asset">WTI Crude (proxy for Brent)</div>
+      <div class="value">$96.57/bbl</div>
+      <div class="interp">Sunday thin trading, range $95.51–$100.42. Pre-announcement baseline. April 10 high was $115. Monday gap-up expected — range $100–$115 depending on IRGC overnight response.</div>
+    </div>
+    <div class="cross-card">
+      <div class="asset">Iran Ops-Continue</div>
+      <div class="value">1.3% (+0.3pp)</div>
+      <div class="interp">Air war ceasefire formally intact. Naval dimension is outside this market's resolution criteria. Does NOT contradict — confirms ceasefire held, but ceasefire now economically meaningless.</div>
+    </div>
+    <div class="cross-card">
+      <div class="asset">Military Action Ends Apr 30</div>
+      <div class="value">97.5% (−1.9pp/24h)</div>
+      <div class="interp">Still very high. Market interpreting "military action" as the original air war. Naval interdiction likely outside resolution scope. Declining slowly — watch for acceleration if shooting starts.</div>
+    </div>
+    <div class="cross-card">
+      <div class="asset">Ceasefire Durability (ops-continue &gt;20%)</div>
+      <div class="value">1.3%</div>
+      <div class="interp">Bilateral ceasefire still priced as durable. The shooting war has not resumed. Naval blockade is a new escalation layer that sits above the formal ceasefire framework.</div>
+    </div>
+    <div class="cross-card">
+      <div class="asset">Nuclear Deal Apr 30</div>
+      <div class="value">13.7% (−0.8pp)</div>
+      <div class="interp"><span class="quality-tag quality-high">HIGH</span> quality signal. Continuing drift toward 12% collapse trigger (1.7pp away). Post-Islamabad structural dead with no new diplomatic channel.</div>
+    </div>
+    <div class="cross-card">
+      <div class="asset">Kharg Island Falls</div>
+      <div class="value">13.5% (+1.0pp)</div>
+      <div class="interp">Slight uptick on counter-blockade sentiment. Still 26.5pp from trigger. Not a primary signal — background noise for now.</div>
+    </div>
+  </div>
+
+  <div class="contradiction-box">
+    <h3>⚠️ Critical Contradiction Resolved</h3>
+    <p>At 23:01 AEST, the invasion 2027 trigger fire was dismissed as "thin order-book spike, cross-market contradiction" because the market jumped 36.5%→40.5% with no new catalyst and no cross-market validation. The 23:15 run showed +6.0pp more (40.5%→46.5%) WITH a confirmed catalyst (Trump Truth Social). Combined with Hormuz firing simultaneously, this is confirmed genuine repricing — not a thin market spike. The 23:01 dismissal was correct given available information; the 23:15 alert is valid.</p>
+  </div>
+
+  <h2>Australian Market Implications</h2>
+
+  <div class="aus-box">
+    <h3>🇦🇺 ASX Monday 13 April — Sector by Sector</h3>
+    <div class="aus-item">
+      <div class="sector">WDS / STO (Oil producers)</div>
+      <div class="impact bullish">STRONGLY BULLISH. WTI gap-up Monday from $96 toward $100–115. Dual blockade is a multi-week supply shock with no diplomatic resolution mechanism. Structural long thesis revived after Islamabad optimism faded.</div>
+    </div>
+    <div class="aus-item">
+      <div class="sector">QAN (Qantas)</div>
+      <div class="impact bearish">BEARISH. Jet fuel locked at $97+ WTI base with counter-blockade premium. No relief from Lebanon or Iran de-escalation. QAN hedges limit immediate impact, but $115 WTI erodes hedged margins rapidly.</div>
+    </div>
+    <div class="aus-item">
+      <div class="sector">AUD/USD</div>
+      <div class="impact bearish">RISK-OFF PRESSURE. Dual blockade + US-Iran naval confrontation = global growth shock repricing. AUD/USD tests 0.63–0.65 on Sunday night liquidity; Monday open likely lower. Iron ore demand signal (China slowdown) compounds.</div>
+    </div>
+    <div class="aus-item">
+      <div class="sector">NST / NCM (Gold miners)</div>
+      <div class="impact bullish">BULLISH. Risk-off + geopolitical escalation + USD strength against AUD = gold price tailwind. Gold miners are the hedged play if WTI surges AND AUD falls.</div>
+    </div>
+    <div class="aus-item">
+      <div class="sector">Australian petrol prices</div>
+      <div class="impact bearish">BEARISH for consumers. Current A$2.05–2.15/L under toll regime. WTI $110–120 (counter-blockade scenario) → A$2.35–2.50/L. June 30 fuel excise expiry (+A$0.25–0.30/L automatic shock) now coincides with structural oil spike. Combined shock: potential A$2.65–2.80/L without policy intervention — a 3-year high for Australian pump prices.</div>
+    </div>
+    <div class="aus-item">
+      <div class="sector">RBA May 5 Meeting</div>
+      <div class="impact neutral">WATCH. Dual blockade → sustained WTI $110+ → Australian headline CPI pressure → RBA faces stagflationary trade-off. Hike probability currently low but oil shock at $110+ with June excise removal = non-trivial inflation scenario. RBA may be forced to choose between cutting (growth) and holding (inflation).</div>
+    </div>
+  </div>
+
+  <h2>The April 22 Binary — Status Update</h2>
+
+  <div class="catalyst-box">
+    <p>Prior analysis framed April 22 (US-Iran ceasefire expiry) as the macro binary: Iran extends vs. Iran exits. The Trump counter-blockade has partially pre-empted this binary. The relevant question is no longer "will Iran exit the ceasefire?" — Iran doesn't need to formally exit to trigger a conflict. The question is now:</p>
+    <p><strong>"Will the IRGC fire on US Navy vessels conducting interdiction operations before April 22?"</strong></p>
+    <p>If YES (shooting incident): Iran ceasefire collapses, US escalates, invasion 2027 surges toward 60-70%, WTI $130+. April 22 expiry becomes irrelevant — conflict has resumed under naval dimension.</p>
+    <p>If NO (Iran backs down): Trump counter-blockade proves to be brinksmanship. Hormuz toll regime continues. WTI settles back to $90–95. The April 22 expiry re-emerges as the next decision point.</p>
+    <p>History of this conflict: Trump has made escalatory statements and then walked them back (the ceasefire itself was announced hours before a deadline). <strong>Low credibility discount applies to the counter-blockade announcement</strong> — but the IRGC response and the 46.5% invasion market are treating it seriously.</p>
+  </div>
+
+  <h2>Forward View</h2>
+
+  <div class="forward-box">
+    <div class="forward-item">
+      <strong>Immediate (Sunday night / Monday morning AEST):</strong> Watch WTI gap-up at Asia Pacific open. A move above $105 confirms counter-blockade being priced; below $100 suggests the market treats this as Trump brinksmanship. IRGC official response expected overnight (Tehran is 6.5h behind AEST; Sunday noon ET = Sunday 10:30pm AEST).
+    </div>
+    <div class="forward-item">
+      <strong>24–48 hours:</strong> Any US Navy ship boarding or IRGC interception of a vessel in Hormuz = macro-critical event. Watch for nuclear deal to cross 12% (1.7pp away) — that is the HIGH-quality confirmation that diplomatic channel is structurally dead.
+    </div>
+    <div class="forward-item">
+      <strong>April 15 (Thursday AEST):</strong> Washington talks window (Lebanon track) closes without outcome. April 15 market pricing at 5% (near zero). Next diplomatic event is April 22 expiry — but the naval dimension has now made April 22 a secondary concern.
+    </div>
+    <div class="forward-item">
+      <strong>April 22 (Wednesday AEST):</strong> If no IRGC-US shooting incident before then, April 22 ceasefire expiry remains the next hard binary. Iran must now decide whether to extend knowing the US is counter-blockading. Extension = accepting US naval presence as permanent; non-extension = ceasefire collapse. Both options disadvantageous for Iran.
+    </div>
+    <div class="forward-item">
+      <strong>June 30 (excise deadline):</strong> If WTI remains $100+ through April (likely under dual blockade), Australian petrol prices will be at A$2.30–2.50/L when the fuel excise half-rate expires. The automatic +A$0.25–0.30/L shock would push retail prices toward A$2.60–2.80/L — peak crisis level without further government intervention.
+    </div>
+  </div>
+
+  <h2>Actions Taken</h2>
+
+  <div class="actions-box">
+    <div class="action-item"><strong>Trigger updated:</strong> <code>hormuz-floor-alert</code> — threshold lowered 15% → 10%. Reason: dual blockade makes Hormuz normalization by April 30 near-impossible. At &lt;10%, pivot to monitoring May/June normalization window.</div>
+    <div class="action-item"><strong>Trigger updated:</strong> <code>iran-invasion-2027-escalation</code> — threshold raised 40% → 55%. Next milestone: majority of bettors pricing invasion as more likely than not. Key trigger: any IRGC-US Navy shooting incident.</div>
+    <div class="action-item"><strong>Analyst notes updated:</strong> Full entry appended to reports/analyst_notes.md.</div>
+    <div class="action-item"><strong>No new trigger slugs needed:</strong> Ceasefire durability market (<code>military-action-against-iran-continues-through-april-30-2026</code>) already in watchlist and will capture any resumption of air operations. Naval dimension not yet separately traded on Polymarket — monitor for new markets.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Generated 2026-04-12 23:20 AEST | Polymarket Analyst | Sources: Bloomberg, Jerusalem Post, CNBC, Fortune, NBC News, ABC News, Wikipedia (2026 Strait of Hormuz crisis)
+</div>
+
+</body>
+</html>
