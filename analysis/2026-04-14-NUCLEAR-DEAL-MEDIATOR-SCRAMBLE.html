@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal +8.7pp — Mediator Scramble Before April 22 | 2026-04-14</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px 24px; }
+  .header-meta { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #f59e0b; margin-bottom: 8px; }
+  h1 { font-size: 26px; font-weight: 700; color: #f8fafc; line-height: 1.3; margin-bottom: 10px; }
+  .header-sub { font-size: 14px; color: #94a3b8; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+  .alert-banner { background: linear-gradient(135deg, #78350f 0%, #451a03 100%); border: 1px solid #f59e0b; border-radius: 10px; padding: 18px 22px; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  .alert-icon { font-size: 24px; flex-shrink: 0; }
+  .alert-text h2 { font-size: 17px; font-weight: 700; color: #fbbf24; margin-bottom: 4px; }
+  .alert-text p { font-size: 13px; color: #fde68a; }
+  .section { background: #1e2535; border: 1px solid #2d3748; border-radius: 10px; padding: 22px 24px; margin-bottom: 20px; }
+  .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; margin-bottom: 12px; font-weight: 600; }
+  h2 { font-size: 17px; font-weight: 700; color: #f8fafc; margin-bottom: 14px; }
+  h3 { font-size: 14px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; margin-top: 16px; }
+  p { font-size: 14px; color: #94a3b8; margin-bottom: 10px; }
+  .price-card { background: #0f1117; border: 1px solid #374151; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+  .price-card.positive { border-left: 4px solid #10b981; }
+  .price-card.negative { border-left: 4px solid #ef4444; }
+  .price-card.neutral { border-left: 4px solid #6366f1; }
+  .price-card.warning { border-left: 4px solid #f59e0b; }
+  .pc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .pc-label { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+  .pc-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+  .badge-high { background: #064e3b; color: #6ee7b7; }
+  .badge-med { background: #1e3a5f; color: #93c5fd; }
+  .badge-low { background: #3b1f2b; color: #f9a8d4; }
+  .pc-price { font-size: 22px; font-weight: 800; color: #f8fafc; }
+  .pc-delta { font-size: 13px; color: #94a3b8; margin-left: 8px; }
+  .pc-delta.up { color: #10b981; }
+  .pc-delta.down { color: #ef4444; }
+  .pc-note { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1a2030; }
+  .trigger-row:last-child { border-bottom: none; }
+  .tr-label { font-size: 13px; color: #cbd5e1; }
+  .tr-gap { font-size: 12px; color: #64748b; }
+  .tr-gap.near { color: #f59e0b; font-weight: 600; }
+  .timeline { border-left: 2px solid #374151; padding-left: 20px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ''; position: absolute; left: -25px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #f59e0b; }
+  .tl-time { font-size: 11px; color: #64748b; margin-bottom: 3px; }
+  .tl-text { font-size: 13px; color: #94a3b8; }
+  .callout { background: #162032; border: 1px solid #1e3a5f; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+  .callout.amber { background: #1c1a0f; border-color: #78350f; }
+  .callout.green { background: #0f1f17; border-color: #064e3b; }
+  .callout p { font-size: 13px; color: #94a3b8; margin-bottom: 0; }
+  .callout strong { color: #e2e8f0; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr; } }
+  .macro-cell { background: #0f1117; border: 1px solid #2d3748; border-radius: 8px; padding: 14px; }
+  .mc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 6px; }
+  .mc-text { font-size: 13px; color: #94a3b8; }
+  .mc-text strong { color: #e2e8f0; }
+  .footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid #1e2535; text-align: center; font-size: 12px; color: #475569; }
+  .qual-note { font-size: 11px; color: #475569; margin-top: 4px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Alert · 2026-04-14 02:15 AEST · Iran Nuclear</div>
+  <h1>Nuclear Deal +8.7pp — Mediators Scramble Before April 22</h1>
+  <div class="header-sub">[HIGH] US-Iran nuclear deal by April 30 rose from ~15% to 23.7% on Sunday afternoon reporting that Oman/Qatar/Pakistan mediators are actively bridging remaining gaps before ceasefire expiry</div>
+</div>
+
+<div class="container">
+
+  <div class="alert-banner">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text">
+      <h2>Alert Trigger: Nuclear Deal +6.8pp (interval), +8.7pp (total from base)</h2>
+      <p>Baseline was stable at ~15% all of April 13 evening. Move started at 00:30 AEST, reached 23.7% at 02:00 AEST. Still 16.3pp below the 40% trigger threshold.</p>
+    </div>
+  </div>
+
+  <!-- PRIMARY MARKET -->
+  <div class="section">
+    <div class="section-label">Primary Market — Step A: Description</div>
+    <h2>US-Iran Nuclear Deal by April 30</h2>
+
+    <div class="price-card positive">
+      <div class="pc-header">
+        <span class="pc-label">US-Iran nuclear deal by April 30?</span>
+        <span class="pc-badge badge-high">HIGH quality</span>
+      </div>
+      <div>
+        <span class="pc-price">23.7%</span>
+        <span class="pc-delta up">+8.7pp from ~15% base ↑ | +6.8pp interval</span>
+      </div>
+      <div class="pc-note">Vol24: $82K · Trigger at ↑40% · 16.3pp below trigger · Recovering from April 12 crash low of 13.7%</div>
+    </div>
+
+    <p><strong>Resolution criteria [HIGH]:</strong> Resolves YES on a <em>publicly announced, mutually agreed official agreement</em> between the United States and Iran over Iranian nuclear research and/or weapons development, reached by April 30, 11:59 PM ET. Multilateral frameworks (e.g. JCPOA-style) qualify if both US and Iran are parties. Resolves on official US/Iran government announcement — not UMA vote, not "credible reporting." This is a HIGH-quality contract: the resolution trigger is unambiguous.</p>
+
+    <p>Implication: the market price is a genuine probability estimate, not a "what will UMA voters decide?" bet. A reading of 23.7% means ~1-in-4 chance of an official nuclear framework within 16 days.</p>
+  </div>
+
+  <!-- STEP B: TIMING -->
+  <div class="section">
+    <div class="section-label">Step B — When Did the Move Happen?</div>
+    <h2>Price Velocity: 1.5-Hour Repricing Sunday Afternoon EDT</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">April 13 18:45–23:30 AEST (stable)</div>
+        <div class="tl-text">Nuclear deal oscillating 14.2–15.0% all evening — baseline flat.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">April 14 00:30 AEST (14:30 EDT Sun)</div>
+        <div class="tl-text">First move: 14.8% → 16.1% (+1.3pp). Sunday afternoon US news cycle opens.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">April 14 00:45 AEST (14:45 EDT Sun)</div>
+        <div class="tl-text">Larger jump: 16.1% → 19.2% (+3.1pp). Buyer(s) entering on news.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">April 14 01:00–01:45 AEST</div>
+        <div class="tl-text">Oscillation 19.2% → 18.7% → 19.4% → 18.3% → 16.9%. Market digesting, not fully committed.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">April 14 02:00 AEST (16:00 EDT Sun) ← alert fires</div>
+        <div class="tl-text">Decisive move: 16.9% → 23.7% (+6.8pp). Second wave of buying. Alert triggered.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Pattern interpretation:</strong> Two-wave repricing over 1.5 hours, consistent with a news story publishing around 14:30–15:00 EDT Sunday and being picked up by successive readers/traders. Not a single large bot trade (those appear as instant +X% with no oscillation). This is organic market repricing on news.</p>
+    </div>
+  </div>
+
+  <!-- STEP C: CATALYST -->
+  <div class="section">
+    <div class="section-label">Step C — Real-World Catalyst</div>
+    <h2>Mediators Rushing to Bridge Gaps Before April 22</h2>
+
+    <p><strong>Source identified:</strong> Axios, April 13 2026 — <em>"Mediators rush to revive U.S.-Iran nuclear talks before ceasefire expires."</em></p>
+
+    <h3>Key quotes from reporting:</h3>
+    <div class="callout amber">
+      <p>"<strong>We are not in a complete deadlock. The door is not closed yet. Both sides are bargaining.</strong>" — Regional source familiar with mediator efforts</p>
+    </div>
+    <div class="callout">
+      <p>"A deal could be reached if Iran shows more flexibility." — U.S. official</p>
+    </div>
+    <div class="callout green">
+      <p>Iran's ambassador to Pakistan: Islamabad talks "laid the foundation for a diplomatic process" — explicitly characterising the talks as a beginning, not a failure.</p>
+    </div>
+
+    <h3>Context:</h3>
+    <p>Post-Islamabad collapse (April 12), three Oman/Qatar/Pakistan mediator channels remained active. The five structural gaps (Hormuz sovereignty, uranium enrichment ceiling, frozen assets sequencing, Lebanon scope, war reparations) are now mapped and mediators are working through them bilaterally. The April 21/22 ceasefire expiry creates a forcing function: both sides need at least a framework extension framework before April 22 to avoid the binary re-escalation scenario.</p>
+
+    <p>Iran's framing of Islamabad as "laying a foundation" (rather than the US framing of "final and best offer rejected") is diplomatically significant — it leaves Iran room to return to the table without appearing to capitulate. The mediator narrative gives Tehran a face-saving pathway to extend the ceasefire.</p>
+  </div>
+
+  <!-- STEP D: CROSS-MARKET VALIDATION -->
+  <div class="section">
+    <div class="section-label">Step D — Cross-Market Validation</div>
+    <h2>Companion Markets: Consistent, No Contradictions</h2>
+
+    <div class="price-card positive">
+      <div class="pc-header">
+        <span class="pc-label">Iran invasion by 2027 — escalation signal</span>
+        <span class="pc-badge badge-low">LOW quality</span>
+      </div>
+      <div>
+        <span class="pc-price">35.0%</span>
+        <span class="pc-delta down">fell from 37.5% to 35.0% (-2.5pp) in same window</span>
+      </div>
+      <div class="pc-note">✓ Consistent: de-escalation signal. Rising nuclear deal probability + falling long-term invasion risk = coherent narrative.</div>
+    </div>
+
+    <div class="price-card neutral">
+      <div class="pc-header">
+        <span class="pc-label">Israel-Hezbollah ceasefire by April 30</span>
+        <span class="pc-badge badge-med">MED quality</span>
+      </div>
+      <div>
+        <span class="pc-price">25.1%</span>
+        <span class="pc-delta down">-0.6pp (slight dip)</span>
+      </div>
+      <div class="pc-note">✓ No contradiction. This is the Israel-Lebanon track — bifurcated per established thesis. Small decline reflects Israel continuing Lebanon strikes, independent of US-Iran nuclear track.</div>
+    </div>
+
+    <div class="price-card neutral">
+      <div class="pc-header">
+        <span class="pc-label">Trump formal ops-end by April 30 (&gt;70%)</span>
+        <span class="pc-badge badge-low">LOW quality</span>
+      </div>
+      <div>
+        <span class="pc-price">29.5%</span>
+        <span class="pc-delta">+0.0pp (flat)</span>
+      </div>
+      <div class="pc-note">✓ Consistent. Formal ops-end requires a deal framework to exist — still uncertain. Flat is appropriate while mediators work.</div>
+    </div>
+
+    <div class="callout green">
+      <p><strong>Validation result: CONFIRMED.</strong> Nuclear deal UP + invasion DOWN + ceasefire flat (separate track) = coherent de-escalation signal on the US-Iran bilateral track only. No cross-market contradictions. The HIGH-quality nuclear deal price is the authoritative signal.</p>
+    </div>
+  </div>
+
+  <!-- KEY MARKET LEVELS -->
+  <div class="section">
+    <div class="section-label">All Active Triggers</div>
+    <h2>Current Trigger Status</h2>
+
+    <div class="trigger-row">
+      <span class="tr-label">[HIGH] US-Iran nuclear deal ↑40%</span>
+      <span class="tr-gap">23.7% — <strong>16.3pp below trigger</strong></span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[LOW] Trump ends Iran ops ↑70% (formal ops-end)</span>
+      <span class="tr-gap">29.5% — 40.5pp below trigger</span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[LOW] Trump ends Iran ops by Apr 15</span>
+      <span class="tr-gap">4.1% — effectively NO by tomorrow</span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[LOW] Iran invasion 2027 ↑55% (escalation)</span>
+      <span class="tr-gap">35.0% — 20.0pp below trigger</span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[LOW] Iran invasion 2027 ↓22% (conflict resolved)</span>
+      <span class="tr-gap">35.0% — 13.0pp above trigger</span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[MED] Ceasefire total collapse ↓12%</span>
+      <span class="tr-gap">25.1% — 13.1pp above floor</span>
+    </div>
+    <div class="trigger-row">
+      <span class="tr-label">[MED] Ceasefire intermediate recovery ↑40%</span>
+      <span class="tr-gap">25.1% — 14.9pp below trigger</span>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-label">Macro Implications</div>
+    <h2>April 22 Binary: Cliff Edge Slightly Softened</h2>
+
+    <p>The nuclear deal repricing changes the April 22 narrative from <em>"bare cliff edge with no diplomatic buffer"</em> (post-Islamabad, April 12) to <em>"active mediator effort creating partial buffer."</em> The market is now pricing ~1-in-4 chance of a deal by April 30 — which means ~1-in-4 chance the ceasefire formally transforms into an agreement before the April 22 expiry becomes a crisis.</p>
+
+    <p>The asymmetry remains intact: Iran extending unilaterally is the base case (~60% probability implied by invasion 2027 at 35%), but now with visible diplomatic momentum supporting that extension decision.</p>
+
+    <div class="macro-grid">
+      <div class="macro-cell">
+        <div class="mc-label">WTI Crude (proxy for Brent)</div>
+        <div class="mc-text">No change to base case oil path: <strong>~$90–97 under toll regime.</strong> Mediator activity reduces (but doesn't eliminate) the $110–120 tail if April 22 fails. Nuclear deal approaching 30–35% would begin pressuring WTI downward toward $85–88.</div>
+      </div>
+      <div class="macro-cell">
+        <div class="mc-label">AUD/USD</div>
+        <div class="mc-text">Slight improvement in risk-on odds for Tuesday (April 15) ASX open. If Washington talks + mediator narrative both positive: AUD/USD <strong>0.655–0.668</strong> on risk-on. If either track collapses: back to risk-off 0.640–0.650.</div>
+      </div>
+      <div class="macro-cell">
+        <div class="mc-label">Australian Petrol</div>
+        <div class="mc-text">No change: A$2.05–2.15/L under current toll regime. <strong>June 30 excise expiry risk unchanged</strong> — automatic +A$0.25–0.30/L shock if WTI ≥$95 at that date. Mediator success would reduce this risk; April 22 breakdown would sharpen it.</div>
+      </div>
+      <div class="macro-cell">
+        <div class="mc-label">ASX Equities</div>
+        <div class="mc-text"><strong>ASX CLOSED today (Easter Monday).</strong> Opens Tuesday April 15 = double catalyst day: Washington Israel-Lebanon talks + nuclear deal mediator phase active. WDS/STO oil thesis neutral at current price; QAN jet fuel marginally improving on easing risk premium.</div>
+      </div>
+      <div class="macro-cell">
+        <div class="mc-label">US Rates / Fed</div>
+        <div class="mc-text">No direct change. US Fed June hike at 3.0% (+0.3pp) — geopolitical uncertainty still suppressing rate-hike bets. If nuclear deal closes and oil softens, marginally reduces inflationary pressure from energy — not a primary rate driver yet.</div>
+      </div>
+      <div class="macro-cell">
+        <div class="mc-label">Crypto (Bitcoin)</div>
+        <div class="mc-text">Bitcoin priced around $70–74K based on April 13 1PM ET markets. Crypto risk-on correlated with de-escalation. Mediator narrative modestly supportive. No direct catalyst.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-label">Forward View — 8 Days to April 22</div>
+    <h2>What to Watch</h2>
+
+    <h3>🔴 April 15 (Tuesday) — Double Catalyst Day</h3>
+    <p>Two independent tracks converge: (1) Washington ambassador-level Israel-Lebanon talks begin (already priced into ceasefire at 29%); (2) Nuclear deal mediator bridging phase in active mode. If either track produces visible headline progress, expect nuclear deal to push toward 28–35%, ceasefire toward 32–40%. ASX opens into this window. Watch for AUD/USD as a real-time sentiment barometer.</p>
+
+    <h3>🟡 April 17–19 — Mediator Status Window</h3>
+    <p>Post-April 15 talks, mediators typically publish a readout or leak progress to regional media (Al Jazeera, Reuters Gulf bureau). Watch for Oman/Qatar FM statements or Iran's IRNA agency framing. A positive readout = nuclear deal approaches 30%; a negative = reverts to 15–17% base and April 22 sharpens again.</p>
+
+    <h3>🔴 April 21/22 — The Binary</h3>
+    <p>Iran's ceasefire formally expires April 21/22. Decision tree: (a) Iran extends unilaterally — market base case, nuclear deal stays 20–25%, bifurcation continues; (b) Iran accepts partial framework — nuclear deal spikes 35–50%, ceasefire recovery, WTI down; (c) Iran exits — nuclear deal crashes sub-10%, Hormuz re-blockades, WTI $110–120, AUD/USD 0.64–0.66, June 30 excise = fuel crisis. Active mediator effort marginally raises probability of (a) or (b) vs (c).</p>
+
+    <div class="callout amber">
+      <p><strong>Key risk:</strong> The market has now priced a degree of optimism (+8.7pp) ahead of any actual deal. If April 15 Washington talks fail immediately (immediate walkout, no joint statement), nuclear deal retraces to 15–17% and the April 22 binary sharpens back to bare cliff. The repricing is fragile — it's based on process/hope, not substance.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Generated 2026-04-14 02:15 AEST · Polymarket Analyst · Alert-triggered run</p>
+    <p class="qual-note">[HIGH] = resolves on objective criteria (official announcement, exchange settle). [MED] = criteria exist but interpretation surface. [LOW] = UMA vote / "credible reporting" threshold. Weight signals accordingly.</p>
+  </div>
+
+</div>
+</body>
+</html>
