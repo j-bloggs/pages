@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal Recovery — Trump "Very Close to Over" | 2026-04-16</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #0f1117 100%); border-bottom: 2px solid #2d4a6e; padding: 28px 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .alert-badge { background: #f59e0b; color: #000; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; }
+  .timestamp { font-size: 12px; color: #64748b; }
+  h1 { font-size: 24px; font-weight: 700; color: #f1f5f9; margin-top: 10px; }
+  .subtitle { font-size: 13px; color: #94a3b8; margin-top: 5px; }
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 24px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .card { background: #1a2332; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card.fired { border-left: 4px solid #f59e0b; }
+  .card.confirm { border-left: 4px solid #10b981; }
+  .card.watch { border-left: 4px solid #3b82f6; }
+  .card.flat { border-left: 4px solid #475569; }
+  .market-label { font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 6px; }
+  .market-price { font-size: 22px; font-weight: 700; color: #f1f5f9; }
+  .market-delta { font-size: 13px; margin-left: 10px; }
+  .delta-up { color: #10b981; }
+  .delta-down { color: #ef4444; }
+  .delta-flat { color: #64748b; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+  .q-high { background: #064e3b; color: #6ee7b7; }
+  .q-med { background: #1e3a5f; color: #93c5fd; }
+  .q-low { background: #2d1b00; color: #fbbf24; }
+  .card-detail { font-size: 12px; color: #94a3b8; margin-top: 8px; line-height: 1.7; }
+  .summary-box { background: #1a2332; border: 1px solid #2d4a6e; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .summary-box p { font-size: 14px; color: #cbd5e1; line-height: 1.8; margin-bottom: 10px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  .catalyst-box { background: #1a2a1a; border: 1px solid #2d4a2d; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .catalyst-title { font-size: 11px; font-weight: 700; color: #4ade80; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .catalyst-box p, .catalyst-box li { font-size: 13px; color: #a7f3d0; line-height: 1.7; }
+  .catalyst-box ul { padding-left: 18px; }
+  .warn-box { background: #1e1200; border: 1px solid #78350f; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .warn-title { font-size: 11px; font-weight: 700; color: #f59e0b; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .warn-box p, .warn-box li { font-size: 13px; color: #fde68a; line-height: 1.7; }
+  .warn-box ul { padding-left: 18px; }
+  .info-box { background: #0e1929; border: 1px solid #1e3a5f; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .info-title { font-size: 11px; font-weight: 700; color: #60a5fa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .info-box p, .info-box li { font-size: 13px; color: #bfdbfe; line-height: 1.7; }
+  .info-box ul { padding-left: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748b; padding: 8px 10px; border-bottom: 1px solid #2d3748; }
+  td { padding: 10px 10px; border-bottom: 1px solid #1e293b; color: #cbd5e1; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .price-cell { font-weight: 600; color: #f1f5f9; }
+  .up { color: #10b981; font-weight: 600; }
+  .down { color: #ef4444; font-weight: 600; }
+  .flat-col { color: #64748b; }
+  .footer { text-align: center; padding: 24px; font-size: 11px; color: #475569; border-top: 1px solid #1e293b; margin-top: 32px; }
+  .trigger-fired { display: inline-block; background: #f59e0b; color: #000; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+  .prev-report { background: #1a2332; border: 1px solid #2d3748; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #94a3b8; margin-bottom: 16px; }
+  .prev-report a { color: #60a5fa; text-decoration: none; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="alert-badge">⚡ Alert — Recovery Trigger</span>
+    <span class="timestamp">2026-04-16 04:45 AEST &nbsp;|&nbsp; Collection run 04:45 AEST</span>
+  </div>
+  <h1>Nuclear Deal Recovers to 36.5% — Trump Says War "Very Close to Over"</h1>
+  <div class="subtitle">
+    Recovery trigger ↑35% FIRED &nbsp;·&nbsp; Ceasefire extension "in principle" confirmed by AP &nbsp;·&nbsp; April 22 cliff defused
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="prev-report">
+    ← Prior report: <a href="2026-04-16-NUCLEAR-DEAL-BELOW-30.html">2026-04-16 02:30 AEST — Nuclear Deal ↓30% at 29.1% — Timeline Slips Past April 30</a> &nbsp;|&nbsp; This report updates that analysis. Core thesis confirmed.
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Executive Summary</div>
+    <div class="summary-box">
+      <p>Two hours after the nuclear deal collapsed to 29.1% and the prior report shipped, the market has snapped back to 36.5% as Trump's "very close to over" statement (Fox Business, Wednesday morning EDT) and an AP report of "in principle" ceasefire extension agreement circulate through afternoon US trading. The recovery trigger set at ↑35% has fired — exactly as designed.</p>
+      <p>This is not a reversal of the prior report's core thesis — it confirms it. The 02:30 AEST report argued the 29.1% low was a timeline extension signal, not a breakdown signal, and that April 22 cliff risk had already been defused by the ceasefire extension talks. The market is now pricing that same view. The deal is not dead; it is being deferred into Q2 under ceasefire extension cover.</p>
+      <p><strong>For Australian investors waking up Wednesday:</strong> ASX energy (WDS/STO) trades slightly positive on "war very close to over." Airlines (QAN) see modest jet-fuel-relief sentiment. AUD/USD holds 0.64–0.66 range — extension prevents collapse scenario but no deal boom in view. No binary shock from this session's data.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER FIRED -->
+  <div class="section">
+    <div class="section-title">Trigger Fired</div>
+    <div class="card fired">
+      <div class="market-label">
+        US-Iran Nuclear Deal by Apr 30 <span class="quality-badge q-high">HIGH</span>
+        <span class="trigger-fired">FIRED ↑35%</span>
+      </div>
+      <div>
+        <span class="market-price">36.5%</span>
+        <span class="market-delta delta-up">+6.0pp this run (+7.4pp from 02:30 AEST low of 29.1%)</span>
+      </div>
+      <div class="card-detail">
+        Recovery trigger set at 02:30 AEST after the ↓30% fire. Fired as designed. 13.5pp below the ↑50% majority-probability trigger.
+        Prior trajectory: peaked 40.7% (Apr 15 13:15 AEST) → crashed 29.1% (Apr 16 02:30 AEST) → recovered 36.5% (Apr 16 04:45 AEST).
+      </div>
+    </div>
+  </div>
+
+  <!-- 4-STEP CATALYST -->
+  <div class="section">
+    <div class="section-title">4-Step Catalyst Identification</div>
+
+    <div class="catalyst-box">
+      <div class="catalyst-title">Step A — Resolution criteria (HIGH quality)</div>
+      <p>"Publicly announced mutual agreement between US and Iran on nuclear research/weapons by April 30." Clear binary — no UMA interpretation surface. Cannot be manipulated by UMA voters. The ↑35% recovery does NOT mean a deal has been struck — it means market is pricing an improved probability of a deal pathway re-opening.</p>
+    </div>
+
+    <div class="catalyst-box">
+      <div class="catalyst-title">Step B — When did the move happen?</div>
+      <p>Description cache (refreshed ~04:30 AEST) shows 31.9% with -0.75pp/1h drift — still in decline. Fresh live collection at 04:45 AEST: 36.5% (+6.0pp). Move occurred in the last 15-minute interval (~04:30–04:45 AEST = ~18:30–18:45 UTC Apr 15 = ~2:30–2:45 PM EDT April 15). Consistent with US afternoon trading session absorbing the news flow from the past several hours.</p>
+    </div>
+
+    <div class="catalyst-box">
+      <div class="catalyst-title">Step C — Catalyst confirmed: Three converging signals</div>
+      <ul>
+        <li><strong>Trump Fox Business "Mornings with Maria" (Apr 15 EDT morning):</strong> "I view it as very close to over" and "I think they want to make a deal very badly" — the strongest presidential signal yet of imminent resolution. This statement circulated through US morning trading.</li>
+        <li><strong>AP report (Apr 15 EDT, Wednesday):</strong> "Washington and Tehran gave an 'in principle agreement' to extend the ceasefire past April 22." Important caveat: a US official told Reuters "Washington has not formally agreed." The word 'in principle' does real work here — it defuses the cliff without fully committing.</li>
+        <li><strong>Bloomberg (Apr 15):</strong> "US and Iran Weigh Extending Their Ceasefire by Two Weeks" and "US, Iran Seek Further Talks as Hormuz Standoff Intensifies." JD Vance expected to lead Round 2 if talks confirmed before April 22 expiry.</li>
+      </ul>
+    </div>
+
+    <div class="catalyst-box">
+      <div class="catalyst-title">Step D — Cross-market validation: All signals consistent</div>
+      <ul>
+        <li>[HIGH] WTI &lt;$90 in April: 72.5% (unchanged) — oil still pricing deal pathway ✓</li>
+        <li>[HIGH] WTI $200 in April: 0.9% (+0.1pp, flat) — black swan fully suppressed ✓</li>
+        <li>[MED] Hormuz by Apr 30: 25.5% (flat) — blockade independent of nuclear framework ✓</li>
+        <li>[MED] Trump ops-end Apr 30: 44.0% (-0.5pp) — unilateral declaration thesis intact, slight fade ✓</li>
+        <li>[LOW] Ceasefire by Apr 30: 69.6% (+5.9pp) — directionally consistent with extension narrative ✓</li>
+        <li>[LOW] Iran invasion 2027: 30.5% (flat) — no escalation pricing ✓</li>
+      </ul>
+      <p style="margin-top: 8px;"><strong>Verdict:</strong> No contradictions. Oil, equities, and all sentiment markets confirm the de-escalation / extension interpretation. [HIGH] market recovery fully validated by cross-market.</p>
+    </div>
+  </div>
+
+  <!-- KEY MARKETS TABLE -->
+  <div class="section">
+    <div class="section-title">Full Market Dashboard</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>Quality</th>
+            <th>Price</th>
+            <th>Change</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>US-Iran nuclear deal by Apr 30 <span class="trigger-fired">FIRED ↑35%</span></td>
+            <td><span class="quality-badge q-high">HIGH</span></td>
+            <td class="price-cell">36.5%</td>
+            <td class="up">+6.0pp</td>
+            <td>Recovery from 29.1% low (02:30 AEST). 13.5pp from ↑50% trigger</td>
+          </tr>
+          <tr>
+            <td>Israel-Hezbollah ceasefire by Apr 30</td>
+            <td><span class="quality-badge q-low">LOW</span></td>
+            <td class="price-cell">69.6%</td>
+            <td class="up">+5.9pp</td>
+            <td>0.4pp below ↑70% trigger. Thin-book; consistent with extension narrative</td>
+          </tr>
+          <tr>
+            <td>Hormuz traffic normal by Apr 30</td>
+            <td><span class="quality-badge q-med">MED</span></td>
+            <td class="price-cell">25.5%</td>
+            <td class="flat-col">+0.0pp</td>
+            <td>Blockade persists independently of nuclear framework. 24.5pp from trigger</td>
+          </tr>
+          <tr>
+            <td>Trump ends Iran ops by Apr 30</td>
+            <td><span class="quality-badge q-med">MED</span></td>
+            <td class="price-cell">44.0%</td>
+            <td class="down">-0.5pp</td>
+            <td>Slight fade; unilateral declaration thesis still intact. 16pp from ↑60% trigger</td>
+          </tr>
+          <tr>
+            <td>WTI &lt;$90 in April</td>
+            <td><span class="quality-badge q-high">HIGH</span></td>
+            <td class="price-cell">72.5%</td>
+            <td class="flat-col">—</td>
+            <td>Ground truth anchor: deal-path credible. Spot WTI ~$88–95</td>
+          </tr>
+          <tr>
+            <td>WTI $200 in April</td>
+            <td><span class="quality-badge q-high">HIGH</span></td>
+            <td class="price-cell">0.9%</td>
+            <td class="flat-col">+0.1pp</td>
+            <td>Black swan fully suppressed. 3.1pp from ↑4% trigger</td>
+          </tr>
+          <tr>
+            <td>Kharg Island falls by Apr 30</td>
+            <td><span class="quality-badge q-med">MED</span></td>
+            <td class="price-cell">3.7%</td>
+            <td class="flat-col">+0.1pp</td>
+            <td>Flat. 36.3pp from ↑40% trigger. No escalation signal</td>
+          </tr>
+          <tr>
+            <td>US Iran invasion before 2027</td>
+            <td><span class="quality-badge q-med">MED</span></td>
+            <td class="price-cell">30.5%</td>
+            <td class="flat-col">+0.0pp</td>
+            <td>Flat. Market NOT pricing long-term escalation. 8.5pp from ↓22% resolution trigger</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Macro Implications — Update vs 02:30 AEST Report</div>
+
+    <div class="info-box">
+      <div class="info-title">April 22 Cliff: Firmly Defused</div>
+      <p>The prior report flagged the "in principle" ceasefire extension as defusing the April 22 binary. That thesis is now priced — the nuclear deal's recovery from 29.1% → 36.5% is the market catching up. Iran now has political cover to extend past April 22 via two channels: (1) ceasefire extension "in principle" with AP backing, (2) "war very close to over" presidential framing reduces domestic pressure to escalate. The April 22 expiry will almost certainly result in an extension, NOT a collapse.</p>
+    </div>
+
+    <div class="info-box">
+      <div class="info-title">ASX Wednesday April 16 Opening (Regular Trading Day)</div>
+      <ul>
+        <li><strong>WDS / STO (energy):</strong> Slight positive on "very close to over." Oil stable at $88–95 range. Maintain partial long — exit thesis is formal nuclear framework confirmation, not ceasefire extension alone.</li>
+        <li><strong>QAN:</strong> Modest jet-fuel-relief sentiment. No material change — WTI $80 scenario still Q3 at earliest. Annual saving ~A$250–280M per $10 WTI.</li>
+        <li><strong>AUD/USD:</strong> Range-bound 0.64–0.66. Extension prevents collapse scenario (0.62 floor test avoided) but no deal boom (0.68+) until formal framework.</li>
+        <li><strong>ASX 200:</strong> No binary shock. Market should open relatively calmly — overnight US news is net positive (de-escalation confirmed) but no deal yet.</li>
+      </ul>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">What Has NOT Changed</div>
+      <ul>
+        <li><strong>Hormuz blockade persists:</strong> 25.5% — no normalization priced. WTI proxy (for Brent) remains elevated. Australian petrol A$2.20–2.30/L continues.</li>
+        <li><strong>Formal nuclear framework by April 30 unlikely:</strong> Deal at 36.5% = market pricing ~37% chance of official announcement within 14 days. Core scenario is now Q2–Q3 resolution under repeated ceasefire extension.</li>
+        <li><strong>June 30 excise expiry locked in:</strong> +A$0.25–0.30/L to Australian petrol regardless of Iran outcome. RBA May 5 faces this as a certain Q3 CPI shock.</li>
+        <li><strong>Key caveat on tonight's move:</strong> The 36.5% reading comes from a thin overnight market. Description cache at 04:30 still showed 31.9%. If this retraces to 30–33% on re-opening liquidity, the recovery thesis weakens. Watch the ↓30% collapse trigger (currently 6.5pp below current price).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NEW MARKET DISCOVERY -->
+  <div class="section">
+    <div class="section-title">New Market Discovered</div>
+    <div class="card watch">
+      <div class="market-label">Hormuz Blockade Lifted by April 17, 2026 <span class="quality-badge q-high">HIGH</span></div>
+      <div><span class="market-price">23.5%</span> <span class="market-delta delta-flat">(new discovery)</span></div>
+      <div class="card-detail">
+        Slug: <code>will-donald-trump-announce-that-the-united-states-blockade-of-the-strait-of-hormuz-has-been-lifted-by-april-17-2026</code><br>
+        Created April 12 (day of US blockade announcement). Ends April 30. Price 23.5% for a tomorrow (April 17) lifting = market pricing 23.5% probability of Hormuz blockade lifted within ~24 hours. This is SURPRISINGLY HIGH for a near-term binary given that ceasefire extension talks are still "in principle" only. Cross-check: main Hormuz Apr 30 market is also 25.5% — suggesting the April 17 binary might share the same liquidity pool (same bettors, thin book). Not adding to watchlist yet — will resolve YES/NO by tomorrow and is likely sub-10% by end of day.
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View &amp; Trigger Status</div>
+    <div class="info-box">
+      <div class="info-title">What to Watch</div>
+      <ul>
+        <li><strong>Nuclear deal ↓30% collapse trigger (6.5pp away):</strong> If the 36.5% reading is thin-book and retraces below 30% during US/European open, the April 22 binary re-sharpens. Watch for formal ceasefire extension announcement or collapse at or near market opens.</li>
+        <li><strong>Nuclear deal ↑50% majority trigger (13.5pp away):</strong> Would require confirmed Round 2 talks AND substantive progress on enrichment gap. Trump's "very close to over" alone is insufficient. Vance-led Round 2 announcement + progress on 20-year enrichment moratorium needed.</li>
+        <li><strong>Ceasefire ↑70% trigger (0.4pp away):</strong> Near-touching. A sustained breach would confirm market pricing de facto halt as qualifying under [LOW] resolution. Do not treat as new information — same Lebanon track reported since April 15.</li>
+        <li><strong>April 17 Hormuz binary resolution:</strong> If price falls toward 0–5% today (expected), it confirms April 17 is NOT the day for blockade lift. Watch for Trump tweet/statement around Washington open.</li>
+        <li><strong>RBA May 5 meeting:</strong> 18 days away. Both ceasefire extension (oil stable at $88–95) and June 30 excise expiry (certain +A$0.25–0.30/L CPI) will be referenced. Nuclear deal resolution by May 5 is now unlikely — RBA must price persistent oil uncertainty into its inflation forecast.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated by Polymarket Analyst Agent · 2026-04-16 04:45 AEST · Data from Polymarket &amp; Kalshi
+  </div>
+
+</div>
+</body>
+</html>
