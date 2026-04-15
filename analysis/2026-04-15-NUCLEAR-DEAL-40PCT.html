@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal Crosses 40% — April 22 Deal Path Now Priced</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242736;
+    --border: #2e3248;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --green: #34d399;
+    --red: #f87171;
+    --amber: #fbbf24;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+    --teal: #2dd4bf;
+    --orange: #fb923c;
+    --accent-green: rgba(52,211,153,0.12);
+    --accent-red: rgba(248,113,113,0.12);
+    --accent-amber: rgba(251,191,36,0.12);
+    --accent-blue: rgba(96,165,250,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  /* Header */
+  .header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(251,191,36,0.15);
+    border: 1px solid rgba(251,191,36,0.4);
+    color: var(--amber);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  /* Sections */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 32px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  /* Trigger fired card */
+  .trigger-fired {
+    background: rgba(251,191,36,0.08);
+    border: 1px solid rgba(251,191,36,0.35);
+    border-left: 4px solid var(--amber);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .trigger-fired .trigger-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .trigger-fired .trigger-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .trigger-fired .trigger-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  /* Summary box */
+  .summary-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  /* Market grid */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .market-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .market-card.bullish { border-left: 3px solid var(--green); }
+  .market-card.bearish { border-left: 3px solid var(--red); }
+  .market-card.neutral { border-left: 3px solid var(--blue); }
+  .market-card.warning { border-left: 3px solid var(--amber); }
+  .market-card .quality-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .quality-HIGH { background: rgba(52,211,153,0.15); color: var(--green); }
+  .quality-MED { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .quality-LOW { background: rgba(248,113,113,0.12); color: var(--red); }
+  .market-card .market-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .market-card .market-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .market-card .market-price .delta {
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+  .delta.flat { color: var(--muted); }
+  .market-card .market-interp {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+  /* Catalyst box */
+  .catalyst-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .catalyst-step {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .catalyst-step:last-child { border-bottom: none; }
+  .catalyst-step .step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--blue);
+    margin-bottom: 5px;
+  }
+  .catalyst-step p {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  /* Macro table */
+  .macro-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 13.5px;
+  }
+  .macro-table th {
+    text-align: left;
+    padding: 8px 12px;
+    background: var(--surface2);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .macro-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table .asset { font-weight: 600; color: var(--text); white-space: nowrap; }
+  .macro-table .signal-bull { color: var(--green); font-weight: 600; }
+  .macro-table .signal-bear { color: var(--red); font-weight: 600; }
+  .macro-table .signal-neutral { color: var(--amber); font-weight: 600; }
+  .macro-table .detail { color: var(--muted); }
+  /* Trigger action */
+  .trigger-action {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .trigger-action .action-type {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  /* Watch box */
+  .watch-box {
+    background: rgba(96,165,250,0.06);
+    border: 1px solid rgba(96,165,250,0.25);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .watch-box .watch-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .watch-box .watch-item:last-child { margin-bottom: 0; }
+  .watch-box .watch-icon { color: var(--blue); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  /* Oil warning */
+  .oil-warning {
+    background: rgba(52,211,153,0.06);
+    border: 1px solid rgba(52,211,153,0.25);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .oil-warning .ow-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+  strong { color: var(--text); }
+  code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; background: var(--surface2); padding: 1px 5px; border-radius: 3px; color: var(--teal); }
+  .footnote { font-size: 12px; color: var(--muted); margin-top: 6px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚡ Trigger Alert</div>
+  <h1>Nuclear Deal Crosses 40% — Deal Path Now Priced as Near-Majority</h1>
+  <div class="meta">Wednesday 15 April 2026, 13:15 AEST &nbsp;·&nbsp; Alert-triggered run &nbsp;·&nbsp; Iran nuclear deal ↑40% milestone</div>
+</div>
+
+<!-- TRIGGER CARD -->
+<div class="trigger-fired">
+  <div class="trigger-label">⚡ Trigger Fired — US-Iran Nuclear Deal by Apr 30</div>
+  <div class="trigger-value">40.7% <span style="font-size:18px; color:#8892a4;">YES</span></div>
+  <div class="trigger-meta">+1.5pp from prior snapshot &nbsp;·&nbsp; +3.7pp since 11:30 AEST &nbsp;·&nbsp; +29.2pp from April 13 collapse low of 11.5%</div>
+</div>
+
+<!-- SUMMARY -->
+<h2>Executive Summary</h2>
+<div class="summary-box">
+  The [HIGH] US-Iran nuclear deal market has crossed the ↑40% trigger for the first time since the April 12 Islamabad collapse, reaching 40.7% on gradual continuation repricing from the April 14 second-round confirmation news. No single new catalyst today — the market is grinding higher as US and Iranian officials consolidate the "second round of talks this week" narrative (April 17–19 window). The most important cross-market signal is <strong>WTI below $90 in April pricing at 72.5%</strong> — the oil market is running <em>ahead</em> of the binary prediction market, already pricing an oil price collapse consistent with a successful diplomatic resolution. April 22 ceasefire expiry remains the hard deadline; a second-round confirmation today would make deal-before-April-22 the market base case.
+</div>
+
+<!-- KEY MARKETS -->
+<h2>Market Snapshot — 13:15 AEST</h2>
+<div class="market-grid">
+
+  <div class="market-card warning">
+    <div class="quality-badge quality-HIGH">HIGH</div>
+    <div class="market-label">US-Iran nuclear deal by Apr 30</div>
+    <div class="market-price">40.7%<span class="delta up">+1.5pp</span></div>
+    <div class="market-interp">Crossed ↑40% trigger. Recovery from 11.5% collapse (Apr 13) = +29.2pp in 48h. Priced as approaching coin-flip. Next trigger: ↑50%.</div>
+  </div>
+
+  <div class="market-card bullish">
+    <div class="quality-badge quality-HIGH">HIGH</div>
+    <div class="market-label">WTI below $90 in April</div>
+    <div class="market-price">72.5%<span class="delta flat">—</span></div>
+    <div class="market-interp">Oil market ground truth. Stable — already pricing deal-path de-escalation at 3:1 odds. Leads the nuclear deal binary by hours/days.</div>
+  </div>
+
+  <div class="market-card bullish">
+    <div class="quality-badge quality-LOW">LOW</div>
+    <div class="market-label">Trump ends Iran ops by Apr 30</div>
+    <div class="market-price">46.0%<span class="delta up">+0.5pp</span></div>
+    <div class="market-interp">5.3pp above nuclear deal — structural divergence (victory-declaration path). Use nuclear deal [HIGH] as primary anchor.</div>
+  </div>
+
+  <div class="market-card neutral">
+    <div class="quality-badge quality-MED">MED</div>
+    <div class="market-label">Hormuz traffic normalises by Apr 30</div>
+    <div class="market-price">23.5%<span class="delta flat">—</span></div>
+    <div class="market-interp">Steady. Not yet confirming blockade lift. Hormuz resolution may lag a nuclear deal announcement — IMF Portwatch requires sustained traffic, not just a deal text.</div>
+  </div>
+
+  <div class="market-card neutral">
+    <div class="quality-badge quality-LOW">LOW</div>
+    <div class="market-label">Israel-Hezbollah ceasefire by Apr 30</div>
+    <div class="market-price">34.6%<span class="delta down">-0.1pp</span></div>
+    <div class="market-interp">Stable. Lebanon track independent of Iran nuclear track (per Rubio talks output). Not confirming nor denying Iran de-escalation.</div>
+  </div>
+
+  <div class="market-card neutral">
+    <div class="quality-badge quality-HIGH">HIGH</div>
+    <div class="market-label">WTI $130 in April</div>
+    <div class="market-price">18.5%<span class="delta flat">—</span></div>
+    <div class="market-interp">Residual escalation tail. Consistent with ~20% probability of April 22 collapse scenario (Iran exits ceasefire, blockade + bombing resume).</div>
+  </div>
+
+</div>
+
+<div class="oil-warning">
+  <div class="ow-label">⛽ Cross-Market Ground Truth — Oil Leads the Binary</div>
+  The <strong>[HIGH] WTI &lt;$90 in April at 72.5%</strong> is the most important signal on this board. Oil market participants — with their own money on WTI futures — are pricing a 3:1 probability of oil falling below $90 by April 30. This is a forward-looking signal that the blockade lifts and/or a deal materialises before month-end. The nuclear deal binary at 40.7% is <em>lagging</em> the oil signal, not ahead of it. For Australian exposure: WTI (proxy for Brent) below $90 = petrol A$1.90–2.00/L range, versus A$2.20–2.30/L today at ~$100.
+</div>
+
+<!-- CATALYST ANALYSIS -->
+<h2>4-Step Catalyst Identification</h2>
+<div class="catalyst-box">
+  <div class="catalyst-step">
+    <div class="step-label">Step A — What qualifies (contract description)</div>
+    <p>YES resolves on an <strong>official publicly announced mutual agreement</strong> between the US and Iran on nuclear research and/or nuclear weapons development by April 30, 2026 11:59pm ET. Multilateral deals (JCPOA-style with US+Iran as parties) qualify. Primary resolution source: official US/Iran government announcement. Fallback: overwhelming consensus of credible reporting. Resolution quality: <span class="quality-badge quality-HIGH">HIGH</span> with minor "credible reporting" fallback caveat.</p>
+  </div>
+  <div class="catalyst-step">
+    <div class="step-label">Step B — When did the move happen?</div>
+    <p>1d change: +17.15pp (cumulative recovery from April 13 Islamabad collapse). 1h change: +1.4pp (current momentum as at 13:01 AEST cache refresh). The pattern is <strong>gradual drift, not a spike</strong> — no sudden order-book flush or single catalyst moment. Move from 37.0% (11:30 AEST) to 40.7% (13:15 AEST) = +3.7pp over ~1.75 hours of steady buying.</p>
+  </div>
+  <div class="catalyst-step">
+    <div class="step-label">Step C — Real-world catalyst</div>
+    <p><strong>Catalyst identified: Continuation repricing from April 14 second-round confirmation.</strong> No new catalyst on April 15 AEST morning. The underlying news driving this move was published April 14 EDT: NBC News reported US and Iranian teams are returning to Islamabad "as soon as this week" (two people familiar with negotiations). CNN: "Trump hints US-Iran talks could resume over next two days." CNBC/White House: "more talks in discussion, nothing scheduled." Iranian Embassy Islamabad: "coming rounds can come later this week or earlier next week." The market has been integrating this news over 24–36 hours and has now cleared the 40% threshold as consensus solidifies around the April 17–19 window. <em>No new announcement on April 15 AEST has been identified.</em></p>
+  </div>
+  <div class="catalyst-step">
+    <div class="step-label">Step D — Cross-market validation</div>
+    <p><strong>All signals coherent — no contradictions.</strong> WTI &lt;$90 in April at 72.5% [HIGH] confirms de-escalation thesis from the oil market. Ops-end 46% [LOW] rising in parallel. Hormuz 23.5% [MED] steady. Ceasefire 34.6% [LOW] stable. WTI $130 tail at 18.5% [HIGH] — consistent with ~20% April 22 collapse risk remaining. The nuclear deal market at 40.7% is coherent with — and lagging behind — the oil market's pricing. Macro interpretation: <strong>deal path now base case for oil; April 22 cliff still real but no longer dominant probability.</strong></p>
+  </div>
+</div>
+
+<!-- MACRO IMPLICATIONS -->
+<h2>Macro Implications — Australian Focus</h2>
+<table class="macro-table">
+  <thead>
+    <tr>
+      <th>Asset / Market</th>
+      <th>Signal</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="asset">WTI crude<br><small style="color:#8892a4;">(proxy for Brent)</small></td>
+      <td class="signal-bull">Bearish oil</td>
+      <td class="detail">Deal path &gt;40% → WTI downside toward $85–90 increasingly priced. Oil market leading at 72.5% WTI &lt;$90. If second round confirms → WTI pre-trades toward $80–85 before announcement. April 22 collapse → WTI $120–130+ (18.5% tail).</td>
+    </tr>
+    <tr>
+      <td class="asset">ASX energy<br><small style="color:#8892a4;">WDS / STO</small></td>
+      <td class="signal-bear">Reversal risk rising</td>
+      <td class="detail">WDS/STO structural long thesis intact today at WTI $100+, but the deal path pricing at 40.7% makes position sizing risk asymmetric. Deal materialises = oil crashes A$25–30/bbl = material valuation impact. Reduce position or hedge as deal probability rises above 50%.</td>
+    </tr>
+    <tr>
+      <td class="asset">ASX airlines<br><small style="color:#8892a4;">QAN</small></td>
+      <td class="signal-bull">Fuel cost relief</td>
+      <td class="detail">Each $10 WTI decline = ~A$250–280M annualised fuel cost reduction. Deal scenario (WTI $80–85) = A$500–560M annual improvement vs current $100+. QAN bullish catalyst building.</td>
+    </tr>
+    <tr>
+      <td class="asset">Australian petrol</td>
+      <td class="signal-bull">Deal = partial relief</td>
+      <td class="detail">A$2.20–2.30/L today. Deal scenario → A$1.85–1.95/L (oil component). June 30 excise expiry (+A$0.25–0.30/L) certain regardless of outcome — partially offsetting oil relief under deal scenario.</td>
+    </tr>
+    <tr>
+      <td class="asset">AUD/USD</td>
+      <td class="signal-bull">Recovery building</td>
+      <td class="detail">Currently 0.62–0.65 under active blockade. Deal confirmation → risk-on recovery to 0.66–0.68. Watch for directional move when second-round talks confirmed and Iranian team departure for Islamabad reported.</td>
+    </tr>
+    <tr>
+      <td class="asset">US Treasuries</td>
+      <td class="signal-bull">Mild bullish</td>
+      <td class="detail">Lower oil path → lower US CPI expectations → modest bond rally. US Fed April hold locked at 98% [HIGH]. No rate surprise. De-escalation = modest rate relief at the margin.</td>
+    </tr>
+    <tr>
+      <td class="asset">US equities</td>
+      <td class="signal-bull">Risk-on positive</td>
+      <td class="detail">De-escalation removes geopolitical risk premium, reduces energy cost drag. S&amp;P positive on deal materialisation. Energy sector (XLE) underperforms while deal path rises.</td>
+    </tr>
+    <tr>
+      <td class="asset">Crypto (BTC)</td>
+      <td class="signal-neutral">Watch $73k</td>
+      <td class="detail">BTC above $73k at 55%, $75.8k at 45% — Bitcoin hovering near all-time high territory, independent of Iran complex. Crypto not an Iran trade but macro risk-on sentiment (AUD recovery, equity rally) is supportive.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- STRUCTURAL CONTEXT -->
+<h2>Structural Context — April 22 Remains the Binary</h2>
+<div class="summary-box" style="font-size:14px;">
+  <p style="margin-bottom:12px;">Even with nuclear deal at 40.7%, the April 22 ceasefire expiry is still a hard binary. The deal path (40.7% nuclear deal, 46% ops-end) suggests the market is now pricing an extension/capitulation scenario as the <em>base case</em> — but a 40% probability on a binary is not a certainty. The remaining 59.3% carries a significant chunk of April 22 collapse risk.</p>
+  <p style="margin-bottom:12px;">The five structural gaps reported by Axios mediators (frozen assets sequencing, uranium enrichment, Lebanon scope, war reparations, Hormuz sovereignty) are all still open. Iran's red line: 3–5 years of enrichment suspension. US red line: 20 years. The bridgeable range is wide. Second round of talks is where this either closes or collapses.</p>
+  <p><strong>Collapse scenario (still ~20–40% probability):</strong> If April 17–19 second round produces no breakthrough → April 22 ceasefire lapses → blockade + bombing resume → simultaneous crash: Hormuz ↓10%, nuclear deal ↓10%, ceasefire ↓10%, ops-end ↓20%, WTI +$20–25/bbl. This is the tail that WTI $130 at 18.5% is pricing.</p>
+</div>
+
+<!-- TRIGGER ACTIONS -->
+<h2>Trigger Actions</h2>
+
+<div class="trigger-action">
+  <div class="action-type">✅ Updated — threshold advanced</div>
+  <strong><code>iran-nuclear-deal-apr30</code></strong>: Threshold advanced from 0.40 → 0.50 (next milestone: majority probability). Trigger fired at 40.7% as expected. Now watching for nuclear deal to cross majority threshold (50%), which would represent a qualitative regime shift — deal more likely than not.
+</div>
+
+<div class="trigger-action">
+  <div class="action-type">➕ New trigger added</div>
+  <strong><code>iran-nuclear-deal-reversal</code></strong>: ↓30% alarm. If nuclear deal crashes back below 30%, the April 22 binary re-sharpens to maximum pressure scenario. Acts as a stop-loss signal on the de-escalation thesis. Current price is 10.7pp above this threshold — provides buffer for normal oscillation.
+</div>
+
+<!-- WHAT TO WATCH -->
+<h2>What to Watch Next</h2>
+<div class="watch-box">
+  <div class="watch-item">
+    <span class="watch-icon">🔴</span>
+    <div><strong>Second Islamabad round confirmation (April 17–19).</strong> A confirmed departure of Iranian negotiating team for Islamabad = immediate nuclear deal repricing toward 50%+. Watch for: venue confirmation, team names, departure flights. This is the next binary catalyst. If confirmed → nuclear deal ↑50% trigger likely fires within hours. If cancelled → nuclear deal crashes toward 25–30%.</div>
+  </div>
+  <div class="watch-item">
+    <span class="watch-icon">🟡</span>
+    <div><strong>Rubio State Dept output (~01:00 AEST April 16).</strong> US Secretary of State Rubio was hosting talks at 11am EDT April 15. Any signal on Iran framework concessions or extension timeline from Rubio's readout would be a catalyst. Particularly watch for: ceasefire extension language, enrichment compromise proposal, Hormuz timeline commitment.</div>
+  </div>
+  <div class="watch-item">
+    <span class="watch-icon">🟡</span>
+    <div><strong>WTI price action intraday.</strong> If WTI moves below $95/bbl today (Asian session), the oil market is pricing second-round confirmation before I can verify it via media. Oil is the leading indicator — watch it.</div>
+  </div>
+  <div class="watch-item">
+    <span class="watch-icon">🔵</span>
+    <div><strong>April 22 ceasefire expiry (7 days away).</strong> Deal before April 22 = maximum positive surprise. Deal announced April 22–30 = positive but less sharp. No deal by April 22 = collapse scenario. The market is pricing April 22 as the inflection point. Duration countdown: 7 days.</div>
+  </div>
+  <div class="watch-item">
+    <span class="watch-icon">🔵</span>
+    <div><strong>ASX open today (Wednesday April 15)</strong> — already open into this market structure. Energy sector (WDS/STO) faces growing reversal risk as deal path probability rises. QAN/freight beneficiaries of oil decline.</div>
+  </div>
+</div>
+
+<div class="footnote" style="margin-top:32px; border-top:1px solid var(--border); padding-top:16px;">
+  Generated by Polymarket Analyst Agent · 15 April 2026 13:15 AEST · Data: Polymarket CLOB API + Kalshi<br>
+  Resolution quality badges: <span class="quality-badge quality-HIGH">HIGH</span> = objective/verifiable &nbsp; <span class="quality-badge quality-MED">MED</span> = criteria with interpretation surface &nbsp; <span class="quality-badge quality-LOW">LOW</span> = UMA-vote / consensus-of-reporting<br>
+  WTI used as proxy for Brent crude; Brent-WTI spread (~$3–5/bbl) applies to Australian fuel pricing.
+</div>
+
+</body>
+</html>
