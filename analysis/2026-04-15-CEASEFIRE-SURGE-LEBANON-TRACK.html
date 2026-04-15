@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Ceasefire +29pp Surge — Lebanon Track Diverges | 2026-04-15</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; padding: 24px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
+  .subtitle { font-size: 0.85rem; color: #94a3b8; margin-bottom: 28px; }
+  h2 { font-size: 1.05rem; font-weight: 600; color: #cbd5e1; margin: 28px 0 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #1e293b; padding-bottom: 6px; }
+  h3 { font-size: 0.95rem; font-weight: 600; color: #94a3b8; margin: 18px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; font-size: 0.92rem; }
+  .alert-banner { background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%); border-left: 4px solid #3b82f6; border-radius: 6px; padding: 16px 20px; margin-bottom: 24px; }
+  .alert-banner .headline { font-size: 1.1rem; font-weight: 700; color: #93c5fd; margin-bottom: 6px; }
+  .alert-banner .detail { font-size: 0.88rem; color: #bfdbfe; }
+  .market-card { background: #1e293b; border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+  .market-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .market-name { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+  .quality-badge { font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 3px; text-transform: uppercase; margin-left: 8px; flex-shrink: 0; }
+  .quality-low { background: #7c2d12; color: #fed7aa; }
+  .quality-med { background: #713f12; color: #fef08a; }
+  .quality-high { background: #14532d; color: #bbf7d0; }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; }
+  .price-main { font-size: 1.6rem; font-weight: 700; }
+  .price-surge { color: #22c55e; }
+  .price-fall { color: #ef4444; }
+  .price-flat { color: #94a3b8; }
+  .price-delta { font-size: 0.85rem; font-weight: 600; }
+  .delta-up { color: #4ade80; }
+  .delta-down { color: #f87171; }
+  .market-note { font-size: 0.82rem; color: #64748b; margin-top: 6px; }
+  .spike-note { font-size: 0.8rem; color: #f59e0b; background: #1c1200; border: 1px solid #92400e; border-radius: 4px; padding: 4px 8px; margin-top: 6px; display: inline-block; }
+  .step-box { background: #0f172a; border: 1px solid #1e293b; border-radius: 6px; padding: 14px 16px; margin-bottom: 12px; }
+  .step-label { font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .step-content { font-size: 0.88rem; color: #94a3b8; }
+  .step-content strong { color: #cbd5e1; }
+  .verdict { background: #0f2027; border-left: 3px solid #f59e0b; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 14px 0; }
+  .verdict .label { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; margin-bottom: 4px; }
+  .verdict .text { font-size: 0.9rem; color: #fef3c7; }
+  .warning-box { background: #1a0a0a; border: 1px solid #7f1d1d; border-radius: 6px; padding: 14px 16px; margin: 16px 0; }
+  .warning-box .label { font-size: 0.75rem; font-weight: 700; color: #fca5a5; text-transform: uppercase; margin-bottom: 6px; }
+  .warning-box .text { font-size: 0.88rem; color: #fecaca; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0; }
+  th { text-align: left; padding: 8px 10px; color: #64748b; font-weight: 600; border-bottom: 1px solid #1e293b; font-size: 0.78rem; text-transform: uppercase; }
+  td { padding: 8px 10px; color: #94a3b8; border-bottom: 1px solid #0f172a; vertical-align: top; }
+  td:first-child { color: #cbd5e1; font-weight: 500; }
+  td.up { color: #4ade80; }
+  td.down { color: #f87171; }
+  td.flat { color: #64748b; }
+  .implications-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .impl-card { background: #1e293b; border-radius: 6px; padding: 12px 14px; }
+  .impl-title { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 6px; }
+  .impl-text { font-size: 0.85rem; color: #94a3b8; }
+  .impl-text strong { color: #e2e8f0; }
+  .actions-box { background: #0d1f0d; border: 1px solid #166534; border-radius: 6px; padding: 14px 16px; margin: 16px 0; }
+  .actions-box .label { font-size: 0.75rem; font-weight: 700; color: #4ade80; text-transform: uppercase; margin-bottom: 8px; }
+  .actions-box ul { list-style: none; }
+  .actions-box li { font-size: 0.86rem; color: #86efac; padding: 3px 0; }
+  .actions-box li::before { content: '✓ '; color: #22c55e; }
+  .forward-box { background: #1e293b; border-left: 4px solid #6366f1; border-radius: 0 6px 6px 0; padding: 14px 16px; margin: 16px 0; }
+  .forward-box .label { font-size: 0.75rem; font-weight: 700; color: #a5b4fc; text-transform: uppercase; margin-bottom: 6px; }
+  .forward-box .text { font-size: 0.88rem; color: #c7d2fe; }
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e293b; font-size: 0.78rem; color: #475569; }
+  @media (max-width: 600px) { .implications-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>🔔 ALERT: Israel-Hezbollah Ceasefire Surge</h1>
+  <div class="subtitle">2026-04-15 23:45 AEST &nbsp;|&nbsp; Polymarket Market Intelligence</div>
+
+  <div class="alert-banner">
+    <div class="headline">Ceasefire by April 30 spiked to 73.4% — two triggers fired</div>
+    <div class="detail">Lebanon peace track now pricing independently of Iran nuclear deal (+29pp spike in 15 min, settled ~65.6%). Nuclear deal [HIGH] at 32.0% — diverging. April 22 cliff still 7 days out.</div>
+  </div>
+
+  <!-- KEY MARKETS -->
+  <h2>Key Markets</h2>
+
+  <div class="market-card">
+    <div class="market-header">
+      <span class="market-name">Israel x Hezbollah ceasefire by April 30</span>
+      <span class="quality-badge quality-low">LOW quality</span>
+    </div>
+    <div class="price-row">
+      <span class="price-main price-surge">65.6%</span>
+      <span class="price-delta delta-up">+21pp from prior (peaked 73.4%)</span>
+    </div>
+    <div class="market-note">Outcome: YES = "publicly announced, mutually agreed halt between Israel AND Hezbollah"</div>
+    <div class="spike-note">⚡ SPIKE: 44.6% → 73.4% in 15 min; live API at 23:45 shows partial reversal to 65.6% (last trade 60.6%)</div>
+  </div>
+
+  <div class="market-card">
+    <div class="market-header">
+      <span class="market-name">US-Iran nuclear deal by April 30</span>
+      <span class="quality-badge quality-high">HIGH quality</span>
+    </div>
+    <div class="price-row">
+      <span class="price-main price-fall">32.0%</span>
+      <span class="price-delta delta-down">-1.1pp — 2.1pp above ↓30% collapse trigger</span>
+    </div>
+    <div class="market-note">Round 2 talks unconfirmed as of ~17:00 EDT. White House: "nothing scheduled." April 22 ceasefire expiry in 7 days.</div>
+  </div>
+
+  <div class="market-card">
+    <div class="market-header">
+      <span class="market-name">WTI crude oil below $90 in April 2026 (proxy for Brent)</span>
+      <span class="quality-badge quality-high">HIGH quality</span>
+    </div>
+    <div class="price-row">
+      <span class="price-main price-surge">72.5%</span>
+      <span class="price-delta delta-up">+1.0pp</span>
+    </div>
+    <div class="market-note">Spot WTI trading $88-98 range (right at $90 boundary). US crude inventories +6.1M bbls (8th consecutive build). Fundamental bearish pressure independent of geopolitics.</div>
+  </div>
+
+  <div class="market-card">
+    <div class="market-header">
+      <span class="market-name">Hormuz normalization by April 30</span>
+      <span class="quality-badge quality-med">MED quality</span>
+    </div>
+    <div class="price-row">
+      <span class="price-main price-flat">24.5%</span>
+      <span class="price-delta" style="color:#64748b">unchanged</span>
+    </div>
+    <div class="market-note">Flat despite Lebanon surge. Confirms Lebanon and Hormuz/Iran blockade are separate tracks. Hormuz blockade not pricing Lebanon ceasefire optimism.</div>
+  </div>
+
+  <!-- 4-STEP CATALYST CHECK -->
+  <h2>4-Step Catalyst Identification</h2>
+
+  <div class="step-box">
+    <div class="step-label">Step A — Resolution criteria</div>
+    <div class="step-content">
+      <strong>[LOW] quality.</strong> Resolves YES on "publicly announced and mutually agreed halt in direct military engagement <em>between Israel and Hezbollah</em> by April 30, 11:59 PM ET." Critical: Hezbollah must be a party. Informal understandings, de-escalation without explicit Hezbollah agreement, or government-to-government frameworks that exclude Hezbollah do NOT qualify per the description. UMA voters must interpret whether de facto military reduction satisfies this criterion.
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step B — When did the move happen?</div>
+    <div class="step-content">
+      Single 15-minute collection interval: <strong>23:15→23:30 AEST = 09:15→09:30 AM EDT April 15</strong>. Consistent with US morning newswire (Bloomberg/Reuters terminal) coverage reaching participants at the US market open. Price immediately started partially reversing within minutes of the spike (73.4% at 23:30 → 65.6% live at 23:45).
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step C — Catalyst identified</div>
+    <div class="step-content">
+      US newswire coverage (~09:15-09:30 EDT) of <strong>Israeli Ambassador Yechiel Leiter's</strong> post-Washington-talks statements on April 15 morning:
+      <ul style="margin-top:8px; padding-left:16px; color:#94a3b8;">
+        <li style="margin-bottom:4px;">Called the meeting <strong style="color:#e2e8f0">"a wonderful two-hour exchange"</strong></li>
+        <li style="margin-bottom:4px;"><strong style="color:#e2e8f0">"If we just put Hezbollah to the side and just Israel and Lebanon negotiate peace, then two months, three months, we've got a complete peace agreement"</strong></li>
+        <li style="margin-bottom:4px;">Confirmed "several proposals and recommendations" to present to governments</li>
+        <li style="margin-bottom:4px;">Confirmed parties will <strong style="color:#e2e8f0">"reconvene in the coming weeks"</strong></li>
+        <li style="margin-bottom:4px;">Military activity <strong style="color:#e2e8f0">"reduced per Trump's request"</strong></li>
+        <li style="margin-bottom:4px;">17 foreign ministers (inc. UK, France) publicly encouraged the process</li>
+      </ul>
+      Note: Leiter simultaneously and explicitly <strong>declined</strong> to commit to a ceasefire: "we are focused on the security of the residents of the State of Israel." The positive language drove the spike; the ceasefire rejection explains the partial reversal.
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step D — Cross-market validation</div>
+    <div class="step-content">
+      <table>
+        <tr><th>Market</th><th>Price</th><th>Delta</th><th>Signal</th></tr>
+        <tr>
+          <td>[HIGH] Nuclear deal Apr 30</td>
+          <td class="down">32.0%</td>
+          <td class="down">-1.1pp</td>
+          <td>DIVERGES — Iran nuclear track cooling while Lebanon surges</td>
+        </tr>
+        <tr>
+          <td>[HIGH] WTI &lt;$90 in April</td>
+          <td class="up">72.5%</td>
+          <td class="up">+1.0pp</td>
+          <td>Confirms deal-path base case; no war escalation priced ✓</td>
+        </tr>
+        <tr>
+          <td>[MED] Hormuz Apr 30</td>
+          <td class="flat">24.5%</td>
+          <td class="flat">0.0pp</td>
+          <td>Lebanon ≠ Hormuz track; blockade still in force ✓</td>
+        </tr>
+        <tr>
+          <td>[LOW] Trump ops-end Apr 30</td>
+          <td class="flat">43.5%</td>
+          <td class="flat">0.0pp</td>
+          <td>Iran track stable, not repricing Lebanon ✓</td>
+        </tr>
+        <tr>
+          <td>Iran invasion 2027</td>
+          <td class="flat">34.5%</td>
+          <td class="flat">+0.5pp</td>
+          <td>No long-term escalation signal ✓</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="label">Verdict</div>
+    <div class="text">The Lebanon ceasefire surge is a genuine government-to-government diplomatic advance (first Israel-Lebanon talks in 30+ years) repriced via morning newswire — <strong>not a formal ceasefire announcement</strong>. The 73.4% peak was an overshoot; 65.6% (or ~60% at last trade) is the real settled level. The nuclear deal [HIGH] declining to 32% while Lebanon surges confirms two separate tracks. The ceasefire at 65% is a [LOW]-quality UMA voter bet, NOT a factual ceasefire probability. The cross-market complex (oil at ~$90, Hormuz flat, ops-end flat) does not contradict this interpretation — but also provides no independent confirmation of Lebanon-specific de-escalation reaching the physical oil complex.</div>
+  </div>
+
+  <!-- STRUCTURAL CONSTRAINT -->
+  <div class="warning-box">
+    <div class="label">⚠ Critical Resolution Constraint</div>
+    <div class="text">
+      Hezbollah explicitly rejected participation in Washington talks (called them "futile"). Israel explicitly declined ceasefire discussions. The resolution criteria requires <em>Hezbollah agreement</em>. At [LOW] quality with a 65% price, the market is betting that UMA voters will interpret:
+      (1) government-to-government peace framework + (2) de facto military reduction at Trump's request as qualifying under "mutually agreed halt."
+      This is a significant UMA interpretation risk. <strong>Do not treat the 65% reading as equivalent to a 65% probability of actual physical ceasefire.</strong>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <h2>Macro Implications</h2>
+
+  <div class="implications-grid">
+    <div class="impl-card">
+      <div class="impl-title">WTI (Proxy for Brent)</div>
+      <div class="impl-text">Spot $88-98, right at $90 boundary. <strong>Eighth consecutive US inventory build</strong> provides fundamental bearish pressure independent of geopolitics. Lebanon ceasefire optimism adds marginal downward support. WTI <$90 at 72.5% is now partly fundmental, not purely Iran-deal dependent. Deal scenario: $80-85. Collapse scenario: $110-120. Current: option value right at boundary.</div>
+    </div>
+    <div class="impl-card">
+      <div class="impl-title">ASX Energy (WDS/STO)</div>
+      <div class="impl-text">Lebanon de-escalation fractionally positive, but nuclear deal at 32% and inventory builds offset this. <strong>No clean directional signal for Thursday open.</strong> Maintain cautious long thesis on WDS/STO as collapse-path hedge (collapse = $110-120 WTI). Exit on confirmed nuclear deal, not on Lebanon ceasefire alone.</div>
+    </div>
+    <div class="impl-card">
+      <div class="impl-title">QAN / Airlines</div>
+      <div class="impl-text">Lebanon ceasefire optimism adds marginal jet fuel relief possibility, but [LOW] quality means <strong>don't position off this alone</strong>. Primary catalyst: nuclear deal [HIGH] at 32%. At current levels, QAN carry-trade (oil at $90-95) is the base case. Deal confirmation would give $200-250M annual fuel saving at current fleet size.</div>
+    </div>
+    <div class="impl-card">
+      <div class="impl-title">AUD/USD</div>
+      <div class="impl-text">Lebanon optimism adds fractional risk-on premium. Nuclear deal at 32% + April 22 cliff limits upside. <strong>Range: 0.64-0.66</strong> while deal uncertain. Deal confirmation: 0.66-0.68 target. Collapse path: 0.62 floor test. No change to framework from prior report.</div>
+    </div>
+    <div class="impl-card">
+      <div class="impl-title">Australian Petrol</div>
+      <div class="impl-text">No change to base-case framework. Deal scenario: <strong>A$1.90-2.00/L</strong> by May. Collapse scenario: <strong>A$2.60-2.80/L</strong>. Current ~A$2.20-2.30/L at $90-95 WTI. Lebanon ceasefire, even if materialising, does not directly lift Hormuz blockade — petrol prices remain tied to Iran nuclear deal and Hormuz reopening. June 30 excise expiry (+A$0.25-0.30/L) is locked in regardless of outcome.</div>
+    </div>
+    <div class="impl-card">
+      <div class="impl-title">Rates / US Fed</div>
+      <div class="impl-text">Fed April hike: 0.4% — effectively zero. US Fed June hike: 2.5% (-0.2pp). Oil at $88-90 marginally reduces inflation persistence narrative for June meeting. Geopolitical de-escalation on Lebanon track is <strong>mildly positive for bond markets</strong> (removes tail risk). No major repricing warranted at this stage.</div>
+    </div>
+  </div>
+
+  <!-- CRITICAL UPCOMING EVENT -->
+  <h2>Urgent Watch: Nuclear Deal ↓30% Trigger — 2.1pp Away</h2>
+  <p style="color:#fca5a5; font-size:0.9rem;">The most important near-term event is NOT the Lebanon ceasefire — it is whether US-Iran nuclear deal Round 2 is confirmed on <strong>April 16 (today, AEST)</strong>.</p>
+  <table>
+    <tr><th>Event</th><th>Current Price</th><th>Trigger</th><th>Gap</th></tr>
+    <tr><td>[HIGH] Nuclear deal ↓30% collapse</td><td class="down">32.0%</td><td>↓30%</td><td class="down">2.1pp — IMMINENT</td></tr>
+    <tr><td>[LOW] Lebanon ceasefire ↓50% reversal</td><td class="up">65.6%</td><td>↓50%</td><td class="up">15.6pp away</td></tr>
+    <tr><td>Hormuz approaches zero ↓10%</td><td class="flat">24.5%</td><td>↓10%</td><td class="flat">14.5pp away</td></tr>
+  </table>
+  <p style="font-size:0.87rem; color:#94a3b8; margin-top:10px;">If the nuclear deal ↓30% trigger fires on April 16, the April 22 cliff re-sharpens and Lebanon ceasefire optimism becomes irrelevant. Watch for: any Round 2 announcement or explicit confirmation of no Round 2 scheduled before the April 17-19 window closes.</p>
+
+  <!-- FORWARD VIEW -->
+  <div class="forward-box">
+    <div class="label">Forward View</div>
+    <div class="text">
+      <strong>April 16 (today, ASX open):</strong> The nuclear deal is the dominant risk. If Trump's "amazing two days" statement (April 14) delivers a Round 2 confirmation before market open, nuclear deal recovers toward 38-42% and Lebanon ceasefire consolidates above 65%. If April 16 passes without Round 2 confirmation, deal reprices to 28-30%, collapse trigger fires, and April 22 becomes a bare cliff again — overriding all Lebanon optimism.<br><br>
+      <strong>Lebanon track:</strong> "Reconvene in coming weeks" with "several proposals" is diplomatically significant but structurally unchanged: Hezbollah absent, Israel won't discuss ceasefire, resolution criteria require Hezbollah agreement. The 65% price reflects UMA voter optimism, not factual ceasefire progress. Next Lebanon catalyst: date and venue confirmation for Round 2 talks (expected "coming weeks"). If Hezbollah escalates with strikes in response to talks, ceasefire reversal trigger (&lt;50%) becomes live.<br><br>
+      <strong>Key watch sequence:</strong> (1) April 16 morning: Round 2 nuclear deal announcement? → determines April 22 scenario. (2) April 17-19: were the Islamabad Round 2 talks meant to happen? If window closes without talks, deal collapse path. (3) April 22: US-Iran ceasefire expiry — the hard cliff. Lebanon ceasefire is secondary until the Iran nuclear deal trajectory clarifies.
+    </div>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="actions-box">
+    <div class="label">Trigger Actions Taken</div>
+    <ul>
+      <li>Ceasefire majority threshold advanced 55%→75% (FIRED at 73.4% peak; current 65.6% = 9.4pp below new threshold)</li>
+      <li>Ceasefire revival (>70%) kept at 70% — brief breach noted; need sustained close above for conviction</li>
+      <li>NEW: Ceasefire reversal trigger added (&lt;50%) — fires if Lebanon diplomacy unwinds below majority probability</li>
+      <li>Nuclear deal ↓30% collapse trigger: unchanged, 2.1pp away — HIGHEST PRIORITY WATCH</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Generated: 2026-04-15 23:45 AEST &nbsp;|&nbsp; Polymarket Market Analyst &nbsp;|&nbsp; All prices as of collection run 23:30 AEST unless noted &nbsp;|&nbsp; [LOW] = UMA voter-decided resolution; [HIGH] = objective fact-based resolution &nbsp;|&nbsp; WTI is proxy for Brent crude (no Brent markets on Polymarket/Kalshi); note Brent-WTI spread (~$3-5) when discussing Australian fuel pricing
+  </div>
+
+</div>
+</body>
+</html>
