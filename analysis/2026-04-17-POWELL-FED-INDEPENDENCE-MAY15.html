@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Powell Chair Term Ends May 15 — Fed Independence Crisis | Polymarket Analyst</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); padding: 2rem; border-bottom: 3px solid #ef4444; }
+  .header-inner { max-width: 900px; margin: 0 auto; }
+  .alert-badge { display: inline-block; background: #ef4444; color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; border-radius: 2px; margin-bottom: 0.75rem; text-transform: uppercase; }
+  h1 { font-size: 1.75rem; font-weight: 700; color: #fef2f2; line-height: 1.3; margin-bottom: 0.5rem; }
+  .meta { font-size: 0.85rem; color: #fca5a5; }
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+  .section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8b949e; margin-bottom: 1rem; border-bottom: 1px solid #21262d; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.1rem; font-weight: 600; color: #f0f6fc; margin-bottom: 0.75rem; }
+  p { color: #c9d1d9; margin-bottom: 0.75rem; font-size: 0.95rem; }
+  p:last-child { margin-bottom: 0; }
+  .market-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: #0d1117; border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #30363d; }
+  .market-row.up { border-left-color: #3fb950; }
+  .market-row.down { border-left-color: #f85149; }
+  .market-row.warn { border-left-color: #d29922; }
+  .market-label { font-size: 0.875rem; color: #c9d1d9; flex: 1; }
+  .market-label small { display: block; font-size: 0.75rem; color: #8b949e; margin-top: 2px; }
+  .market-price { font-size: 1rem; font-weight: 700; color: #f0f6fc; white-space: nowrap; margin-left: 1rem; }
+  .market-delta { font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem; white-space: nowrap; }
+  .up .market-delta { color: #3fb950; }
+  .down .market-delta { color: #f85149; }
+  .badge { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 3px; vertical-align: middle; margin-right: 4px; }
+  .badge-high { background: #1f6feb; color: #a5d6ff; }
+  .badge-med { background: #388bfd22; color: #79c0ff; border: 1px solid #388bfd; }
+  .badge-low { background: #da3633; color: #ffa198; }
+  .callout { padding: 1rem 1.25rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+  .callout-red { background: #3d1c1c; border: 1px solid #b91c1c; color: #fca5a5; }
+  .callout-yellow { background: #2d2000; border: 1px solid #d29922; color: #f0c040; }
+  .callout-blue { background: #0c2032; border: 1px solid #1f6feb; color: #79c0ff; }
+  .callout-green { background: #0d2016; border: 1px solid #238636; color: #3fb950; }
+  .callout strong { color: inherit; }
+  .timeline { border-left: 2px solid #21262d; padding-left: 1.25rem; margin-top: 0.75rem; }
+  .timeline-item { position: relative; margin-bottom: 0.75rem; font-size: 0.875rem; color: #c9d1d9; }
+  .timeline-item::before { content: ''; position: absolute; left: -1.45rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background: #30363d; }
+  .timeline-item.hot::before { background: #ef4444; }
+  .timeline-item.warn::before { background: #d29922; }
+  .timeline-item.good::before { background: #3fb950; }
+  .timeline-item .date { font-size: 0.75rem; color: #8b949e; margin-right: 0.5rem; font-weight: 600; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.75rem; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+  .impact-box { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; }
+  .impact-box h3 { font-size: 0.8rem; font-weight: 700; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+  .impact-box p { font-size: 0.85rem; color: #c9d1d9; margin: 0; }
+  .impact-box .direction { font-weight: 700; }
+  .direction-bearish { color: #f85149; }
+  .direction-bullish { color: #3fb950; }
+  .direction-mixed { color: #d29922; }
+  ul { padding-left: 1.25rem; color: #c9d1d9; font-size: 0.9rem; }
+  ul li { margin-bottom: 0.4rem; }
+  .footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #484f58; border-top: 1px solid #21262d; }
+  .sibling-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 0.75rem; }
+  .sibling-table th { text-align: left; padding: 0.4rem 0.75rem; background: #0d1117; color: #8b949e; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .sibling-table td { padding: 0.5rem 0.75rem; border-top: 1px solid #21262d; color: #c9d1d9; }
+  .sibling-table tr:hover td { background: #161b22; }
+  .price-high { color: #3fb950; font-weight: 700; }
+  .price-low { color: #f85149; font-weight: 700; }
+  .price-mid { color: #d29922; font-weight: 700; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="alert-badge">🔴 Alert Report</div>
+    <h1>Powell Chair Term Ends May 15 — Fed Independence at an Inflection Point</h1>
+    <div class="meta">Polymarket Analyst · 2026-04-17 08:00 AEST · Alert-triggered run (07:30 collection)</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- THE TRIGGER -->
+  <div class="section">
+    <div class="section-title">What Fired the Alert</div>
+    <div class="market-row down">
+      <div class="market-label">
+        <span class="badge badge-low">LOW</span> Powell out as Fed Chair by May 31 2026
+        <small>jerome-powell-out-as-fed-chair-by-may-31-2026 · Vol: $102 total</small>
+      </div>
+      <div class="market-price">69.0%</div>
+      <div class="market-delta">-19.5pp</div>
+    </div>
+    <div class="callout callout-yellow" style="margin-top:1rem;">
+      <strong>⚠️ Thin book advisory:</strong> Total volume on this Polymarket market is $102. The price oscillation (50% → 89% → 69% across three 15-minute runs) reflects thin-book noise, NOT institutional conviction. <strong>Do not trade the Polymarket price.</strong> The macro significance is the <em>underlying real-world events</em> this market tracks — and those are confirmed real by actual financial markets.
+    </div>
+  </div>
+
+  <!-- WHAT'S ACTUALLY HAPPENING -->
+  <div class="section">
+    <div class="section-title">4-Step Catalyst Check</div>
+    <h2>The Real Signal: Powell's Chair Term Ends in 28 Days</h2>
+    <p>
+      The Polymarket price is noise. The <strong>underlying macro events</strong> are confirmed and significant. Here's what's actually happening:
+    </p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="date">Jan 2026</span> Trump fires Fed Governor Lisa Cook. Supreme Court accepts <em>Trump v. Cook</em>, allows Cook to remain temporarily pending ruling. Oral arguments in January — all 9 justices express scepticism of Trump's power to fire Fed officials without cause. Kavanaugh (Trump appointee): ruling would "weaken, if not shatter, Fed independence."
+      </div>
+      <div class="timeline-item">
+        <span class="date">Jan 12</span> DOJ opens criminal probe into Powell over Fed building renovation costs. Federal judge rules probe is a "pretext" for intimidation — government "offered no evidence Powell committed any crime other than displeasing the President."
+      </div>
+      <div class="timeline-item hot">
+        <span class="date">Apr 15</span> Trump explicitly threatens: <em>"I'll fire Powell if he stays on after his term expires May 15."</em> CNN, CNBC, WashPost, NPR confirm. This is the sharpest public ultimatum to date — previous threats left legal ambiguity; this one is tied to a specific date 4 weeks away.
+      </div>
+      <div class="timeline-item hot">
+        <span class="date">Apr 16</span> Powell speaks at Economic Club of Chicago. Emphasises tariff-driven downside risks to US economy. <strong>Nasdaq falls >3% on Fed independence fears.</strong> Trump's own CNN op-ed: "Trump's actions against Powell are working against him" — rate cuts less likely if Fed credibility is questioned, inflation expectations unanchored.
+      </div>
+      <div class="timeline-item warn">
+        <span class="date">Apr 18 (tomorrow)</span> Supreme Court issues rulings on Friday mornings. <em>Trump v. Cook</em> ruling is expected this month. If Court rules <strong>FOR</strong> Trump → he can legally fire Cook AND Powell; Fed independence crisis. If Court rules <strong>AGAINST</strong> Trump (as oral arguments strongly suggest) → Trump's firing threat is legally blocked; markets rally.
+      </div>
+      <div class="timeline-item">
+        <span class="date">May 15</span> Powell's 4-year chair term expires. Kevin Warsh nominated as successor — Senate confirmation status unclear. If Warsh not confirmed by May 15, Powell says he will remain as chair until successor confirmed. Trump has threatened to fire him if he stays.
+      </div>
+    </div>
+  </div>
+
+  <!-- SIBLING STRUCTURE -->
+  <div class="section">
+    <div class="section-title">Sibling Market Structure — Step B: When Does the Market Price the Event?</div>
+    <p>The Powell binary markets form a term-structure ladder. The sibling prices are coherent and revealing:</p>
+    <table class="sibling-table">
+      <thead>
+        <tr>
+          <th>Expiry</th>
+          <th>YES Price (Powell out by)</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>March 31, 2026</td>
+          <td><span class="price-low">0% (resolved NO)</span></td>
+          <td>Powell was chair through March 31 ✓</td>
+        </tr>
+        <tr>
+          <td>May 14, 2026</td>
+          <td><span class="price-low">2.65% YES</span></td>
+          <td>98% confident Powell stays through May 14 — chair term runs one more day</td>
+        </tr>
+        <tr>
+          <td><strong>May 31, 2026</strong></td>
+          <td><span class="price-mid">69% YES (live)</span></td>
+          <td>Chair term expires May 15 → high probability of "ceasing to be chair" between May 14–31</td>
+        </tr>
+        <tr>
+          <td>June 30, 2026</td>
+          <td><span class="price-mid">78.5% YES (live)</span></td>
+          <td>Companion — higher because wider window; also prices succession uncertainty</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.75rem;">
+      The sibling structure is <strong>internally coherent</strong>: March 31 = 0% (confirmed), May 14 = 2.65% (pre-term-expiry), May 31 = 69% (post-term-expiry window), June 30 = 78.5% (even wider window). This is NOT random thin-book noise — it's a structured term curve aligned with the May 15 chair expiry date.
+    </p>
+    <div class="callout callout-yellow" style="margin-top:0.75rem;">
+      <strong>Resolution quality caveat [MED]:</strong> "Ceases to be Chair" is objective, but UMA voters may dispute whether natural term expiry vs. involuntary removal vs. "acting chair" continuation satisfies the criteria. If Powell stays in an acting capacity past May 15 without formal successor confirmation, resolution is ambiguous. Treat as [MED], not [HIGH].
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET VALIDATION -->
+  <div class="section">
+    <div class="section-title">Step D — Cross-Market Validation: Are Financial Markets Confirming?</div>
+    <h2>Yes. Real Markets Are Pricing Fed Independence Risk.</h2>
+    <div class="market-row down">
+      <div class="market-label">
+        Nasdaq Composite (Apr 16 close)
+        <small>Reaction to Powell speech + Trump threats</small>
+      </div>
+      <div class="market-price">–3.0%+</div>
+      <div class="market-delta">single-day move</div>
+    </div>
+    <div class="market-row down">
+      <div class="market-label">
+        Gold spot (XAU/USD)
+        <small>Flight from US dollar credibility</small>
+      </div>
+      <div class="market-price">~$5,118/oz</div>
+      <div class="market-delta">near historic high</div>
+    </div>
+    <div class="market-row warn">
+      <div class="market-label">
+        US Treasury yields
+        <small>Mixed: short-end down (more cuts priced), long-end up (term premium surge)</small>
+      </div>
+      <div class="market-price">Mixed</div>
+      <div class="market-delta">curve steepener</div>
+    </div>
+    <p style="margin-top:0.75rem;">
+      The broader market is already pricing this. <strong>Gold at $5,118 is the ground truth</strong> — an asset that rises when faith in US monetary institutions erodes. Nasdaq –3% confirms equities see political interference in monetary policy as a negative net of any rate-cut upside. These are [HIGH] quality signals that validate the macro narrative independent of the thin Polymarket binary.
+    </p>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Macro Interpretation & Trade Implications</div>
+    <h2>Fed Chair Transition in 4 Weeks — What It Means Across Asset Classes</h2>
+    <div class="grid-2">
+      <div class="impact-box">
+        <h3>USD</h3>
+        <p><span class="direction direction-bearish">Bearish.</span> Trump's next Fed chair (likely Kevin Warsh) will face political pressure to cut rates. Even if Warsh is credibly independent, the institutional damage is done. Loss of Fed independence premium = structural USD headwind. AUD/USD: 0.66-0.68 recovery scenario strengthens.</p>
+      </div>
+      <div class="impact-box">
+        <h3>US Treasuries</h3>
+        <p><span class="direction direction-mixed">Curve steepener.</span> Short end: more rate cuts priced → yields fall. Long end: term premium surge as inflation expectations unanchored under political Fed. 10y yields could rise even as Fed cuts. Classic stagflation-risk pricing.</p>
+      </div>
+      <div class="impact-box">
+        <h3>Gold (XAU)</h3>
+        <p><span class="direction direction-bullish">Strongly bullish.</span> Already at $5,118. If Supreme Court rules FOR Trump (firing power confirmed) → gold could spike further on dollar credibility collapse. ASX gold miners NST, EVN, NCM: BUY signal.</p>
+      </div>
+      <div class="impact-box">
+        <h3>US Equities / ASX</h3>
+        <p><span class="direction direction-bearish">Bearish near-term.</span> Nasdaq –3% confirms market views political Fed as net negative. Higher term premium hurts tech/growth (DCF impact). ASX200 follows: CBA/NAB/WBC exposed to long-end yield spike. April 18 SCOTUS ruling could reverse this on a pro-independence ruling.</p>
+      </div>
+      <div class="impact-box">
+        <h3>AUD / RBA May 5</h3>
+        <p><span class="direction direction-mixed">Complex.</span> USD weakening = AUD/USD recovery (tailwind for RBA to cut). But US recession risk from tariffs + policy uncertainty = AUD headwind from risk-off. RBA May 5 25bp cut remains base case; if Powell fired and USD crashes, RBA may pause to reassess AUD pass-through.</p>
+      </div>
+      <div class="impact-box">
+        <h3>Australian Petrol</h3>
+        <p><span class="direction direction-mixed">Offsetting forces.</span> USD weakening → WTI (proxy for Brent) reprices lower in AUD terms. But Iran ceasefire expiry April 22 could spike oil regardless. June 30 excise expiry (+A$0.25-0.30/L) locked in either way. Net: uncertain, watch April 22 binary and SCOTUS ruling together.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE REAL BINARY: SCOTUS -->
+  <div class="section">
+    <div class="section-title">The Primary Catalyst to Watch</div>
+    <div class="callout callout-red">
+      <strong>SUPREME COURT RULING IN <em>TRUMP v. COOK</em> — COULD COME AS SOON AS TOMORROW (APRIL 18)</strong><br><br>
+      The SCOTUS ruling is the actual binary that determines Fed independence. The Court issues decisions on Friday mornings. April 18 (Good Friday, tomorrow) is a potential release date — though courts often take holidays off. Next window is April 24.<br><br>
+      <strong>If SCOTUS rules FOR Trump</strong> (can fire Fed governors without cause): USD crashes, gold surges, equities tank, Powell removal becomes legally certain → Fed independence crisis priced in full.<br><br>
+      <strong>If SCOTUS rules AGAINST Trump</strong> (all 9 justices were sceptical in January oral arguments): Trump's threat is legally blocked. Markets likely rally on resolution of uncertainty. Powell serves through May 15 normally and possibly beyond. This is the higher-probability scenario based on oral arguments.
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section">
+    <div class="section-title">Forward View — What to Watch</div>
+    <ul>
+      <li><strong>Apr 18 (Fri) or Apr 24 (Fri):</strong> SCOTUS <em>Trump v. Cook</em> ruling — THE key binary. Rules will be at 10am ET. This overrides all other Powell signals.</li>
+      <li><strong>Apr 21 (Mon, Easter Monday):</strong> Iran ceasefire expiry — ASX closed. First reaction window: Apr 22 ASX open.</li>
+      <li><strong>Apr 22 (Tue):</strong> ASX first open post-Easter. Iran ceasefire expiry resolution + potential Powell/SCOTUS news = dual macro catalysts hitting simultaneously.</li>
+      <li><strong>May 5:</strong> RBA meeting. SCOTUS ruling + Powell succession uncertainty will influence whether RBA pauses (USD/AUD uncertainty) or cuts as planned.</li>
+      <li><strong>May 15:</strong> Powell chair term expires. Watch whether Senate confirms Warsh by this date. If not confirmed, Powell intends to stay → Trump fires or backs down.</li>
+    </ul>
+  </div>
+
+  <!-- TRIGGERS -->
+  <div class="section">
+    <div class="section-title">Monitoring Actions</div>
+    <p>Trigger <code>powell-fired-above-50</code> retains threshold at 50% but <strong>note the thin-book advisory has been updated</strong>: the Polymarket market itself remains unreliable ($102 total volume) but underlying events are confirmed macro-significant. Will not add a hard Polymarket price trigger for a $102 market. Instead monitoring:</p>
+    <ul>
+      <li>SCOTUS ruling date (external news search on Friday mornings)</li>
+      <li>Warsh confirmation vote (Senate calendar)</li>
+      <li>Gold price sustained above $5,200 as escalation signal</li>
+      <li>If Polymarket Powell markets reach $10K+ liquidity, update trigger reason</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 2026-04-17 08:00 AEST · Sources: CNN, CNBC, WashPost, NPR (Trump threat Apr 15); CNBC (Nasdaq/yields Apr 16); NPR, WashPost, ABC News (<em>Trump v. Cook</em>); Morningstar (market whipsaw); Bloomberg (Fed transition Apr 16)
+</div>
+</body>
+</html>
