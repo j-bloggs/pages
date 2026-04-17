@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Hormuz Opens + Israel-Lebanon Ceasefire — April 17, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a2942 0%, #0f2027 100%); border-bottom: 3px solid #2ecc71; padding: 32px 40px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .badge { background: #2ecc71; color: #0a1628; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 3px; text-transform: uppercase; }
+  .badge.warning { background: #f39c12; }
+  .badge.alert { background: #e74c3c; }
+  .timestamp { color: #64748b; font-size: 13px; }
+  h1 { font-size: 26px; font-weight: 700; color: #f0f4f8; margin-bottom: 6px; }
+  .subtitle { color: #94a3b8; font-size: 15px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 32px; }
+  h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 16px; border-bottom: 1px solid #1e293b; padding-bottom: 8px; }
+  h3 { font-size: 15px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
+  .intro-box { background: #1a2535; border-left: 4px solid #2ecc71; padding: 20px 24px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+  .intro-box p { color: #cbd5e1; font-size: 15px; line-height: 1.7; margin-bottom: 8px; }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .market-card { background: #1a2535; border-radius: 8px; padding: 18px; border: 1px solid #243044; }
+  .market-card.fired { border-color: #2ecc71; background: #152a1e; }
+  .market-card.warning { border-color: #f39c12; background: #2a1f10; }
+  .market-card.neutral { border-color: #3b82f6; background: #111e35; }
+  .market-label { font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+  .q-high { background: #16a34a; color: #fff; }
+  .q-med { background: #d97706; color: #fff; }
+  .q-low { background: #dc2626; color: #fff; }
+  .market-price { font-size: 28px; font-weight: 800; color: #f0f4f8; margin-bottom: 4px; }
+  .market-delta { font-size: 13px; }
+  .delta-up { color: #2ecc71; }
+  .delta-down { color: #e74c3c; }
+  .delta-flat { color: #94a3b8; }
+  .market-note { font-size: 12px; color: #64748b; margin-top: 6px; }
+  .analysis-block { background: #141d2b; border-radius: 8px; padding: 24px; margin-bottom: 20px; border: 1px solid #1e293b; }
+  .analysis-block h3 { color: #93c5fd; margin-bottom: 12px; font-size: 14px; }
+  .analysis-block p { color: #94a3b8; font-size: 14px; line-height: 1.75; margin-bottom: 10px; }
+  .analysis-block p:last-child { margin-bottom: 0; }
+  .analysis-block ul { list-style: none; padding: 0; }
+  .analysis-block ul li { color: #94a3b8; font-size: 14px; padding: 5px 0; padding-left: 20px; position: relative; line-height: 1.65; }
+  .analysis-block ul li::before { content: '›'; position: absolute; left: 6px; color: #4b5563; }
+  .highlight { color: #f0f4f8; font-weight: 600; }
+  .green { color: #2ecc71; }
+  .amber { color: #f39c12; }
+  .red { color: #e74c3c; }
+  .blue { color: #60a5fa; }
+  .structural-box { background: #1a2535; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+  .structural-box h3 { color: #60a5fa; margin-bottom: 10px; }
+  .structural-box p { color: #94a3b8; font-size: 14px; line-height: 1.7; }
+  .catalyst-confirmed { background: #152a1e; border: 1px solid #2ecc71; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .catalyst-confirmed p { color: #86efac; font-size: 14px; line-height: 1.65; }
+  .risk-box { background: #2a1f10; border: 1px solid #f39c12; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .risk-box p { color: #fcd34d; font-size: 14px; line-height: 1.65; }
+  .macro-table { width: 100%; border-collapse: collapse; }
+  .macro-table th { background: #1e293b; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 10px 14px; text-align: left; }
+  .macro-table td { padding: 10px 14px; font-size: 13px; color: #94a3b8; border-bottom: 1px solid #1e293b; }
+  .macro-table tr:hover td { background: #141d2b; }
+  .macro-table td:first-child { font-weight: 600; color: #cbd5e1; }
+  .trigger-update { background: #1a2535; border-radius: 6px; padding: 14px 18px; margin: 8px 0; border-left: 3px solid #8b5cf6; }
+  .trigger-update p { color: #94a3b8; font-size: 13px; }
+  .trigger-update .trigger-label { font-size: 12px; font-weight: 700; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .footer { border-top: 1px solid #1e293b; padding: 24px 40px; text-align: center; color: #374151; font-size: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="badge">⚡ TRIGGER FIRED</span>
+    <span class="timestamp">2026-04-18 00:00 AEST | Alert-triggered run</span>
+  </div>
+  <h1>Hormuz Opens + Israel-Lebanon Ceasefire Begins</h1>
+  <p class="subtitle">Iran FM declares Strait "completely open" · Brent -3.2% to $96.2 · 26pp bifurcation gap collapses · Ops-end 3pp from next trigger</p>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <p>Iran's Foreign Minister Araghchi declared the Strait of Hormuz <strong>"completely open for all commercial vessels for the remaining period of ceasefire"</strong> on April 17 US time. A Pakistani tanker (440,000 barrels crude) physically confirmed the transit — the first major commercial vessel to exit the Persian Gulf through the Strait since the dual blockade began. Simultaneously, the Israel-Lebanon 10-day ceasefire took effect at midnight, adding a second de-escalation track.</p>
+    <p>Brent crude fell 3.2% to $96.2/bbl — the oil market validates de-escalation but <em>not</em> permanent normalization. The most important analytical development is structural: the 26-point gap between nuclear deal probability (54.6%) and Hormuz normalization probability (previously 28.5%) has collapsed to ~2pp. The market is now pricing these as <strong>linked</strong>, not sequential.</p>
+    <p>The April 21 ceasefire cliff is still live. Iran's Hormuz opening is conditional ("remaining period of ceasefire"). If ceasefire expires unextended, the Strait closes again. This is the key risk to monitor.</p>
+  </div>
+
+  <!-- KEY MARKETS -->
+  <div class="section">
+    <h2>Key Market Readings</h2>
+    <div class="market-grid">
+      <div class="market-card fired">
+        <div class="market-label">Hormuz Normalizes by Apr 30 <span class="quality-badge q-med">MED</span></div>
+        <div class="market-price">56.5%</div>
+        <div class="market-delta delta-up">▲ +28.0pp/6h from 28.5%</div>
+        <div class="market-note">TRIGGER FIRED ↑50%. Threshold advanced 50%→70%.</div>
+      </div>
+      <div class="market-card neutral">
+        <div class="market-label">US-Iran Nuclear Deal by Apr 30 <span class="quality-badge q-high">HIGH</span></div>
+        <div class="market-price">54.6%</div>
+        <div class="market-delta delta-down">▼ -1.7pp | Primary anchor</div>
+        <div class="market-note">Slight pullback. April 21 expiry uncertainty. Round 2 not confirmed.</div>
+      </div>
+      <div class="market-card warning">
+        <div class="market-label">Trump Ends Iran Ops by Apr 30 <span class="quality-badge q-low">LOW</span></div>
+        <div class="market-price">57.0%</div>
+        <div class="market-delta delta-up">▲ +9.0pp/6h | 3.0pp from ↑60% trigger</div>
+        <div class="market-note">Next trigger fires at 60%. May fire this session.</div>
+      </div>
+      <div class="market-card neutral">
+        <div class="market-label">Brent Crude (Spot) <span class="quality-badge q-high">REAL</span></div>
+        <div class="market-price">$96.2</div>
+        <div class="market-delta delta-down">▼ -3.2% on session</div>
+        <div class="market-note">Ground truth. NOT at $80-85 (deal scenario) — pricing temporary opening only.</div>
+      </div>
+      <div class="market-card neutral">
+        <div class="market-label">WTI Hits $80 Low in April <span class="quality-badge q-high">HIGH</span></div>
+        <div class="market-price">81.5%</div>
+        <div class="market-delta delta-flat">— Newly discovered</div>
+        <div class="market-note">Market expects WTI to reach $80 by Apr 30 (deal + normalization path).</div>
+      </div>
+      <div class="market-card neutral">
+        <div class="market-label">Hormuz Approaches Zero (&lt;10%) <span class="quality-badge q-med">MED</span></div>
+        <div class="market-price">56.5%</div>
+        <div class="market-delta delta-up">▲ +28.0pp (same slug, fire at ↓10%)</div>
+        <div class="market-note">46.5pp above collapse trigger. Catastrophe scenario priced out.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATALYST IDENTIFICATION -->
+  <div class="section">
+    <h2>4-Step Catalyst Identification</h2>
+
+    <div class="analysis-block">
+      <h3>Step A — What Qualifies (Resolution Quality: [MED])</h3>
+      <p>The Hormuz normalization market resolves YES if Strait traffic "returns to normal" by April 30. Resolution via UMA optimistic oracle — subjective threshold on what "normal" means (ships/day, cargo volumes, toll-free passage). Current precedent: Hormuz was running at ~11% of capacity (15 ships/day vs. 138 historical average). Iran's FM declaring it "completely open" removes the toll regime for the ceasefire duration, but physical traffic normalization to historical levels takes time. <span class="amber">UMA voters will determine whether partial or temporary normalization qualifies.</span></p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>Step B — When Did the Move Happen?</h3>
+      <p>Prior session (April 17 23:15 AEST): Hormuz at 28.5%. The +28pp surge occurred in the 6-hour window April 17 17:00–23:00 AEST (April 17 07:00–13:00 ET US time) — matching the timing of Iran's FM statement and the Lebanese ceasefire midnight start.</p>
+    </div>
+
+    <div class="catalyst-confirmed">
+      <p><strong>Step C — Catalyst Confirmed (CNN live blog + ABC News + Wikipedia 2026 Hormuz crisis):</strong></p>
+      <p>1. <strong>Iran FM Araghchi declared:</strong> "the passage for all commercial vessels through Strait of Hormuz is declared completely open for the remaining period of ceasefire." (April 17, US daytime)</p>
+      <p>2. <strong>Physical confirmation:</strong> Pakistani-flagged vessel carrying 440,000 barrels of crude successfully exited the Persian Gulf through the Strait — first major commercial transit since US counter-blockade began April 13.</p>
+      <p>3. <strong>Israel-Lebanon 10-day ceasefire</strong> took effect at midnight April 17. Celebrations across Lebanon, though Israel accused of ceasefire violations "just hours after" the truce began (Lebanese army report).</p>
+      <p>4. <strong>Trump stated</strong> a deal could materialize "very shortly"; proposed Israeli and Lebanese leaders meet at White House within two weeks.</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>Step D — Cross-Market Validation</h3>
+      <ul>
+        <li><span class="green">✓ Brent -3.2% to $96.2</span> — de-escalation confirmed. NOT crashing to $80-85 (deal + permanent normalization scenario) — validates market pricing TEMPORARY opening, not done deal.</li>
+        <li><span class="green">✓ Nuclear deal [HIGH] 54.6% (-1.7pp)</span> — slight pullback reflects April 21 uncertainty. Deal not confirmed; market appropriately cautious. This is the ground-truth anchor.</li>
+        <li><span class="green">✓ Trump ops-end 57.0% (+9pp)</span> — consistent with multiple ceasefire tracks closing simultaneously.</li>
+        <li><span class="green">✓ WTI $140 market -20pp/1d; WTI $150 -12.7pp/1d</span> — extreme scenarios being systematically priced out.</li>
+        <li><span class="green">✓ WTI $80 "hit low" in April: 81.5%</span> — market expects WTI to reach $80 before April 30, consistent with deal + Hormuz path.</li>
+        <li><span class="green">✓ Kharg Island stable at 4.1%</span> — no escalation signal.</li>
+        <li><span class="amber">⚠ Nuclear deal -1.7pp WHILE Hormuz +28pp</span> — slight divergence. Interpretation: market pricing Iran's Hormuz gesture as credible even without confirmed deal framework. The FM's statement removed the bifurcation discount, but nuclear deal lacks the same signal boost because no formal announcement has been made.</li>
+      </ul>
+      <p style="margin-top: 12px;"><strong>Decision:</strong> <span class="green">No cross-market contradictions. All signals coherent with temporary de-escalation and a 56.5% probability that this opening becomes permanent before April 30.</span></p>
+    </div>
+  </div>
+
+  <!-- STRUCTURAL SHIFT -->
+  <div class="structural-box">
+    <h3>⚡ Structural Regime Change: The 26pp Bifurcation Has Collapsed</h3>
+    <p>The prior analyst framework identified a persistent bifurcation: nuclear deal at 54.6% vs. Hormuz normalization at 28.5% — a 26pp gap reflecting the market's view that blockade lift was a SEPARATE sequential negotiation, not part of the nuclear package. Hormuz was explicitly stuck despite nuclear deal recovering +30pp.</p>
+    <p style="margin-top: 10px;">That gap is now <strong>2pp</strong>. The market has re-classified Hormuz normalization as <strong>co-incident with</strong> (not downstream of) the nuclear deal. This is analytically significant because it changes the deal payoff structure: a nuclear deal now implicitly includes Hormuz opening in the same announcement, compressing the timeline between "deal confirmed" and "oil price relief."</p>
+    <p style="margin-top: 10px;">The Brent-at-$96.2 ground truth says the market is not overpricing this shift — it's pricing convergence as a <em>probability</em>, not a certainty. The right framework going forward: nuclear deal [HIGH] (54.6%) is the probability of BOTH deal AND Hormuz opening by April 30, not just the nuclear text.</p>
+  </div>
+
+  <!-- KEY RISK -->
+  <div class="risk-box">
+    <p><strong>⚠ April 21 Ceasefire Cliff — The Condition Attached to Iran's Hormuz Opening</strong></p>
+    <p>Iran's FM declared Hormuz open "for the remaining period of ceasefire." The ceasefire expires April 21 (Tuesday, 4 days away). If the ceasefire is not extended:</p>
+    <p>→ Hormuz closes again. Normalization market crashes from 56.5% toward 20-25%.</p>
+    <p>→ Nuclear deal collapses (third time). Expect fast drop through 30%, possibly toward 15-20%.</p>
+    <p>→ WTI rebids toward $105-115. Australian petrol A$2.50-2.70/L path.</p>
+    <p>Israel-Lebanon ceasefire violations already reported hours after it began. If that track also collapses before April 21, Iran loses political cover for keeping Hormuz open. The de-escalation is REAL but fragile.</p>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Implications for Australian Investors</h2>
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Current</th>
+          <th>Deal Scenario (base, ~55%)</th>
+          <th>April 21 Collapse (tail, ~45%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>WTI (proxy Brent)</td>
+          <td>~$92-93</td>
+          <td>$78-85 by Apr 30 (81.5% hit $80 market)</td>
+          <td>$108-118 rerate</td>
+        </tr>
+        <tr>
+          <td>Australian Petrol</td>
+          <td>~A$2.20-2.30/L</td>
+          <td>A$1.90-2.05/L (+ June 30 excise +A$0.25-0.30)</td>
+          <td>A$2.55-2.75/L</td>
+        </tr>
+        <tr>
+          <td>AUD/USD</td>
+          <td>~0.645-0.650</td>
+          <td>0.66-0.68 (risk-on bid)</td>
+          <td>0.62 floor re-test</td>
+        </tr>
+        <tr>
+          <td>QAN (Qantas)</td>
+          <td>Jet fuel elevated</td>
+          <td>~A$280-300M annual saving from crisis peak</td>
+          <td>No relief; potential fuel surcharges</td>
+        </tr>
+        <tr>
+          <td>WDS / STO (energy)</td>
+          <td>Long, blockade premium</td>
+          <td>Begin scaling back. Exit long on deal confirmation.</td>
+          <td>Hold / add on collapse</td>
+        </tr>
+        <tr>
+          <td>RBA May 5</td>
+          <td>Cut expected</td>
+          <td>Oil relief clears one CPI vector. Cut more likely.</td>
+          <td>Oil surge reintroduces inflation risk. Cut less certain.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color: #64748b; font-size: 12px; margin-top: 10px; padding: 0 4px;">Note: WTI is the available Polymarket proxy; Brent is the correct benchmark for Australian fuel pricing. Brent-WTI spread currently ~$3-4/bbl. June 30 excise expiry (+A$0.25-0.30/L) is locked in regardless of oil path.</p>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section">
+    <h2>Trigger Updates</h2>
+    <div class="trigger-update">
+      <div class="trigger-label">hormuz-normalization — THRESHOLD ADVANCED 50% → 70%</div>
+      <p>Fired at 56.5% (+28pp/6h). New threshold: 70% = near-certainty checkpoint requiring confirmed ceasefire extension AND Hormuz deal (or nuclear framework including blockade lift clause). Currently 13.5pp away.</p>
+    </div>
+    <div class="trigger-update">
+      <div class="trigger-label">trump-ends-iran-ops-above-60 — APPROACHING: 3.0pp from 60% threshold</div>
+      <p>Currently 57.0%. May fire in the next collection. Pre-positioned: if fires at 60%, this confirms the Israel-Lebanon + Hormuz opening tracks are repricing the market toward unilateral Trump ops-end declaration, which strengthens the deal path further. No action needed yet — existing trigger handles it.</p>
+    </div>
+    <div class="trigger-update">
+      <div class="trigger-label">WATCHLIST: WTI $80 Low in April — 81.5% (new market)</div>
+      <p>Newly discovered at 81.5%. Market expects WTI to reach $80 by April 30 — consistent with deal + Hormuz normalization path. This is a [HIGH] quality market (NYMEX settle). Adds strong corroborating signal to deal path base case. No separate trigger needed — confirming existing macro thesis.</p>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View — What to Watch</h2>
+    <div class="analysis-block">
+      <ul>
+        <li><strong>April 21 ceasefire extension decision</strong> — the single most important event in the next 4 days. If Iran and US agree to extend: Hormuz stays open, deal probability spikes toward 70-80%, WTI falls toward $85. If no extension: all markets reverse violently. Watch for any statement from the White House or Iran's foreign ministry before Sunday April 19.</li>
+        <li><strong>Israel-Lebanon ceasefire violations</strong> — already reported within hours of taking effect. If Lebanon army/Hezbollah escalation forces Israel to respond formally, Iran has political grounds to rescind Hormuz opening before April 21. Monitor this track actively.</li>
+        <li><strong>Trump ops-end ↑60% trigger</strong> — 3pp away at 57%. If fires, it signals market is pricing ceasefire-as-ops-end equivalence, which would be the strongest confirmation of de-escalation. Watch next collection.</li>
+        <li><strong>Nuclear deal [HIGH] 54.6%</strong> — the primary anchor. Any move above 60% (next trigger) confirms deal framework agreed. Any move below 30% means April 22 binary is live again. Current -1.7pp pullback is normal noise; sustained drop below 50% would be a warning signal.</li>
+        <li><strong>Brent/WTI</strong> — Brent is the ground truth. If Brent falls below $90, market is pricing permanent Hormuz normalization as near-certain. If Brent holds $95+, temporary-only opening is the consensus. Currently at $96.2: cautious optimism, not certainty.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst Report · Generated 2026-04-18 00:00 AEST · Alert-triggered run<br>
+  Sources: CNN live blog (April 17), ABC News live updates (April 17), NBCNews Hormuz blockade blog, Wikipedia 2026 Hormuz crisis, Al Jazeera ceasefire analysis
+</div>
+
+</body>
+</html>
