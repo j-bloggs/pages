@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal 60% — Rubio Offers Civilian Nuclear Path | 2026-04-17</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #252d3d 100%); border-bottom: 2px solid #3b82f6; padding: 28px 32px; }
+  .alert-badge { display: inline-block; background: #dc2626; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; text-transform: uppercase; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; color: #94a3b8; }
+  .header .meta span { margin-right: 16px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 28px 32px; }
+  .trigger-fired { background: #1c2537; border: 2px solid #3b82f6; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; }
+  .trigger-fired h2 { font-size: 16px; color: #60a5fa; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #2d3748; font-size: 14px; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-label { color: #94a3b8; }
+  .trigger-value { font-weight: 700; font-family: 'Courier New', monospace; }
+  .fired { color: #22c55e; }
+  .approaching { color: #f59e0b; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 15px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2d3748; }
+  .card { background: #1a2035; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; }
+  .card.highlight { border-color: #3b82f6; }
+  .card.warning { border-color: #f59e0b; }
+  .card.danger { border-color: #dc2626; }
+  .card.calendar { border-color: #8b5cf6; background: #1a1a35; }
+  .card h3 { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .quality-badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.5px; }
+  .quality-high { background: #166534; color: #86efac; }
+  .quality-med { background: #92400e; color: #fcd34d; }
+  .quality-low { background: #4b1d1d; color: #fca5a5; }
+  .price-move { font-size: 22px; font-weight: 800; font-family: 'Courier New', monospace; color: #22c55e; }
+  .price-move.neutral { color: #94a3b8; }
+  .price-move.red { color: #ef4444; }
+  .delta-up { color: #22c55e; font-weight: 700; }
+  .delta-down { color: #ef4444; font-weight: 700; }
+  p { font-size: 14px; color: #cbd5e1; margin-top: 8px; line-height: 1.65; }
+  .key-fact { background: #0f2027; border-left: 3px solid #22c55e; padding: 10px 14px; margin: 10px 0; border-radius: 0 4px 4px 0; font-size: 14px; color: #e2e8f0; }
+  .key-fact.amber { border-color: #f59e0b; }
+  .key-fact.red { border-color: #ef4444; }
+  .key-fact.purple { border-color: #8b5cf6; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .macro-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .macro-table th { text-align: left; padding: 8px 12px; color: #64748b; font-weight: 600; border-bottom: 1px solid #2d3748; }
+  .macro-table td { padding: 9px 12px; border-bottom: 1px solid #1e2433; color: #cbd5e1; }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table .asset { color: #f1f5f9; font-weight: 600; }
+  .macro-table .bull { color: #22c55e; }
+  .macro-table .bear { color: #ef4444; }
+  .macro-table .neutral { color: #94a3b8; }
+  .trigger-status-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-status-table th { text-align: left; padding: 8px 12px; color: #64748b; font-weight: 600; border-bottom: 1px solid #2d3748; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .trigger-status-table td { padding: 9px 12px; border-bottom: 1px solid #1e2433; }
+  .trigger-status-table tr:last-child td { border-bottom: none; }
+  .status-fired { color: #22c55e; font-weight: 700; }
+  .status-close { color: #f59e0b; font-weight: 700; }
+  .status-watching { color: #94a3b8; }
+  .footnote { font-size: 12px; color: #4b5563; margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e2433; }
+  .timestamp { color: #3b82f6; font-weight: 600; }
+  .easter-box { background: #1a1a35; border: 2px solid #8b5cf6; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; }
+  .easter-box h2 { font-size: 15px; color: #a78bfa; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">🔴 Trigger Alert</div>
+  <h1>Nuclear Deal Reaches 60% Supermajority — Rubio Offers Iran Civilian Nuclear Path</h1>
+  <div class="meta">
+    <span class="timestamp">2026-04-17 23:30 AEST</span>
+    <span>Polymarket Alert — Iran De-escalation Complex</span>
+    <span>Collection run: automated</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TRIGGER FIRED -->
+  <div class="trigger-fired">
+    <h2>⚡ Trigger Fired + Approaching Thresholds</h2>
+    <div class="trigger-row">
+      <span class="trigger-label">US-Iran nuclear deal by Apr 30 <span class="quality-badge quality-high">HIGH</span></span>
+      <span class="trigger-value fired">60.8% — ↑60% FIRED (+11.7pp)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Hormuz traffic normalizes by Apr 30 <span class="quality-badge quality-med">MED</span></span>
+      <span class="trigger-value approaching">63.0% — 7.0pp below ↑70% trigger (+10.0pp)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Trump ops-end majority milestone (Apr 30 >60%) <span class="quality-badge quality-low">LOW</span></span>
+      <span class="trigger-value approaching">58.0% — 2.0pp below ↑60% trigger (+3.5pp)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">US Iran invasion 2027 drops below 22% (conflict resolved)</span>
+      <span class="trigger-value approaching">24.5% — 2.5pp above ↓22% trigger (-3.0pp)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Powell out as Fed Chair before Jun 30 <span class="quality-badge quality-high">HIGH</span></span>
+      <span class="trigger-value approaching">91.5% (+12.0pp/6h) — companion to May 31</span>
+    </div>
+  </div>
+
+  <!-- CALENDAR ALERT -->
+  <div class="easter-box">
+    <h2>📅 Calendar Alert — April 21 Ceasefire Expiry = Easter Monday</h2>
+    <p>The US-Iran ceasefire formally expires <strong>April 21 (Tuesday US time / Easter Monday AEST)</strong>. The ASX is <strong>closed Easter Monday</strong>. The NYSE is <strong>open Monday April 21</strong> (not a US public holiday). This means:</p>
+    <div class="key-fact purple">Any market reaction to a ceasefire extension OR collapse will price into NYSE on Monday April 21 but will NOT hit ASX until <strong>Tuesday April 22</strong>. Australian investors are blind to Monday's events until Tuesday open.</div>
+    <p>Good Friday April 18: both NYSE and ASX are closed. Effectively, the next two-sided trading window is Monday April 21 (US only) → Tuesday April 22 (both).</p>
+    <p><strong>Positioning implication:</strong> If you want to manage Iran risk around the April 21 cliff, you must act before Thursday ASX close (April 17) or accept being uninvested through the weekend gap. Don't wait for Monday ASX — it won't open.</p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <h2>Summary</h2>
+    <div class="card highlight">
+      <p>The US-Iran nuclear deal has crossed the 60% supermajority threshold for the first time, driven by a structurally important new concession from Secretary of State Rubio: the US is now explicitly offering Iran the right to a civilian nuclear energy program — the first time Washington has moved off the "zero enrichment" hard line that collapsed the Islamabad Round 1 talks. Simultaneously, Rubio pressured European allies to prepare rapid sanctions reimposition, giving the US leverage while extending an olive branch. The deal complex is now accelerating on all tracks: Hormuz at 63% (+10pp), ops-end at 58% (+3.5pp), invasion-2027 at 24.5% (-3pp). Four triggers are converging simultaneously — the market is pricing the full peace-dividend scenario within 13 days.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <h2>Key Moves — De-escalation Complex</h2>
+
+    <div class="card highlight">
+      <h3>US-Iran Nuclear Deal <span class="quality-badge quality-high">HIGH</span></h3>
+      <div class="price-move">60.8% <span class="delta-up">+11.7pp</span></div>
+      <div class="key-fact">TRIGGER FIRED: ↑60% supermajority threshold crossed. Threshold advanced to 70% (near-certainty).</div>
+      <p><strong>Catalyst — Rubio's April 18 dual statement (NEW):</strong> Rubio urged European countries to prepare rapid sanctions reimposition against Iran (pressure tactic), while simultaneously stating that Iran <em>can have a civilian nuclear energy program instead of a military WMD atomic weapons program</em>. This is the first US acknowledgement of Iranian civilian nuclear rights — removing a core sticking point from Round 1 (the "zero enrichment forever" vs. Iran's "inalienable right to peaceful nuclear energy" impasse).</p>
+      <p><strong>Why this matters:</strong> The Islamabad Round 1 collapsed on three gaps: (1) enrichment moratorium term (20yr US vs. 5yr Iran), (2) frozen assets sequencing, (3) Hormuz sovereignty. Rubio's "civilian nuclear path" offer addresses gap (1) structurally — if the US accepts civilian enrichment as legitimate, the debate shifts from "can Iran have any program?" to "what level, what verification?" This is a negotiable gap; the previous position was not.</p>
+      <p><strong>Trajectory:</strong> 11.5% (Apr 13 collapse) → 40.7% (Apr 15 ↑40% trigger) → 29.4% (Apr 16 extension-denied crash) → 56.4% (Apr 17 ↑50%, Trump Pakistan visit signal) → 49.0% (oscillation) → 60.8% (now, ↑60% triggered).</p>
+    </div>
+
+    <div class="card">
+      <h3>Hormuz Traffic Normalizes by Apr 30 <span class="quality-badge quality-med">MED</span></h3>
+      <div class="price-move">63.0% <span class="delta-up">+10.0pp</span></div>
+      <div class="key-fact amber">7.0pp below ↑70% near-certainty trigger.</div>
+      <p>Continuing the structural regime change from the midnight Hormuz opening (Apr 17/18 report). Iran conditionally opened Hormuz "for the remaining period of ceasefire" — the market is now pricing that this conditional opening leads to permanent normalization by April 30. At 63%, the market says the deal + Hormuz package is now the base case, not the bull case. The prior 26pp bifurcation between nuclear deal and Hormuz has collapsed to under 2pp — they are now correctly priced as a linked package.</p>
+      <p><strong>Risk:</strong> "Remaining period of ceasefire" = conditional. If ceasefire expires April 21 without extension, Hormuz closes again and this 63% crashes. The April 21 cliff is the key pivot for this market.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Trump Ops-End by Apr 30 <span class="quality-badge quality-low">LOW</span></h3>
+        <div class="price-move neutral">58.0% <span class="delta-up">+3.5pp</span></div>
+        <p>2.0pp below ↑60% trigger — will almost certainly fire on the next collection. Ops-end at 58% vs. nuclear deal at 60.8% = near-convergence. The 2pp gap reflects residual UMA uncertainty about whether ceasefire extension without formal deal announcement qualifies. Cross-anchoring: use nuclear deal [HIGH] 60.8% as the correct pricing for strategic decisions.</p>
+      </div>
+      <div class="card">
+        <h3>US Iran Invasion 2027</h3>
+        <div class="price-move neutral">24.5% <span class="delta-down">-3.0pp</span></div>
+        <p>2.5pp above ↓22% "conflict resolved" trigger. At 22%, the market prices the long-term invasion risk as essentially resolved — WTI downside to $75–80, full peace dividend unlocked. The drift from 34.5% (Apr 15) to 24.5% (now) = -10pp in 48 hours, consistent with the de-escalation complex repricing across the board.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWELL -->
+  <div class="section">
+    <h2>Powell / US Fed Independence — Thin Market Update</h2>
+    <div class="card warning">
+      <h3>Powell Out Before Jun 30 <span class="quality-badge quality-high">HIGH</span></h3>
+      <div class="price-move">91.5% <span class="delta-up">+12.0pp/6h</span></div>
+      <div class="key-fact amber">⚠️ Thin-book market — previously 38–50% with negligible volume. Treat as directional signal, not precise probability.</div>
+      <p><strong>Structural driver (not new):</strong> Trump's April 15 statement: "If [Powell] stays on the board of the Fed past May 15, then I'll have to fire him." Powell's chair term naturally expires May 15. Powell said he intends to remain as Board Governor (term 2028) even after losing the Chair title, unless a replacement is confirmed. Trump's threat: fire him regardless.</p>
+      <p><strong>Sibling market structure (key):</strong> May 14 sibling at 2.65% YES (market says Powell stays through May 15 — he won't resign voluntarily). May 31 sibling at ~74.5%. Jun 30 at 91.5%. This is a structured term curve: market prices near-zero voluntary departure before May 15, then ~75% probability of forced exit by May 31, escalating to 91.5% by June 30. The curve reflects: legal battle begins May 15 → resolution within 6–8 weeks.</p>
+      <p><strong>SCOTUS status:</strong> Trump v. Cook (Lisa Cook firing case) ruling still pending. Court was broadly skeptical of Trump's power to fire Fed governors. Oral arguments January 2026. Ruling expected Friday mornings — April 18 (Good Friday, court likely dark) or April 24 more probable. SCOTUS ruling AGAINST Trump would not necessarily stop him from attempting to fire Powell on May 15 — Trump has shown willingness to defy adverse rulings on other matters.</p>
+      <p><strong>Macro channels:</strong> USD bearish (loss of Fed independence premium), US Treasury curve-steepen (short-end cut pricing, long-end term premium expansion), gold strongly bullish (NST/EVN/NCM on ASX), equities multiple compression (policy uncertainty discount). NOT priced into Iran complex — these are separate tracks.</p>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Implications</h2>
+    <table class="macro-table">
+      <tr>
+        <th>Asset Class</th>
+        <th>Direction</th>
+        <th>Thesis</th>
+      </tr>
+      <tr>
+        <td class="asset">WTI/Brent crude</td>
+        <td class="bull">↓ Bearish</td>
+        <td>Deal + Hormuz normalization path confirmed. WTI at ~$90 (proxy for Brent). Deal confirmation → $80–85 range. April 21 cliff collapse → snap back to $105–115. Short the failure case with options, not spot.</td>
+      </tr>
+      <tr>
+        <td class="asset">ASX energy (WDS/STO)</td>
+        <td class="bear">↓ Reduce</td>
+        <td>Blockade-premium dissolving. Scale back longs opened at $104 crisis peak. Hold a residual hedge pre-April 21 cliff. Exit fully on deal confirmation.</td>
+      </tr>
+      <tr>
+        <td class="asset">QAN (jet fuel)</td>
+        <td class="bull">↑ Bullish</td>
+        <td>WTI $90 → $80–85 = ~A$250–300M annual cost reduction from crisis peak. Deal confirmation = structural earnings upgrade catalyst. Long QAN is the cleanest Iran de-escalation trade on ASX.</td>
+      </tr>
+      <tr>
+        <td class="asset">AUD/USD</td>
+        <td class="bull">↑ Bullish</td>
+        <td>Risk-on bid strengthening as deal path prices in. Deal confirmation → 0.66–0.68 target. April 21 cliff collapse → 0.62 floor re-test.</td>
+      </tr>
+      <tr>
+        <td class="asset">Australian petrol</td>
+        <td class="bull">↓ Relief path</td>
+        <td>Current A$2.20–2.30/L (at ~$90 WTI proxy). Deal → A$1.95–2.05/L over 4–6 weeks. <strong>June 30 excise expiry (+A$0.25–0.30/L) is locked in regardless of Iran outcome.</strong> Consumers get temporary relief before excise shock.</td>
+      </tr>
+      <tr>
+        <td class="asset">RBA May 5 rate decision</td>
+        <td class="neutral">→ Unchanged</td>
+        <td>Oil relief reduces CPI persistence vector marginally. However June 30 excise creates separate inflationary shock. Base case: 25bp cut May 5 unchanged. Iran deal would not accelerate cutting cycle given excise timing.</td>
+      </tr>
+      <tr>
+        <td class="asset">Gold (NST/EVN/NCM)</td>
+        <td class="bull">↑ Bullish (Powell)</td>
+        <td>Powell/Fed independence track bullish gold independently of Iran. Gold near $5,118/oz (historic high) — ground truth confirms institutional risk pricing. If SCOTUS rules FOR Trump, immediate gold surge.</td>
+      </tr>
+      <tr>
+        <td class="asset">USD / Treasuries</td>
+        <td class="bear">↓ Bearish USD</td>
+        <td>Powell firing risk at 91.5% (Jun 30) = steady USD erosion. Loss of Fed independence premium. Curve-steepen (short end down, long end up). Not yet a crisis signal but accumulating.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- TRIGGER STATUS TABLE -->
+  <div class="section">
+    <h2>Full Trigger Status</h2>
+    <table class="trigger-status-table">
+      <tr>
+        <th>Market</th>
+        <th>Price</th>
+        <th>Change</th>
+        <th>Trigger</th>
+        <th>Distance</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>Nuclear deal Apr 30 [HIGH]</td>
+        <td>60.8%</td>
+        <td class="delta-up">+11.7pp</td>
+        <td>↑70%</td>
+        <td>9.2pp</td>
+        <td class="status-fired">↑60% FIRED — watching 70%</td>
+      </tr>
+      <tr>
+        <td>Hormuz normalizes [MED]</td>
+        <td>63.0%</td>
+        <td class="delta-up">+10.0pp</td>
+        <td>↑70%</td>
+        <td>7.0pp</td>
+        <td class="status-close">Close — approaching</td>
+      </tr>
+      <tr>
+        <td>Ops-end Apr 30 >60% [LOW]</td>
+        <td>58.0%</td>
+        <td class="delta-up">+3.5pp</td>
+        <td>↑60%</td>
+        <td>2.0pp</td>
+        <td class="status-close">Imminent — likely fires next run</td>
+      </tr>
+      <tr>
+        <td>Iran invasion 2027 ↓22%</td>
+        <td>24.5%</td>
+        <td class="delta-down">-3.0pp</td>
+        <td>↓22%</td>
+        <td>2.5pp</td>
+        <td class="status-close">Close — approaching from above</td>
+      </tr>
+      <tr>
+        <td>Powell out Jun 30 [HIGH]</td>
+        <td>91.5%</td>
+        <td class="delta-up">+12.0pp</td>
+        <td>(watching)</td>
+        <td>—</td>
+        <td class="status-watching">High — thin market, structural</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal collapse ↓30%</td>
+        <td>60.8%</td>
+        <td class="delta-up">+11.7pp</td>
+        <td>↓30%</td>
+        <td>30.8pp safe</td>
+        <td class="status-watching">Safe — watching April 21 cliff</td>
+      </tr>
+      <tr>
+        <td>Trump ends Iran ops ↓15%</td>
+        <td>58.0%</td>
+        <td class="delta-up">+3.5pp</td>
+        <td>↓15%</td>
+        <td>43.0pp safe</td>
+        <td class="status-watching">Safe — no collapse risk</td>
+      </tr>
+      <tr>
+        <td>Kharg Island falls ↑40%</td>
+        <td>4.0%</td>
+        <td>-0.1pp</td>
+        <td>↑40%</td>
+        <td>36.0pp</td>
+        <td class="status-watching">Dormant — de-escalation</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View</h2>
+    <div class="card">
+      <h3>Key Events — Next 72 Hours</h3>
+      <div class="key-fact purple"><strong>Thursday April 17 close / Friday April 18 (Good Friday):</strong> Last trading day before Easter gap. NYSE and ASX both closed Friday. Any Iran news landing over the weekend will gap Monday markets. Position before Thursday close if managing Iran risk.</div>
+      <div class="key-fact amber"><strong>April 19–20 (weekend):</strong> Round 2 talks may happen here per Trump's "over the weekend" signal. If talks produce framework → ceasefire extension announcement likely before April 21 expiry. If talks fail or collapse → April 21 cliff re-sharpens dramatically.</div>
+      <div class="key-fact red"><strong>April 21 (Easter Monday AEST / Tuesday US):</strong> Ceasefire expiry. NYSE open Monday. ASX closed. Any extension confirmation → nuclear deal surges toward 80–90%, ops-end fires ↑70%, WTI drops toward $82–85. Any collapse → nuclear deal crashes to 15–25%, WTI surges $15–20.</div>
+      <div class="key-fact"><strong>April 22 (Tuesday AEST):</strong> First ASX open after Easter gap. This is when Australian investors first see the April 21 outcome reflected in local markets. Gap risk both directions.</div>
+      <div class="key-fact amber"><strong>SCOTUS Trump v. Cook ruling:</strong> April 18 court likely dark (Good Friday). April 24 (next Friday) is the next likely ruling day. Watch for Friday morning US time announcement. FOR Trump ruling = crisis signal for USD, Treasuries, gold. AGAINST Trump = resolution rally.</div>
+    </div>
+    <div class="card">
+      <h3>Positioning Summary</h3>
+      <p><strong>Bull case (deal + extension confirmed, April 22+ unwind):</strong> WTI $80–85, AUD/USD 0.66–0.68, QAN bullish, ASX energy longs exit, gold consolidates. Australian petrol A$1.95–2.05/L by end-April, before June 30 excise shock.</p>
+      <p><strong>Bear case (April 21 ceasefire collapse):</strong> WTI $105–115, AUD/USD 0.62 floor test, nuclear deal crashes to 20–30%, Hormuz closes again, ASX energy (WDS/STO) outperform. ASX investors see this gap-down Tuesday April 22 open — no ability to react Monday.</p>
+      <p><strong>Asymmetric risk:</strong> The bear case is compressed into a single event (April 21). The bull case is the gradual drift the market has been pricing all week. The 60.8% nuclear deal reading says: 3:2 odds in favour of the bull path, but the bear path is severe if triggered.</p>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <p>Generated by automated Polymarket monitoring agent — 2026-04-17 23:30 AEST. Sources: Polymarket prediction markets (gamma-api.polymarket.com), Rubio statement via Reuters/AP, Trump threat via CNN (Apr 15), SCOTUS Trump v. Cook via SCOTUSblog. Oil prices: WTI proxy for Brent crude (note Brent-WTI spread ~$2–3/bbl; Australian petrol priced on Brent). Nuclear deal [HIGH] = resolves on official US-Iran joint announcement only. Hormuz [MED] = resolves on UMA community interpretation of "normal traffic." Ops-end [LOW] = subjective UMA vote. Powell [HIGH] = official Board of Governors or White House announcement. Past performance of prediction markets is not investment advice.</p>
+  </div>
+
+</div>
+</body>
+</html>
