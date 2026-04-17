@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: April 21–22 Convergence Risk Deepens | 18 Apr 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px; }
+  .header-meta { color: #94a3b8; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f59e0b; line-height: 1.3; }
+  .header .subtitle { font-size: 14px; color: #94a3b8; margin-top: 6px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 32px; }
+  .alert-badge { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; background: #f59e0b; color: #0f1117; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #94a3b8; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 16px; }
+  .lead { font-size: 16px; color: #cbd5e1; line-height: 1.7; margin-bottom: 16px; }
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .risk-card { background: #1e293b; border-radius: 8px; padding: 16px; border-left: 4px solid #6366f1; }
+  .risk-card.iran { border-left-color: #ef4444; }
+  .risk-card.fed { border-left-color: #f59e0b; }
+  .risk-card.calendar { border-left-color: #8b5cf6; }
+  .risk-card .risk-num { font-size: 28px; font-weight: 800; color: #64748b; line-height: 1; margin-bottom: 6px; }
+  .risk-card .risk-title { font-size: 13px; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; }
+  .risk-card .risk-detail { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+  .market-row { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #1e293b; gap: 12px; }
+  .market-row:last-child { border-bottom: none; }
+  .mkt-badge { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; min-width: 38px; text-align: center; }
+  .badge-high { background: #166534; color: #86efac; }
+  .badge-med { background: #854d0e; color: #fde68a; }
+  .badge-low { background: #3b0764; color: #d8b4fe; }
+  .mkt-price { font-size: 18px; font-weight: 700; color: #f1f5f9; min-width: 55px; }
+  .mkt-delta { font-size: 13px; min-width: 70px; }
+  .delta-up { color: #4ade80; }
+  .delta-down { color: #f87171; }
+  .delta-flat { color: #94a3b8; }
+  .mkt-label { font-size: 14px; color: #cbd5e1; flex: 1; }
+  .mkt-note { font-size: 11px; color: #64748b; }
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .scenario-card { background: #1e293b; border-radius: 8px; padding: 18px; }
+  .scenario-card.bull { border-top: 3px solid #22c55e; }
+  .scenario-card.bear { border-top: 3px solid #ef4444; }
+  .scenario-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .scenario-card.bull h4 { color: #4ade80; }
+  .scenario-card.bear h4 { color: #f87171; }
+  .scenario-card ul { list-style: none; }
+  .scenario-card ul li { font-size: 13px; color: #94a3b8; padding: 4px 0; padding-left: 16px; position: relative; }
+  .scenario-card ul li::before { content: '•'; position: absolute; left: 0; }
+  .scenario-card.bull ul li::before { color: #4ade80; }
+  .scenario-card.bear ul li::before { color: #f87171; }
+  .macro-table { width: 100%; border-collapse: collapse; }
+  .macro-table th { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748b; text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; }
+  .macro-table td { font-size: 13px; padding: 10px 12px; border-bottom: 1px solid #1e293b; color: #cbd5e1; vertical-align: top; }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .asset { font-weight: 600; color: #e2e8f0; }
+  .bull-view { color: #4ade80; }
+  .bear-view { color: #f87171; }
+  .callout { background: #1e293b; border-left: 4px solid #f59e0b; border-radius: 4px; padding: 16px 20px; margin: 20px 0; }
+  .callout.warning { border-left-color: #ef4444; }
+  .callout.correction { border-left-color: #8b5cf6; background: #1a1030; }
+  .callout p { font-size: 14px; color: #cbd5e1; line-height: 1.6; }
+  .callout strong { color: #f59e0b; }
+  .callout.warning strong { color: #f87171; }
+  .callout.correction strong { color: #a78bfa; }
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: #334155; }
+  .timeline-event { position: relative; padding: 8px 0 12px 16px; }
+  .timeline-event::before { content: ''; position: absolute; left: -22px; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: #64748b; }
+  .timeline-event.critical::before { background: #ef4444; }
+  .timeline-event.key::before { background: #f59e0b; }
+  .timeline-event.info::before { background: #3b82f6; }
+  .timeline-date { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 2px; }
+  .timeline-title { font-size: 14px; font-weight: 600; color: #e2e8f0; }
+  .timeline-desc { font-size: 13px; color: #94a3b8; margin-top: 3px; }
+  .warning-box { background: #1a0a0a; border: 1px solid #7f1d1d; border-radius: 8px; padding: 16px; margin: 20px 0; }
+  .warning-box h4 { color: #f87171; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .warning-box p { font-size: 13px; color: #fca5a5; }
+  .thin-warning { display: inline-flex; align-items: center; gap: 6px; background: #1c1208; border: 1px solid #92400e; border-radius: 4px; padding: 4px 10px; font-size: 12px; color: #fcd34d; font-weight: 600; }
+  .footer { margin-top: 40px; padding: 20px 32px; border-top: 1px solid #1e293b; font-size: 12px; color: #475569; }
+  .sources { margin-top: 12px; }
+  .sources a { color: #60a5fa; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .risk-grid { grid-template-columns: 1fr; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .container { padding: 16px; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Alert — 18 April 2026 02:15 AEST</div>
+  <h1>April 21–22 Convergence Risk Deepens</h1>
+  <div class="subtitle">Three simultaneous risk events hit while ASX is closed — Warsh hearing + Iran cliff + Easter calendar asymmetry</div>
+</div>
+
+<div class="container">
+
+  <div class="alert-badge">Macro Alert</div>
+
+  <div class="section">
+    <p class="lead">Monday April 21 is now a three-factor convergence event: Iran ceasefire expiry, the Warsh Fed Chair confirmation hearing, and a full trading day of NYSE price discovery that Australian markets cannot access until Wednesday. The Polymarket signal on Powell's ouster is extremely thin ($975 volume), but the real-world mechanics of US Fed succession are entering their most critical phase.</p>
+  </div>
+
+  <!-- THREE-FACTOR CONVERGENCE -->
+  <div class="section">
+    <div class="section-title">The April 21 Triple Risk Stack</div>
+    <div class="risk-grid">
+      <div class="risk-card iran">
+        <div class="risk-num">1</div>
+        <div class="risk-title">Iran Ceasefire Expiry</div>
+        <div class="risk-detail">April 21 midnight: 10-day ceasefire expires. Iran's Hormuz opening explicitly conditional "for remaining period of ceasefire." If no extension → blockade re-closes → nuclear deal crashes. Round 2 Islamabad talks Sunday April 19.</div>
+      </div>
+      <div class="risk-card fed">
+        <div class="risk-num">2</div>
+        <div class="risk-title">Warsh Confirmation Hearing</div>
+        <div class="risk-detail">Senate Banking Committee, 10am ET April 21. Tillis (R-NC) still blocking committee vote. Hearing = procedural only. "Headless Fed" headlines likely. Trump may challenge Powell staying as acting chair post-May 15.</div>
+      </div>
+      <div class="risk-card calendar">
+        <div class="risk-num">3</div>
+        <div class="risk-title">Easter Calendar Asymmetry</div>
+        <div class="risk-detail">ASX CLOSED Easter Monday April 21. NYSE OPEN. Australian investors cannot react to Sunday Iran talks outcome or Monday Warsh drama. ASX opens Wednesday April 22 facing 4-day news overhang.</div>
+      </div>
+    </div>
+
+    <div class="callout correction">
+      <p><strong>Correction to prior analyst notes (01:45 AEST entry):</strong> Previously stated "NYSE closed Easter Monday." This is incorrect. Easter Monday is NOT on the NYSE holiday calendar. NYSE is open Monday April 21. Good Friday (April 18 today) is the NYSE closure, not Easter Monday. This means NYSE fully prices Sunday Iran talks + Monday Warsh hearing while ASX is dark.</p>
+    </div>
+  </div>
+
+  <!-- MARKET SIGNALS -->
+  <div class="section">
+    <div class="section-title">Powell / Fed Succession — Market Signals</div>
+    <div class="thin-warning">⚠ THIN MARKET — Volume $975 total. Do not trade Polymarket price directly.</div>
+    <br><br>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">65.5%</span>
+      <span class="mkt-delta delta-up">+15.5pp/24h</span>
+      <div>
+        <div class="mkt-label">Powell out as Fed Chair by May 31</div>
+        <div class="mkt-note">Trigger [↑50% PAST] — May 14 sibling at 2.65% confirms NO early firing; market prices natural May 15 term expiry + Trump not renewing</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">89.0%</span>
+      <span class="mkt-delta delta-flat">flat</span>
+      <div>
+        <div class="mkt-label">Powell out as Fed Chair by June 30</div>
+        <div class="mkt-note">More liquid ($2,402). Near-certainty Powell is gone by end of June regardless of May 15 outcome — confirms structural succession, not emergency</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">2.65%</span>
+      <span class="mkt-delta delta-flat">stable</span>
+      <div>
+        <div class="mkt-label">Powell out before May 14</div>
+        <div class="mkt-note">Sibling market. Near-zero = NO forced early removal expected. This is an orderly succession story, not a dramatic firing event</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">0.4%</span>
+      <span class="mkt-delta delta-flat">flat</span>
+      <div>
+        <div class="mkt-label">US Fed April rate hike</div>
+        <div class="mkt-note">Zero tightening risk. Cross-validates dovish succession base case</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">2.2%</span>
+      <span class="mkt-delta delta-flat">flat</span>
+      <div>
+        <div class="mkt-label">US Fed June rate hike</div>
+        <div class="mkt-note">Minimal tightening risk even in June. Markets see Fed on hold or cutting regardless of who chairs it</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE "HEADLESS FED" RISK -->
+  <div class="section">
+    <div class="section-title">The "Headless Fed" Scenario — Why It's Underpriced</div>
+
+    <div class="callout warning">
+      <p><strong>WaPo, April 14:</strong> "Who runs the Fed after May 15? A new fight may be brewing." The Trump administration is signalling it may challenge Powell's ability to stay as acting chair if Warsh is not confirmed. This would be unprecedented in the Fed's 112-year history.</p>
+    </div>
+
+    <p style="color:#94a3b8; font-size:14px; margin-bottom:16px;">The conventional read on Powell's succession is: term expires May 15, Warsh gets confirmed shortly after, Fed pivots dovish, USD weakens, markets rally. That read is too clean. The actual situation:</p>
+
+    <div class="timeline">
+      <div class="timeline-event key">
+        <div class="timeline-date">April 15, 2026</div>
+        <div class="timeline-title">Trump issues May 15 ultimatum</div>
+        <div class="timeline-desc">Fox Business: "I'll fire him if he doesn't leave." Powell: "Won't resign until DOJ investigation complete." Both sides dug in.</div>
+      </div>
+      <div class="timeline-event key">
+        <div class="timeline-date">April 16 — Fortune scoop</div>
+        <div class="timeline-title">Trump prioritises probe over smooth succession</div>
+        <div class="timeline-desc">"Everyone was wondering what Trump wanted more: Warsh smoothly seated, or for Powell to pay. We have our answer." Trump values punishment over policy continuity — extends uncertainty beyond May 15.</div>
+      </div>
+      <div class="timeline-event critical">
+        <div class="timeline-date">April 21 — Warsh Hearing</div>
+        <div class="timeline-title">Senate Banking Committee procedural hearing</div>
+        <div class="timeline-desc">Tillis (R-NC) still blocking committee vote until DOJ drops Powell probe. Republicans need his vote with razor-thin majority. Hearing produces political drama; confirmation remains stalled. "Headless Fed" headlines generated.</div>
+      </div>
+      <div class="timeline-event info">
+        <div class="timeline-date">April 24 — Next possible SCOTUS ruling day</div>
+        <div class="timeline-title">Trump v. Cook decision expected</div>
+        <div class="timeline-desc">All 9 justices appeared skeptical of Trump's power to fire Fed governors (Jan 21 oral arguments). Kavanaugh: firing power "would weaken, if not shatter Fed independence." Ruling FOR Powell = resolution rally. AGAINST (unlikely) = institutional crisis. Note: Good Friday (April 18) is not a SCOTUS decision day.</div>
+      </div>
+      <div class="timeline-event critical">
+        <div class="timeline-date">May 15 — Hard date</div>
+        <div class="timeline-title">Powell chair term expires</div>
+        <div class="timeline-desc">Powell stays on as Board Governor until 2028 regardless. But chair role is vacant if Warsh not confirmed. Dispute over acting chair (Powell says he'll stay; Trump may challenge). Zero precedent.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS TABLE -->
+  <div class="section">
+    <div class="section-title">Macro Implications for Australian Investors</div>
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Base Case (Orderly Succession)</th>
+          <th>Risk Case (Headless Fed)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="asset">AUD/USD</td>
+          <td class="bull-view">0.66–0.68 — USD weakness (dovish Warsh) + Iran de-escalation (risk-on). Positive for Australian portfolios</td>
+          <td class="bear-view">0.63–0.65 — USD volatility spike on institutional uncertainty. AUD faces simultaneous Iran risk-off if ceasefire collapses</td>
+        </tr>
+        <tr>
+          <td class="asset">Gold (ASX: NST / EVN / NCM)</td>
+          <td class="bull-view">$5,000–5,100 floor holds. Fed independence restored via SCOTUS = gold neutral. Rate cuts = modest gold positive</td>
+          <td class="bear-view">$5,200–5,400 spike. Headless Fed + Trump challenging acting chair = institutional credibility shock. Gold is the flight-to-safety asset in this scenario</td>
+        </tr>
+        <tr>
+          <td class="asset">US Treasuries</td>
+          <td>Curve steepener: short end rallies (rate cuts priced), long end sells (term premium + deficit). 2y yield -30–50bp by mid-2026</td>
+          <td class="bear-view">Long-end blow-out: foreign CBs reduce holdings on independence fears. Curve steepens violently. Watch for 30y yield spike above 5.2%</td>
+        </tr>
+        <tr>
+          <td class="asset">ASX Rate-Sensitives</td>
+          <td class="bull-view">REITs, utilities, infrastructure benefit from lower US rates → global rate complex normalises → RBA May 5 cut (25bp base case) reinforced</td>
+          <td class="bear-view">US institutional risk reprices Australian sovereign risk premium modestly higher. REITs and infrastructure underperform on yield uncertainty</td>
+        </tr>
+        <tr>
+          <td class="asset">Oil / WTI (proxy Brent)</td>
+          <td>Fed succession is secondary to Iran outcome. Orderly succession = USD slightly weaker = oil slightly higher in USD terms. Irrelevant to April WTI fundamentals</td>
+          <td>If headless Fed coincides with Iran ceasefire collapse: "double shock" — oil bid ($100+) on supply risk, equities down on institutional risk. Stagflation scenario re-enters pricing</td>
+        </tr>
+        <tr>
+          <td class="asset">RBA / AUS rates</td>
+          <td class="bull-view">RBA May 5 25bp cut base case intact. Global rate cuts from Warsh Fed reinforce RBA easing path. AUS 3y bond yields follow US lower</td>
+          <td>RBA cut still likely (domestic conditions warrant) but AUD cross-rate volatility complicates transmission. AUS 10y bond spread to US could widen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- IRAN MARKET UPDATE (CONTEXT) -->
+  <div class="section">
+    <div class="section-title">Iran De-Escalation Complex — Status (Context)</div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">68.8%</span>
+      <span class="mkt-delta delta-up">+11.7pp/90min</span>
+      <div>
+        <div class="mkt-label">US-Iran nuclear deal by April 30 (Axios $20B scoop)</div>
+        <div class="mkt-note">1.1pp from ↑70% trigger. Round 2 Islamabad talks expected Sunday April 19. Covered in prior report: 2026-04-18-NUCLEAR-DEAL-20B-URANIUM-SCOOP.html</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-med">MED</span>
+      <span class="mkt-price">49.5%</span>
+      <span class="mkt-delta delta-down">-3.0pp</span>
+      <div>
+        <div class="mkt-label">Hormuz traffic normalises by April 30</div>
+        <div class="mkt-note">Pullback from 56.5% peak. Conditional on ceasefire extension. April 21 midnight = hard cliff</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">60.5%</span>
+      <span class="mkt-delta delta-flat">-0.5pp</span>
+      <div>
+        <div class="mkt-label">Trump ends Iran operations by April 30</div>
+        <div class="mkt-note">Holding above 60% trigger. Companion to nuclear deal. Stable</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <span class="mkt-badge badge-high">HIGH</span>
+      <span class="mkt-price">63.7%</span>
+      <span class="mkt-delta delta-down">-2.3pp</span>
+      <div>
+        <div class="mkt-label">US-Iran nuclear deal — 6.3pp below ↑70% trigger</div>
+        <div class="mkt-note">Slight pullback from 68.8% peak after report. Range-trading ahead of Sunday talks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title">April 22 ASX Open — Scenario Analysis</div>
+    <div class="scenario-grid">
+      <div class="scenario-card bull">
+        <h4>Bull: Deal + Smooth Succession (35%)</h4>
+        <ul>
+          <li>Sunday talks produce framework signal</li>
+          <li>Ceasefire extended at April 21 midnight</li>
+          <li>Warsh hearing proceeds without Tillis meltdown</li>
+          <li>SCOTUS rules against Trump firing power (April 24)</li>
+          <li>ASX opens: AUD/USD 0.67+, QAN +3–5%, NST stable, WDS/STO exit accelerates</li>
+        </ul>
+      </div>
+      <div class="scenario-card bear">
+        <h4>Bear: Cliff Collapse (25%)</h4>
+        <ul>
+          <li>Sunday talks stall; ceasefire expires without extension</li>
+          <li>Hormuz re-closes; nuclear deal crashes back below 40%</li>
+          <li>Tillis publicly torches Warsh hearing; "headless Fed" fears spike</li>
+          <li>ASX opens: AUD/USD 0.63–0.64, QAN -4–6%, WDS/STO +6–8%, gold +3–4%</li>
+        </ul>
+      </div>
+      <div class="scenario-card" style="border-top: 3px solid #f59e0b;">
+        <h4 style="color:#f59e0b;">Base: Partial Progress (40%)</h4>
+        <ul style="list-style: none;">
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">•</span>Ceasefire extended but no deal framework</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">•</span>Warsh hearing proceeds; Tillis says "still blocking"</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">•</span>SCOTUS silent (no ruling April 24 either)</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">•</span>ASX opens: modest risk-on bias; elevated volatility; no clean directional trade</li>
+        </ul>
+      </div>
+      <div class="scenario-card" style="border-top: 3px solid #8b5cf6;">
+        <h4 style="color:#a78bfa;">Wildcard: SCOTUS Fires (No prob. assigned)</h4>
+        <ul style="list-style: none;">
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#a78bfa;">•</span>Court rules Trump CAN fire Fed governors</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#a78bfa;">•</span>USD crashes, gold surges $200–300 immediately</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#a78bfa;">•</span>Equity circuit breaker risk</li>
+          <li style="font-size:13px; color:#94a3b8; padding:4px 0 4px 16px; position:relative;"><span style="position:absolute;left:0;color:#a78bfa;">•</span>Justices' oral argument stance makes this very unlikely (9-0 skeptical)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY DATES -->
+  <div class="section">
+    <div class="section-title">Key Dates — What to Watch</div>
+    <table class="macro-table">
+      <thead>
+        <tr><th>Date / Time</th><th>Event</th><th>Market Impact</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#f87171; font-weight:700;">Sun Apr 19<br><small>All day</small></td>
+          <td>Iran Round 2 Islamabad talks window<br><small>Axios $20B cash-for-uranium framework on the table</small></td>
+          <td>Nuclear deal 68.8% → 70%+ (deal signal) or 55%– (stall). WTI $80 market at 90% responds immediately</td>
+        </tr>
+        <tr>
+          <td style="color:#f87171; font-weight:700;">Mon Apr 21<br><small>Midnight</small></td>
+          <td>Iran–Israel ceasefire expiry<br><small>Iran's Hormuz opening expires simultaneously</small></td>
+          <td>Extension → Hormuz holds, nuclear deal intact. No extension → dual collapse: Hormuz + deal</td>
+        </tr>
+        <tr>
+          <td style="color:#f59e0b; font-weight:700;">Mon Apr 21<br><small>10am ET</small></td>
+          <td>Warsh Senate Banking Committee hearing<br><small>Tillis blockade expected to hold</small></td>
+          <td>Hearing drama → USD volatility, gold bid, "headless Fed" narrative. NYSE open to reprice.</td>
+        </tr>
+        <tr>
+          <td style="color:#8b5cf6; font-weight:700;">Fri Apr 24<br><small>Morning ET</small></td>
+          <td>SCOTUS Trump v. Cook — potential ruling day<br><small>Next possible decision Friday after Good Friday</small></td>
+          <td>Against Trump (likely): resolution rally. For Trump: institutional crisis, USD crash, gold +$200</td>
+        </tr>
+        <tr>
+          <td style="color:#22c55e; font-weight:700;">Wed Apr 22<br><small>10am AEST</small></td>
+          <td>ASX reopens — faces 4-day news overhang<br><small>ASX closed Fri 18 + Mon 21 (Easter)</small></td>
+          <td>Single-session repricing of Sunday–Monday events. Highest single-day volatility risk of monitoring period</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b; font-weight:700;">Mon May 5</td>
+          <td>RBA rate decision<br><small>25bp cut base case</small></td>
+          <td>Cut: AUD/USD slight dip. No cut: AUD/USD flat. Either way, global Iran/Fed dynamics dominate AUD</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b; font-weight:700;">Thu May 15</td>
+          <td>Powell chair term expires<br><small>Hard cliff regardless of Warsh confirmation status</small></td>
+          <td>If Warsh confirmed by May 15: orderly succession. If not: acting chair dispute begins</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- THIN MARKET NOTE -->
+  <div class="warning-box">
+    <h4>Polymarket Signal Quality Warning</h4>
+    <p>The "Powell out by May 31" Polymarket market has only $975 total volume. A single $200 trade moves this market by ~5pp. The +15.5pp/24h move and 65.5%→72%→65.5% oscillation tonight are attributable to 1–3 trades. Do NOT derive precise probability estimates from this market. Use it as a directional signal only: the May 31 market above 50% confirms the market consensus that Powell is gone after May 15 — no more precision than that. The June 30 market at 89% ($2,402 volume — slightly more liquid) is the more reliable signal for the structural succession timeline.</p>
+  </div>
+
+  <!-- POSITIONING -->
+  <div class="section">
+    <div class="section-title">Positioning Before April 22 ASX Open</div>
+    <p style="color:#94a3b8; font-size:13px; margin-bottom:12px;"><em>Note: ASX was already closed as of Good Friday April 18. These are the positions that should have been managed by the April 17 (Thursday) ASX close.</em></p>
+    <table class="macro-table">
+      <thead>
+        <tr><th>Trade</th><th>Rationale</th><th>Risk</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#4ade80; font-weight:600;">Gold miners long<br>(NST, EVN, NCM)</td>
+          <td>Both base case (Fed dovish succession + USD weaker) and risk case (headless Fed) are gold bullish. Gold at $5,118 = strong floor. Ceasefire extension reinforces risk-on without hurting gold</td>
+          <td>SCOTUS rules against Trump filing power → resolution rally → gold gives back some premium</td>
+        </tr>
+        <tr>
+          <td style="color:#f87171; font-weight:600;">Oil producers reduce<br>(WDS, STO)</td>
+          <td>WTI $80 market at 90% = oil participants pricing deal + Hormuz normalisation. De-escalation trade is live. Ceasefire still 49.5% on normalisation</td>
+          <td>Ceasefire expires without extension → re-escalation spike → WDS/STO recover sharply</td>
+        </tr>
+        <tr>
+          <td style="color:#4ade80; font-weight:600;">QAN hold / add</td>
+          <td>Jet fuel relief (WTI toward $80 on deal). Easter travel volume boost. Rate sensitivity benefit from RBA May cut base case</td>
+          <td>Deal collapses → jet fuel cost spike; headless Fed → consumer uncertainty</td>
+        </tr>
+        <tr>
+          <td style="color:#f59e0b; font-weight:600;">AUD/USD hedges</td>
+          <td>April 22 open has highest single-session surprise risk of monitoring period. 4-day news overhang from two simultaneous binary events. Hedge tail risk in both directions</td>
+          <td>Normal opening with no surprises — hedges decay</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>Generated by Polymarket Macro Analyst | 18 April 2026 02:15 AEST | This is not financial advice.</div>
+  <div class="sources">
+    <strong>Sources:</strong>
+    <a href="https://www.cnbc.com/2026/04/15/trump-threatens-to-fire-powell-if-the-fed-chair-doesnt-leave-office-on-his-own.html">CNBC — Trump threatens Powell</a> ·
+    <a href="https://www.washingtonpost.com/business/2026/04/14/trump-fed-acting-chairman-delay/">WaPo — Who runs the Fed after May 15?</a> ·
+    <a href="https://fortune.com/2026/04/16/trump-priorities-warsh-powell-probe-tillis-hearings/">Fortune — Trump's real priority</a> ·
+    <a href="https://www.bloomberg.com/news/articles/2026-04-14/warsh-hearing-for-fed-chair-set-for-next-week-scott-says">Bloomberg — Warsh hearing April 21</a> ·
+    <a href="https://www.scotusblog.com/2026/01/the-fed-firing-case-in-three-steps/">SCOTUSblog — Trump v. Cook</a> ·
+    <a href="https://think.ing.com/articles/fx-daily-what-to-make-of-powells-firing-that-never-was/">ING — Powell's firing that never was (July 2025)</a>
+  </div>
+</div>
+
+</body>
+</html>
