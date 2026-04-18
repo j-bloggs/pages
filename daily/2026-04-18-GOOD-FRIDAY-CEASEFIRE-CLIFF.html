@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 18 April 2026 | Good Friday: Markets in Stasis, April 21 Cliff Looms</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f35 0%, #0f1117 100%); border-bottom: 2px solid #2d3748; padding: 32px 40px; }
+  .header-meta { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f7fafc; margin-bottom: 8px; }
+  .header .subtitle { font-size: 15px; color: #a0aec0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 40px; }
+  .alert-box { background: #1a2744; border: 1px solid #3b5998; border-left: 4px solid #63b3ed; border-radius: 6px; padding: 16px 20px; margin-bottom: 24px; }
+  .alert-box.warning { border-color: #f6ad55; border-left-color: #ed8936; background: #2d2010; }
+  .alert-box.quiet { border-color: #48bb78; border-left-color: #38a169; background: #12261e; }
+  .alert-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #a0aec0; margin-bottom: 6px; }
+  .alert-box.warning .alert-title { color: #f6ad55; }
+  .alert-box.quiet .alert-title { color: #68d391; }
+  .alert-box p { font-size: 14px; color: #e2e8f0; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: #718096; font-weight: 600; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #2d3748; }
+  .market-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px; }
+  .market-table th { text-align: left; padding: 8px 10px; color: #718096; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 1px solid #2d3748; }
+  .market-table td { padding: 10px 10px; border-bottom: 1px solid #1a202c; vertical-align: top; }
+  .market-table tr:last-child td { border-bottom: none; }
+  .market-table tr:hover td { background: #1a202c; }
+  .price { font-weight: 700; font-size: 15px; }
+  .price.high { color: #68d391; }
+  .price.mid { color: #f6e05e; }
+  .price.low-p { color: #fc8181; }
+  .delta { font-size: 12px; }
+  .delta.up { color: #68d391; }
+  .delta.down { color: #fc8181; }
+  .delta.flat { color: #718096; }
+  .quality { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+  .q-high { background: #22543d; color: #68d391; }
+  .q-med { background: #744210; color: #f6ad55; }
+  .q-low { background: #4a1c1c; color: #fc8181; }
+  .trigger-status { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+  .ts-safe { background: #1c3a2a; color: #68d391; }
+  .ts-watch { background: #3a2d10; color: #f6ad55; }
+  .ts-past { background: #1e3a5f; color: #63b3ed; }
+  .section-note { font-size: 12px; color: #718096; font-style: italic; margin-top: 8px; }
+  .summary-block { background: #1a202c; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; }
+  .summary-block p { font-size: 14px; color: #cbd5e0; margin-bottom: 10px; }
+  .summary-block p:last-child { margin-bottom: 0; }
+  .calendar-box { background: #1a1f35; border: 1px solid #2d3748; border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+  .calendar-item { display: flex; gap: 16px; padding: 8px 0; border-bottom: 1px solid #1a202c; font-size: 13px; }
+  .calendar-item:last-child { border-bottom: none; }
+  .cal-date { font-weight: 700; color: #63b3ed; min-width: 130px; }
+  .cal-date.critical { color: #fc8181; }
+  .cal-event { color: #cbd5e0; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .macro-card { background: #1a202c; border-radius: 6px; padding: 14px 16px; }
+  .macro-card h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin-bottom: 8px; }
+  .macro-card .value { font-size: 18px; font-weight: 700; color: #f7fafc; }
+  .macro-card .detail { font-size: 12px; color: #a0aec0; margin-top: 4px; }
+  .action-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1a202c; font-size: 13px; }
+  .action-item:last-child { border-bottom: none; }
+  .action-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; align-self: flex-start; margin-top: 2px; }
+  .ab-added { background: #22543d; color: #68d391; }
+  .ab-kept { background: #2a4a2a; color: #68d391; }
+  .footer { background: #0a0d14; border-top: 1px solid #1a202c; padding: 20px 40px; margin-top: 40px; }
+  .footer p { font-size: 11px; color: #4a5568; }
+  strong { color: #e2e8f0; }
+  em { color: #a0aec0; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Daily Report · 18 April 2026 · 17:00 AEST · Good Friday</div>
+  <h1>Markets in Stasis — April 21 Ceasefire Cliff Now 3 Days Away</h1>
+  <div class="subtitle">ASX closed (Good Friday). NYSE closed (Good Friday). Pakistan army chief Munir in Tehran with Round 2 message. Everything is quiet — and that's what makes Tuesday April 22 the highest-risk ASX open in weeks.</div>
+</div>
+
+<div class="container">
+
+  <!-- Calendar Warning -->
+  <div class="alert-box warning">
+    <div class="alert-title">⚠ Easter Weekend Calendar Risk</div>
+    <p><strong>ASX is closed Friday 18, Monday 21 April.</strong> NYSE is closed Friday 18 but <strong>OPEN Monday 21</strong>. The US ceasefire expires April 21 (ET). Any extension or collapse announcement prices into NYSE Monday but Australian investors cannot react until <strong>Tuesday 22 April ASX open</strong> — a 4-day news overhang. Positioning decisions must be made before the Thursday (April 18) ASX close — which has already passed. Tuesday April 22 is the highest-risk session for Australian portfolios.</p>
+  </div>
+
+  <!-- Executive Summary -->
+  <h2>Executive Summary</h2>
+  <div class="summary-block">
+    <p>Good Friday delivered exactly what the calendar implied: thin volumes, no new catalysts, and markets consolidating in the ranges established by the overnight Rubio/Iran FM surge (covered in prior reports). The nuclear deal sits at <strong>61.3%</strong> — down 1.2pp from its Friday morning high but well above the 30% collapse threshold. The most notable intraday move was Trump ops-end softening from <strong>48.5% → 43.5%</strong> (−5pp, 16:00–16:30 AEST), with no confirmed catalyst — almost certainly pre-holiday position trimming ahead of the April 21 cliff.</p>
+    <p>The critical analytical finding from the description cache: the <strong>April 21 ops-end sibling is priced at 41%</strong> vs the April 30 market at 43.5%. A 2.5pp gap means the market is saying — if ops are going to end by April 30, they're ending <em>at</em> the ceasefire expiry moment (April 21 ET), not gradually afterward. This makes April 21 a pure binary: Trump declares victory at expiry, or the conflict resumes.</p>
+    <p>On the news front, Pakistan's army chief General Munir landed in Tehran today carrying a new US message and attempting to arrange <strong>Round 2 Islamabad talks</strong>. The Guardian reports the US and Iran are in <strong>indirect talks to extend the ceasefire</strong>. A compromise uranium deal is under active discussion: some HEU shipped to a third country (not necessarily the US), remainder down-blended in Iran under IAEA monitoring. No Round 2 confirmed yet — Munir's visit is the pre-negotiation of the negotiation.</p>
+  </div>
+
+  <!-- Trigger Status -->
+  <h2>Trigger Status (21 Active)</h2>
+  <table class="market-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Price</th>
+        <th>Δ Today</th>
+        <th>Trigger</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="quality q-high">HIGH</span> US-Iran nuclear deal by Apr 30</td>
+        <td><span class="price high">61.3%</span></td>
+        <td><span class="delta down">−1.2pp</span></td>
+        <td>↑90% (fires at 90%)</td>
+        <td><span class="trigger-status ts-safe">28.7pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-high">HIGH</span> Nuclear deal collapse (↓30%)</td>
+        <td><span class="price high">61.3%</span></td>
+        <td><span class="delta down">−1.2pp</span></td>
+        <td>↓30% (fires at 30%)</td>
+        <td><span class="trigger-status ts-safe">31.3pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Trump ops-end by Apr 30</td>
+        <td><span class="price mid">43.5%</span></td>
+        <td><span class="delta down">−5.0pp</span></td>
+        <td>↑60% (fires at 60%)</td>
+        <td><span class="trigger-status ts-safe">16.5pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Ops-end collapse warning (↓30%) <em>NEW</em></td>
+        <td><span class="price mid">43.5%</span></td>
+        <td><span class="delta down">−5.0pp</span></td>
+        <td>↓30% (fires at 30%)</td>
+        <td><span class="trigger-status ts-safe">13.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-med">MED</span> Hormuz traffic normalizes (↑70%)</td>
+        <td><span class="price mid">39.5%</span></td>
+        <td><span class="delta up">+3.0pp</span></td>
+        <td>↑70% (fires at 70%)</td>
+        <td><span class="trigger-status ts-safe">30.5pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-med">MED</span> Hormuz floor (↓10%)</td>
+        <td><span class="price mid">39.5%</span></td>
+        <td><span class="delta up">+3.0pp</span></td>
+        <td>↓10% (fires at 10%)</td>
+        <td><span class="trigger-status ts-safe">29.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Iran invasion 2027 (↓10% floor)</td>
+        <td><span class="price mid">24.5%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↓10% (fires at 10%)</td>
+        <td><span class="trigger-status ts-safe">14.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Iran invasion 2027 (↑40% escalation)</td>
+        <td><span class="price mid">24.5%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑40% (fires at 40%)</td>
+        <td><span class="trigger-status ts-safe">15.5pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-med">MED</span> Powell out by May 31</td>
+        <td><span class="price high">67.0%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑50% (fires at 50%)</td>
+        <td><span class="trigger-status ts-past">PAST (17pp above)</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-high">HIGH</span> US Fed April hike</td>
+        <td><span class="price low-p">0.2%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑2% (fires at 2%)</td>
+        <td><span class="trigger-status ts-safe">1.8pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-high">HIGH</span> US Fed June hike</td>
+        <td><span class="price low-p">2.0%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑5% (fires at 5%)</td>
+        <td><span class="trigger-status ts-safe">3.0pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-high">HIGH</span> WTI $200 in April (panic)</td>
+        <td><span class="price low-p">0.4%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑4% (fires at 4%)</td>
+        <td><span class="trigger-status ts-safe">3.6pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Kharg Island falls by Apr 30</td>
+        <td><span class="price low-p">3.2%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑40% (fires at 40%)</td>
+        <td><span class="trigger-status ts-safe">36.8pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> Israel ground op in Iran by Apr 30</td>
+        <td><span class="price low-p">5.8%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑20% (fires at 20%)</td>
+        <td><span class="trigger-status ts-safe">14.2pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-low">LOW</span> UAE strikes Iran by Apr 30</td>
+        <td><span class="price low-p">6.5%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑65% (fires at 65%)</td>
+        <td><span class="trigger-status ts-safe">58.5pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><span class="quality q-med">MED</span> China invades Taiwan by 2027</td>
+        <td><span class="price low-p">8.7%</span></td>
+        <td><span class="delta flat">+0.0pp</span></td>
+        <td>↑15% (fires at 15%)</td>
+        <td><span class="trigger-status ts-safe">6.3pp below trigger</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="section-note">Kalshi: Elon Musk presidential pardon −3pp to 47% (domestic US politics noise). All unemployment buckets flat. No macro-relevant Kalshi moves.</p>
+
+  <!-- Key Move: Ops-End Soft Decline -->
+  <h2>Key Move: Ops-End Soft Decline (−5pp)</h2>
+  <div class="summary-block">
+    <p><strong>Trump ops-end by April 30 fell from 48.5% → 43.5%</strong> between 16:00–16:30 AEST (Good Friday thin market). No confirmed news catalyst. Probable cause: pre-Easter-weekend position trimming ahead of the April 21 ceasefire expiry cliff — participants reducing ops-end exposure without a confirmed Round 2 date.</p>
+    <p><strong>The sibling market reading is the key insight:</strong> The April 21 ops-end market (sibling) sits at approximately <strong>41%</strong>, nearly identical to the April 30 market at 43.5%. The 2.5pp gap implies the market assigns almost zero incremental value to the April 22–30 window. Translation: if Trump is going to declare ops-end by April 30, the market believes he'll do it <em>at</em> the ceasefire expiry moment (April 21 ET) — not gradually afterward. April 21 is the binary point.</p>
+    <p>Cross-market validation confirms this is NOT a re-escalation signal: nuclear deal [HIGH] flat at 61.3%, Iran invasion flat at 24.5%, WTI $200 at 0.4%. The ops-end decline is a <em>timeline uncertainty</em> move, not a deal-collapse move.</p>
+  </div>
+
+  <!-- Cross-Market Complex -->
+  <h2>Cross-Market Complex (De-Escalation Regime Intact)</h2>
+  <div class="macro-grid">
+    <div class="macro-card">
+      <h4>US-Iran Nuclear Deal [HIGH]</h4>
+      <div class="value">61.3%</div>
+      <div class="detail">Stabilised after 02:15 AEST peak at 82.2%. Rubio civilian nuclear concession + Trump claims Iran agreed — Iran's public denial anchors market in 58–65% range. 28.7pp from ↑90% trigger.</div>
+    </div>
+    <div class="macro-card">
+      <h4>Hormuz Normalises [MED]</h4>
+      <div class="value">39.5%</div>
+      <div class="detail">+3pp recovery from 36.5% trough. Trump "blockade remains" statement creates ceiling. Iran opened to commercial vessels (partial normalization done); full normalization requires deal completion.</div>
+    </div>
+    <div class="macro-card">
+      <h4>Trump Ops-End Apr 30 [LOW]</h4>
+      <div class="value">43.5%</div>
+      <div class="detail">−5pp today (position trimming). April 21 sibling at ~41% — ops-end priced as ceasefire-expiry binary not a gradual 30-day trajectory. 16.5pp below ↑60% trigger.</div>
+    </div>
+    <div class="macro-card">
+      <h4>Iran Invasion 2027 [LOW]</h4>
+      <div class="value">24.5%</div>
+      <div class="detail">Flat all day. De-escalation regime locked in. ↓10% floor trigger 14.5pp away. ↑40% escalation trigger 15.5pp away. 24.5% = residual structural uncertainty for full 2026 calendar.</div>
+    </div>
+    <div class="macro-card">
+      <h4>Powell Out by May 31 [MED]</h4>
+      <div class="value">67.0%</div>
+      <div class="detail">Flat. Fed independence risk persists. SCOTUS Trump v. Cook ruling pending (next decision day April 24 — earliest post-Easter). Warsh confirmation blocked by Tillis/DOJ condition. Macro channels: USD bearish, gold bullish ($5,118/oz).</div>
+    </div>
+    <div class="macro-card">
+      <h4>US Fed June Hike [HIGH]</h4>
+      <div class="value">2.0%</div>
+      <div class="detail">Flat. 3pp below ↑5% trigger. Confirms: Iran de-escalation has NOT forced US Fed's hand on inflation. RBA May 5 25bp cut base case remains intact — no US rate contagion.</div>
+    </div>
+  </div>
+
+  <!-- News Context -->
+  <h2>News Context (since 16:00 AEST)</h2>
+  <div class="calendar-box">
+    <div class="calendar-item">
+      <div class="cal-date">Pakistan mediation</div>
+      <div class="cal-event">General Munir (Pakistan army chief) landed in Tehran today carrying a new Washington message. Purpose: arrange Round 2 Islamabad talks. No date confirmed. This is the pre-negotiation of the negotiation.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">Ceasefire extension</div>
+      <div class="cal-event"><em>The Guardian</em>: US and Iran in indirect talks to extend the ceasefire beyond April 21-22 expiry. Pakistan and Oman acting as conduits. No formal extension announced.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">Uranium compromise</div>
+      <div class="cal-event">Active discussion: some highly-enriched uranium shipped to a third country (not necessarily the US), remainder down-blended in Iran under IAEA monitoring. Bridges the US "ship all uranium to US" vs Iran "down-blend in Iran" deadlock from Round 1.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">Iran denial status</div>
+      <div class="cal-event">Iran has not publicly confirmed Trump's "they totally agreed" claims (April 17 ET). Qalibaf "camel dreams" pushback remains Iran's public position. Indirect talks via Pakistan/Oman suggest back-channel progress not yet translatable to public statements.</div>
+    </div>
+  </div>
+
+  <!-- Forward Calendar -->
+  <h2>Forward Calendar (Critical 72 Hours)</h2>
+  <div class="calendar-box">
+    <div class="calendar-item">
+      <div class="cal-date">Sat Apr 19 AEST</div>
+      <div class="cal-event">Pakistan mediation continues. If Munir secures Round 2 commitment from Tehran: nuclear deal re-tests 65–70%, ops-end approaches 50%+, Hormuz recovers toward 48–52%. No markets open.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date critical">Mon Apr 21 — KEY</div>
+      <div class="cal-event"><strong>ASX CLOSED (Easter Monday). NYSE OPEN.</strong> US ceasefire expires April 21 ET (= April 22 ~04:00 AEST). Warsh Senate Banking Committee hearing 10am ET (theatrical — Tillis blockade intact). Trump announcement window: either ops-end declaration or ceasefire extension. Any news prices into NYSE Monday; Australian investors blind until Tuesday.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date critical">Tue Apr 22 AEST — HIGHEST RISK</div>
+      <div class="cal-event"><strong>ASX reopens.</strong> First Australian market day post-Easter. 4-day news overhang. Gap-up or gap-down depending on ceasefire outcome. Energy stocks (WDS, STO, BHP oil) most exposed. QAN, airlines exposed to fuel relief scenario.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">Thu Apr 24 AEST</div>
+      <div class="cal-event">SCOTUS next decision day (earliest post-Easter). Trump v. Cook (Fed independence) could be released. Ruling FOR Trump = gold surge, USD sell, equity multiple compression. Ruling AGAINST Trump (consensus expectation) = resolution rally, Fed independence affirmed.</div>
+    </div>
+  </div>
+
+  <!-- Macro Implications (Australian Focus) -->
+  <h2>Macro Implications (Australian Investor Focus)</h2>
+  <div class="summary-block">
+    <p><strong>Base case (ceasefire extends, ~60% probability per market complex):</strong> Deal path continues through April 22–30 window. WTI (proxy for Brent) drifts toward $80 target. Australian petrol relief scenario: A$1.95–2.05/L (vs current ~A$2.20). QAN jet fuel cost advantage locked in. WDS/STO: exit or underweight energy longs — deal path is WTI downside. AUD/USD: risk-on bid toward 0.66–0.68. ASX energy sector underperforms; consumer/discretionary sector outperforms.</p>
+    <p><strong>Tail risk (ceasefire expires without extension, ~40% probability):</strong> Iran exits April 21, Hormuz conditional opening closes, nuclear deal crashes toward 35–40%, ops-end collapses to 20–25%. WTI spikes $10–15 toward $100–105 (Brent proxy). Australian petrol: A$2.40–2.60/L. WDS/STO surge. QAN/airlines crushed. AUD/USD weakens to 0.62–0.64 (risk-off + energy importer terms of trade shock). RBA May 5 cut: delayed or repriced upward if oil spike feeds CPI.</p>
+    <p><strong>SCOTUS wildcard (April 24+):</strong> Powell out by May 31 at 67% [MED]. A FOR-Trump SCOTUS ruling (low probability but live risk) triggers a separate macro shock: USD sell, gold surge, Treasury curve steepening, Australian gold miners (NST, EVN, NCM) strongly bullish. RBA currency impact: AUD/USD beneficiary via gold-sector terms of trade improvement.</p>
+    <p><strong>Positioning note:</strong> The Easter Monday information asymmetry cannot be unwound now — ASX has closed for the 4-day weekend. Tuesday April 22 open will have a price discovery gap. Australian investors holding energy overweights or underhedged portfolios face asymmetric weekend risk.</p>
+  </div>
+
+  <!-- Actions Taken -->
+  <h2>System Actions</h2>
+  <div>
+    <div class="action-item">
+      <span class="action-badge ab-added">ADDED</span>
+      <div>New trigger: <strong>trump-ends-iran-ops-below-30</strong> — ops-end drops below 30% (ceasefire collapse signal). Currently 13.5pp away (43.5% → 30%). If fired: cross-check nuclear deal ↓30% trigger for confirmation. A lone ops-end drop to 30% without nuclear deal retrace requires 4-step catalyst check before acting.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-badge ab-kept">KEPT</span>
+      <div>All existing 21 triggers maintained at current thresholds. No triggers approaching fire. Next closest: Iran invasion ↓10% floor (14.5pp away); ops-end ↑60% (16.5pp away). Both are pre-holiday positioning buffers — unlikely to fire over Easter weekend without major news.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-badge ab-kept">KEPT</span>
+      <div>Nuclear deal ↑90% trigger held at 90%: deal at 61.3% is 28.7pp away. Even if Round 2 produces a framework, 90% requires formal bilateral confirmation (both sides publicly agreeing) — that is a day-of-announcement event, not a pre-announcement movement. Threshold is appropriate.</div>
+    </div>
+  </div>
+
+  <!-- Dismissed -->
+  <h2>Dismissed Alerts</h2>
+  <div class="summary-block">
+    <p><strong>Elon Musk presidential pardon −3pp (Kalshi, 16:00 AEST):</strong> Domestic US political market. No macro linkage. No new catalyst identified — thin Good Friday position management. Dismissed, no email.</p>
+    <p><strong>All Good Friday alerts (09:00–16:00 AEST, 8 alerts):</strong> Covered in analyst_notes.md as dismissed across: nuclear deal cumulative window stale (4×), Hormuz -16pp stale window (1×), uranium surrender -16pp stale window (1×), Alito resignation domestic noise (1×), Rubio pardon domestic noise (1×). None required reports or emails.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Polymarket Financial Intelligence · Generated 2026-04-18 17:01 AEST · Analyst Agent v2 · Data: Polymarket Gamma API + Kalshi API</p>
+  <p style="margin-top:6px;">Quality ratings: [HIGH] = objective resolution (FOMC/NYMEX/election certification) | [MED] = has criteria, interpretation surface | [LOW] = subjective/UMA-voted. Never make major calls on [LOW] markets alone.</p>
+</div>
+
+</body>
+</html>
