@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert: Islamabad Deployment — Ceasefire Limbo | 19 Apr 2026 23:45 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #252d40 100%); border-bottom: 3px solid #f59e0b; padding: 28px 32px; }
+  .header-top { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .alert-badge { background: #f59e0b; color: #000; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; }
+  .header .subtitle { font-size: 13px; color: #94a3b8; margin-top: 4px; }
+  .container { max-width: 820px; margin: 0 auto; padding: 28px 24px; }
+
+  .lead-box { background: #1e2535; border-left: 4px solid #f59e0b; border-radius: 4px; padding: 18px 20px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: #cbd5e1; }
+  .lead-box strong { color: #fbbf24; }
+
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin: 28px 0 12px; border-top: 1px solid #1e2535; padding-top: 20px; }
+
+  .catalyst-box { background: #1a2030; border: 1px solid #2d3a52; border-radius: 6px; padding: 18px 20px; margin-bottom: 16px; }
+  .catalyst-box .catalyst-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .catalyst-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .catalyst-badge.new { background: #16a34a22; color: #4ade80; border: 1px solid #16a34a; }
+  .catalyst-badge.warn { background: #dc262622; color: #f87171; border: 1px solid #dc2626; }
+  .catalyst-title { font-size: 14px; font-weight: 600; color: #e2e8f0; }
+  .catalyst-body { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+  .catalyst-body strong { color: #e2e8f0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px; }
+  th { text-align: left; color: #64748b; font-weight: 600; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; padding: 8px 12px; border-bottom: 1px solid #1e2535; }
+  td { padding: 9px 12px; border-bottom: 1px solid #161c28; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .price { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .up { color: #4ade80; }
+  .down { color: #f87171; }
+  .neutral { color: #94a3b8; }
+  .badge-q { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 2px; letter-spacing: 0.5px; }
+  .badge-q.high { background: #15803d22; color: #4ade80; border: 1px solid #15803d; }
+  .badge-q.med { background: #d9770622; color: #fb923c; border: 1px solid #d97706; }
+  .badge-q.low { background: #6d28d922; color: #a78bfa; border: 1px solid #6d28d9; }
+
+  .insight-row { display: flex; gap: 16px; margin-bottom: 16px; }
+  .insight-card { flex: 1; background: #1a2030; border: 1px solid #2d3a52; border-radius: 6px; padding: 16px; }
+  .insight-card h3 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .insight-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .insight-card p strong { color: #e2e8f0; }
+
+  .timeline { background: #1a2030; border: 1px solid #2d3a52; border-radius: 6px; padding: 18px 20px; margin-bottom: 16px; }
+  .timeline h3 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .timeline-item { display: flex; gap: 14px; margin-bottom: 12px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .timeline-dot.done { background: #4ade80; }
+  .timeline-dot.live { background: #f59e0b; }
+  .timeline-dot.future { background: #475569; }
+  .timeline-dot.risk { background: #f87171; }
+  .timeline-content { font-size: 13px; color: #94a3b8; }
+  .timeline-content strong { color: #e2e8f0; }
+  .timeline-content .time { color: #64748b; font-size: 11px; font-weight: 600; }
+
+  .asx-box { background: #1e2030; border: 1px solid #f59e0b44; border-radius: 6px; padding: 18px 20px; margin-bottom: 16px; }
+  .asx-box h3 { font-size: 12px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .asx-box p { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 8px; }
+  .asx-box p:last-child { margin-bottom: 0; }
+  .asx-box p strong { color: #e2e8f0; }
+
+  .footer { background: #0b0f1a; border-top: 1px solid #1e2535; padding: 16px 24px; font-size: 11px; color: #475569; text-align: center; margin-top: 36px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="alert-badge">⚡ Alert</span>
+    <span style="color:#64748b;font-size:12px;">19 Apr 2026 · 23:45 AEST</span>
+  </div>
+  <h1>Islamabad Deployment — Ceasefire Limbo</h1>
+  <div class="subtitle">Witkoff + Kushner travel to Pakistan · Extension ↑ 75.5% · Deal retraces to 47.4% · April 22 ASX trades in the gap</div>
+</div>
+
+<div class="container">
+
+  <div class="lead-box">
+    <strong>New catalyst (April 19 AEST):</strong> Trump announced Witkoff and Kushner are physically traveling to Islamabad for Round 2 Iran talks, with the Iranian delegation expected Tuesday April 22. Ceasefire extension surged from 69.5% → 75.5% (+6pp in 15 minutes) on this logistical commitment. However, formal extension announcement is not expected until <strong>Wednesday April 22 US time</strong> — meaning the April 21 midnight ET deadline expires <em>before</em> any official word. Simultaneously, the nuclear deal [HIGH] has retraced from the 23:00 AEST peak of 51.4% back to <strong>47.4%</strong> (below majority probability). The market is pricing <strong>"extension for more talks" — not "deal imminent."</strong> April 22 ASX opens into a limbo zone.
+  </div>
+
+  <p class="section-title">Catalyst Identification (4-Step Check)</p>
+
+  <div class="catalyst-box">
+    <div class="catalyst-header">
+      <span class="catalyst-badge new">✓ New</span>
+      <span class="catalyst-title">Witkoff + Kushner physically traveling to Islamabad (April 19)</span>
+    </div>
+    <div class="catalyst-body">
+      Trump announced senior US envoys Steve Witkoff and Jared Kushner are traveling to Pakistan for direct Iran talks. Team expected to arrive Islamabad Monday evening (April 20 US time = April 21 AEST morning). Iranian delegation arriving Tuesday (April 22 AEST). A <strong>"symbolic joint announcement"</strong> on extension is expected Wednesday ET if discussions progress — <em>after</em> the April 21 ceasefire expiry. Physical presence of the most senior US deal-makers in Islamabad is the strongest logistical commitment yet to a negotiated resolution. This is what drove the +6pp in 15 minutes on the ceasefire extension market.
+    </div>
+  </div>
+
+  <div class="catalyst-box">
+    <div class="catalyst-header">
+      <span class="catalyst-badge warn">⚠ Escalation</span>
+      <span class="catalyst-title">Trump accuses Iran of firing on French + British vessels in Hormuz</span>
+    </div>
+    <div class="catalyst-body">
+      Trump stated Iran fired on French and British vessels in the Strait of Hormuz during the ceasefire period, characterising this as a ceasefire violation. He simultaneously warned: <em>"if they don't [take the deal], the United States is going to knock out every single Power Plant."</em> This is Trump's standard leverage playbook — threatening maximum force while Witkoff/Kushner are on a plane to Pakistan. Cross-market: WTI $200 catastrophe at <strong>0.7%</strong>, military action vs Iran ends by Apr 30 at <strong>99.1%</strong>. <strong>Market reads this as rhetoric, not operational.</strong>
+    </div>
+  </div>
+
+  <p class="section-title">Current Market State</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Quality</th>
+        <th>Price</th>
+        <th>Delta (this run)</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US-Iran ceasefire extended by Apr 21</td>
+        <td><span class="badge-q med">MED</span></td>
+        <td class="price up">75.5%</td>
+        <td class="up">+6.0pp</td>
+        <td>Witkoff-Kushner travel = extension overwhelmingly expected. 9.5pp from ↑85% trigger.</td>
+      </tr>
+      <tr>
+        <td>US-Iran nuclear deal by Apr 30</td>
+        <td><span class="badge-q high">HIGH</span></td>
+        <td class="price neutral">47.4%</td>
+        <td class="down">−4.0pp (from 51.4% peak)</td>
+        <td>Below 50% majority. Market pricing deal NOT done — Islamabad talks still needed. Deal uncertainty rising.</td>
+      </tr>
+      <tr>
+        <td>Trump ends Iran ops by Apr 30</td>
+        <td><span class="badge-q low">LOW</span></td>
+        <td class="price neutral">38.5%</td>
+        <td class="up">+1.0pp</td>
+        <td>Stable. Trump keeping blockade as leverage — coherent with Witkoff Islamabad deployment.</td>
+      </tr>
+      <tr>
+        <td>WTI $200/bbl catastrophe (April)</td>
+        <td><span class="badge-q high">HIGH</span></td>
+        <td class="price up">0.7%</td>
+        <td class="neutral">+0.1pp</td>
+        <td>Negligible. Market fully dismissing Trump's "power plant" threat as operational signal.</td>
+      </tr>
+      <tr>
+        <td>US Iran invasion 2027</td>
+        <td><span class="badge-q med">MED</span></td>
+        <td class="price neutral">31.5%</td>
+        <td class="neutral">+0.0pp</td>
+        <td>Watching ↑35% early-warning (3.5pp away). Stable despite Trump escalation rhetoric.</td>
+      </tr>
+      <tr>
+        <td>Military action vs Iran ends by Apr 30</td>
+        <td><span class="badge-q med">MED</span></td>
+        <td class="price up">99.1%</td>
+        <td class="neutral">—</td>
+        <td>Ground truth cross-market. No renewed strikes expected. Validates ceasefire-extension narrative.</td>
+      </tr>
+      <tr>
+        <td>Israel-Hezbollah ceasefire</td>
+        <td><span class="badge-q high">HIGH</span></td>
+        <td class="price up">99.9%</td>
+        <td class="neutral">—</td>
+        <td>Resolved/near-resolved. No disruption to broader de-escalation complex.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="section-title">The Key Cross-Market Signal: Extension ↑ + Deal ↓</p>
+
+  <div class="insight-row">
+    <div class="insight-card">
+      <h3>What's rising</h3>
+      <p><strong>Ceasefire extension: 75.5%</strong> (3:1 odds in favour).<br>The Islamabad trip is a credible logistical commitment. Both sides sending senior delegations to Pakistan strongly implies a functional pause regardless of formal expiry language. Market correctly reads this as "extension likely."</p>
+    </div>
+    <div class="insight-card">
+      <h3>What's falling</h3>
+      <p><strong>Nuclear deal: 47.4%</strong> (below 50%, minority probability).<br>The 23:00 AEST peak at 51.4% was the "deal imminent" moment. The retrace to 47.4% reflects updated reality: Islamabad Round 2 is needed, terms not agreed. No deal before April 30 is now the slight majority view.</p>
+    </div>
+    <div class="insight-card">
+      <h3>The divergence means</h3>
+      <p><strong>"Buy time, not deal."</strong> The market is pricing a functional ceasefire extension to allow Islamabad Round 2 — NOT an imminent deal close. This is less bullish for de-escalation beneficiaries than the 51.4% deal peak implied.</p>
+    </div>
+  </div>
+
+  <p class="section-title">April 21–22 AEST Timeline (Revised)</p>
+
+  <div class="timeline">
+    <h3>Sequence of events from now (~24h clock)</h3>
+    <div class="timeline-item">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-content">
+        <div class="time">SUN 19 APR — NOW (23:45 AEST)</div>
+        <strong>Trump announces Witkoff + Kushner traveling to Islamabad.</strong> Ceasefire extension surges to 75.5%. Nuclear deal retraces to 47.4%. ASX closed (Easter Sunday).
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot live"></div>
+      <div class="timeline-content">
+        <div class="time">MON 20 APR — Monday ET / Tuesday AEST morning</div>
+        <strong>Witkoff + Kushner land in Islamabad.</strong> ASX closed (Easter Monday). NYSE open. Any market reaction to Islamabad arrival prices into US markets while Australian investors are dark.
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot risk"></div>
+      <div class="timeline-content">
+        <div class="time">TUE 21 APR — midnight ET = Wed 22 Apr 14:00 AEST</div>
+        <strong>CEASEFIRE FORMALLY EXPIRES.</strong> Iranian delegation arrives in Islamabad (per CNN). No formal extension expected before this deadline. Ceasefire technically lapses while both delegations are in Pakistan. NYSE prices this; <strong>ASX is OPEN</strong> — April 22 ASX morning session begins at 10:00 AEST, 4 hours before the formal expiry at 14:00 AEST.
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-content">
+        <div class="time">WED 22 APR — ET ("Wednesday if progress") = Thu 23 Apr AEST</div>
+        <strong>Extension/joint announcement expected IF Islamabad discussions go well.</strong> April 23 AEST ASX would be the first session to trade a formal extension announcement. April 22 ASX trades entirely in the limbo zone: ceasefire technically expired, Islamabad talks in progress, no formal word.
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">April 22 ASX Positioning — The Limbo Zone</p>
+
+  <div class="asx-box">
+    <h3>⚠ April 22 ASX Opens in the Gap</h3>
+    <p><strong>The prior playbook (from 21:15 and 23:00 reports) assumed an extension announcement before April 22 ASX open.</strong> That assumption is now wrong. The Islamabad timeline means the formal extension comes Wednesday ET at earliest — that is Thursday April 23 AEST. April 22 ASX opens with:</p>
+    <p>✗ Ceasefire technically expired at 14:00 AEST April 22 (during the session)<br>
+    ✓ Witkoff + Kushner in Islamabad = functional pause with no strikes<br>
+    ✗ No formal extension language yet<br>
+    ✓ Nuclear deal at 47.4% — deal uncertainty, not collapse<br>
+    ✓ WTI catastrophe at 0.7% — zero strike risk priced<br>
+    ✗ Trump's "knock out power plants" rhetoric in headlines alongside the talks</p>
+    <p><strong>Base case for April 22 ASX:</strong> "Talks in progress, de-escalation intact but unconfirmed" — a <em>stalemate session</em>, not a resolution session. Energy names (WDS/STO) face muted signals — no clean exit catalyst (deal not done) but no escalation catalyst either. QAN retains jet-fuel relief positioning (no strikes, oil flat). AUD/USD stays in risk-on range but without the deal-close premium.</p>
+    <p><strong>Risk scenario (15%):</strong> Iran walks out of Islamabad citing US vessel accusations + ceasefire expiry = escalation re-price. Would hit WDS/STO long, QAN short, AUD/USD lower. WTI catastrophe market would move first; watch for any jump above 2-3% as early warning.</p>
+  </div>
+
+  <p class="section-title">Trigger Status</p>
+
+  <table>
+    <thead>
+      <tr><th>Trigger</th><th>Current</th><th>Threshold</th><th>Gap</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ceasefire confirmed extended ↑85%</td>
+        <td class="price up">75.5%</td>
+        <td>85%</td>
+        <td class="neutral">9.5pp below trigger</td>
+        <td>Watching — Islamabad announcement could fire this by Wednesday ET</td>
+      </tr>
+      <tr>
+        <td>Ceasefire cliff confirmed ↓50%</td>
+        <td class="price up">75.5%</td>
+        <td>50%</td>
+        <td class="neutral">25.5pp above trigger</td>
+        <td>Watching — collapse scenario requires Islamabad to fail AND formal breakdown</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal final confirm ↑90%</td>
+        <td class="price neutral">47.4%</td>
+        <td>90%</td>
+        <td class="neutral">42.6pp below trigger</td>
+        <td>Watching — Islamabad Round 2 needed first</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal collapse ↓30%</td>
+        <td class="price neutral">47.4%</td>
+        <td>30%</td>
+        <td class="neutral">17.4pp above trigger</td>
+        <td>Watching — adequate buffer; not imminent</td>
+      </tr>
+      <tr>
+        <td>Iran invasion 2027 early warning ↑35%</td>
+        <td class="price neutral">31.5%</td>
+        <td>35%</td>
+        <td class="neutral">3.5pp below trigger</td>
+        <td><strong>⚠ Approaching</strong> — Trump's escalatory language bears monitoring overnight</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background:#1a2030;border:1px solid #2d3a52;border-radius:6px;padding:18px 20px;margin-top:16px;">
+    <div style="font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Next Collection Watch</div>
+    <ul style="list-style:none;font-size:13px;color:#94a3b8;line-height:1.8;">
+      <li>🔵 <strong>Ceasefire extension 75.5% → 85%:</strong> 9.5pp gap. Any Islamabad "informal extension" signals could fire this before April 21 midnight ET. Next collection is the critical watch.</li>
+      <li>🟠 <strong>Iran invasion 2027 3.5pp from ↑35% early-warning trigger:</strong> Trump's "power plant" statement + Iran Hormuz vessel allegations = watch for any escalation repricing overnight.</li>
+      <li>🔴 <strong>Nuclear deal ↓30% collapse sentinel:</strong> Currently 17.4pp buffer. Not imminent, but any Islamabad walkout scenario compresses this fast.</li>
+      <li>🟢 <strong>Military action vs Iran ends 99.1%:</strong> Ground truth. If this drops below 95%, it's a genuine strike re-price — re-evaluate the entire complex.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 19 Apr 2026 23:45 AEST · Alert-triggered run · Sources: CNN (April 19 live blog), Polymarket market_log.tsv
+</div>
+
+</body>
+</html>
