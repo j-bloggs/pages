@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert: Iran Round 2 Talks Confirmed — Overnight Positive Drift + ASX Open Correction</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a2a4a 0%, #0f1a30 100%); border-bottom: 2px solid #2a5298; padding: 28px 32px; }
+  .alert-badge { display: inline-block; background: #f59e0b; color: #1a1a1a; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; color: #94a3b8; }
+  .header .meta span { margin-right: 20px; }
+  .correction-banner { background: #7c2d12; border: 1px solid #dc2626; border-left: 4px solid #dc2626; padding: 14px 20px; margin: 16px 32px; border-radius: 4px; }
+  .correction-banner .label { font-size: 11px; font-weight: 700; color: #fca5a5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .correction-banner p { font-size: 14px; color: #fecaca; }
+  .container { max-width: 860px; margin: 0 auto; padding: 20px 32px 40px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .summary-box { background: #1a2332; border: 1px solid #2a3f5f; border-left: 4px solid #3b82f6; padding: 16px 20px; border-radius: 6px; font-size: 14.5px; color: #cbd5e1; }
+  .summary-box p + p { margin-top: 10px; }
+  .market-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .market-table th { background: #1e293b; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; font-size: 11px; padding: 8px 12px; text-align: left; }
+  .market-table td { padding: 10px 12px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+  .market-table tr:last-child td { border-bottom: none; }
+  .market-table tr:hover td { background: #1a2332; }
+  .price-up { color: #34d399; font-weight: 600; }
+  .price-flat { color: #94a3b8; }
+  .price-down { color: #f87171; font-weight: 600; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 4px; }
+  .badge-high { background: #065f46; color: #6ee7b7; }
+  .badge-med { background: #7c3aed; color: #ddd6fe; }
+  .badge-low { background: #374151; color: #9ca3af; }
+  .badge-confirmed { background: #1e3a5f; color: #93c5fd; }
+  .moves { list-style: none; }
+  .moves li { padding: 11px 14px; border-bottom: 1px solid #1e293b; font-size: 13.5px; color: #cbd5e1; display: flex; gap: 10px; align-items: flex-start; }
+  .moves li:last-child { border-bottom: none; }
+  .moves li .bullet { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .moves li.positive .bullet { color: #34d399; }
+  .moves li.negative .bullet { color: #f87171; }
+  .moves li.neutral .bullet { color: #94a3b8; }
+  .moves li.warning .bullet { color: #f59e0b; }
+  .insight-box { background: #1a2332; border: 1px solid #2a3f5f; border-left: 4px solid #8b5cf6; padding: 14px 18px; border-radius: 6px; margin-bottom: 14px; font-size: 13.5px; color: #c4b5fd; }
+  .insight-box .insight-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a78bfa; margin-bottom: 6px; }
+  .forward-box { background: #1a2332; border: 1px solid #2a3f5f; border-left: 4px solid #10b981; padding: 16px 20px; border-radius: 6px; font-size: 14px; color: #a7f3d0; }
+  .forward-box .fwd-item { margin-bottom: 10px; }
+  .forward-box .fwd-item:last-child { margin-bottom: 0; }
+  .forward-box .fwd-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6ee7b7; margin-bottom: 3px; }
+  .timing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .timing-card { background: #1e293b; border: 1px solid #334155; padding: 12px 14px; border-radius: 5px; font-size: 13px; }
+  .timing-card .time { font-size: 16px; font-weight: 700; color: #f1f5f9; }
+  .timing-card .event { color: #94a3b8; font-size: 12px; margin-top: 2px; }
+  .timing-card.urgent { border-color: #f59e0b; }
+  .timing-card.urgent .time { color: #fbbf24; }
+  .two-track { background: #1a2332; border: 1px solid #2a3f5f; padding: 14px 18px; border-radius: 6px; font-size: 13.5px; color: #cbd5e1; }
+  .two-track table { width: 100%; margin-top: 8px; font-size: 13px; }
+  .two-track td { padding: 5px 8px; border-bottom: 1px solid #1e293b; }
+  .two-track td:first-child { color: #94a3b8; width: 130px; }
+  footer { border-top: 1px solid #1e293b; padding: 16px 32px; font-size: 12px; color: #475569; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚡ Alert — 00:05 AEST</div>
+  <h1>Iran Round 2 Talks Confirmed — Overnight Positive Drift</h1>
+  <div class="meta">
+    <span>📅 Tuesday 21 April 2026 · 00:05 AEST</span>
+    <span>🔔 Trigger: Vance meeting crossed 91%</span>
+    <span>ASX opens 10:00 AEST today</span>
+  </div>
+</div>
+
+<!-- CORRECTION BANNER -->
+<div class="correction-banner">
+  <div class="label">⚠ Correction to 5pm Sunday Daily Report</div>
+  <p><strong>ASX is OPEN today (Monday April 21).</strong> The 5pm daily incorrectly stated "ASX closed until April 22." April 21 is a normal trading Monday — ANZAC Day is not until April 25. ASX opens at 10:00 AEST today, approximately 10 hours from now. The ceasefire expiry (midnight ET April 21) translates to <strong>14:00 AEST Tuesday April 22</strong> — it falls during Tuesday's session, not before Monday's open.</p>
+</div>
+
+<div class="container">
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Executive Summary</div>
+    <div class="summary-box">
+      <p>Overnight signals are <strong>net positive</strong>. The Iranian delegation has been confirmed attending Round 2 Islamabad talks by Pakistani sources, despite IRNA's public rejection — the two-track Iranian strategy (public no, back-channel yes) that the market has priced all week. The Vance meeting market crossed 91% overnight (+10pp from the 5pm daily's 81%), reflecting both that Round 1 (April 11–12, 21 hours) already qualifies <em>and</em> that Round 2 is being organised.</p>
+      <p>The nuclear deal <span class="badge badge-high">HIGH</span> is flat at 47.2% — no collapse signal. The ceasefire extension market is recovering in the overnight Asian session to 64%. WTI $130 sits unchanged at 18.5%, confirming oil is not re-bidding on uncertainty. The diplomatic complex is intact.</p>
+    </div>
+  </div>
+
+  <!-- TIMING REFERENCE -->
+  <div class="section">
+    <div class="section-title">Critical Timing Reference (AEST)</div>
+    <div class="timing-grid">
+      <div class="timing-card">
+        <div class="time">Now — 10:00</div>
+        <div class="event">Pre-market. Current signals: positive drift. Talks proceeding.</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">10:00 AEST Mon 21 Apr</div>
+        <div class="event">ASX Monday open. Faces overnight positive signals. Ceasefire not yet expired.</div>
+      </div>
+      <div class="timing-card urgent">
+        <div class="time">14:00 AEST Tue 22 Apr</div>
+        <div class="event">⚡ Ceasefire expiry (midnight ET April 21). Falls <em>during</em> Tuesday ASX session.</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">~TBD Tue–Wed</div>
+        <div class="event">Round 2 Islamabad announcement window. Witkoff + Kushner deployed. Vance TBC.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGER THAT FIRED -->
+  <div class="section">
+    <div class="section-title">Trigger That Fired</div>
+    <div class="insight-box">
+      <div class="insight-title">Vance Diplomatic Meeting with Iran by Apr 30 <span class="badge badge-low">LOW</span></div>
+      <p>Rose from <strong>81% → 91%</strong> overnight (+10pp in 6 hours). Resolution quality is LOW (UMA vote on "consensus of credible reporting"), so treat as directional signal, not hard fact.</p>
+      <p style="margin-top:8px;"><strong>Why 91%?</strong> Two qualifying paths now priced: (1) Round 1 Islamabad talks April 11–12 — Vance was physically present for 21 hours across three rounds (one indirect, two direct). April 10 sibling resolves NO, confirming meeting happened between April 10–30. (2) Round 2 also being organised with Vance in the delegation (White House confirmed).</p>
+      <p style="margin-top:8px;"><strong>Cross-market validates:</strong> Ceasefire extension at 64% (not collapsed), nuclear deal at 47% (stable), WTI $130 unchanged at 18.5%. No escalation contradiction. Reading is credible.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <div class="section-title">Key Moves vs 5pm Sunday Daily</div>
+    <ul class="moves">
+      <li class="positive">
+        <span class="bullet">▲</span>
+        <span><strong>Vance meeting by Apr 30</strong> <span class="badge badge-low">LOW</span>: rose from 81% to 91% (+10pp overnight). Round 1 talks (April 11–12) counting as qualifying; Round 2 Pakistani sources confirming Iranian attendance. Strong diplomatic signal despite IRNA public rejection.</span>
+      </li>
+      <li class="positive">
+        <span class="bullet">▲</span>
+        <span><strong>Ceasefire extended by Apr 21</strong> <span class="badge badge-low">LOW</span>: recovering to 64% in overnight Asian session (+4pp/1h). Up from 64.5% at 5pm daily on balance — market holding above the 50% majority-extension threshold. The Iranian delegation arrival should support further recovery today.</span>
+      </li>
+      <li class="neutral">
+        <span class="bullet">—</span>
+        <span><strong>US-Iran nuclear deal by Apr 30</strong> <span class="badge badge-high">HIGH</span>: flat at 47.2% (unchanged from 5pm daily). No collapse signal. Collapse trigger (↓30%) is now 17pp away — not at risk today.</span>
+      </li>
+      <li class="neutral">
+        <span class="bullet">—</span>
+        <span><strong>WTI $130 in April</strong> <span class="badge badge-high">HIGH</span>: flat at 18.5%. Oil not re-pricing on overnight uncertainty. This is the ground-truth cross-check — if talks were genuinely collapsing, WTI $130 would be rising. It is not.</span>
+      </li>
+      <li class="neutral">
+        <span class="bullet">—</span>
+        <span><strong>Trump ends Iran ops by Apr 30</strong> <span class="badge badge-low">LOW</span>: flat at 40.5%. Market stable — no formal declaration expected until deal reached. Consistent with "talks ongoing but not concluded" scenario.</span>
+      </li>
+      <li class="neutral">
+        <span class="bullet">—</span>
+        <span><strong>Hormuz normalises by Apr 30</strong> <span class="badge badge-med">MED</span>: flat at 31.5%. IRGC vessel seizure (April 20, Indian-flagged ship) cited as leverage ahead of Round 2. Hormuz remains structurally blocked until deal, not just ceasefire.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- IRAN TWO-TRACK -->
+  <div class="section">
+    <div class="section-title">Iran Two-Track Strategy — Intelligence Read</div>
+    <div class="two-track">
+      <p>Iran is running simultaneous public-rejection / back-channel-continuation. This is its standard pre-negotiation posture and has occurred at every stage of this saga.</p>
+      <table>
+        <tr><td>IRNA / Al Jazeera</td><td style="color:#f87171">"No talks for now. Blockade is a ceasefire violation. Islamabad is a trap." (April 20)</td></tr>
+        <tr><td>Pakistani sources</td><td style="color:#34d399">"Iran to attend Round 2 despite Hormuz hostilities." (Middle East Monitor, April 20)</td></tr>
+        <tr><td>Market verdict</td><td style="color:#fbbf24">64% extension, 47% deal, 91% Vance meeting. Siding with Pakistani sources over IRNA.</td></tr>
+        <tr><td>Historical pattern</td><td style="color:#94a3b8">April 19 IRNA rejection of Islamabad → April 20 confirmation delegation IS attending. Same structure, one day later.</td></tr>
+      </table>
+      <p style="margin-top:10px; color:#94a3b8; font-size:12px;">Resolution quality is LOW on the Vance meeting market — UMA token holders decide. But physical attendance + 21-hour negotiation record (Round 1) makes denial of qualification unlikely.</p>
+    </div>
+  </div>
+
+  <!-- AUSTRALIAN MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Macro Implications — Monday ASX Open</div>
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th>Asset / Sector</th>
+          <th>Signal</th>
+          <th>Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Woodside (WDS) / Santos (STO)</td>
+          <td>Nuclear deal flat at 47%, Hormuz still blocked. No fresh upside or downside catalyst overnight. Deal confirmation still needed for structural re-rating.</td>
+          <td class="price-flat">Neutral</td>
+        </tr>
+        <tr>
+          <td>Qantas (QAN) / Transport</td>
+          <td>WTI (proxy Brent) unchanged. No positive fuel catalyst today. Relief contingent on Hormuz normalization, which is still 31.5% by Apr 30.</td>
+          <td class="price-flat">Neutral</td>
+        </tr>
+        <tr>
+          <td>AUD/USD</td>
+          <td>Overnight risk-on mood (Iranian delegation confirmed) mildly supportive. No sudden shift — market awaits formal ceasefire extension announcement.</td>
+          <td class="price-up">Mild bid</td>
+        </tr>
+        <tr>
+          <td>Australian petrol prices</td>
+          <td>WTI (proxy Brent) spot still ~A$86. Sub-$80 confirmed in April (100%). Retail petrol relief already arriving late April. No acceleration without Hormuz deal.</td>
+          <td class="price-flat">Existing relief continuing</td>
+        </tr>
+        <tr>
+          <td>Broader risk</td>
+          <td>No escalation signal from WTI $130 (18.5%, flat) or Iran invasion (32.5%, flat). Overnight is "cautious optimism, not celebration" — wait for formal ceasefire extension announcement Tuesday.</td>
+          <td class="price-up">Cautiously positive</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+    <div class="forward-box">
+      <div class="fwd-item">
+        <div class="fwd-label">⏱ Primary: Ceasefire expiry 14:00 AEST Tuesday April 22</div>
+        This is the session-level risk event. It falls <em>during</em> Tuesday's ASX session (14:00 AEST). If an extension or informal "talks continuation" framework is announced by or before 14:00 AEST Tuesday, expect nuclear deal to surge toward 55–60% and AUD bid. If expiry passes without announcement, deal likely falls toward 35–40% and oil re-bids. The 64% ceasefire extension market is the live probability — watch this intraday Tuesday.
+      </div>
+      <div class="fwd-item">
+        <div class="fwd-label">🔔 Secondary: Round 2 Islamabad joint statement timing</div>
+        Announcement window is Tuesday–Wednesday ET (Wednesday–Thursday AEST). Pakistani facilitators expect "progress signal if talks proceed." If joint statement before ceasefire expiry, extension + deal both reprice simultaneously — 70%+ nuclear deal scenario reactivates.
+      </div>
+      <div class="fwd-item">
+        <div class="fwd-label">📊 Trigger levels to watch</div>
+        Nuclear deal ↑70% trigger: 23pp away (47% now). Nuclear deal ↓30% collapse: 17pp away. Ceasefire extension ↑85%: 21pp away. None are imminent today. The op risk is a ceasefire expiry WITHOUT extension — which would push deal toward 35% and potentially trigger the collapse sentinel.
+      </div>
+      <div class="fwd-item">
+        <div class="fwd-label">⚖️ Powell / US Fed watch</div>
+        Warsh Senate Banking Committee hearing was April 21 10am ET (midnight AEST — happening now). Tillis blockade on confirmation is the Powell May 31 swing factor. If Tillis confirms blockade holds, Powell May 31 falls from 57.5% toward ↓50% trigger. Monitor for hearing outcomes in early trading Monday.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Generated 2026-04-21 00:05 AEST by Polymarket Analyst. Data: Polymarket + Kalshi. Sources: Middle East Monitor (Apr 20), Al Jazeera (Apr 20), NBC News, Wikipedia (Islamabad Talks), Business Upturn. Prices delayed ~15 min. Resolution quality classifications: HIGH = objective/verifiable, MED = criteria-based with interpretation surface, LOW = UMA subjective vote.
+</footer>
+
+</body>
+</html>
