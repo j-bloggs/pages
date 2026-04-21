@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Ceasefire at 24% — Oil $90-96, WTI $120 Triggered | 21 Apr 2026 13:05 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); padding: 28px 32px; border-bottom: 3px solid #ef4444; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .header .meta { font-size: 0.85rem; color: #fca5a5; }
+  .trigger-badge { display: inline-block; background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-left: 8px; vertical-align: middle; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 20px; }
+  .alert-bar { background: #1c0a0a; border: 2px solid #ef4444; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .alert-bar .alert-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #f87171; font-weight: 700; margin-bottom: 6px; }
+  .alert-bar .alert-text { font-size: 1.05rem; color: #fef2f2; font-weight: 600; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6e7681; font-weight: 600; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #21262d; }
+  .market-row { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #161b22; gap: 14px; }
+  .market-row:last-child { border-bottom: none; }
+  .market-quality { font-size: 0.7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .q-high { background: #0d4429; color: #3fb950; }
+  .q-med { background: #1c2a09; color: #7ee787; }
+  .q-low { background: #1f2937; color: #9ca3af; }
+  .market-label { font-weight: 600; color: #e6edf3; font-size: 0.95rem; flex: 1; }
+  .market-label .sublabel { font-size: 0.8rem; color: #8b949e; font-weight: 400; margin-top: 2px; }
+  .market-price { text-align: right; flex-shrink: 0; min-width: 110px; }
+  .market-price .current { font-size: 1.2rem; font-weight: 700; }
+  .market-price .delta { font-size: 0.8rem; margin-top: 2px; }
+  .up { color: #f87171; }
+  .down { color: #3fb950; }
+  .neutral { color: #8b949e; }
+  .fired { color: #fbbf24; }
+  .price-red { color: #ef4444; }
+  .price-amber { color: #f59e0b; }
+  .price-green { color: #10b981; }
+  .price-grey { color: #6b7280; }
+  .summary-box { background: #161b22; border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid #ef4444; }
+  .summary-box p { color: #c9d1d9; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.7; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  .cross-check { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 18px 20px; margin-top: 16px; }
+  .cross-check h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6e7681; font-weight: 600; margin-bottom: 12px; }
+  .cross-check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .check-item { padding: 10px 14px; border-radius: 6px; }
+  .check-ok { background: #0d2a1a; border: 1px solid #1a7f37; }
+  .check-warn { background: #2a1a00; border: 1px solid #7c5000; }
+  .check-item .check-label { font-size: 0.78rem; color: #8b949e; margin-bottom: 3px; }
+  .check-item .check-val { font-size: 0.9rem; font-weight: 600; }
+  .check-ok .check-val { color: #3fb950; }
+  .check-warn .check-val { color: #d29922; }
+  .forward-box { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
+  .forward-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6e7681; font-weight: 600; margin-bottom: 14px; }
+  .catalyst-list { list-style: none; }
+  .catalyst-list li { padding: 10px 0; border-bottom: 1px solid #21262d; font-size: 0.9rem; color: #c9d1d9; display: flex; align-items: flex-start; gap: 10px; }
+  .catalyst-list li:last-child { border-bottom: none; }
+  .catalyst-list li::before { content: "→"; color: #f59e0b; font-weight: 700; flex-shrink: 0; }
+  .pill { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 10px; margin-right: 4px; }
+  .pill-red { background: #7f1d1d; color: #fca5a5; }
+  .pill-amber { background: #451a03; color: #fcd34d; }
+  .pill-green { background: #14532d; color: #86efac; }
+  .trigger-status { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 16px 20px; margin-top: 16px; }
+  .trigger-status h3 { font-size: 0.75rem; text-transform: uppercase; color: #6e7681; margin-bottom: 12px; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #161b22; font-size: 0.85rem; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-label { color: #c9d1d9; }
+  .trigger-stat { font-weight: 600; }
+  .t-fired { color: #fbbf24; }
+  .t-close { color: #f87171; }
+  .t-ok { color: #3fb950; }
+  .footnote { font-size: 0.75rem; color: #6e7681; margin-top: 24px; padding-top: 16px; border-top: 1px solid #21262d; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ceasefire at 24% — Oil $90-96, WTI $120 Triggered <span class="trigger-badge">ALERT</span></h1>
+  <div class="meta">Tuesday 21 April 2026, 13:05 AEST &nbsp;·&nbsp; Ceasefire expires in &lt;1 hour &nbsp;·&nbsp; 8th communication today</div>
+</div>
+
+<div class="container">
+
+  <div class="alert-bar">
+    <div class="alert-title">Trigger Fired</div>
+    <div class="alert-text">WTI $120 in April [MED]: 20.2% (+11.5pp) — crossed the 18% re-escalation threshold. Underlying driver: ceasefire fell from 64% → 24% since the 11:54am report. Oil spot at $90–96/barrel (up from $83–84 this morning).</div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <p>The cautious optimism from the 11:54am report has been erased. In the 70 minutes since, the ceasefire extension market collapsed 40 points — from 64% to 24% — meaning the market now prices a 76% probability the ceasefire expires today without formal extension. The nuclear deal [HIGH] fell a further 8.8 points (from 49% back to 40.2%), and WTI oil spot responded by moving from $83–84 up to $90–96 per barrel.</p>
+    <p>The WTI $120 trigger fire (20.2%) reflects these moves, but shows a thin-book anomaly: the $130 sibling sits at only 3.65% and the $200 market is unmoved at 0.5%. The correct read is that oil re-priced genuinely on ceasefire expiry, but the $120 reading is partially a thin-book exaggeration. The real story is the ceasefire collapse and the 8.8pp nuclear deal retreat.</p>
+    <p>Critically, the nuclear deal [HIGH] at 40.2% remains 10.2 points above the 30% collapse trigger — that floor still holds. Oil markets are NOT pricing military resumption (invasion market flat at 30.5%). This is a deal-failure-risk signal, not a war-resumption signal.</p>
+  </div>
+
+  <!-- Key Moves -->
+  <div class="section">
+    <h2>Key Moves Since 11:54am AEST Report</h2>
+
+    <div class="market-row">
+      <span class="market-quality q-low">LOW</span>
+      <div class="market-label">
+        US-Iran ceasefire extended by Apr 21
+        <div class="sublabel">Resolves 11:59pm ET tonight (13:59 AEST tomorrow). Trump's "Wednesday evening" de facto extension may still apply.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-red">24.0%</div>
+        <div class="delta up">fell from 64.0% (-40pp)</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-high">HIGH</span>
+      <div class="market-label">
+        US-Iran nuclear deal by Apr 30
+        <div class="sublabel">Ground truth. 10.2pp above ↓30% collapse trigger. Fell -8.8pp from 11:54am recovery peak.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-amber">40.2%</div>
+        <div class="delta up">fell from 49.0% (-8.8pp since 11:54am)</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">MED</span>
+      <div class="market-label">
+        WTI $120 in April <span class="pill pill-amber">TRIGGERED</span>
+        <div class="sublabel">Thin-book caveat: WTI $130 sits at 3.65%, WTI $200 at 0.5% — proportionate escalation markers NOT moving. Oil spot genuinely at $90–96.</div>
+      </div>
+      <div class="market-price">
+        <div class="current fired">20.2%</div>
+        <div class="delta up">rose from 8.8% (+11.4pp) — fired at 18%</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-high">HIGH</span>
+      <div class="market-label">
+        WTI $130 in April
+        <div class="sublabel">Cross-check on $120 reading. At 3.65% with $120 at 20.2% — implies $120 is a thin-book outlier. $130 is the better-priced read.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-grey">3.65%</div>
+        <div class="delta neutral">flat</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-high">HIGH</span>
+      <div class="market-label">
+        WTI $200 in April
+        <div class="sublabel">Catastrophe/war scenario indicator. Flat = military resumption not being priced.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-grey">0.5%</div>
+        <div class="delta neutral">flat</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-low">LOW</span>
+      <div class="market-label">
+        US Iran invasion 2027
+        <div class="sublabel">The key war-vs-diplomacy indicator. Flat despite ceasefire collapse = market expects diplomatic continuation even after expiry.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-grey">30.5%</div>
+        <div class="delta neutral">flat</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">MED</span>
+      <div class="market-label">
+        Hormuz traffic normalises by Apr 30
+        <div class="sublabel">Structurally tied to deal completion, not ceasefire extension alone. No movement.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-grey">28.5%</div>
+        <div class="delta neutral">flat</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-high">HIGH</span>
+      <div class="market-label">
+        Jerome Powell out by May 31
+        <div class="sublabel">0.5pp from ↑80% high-conviction trigger. Warsh Senate hearing tonight midnight AEST (April 22 00:00).</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-amber">79.5%</div>
+        <div class="delta neutral">flat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross-Market Validation -->
+  <div class="section">
+    <h2>Cross-Market Validation — Is This a War Signal?</h2>
+    <div class="cross-check">
+      <h3>Ground Truth Check</h3>
+      <div class="cross-check-grid">
+        <div class="check-item check-ok">
+          <div class="check-label">WTI $200 (catastrophe)</div>
+          <div class="check-val">0.5% — unchanged ✓</div>
+        </div>
+        <div class="check-item check-ok">
+          <div class="check-label">Iran invasion 2027</div>
+          <div class="check-val">30.5% — flat ✓</div>
+        </div>
+        <div class="check-item check-ok">
+          <div class="check-label">Nuclear deal [HIGH]</div>
+          <div class="check-val">40.2% — deal alive ✓</div>
+        </div>
+        <div class="check-item check-warn">
+          <div class="check-label">WTI $120 vs $130 gap</div>
+          <div class="check-val">20.2% vs 3.65% — inconsistent ⚠</div>
+        </div>
+      </div>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #8b949e;">Verdict: ceasefire expiry is real and oil is genuinely higher, but this is a <strong style="color: #c9d1d9;">deal-failure-risk signal</strong>, not a war-resumption signal. The $130/$200 markets confirm oil's upside is capped. WTI $120 at 20% has a thin-book component; the $130 reading at 3.65% is more reliable for tail-risk pricing.</p>
+    </div>
+  </div>
+
+  <!-- Australian Macro Impact -->
+  <div class="section">
+    <h2>Australian Macro Impact</h2>
+
+    <div class="market-row">
+      <span class="market-quality q-med">FX</span>
+      <div class="market-label">
+        Australian petrol prices
+        <div class="sublabel">WTI (proxy for Brent) at $90–96/barrel. Brent typically $3–5 premium. A$2.00–2.10/L trajectory near-term; $2.30+ scenario if WTI reaches $110+.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-amber">↑ Risk</div>
+        <div class="delta up">WTI +$7-14/barrel</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">ASX</span>
+      <div class="market-label">
+        WDS / STO (energy stocks)
+        <div class="sublabel">Oil at $90–96 is bullish for E&amp;P. Ceasefire expiry = supply uncertainty sustained. WDS/STO outperform in re-escalation scenario.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-green">Bullish</div>
+        <div class="delta down">Oil re-bid supports</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">ASX</span>
+      <div class="market-label">
+        NST / EVN / NCM (gold miners)
+        <div class="sublabel">Powell at 79.5% (0.5pp from ↑80%) supports USD weakness. Gold at ~$5,100/oz. Institutional uncertainty premium intact.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-green">Bullish</div>
+        <div class="delta down">USD weak, gold strong</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">ASX</span>
+      <div class="market-label">
+        QAN / AIR (airlines)
+        <div class="sublabel">WTI at $90–96 vs the ~$84 this morning is a headwind for jet fuel costs. QAN had been benefiting from prior oil decline; that relief partially reverses.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-red">Headwind</div>
+        <div class="delta up">Fuel cost pressure</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-quality q-med">RBA</span>
+      <div class="market-label">
+        RBA May 5 rate cut
+        <div class="sublabel">Oil at $90–96 adds upside inflation pressure. WTI $120 at 20% is meaningful tail risk. May 5 25bp cut base case intact but June cut probability falls if oil sustains above $95.</div>
+      </div>
+      <div class="market-price">
+        <div class="current price-amber">Watch</div>
+        <div class="delta neutral">May cut intact; June less certain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trigger Status -->
+  <div class="section">
+    <h2>Active Trigger Status</h2>
+    <div class="trigger-status">
+      <h3>Where Each Trigger Stands</h3>
+      <div class="trigger-row">
+        <span class="trigger-label">WTI $120 in April [MED] — RAISED to 30%</span>
+        <span class="trigger-stat t-fired">JUST FIRED at 20.2% — threshold now 30%</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">Nuclear deal ↓30% collapse [HIGH]</span>
+        <span class="trigger-stat t-close">10.2pp away (40.2% vs 30%) — WATCHING</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">Ceasefire extension ↓20% floor [LOW]</span>
+        <span class="trigger-stat t-close">4.0pp away (24% vs 20%) — IMMINENT</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">Powell ↑80% high-conviction [HIGH]</span>
+        <span class="trigger-stat t-close">0.5pp away (79.5% vs 80%) — WARSH HEARING TONIGHT</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">Nuclear deal ↓20% dead for Q2 [HIGH]</span>
+        <span class="trigger-stat t-ok">20.2pp away (40.2% vs 20%) — comfortable</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">Iran invasion 2027 ↑40% escalation [LOW]</span>
+        <span class="trigger-stat t-ok">9.5pp away (30.5% vs 40%) — flat/stable</span>
+      </div>
+      <div class="trigger-row">
+        <span class="trigger-label">WTI $200 panic indicator [HIGH]</span>
+        <span class="trigger-stat t-ok">3.5pp away (0.5% vs 4%) — flat ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forward View -->
+  <div class="section">
+    <h2>What to Watch</h2>
+    <div class="forward-box">
+      <h3>Next Catalysts — Priority Order</h3>
+      <ul class="catalyst-list">
+        <li><strong>Ceasefire market resolves TODAY:</strong> The April 21 ceasefire market resolves at 11:59pm ET (13:59 AEST Wednesday). At 24%, 76% pricing expiry. Watch whether Trump's "Wednesday evening" de facto extension holds in the market or gets formally rejected. If ceasefire resolves NO and nuclear deal drops below 35%, the ↓30% collapse trigger enters danger zone. If ceasefire resolves YES (surprising 24% outcome), nuclear deal reprices toward 45–50%.</li>
+        <li><strong>Ceasefire ↓20% trigger (4pp away):</strong> If ceasefire falls from 24% to 20%, the floor trigger fires — signalling near-certainty of expiry AND abandoned deal framework. Email will go immediately. Only 4pp of buffer. This is the most imminent trigger right now.</li>
+        <li><strong>Nuclear deal 10.2pp from collapse:</strong> At 40.2%, the deal needs to fall another 10.2pp to cross the ↓30% trigger. At -8.8pp in 70 minutes this morning, that pace can close the gap within 2 hours if Islamabad Round 2 shows no progress. Watch the Islamabad announcement window (Wednesday ET = Thursday AEST).</li>
+        <li><strong>Warsh Senate hearing midnight AEST (April 22 00:00):</strong> Powell at 79.5%, 0.5pp from ↑80% trigger. Tillis blockade expected to hold. Two outcomes: (a) Tillis confirms blockade → Powell may drift DOWN (watch ↓50% reversal trigger); (b) Tillis softens → Powell fires ↑80%.</li>
+        <li><strong>Oil ground truth:</strong> WTI at $90–96 is elevated but not catastrophic. Watch whether WTI stays below $100 (deal-failure scenario) or breaks above $100 (military resumption scenario). If WTI $130 (currently 3.65%) rises above 10%, that is the genuine re-escalation signal. The $120 reading at 20% alone is insufficient — need $130 to confirm.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Generated 21 April 2026, 13:05 AEST &nbsp;·&nbsp; WTI is used as a proxy for Brent crude in Australian fuel price calculations (Brent-WTI spread typically $3–5/bbl) &nbsp;·&nbsp; Market prices from Polymarket and Kalshi &nbsp;·&nbsp; [HIGH]/[MED]/[LOW] = resolution quality
+  </div>
+
+</div>
+</body>
+</html>
