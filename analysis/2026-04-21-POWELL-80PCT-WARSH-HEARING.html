@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Powell ↑80% Trigger Fired — Warsh Hearing Tonight</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
+
+  .alert-banner { background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .alert-banner .label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c4b5fd; margin-bottom: 6px; }
+  .alert-banner h1 { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .alert-banner .meta { font-size: 13px; color: #a5b4fc; }
+
+  .timestamp { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+
+  .summary-box { background: #1e2130; border: 1px solid #2d3348; border-radius: 10px; padding: 18px 20px; margin-bottom: 20px; }
+  .summary-box p { font-size: 15px; color: #cbd5e1; line-height: 1.7; }
+  .summary-box p + p { margin-top: 10px; }
+
+  .trigger-card { background: #1e2130; border-radius: 10px; padding: 18px 20px; margin-bottom: 16px; border-left: 4px solid #7c3aed; }
+  .trigger-card.high { border-left-color: #7c3aed; }
+  .trigger-card.medium { border-left-color: #f59e0b; }
+  .trigger-card.positive { border-left-color: #10b981; }
+  .trigger-card.neutral { border-left-color: #475569; }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 12px; }
+  .card-title { font-size: 14px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card-price { font-size: 22px; font-weight: 700; color: #f1f5f9; white-space: nowrap; }
+  .card-delta { font-size: 13px; font-weight: 600; margin-left: 8px; }
+  .up { color: #10b981; }
+  .down { color: #f87171; }
+  .flat { color: #94a3b8; }
+  .card-body { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+  .card-body strong { color: #e2e8f0; }
+
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+  .q-high { background: #1e3a5f; color: #60a5fa; }
+  .q-med { background: #3b2f0f; color: #fbbf24; }
+  .q-low { background: #2d1f1f; color: #f87171; }
+
+  .sibling-table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font-size: 13px; }
+  .sibling-table th { text-align: left; color: #64748b; font-weight: 600; padding: 4px 8px 4px 0; border-bottom: 1px solid #2d3348; }
+  .sibling-table td { padding: 6px 8px 6px 0; color: #cbd5e1; border-bottom: 1px solid #1a2030; }
+  .sibling-table .highlight-row td { color: #f1f5f9; font-weight: 600; background: #252b3b; }
+  .sibling-table td:last-child { text-align: right; color: #94a3b8; }
+
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #475569; margin: 24px 0 12px; }
+
+  .scenario-block { background: #1e2130; border: 1px solid #2d3348; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .scenario-block .scenario-head { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .scenario-block.bull .scenario-head { color: #34d399; }
+  .scenario-block.bear .scenario-head { color: #f87171; }
+  .scenario-block p { font-size: 13px; color: #94a3b8; line-height: 1.55; }
+
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .macro-item { background: #1e2130; border: 1px solid #2d3348; border-radius: 8px; padding: 12px 14px; }
+  .macro-item .asset { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .macro-item .direction { font-size: 14px; font-weight: 600; }
+  .macro-item .reason { font-size: 12px; color: #64748b; margin-top: 3px; line-height: 1.4; }
+  .bullish { color: #34d399; }
+  .bearish { color: #f87171; }
+  .neutral-txt { color: #94a3b8; }
+
+  .context-strip { background: #151923; border: 1px solid #1e2740; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; color: #64748b; line-height: 1.6; }
+  .context-strip strong { color: #94a3b8; }
+
+  .watch-box { background: #1a1f2e; border: 1px solid #2d3348; border-radius: 10px; padding: 16px 18px; }
+  .watch-box ul { list-style: none; padding: 0; }
+  .watch-box li { padding: 6px 0; font-size: 14px; color: #94a3b8; border-bottom: 1px solid #1e2740; line-height: 1.5; }
+  .watch-box li:last-child { border-bottom: none; }
+  .watch-box li strong { color: #e2e8f0; }
+  .watch-box .time-tag { display: inline-block; font-size: 11px; font-weight: 600; background: #1e2740; color: #60a5fa; padding: 1px 6px; border-radius: 3px; margin-right: 6px; }
+
+  .footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid #1e2740; font-size: 12px; color: #374151; }
+  @media (max-width: 480px) { .macro-grid { grid-template-columns: 1fr; } .card-header { flex-direction: column; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="alert-banner">
+    <div class="label">⚡ Trigger Alert · 21 April 2026 · 13:45 AEST</div>
+    <h1>Powell ↑80% Fired — Warsh Hearing Tonight</h1>
+    <div class="meta">US Fed Chair removal priced at high-conviction threshold &nbsp;·&nbsp; Hearing midnight AEST</div>
+  </div>
+
+  <div class="summary-box">
+    <p>The <strong>Powell out by May 31 [HIGH]</strong> market crossed the 80% high-conviction threshold, rising from 79.5% to <strong>80.5%</strong> on pre-hearing positioning ahead of tonight's Warsh Senate Banking Committee confirmation hearing (10am ET = midnight AEST Wednesday). This is the trigger you've been watching all day.</p>
+    <p>The sibling structure tells the real story: <strong>May 14 sits at only 2.85%</strong> — the market says Powell is almost certain to still be chair on May 15 (when his term expires). Yet <strong>May 31 is at 80.5%</strong>. That gap means the market is pricing the removal in a very specific 16-day window: <strong>May 15–31</strong>. Trump's ultimatum, the DOJ probe, and Warsh's confirmation timeline all converge in that window.</p>
+    <p>Tonight's hearing is not about confirming Warsh tonight — it's about whether Tillis drops his blockade. That's the swing variable.</p>
+  </div>
+
+  <div class="section-title">Primary Signal</div>
+
+  <div class="trigger-card high">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Jerome Powell out as Fed Chair by May 31</div>
+        <div>
+          <span class="quality-badge q-high">HIGH</span>
+          <span style="font-size:12px; color:#64748b; margin-left:6px;">Resolves on official announcement — not UMA-subjective</span>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <span class="card-price">80.5%</span>
+        <span class="card-delta up">+1.0pp</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Sibling structure across the Powell removal event:</p>
+      <table class="sibling-table">
+        <thead>
+          <tr><th>Deadline</th><th>YES%</th><th>Interpretation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>By March 31</td><td>0.0%</td><td>Already resolved NO — still chair</td></tr>
+          <tr><td>By May 14</td><td>2.85%</td><td>Near-zero — term expires naturally May 15</td></tr>
+          <tr class="highlight-row"><td><strong>By May 31 ← TRIGGER</strong></td><td><strong>80.5%</strong></td><td><strong>High conviction removal in this window</strong></td></tr>
+          <tr><td>By June 30</td><td>90.5%</td><td>Near-certainty — but mostly May 31 already</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;"><strong>What the market is saying:</strong> Powell's chair term expires May 15 — after that, Trump either fires him "for cause" (DOJ probe as justification) or Powell resigns rather than serve as governor without the chair. The May 14 → May 31 gap (2.85% → 80.5% = +77.65pp of probability mass) is entirely concentrated in the 16 days after term expiry. Market expects this to happen in that window, not before.</p>
+      <p style="margin-top:8px;"><strong>Why 80.5% specifically?</strong> Pre-hearing positioning. Warsh hearing is in ~10 hours (midnight AEST). Participants are pricing in a positive hearing outcome before it happens. Whether the price holds or reverses depends entirely on Tillis.</p>
+    </div>
+  </div>
+
+  <div class="section-title">Tonight's Hearing — Two Scenarios</div>
+
+  <div class="scenario-block bull">
+    <div class="scenario-head">🟢 Scenario A: Tillis softens or drops blockade</div>
+    <p>Tillis has demanded the DOJ drop its investigation into Powell before he votes for Warsh. If he shows any flexibility at tonight's hearing — even suggesting a timeline for dropping the blockade — Warsh's confirmation path opens. Market likely surges toward 85–90%. June 30 sibling (90.5%) sets the near-term ceiling. Macro: USD selloff accelerates, gold strongly bullish, Treasuries stable (clean handover = rate policy continuity under Warsh who is market-friendly).</p>
+  </div>
+
+  <div class="scenario-block bear">
+    <div class="scenario-head">🔴 Scenario B: Tillis confirms blockade holds</div>
+    <p>If Tillis reaffirms he will block Warsh until the DOJ probe concludes, the confirmation path is genuinely blocked. Powell has pledged to serve pro-tempore as governor (not chair) to prevent a "headless Fed." The May 31 market may <strong>fall</strong> on this outcome — the ↓50% reversal sentinel is 30.5pp below current price. Macro: "Headless Fed" uncertainty premium enters USTs and USD; gold still bullish (institutional uncertainty), but for different reasons. First Fed chair vacancy in 112 years would be the headline.</p>
+  </div>
+
+  <div class="section-title">Australian Market Implications</div>
+
+  <div class="macro-grid">
+    <div class="macro-item">
+      <div class="asset">AUD Gold (NST / EVN / NCM)</div>
+      <div class="direction bullish">Structurally bullish ↑</div>
+      <div class="reason">USD weakness + institutional uncertainty premium = gold bid. Physical gold ~A$5,100+/oz. Both scenarios (Tillis softens or holds) support gold in different ways.</div>
+    </div>
+    <div class="macro-item">
+      <div class="asset">AUD/USD</div>
+      <div class="direction bullish">Supported ↑</div>
+      <div class="reason">USD bearish on Fed chair uncertainty. Scenario A (smooth Warsh): USD stabilises. Scenario B (headless Fed): USD sells off harder. AUD supported either way.</div>
+    </div>
+    <div class="macro-item">
+      <div class="asset">US Treasuries</div>
+      <div class="direction neutral-txt">Scenario-dependent →</div>
+      <div class="reason">Scenario A: stable — Warsh is seen as market-credible; curve flattens on rate-cut bets. Scenario B: curve steepens — headless Fed = rate policy uncertainty = foreign CBs reduce long-duration holdings.</div>
+    </div>
+    <div class="macro-item">
+      <div class="asset">RBA / Rate Path</div>
+      <div class="direction neutral-txt">May 5 cut intact →</div>
+      <div class="reason">RBA's May 5 25bp cut is driven by domestic disinflation + WTI relief ($84/bbl). Not affected by Powell succession. Warsh is expected to eventually cut US rates → gives RBA cover.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Iran / Oil Context (Unchanged)</div>
+
+  <div class="context-strip">
+    <strong>Nuclear deal [HIGH]:</strong> recovering to ~49% (up from 40.2% in last report — Trump's "Wednesday evening ET" de facto extension held). Collapse trigger (↓30%) is now ~19pp away — not imminent. &nbsp;|&nbsp;
+    <strong>Ceasefire market:</strong> ~26% YES, majority pricing expiry — but market resolves tomorrow 13:59 AEST (not today). &nbsp;|&nbsp;
+    <strong>WTI $120 in April:</strong> fell from 20.2% (13:05 trigger fire) back to 14% as predicted — partially thin-book confirmed. &nbsp;|&nbsp;
+    <strong>Vance meeting by Apr 30 [MED]:</strong> 92%, stable. Round 2 Islamabad back-channel intact.
+  </div>
+
+  <div class="section-title">What to Watch</div>
+
+  <div class="watch-box">
+    <ul>
+      <li>
+        <span class="time-tag">Tonight 00:00 AEST</span>
+        <strong>Warsh Senate Banking Committee hearing (10am ET).</strong> Primary signal: Tillis's posture on DOJ probe blockade. If he holds → Powell May 31 may retrace; if he softens → ↑85–90% territory. This is the macro event of the next 12 hours.
+      </li>
+      <li>
+        <span class="time-tag">Tomorrow 13:59 AEST</span>
+        <strong>Ceasefire market resolves.</strong> At 26% YES, majority expect NO (expired). Nuclear deal at ~49% is the ground truth — if it holds above 45% post-resolution, bifurcation (expiry ≠ deal dead) is confirmed for ASX Wednesday open.
+      </li>
+      <li>
+        <span class="time-tag">Thu–Fri AEST</span>
+        <strong>Islamabad Round 2 window.</strong> Iranian delegation arrival (Tuesday ET) + "Wednesday evening ET" Trump deadline = announcement window. Joint statement → nuclear deal to 60%+. No statement → deal drifts back toward 40% and ↓30% collapse trigger re-engages.
+      </li>
+      <li>
+        <span class="time-tag">Apr 24</span>
+        <strong>SCOTUS Trump v. Cook decision (possible).</strong> Against-Trump ruling (expected by all 9 justices being sceptical) = Fed independence preserved = Powell May 31 may <em>fall</em> on institutional relief. For-Trump ruling = emergency signal. Gold ground truth will move first.
+      </li>
+      <li>
+        <span class="time-tag">↑90% trigger</span>
+        <strong>New Powell near-certainty sentinel added</strong> at 90% threshold (currently 9.5pp away). Fires if confirmation path clears after tonight's hearing.
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst · 21 April 2026 · 13:45 AEST &nbsp;|&nbsp;
+    Data: Polymarket + Kalshi &nbsp;|&nbsp;
+    Quality: [HIGH]=official sources; [MED]=objective criteria; [LOW]=UMA subjective vote
+  </div>
+
+</div>
+</body>
+</html>
