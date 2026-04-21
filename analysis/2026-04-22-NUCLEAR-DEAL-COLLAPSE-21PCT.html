@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal Collapses to 21.8% — Round 2 Dead — 22 Apr 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a0a0a 0%, #2d1010 50%, #1a0a0a 100%); border-bottom: 3px solid #dc2626; padding: 32px 24px; }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .alert-badge { display: inline-block; background: #dc2626; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 3px; margin-bottom: 14px; text-transform: uppercase; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f8fafc; line-height: 1.25; margin-bottom: 8px; }
+  .header .subtitle { font-size: 15px; color: #94a3b8; }
+  .timestamp { font-size: 13px; color: #64748b; margin-top: 10px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+
+  /* Summary box */
+  .summary-box { background: #1e1b2e; border: 1px solid #7c3aed; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px; }
+  .summary-box p { color: #c4b5fd; font-size: 15px; line-height: 1.7; }
+  .summary-box p + p { margin-top: 12px; }
+
+  /* Market strip */
+  .market-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .market-card { background: #1e293b; border-radius: 8px; padding: 14px 16px; border: 1px solid #334155; }
+  .market-card.red-card { border-color: #dc2626; background: #1a0c0c; }
+  .market-card.green-card { border-color: #16a34a; background: #0c1a0e; }
+  .market-card.amber-card { border-color: #d97706; background: #1a140c; }
+  .market-card.flat-card { border-color: #334155; background: #1e293b; }
+  .card-label { font-size: 11px; color: #64748b; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .card-quality { font-size: 10px; margin-left: 4px; color: #94a3b8; }
+  .card-price { font-size: 26px; font-weight: 800; }
+  .card-price.red { color: #f87171; }
+  .card-price.green { color: #4ade80; }
+  .card-price.amber { color: #fbbf24; }
+  .card-price.neutral { color: #94a3b8; }
+  .card-delta { font-size: 13px; margin-top: 4px; }
+  .card-delta.down { color: #f87171; }
+  .card-delta.up { color: #4ade80; }
+  .card-delta.flat { color: #64748b; }
+
+  /* Sections */
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #1e293b; padding-bottom: 10px; margin-bottom: 18px; }
+
+  /* Analysis blocks */
+  .analysis-block { background: #1e293b; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; border: 1px solid #334155; }
+  .analysis-block h3 { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 10px; }
+  .analysis-block p, .analysis-block li { font-size: 14px; color: #94a3b8; line-height: 1.7; }
+  .analysis-block ul { list-style: none; padding: 0; }
+  .analysis-block ul li { padding: 4px 0; padding-left: 18px; position: relative; }
+  .analysis-block ul li::before { content: "→"; position: absolute; left: 0; color: #475569; }
+  .highlight { color: #f1f5f9; font-weight: 600; }
+  .highlight-red { color: #f87171; font-weight: 600; }
+  .highlight-green { color: #4ade80; font-weight: 600; }
+  .highlight-amber { color: #fbbf24; font-weight: 600; }
+
+  /* Trigger fired box */
+  .trigger-fired { background: #1a0a0a; border: 2px solid #dc2626; border-radius: 8px; padding: 18px 20px; margin-bottom: 28px; }
+  .trigger-fired .tf-label { font-size: 11px; color: #dc2626; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .trigger-fired p { font-size: 14px; color: #fca5a5; line-height: 1.65; }
+
+  /* Cross-market table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0f172a; color: #64748b; font-weight: 600; letter-spacing: 0.5px; font-size: 12px; text-transform: uppercase; }
+  td { padding: 10px 12px; border-top: 1px solid #1e293b; color: #94a3b8; }
+  td:first-child { color: #f1f5f9; font-weight: 500; }
+  tr:hover td { background: #1e293b; }
+  .td-red { color: #f87171 !important; font-weight: 600; }
+  .td-green { color: #4ade80 !important; font-weight: 600; }
+  .td-amber { color: #fbbf24 !important; font-weight: 600; }
+  .td-flat { color: #64748b !important; }
+
+  /* Forward looking */
+  .forward-box { background: #0c1a0e; border: 1px solid #166534; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; }
+  .forward-box h3 { font-size: 14px; font-weight: 700; color: #4ade80; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .forward-item { margin-bottom: 14px; }
+  .forward-item .fi-head { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 5px; }
+  .forward-item p { font-size: 13px; color: #86efac; line-height: 1.65; }
+
+  /* ASX box */
+  .asx-box { background: #0c1428; border: 1px solid #1d4ed8; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; }
+  .asx-box h3 { font-size: 14px; font-weight: 700; color: #60a5fa; margin-bottom: 12px; }
+  .asx-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-top: 1px solid #1e2d4a; }
+  .asx-row:first-of-type { border-top: none; }
+  .asx-name { font-size: 13px; color: #94a3b8; }
+  .asx-signal { font-size: 13px; font-weight: 600; }
+  .asx-signal.negative { color: #f87171; }
+  .asx-signal.positive { color: #4ade80; }
+  .asx-signal.neutral { color: #64748b; }
+  .asx-signal.watchlist { color: #fbbf24; }
+
+  /* Footer */
+  .footer { background: #0a0e1a; border-top: 1px solid #1e293b; padding: 20px 24px; text-align: center; font-size: 12px; color: #334155; margin-top: 48px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="alert-badge">⚡ Trigger Alert — 22 Apr 2026 00:55 AEST</div>
+    <h1>Nuclear Deal Collapses to 21.8%<br>Islamabad Round 2 is a No-Show</h1>
+    <div class="subtitle">Iran confirms no delegation; Trump issues final "lots of bombs" ultimatum — April 30 deal is 78% priced dead</div>
+    <div class="timestamp">Collected 00:45 AEST · ASX Wednesday opens 10:00 AEST (normal session) · Ceasefire deadline: Wednesday evening ET</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="trigger-fired">
+    <div class="tf-label">🔴 Collapse Trigger Fired</div>
+    <p>The <strong>↓30% nuclear deal collapse trigger</strong> has fired. The US-Iran nuclear deal [HIGH] has fallen from <strong>44.5%</strong> at yesterday's 5pm daily to <strong>21.8%</strong> overnight — a 22.7pp decline. The secondary trigger (↓20% "deal dead for Q2") is now just <strong>1.8pp away</strong> at 20%.</p>
+  </div>
+
+  <!-- Market strip -->
+  <div class="market-strip">
+    <div class="market-card red-card">
+      <div class="card-label">Nuclear Deal Apr 30 <span class="card-quality">[HIGH]</span></div>
+      <div class="card-price red">21.8%</div>
+      <div class="card-delta down">▼ from 44.5% (5pm daily)</div>
+    </div>
+    <div class="market-card red-card">
+      <div class="card-label">Trump Ops-End Apr 30 <span class="card-quality">[LOW]</span></div>
+      <div class="card-price red">28.0%</div>
+      <div class="card-delta down">▼ −11pp / 6h</div>
+    </div>
+    <div class="market-card red-card">
+      <div class="card-label">Hormuz Normalises &gt;70% <span class="card-quality">[MED]</span></div>
+      <div class="card-price red">19.5%</div>
+      <div class="card-delta down">▼ −11pp / 6h</div>
+    </div>
+    <div class="market-card flat-card">
+      <div class="card-label">WTI $120 April <span class="card-quality">[HIGH]</span></div>
+      <div class="card-price neutral">10.2%</div>
+      <div class="card-delta flat">▶ +0.4pp (flat)</div>
+    </div>
+    <div class="market-card flat-card">
+      <div class="card-label">WTI $200 April <span class="card-quality">[HIGH]</span></div>
+      <div class="card-price neutral">0.7%</div>
+      <div class="card-delta flat">▶ flat</div>
+    </div>
+    <div class="market-card amber-card">
+      <div class="card-label">Powell Out May 31 <span class="card-quality">[HIGH]</span></div>
+      <div class="card-price amber">80.5%</div>
+      <div class="card-delta flat">▶ flat (above ↑80% trigger)</div>
+    </div>
+  </div>
+
+  <!-- What happened -->
+  <div class="section">
+    <div class="section-title">What Happened</div>
+
+    <div class="analysis-block">
+      <h3>The 15-Minute Crash: 40.2% → 21.8%</h3>
+      <p>The nuclear deal [HIGH] has been declining since yesterday's 5pm daily high of 44.5%, but what happened between <span class="highlight">00:30 and 00:45 AEST</span> (10:30–10:45pm ET April 21) was a sudden snap — not drift. The market fell from 40.2% to 21.8% in a single 15-minute collection window, an 18.4pp move on the HIGH-quality deal market with $2M+ in trading volume.</p>
+      <p style="margin-top:10px;">The catalyst: <span class="highlight-red">Iran's Foreign Ministry confirmed no delegation is departing for Islamabad</span>. Round 2 is not delayed — it is a no-show. Combined with Iranian Parliament Speaker Qalibaf's "new cards on the battlefield" threat and Trump's "lots of bombs start going off" ultimatum, the market has repriced the April 30 framework as structurally out of reach.</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>What the Market Is Pricing</h3>
+      <p>At 21.8% YES, the market assigns <span class="highlight-red">78.2% probability to NO DEAL by April 30</span>. This is not a "delay" signal — it is a structural failure signal. The nuclear deal market resolves on a "publicly announced mutual agreement" — a hard objective criterion. With no Iranian delegation in Islamabad and the ceasefire expiring Wednesday evening ET, there is no mechanism for a deal before April 30 to materialise unless Iran reverses course within 24–48 hours.</p>
+    </div>
+  </div>
+
+  <!-- Critical cross-market check -->
+  <div class="section">
+    <div class="section-title">Critical Cross-Market Check — Deal Failure vs War Resumption</div>
+
+    <div class="analysis-block">
+      <h3>⚠ Oil Is the Ground Truth — And It Is Silent</h3>
+      <p>This is the most important signal in this report. If the nuclear deal collapse were pricing imminent military re-escalation, oil markets would be screaming. Instead:</p>
+      <ul style="margin-top:10px;">
+        <li><span class="highlight">WTI $120 April [HIGH]: 10.2%</span> — rose only +0.4pp despite the deal crashing 22pp. At the April 21 ceasefire-expiry scare, this market hit 20.2%. It is half that level now, with no ceasefire as a buffer.</li>
+        <li><span class="highlight">WTI $200 April [HIGH]: 0.7%</span> — flat. Black swan oil scenario not repriced at all.</li>
+        <li><span class="highlight">Iran invasion 2027 [LOW]: 33.5%</span> — only +1pp above yesterday's reading. Market is not pricing military resumption.</li>
+      </ul>
+      <p style="margin-top:12px;"><span class="highlight-amber">Interpretation: This is a diplomatic failure scenario, not a war-resumption scenario.</span> The market distinguishes sharply between "deal is dead for April 30" and "bombs will fall this week." Oil validates that distinction. WDS/STO investors should note oil stability; QAN investors have no new tail risk from this move.</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>Full Cross-Market Snapshot vs 5pm Daily</h3>
+      <table>
+        <tr>
+          <th>Market</th>
+          <th>5pm Daily (Apr 21)</th>
+          <th>Now (00:45 AEST)</th>
+          <th>Change</th>
+          <th>Signal</th>
+        </tr>
+        <tr>
+          <td>Nuclear deal Apr 30 [HIGH]</td>
+          <td>44.5%</td>
+          <td class="td-red">21.8%</td>
+          <td class="td-red">−22.7pp</td>
+          <td>Deal structurally dead</td>
+        </tr>
+        <tr>
+          <td>Trump ops-end Apr 30 [LOW]</td>
+          <td>~35%</td>
+          <td class="td-red">28.0%</td>
+          <td class="td-red">−7pp</td>
+          <td>No formal ops-end before deadline</td>
+        </tr>
+        <tr>
+          <td>Hormuz normalises &gt;70% [MED]</td>
+          <td>~28%</td>
+          <td class="td-red">19.5%</td>
+          <td class="td-red">−8.5pp</td>
+          <td>Blockade persists through April 30</td>
+        </tr>
+        <tr>
+          <td>Hormuz approaches zero (&lt;10%) [MED]</td>
+          <td>~21%</td>
+          <td class="td-red">19.5%</td>
+          <td class="td-red">−1.5pp</td>
+          <td>Close to firing ↓10% floor trigger</td>
+        </tr>
+        <tr>
+          <td>WTI $120 April [HIGH]</td>
+          <td>~9%</td>
+          <td class="td-flat">10.2%</td>
+          <td class="td-flat">+1.2pp (flat)</td>
+          <td>🛑 OIL NOT MOVING</td>
+        </tr>
+        <tr>
+          <td>WTI $200 April [HIGH]</td>
+          <td>0.5%</td>
+          <td class="td-flat">0.7%</td>
+          <td class="td-flat">flat</td>
+          <td>🛑 OIL NOT MOVING</td>
+        </tr>
+        <tr>
+          <td>Iran invasion 2027 [LOW]</td>
+          <td>~32%</td>
+          <td class="td-flat">33.5%</td>
+          <td class="td-flat">+1.5pp</td>
+          <td>Barely changed</td>
+        </tr>
+        <tr>
+          <td>US-Iran permanent peace deal ↑50% [MED]</td>
+          <td>~32%</td>
+          <td class="td-red">29.0%</td>
+          <td class="td-red">−3pp</td>
+          <td>Q2 peace deal window shrinking</td>
+        </tr>
+        <tr>
+          <td>Powell out by May 31 [HIGH]</td>
+          <td>80.5%</td>
+          <td class="td-amber">80.5%</td>
+          <td class="td-flat">flat</td>
+          <td>Post-↑80% trigger; Warsh hearing live</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Macro narrative -->
+  <div class="section">
+    <div class="section-title">Macro Narrative — "Permanent Conflict Economy"</div>
+
+    <div class="analysis-block">
+      <h3>Deal Failure Resets the Iran Macro Framework for Q2</h3>
+      <p>Until yesterday, the base case was: ceasefire holds → Round 2 produces framework → nuclear deal by April 30 → Hormuz normalises → oil relief. That pathway is now priced as 78% dead. The new base case is:</p>
+      <ul style="margin-top:10px;">
+        <li><span class="highlight">Ceasefire expires Wednesday evening ET</span> with no formal extension. Back-channel talks may continue but with no binding framework.</li>
+        <li><span class="highlight">Hormuz remains dual-blocked</span> (US Navy interdiction + IRGC closure) through at least May. Normalization by April 30 is now only 19.5% — structurally impossible without a deal clause.</li>
+        <li><span class="highlight">Oil anchored at $83–87/bbl WTI</span> (proxy Brent ~$87–91). Market not pricing a re-escalation breakout. The WTI $120 floor at 10.2% confirms this — elevated but not screaming war.</li>
+        <li><span class="highlight">Australian petrol</span>: no further relief from Iran deal pathway. A$1.90–2.05/L trajectory holds (WTI $85 + Brent-WTI spread ~$4 + FX). No A$1.75 "peace dividend" scenario for Q2.</li>
+      </ul>
+      <p style="margin-top:12px;">The permanent conflict economy scenario means: (1) WDS/STO structurally supported by elevated oil; (2) QAN/logistics neutral (no oil spike, no oil relief); (3) gold miners (NST/EVN/NCM) bullish on two independent supports: Iran uncertainty premium AND Powell/USD institutional uncertainty (80.5%).</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>What This Is NOT</h3>
+      <p>This is not a "bombs are imminent" scenario. Iran has a long history of walking away from talks and returning. The deal is priced dead for April 30, but the broader Iran-US confrontation does not automatically escalate to military operations after ceasefire expiry. The oil market — which has $trillions of informed capital behind it — is explicitly NOT pricing military resumption. <span class="highlight-amber">If WTI $120 stays below 15%, there is no war scenario priced by the broader market, regardless of what the geopolitical binary markets say.</span> The WTI $120 reading of 10.2% is your trip wire. Watch it.</p>
+    </div>
+  </div>
+
+  <!-- ASX implications -->
+  <div class="section">
+    <div class="section-title">ASX Wednesday 22 April — Opens 10:00 AEST (Normal Session)</div>
+
+    <div class="asx-box">
+      <h3>Sector-by-Sector Signal</h3>
+      <div class="asx-row">
+        <span class="asx-name">WDS / STO (Energy)</span>
+        <span class="asx-signal watchlist">Neutral-Negative headwind; oil floor intact</span>
+      </div>
+      <div class="asx-row">
+        <span class="asx-name">NST / EVN / NCM (Gold)</span>
+        <span class="asx-signal positive">Positive — dual support: Iran uncertainty + Powell 80.5%</span>
+      </div>
+      <div class="asx-row">
+        <span class="asx-name">QAN / AIR (Airlines)</span>
+        <span class="asx-signal neutral">Neutral — oil flat, no new escalation tail risk</span>
+      </div>
+      <div class="asx-row">
+        <span class="asx-name">WOW / COL (Consumer)</span>
+        <span class="asx-signal neutral">Neutral — petrol relief delayed, no shock either way</span>
+      </div>
+      <div class="asx-row">
+        <span class="asx-name">AUD/USD</span>
+        <span class="asx-signal watchlist">Mild risk-off from Iran, offset by USD weakness (Powell). Net: rangebound</span>
+      </div>
+      <div class="asx-row">
+        <span class="asx-name">ANZAC Day note</span>
+        <span class="asx-signal neutral">ANZAC Day = Saturday April 25. Substitute holiday = Monday April 27. Last session of week = Friday April 24.</span>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:#64748b; margin-top:10px;">Note: Ceasefire deadline (Wednesday evening ET) falls during Wednesday's ASX session but well after Australian close (~4pm AEST = ~2am ET Thursday). No same-session resolution event. The ceasefire expiry at ~8pm ET Wednesday = ~10am Thursday AEST — signals for Thursday's ASX open.</p>
+  </div>
+
+  <!-- Forward view -->
+  <div class="forward-box">
+    <h3>What to Watch</h3>
+
+    <div class="forward-item">
+      <div class="fi-head">⚡ MOST IMMINENT — Nuclear deal hits 20% (deal dead for Q2)</div>
+      <p>The ↓20% "deal dead for Q2" trigger is 1.8pp away (21.8% vs 20% threshold). Any further decline fires this immediately. At 20%, the April 30 framework is not just "delayed" — it signals the Q2 diplomatic track is structurally closed, with implications for sustained Hormuz disruption and elevated oil into June/July. Email threshold: fires automatically.</p>
+    </div>
+
+    <div class="forward-item">
+      <div class="fi-head">🕐 TODAY — Ceasefire Expiry Wednesday Evening ET (~10am AEST Thursday)</div>
+      <p>The ceasefire formally expires Wednesday evening ET. Watch the nuclear deal price around that event: if it holds near 21%, bifurcation confirmed (expiry ≠ bombs); if it dips below 20% into ceasefire expiry, Q2 deal dead signal fires. The critical question is whether Trump authorises any military action post-expiry or maintains the "pressure and negotiate" posture. Oil ground truth remains the arbiter.</p>
+    </div>
+
+    <div class="forward-item">
+      <div class="fi-head">🏦 TONIGHT — Warsh Hearing (underway, 10am ET April 21 = 00:00 AEST April 22)</div>
+      <p>The Warsh Senate Banking Committee hearing is live now. Powell out by May 31 is at 80.5%. Tillis (R-NC) expected to maintain DOJ blockade — no vote before week of May 11. Watch for: Tillis softens → Powell May 31 surges toward 90% trigger; Tillis holds → market may pull back toward 75%. SCOTUS Trump v. Cook is the bigger swing variable (decision window April 24+).</p>
+    </div>
+
+    <div class="forward-item">
+      <div class="fi-head">📅 FRIDAY AEST — SCOTUS Trump v. Cook (possible April 24)</div>
+      <p>Against-Trump ruling (expected, ASX-positive): Powell stays, Fed independence preserved, Powell May 31 retraces from 80.5%. Gold miners give back some institutional-uncertainty premium. For-Trump ruling: Fed firing power confirmed, immediate institutional crisis signal, gold strongly bullish. Last trading day before ANZAC Day weekend (ASX closed Saturday–Monday).</p>
+    </div>
+
+    <div class="forward-item">
+      <div class="fi-head">🔄 Recovery Signal to Watch</div>
+      <p>If Iran reverses course and dispatches a delegation to Islamabad in the next 24–48 hours, the nuclear deal would likely snap back to 30–35%. The deal's collapse trigger (↓30%) has been reset to ↓10%, so any recovery above 30% would be notable. Watch for any statement from Pakistani Army Chief Munir or back-channel signals via Tehran — the two-track Iran strategy has surprised before.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 22 April 2026 00:55 AEST · Trigger: Nuclear deal ↓30% fired at 21.8% · Secondary: ↓20% at 1.8pp away
+</div>
+
+</body>
+</html>
