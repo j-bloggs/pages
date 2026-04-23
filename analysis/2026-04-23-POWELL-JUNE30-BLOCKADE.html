@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Powell June 30 Ceiling Breaks — DOJ Appeal Locks Warsh to H2 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 820px; margin: 0 auto; padding: 32px 24px; }
+
+  .header-band { background: linear-gradient(135deg, #1e2235 0%, #2a1f3d 100%); border-left: 4px solid #8b5cf6; border-radius: 8px; padding: 24px 28px; margin-bottom: 28px; }
+  .alert-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a78bfa; margin-bottom: 8px; }
+  .header-band h1 { font-size: 22px; font-weight: 700; color: #f0f4ff; line-height: 1.3; margin-bottom: 8px; }
+  .header-band .meta { font-size: 13px; color: #94a3b8; }
+
+  .summary-box { background: #1a1f30; border: 1px solid #2d3556; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+  .summary-box p { color: #cbd5e1; font-size: 14.5px; line-height: 1.7; }
+  .summary-box p + p { margin-top: 10px; }
+
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; margin-bottom: 12px; }
+
+  .signal-card { background: #1a1f30; border: 1px solid #2d3556; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .signal-card.primary { border-color: #7c3aed; }
+  .signal-card.warning { border-color: #d97706; }
+  .signal-card.neutral { border-color: #334155; }
+  .signal-card.positive { border-color: #059669; }
+
+  .signal-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; gap: 16px; }
+  .signal-label { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+  .signal-quality { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+  .q-high { background: #1e3a2f; color: #4ade80; }
+  .q-med { background: #2d2a12; color: #fbbf24; }
+  .q-low { background: #2d1818; color: #f87171; }
+
+  .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .price-big { font-size: 26px; font-weight: 700; color: #f0f4ff; }
+  .price-delta { font-size: 14px; font-weight: 600; }
+  .delta-down { color: #f87171; }
+  .delta-up { color: #4ade80; }
+  .delta-flat { color: #64748b; }
+  .price-prev { font-size: 13px; color: #64748b; }
+
+  .signal-body { font-size: 13.5px; color: #94a3b8; line-height: 1.65; }
+  .signal-body strong { color: #cbd5e1; }
+  .signal-body .highlight { color: #f0f4ff; }
+
+  .catalyst-block { background: #151922; border: 1px solid #2d3556; border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+  .catalyst-block .cat-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8b5cf6; margin-bottom: 8px; }
+
+  .catalyst-item { display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1e2535; }
+  .catalyst-item:last-child { border-bottom: none; }
+  .cat-num { font-size: 12px; font-weight: 700; color: #8b5cf6; min-width: 18px; }
+  .cat-text { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+  .cat-text strong { color: #e2e8f0; }
+
+  .sibling-table { width: 100%; margin-top: 12px; border-collapse: collapse; }
+  .sibling-table th { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #475569; text-align: left; padding: 4px 8px; border-bottom: 1px solid #1e2535; }
+  .sibling-table td { font-size: 13px; padding: 7px 8px; border-bottom: 1px solid #1e2535; color: #94a3b8; }
+  .sibling-table tr.active td { color: #e2e8f0; }
+  .sibling-table tr.active td:first-child { font-weight: 600; }
+  .td-price { font-weight: 600; color: #f0f4ff !important; }
+  .td-change { }
+
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+
+  .mini-card { background: #1a1f30; border: 1px solid #2d3556; border-radius: 6px; padding: 14px 16px; }
+  .mini-label { font-size: 11px; color: #475569; margin-bottom: 4px; }
+  .mini-price { font-size: 20px; font-weight: 700; color: #f0f4ff; }
+  .mini-delta { font-size: 12px; margin-left: 6px; }
+  .mini-note { font-size: 11.5px; color: #64748b; margin-top: 4px; line-height: 1.4; }
+
+  .forward-box { background: #151922; border: 1px solid #334155; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+  .forward-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #1e2535; }
+  .forward-item:last-child { border-bottom: none; }
+  .fi-icon { font-size: 14px; min-width: 20px; }
+  .fi-text { font-size: 13.5px; color: #94a3b8; line-height: 1.6; }
+  .fi-text strong { color: #e2e8f0; }
+
+  .bifurcation-box { background: #0f1a12; border: 1px solid #14532d; border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+  .bif-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4ade80; margin-bottom: 8px; }
+  .bif-row { display: flex; gap: 12px; padding: 5px 0; font-size: 13px; color: #86efac; }
+  .bif-icon { min-width: 16px; }
+
+  .data-note { background: #1a1510; border: 1px solid #78350f; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 12.5px; color: #d97706; line-height: 1.5; }
+
+  .footer { font-size: 11.5px; color: #334155; border-top: 1px solid #1e2535; padding-top: 16px; margin-top: 8px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header-band">
+    <div class="alert-tag">⚡ Alert — Powell / Fed Succession</div>
+    <h1>Powell June 30 Near-Certainty Ceiling Breaks<br>DOJ Appeal Locks Tillis Blockade Into H2 2026</h1>
+    <div class="meta">Thursday 23 April 2026, 10:45 AEST &nbsp;·&nbsp; Prediction market alert</div>
+  </div>
+
+  <div class="summary-box">
+    <p>The "Powell out by June 30" market — a stable near-certainty at 90.5% for weeks — has broken below that ceiling for the first time, touching a low of ~77.5% before partially recovering to ~88%. The catalyst is not the expected Friday SCOTUS ruling, but a cluster of confirmation-killing signals from the past 48 hours: Jeanine Pirro announced the DOJ will appeal Judge Boasberg's ruling blocking Powell subpoenas, entrenching the Tillis red-line condition for months through the D.C. Circuit. CNN's analysis of the Warsh confirmation math concluded the committee is genuinely deadlocked with no procedural escape valve.</p>
+    <p>The market is no longer treating June 30 as a near-certainty for Powell's exit. Between 12% and 22% of bettors now price some scenario — acting-chair designation, court order, or Trump retreat — where Powell remains in the chair role past June 30. That's a structural extension of "headless Fed" institutional uncertainty well into H2 2026. SCOTUS Friday (April 24) remains the next binary event and could push this further in either direction.</p>
+  </div>
+
+  <!-- Key Market: June 30 -->
+  <div class="section-title">The Signal</div>
+  <div class="signal-card primary">
+    <div class="signal-header">
+      <div class="signal-label">Jerome Powell out as Fed Chair by June 30, 2026</div>
+      <div class="signal-quality q-high">HIGH</div>
+    </div>
+    <div class="price-row">
+      <div class="price-big">77.5–88%</div>
+      <div class="price-delta delta-down">▼ from 90.5%</div>
+      <div class="price-prev">First time below near-certainty ceiling</div>
+    </div>
+    <div class="signal-body">
+      Alert low: <strong>77.5%</strong> (live data) · Cache recovery: <strong>~88%</strong> · Cumulative drop: <strong class="highlight">−13pp from 90.5% baseline</strong> · Movement: −10.5pp in last 6 hours
+    </div>
+
+    <div class="data-note">
+      <strong>Data quality note:</strong> Live alert captured 77.5%; descriptions cache (refreshed ~15 min later) shows 88%. Market likely touched 77.5% as a low and partially recovered. True current level: 77.5–88% range. Both represent a structural break from the 90.5% historical floor. Resolution quality: [HIGH] — resolves on official Powell / Federal Reserve announcements.
+    </div>
+
+    <div style="margin-top: 12px;">
+      <div class="section-title" style="margin-bottom: 8px;">Sibling Structure (Powell succession markets)</div>
+      <table class="sibling-table">
+        <tr><th>Deadline</th><th>YES price</th><th>Interpretation</th></tr>
+        <tr><td>By March 31</td><td class="td-price">0%</td><td>Resolved NO (no removal in March)</td></tr>
+        <tr><td>By May 14</td><td class="td-price">1.9%</td><td>Near-zero: forced early removal before term expiry remains off-table</td></tr>
+        <tr><td>By May 31</td><td class="td-price">58%</td><td>Slight majority: departure in 15–31 May window</td></tr>
+        <tr class="active"><td><strong>By June 30 ★</strong></td><td class="td-price">77.5–88%</td><td>Near-certainty ceiling BROKEN — down from 90.5%</td></tr>
+      </table>
+    </div>
+
+    <div style="margin-top: 14px;">
+      <div class="signal-body">
+        <strong>What the sibling structure tells us:</strong> May 14 at 1.9% = forced early firing is priced out (SCOTUS pending). The 32pp gap between May 31 (58%) and June 30 (77.5–88%) was previously a tight 10pp. It has now widened, suggesting market uncertainty about whether the succession can even be resolved <em>by</em> June 30 — not just the May 15–31 timing.
+      </div>
+    </div>
+  </div>
+
+  <!-- Catalyst block -->
+  <div class="section-title">The Catalyst — 4-Step Check</div>
+  <div class="signal-card warning">
+    <div class="signal-header">
+      <div class="signal-label">Step A–D: Why did the near-certainty ceiling break?</div>
+    </div>
+    <div class="catalyst-block">
+      <div class="cat-title">Confirmed catalysts (April 21–22, US ET)</div>
+      <div class="catalyst-item">
+        <div class="cat-num">1</div>
+        <div class="cat-text"><strong>DOJ appeal announcement — April 22 (US ET)</strong>: US Attorney Jeanine Pirro confirmed the DOJ will appeal Judge Boasberg's order blocking grand jury subpoenas to Powell. Filing deadline May 4; case routes through the D.C. Circuit — a process taking <strong>months, not weeks</strong>. This is the critical new development: Tillis's red-line condition (DOJ drops the probe) cannot be met before September under any realistic D.C. Circuit timeline. Source: CNBC.</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="cat-num">2</div>
+        <div class="cat-text"><strong>Warsh confirmation math confirmed broken — April 22 (US ET)</strong>: CNN analysis published April 22 concluded "there is still a way to get Warsh confirmed... but it's tricky" — then enumerated why every path is blocked: 12-12 committee deadlock, discharge mechanism requires 60 votes (impossible), no nuclear option available. Not a delay — structurally deadlocked until Tillis's condition is met. Source: CNN.</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="cat-num">3</div>
+        <div class="cat-text"><strong>Powell signals he stays until replacement confirmed</strong>: The Hill reported Powell has indicated he will remain as chair pro tempore until a confirmed successor takes over. Warsh confirmation path is now measured in months → Powell's departure pushed beyond July at earliest. Source: The Hill.</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="cat-num">4</div>
+        <div class="cat-text"><strong>SCOTUS Trump v. Cook — NOT yet ruled</strong>: No ruling issued. Expected decision window: Friday April 24 ~10am ET (midnight AEST). This is still pending — the current market move is entirely from the DOJ/Senate track, not SCOTUS. Source: SCOTUSblog.</div>
+      </div>
+    </div>
+
+    <div class="signal-body" style="margin-top: 10px;">
+      <strong>Cross-market validation:</strong> The move is internally consistent with the Powell May 31 market (flat at ~58%) — the market isn't pricing a sudden departure, but a timeline-extension scenario. No contradiction with oil or equities (this is a monetary policy succession story, not geopolitical). [HIGH] quality market, direct resolution criteria. Interpretation confidence: HIGH.
+    </div>
+  </div>
+
+  <!-- Current Powell / Fed snapshot -->
+  <div class="section-title">Powell / Fed Succession Snapshot</div>
+  <div class="market-grid">
+    <div class="mini-card">
+      <div class="mini-label">Powell out by May 31 [HIGH]</div>
+      <div class="mini-price">58% <span class="mini-delta delta-flat">↔ flat</span></div>
+      <div class="mini-note">Slight majority: May 15–31 window priced; only moves if SCOTUS rules FOR Trump</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">Powell out by June 30 [HIGH]</div>
+      <div class="mini-price">77.5–88% <span class="mini-delta delta-down">▼ −13pp</span></div>
+      <div class="mini-note">CEILING BROKEN — was locked at 90.5% for weeks; now pricing H2 extension risk</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">Kevin Warsh confirmed [HIGH]</div>
+      <div class="mini-price">~94% <span class="mini-delta delta-flat">↔ stable</span></div>
+      <div class="mini-note">Near-certainty Warsh <em>eventually</em> becomes chair — just not before June 30</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-label">Powell out by May 14 [HIGH]</div>
+      <div class="mini-price">1.9% <span class="mini-delta delta-flat">↔ zero</span></div>
+      <div class="mini-note">Early forced removal off-table; SCOTUS protecting natural term expiry</div>
+    </div>
+  </div>
+
+  <!-- The Structural Shift -->
+  <div class="section-title">What This Changes</div>
+  <div class="signal-card neutral">
+    <div class="signal-body">
+      <p><strong class="highlight">Before today's development:</strong> The June 30 market at 90.5% priced the succession as effectively resolved — Powell exits May 15 (natural term), Warsh confirmed sometime in May–June, clean handover. Markets had priced a "headless Fed" window of at most ~2–4 weeks (May 15 → mid-June).</p>
+      <br>
+      <p><strong class="highlight">After the DOJ appeal:</strong> The Warsh confirmation path is blocked for months — not weeks. The DOJ probe (now heading through D.C. Circuit appeal) means Tillis cannot relent before September at the earliest. This creates three possible scenarios:</p>
+      <br>
+      <p><strong>Scenario A (now more likely): Powell as acting chair through Q3 2026.</strong> Warsh not confirmed by June 30; Trump designates Powell as acting chair (perhaps under legal or Senate pressure) to avoid a vacant-chair crisis. "Headless Fed" extends to September+ window. Institutional uncertainty premium stays elevated for an additional quarter.</p>
+      <br>
+      <p><strong>Scenario B: Trump forces a recess appointment.</strong> Warsh confirmed via recess appointment during a congressional break — bypasses Senate entirely. Possible but politically costly; Trump has avoided this route so far.</p>
+      <br>
+      <p><strong>Scenario C: SCOTUS FOR Trump (Friday wildcard).</strong> If the Court rules Trump CAN fire Powell, June 30 market surges back to 95%+ instantly. Probability: ~20% per market signals (May 14 at only 1.9% bounds the implied firing probability). Gold would sell off sharply on "certainty" signal; USD firms temporarily.</p>
+    </div>
+  </div>
+
+  <!-- Macro implications -->
+  <div class="section-title">Macro Implications — Australian Investor Lens</div>
+  <div class="signal-card neutral">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      <div>
+        <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Bearish / Headwinds</div>
+        <div style="font-size: 13px; color: #94a3b8; line-height: 1.7;">
+          <div>• <strong>USD</strong>: Extended institutional uncertainty = DXY bearish bias for longer than expected</div>
+          <div>• <strong>US Treasuries</strong>: Curve steepen bias extends — no Warsh = no dovish pivot signal from confirmed chair; curve uncertainty persists</div>
+          <div>• <strong>US equity multiples</strong>: Fed independence uncertainty discount remains; institutional risk premium not released until Warsh confirmed</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Bullish / Tailwinds</div>
+        <div style="font-size: 13px; color: #94a3b8; line-height: 1.7;">
+          <div>• <strong>Gold (XAU/USD)</strong>: Structurally bid for longer; NST/EVN/NCM on ASX extended buy thesis</div>
+          <div>• <strong>AUD/USD</strong>: USD weakness + RBA independent → net AUD positive on relative central bank clarity</div>
+          <div>• <strong>RBA May 5 cut</strong>: Fully independent of US chair succession — unaffected</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 14px; font-size: 13px; color: #64748b; border-top: 1px solid #1e2535; padding-top: 12px;">
+      <strong style="color: #94a3b8;">ASX specific:</strong> The gold miner thesis (NST/EVN/NCM) extends through at least Q3 2026, not just Q2. AUD range-bound with modest upward bias vs USD. Energy stocks (WDS/STO) unaffected — Iran/oil story is the driver there, not Powell. QAN/AIR neutral on this development.
+    </div>
+  </div>
+
+  <!-- Forward view -->
+  <div class="section-title">What to Watch</div>
+  <div class="forward-box">
+    <div class="forward-item">
+      <div class="fi-icon">⚖️</div>
+      <div class="fi-text"><strong>SCOTUS Trump v. Cook — Friday April 24 (~10am ET = midnight AEST)</strong>: The dominant near-term binary. Expected ruling AGAINST Trump protects Powell from firing → June 30 market likely falls further to 70–75% range (Powell can't be forced out at all, making departure timing even less certain). FOR-Trump ruling = 95%+ June 30 instantly + gold sells off hard. This is the highest-impact event before ANZAC Day weekend.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fi-icon">📉</div>
+      <div class="fi-text"><strong>↓75% June 30 sentinel now active</strong>: New trigger added. If SCOTUS rules against Trump Friday, June 30 may move directly through 75% → email fires automatically as "H2 headless Fed" scenario locks in.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fi-icon">🏛️</div>
+      <div class="fi-text"><strong>DOJ D.C. Circuit timeline</strong>: Pirro files appeal by May 4. D.C. Circuit briefing schedule typically 90–120 days → oral arguments September earliest. This is the structural anchor keeping the Tillis blockade in place through Q3. Watch for any signal of DOJ withdrawing the probe (extremely unlikely given Pirro's public posture) — that would be the "surprise positive" that releases the Warsh path.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fi-icon">📋</div>
+      <div class="fi-text"><strong>Senate recess window</strong>: If Congress enters recess before confirming Warsh, Trump could use a recess appointment (bypasses Tillis entirely). Senate traditionally recess in August — watch for any early-recess signals in June–July. A recess appointment would send June 30 back toward 90%+ instantly.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Polymarket Analyst · 23 April 2026, 10:45 AEST · Data: Polymarket live + descriptions cache · Resolution quality: [HIGH] for May/June Powell markets (clear factual resolution criteria) · Cross-market: No contradiction with oil/equity signals — this is a monetary policy succession narrative, not geopolitical. Iran/oil bifurcation unchanged. · Triggers: ↓75% June 30 sentinel added; triggers.json syntax error fixed.</p>
+  </div>
+
+</div>
+</body>
+</html>
