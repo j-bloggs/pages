@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powell May 31 Below 50% — Pro-Tempore Scenario Crystallised | 23 April 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border-bottom: 2px solid #3b82f6; padding: 28px 32px; }
+  .header-badge { display: inline-block; background: #f59e0b; color: #000; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; text-transform: uppercase; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f8fafc; margin-bottom: 6px; }
+  .header .subtitle { color: #94a3b8; font-size: 14px; }
+  .header .meta { color: #64748b; font-size: 12px; margin-top: 8px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 24px; }
+  .section { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 22px 24px; margin-bottom: 20px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #64748b; margin-bottom: 16px; }
+  .highlight-box { background: #0f2744; border: 1px solid #3b82f6; border-left: 4px solid #3b82f6; border-radius: 6px; padding: 16px 18px; margin-bottom: 16px; }
+  .highlight-box.amber { background: #2a1a05; border-color: #f59e0b; border-left-color: #f59e0b; }
+  .highlight-box.green { background: #052a1a; border-color: #10b981; border-left-color: #10b981; }
+  .highlight-box.red { background: #2a0505; border-color: #ef4444; border-left-color: #ef4444; }
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px; }
+  .price-card { background: #0d1117; border: 1px solid #2d3748; border-radius: 6px; padding: 14px 16px; }
+  .price-card .label { font-size: 11px; color: #64748b; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .price-card .price { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .price-card .price.red { color: #ef4444; }
+  .price-card .price.green { color: #10b981; }
+  .price-card .price.amber { color: #f59e0b; }
+  .price-card .price.blue { color: #60a5fa; }
+  .price-card .delta { font-size: 13px; margin-top: 3px; }
+  .price-card .delta.down { color: #ef4444; }
+  .price-card .delta.up { color: #10b981; }
+  .price-card .quality { font-size: 10px; color: #475569; margin-top: 4px; }
+  .quality-high { color: #10b981; font-weight: 600; }
+  .quality-med { color: #f59e0b; font-weight: 600; }
+  .quality-low { color: #ef4444; font-weight: 600; }
+  p { margin-bottom: 12px; font-size: 15px; color: #cbd5e1; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 7px; font-size: 15px; color: #cbd5e1; }
+  li strong { color: #e2e8f0; }
+  .trigger-fired { background: #1a0a2e; border: 1px solid #7c3aed; border-left: 4px solid #7c3aed; border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+  .trigger-fired .tf-label { font-size: 11px; color: #7c3aed; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .sibling-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+  .sibling-table th { text-align: left; color: #64748b; font-weight: 600; padding: 8px 10px; border-bottom: 1px solid #2d3748; font-size: 12px; text-transform: uppercase; }
+  .sibling-table td { padding: 8px 10px; border-bottom: 1px solid #1e2533; color: #cbd5e1; }
+  .sibling-table tr:last-child td { border-bottom: none; }
+  .sibling-table .yes { color: #60a5fa; font-weight: 600; }
+  .sibling-table .resolved { color: #475569; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .macro-item { background: #0d1117; border: 1px solid #2d3748; border-radius: 6px; padding: 14px 16px; }
+  .macro-item .asset { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .macro-item .call { font-size: 14px; color: #e2e8f0; }
+  .macro-item .call.bull { color: #10b981; }
+  .macro-item .call.bear { color: #ef4444; }
+  .macro-item .call.neutral { color: #94a3b8; }
+  .footer { text-align: center; color: #374151; font-size: 12px; padding: 24px; border-top: 1px solid #1e2533; margin-top: 8px; }
+  .catalyst-steps { counter-reset: step; }
+  .catalyst-step { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
+  .catalyst-step::before { counter-increment: step; content: counter(step); display: flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; background: #3b82f6; color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+  .catalyst-step p { margin: 0; }
+  .timeline { border-left: 2px solid #2d3748; padding-left: 18px; margin-left: 8px; }
+  .timeline-item { position: relative; margin-bottom: 12px; }
+  .timeline-item::before { content: ''; position: absolute; left: -23px; top: 7px; width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+  .timeline-item .time { font-size: 11px; color: #64748b; margin-bottom: 2px; }
+  .timeline-item .event { font-size: 14px; color: #e2e8f0; }
+  @media (max-width: 600px) { .price-grid { grid-template-columns: 1fr 1fr; } .macro-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">⚡ TRIGGER ALERT</div>
+  <h1>Powell May 31 Drops Below 50%<br>Pro-Tempore Scenario Crystallised</h1>
+  <div class="subtitle">US Fed Chair | Monetary Policy Independence | ASX/AUD Implications</div>
+  <div class="meta">Thursday 23 April 2026 · 23:30 AEST · Alert-triggered run</div>
+</div>
+
+<div class="container">
+
+  <!-- TRIGGER FIRED -->
+  <div class="trigger-fired">
+    <div class="tf-label">🔔 Trigger Fired — powell-stays-reversal (↓50%)</div>
+    <strong style="color:#e2e8f0; font-size:15px;">Powell out by May 31 [HIGH]: fell from 55.5% (20:21 AEST) to 42.0% — crossed below 50% threshold</strong><br>
+    <span style="color:#94a3b8; font-size:14px;">-13.5pp since last email · -14.0pp from state.json · -19.5pp over 6 hours</span>
+  </div>
+
+  <!-- KEY PRICES -->
+  <div class="section">
+    <div class="section-title">Current Prices</div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="label">Powell Out · May 31</div>
+        <div class="price red">42.0%</div>
+        <div class="delta down">▼ 13.5pp since 20:21 AEST</div>
+        <div class="quality"><span class="quality-high">[HIGH]</span> · ↓50% trigger fired</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Powell Out · June 30</div>
+        <div class="price amber">80.5%</div>
+        <div class="delta up">▲ 2.0pp — RISING as May falls</div>
+        <div class="quality"><span class="quality-high">[HIGH]</span> · ↓75% trigger 5.5pp away</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Warsh Confirmed</div>
+        <div class="price blue">94.3%</div>
+        <div class="delta" style="color:#64748b;">▼ 0.1pp — stable</div>
+        <div class="quality"><span class="quality-high">[HIGH]</span> · Eventual successor, H2 timeline</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Powell Out · May 14</div>
+        <div class="price" style="color:#475569;">1.9%</div>
+        <div class="delta" style="color:#475569;">Sibling — near-zero</div>
+        <div class="quality"><span class="quality-high">[HIGH]</span> · Natural expiry ≠ "out"</div>
+      </div>
+    </div>
+
+    <div class="highlight-box green">
+      <strong style="color:#10b981;">Sibling coherence check (critical):</strong> May 31 falling to 42% WHILE June 30 rises to 80.5% is internally consistent — not a contradiction. The market is saying: <em>pro-tem through May 31 (majority NO), but SCOTUS rules by late June (majority YES by June 30).</em> This is the correct read.
+    </div>
+  </div>
+
+  <!-- CATALYST IDENTIFICATION -->
+  <div class="section">
+    <div class="section-title">4-Step Catalyst Check</div>
+
+    <div class="highlight-box">
+      <strong style="color:#60a5fa;">Resolution quality: [HIGH]</strong> — Market resolves YES if "Jerome Powell ceases to be Chair of the Federal Reserve for any period of time before May 31." Publicly announced resignation/removal is objective. Not UMA-adjudicated.
+    </div>
+
+    <p style="color:#94a3b8; font-size:13px; margin-bottom:14px;">Step B — Timing: When did the move happen?</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">Apr 21 13:45 AEST</div>
+        <div class="event">Peak: 80.5% — Warsh Senate Banking Committee hearing</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Apr 22 ET morning</div>
+        <div class="event">Pirro announces DOJ will <strong>appeal Boasberg ruling</strong> on Powell subpoenas — Tillis red-line cannot be met before May 31 under D.C. Circuit timeline</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Apr 23 17:00 AEST</div>
+        <div class="event">5pm daily: 62.5% — SCOTUS timing corrected to late June/July</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Apr 23 20:21 AEST</div>
+        <div class="event">Last email: 55.5%</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Apr 23 23:30 AEST</div>
+        <div class="event"><strong style="color:#ef4444;">42.0% — ↓50% trigger fires</strong></div>
+      </div>
+    </div>
+
+    <p style="color:#94a3b8; font-size:13px; margin-top:16px; margin-bottom:14px;">Step C — Specific catalyst:</p>
+    <div class="catalyst-steps">
+      <div class="catalyst-step">
+        <p><strong>Powell's pro-tem commitment (March FOMC):</strong> Powell publicly confirmed he will serve as chair pro tempore after May 15 term expiry if Warsh is not confirmed. Serving as pro-tem = <em>still Chair</em> = market resolves <strong>NO</strong> under resolution criteria.</p>
+      </div>
+      <div class="catalyst-step">
+        <p><strong>Warsh confirmation definitively blocked:</strong> Tillis DOJ red-line (drop Powell probe = confirmation; keep probe = blockade). Pirro's April 22 DOJ appeal announcement locked this in — probe runs D.C. Circuit for months, not days. Math: 12-12 Banking Committee deadlock, discharge needs 60 Senate votes (impossible). No Warsh confirmation before May 31.</p>
+      </div>
+      <div class="catalyst-step">
+        <p><strong>Resolution criteria re-read:</strong> May 14 sibling at 1.9% has always confirmed the market understands natural May 15 term expiry ≠ "ceases to be Chair." Post-hearing analysis (CBS, CNN, indexbox April 22-23) crystallised this for remaining bettors who may have been pricing some term-expiry probability.</p>
+      </div>
+      <div class="catalyst-step">
+        <p><strong>SCOTUS not yet ruled:</strong> Web search confirms no April 23 ruling in Trump v. Cook. Decision expected any Monday late June–July 2026. All 9 justices sceptical of Trump's firing power at January oral arguments.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box green" style="margin-top:14px;">
+      <strong style="color:#10b981;">Step D — Cross-market validation: ✓ Fully coherent</strong><br>
+      June 30 rising to 80.5% (+2pp) while May 31 falls. Warsh confirmed stable at 94.3%. SCOTUS pending = June catalyst intact. There is no contradiction anywhere in the market complex. This is a genuine repricing of timeline, not noise.
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Macro Implications</div>
+
+    <div class="highlight-box amber">
+      <strong style="color:#f59e0b;">Core narrative shift:</strong> The market has re-dated the US Fed leadership transition from <em>May 2026</em> to <em>H2 2026</em>. Powell serves pro-tem from May 15. Warsh takes over only after SCOTUS rules (late June/July) and Tillis unblocks confirmation. The "headless Fed" tail risk that was priced at 56-62% is now fully de-risked for May.
+    </div>
+
+    <div class="macro-grid">
+      <div class="macro-item">
+        <div class="asset">US Rates</div>
+        <div class="call neutral">Status quo. Powell pro-tem = existing rate path unchanged through May 31. No surprise hawkish/dovish pivot risk in May window. FOMC May meeting proceeds normally under Powell.</div>
+      </div>
+      <div class="macro-item">
+        <div class="asset">AUD / USD</div>
+        <div class="call bull">Mild positive. Removes May institutional uncertainty premium. USD slightly weaker on reduced "institutional crisis" pricing. AUD range-bound but removes a headwind.</div>
+      </div>
+      <div class="macro-item">
+        <div class="asset">ASX Gold (NST/EVN/NCM)</div>
+        <div class="call neutral">Near-term slight headwind vs recent bid (uncertainty reduced). Structural long intact — June 30 at 80.5% keeps medium-term uncertainty premium for gold. Do not sell; do not add aggressively.</div>
+      </div>
+      <div class="macro-item">
+        <div class="asset">ASX Rate-Sensitives (REITs, Utilities)</div>
+        <div class="call bull">Mild positive. Fed continuity through May = no surprise rate path disruption. RBA May 5 25bp cut base case intact — no US divergence shock.</div>
+      </div>
+      <div class="macro-item">
+        <div class="asset">US Treasuries</div>
+        <div class="call neutral">Near-term steepening pressure reduced. But June 30 at 80.5% keeps curve uncertainty alive for Q2. Short-end anchored; long-end still pricing H2 leadership change.</div>
+      </div>
+      <div class="macro-item">
+        <div class="asset">RBA May 5</div>
+        <div class="call bull">25bp cut base case fully intact. Pro-tem Powell = US rate path stable = no "Fed goes rogue" scenario in May. RBA can act without external shock risk.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+
+    <ul>
+      <li><strong>SCOTUS Trump v. Cook — the dominant H2 catalyst:</strong> Any Monday from now through late July 2026. FOR-Trump (unlikely, ~20% implied by ~1 − June 30 adjusted) = Powell May 31 rebounds above 50%, constitutional crisis. AGAINST-Trump (base case per all 9 justices' Jan signals) = June 30 falls toward 70-75%, triggering the existing ↓75% sentinel.</li>
+      <li><strong>Tillis DOJ red-line — any softening watch:</strong> If DOJ drops Powell probe OR Tillis publicly shifts position, Warsh path reopens and Powell May 31 could recover quickly. Monitor DOJ/Tillis statements. Current: zero indication of movement.</li>
+      <li><strong>Trump fires Powell anyway:</strong> If Trump fires Powell post-May 15 despite SCOTUS preliminary injunction logic, constitutional crisis scenario. Markets would price: USD crash, gold $5,500+, equity multiple compression. Polymarket ↑50% trigger would fire immediately. Tail risk only (~10-15%).</li>
+      <li><strong>Powell June 30 ↓75% trigger (5.5pp away):</strong> Currently watching at 75%. SCOTUS ruling against Trump would send June 30 toward 70% and fire this sentinel. Next major report catalyst.</li>
+      <li><strong>ASX Thursday April 24:</strong> Verify trading day (ANZAC Day is Friday April 25 — ASX closed). Thursday April 24 is the last ASX session before the ANZAC long weekend. SCOTUS could theoretically rule on a Thursday (unusual but possible). Watch for pre-weekend positioning in NST/EVN/NCM and rate-sensitives.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong style="color:#60a5fa;">ANZAC Day reminder:</strong> Friday April 25 is ANZAC Day — ASX closed. Monday April 28 is the next ASX session. Any SCOTUS ruling released Friday or over the weekend would price into Monday open. Do not assume Tuesday follow-through without checking Monday session first.
+    </div>
+  </div>
+
+  <!-- TRIGGER LOG -->
+  <div class="section">
+    <div class="section-title">Trigger Management</div>
+    <ul>
+      <li><strong>powell-stays-reversal (↓50%):</strong> FIRED at 42.0% — threshold reset to 0.01 (deactivated). Report filed.</li>
+      <li><strong>powell-fired-above-50 (↑50%):</strong> Repurposed as <em>recovery sentinel</em> — fires if market rebounds above 50% (signals SCOTUS FOR-Trump or Trump fires Powell anyway). Currently 8.0pp below threshold. Do not email on ↑50% alone without confirmed SCOTUS ruling or verified firing action.</li>
+      <li><strong>powell-june30-structural-break (↓75%):</strong> Active sentinel at 75%. Currently 5.5pp above trigger. Primary next Powell event.</li>
+      <li><strong>warsh-confirmation-collapse (↓80%):</strong> Active at 80%. Currently 14.3pp above trigger. Stable.</li>
+      <li><strong>new-ceasefire-apr30-high, new-ceasefire-apr30-collapse:</strong> Deactivated — stale slugs; April 30 market resolves in 7 days.</li>
+      <li><strong>trump-china-visit-may31:</strong> Deactivated — stale slug. Re-discover and re-add when correct slug confirmed.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 23 April 2026 23:30 AEST · Alert-triggered run<br>
+  Prices: Polymarket [HIGH/MED/LOW] = resolution quality tier · All probabilities are YES prices
+</div>
+
+</body>
+</html>
