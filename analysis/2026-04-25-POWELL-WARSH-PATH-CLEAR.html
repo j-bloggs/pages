@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: DOJ Drops Powell Probe — Warsh Path Clear — 25 April 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 100%); border-bottom: 3px solid #e53e3e; padding: 28px 32px 24px; }
+  .alert-badge { display: inline-block; background: #e53e3e; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; text-transform: uppercase; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+  .header .subtitle { font-size: 13px; color: #90cdf4; letter-spacing: 0.5px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 24px; }
+  .intro-box { background: #1a2332; border: 1px solid #2d3748; border-left: 4px solid #e53e3e; border-radius: 6px; padding: 20px 24px; margin-bottom: 28px; font-size: 15px; line-height: 1.75; color: #cbd5e0; }
+  .intro-box strong { color: #fff; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #718096; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2d3748; }
+  .market-row { background: #1a2332; border: 1px solid #2d3748; border-radius: 6px; padding: 16px 20px; margin-bottom: 10px; display: flex; align-items: center; gap: 16px; }
+  .market-row.highlight { border-left: 4px solid #e53e3e; }
+  .market-row.positive { border-left: 4px solid #38a169; }
+  .market-row.neutral { border-left: 4px solid #718096; }
+  .price-block { min-width: 72px; text-align: center; }
+  .price-now { font-size: 22px; font-weight: 700; color: #fff; }
+  .price-delta { font-size: 12px; margin-top: 2px; }
+  .delta-up { color: #48bb78; }
+  .delta-dn { color: #fc8181; }
+  .delta-flat { color: #718096; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+  .market-label .quality-tag { font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .q-high { background: #276749; color: #9ae6b4; }
+  .q-med { background: #744210; color: #fbd38d; }
+  .q-low { background: #4a1942; color: #fbb6ce; }
+  .market-note { font-size: 12px; color: #718096; line-height: 1.5; }
+  .catalyst-box { background: #1a2332; border: 1px solid #2d3748; border-left: 4px solid #d69e2e; border-radius: 6px; padding: 18px 22px; margin-bottom: 28px; }
+  .catalyst-box h3 { font-size: 13px; font-weight: 700; color: #f6e05e; letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase; }
+  .catalyst-box p, .catalyst-box li { font-size: 13.5px; color: #cbd5e0; line-height: 1.7; }
+  .catalyst-box ul { padding-left: 18px; margin-top: 8px; }
+  .catalyst-box li { margin-bottom: 4px; }
+  .catalyst-box strong { color: #f6e05e; }
+  .bifurcation-box { background: #1a2332; border: 1px solid #2d3748; border-left: 4px solid #319795; border-radius: 6px; padding: 16px 22px; margin-bottom: 28px; }
+  .bifurcation-box .bif-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 13px; color: #cbd5e0; }
+  .bifurcation-box .bif-row:last-child { margin-bottom: 0; }
+  .bif-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: #48bb78; }
+  .dot-gray { background: #718096; }
+  .dot-blue { background: #63b3ed; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+  .macro-card { background: #1a2332; border: 1px solid #2d3748; border-radius: 6px; padding: 14px 18px; }
+  .macro-card h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #718096; margin-bottom: 8px; }
+  .macro-card p { font-size: 13px; color: #cbd5e0; line-height: 1.6; }
+  .macro-card .direction { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .dir-bull { color: #48bb78; }
+  .dir-bear { color: #fc8181; }
+  .dir-neut { color: #718096; }
+  .forward-box { background: #1a2332; border: 1px solid #2d3748; border-radius: 6px; padding: 20px 24px; margin-bottom: 28px; }
+  .watch-item { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+  .watch-item:last-child { margin-bottom: 0; }
+  .watch-icon { font-size: 16px; min-width: 22px; margin-top: 1px; }
+  .watch-text { font-size: 13.5px; color: #cbd5e0; line-height: 1.65; }
+  .watch-text strong { color: #e2e8f0; }
+  .timeline-box { background: #1a2332; border: 1px solid #2d3748; border-radius: 6px; padding: 18px 22px; margin-bottom: 28px; }
+  .timeline-row { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
+  .timeline-row:last-child { margin-bottom: 0; }
+  .tl-date { font-size: 11px; font-weight: 700; color: #90cdf4; min-width: 110px; padding-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tl-text { font-size: 13px; color: #cbd5e0; line-height: 1.6; }
+  .tl-text strong { color: #e2e8f0; }
+  .footnote { font-size: 11px; color: #4a5568; text-align: center; padding: 16px 0 4px; border-top: 1px solid #1e2532; margin-top: 8px; }
+  @media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr; } .header { padding: 20px 16px; } .container { padding: 20px 14px; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚡ Polymarket Alert</div>
+  <h1>DOJ Drops Powell Probe — Warsh Path Clear</h1>
+  <div class="subtitle">Saturday 25 April 2026 · 00:35 AEST (Fri 14 Apr 24 UTC) · ANZAC Day — ASX Closed · Next session: Monday 27 April</div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>The structural blocker just fell away.</strong> The US Department of Justice dropped its criminal investigation into Jerome Powell and the Federal Reserve on Friday April 24 (~14:16 UTC). This was the specific condition Senator Thom Tillis (R-NC) set for unlocking his vote on Kevin Warsh's Fed Chair confirmation. With the probe gone, the 12-12 Senate Banking Committee deadlock breaks, Warsh's path to the floor opens, and markets re-rated Powell's May 31 departure from 44% all the way to <strong>74.5% — a 30-point move in a single 15-minute window.</strong> This is orderly succession, not a firing. The macro read is nuanced: rate cuts on the horizon, USD headwind, gold modestly supported, but none of the institutional crisis premium that a forced dismissal would carry.
+  </div>
+
+  <!-- CATALYST -->
+  <div class="catalyst-box">
+    <h3>🔍 4-Step Catalyst Identification</h3>
+    <ul>
+      <li><strong>Step A — What resolves this market:</strong> "Jerome Powell ceases to be Chair of the Federal Reserve for any period of time before May 31." ALSO resolves YES on <em>announcement</em> of resignation/removal, regardless of effective date. Pro-tem continuation as Chair does NOT qualify (confirmed by May 14 sibling at 1.9% throughout).</li>
+      <li><strong>Step B — When did the move happen:</strong> Market was 44.5% at 00:15 AEST → 74.5% at 00:30 AEST. Exact 15-minute window matching NBC News report timestamp (~14:16 UTC April 24 = 00:16 AEST April 25).</li>
+      <li><strong>Step C — The real-world catalyst:</strong> DOJ dropped its criminal probe of Powell over Fed building renovation cost overruns. Sen. Tillis (R-NC) had explicitly stated in public: "The DOJ can drop this investigation in five minutes. Do it and I'll vote for Warsh." Probe dropped → Tillis vote unlocked → Senate Banking Committee 12-12 deadlock resolved → Warsh floor vote path open. NBC News and Bloomberg confirmed.</li>
+      <li><strong>Step D — Cross-market validation:</strong> WTI $120 flat at 10.2% (23rd consecutive bifurcation — Iran complex unchanged). Kevin Warsh confirmation at 98.7% (+1.3pp). June 30 Powell market at 90% (+7pp from 83%). All coherent: orderly succession re-priced, not institutional crisis. ✅ No contradictions.</li>
+    </ul>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section-title">Key Market Moves</div>
+
+  <div class="market-row highlight">
+    <div class="price-block">
+      <div class="price-now">74.5%</div>
+      <div class="price-delta delta-up">+30.0pp</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">Powell out as Fed Chair by May 31 <span class="quality-tag q-high">HIGH</span></div>
+      <div class="market-note">Rose from 44% to 74.5% in one 15-min window. Tillis unblocked → committee vote → floor vote week of May 11 → Warsh confirmed → Powell departs. Volume thin (~$7.7K/24h): price direction is correct per catalyst; specific level reflects thin overnight book. Real repricing when US markets open Monday. Prev. peak: 80.5% on April 21 (Warsh hearing).</div>
+    </div>
+  </div>
+
+  <div class="market-row highlight">
+    <div class="price-block">
+      <div class="price-now">90.0%</div>
+      <div class="price-delta delta-up">+7.0pp</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">Powell out as Fed Chair by June 30 <span class="quality-tag q-high">HIGH</span></div>
+      <div class="market-note">Recovered from 83% (5pm Friday daily) back to 90% — re-establishing the prior near-certainty ceiling that prevailed before the DOJ appeal news (April 22) pushed it down. With Tillis blockade now genuinely removed, June 30 departure is near-certainty even in a delayed scenario. Volume: $12K/day (more liquid than May 31 — treat as the more reliable level).</div>
+    </div>
+  </div>
+
+  <div class="market-row positive">
+    <div class="price-block">
+      <div class="price-now">98.7%</div>
+      <div class="price-delta delta-up">+1.3pp</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">Kevin Warsh confirmed as Fed Chair <span class="quality-tag q-high">HIGH</span></div>
+      <div class="market-note">Near-certainty ceiling reached. $807K/24h volume — this is the liquid, informed-money market. 98.7% says Warsh gets the chair. The only residual risk: Senate procedural complications even after Tillis unlocks, or a wildcard (Warsh withdrawal, Senate vote fails). 1.3pp gap to 100% reflects those tails only.</div>
+    </div>
+  </div>
+
+  <div class="market-row neutral">
+    <div class="price-block">
+      <div class="price-now">10.2%</div>
+      <div class="price-delta delta-flat">0.0pp</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">WTI Crude above $120 in April <span class="quality-tag q-med">MED</span></div>
+      <div class="market-note">Flat — 23rd consecutive bifurcation confirmation. Iran complex completely unaffected by the Powell/Fed news. Structural freeze narrative intact. Ground truth: no escalation priced in oil regardless of the Fed uncertainty. AUD petrol trajectory unchanged.</div>
+    </div>
+  </div>
+
+  <div class="market-row neutral">
+    <div class="price-block">
+      <div class="price-now">70.5%</div>
+      <div class="price-delta delta-dn">−8.5pp</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">Trump visits China by May 31 <span class="quality-tag q-high">HIGH</span></div>
+      <div class="market-note">Drifted from 79% (5pm Friday daily) to 70.5% — now 5.5pp above the ↓65% cancellation sentinel. No specific catalyst identified; likely ANZAC Day thin-book drift. May 14–15 Beijing summit remains confirmed via White House. Watch Monday for reversion vs. genuine concern. Cancellation trigger at ↓65% stays active.</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-title">Warsh Succession Timeline</div>
+  <div class="timeline-box">
+    <div class="timeline-row">
+      <div class="tl-date">Apr 24 (Done)</div>
+      <div class="tl-text"><strong>DOJ drops Powell probe.</strong> Tillis's explicit red-line met. Blockade removed.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-date">Apr 28–May 4</div>
+      <div class="tl-text"><strong>Senate recess.</strong> No floor votes. Committee vote possible if scheduled before recess.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-date">~May 5–9</div>
+      <div class="tl-text"><strong>Senate Banking Committee vote.</strong> Tillis + existing supporters → Warsh advances to floor. Also: RBA May 5 meeting (25bp cut base case, unaffected by US Fed succession).</div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-date">~Week of May 11</div>
+      <div class="tl-text"><strong>Senate floor vote possible.</strong> If confirmed by May 14, Powell departure before May 31 = YES resolution. If confirmed May 15–31, Powell steps down mid-month range.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-date">May 15</div>
+      <div class="tl-text"><strong>Powell's term as Chair naturally expires.</strong> If Warsh not yet confirmed, Powell serves as Chair pro-tempore — this does NOT resolve the market YES. The 25.5% residual NO probability reflects Senate delays pushing past May 31.</div>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section-title">Macro &amp; Australian Portfolio Implications</div>
+  <div class="macro-grid">
+    <div class="macro-card">
+      <h4>US Rates / Bonds</h4>
+      <div class="direction dir-bull">▲ Bullish (lower yields)</div>
+      <p>Warsh is a confirmed rate-cutter. With succession near-certain, markets will front-run Warsh era: short-end rates rally, yield curve bull-steepens. 2-year UST likely to reprice lower on Monday. NOT a crisis signal — orderly succession.</p>
+    </div>
+    <div class="macro-card">
+      <h4>USD (DXY)</h4>
+      <div class="direction dir-bear">▼ Mildly Bearish</div>
+      <p>Warsh rate cuts → lower real US rates → USD headwind. Orderly succession removes the institutional-crisis premium (some of which was supporting USD on safe-haven flows). Net: mild USD weakness, constructive for AUD/USD.</p>
+    </div>
+    <div class="macro-card">
+      <h4>Gold (AUD)</h4>
+      <div class="direction dir-bull">▲ Modestly Positive</div>
+      <p>USD weakness is gold-supportive. But this is <em>orderly succession</em> — not Trump firing Powell — so the institutional crisis premium partially unwinds. NST/EVN/NCM: still structurally bid on rate-cut expectations, but less upside than a forced-firing scenario would deliver.</p>
+    </div>
+    <div class="macro-card">
+      <h4>ASX Rate-Sensitives</h4>
+      <div class="direction dir-bull">▲ Positive</div>
+      <p>A-REITs, utilities, banks: benefit from Warsh rate-cut expectations (lower US long rates → global duration re-rating). ASX opens Monday April 27 with this fully unpriced (ANZAC Day Saturday). Expect positive open for rate-sensitives.</p>
+    </div>
+    <div class="macro-card">
+      <h4>Australian Petrol</h4>
+      <div class="direction dir-neut">→ Neutral</div>
+      <p>Iran/oil complex unchanged. WTI flat at $83–86/bbl; WTI $120 at 10.2% (23rd bifurcation confirmation). Petrol trajectory (A$1.90–2.00/L) unaffected by Fed succession. Brent-WTI spread normal.</p>
+    </div>
+    <div class="macro-card">
+      <h4>Crypto (BTC/ETH)</h4>
+      <div class="direction dir-bull">▲ Modestly Positive</div>
+      <p>USD weakness + risk-on signal = mild crypto tailwind. Warsh rate cuts → easier financial conditions narrative. Not a primary driver but supportive. BTC ~$76K heading into the weekend; orderly Fed succession is net positive for risk appetite.</p>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET VALIDATION -->
+  <div class="section-title">Cross-Market Validation</div>
+  <div class="bifurcation-box">
+    <div class="bif-row">
+      <div class="bif-dot dot-green"></div>
+      <span><strong>Warsh confirmation 98.7% (+1.3pp):</strong> The liquid market ($807K/24h) confirms the succession narrative. Coherent with May 31 at 74.5% and June 30 at 90%.</span>
+    </div>
+    <div class="bif-row">
+      <div class="bif-dot dot-green"></div>
+      <span><strong>WTI $120 at 10.2% (flat):</strong> Iran complex unaffected — 23rd consecutive bifurcation confirmation. This is a clean US institutional story, not an oil or geopolitical story.</span>
+    </div>
+    <div class="bif-row">
+      <div class="bif-dot dot-green"></div>
+      <span><strong>May 31 / June 30 structure coherent:</strong> May 31 (74.5%) &lt; June 30 (90%). The 15.5pp gap implies ~15.5% probability of being out in June but not May — consistent with possible Senate delay past May 31.</span>
+    </div>
+    <div class="bif-row">
+      <div class="bif-dot dot-gray"></div>
+      <span><strong>Volume caveat on May 31:</strong> $7.7K/24h vs Warsh $807K. Price direction is correct; specific 74.5% level may shift when full US market participation resumes Monday. June 30 ($12K/day) is the more reliable sibling level.</span>
+    </div>
+    <div class="bif-row">
+      <div class="bif-dot dot-blue"></div>
+      <span><strong>Trump-China at 70.5% (−8.5pp drift):</strong> Unrelated to Powell. Monitor Monday for reversion to 79% base case; cancellation trigger at ↓65% (5.5pp away) is the key watch.</span>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section-title">What to Watch</div>
+  <div class="forward-box">
+    <div class="watch-item">
+      <div class="watch-icon">📅</div>
+      <div class="watch-text">
+        <strong>Monday April 27 ASX open (10:00 AEST) — first market to price this in.</strong> ANZAC Day Saturday meant zero ASX reaction so far. Expect: rate-sensitive stocks (A-REITs, utilities) to open positive; gold miners (NST/EVN/NCM) modestly positive; AUD/USD constructive. US futures will have already repriced Friday night ET — Monday ASX is catching up.
+      </div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-icon">🏦</div>
+      <div class="watch-text">
+        <strong>Senate Banking Committee vote (expected ~May 5–9).</strong> Tillis's vote now unlocked. Watch for committee scheduling announcement. A committee vote confirms the path — expect May 31 to rally toward 80%+ if announced. Any surprise opposition from other Republican senators would be the tail risk.
+      </div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-icon">⚖️</div>
+      <div class="watch-text">
+        <strong>SCOTUS Trump v. Cook — still pending (any Monday, late June–July 2026).</strong> This ruling is now LESS impactful given orderly succession is already underway. An against-Trump ruling (base case, ~80% implied) is now <em>good news</em>: it formally protects Fed independence, cements the Warsh succession narrative, and may push June 30 slightly lower (Powell doubly protected). A for-Trump ruling becomes redundant if Warsh already confirmed.
+      </div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-icon">🇨🇳</div>
+      <div class="watch-text">
+        <strong>Trump-China summit drift to 70.5% — monitor Monday.</strong> 5.5pp from the ↓65% cancellation trigger. May be thin-book ANZAC Day noise or a genuine signal. Goodwill framework (soybeans, Boeing, rare earths) still intact. May 14–15 Beijing summit confirmed by White House. If it continues falling, this becomes the next macro story.
+      </div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-icon">🛢️</div>
+      <div class="watch-text">
+        <strong>Iran complex: April 30 resolution cascade begins Saturday.</strong> Seven markets resolve: nuclear deal (6.3%), Hormuz normalisation (2.1%), new ceasefire (52.5%), ops-end, and siblings — all pricing near-certain NO except the coin-flip new ceasefire. No Fed succession impact on oil. WTI $120 at 10.2% remains the ground-truth validator.
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section-title">Trigger System Actions Taken</div>
+  <div class="market-row neutral">
+    <div class="market-info">
+      <div class="market-label">Actions logged this alert</div>
+      <div class="market-note">
+        ① <strong>powell-fired-above-50 (↑50% recovery sentinel):</strong> FIRED at 74.5%. Updated reason with DOJ catalyst. Not deactivated — may re-fire if market oscillates back below 50% and rebounds again (unlikely given catalyst is confirmed).<br>
+        ② <strong>powell-june30-structural-break (↓75%):</strong> June 30 now at 90% — 15.0pp above trigger, safely out of danger zone. Trigger remains active for SCOTUS against-Trump scenario.<br>
+        ③ <strong>powell-fired-above-80 (↑80%):</strong> Remains live — 5.5pp from current 74.5%. May fire if US market participation drives May 31 toward 80% on Monday.<br>
+        ④ <strong>powell-fired-above-90 (↑90%):</strong> Remains live — 15.5pp away. Would signal near-certainty of May 31 departure.<br>
+        ⑤ <strong>Trump-China cancellation (↓65%):</strong> Remains live — 5.5pp away at current 70.5%. Monitor Monday.
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Polymarket Analyst · Generated 25 April 2026 00:35 AEST · Data: Polymarket + Kalshi via local collection scripts ·
+    Resolution quality: [HIGH] = objective/verifiable · [MED] = interpretable criteria · [LOW] = UMA-vote subjective ·
+    This report is for informational purposes only and does not constitute financial advice.
+  </div>
+
+</div>
+</body>
+</html>
