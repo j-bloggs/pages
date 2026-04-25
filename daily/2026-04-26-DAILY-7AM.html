@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — Sunday 26 April 2026, 7AM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; line-height: 1.6; padding: 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .header { border-bottom: 2px solid #2a2a3a; padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #fff; }
+  .header .subtitle { font-size: 0.9rem; color: #888; margin-top: 4px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 6px; }
+  .badge-quiet { background: #1e3a1e; color: #4ade80; }
+  .badge-countdown { background: #3a1e1e; color: #f87171; }
+  .badge-scotus { background: #1e2a3a; color: #60a5fa; }
+  .section { background: #1a1a2a; border: 1px solid #2a2a3a; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .section h2 { font-size: 1.05rem; font-weight: 700; color: #a78bfa; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .summary-box { background: #12121e; border-left: 3px solid #a78bfa; padding: 14px 16px; border-radius: 4px; font-size: 0.92rem; line-height: 1.7; color: #d0d0e0; }
+  .market-grid { display: grid; gap: 10px; }
+  .market-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; background: #12121e; border-radius: 6px; border: 1px solid #252535; }
+  .market-row:hover { border-color: #3a3a5a; }
+  .price-badge { font-size: 1.1rem; font-weight: 700; min-width: 56px; text-align: right; flex-shrink: 0; }
+  .price-up { color: #4ade80; }
+  .price-down { color: #f87171; }
+  .price-flat { color: #facc15; }
+  .price-terminal { color: #94a3b8; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 0.88rem; font-weight: 600; color: #c0c0d0; }
+  .market-detail { font-size: 0.8rem; color: #7070a0; margin-top: 3px; line-height: 1.4; }
+  .delta-tag { font-size: 0.75rem; font-weight: 600; margin-left: 6px; }
+  .delta-up { color: #4ade80; }
+  .delta-down { color: #f87171; }
+  .delta-flat { color: #888; }
+  .quality-tag { font-size: 0.68rem; padding: 1px 5px; border-radius: 3px; font-weight: 700; margin-right: 4px; }
+  .q-high { background: #1a3a1a; color: #4ade80; border: 1px solid #2a5a2a; }
+  .q-med  { background: #3a2a10; color: #fbbf24; border: 1px solid #5a3a10; }
+  .q-low  { background: #3a1a1a; color: #f87171; border: 1px solid #5a2a2a; }
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .trigger-table th { text-align: left; color: #6060a0; padding: 6px 8px; border-bottom: 1px solid #252535; font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.05em; }
+  .trigger-table td { padding: 6px 8px; border-bottom: 1px solid #1a1a2a; vertical-align: top; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .status-watch { color: #94a3b8; font-size: 0.75rem; }
+  .status-past { color: #7070a0; font-size: 0.75rem; font-style: italic; }
+  .status-deact { color: #555570; font-size: 0.75rem; font-style: italic; }
+  .gap-label { color: #aaa; font-size: 0.78rem; }
+  .section-divider { border: none; border-top: 1px solid #2a2a3a; margin: 14px 0; }
+  .forward-item { padding: 8px 0; border-bottom: 1px solid #1e1e2e; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-item .fw-label { font-weight: 700; color: #60a5fa; font-size: 0.85rem; }
+  .forward-item .fw-text { font-size: 0.85rem; color: #c0c0d0; margin-top: 3px; }
+  .cross-market { background: #0e1a0e; border: 1px solid #1e3a1e; border-radius: 6px; padding: 14px; margin-top: 10px; font-size: 0.85rem; color: #c0e0c0; }
+  .cross-market strong { color: #4ade80; }
+  .alert-banner { background: #1a1a0e; border: 1px solid #4a4a00; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.88rem; color: #fbbf24; }
+  .alert-banner strong { color: #fde68a; }
+  .deact-note { background: #1a1020; border: 1px solid #3a2040; border-radius: 4px; padding: 8px 12px; font-size: 0.78rem; color: #a080c0; margin-top: 8px; }
+  footer { margin-top: 24px; font-size: 0.75rem; color: #404060; text-align: center; border-top: 1px solid #1a1a2a; padding-top: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Polymarket Daily Briefing &nbsp;|&nbsp; Sunday 26 April 2026 &nbsp;·&nbsp; 7:00 AM AEST</h1>
+    <div class="subtitle">
+      <span class="badge badge-countdown">⏳ April 30 Countdown: 4 Days</span>
+      <span class="badge badge-scotus">⚖️ SCOTUS Window Opens Monday</span>
+      <span class="badge badge-quiet">● Quiet Sunday Session</span>
+    </div>
+  </div>
+
+  <div class="alert-banner">
+    <strong>Monday April 27 is the pivotal session:</strong> First live SCOTUS Trump v. Cook decision window (decisions Mondays only, through late July). ASX opens pricing DOJ/Warsh (Fri), Islamabad Round 2 no-deal (Sat), UN/WTO cluster (Sat night). Senate recess begins April 28 — no Warsh floor vote until week of May 11.
+  </div>
+
+  <!-- SESSION SUMMARY -->
+  <div class="section">
+    <h2>Session Summary</h2>
+    <div class="summary-box">
+      Quiet Sunday consolidation after ANZAC Week's dramatic catalysts. The April 30 Iran resolution cascade is now four days away — nuclear deal (~4–7%) and Hormuz (0.9–1.75%) pricing near-certain NO, ceasefire at 99.6% near-certain YES. All are now pure time-decay markers with no actionable signal remaining.
+      <br><br>
+      Powell May 31 has settled to 73–77% — the genuine Sunday pricing band, down from the DOJ-probe-drop peak of 91.5% (April 25 01:30 AEST). The ~25% NO probability accurately reflects Senate timing risk: recess April 28–May 4, Banking Committee vote May 5–9, floor vote May 11–14, swearing-in by May 31 is tight but achievable. Powell June 30 anchors at 90.7%, 15.7pp above the ↓75% structural-break trigger.
+      <br><br>
+      No triggers fired in this collection run. Two Hormuz triggers (recovery-watch, normalization) deactivated — structurally impossible to fire before April 30 resolution.
+    </div>
+  </div>
+
+  <!-- TRIGGER DASHBOARD -->
+  <div class="section">
+    <h2>Trigger Dashboard</h2>
+    <table class="trigger-table">
+      <tr>
+        <th>Market</th><th>Price</th><th>Status</th><th>Gap to Trigger</th>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-high">HIGH</span> Powell out by May 31</td>
+        <td style="color:#facc15; font-weight:700;">77.5%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">22.5pp above ↓55% obstruction signal</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-high">HIGH</span> Powell out by June 30</td>
+        <td style="color:#4ade80; font-weight:700;">90.7%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">15.7pp above ↓75% structural-break trigger</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-high">HIGH</span> Kevin Warsh confirmed</td>
+        <td style="color:#4ade80; font-weight:700;">98.4%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">18.4pp above ↓80% blockade sentinel</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-high">HIGH</span> Trump visits China May 31</td>
+        <td style="color:#facc15; font-weight:700;">74.0%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">9.0pp above ↓65% cancellation signal</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-med">MED</span> WTI crude above $120 April</td>
+        <td style="color:#94a3b8; font-weight:700;">5.9–7.6%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">22–24pp below ↑30% re-escalation breakout</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-low">LOW</span> US invades Iran before 2027</td>
+        <td style="color:#94a3b8; font-weight:700;">33.5%</td>
+        <td><span class="status-watch">watching</span></td>
+        <td class="gap-label">6.5pp below ↑40% escalation signal</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-low">LOW</span> Hormuz recovery &gt;8%</td>
+        <td style="color:#555570; font-weight:700;">0.9–1.75%</td>
+        <td><span class="status-deact">DEACTIVATED</span></td>
+        <td class="gap-label">Impossible before April 30 resolution — set threshold to -1</td>
+      </tr>
+      <tr>
+        <td><span class="quality-tag q-low">LOW</span> Hormuz normalizes &gt;70%</td>
+        <td style="color:#555570; font-weight:700;">0.9–1.75%</td>
+        <td><span class="status-deact">DEACTIVATED</span></td>
+        <td class="gap-label">Impossible before April 30 resolution — set threshold to -1</td>
+      </tr>
+    </table>
+
+    <div class="deact-note">
+      <strong>Trigger maintenance (this run):</strong> Two Hormuz triggers permanently deactivated — hormuz-recovery-watch (↑8%) and hormuz-normalization (↑70%). Market at 0.9–1.75% with 4 days to April 30 resolution. No upward move is physically possible in this window. Post-April 30: coverage migrates to May/June Hormuz markets if they appear.
+    </div>
+  </div>
+
+  <!-- KEY MARKETS -->
+  <div class="section">
+    <h2>Key Markets — Changes Since Last Email (25 Apr 23:52 AEST)</h2>
+    <div class="market-grid">
+
+      <div class="market-row">
+        <div class="price-badge price-flat">77.5%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-high">HIGH</span>
+            Jerome Powell out as Fed Chair by May 31
+            <span class="delta-tag delta-down">−3pp</span>
+          </div>
+          <div class="market-detail">Fell from 80.5% (5PM Sat) → 77.5% (7AM Sun) on zero new catalyst. This is the genuine Sunday pricing band: ~25% NO reflects Senate timing risk — recess April 28–May 4, committee vote May 5–9, floor vote May 11–14. DOJ-probe-drop anchor (April 24) still intact; Warsh eventual succession near-certainty (98.4%). Current 77.5% is 22.5pp above ↓55% genuine-obstruction trigger. Descriptions cache (live) shows 73.5% with −6pp/1h, indicating further thin-book drift intraday — all noise. June 30 at 90.7% is the reliable anchor.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-up">90.7%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-high">HIGH</span>
+            Jerome Powell out as Fed Chair by June 30
+            <span class="delta-tag delta-up">+2.2pp</span>
+          </div>
+          <div class="market-detail">Recovered from 88.5% (5PM Sat) → 90.7% (7AM Sun). Slight overnight recovery confirms June 30 is the high-liquidity anchor for the Powell succession story ($12K–16K/day volume vs. May 31's $8K/day). 15.7pp above ↓75% structural-break trigger. SCOTUS Trump v. Cook is the remaining catalyst — against-Trump ruling (base case, ~80%) leaves June 30 in the 88–92% range; for-Trump ruling → surges to 95%+.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-up">98.4%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-high">HIGH</span>
+            Kevin Warsh confirmed as Fed Chair
+            <span class="delta-tag delta-flat">+0.0pp</span>
+          </div>
+          <div class="market-detail">Stable at near-certainty. $807K/24h volume; this is the ground-truth anchor for the Fed succession narrative. 18.4pp above ↓80% Tillis-blockade trigger. Succession path: Senate floor vote week of May 11 → confirmed before May 31. Warsh rate-cut horizon (dovish relative to Powell's neutral stance) = positive for rate-sensitive ASX sectors.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-up">74.0%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-high">HIGH</span>
+            Trump visits China by May 31
+            <span class="delta-tag delta-up">+1.5pp</span>
+          </div>
+          <div class="market-detail">Recovered from 72.5% (5PM Sat) → 74.0% (+1.5pp) — modest positive drift as May 14–15 Beijing summit date approaches. 9pp above ↓65% cancellation trigger (comfortable). Summit confirmed by White House March 25. Trade-war de-escalation narrative remains intact alongside Iran structural freeze — dual geopolitical de-escalation scenario. Watch for pre-summit Bessent/trade team positioning this week.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-terminal">99.6%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-med">MED</span>
+            US × Iran ceasefire by April 30
+            <span class="delta-tag delta-flat">+0.0pp</span>
+          </div>
+          <div class="market-detail">Stable at 99.6% — near-certain YES resolution in 4 days. Trump's rolling unilateral extension qualifies under the description's "extension" criteria. Note: this is NOT a bilateral Iranian-reciprocated ceasefire — it is Trump's unilateral continuation. The "new ceasefire" narrative ended with the April 22 formal bilateral expiry; this market reflects the technical qualifying language only. Macro impact: negligible — already in price, no new information.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-terminal">~4–7%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-high">HIGH</span>
+            US-Iran nuclear deal by April 30
+            <span class="delta-tag delta-down">terminal decay</span>
+          </div>
+          <div class="market-detail">Market log: 4.2%; descriptions cache: 6.55%. Discrepancy is collection-timing artifact — both confirm sub-8% terminal state. Resolves NO in 4 days; Islamabad Round 2 (April 25–26) produced 21+ hours of talks with zero deal. Ceasefire expired April 22 without bilateral renewal. Countdown: April 30 is the final resolution date. Post-resolution, Iran diplomatic coverage migrates to May/June deal markets if they emerge (currently none visible in cache).</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-terminal">~1–2%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-med">MED</span>
+            Hormuz traffic normalises by April 30
+            <span class="delta-tag delta-down">terminal decay</span>
+          </div>
+          <div class="market-detail">Market log: 0.9%; descriptions cache: 1.75%. 98.25% NO — structural closure confirmed. Dual blockade (IRGC toll regime + US Navy interdiction) intact. IRGC gunboat attacks April 22 on CMA CGM Everglade and cargo vessel. Resolves NO in 4 days. Two Hormuz triggers (recovery-watch, normalization) deactivated this run.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-terminal">~6–8%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-med">MED</span>
+            WTI crude above $120 in April (proxy for Brent)
+            <span class="delta-tag delta-down">resolution decay</span>
+          </div>
+          <div class="market-detail">Market log: 7.6%; descriptions: 5.85%. 28th+ consecutive bifurcation confirmation — oil has remained flat throughout all of ANZAC Week's geopolitical developments (ceasefire expiry, IRGC attacks, nuclear deal collapse, dual blockade). WTI spot ~$85–90/bbl. Well below ↑30% re-escalation trigger. Resolves NO in 4 days. For Australian fuel pricing: WTI used as proxy for Brent; actual Brent-WTI spread is ~$2–3/bbl; retail impact immaterial at current levels.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-flat">33.5%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-low">LOW</span>
+            US invades Iran before 2027
+            <span class="delta-tag delta-flat">+0.0pp</span>
+          </div>
+          <div class="market-detail">Flat at 33.5%, 6.5pp below ↑40% escalation trigger. Long-duration structural uncertainty — despite everything (nuclear deal dead, Hormuz closed, IRGC attacks), invasion remains at 33.5%. This is the baseline geopolitical noise floor for the Iran standoff. Oil validator (WTI flat 28+ times) confirms market does NOT price imminent military action. Trigger at ↑40% requires a new catalyst: direct US-Iran naval exchange or Trump public threat of ground action.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KALSHI CROSS-REFERENCE -->
+  <div class="section">
+    <h2>Kalshi Cross-Reference</h2>
+    <div class="market-grid">
+
+      <div class="market-row">
+        <div class="price-badge price-flat">37%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-med">MED</span>
+            US WTO withdrawal by 2029 (Kalshi KXWITHDRAW-29-WTO)
+            <span class="delta-tag delta-flat">+0.0pp</span>
+          </div>
+          <div class="market-detail">Unchanged from Saturday night's report. Most macro-relevant in the cluster — US WTO exit would unbind tariff schedules, fragment global trade, pressure AUS export-oriented industrials. Waltz testimony (Senate Foreign Relations) caused the UN sibling to reverse 46%→33%, but WTO held at 37%. <strong>Watch:</strong> Any new administration statement on WTO "reform" vs "exit" moves this market.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-down">33%</div>
+        <div class="market-info">
+          <div class="market-label">
+            <span class="quality-tag q-med">MED</span>
+            US UN withdrawal by 2029 (Kalshi KXWITHDRAW-29-UN)
+            <span class="delta-tag delta-down">−13pp from peak</span>
+          </div>
+          <div class="market-detail">Stable at 33% post-Waltz reversal (down from 46% peak Friday ET). Already reported to reader Saturday night. Waltz "reform not withdrawal" posture + bipartisan bill preserving UN dues = partial de-escalation. Remains elevated vs. early-April ~18–20% baseline — structural re-rating intact, but withdrawal is no longer "coin-flip" territory.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-badge price-flat">66%</div>
+        <div class="market-info">
+          <div class="market-label">Kalshi: US unemployment ≥7% before 2030 (KXU3MAX)</div>
+          <div class="market-detail">Stable. Ongoing tariff-recession uncertainty pricing — not a new mover. ≥7% bucket at 66%, well below ↑74% ceiling trigger. Monitoring for any breakout driven by Q2 2026 US employment data or trade-war escalation ratchet.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET STORY -->
+  <div class="section">
+    <h2>Cross-Market Story</h2>
+    <div class="cross-market">
+      <strong>The narrative heading into Monday April 27:</strong> The market complex is telling a coherent "structural freeze + dual de-escalation" story. Iran is locked in a stable confrontation (nuclear deal dead, Hormuz closed, IRGC enforcing dual blockade) but there is no military escalation signal — WTI oil has now confirmed this 28+ consecutive times. Simultaneously, the US Fed succession path cleared (DOJ probe dropped, Tillis unblocked, Warsh 98.4%), and the US-China trade thaw is advancing (summit May 14–15 confirmed, 74% priced).
+      <br><br>
+      The two biggest pending catalysts are (1) <strong>SCOTUS Trump v. Cook</strong> — first Monday window opens April 27; against-Trump ruling (~80% base case) → Powell stays protected, June 30 drifts modestly lower; for-Trump ruling (~20% tail) → Powell removable, June 30 surges 95%+; and (2) <strong>April 30 resolution cascade</strong> — ceasefire YES, nuclear deal NO, Hormuz NO, WTI $120 NO. All markets price their expected outcomes; no surprise is anticipated.
+      <br><br>
+      For Australian investors: <strong>Rate-sensitives (A-REITs, utilities) and gold miners (NST/EVN/NCM)</strong> should benefit from Warsh's rate-cut horizon on Monday open. Energy stocks (WDS/STO/STO) are neutral — oil is flat and the structural freeze is well-priced. Iron ore and base metals face a modest positive from China summit optimism (74%). AUD/USD is range-bound: Iran risk-off offset by USD weakness on Powell-retreat, trade thaw positive.
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View</h2>
+
+    <div class="forward-item">
+      <div class="fw-label">⚖️ Monday April 27 — SCOTUS First Live Window (Trump v. Cook)</div>
+      <div class="fw-text">SCOTUS issues decisions on Mondays only (confirmed — NOT Fridays). First possible ruling date for Trump v. Cook. Against-Trump ruling (base case, ~80%): Powell June 30 stays anchored 88–93%; no trigger risk. For-Trump ruling (~20% tail): Powell June 30 surges to 95%+, May 31 re-prices toward 90%. Watch for Court's 10:00 AM ET (00:00 AEST Tuesday April 28) announcement.</div>
+    </div>
+
+    <div class="forward-item">
+      <div class="fw-label">📈 Monday April 27 — ASX Open (Triple Catalyst Pricing)</div>
+      <div class="fw-text">First ASX session since ANZAC Day Friday, pricing: (1) DOJ drops Powell probe → Warsh path clear → rate-sensitives, A-REITs, utilities +; (2) Islamabad Round 2 no-deal → Iran stays frozen → energy neutral, oil flat; (3) UN/WTO withdrawal cluster (WTO 37%) → AUS export-oriented industrials: monitor. No public holiday Monday April 27 in any Australian state (ANZAC Day substitute observed Saturday only).</div>
+    </div>
+
+    <div class="forward-item">
+      <div class="fw-label">🗓️ April 28–May 4 — Senate Recess</div>
+      <div class="fw-text">US Senate enters recess April 28 through May 4. No Warsh floor vote possible during this period. Senate Banking Committee vote May 5–9 (target); floor vote week of May 11. This calendar explains the ~25% NO pricing on Powell May 31 — tight but achievable window. Watch for any surprise recess-period Senate appointment mechanism.</div>
+    </div>
+
+    <div class="forward-item">
+      <div class="fw-label">⏳ April 30 — Iran Resolution Cascade (4 Days)</div>
+      <div class="fw-text">Seven April Iran markets resolve simultaneously: nuclear deal (4–7%, NO), Hormuz (0.9–1.75%, NO), ceasefire (99.6%, YES), WTI $120 (~6–8%, NO), WTI $200 (0.2%, NO). No surprises expected — all pricing their anticipated outcomes. After April 30: Iran market coverage shifts to May/June deal and Hormuz markets if they emerge. Watch market-discover.sh for new market creation post-April 30 resolution.</div>
+    </div>
+
+    <div class="forward-item">
+      <div class="fw-label">🌏 May 14–15 — Trump Beijing Summit</div>
+      <div class="fw-text">Trump-China at 74% with summit date confirmed. Watch for pre-summit trade positioning (tariff pause extensions, AUSFTA-adjacent signals). Any cancellation (↓65% trigger) would be AUD-negative and materials-sector negative. Next catalyst: Bessent-led pre-summit talks announcement.</div>
+    </div>
+
+    <div class="forward-item">
+      <div class="fw-label">🔑 Week of May 11 — Warsh Senate Floor Vote (Target)</div>
+      <div class="fw-text">This is the critical window for Powell May 31 resolution. If floor vote confirmed May 11–14: Powell out before May 31 → 95%+ pricing expected. If vote delayed past May 20: Powell May 31 likely falls toward ↓55% obstruction trigger. Monitor Senate majority leader schedule announcements after recess ends May 4.</div>
+    </div>
+  </div>
+
+  <footer>
+    Generated 2026-04-26 07:00 AEST by Polymarket Analyst · Data: Polymarket + Kalshi + collect.log ·
+    No triggers fired this run · Two Hormuz triggers deactivated (impossible before April 30 resolution)
+  </footer>
+
+</div>
+</body>
+</html>
