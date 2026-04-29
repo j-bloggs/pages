@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 29 April 2026 5PM AEST</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --accent-blue: #4a9eff;
+    --accent-green: #3ecf8e;
+    --accent-red: #f56565;
+    --accent-amber: #f6ad55;
+    --accent-purple: #9f7aea;
+    --text: #e2e8f0;
+    --muted: #718096;
+    --high: #3ecf8e;
+    --med: #f6ad55;
+    --low: #9f7aea;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; padding: 24px 16px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 24px; }
+  .header-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-daily { background: #2a3f5f; color: var(--accent-blue); }
+  .badge-alert { background: #4a2020; color: var(--accent-red); }
+  .badge-watch { background: #3a3020; color: var(--accent-amber); }
+  h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: var(--muted); font-size: 14px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  .summary-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 20px; }
+  .summary-box p { margin-bottom: 8px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  .market-grid { display: flex; flex-direction: column; gap: 8px; }
+  .market-row { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 13px 16px; display: flex; align-items: flex-start; gap: 14px; }
+  .market-row.alert { border-color: #4a2020; background: #150d0d; }
+  .market-row.watch { border-color: #3a3020; }
+  .market-row.trigger-near { border-color: #4a3820; background: #160e00; }
+  .price-block { flex-shrink: 0; text-align: center; min-width: 72px; }
+  .price-main { font-size: 24px; font-weight: 700; line-height: 1; }
+  .price-delta { font-size: 13px; margin-top: 4px; }
+  .price-delta.up { color: var(--accent-green); }
+  .price-delta.down { color: var(--accent-red); }
+  .price-delta.flat { color: var(--muted); }
+  .market-info { flex: 1; }
+  .market-label { font-weight: 600; font-size: 15px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .quality-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+  .q-high { background: #1a3a2a; color: var(--high); }
+  .q-med { background: #3a2e1a; color: var(--med); }
+  .q-low { background: #2a1a3a; color: var(--low); }
+  .market-note { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .trigger-bar { margin-top: 8px; }
+  .trigger-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .bar-track { background: #2a2d3a; border-radius: 4px; height: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+  .bar-green { background: var(--accent-green); }
+  .bar-amber { background: var(--accent-amber); }
+  .bar-red { background: var(--accent-red); }
+  .event-list { display: flex; flex-direction: column; gap: 10px; }
+  .event-item { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent-blue); border-radius: 8px; padding: 12px 16px; }
+  .event-time { font-size: 12px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; margin-bottom: 4px; }
+  .event-title { font-weight: 600; margin-bottom: 4px; }
+  .event-note { font-size: 13px; color: var(--muted); }
+  .macro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .macro-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .macro-card-title { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .macro-card-value { font-size: 22px; font-weight: 700; }
+  .macro-card-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .forward-box { background: var(--card); border: 1px solid var(--accent-blue); border-radius: 8px; padding: 16px 18px; }
+  .forward-box h3 { color: var(--accent-blue); font-size: 14px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .forward-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .forward-box li { padding-left: 16px; position: relative; font-size: 14px; }
+  .forward-box li::before { content: "→"; position: absolute; left: 0; color: var(--accent-blue); font-weight: 700; }
+  .action-row { background: #1a1d27; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .action-row strong { color: var(--text); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 3px; margin-right: 4px; background: #2a2d3a; color: var(--muted); }
+  .tag-new { background: #1a3a2a; color: var(--accent-green); }
+  .tag-fired { background: #4a2020; color: var(--accent-red); }
+  .tag-tonight { background: #2a3f5f; color: var(--accent-blue); }
+  .flag-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent-amber); font-weight: 600; padding: 8px 12px; background: #1e1600; border: 1px solid #4a3820; border-radius: 6px; margin-bottom: 12px; }
+  .ref-links { font-size: 12px; color: var(--muted); margin-top: 16px; }
+  .ref-links a { color: var(--accent-blue); text-decoration: none; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-meta">
+      <span class="badge badge-daily">Daily Briefing</span>
+      <span class="badge badge-watch">5PM AEST</span>
+    </div>
+    <h1>Polymarket Daily — 29 April 2026</h1>
+    <div class="subtitle">Wednesday 5:00 PM AEST &nbsp;·&nbsp; Pre-event edition &nbsp;·&nbsp; Warsh vote + FOMC overnight &nbsp;·&nbsp; Iran cascade resolves T−21h</div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <div class="summary-box">
+      <p>The session's dominant signal is the <strong>Trump-China summit drift</strong>: the May 31 Beijing visit market fell from 76.5% at 7AM to <strong>72.0%</strong> now (-4.5pp), with the past hour showing -2.5pp acceleration. No cancellation catalyst has been confirmed — the summit remains nominally scheduled for May 14–15 per the White House — but thin-volume uncertainty narrative (South China Morning Post, Brookings) is dragging prices. At 72%, the market sits only <strong>7pp above the ↓65% cancellation trigger</strong> and now only 2pp above a newly added <strong>↓70% early-warning trigger</strong>.</p>
+      <p>Tonight is macro-heavy: the <strong>Senate Banking Committee votes on Kevin Warsh at midnight AEST</strong> (10AM ET; near-certain 13-11 party-line pass), followed by <strong>Powell's final FOMC press conference at 4AM AEST</strong> (rate hold is locked, but his tone on tariff-driven inflation is the read-across). Tomorrow afternoon (2PM AEST May 1), the <strong>Iran April 30 triple cascade resolves</strong> — nuclear deal (~0.35%), Hormuz (~0.35%), ceasefire (~99.6%) — clearing the board for May/June successor markets.</p>
+      <p>Oil remains the structural macro anchor: Brent crude ~$112/bbl (WTI proxy ~$105–108), up ~$15 from last week's $96–97 WTI. This is a <strong>pure Hormuz-closed structural premium</strong>, not a war escalation spike. The 33rd consecutive oil bifurcation vs. geopolitical noise confirms the "permanent conflict economy" base case — frozen blockade, no deal, no invasion, no sudden reopening.</p>
+    </div>
+  </div>
+
+  <!-- KEY MARKETS -->
+  <div class="section">
+    <div class="section-title">Key Markets</div>
+
+    <!-- Trump-China — ALERT: approaching trigger -->
+    <div class="flag-row">⚠️ ELEVATED MONITORING — Trump-China 72.0% (↓70% early-warning: 2pp away; ↓65% cancellation: 7pp away)</div>
+    <div class="market-grid">
+
+      <div class="market-row trigger-near">
+        <div class="price-block">
+          <div class="price-main" style="color:#f6ad55">72.0%</div>
+          <div class="price-delta down">−4.5pp today</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Trump visits China by May 31 <span class="quality-tag q-high">HIGH</span> <span class="tag">summit</span></div>
+          <div class="market-note">Fell from 76.5% (7AM) → 72.0% now. 1h: −2.5pp, 1d: −4pp, 1w: −5.5pp. Acceleration in the past hour. Vol $23K/24h (thin book — caution). No confirmed cancellation catalyst; summit still on White House calendar (May 14–15 Beijing). SCMP and Brookings running summit-uncertainty narratives; general "Iran war making Asia tour politically difficult" drift. Main downside risks: Iran re-escalation timing conflict, Taiwan provocation, tariff re-escalation before summit.</div>
+          <div class="trigger-bar">
+            <div class="trigger-label">Distance to ↓65% cancellation trigger: 7pp. New ↓70% early-warning: 2pp away.</div>
+            <div class="bar-track"><div class="bar-fill bar-amber" style="width:49%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:#3ecf8e">98.75%</div>
+          <div class="price-delta up">+0.25pp/24h</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Kevin Warsh confirmed as Fed Chair <span class="quality-tag q-high">HIGH</span> <span class="tag-tonight tag">TONIGHT</span></div>
+          <div class="market-note">Senate Banking Committee votes at midnight AEST tonight (10AM ET). Near-certain 13-11 party-line pass; Tillis blockade ended April 26–27. Clean pass → Senate floor vote week of May 11 → Warsh sworn in before Powell's May 15 term expiry. If a surprise hold is placed by a new objector: Powell May 31 falls 10–15pp, June 30 falls 5–8pp. No intelligence of any objector.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:#3ecf8e">93.0%</div>
+          <div class="price-delta flat">flat since 7AM</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Powell out as Fed Chair by May 31 <span class="quality-tag q-high">HIGH</span></div>
+          <div class="market-note">Locked in ahead of tonight's Warsh committee vote. Senate floor vote week of May 11 → Powell out before May 15 term expiry. The 7% NO at current pricing = residual floor-vote procedural risk + thin Senate calendar. Warsh committee pass tonight compresses NO further. Floor trigger: ↓55% (38pp away, safe).</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:#3ecf8e">96.8%</div>
+          <div class="price-delta flat">stable</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Powell out as Fed Chair by June 30 <span class="quality-tag q-high">HIGH</span></div>
+          <div class="market-note">Near-certainty anchor. SCOTUS Trump v. Cook next window: May 4 (Monday). A FOR-Trump ruling would push above 98%; AGAINST-Trump (base case 60%) keeps June 30 in 94–98% range. Gap to ↓75% structural-break trigger: 21.8pp (safe).</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:var(--muted)">33.5%</div>
+          <div class="price-delta down">−1pp today</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US invades Iran before 2027 <span class="quality-tag q-low">LOW</span></div>
+          <div class="market-note">Retreating from 7AM's 34.5%. Now 6.5pp below the ↑40% escalation trigger — recovering buffer after yesterday's 5.5pp proximity scare. Oil (Brent $112) continues non-confirmation of any escalation narrative: 33rd consecutive bifurcation. [LOW] quality market — directional signal only.</div>
+          <div class="trigger-bar">
+            <div class="trigger-label">Distance to ↑40% escalation trigger: 6.5pp (recovering).</div>
+            <div class="bar-track"><div class="bar-fill bar-green" style="width:83.75%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:var(--muted)">39.5%</div>
+          <div class="price-delta down">−2.5pp/24h</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Iran leadership change by Dec 31, 2026 <span class="quality-tag q-low">LOW</span></div>
+          <div class="market-note">Slow drift down from ~42% yesterday. Structural pressure from dual blockade + deal death + domestic economic strain remains, but no acceleration. 20.5pp below ↑60% trigger. [LOW] quality: UMA-decided. Supporting directional signal for "domestic pressure on regime" narrative without escalation.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:var(--muted)">~0.35%</div>
+          <div class="price-delta flat">terminal</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US-Iran nuclear deal by Apr 30 <span class="quality-tag q-high">HIGH</span> <span class="tag">resolves tomorrow</span></div>
+          <div class="market-note">Terminal NO. Resolves May 1 2PM AEST. April diplomatic window comprehensively closed: Iran IRNA rejected Round 2 Islamabad April 20; dual blockade holding; no deal framework exists. Post-resolution: attention migrates to May/June deal markets and the Araghchi "Hormuz First" back-channel.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:var(--muted)">~0.35%</div>
+          <div class="price-delta flat">terminal</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Hormuz normalization by Apr 30 <span class="quality-tag q-med">MED</span> <span class="tag">resolves tomorrow</span></div>
+          <div class="market-note">Terminal NO. Dual US Navy + IRGC blockade. IRGC gunboat attacks April 22 confirmed enforcement posture. Post-resolution: Hormuz May 31 (~39% YES) and June 30 (~57% YES) are the live forward signals — Araghchi's "Hormuz First" proposal (April 27) forms their pricing anchor.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:#3ecf8e">99.6%</div>
+          <div class="price-delta flat">stable</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US-Iran ceasefire holds through Apr 30 <span class="quality-tag q-med">MED</span> <span class="tag">resolves tomorrow</span></div>
+          <div class="market-note">Near-certain YES. Trump unilateral extension holding; no operational escalation since April 22 IRGC gunboat incidents. Resolves tomorrow May 1 2PM AEST. Post-resolution: ceasefire May/June markets carry the structural holding narrative forward.</div>
+        </div>
+      </div>
+
+      <div class="market-row">
+        <div class="price-block">
+          <div class="price-main" style="color:var(--muted)">1.75%</div>
+          <div class="price-delta up">+0.3pp/24h</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Fed June 2026 rate hike (+25bps) <span class="quality-tag q-high">HIGH</span> <span class="tag-tonight tag">TONIGHT</span></div>
+          <div class="market-note">Largely stable. Tonight's FOMC hold is fully priced. June hike probability rises only if Powell's presser tonight explicitly flags stagflation risk (tariff-driven inflation overriding weak labour market). Current 1.75% reflects near-zero credibility for a June hike. Watch for move toward 5% (current trigger threshold) if Powell tone is hawkish. 3.25pp below trigger.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- OIL / MACRO SNAPSHOT -->
+  <div class="section">
+    <div class="section-title">Oil &amp; Macro Snapshot</div>
+    <div class="macro-grid">
+      <div class="macro-card">
+        <div class="macro-card-title">Brent Crude (WTI proxy)</div>
+        <div class="macro-card-value" style="color:#f6ad55">~$112/bbl</div>
+        <div class="macro-card-sub">WTI proxy ~$105–108. Up ~$15/bbl from $96–97 WTI last week. Structural Hormuz-closed premium — not a war spike. 33rd consecutive bifurcation vs. escalation narrative.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-card-title">Australian Petrol Impact</div>
+        <div class="macro-card-value" style="color:#f6ad55">A$2.30–2.40/L</div>
+        <div class="macro-card-sub">Brent ~$112 driving elevated Australian fuel costs. Permanent conflict economy base case = sustained fuel pressure through H1 2026. Brent, not WTI, sets Australian pump prices.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-card-title">US Unemployment ≥7% by 2030 (Kalshi)</div>
+        <div class="macro-card-value" style="color:#f6ad55">66%</div>
+        <div class="macro-card-sub">Flat. Significant recession risk priced — but no new acceleration. 8pp below ↑74% ceiling trigger.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-card-title">US National Debt $50T by 2028 (Kalshi)</div>
+        <div class="macro-card-value" style="color:#f6ad55">53%</div>
+        <div class="macro-card-sub">Coin-flip on fiscal explosion. "Higher-for-longer" rates backdrop validates; US Fed succession (Warsh) adds to fiscal uncertainty.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-card-title">Habeas Corpus Suspension (Kalshi)</div>
+        <div class="macro-card-value" style="color:var(--muted)">18%</div>
+        <div class="macro-card-sub">Flat. 12pp below ↑30% rule-of-law trigger. No escalation signal.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-card-title">China Invades Taiwan by 2027 (Polymarket)</div>
+        <div class="macro-card-value" style="color:var(--muted)">7.4%</div>
+        <div class="macro-card-sub">7.6pp below ↑15% trigger. Stable backdrop — China watching Iran war bandwidth but not moving on Taiwan.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TONIGHT'S EVENTS -->
+  <div class="section">
+    <div class="section-title">Tonight's Key Events (AEST)</div>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-time">Midnight AEST tonight (10:00 AM ET, April 29)</div>
+        <div class="event-title">Senate Banking Committee — Warsh confirmation vote</div>
+        <div class="event-note">Near-certain 13-11 party-line pass. Warsh at 98.75%. Clean pass → floor vote week of May 11 → Powell out by May 15 → Powell May 31 price moves toward 95%+. Any surprise hold = Powell May 31 falls 10–15pp immediately (but no known objector). <strong>Monitoring: no alert needed on clean pass; fire only if surprise hold placed.</strong></div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">4:00 AM AEST Thursday April 30 (2:00 PM ET, April 29)</div>
+        <div class="event-title">FOMC rate decision — hold at 3.50–3.75% confirmed</div>
+        <div class="event-note">Third consecutive hold. Zero drama on the rate call. <strong>Key read: FOMC statement language on tariffs and inflation.</strong> If the statement acknowledges "supply-side price pressures from tariffs" explicitly, short-end rates reprice modestly hawkish — June hike (currently 1.75%) drifts toward 3–5%.</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">4:30 AM AEST Thursday April 30 (2:30 PM ET, April 29)</div>
+        <div class="event-title">Jerome Powell — Final FOMC Press Conference as Chair</div>
+        <div class="event-note">Powell's last press conference before Warsh takes over (May 15 latest). <strong>Market watching for:</strong> (1) Does Powell explicitly name tariff-driven inflation? (2) Does he reference the Hormuz premium in WTI? (3) Any signal on whether he will stay on as a Fed governor for continuity? Hawkish tone = short-end repricing, USD mild strength, ASX mildly negative. Dovish/neutral = no impact.</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">1:59 PM AEST Friday May 1 (11:59 PM ET, April 30)</div>
+        <div class="event-title">Iran triple cascade resolution — nuclear deal, Hormuz April, ceasefire April</div>
+        <div class="event-note">Nuclear deal (~0.35%) resolves NO. Hormuz April (~0.35%) resolves NO. Ceasefire April (~99.6%) resolves YES. <strong>Immediately post-resolution:</strong> run market-discover.sh to capture Hormuz May (~39%), Hormuz June (~57%), deal May/June, uranium surrender June/December, ceasefire May/June successor markets. These form the new monitoring base.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CROSS-MARKET NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Cross-Market Narrative</div>
+    <div class="summary-box">
+      <p><strong>The "Permanent Conflict Economy" base case holds intact.</strong> Across 33+ consecutive data collections since April 21, the oil market has refused to escalate with any geopolitical deterioration: deal death, blockade enforcement, ceasefire expiry, IRGC gunboat attacks, Powell removal jeopardy — Brent/WTI has moved purely on the structural Hormuz-closed premium ($112 Brent today vs. a likely $85–90 in a Hormuz-open world). This bifurcation is the most important signal in the complex. It tells you the market consensus is: <em>frozen blockade, no sudden war, no sudden peace</em>.</p>
+      <p><strong>The Trump-China drift is the new variable to watch.</strong> A 72% YES with −5.5pp/week drift signals rising uncertainty, not confirmed cancellation. The two narratives are linked: if Iran tensions complicate Trump's Asia tour politically (optics of a "peace summit" while the Hormuz is blockaded), May 14–15 could slip. A summit postponement is <em>not</em> a war signal — it's a trade-war prolongation signal, mildly negative for AUD (iron ore demand), ASX materials, and CNH.</p>
+      <p><strong>Fed succession is settled policy risk, not market uncertainty.</strong> Warsh at 98.75%, Powell May 31 at 93% — markets are fully priced for a clean succession before May 15. The residual uncertainty is timing (floor vote slippage risk), not outcome. The key next catalyst is the <strong>SCOTUS Trump v. Cook decision</strong> (first opportunity Monday May 4), which determines whether Powell's removal could be challenged legally. FOR-Trump = Powell June 30 rallies to 98%+; AGAINST-Trump (60% base case) = minimal repricing, June 30 holds at 94–98%.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View &amp; What to Watch</div>
+    <div class="forward-box">
+      <h3>Watching for</h3>
+      <ul>
+        <li><strong>Trump-China at ↓70%</strong> (2pp away): Early warning trigger now active. If fired overnight, check for news on Iran-war political optics, Taiwan, or tariff re-escalation. Low volume means thin-book moves possible — verify with cross-market (AUD/CNH).</li>
+        <li><strong>Warsh committee vote (midnight AEST)</strong>: Clean 13-11 pass → Powell May 31 consolidates at 93–95%, no email needed. Surprise hold by ANY Republican = immediate alert — Powell May 31 falls 10–15pp.</li>
+        <li><strong>Powell tone at 4AM AEST</strong>: Tariff-inflation language in FOMC statement or presser = watch Fed June hike (currently 1.75%, trigger at 5%). "Balanced risks" (neutral) = no market impact.</li>
+        <li><strong>Iran triple cascade tomorrow (2PM AEST May 1)</strong>: Immediate post-resolution: run market-discover.sh for Hormuz May (~39%), June (~57%), deal May/June, uranium surrender, ceasefire May/June. These become the new monitoring base.</li>
+        <li><strong>SCOTUS May 4 (Monday)</strong>: Next Trump v. Cook decision window. FOR-Trump → Powell June 30 surges to 98%+. AGAINST-Trump (base case) → minimal impact.</li>
+        <li><strong>Iran invasion 2027 at 33.5%</strong>: Retreating today (good). Watch for any reversal above 35% — would signal Iran escalation narrative re-emerging. Oil must confirm any move above 35% to be actionable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section">
+    <div class="section-title">Trigger Actions This Session</div>
+    <div class="action-row"><span class="tag-new tag">ADDED</span> <strong>trump-china-early-warning</strong>: New ↓70% early-warning trigger on Trump-China May 31 (slug: will-trump-visit-china-by-may-31-344). Current 72%, 2pp from fire. Pre-alert before main ↓65% cancellation trigger (7pp away). Rationale: -4.5pp intraday drift, -5.5pp/week trend warrants earlier alert.</div>
+    <div class="action-row"><span class="tag tag">UNCHANGED</span> <strong>powell-june30-structural-break (↓75%)</strong>: June 30 at 96.8%, 21.8pp above threshold. Safe. No change.</div>
+    <div class="action-row"><span class="tag tag">UNCHANGED</span> <strong>iran-invasion-2027-escalation (↑40%)</strong>: Iran invasion at 33.5%, 6.5pp below threshold. Safe, retreating.</div>
+    <div class="action-row"><span class="tag tag">UNCHANGED</span> <strong>fed-june-hike (↑5%)</strong>: Fed June hike at 1.75%, 3.25pp below trigger. Watch tonight's FOMC statement.</div>
+    <div class="action-row"><span class="tag tag">PENDING</span> <strong>Post-resolution (May 1 2PM AEST)</strong>: market-discover.sh to add Hormuz May/June, deal May/June, uranium surrender, ceasefire May/June as new watchlist items.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="ref-links">
+    Generated by Polymarket Analyst &nbsp;·&nbsp; 2026-04-29 17:00 AEST &nbsp;·&nbsp;
+    Sources: <a href="https://polymarket.com">Polymarket</a>, <a href="https://kalshi.com">Kalshi</a>,
+    <a href="https://www.scmp.com/news/china/diplomacy/article/3347008/what-are-real-reasons-behind-change-date-trumps-china-visit">SCMP summit analysis</a>,
+    <a href="https://www.brookings.edu/articles/the-delayed-trump-xi-summit-iran-and-the-us-china-relationship/">Brookings</a>,
+    <a href="https://www.cnbc.com/2026/04/28/fed-meeting-preview-april-2026.html">CNBC FOMC preview</a>
+  </div>
+
+</div>
+</body>
+</html>
