@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIGGER FIRE: Iran Ops-End June 30 Crosses 75% at 81.5% — 2 May 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --accent-green: #00c896;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-blue: #60a5fa;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-low: #7c3aed;
+    --tag-med: #0891b2;
+    --tag-high: #059669;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 780px; margin: 0 auto; }
+
+  /* Header */
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4);
+    border-radius: 6px; padding: 4px 12px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-red); text-transform: uppercase; margin-bottom: 12px;
+  }
+  h1 { font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+
+  /* Boxes */
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .box-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+
+  /* Key metric */
+  .metric-row {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;
+  }
+  .metric-value { font-size: 36px; font-weight: 800; color: var(--accent-amber); }
+  .metric-delta { font-size: 18px; font-weight: 700; color: var(--accent-red); }
+  .metric-label { font-size: 14px; color: var(--muted); }
+
+  /* Trigger indicator */
+  .trigger-fire {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.35);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  /* Market rows */
+  .market-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .market-row:last-child { border-bottom: none; }
+  .market-name { font-size: 14px; }
+  .market-price { font-size: 16px; font-weight: 700; }
+  .market-delta { font-size: 12px; color: var(--muted); }
+  .tag {
+    display: inline-block; padding: 1px 6px; border-radius: 3px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    vertical-align: middle; margin-left: 4px;
+  }
+  .tag-low { background: rgba(124,58,237,0.2); color: #a78bfa; }
+  .tag-med { background: rgba(8,145,178,0.2); color: #67e8f9; }
+  .tag-high { background: rgba(5,150,105,0.2); color: #6ee7b7; }
+  .up { color: var(--accent-green); }
+  .down { color: var(--accent-red); }
+  .flat { color: var(--muted); }
+
+  /* Validation box */
+  .validation {
+    background: rgba(0,200,150,0.05);
+    border: 1px solid rgba(0,200,150,0.2);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .validation-title {
+    font-size: 12px; font-weight: 700; color: var(--accent-green);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;
+  }
+
+  /* Warning box */
+  .warning {
+    background: rgba(245,158,11,0.07);
+    border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .warning-title {
+    font-size: 12px; font-weight: 700; color: var(--accent-amber);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;
+  }
+
+  /* Step list */
+  .steps { list-style: none; padding: 0; }
+  .steps li { padding: 6px 0; padding-left: 20px; position: relative; font-size: 14px; }
+  .steps li::before {
+    content: attr(data-step);
+    position: absolute; left: 0;
+    font-size: 11px; font-weight: 700;
+    color: var(--accent-blue);
+  }
+
+  /* Forward items */
+  .fwd-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .fwd-item:last-child { border-bottom: none; }
+  .fwd-label { font-size: 11px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 12px; color: var(--muted); padding-top: 20px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header-badge">⚡ Trigger Fired</div>
+  <h1>Iran Ops-End June 30 Crosses 75% at 81.5%</h1>
+  <div class="meta">Saturday 2 May 2026 · 05:16 AEST · Continuation of 04:55 AEST alert</div>
+
+  <!-- Key metric -->
+  <div class="box">
+    <div class="box-title">Fired Trigger</div>
+    <div class="metric-row">
+      <div class="metric-value">81.5%</div>
+      <div class="metric-delta">+12.5pp</div>
+      <div class="metric-label">since 04:55 AEST email (was 68.5%)</div>
+    </div>
+    <div class="trigger-fire">
+      <strong style="color:var(--accent-red)">↑75% THRESHOLD CROSSED</strong> — Iran military ops end by June 30
+      <span class="tag tag-low">LOW quality</span><br>
+      <small style="color:var(--muted)">Threshold now raised to ↑90% for near-certainty monitoring</small>
+    </div>
+    <p style="font-size:14px;color:var(--muted)">
+      Same underlying catalyst as 04:55 email: Trump's War Powers Act letter to Congress (May 1 ET) declaring hostilities "terminated." This is the second wave of that move — continuation buying, not a new development.
+    </p>
+  </div>
+
+  <!-- 4-step validation -->
+  <div class="box">
+    <div class="box-title">4-Step Catalyst Validation</div>
+    <ul class="steps">
+      <li data-step="A">
+        <strong>Description:</strong> YES if Trump/US government/military "publicly and officially announce that military operations against Iran...have concluded" by June 30 ET. Written Trump Truth Social posts qualify. Informal/unnamed sources don't. <strong>Resolution quality: <span class="tag tag-low">LOW</span></strong> — UMA token holders vote on whether War Powers letter satisfies this criteria.
+      </li>
+      <li data-step="B">
+        <strong>Timing:</strong> April 30 sibling = 4.55% YES (near-zero — resolved NO, ops didn't end by April 30 ✓). June 30 = 81.5% per market-watch. May 31 sibling = ~38–64% (discrepancy between two parallel market families; see data note below).
+      </li>
+      <li data-step="C">
+        <strong>Catalyst:</strong> Trump's formal War Powers Act letter to Congress (May 1 ET): <em>"The hostilities that began on February 28, 2026, have terminated."</em> Confirmed by Roll Call, CBS News, Washington Post. Official presidential letter — exactly the qualifying statement type per resolution criteria. Bettors pricing 81.5% chance UMA rules this satisfies June 30 market.
+      </li>
+      <li data-step="D">
+        <strong>Cross-market:</strong> Hormuz blockade lift May 31: <strong>40.5% (UNCHANGED, 0.0pp)</strong>. Iran invasion 2027: 31.5% (unchanged). Warsh: 99.5% (stable). <strong style="color:var(--accent-green)">No contradiction</strong> — physical blockade intact, oil premium maintained.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Ground truth validation -->
+  <div class="validation">
+    <div class="validation-title">✓ Cross-Market Ground Truth: Physical Reality Unchanged</div>
+    <p style="font-size:14px">The Hormuz blockade lift market at <strong>40.5% (0.0pp since last email)</strong> is the definitive validator. If Trump's "terminated" letter represented genuine military withdrawal, Hormuz lift would be pricing well above 60%+. It hasn't moved 1pp. The 81.5% ops-end reading is a <em>resolution-criteria story</em> (UMA deciding if the letter qualifies) — not a geopolitical de-escalation signal. The naval blockade continues. Iranian ports remain closed. Australian petrol prices are unaffected.</p>
+  </div>
+
+  <!-- Data quality warning -->
+  <div class="warning">
+    <div class="warning-title">⚠ Data Quality Note: 25pp Cache Discrepancy</div>
+    <p style="font-size:14px">The Polymarket description cache shows <strong>56.5%</strong> for the tracked slug, while market-watch.sh reports <strong>81.5%</strong> — a persistent 25pp gap documented since the 04:52 session. A parallel event family (April 15 parent) shows the June 30 sibling at 78.5%, consistent with market-watch. There appear to be two market structures tracking the same event. Treat 81.5% as <em>directionally correct</em> for the higher-priced family; precise value uncertain. Hormuz lift (40.5%) remains the clean ground-truth benchmark.</p>
+  </div>
+
+  <!-- Cross-market snapshot -->
+  <div class="box">
+    <div class="box-title">Full Market Snapshot — 05:16 AEST</div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Iran ops end by June 30 <span class="tag tag-low">LOW</span></div>
+        <div class="market-delta">↑75% FIRED → now monitoring ↑90%</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price up">81.5%</div>
+        <div class="market-delta up">+12.5pp since 04:55</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">US Hormuz blockade lifted May 31 <span class="tag tag-med">MED</span></div>
+        <div class="market-delta">Ground truth — physical de-escalation signal · 24.5pp below ↑65% trigger</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price flat">40.5%</div>
+        <div class="market-delta flat">0.0pp</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Iran invasion 2027 <span class="tag tag-low">LOW</span></div>
+        <div class="market-delta">De-escalation consistent · 8.5pp below ↑40% trigger</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price flat">31.5%</div>
+        <div class="market-delta flat">0.0pp</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Trump visits China by May 31 <span class="tag tag-high">HIGH</span></div>
+        <div class="market-delta">Beijing summit May 14-15 · 15.5pp above ↓70% early-warning</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price">85.0%</div>
+        <div class="market-delta flat">stable</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Kevin Warsh confirmed as Fed Chair <span class="tag tag-high">HIGH</span></div>
+        <div class="market-delta">Floor vote week of May 11 · near-certainty</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price up">99.5%</div>
+        <div class="market-delta flat">stable</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Iran leadership change Dec 31 <span class="tag tag-low">LOW</span></div>
+        <div class="market-delta">Slow creep · 24.5pp below ↑60% trigger</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price">35.5%</div>
+        <div class="market-delta flat">0.0pp</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name">Kalshi US unemployment ≥10% before 2030 <span class="tag tag-high">HIGH</span></div>
+        <div class="market-delta">Q1 stagflation baseline · 7pp below ↑45% trigger</div>
+      </div>
+      <div style="text-align:right">
+        <div class="market-price">38.0%</div>
+        <div class="market-delta flat">unchanged</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What this means -->
+  <div class="box">
+    <div class="box-title">Macro Interpretation</div>
+    <p style="font-size:14px; margin-bottom:10px">
+      <strong>What 81.5% actually means:</strong> The market is pricing an 81.5% chance that UMA's optimistic oracle will accept Trump's War Powers letter as formal confirmation that military operations have concluded, triggering a YES resolution of the June 30 market. This is a <em>legal/procedural</em> development.
+    </p>
+    <p style="font-size:14px; margin-bottom:10px">
+      <strong>What it does NOT mean:</strong> Genuine military withdrawal, blockade lift, or Hormuz reopening. The naval blockade is fully active. Iran's ports remain restricted. The Hormuz lift market (40.5%) — the [MED]-quality ground truth — has not moved.
+    </p>
+    <p style="font-size:14px">
+      <strong>Australian implications:</strong> No immediate change to petrol pricing outlook (Brent ~$112-115, WTI ~$105-108, Hormuz premium intact). If UMA rules YES and the June 30 ops-end market resolves, watch for downstream repricing in the Hormuz lift market — <em>that</em> would be the actual de-escalation signal with real energy-price implications. Australian petrol (A$2.30-2.40/L) relief scenario still contingent on Hormuz lift, not just the War Powers letter.
+    </p>
+  </div>
+
+  <!-- Forward view -->
+  <div class="box">
+    <div class="box-title">What to Watch</div>
+    <div class="fwd-item">
+      <div class="fwd-label">Most important — UMA resolution vote</div>
+      Any bettor can submit a settlement proposal claiming the War Powers letter satisfies June 30 criteria. If accepted → market resolves YES (near-100%). If challenged and UMA votes NO → market collapses to 30-40%. This is the single biggest swing for this market. Monitor Polymarket for resolution activity.
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-label">May 8 — US April NFP (jobs)</div>
+      The stagflation test remains the next major macro catalyst. If unemployment ≥4.5% or payrolls miss 100K, Kalshi ≥7% approaches ↑74% trigger (currently 66%, 8pp away). More impactful for RBA/ASX than Iran legal maneuvering.
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-label">May 11-12 — Warsh Senate floor vote</div>
+      Near-certain 99.5% confirmation. Powell out by May 15. Warsh inherits PCE 4.5%, GDP 2.0% miss, Hormuz closed.
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-label">May 14-15 — Trump-Xi Beijing summit (85%)</div>
+      If Iran de-escalation is on the agenda, Hormuz lift (40.5%) could surge toward ↑65% trigger — the signal that would genuinely reprice oil, petrol, and ASX energy.
+    </div>
+    <div class="fwd-item">
+      <div class="fwd-label">New trigger threshold</div>
+      Iran ops-end raised to ↑90% (near-certainty). Next alert fires if market prices formal YES resolution as near-locked-in — or if UMA rejects the letter (market crash, no trigger, analyst note only).
+    </div>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst · 2026-05-02 05:16 AEST · Trigger confirmation follow-up to 04:55 AEST alert
+  </div>
+
+</div>
+</body>
+</html>
