@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert: US Stagflation Repricing — Q1 PCE 4.5%, Unemployment Tail at 38% | 1 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 2px solid #e53e3e; padding-bottom: 20px; margin-bottom: 28px; }
+  .alert-badge { display: inline-block; background: #e53e3e; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  h1 { font-size: 26px; font-weight: 700; color: #f7fafc; line-height: 1.3; margin-bottom: 8px; }
+  .meta { font-size: 13px; color: #718096; }
+  .intro { background: #1a1d27; border-left: 4px solid #e53e3e; padding: 18px 20px; border-radius: 0 6px 6px 0; margin-bottom: 28px; font-size: 15px; line-height: 1.7; color: #e2e8f0; }
+  .intro strong { color: #fc8181; }
+  section { margin-bottom: 32px; }
+  h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; border-bottom: 1px solid #2d3748; padding-bottom: 8px; margin-bottom: 16px; }
+  .market-card { background: #1a1d27; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+  .market-card.highlight { border-color: #e53e3e; }
+  .market-card.warn { border-color: #d69e2e; }
+  .market-card.positive { border-color: #38a169; }
+  .market-card.neutral { border-color: #4a5568; }
+  .market-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .market-label { font-size: 14px; font-weight: 600; color: #e2e8f0; flex: 1; }
+  .badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-high { background: #276749; color: #c6f6d5; }
+  .badge-med { background: #7b5e00; color: #fefcbf; }
+  .badge-low { background: #4a5568; color: #e2e8f0; }
+  .price-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .price-big { font-size: 26px; font-weight: 800; }
+  .price-red { color: #fc8181; }
+  .price-green { color: #68d391; }
+  .price-orange { color: #f6ad55; }
+  .price-blue { color: #63b3ed; }
+  .delta { font-size: 13px; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+  .delta-up { background: #1c4532; color: #68d391; }
+  .delta-down { background: #4a1c1c; color: #fc8181; }
+  .delta-flat { background: #2d3748; color: #a0aec0; }
+  .market-body { font-size: 13px; color: #a0aec0; line-height: 1.6; }
+  .market-body strong { color: #cbd5e0; }
+  .stagflation-box { background: #1a1a2e; border: 2px solid #e53e3e; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+  .stagflation-box h3 { font-size: 15px; font-weight: 700; color: #fc8181; margin-bottom: 12px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px; }
+  .stat-item { background: #0f1117; border-radius: 6px; padding: 12px; text-align: center; }
+  .stat-value { font-size: 24px; font-weight: 800; }
+  .stat-label { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+  .stat-delta { font-size: 12px; font-weight: 600; margin-top: 2px; }
+  .oil-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .oil-table th { text-align: left; padding: 8px 12px; background: #2d3748; color: #a0aec0; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .oil-table td { padding: 10px 12px; border-bottom: 1px solid #2d3748; }
+  .oil-table tr:last-child td { border-bottom: none; }
+  .forward { background: #1a1d27; border: 1px solid #2d3748; border-radius: 8px; padding: 20px; }
+  .forward h3 { font-size: 14px; font-weight: 700; color: #a0aec0; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
+  .event-list { list-style: none; }
+  .event-list li { padding: 8px 0; border-bottom: 1px solid #2d3748; font-size: 13px; display: flex; gap: 12px; }
+  .event-list li:last-child { border-bottom: none; }
+  .event-date { color: #63b3ed; font-weight: 600; min-width: 80px; font-size: 12px; }
+  .dismissed { background: #1a1d27; border: 1px solid #4a5568; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #718096; margin-bottom: 8px; }
+  .trigger-new { background: #1a2e1a; border: 1px solid #276749; border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #9ae6b4; margin-bottom: 6px; }
+  .footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #2d3748; font-size: 12px; color: #4a5568; text-align: center; }
+  @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr 1fr; } .market-top { flex-direction: column; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="alert-badge">Alert — 1 May 2026, 1:40 PM AEST</div>
+    <h1>US Stagflation Repricing: Q1 PCE Surges to 4.5%<br>Unemployment Tail Risk Hits 38%</h1>
+    <div class="meta">Polymarket + Kalshi | Alert-triggered run | Post-April-30 Iran cascade successor market mapping</div>
+  </div>
+
+  <div class="intro">
+    The Kalshi alert headline was cabinet-reshuffling noise, but it masked a genuine macro signal: Q1 2026 GDP printed stagflation on April 30 — <strong>PCE surged to 4.5%</strong> (from 2.9% in Q4 2025) while real growth missed at <strong>+2.0% vs +2.3% consensus</strong>. The Kalshi unemployment ≥10% tail bucket surged <strong>+10pp to 38%</strong> in direct response — the market now prices a 38% chance of US unemployment hitting Great-Depression levels before 2030. Warsh inherits an impossible mandate: he cannot cut with PCE at 4.5%, and he cannot hike into 2.0% growth. The confirmation sequencing (floor vote week of May 11) makes this his problem starting within days.<br><br>
+    Separately: <strong>Trump-China recovered to 80%</strong> from the 72% low in the April 29 5PM email — the early-warning trigger scare has passed and Beijing summit May 14–15 is back on track. The April 30 Iran cascade resolved cleanly; successor markets are now live and mapped below.
+  </div>
+
+  <!-- STAGFLATION SIGNAL -->
+  <section>
+    <h2>The Stagflation Signal — Q1 2026 GDP</h2>
+
+    <div class="stagflation-box">
+      <h3>Q1 2026 GDP Advance Estimate (Released April 30, BEA)</h3>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-value" style="color:#fc8181">+2.0%</div>
+          <div class="stat-label">Real GDP (Annualised)</div>
+          <div class="stat-delta" style="color:#fc8181">Miss vs +2.3% consensus</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color:#fc8181">+4.5%</div>
+          <div class="stat-label">PCE Price Index (Q1)</div>
+          <div class="stat-delta" style="color:#fc8181">Surge from +2.9% in Q4 2025</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color:#f6ad55">+3.2%</div>
+          <div class="stat-label">Core PCE (March, y/y)</div>
+          <div class="stat-delta" style="color:#f6ad55">Hot, above Fed 2% target</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color:#f6ad55">4.3%</div>
+          <div class="stat-label">US Unemployment (March)</div>
+          <div class="stat-delta" style="color:#a0aec0">April NFP due May 8</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#a0aec0;line-height:1.6">
+        <strong style="color:#fc8181">The Fed trap:</strong> Warsh takes the chair with inflation running at 4.5% — more than double the 2% target — while growth is already decelerating at 2.0% and the full tariff shock has yet to feed through to April/May data. The classic Volcker dilemma in reverse: hiking kills growth; pausing lets inflation embed. Markets are pricing the bad outcome: Kalshi's ≥10% unemployment bucket just told you 38% of informed bettors think the US could see 1930s-style unemployment before this decade ends.
+      </div>
+    </div>
+
+    <div class="market-card highlight">
+      <div class="market-top">
+        <div class="market-label">Kalshi: US unemployment hits ≥10% before 2030 (Great-Depression tail)</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-red">38%</span>
+        <span class="delta delta-up">+10pp</span>
+        <span style="font-size:12px;color:#718096">from ~28% prior session</span>
+      </div>
+      <div class="market-body">
+        Moved +10pp in a single session — the largest single-move on this tracker in over two weeks. This is not thin-book noise: the move is coordinated across multiple unemployment buckets (≥5% also rose +4pp to 92%). Catalyst confirmed: Q1 GDP stagflation print (PCE +4.5%). At 38%, the market is saying there is more than a one-in-three chance the US sees unemployment above 10% before 2030. That is not a "soft landing" base case — that is a meaningful probability weight on structural economic deterioration. <strong>Trigger raised to ↑45%</strong> (7pp away) — a clean break above 45% with oil/equity confirmation would warrant immediate escalation reporting.
+      </div>
+    </div>
+
+    <div class="market-card warn">
+      <div class="market-top">
+        <div class="market-label">Kalshi: US unemployment hits ≥5% before 2030</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-orange">92%</span>
+        <span class="delta delta-up">+4pp</span>
+      </div>
+      <div class="market-body">
+        Near-certainty pricing on ≥5% unemployment before 2030. US unemployment is currently 4.3% (March) — the market is saying hitting 5% is essentially locked in. Consistent with the ≥10% tail rising: both buckets move together when the recession narrative gains traction. The April NFP (May 8) is the next data point to watch; if it prints above 4.5%, this bucket moves toward 95%.
+      </div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="market-top">
+        <div class="market-label">Kalshi: US unemployment hits ≥7% before 2030</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-blue">66%</span>
+        <span class="delta delta-up">+7pp est.</span>
+        <span style="font-size:12px;color:#718096">now 8pp below ↑74% ceiling trigger</span>
+      </div>
+      <div class="market-body">
+        The "recession confirmation" bucket — above 7% would be a genuine recession outcome (current 4.3% March). Now at 66%, down from the 59% reading last tracked in April. The ↑74% ceiling trigger remains 8pp away. If April NFP disappoints and this approaches 74%, that is the definitive macro alert signal.
+      </div>
+    </div>
+  </section>
+
+  <!-- IRAN SUCCESSOR MARKETS -->
+  <section>
+    <h2>Post-April-30 Iran Successor Framework</h2>
+
+    <p style="font-size:13px;color:#a0aec0;margin-bottom:16px">The April 30 cascade resolved as expected: nuclear deal → NO, Hormuz April → NO, ceasefire April → YES. Three successor markets are now live and provide the de-escalation probability framework for May–June.</p>
+
+    <div class="market-card warn">
+      <div class="market-top">
+        <div class="market-label">US Hormuz blockade lifted by May 31</div>
+        <span class="badge badge-med">MED</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-orange">40.5%</span>
+        <span class="delta delta-flat">New</span>
+      </div>
+      <div class="market-body">
+        Coin-flip on de-escalation. Market created April 13 (day after Trump announced the US blockade). At 40.5%, this is slightly below "more likely than not" — the market sees a 60% chance Hormuz remains blocked through May 31. <strong>If this crosses 65%, the full de-escalation trade re-opens</strong>: oil reprices sharply lower, ASX energy names underperform, Australian petrol relief, AUD strengthens on risk-on. Cross-ref: if Trump-China summit (80%) proceeds on May 14–15 and produces side deals on Iran, this market could surge. <strong>New ↑65% trigger added.</strong>
+      </div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="market-top">
+        <div class="market-label">Trump announces end of Iran military operations by June 30</div>
+        <span class="badge badge-med">MED</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-green">56.5%</span>
+        <span class="delta delta-flat">New (vs April 30 was 24%)</span>
+      </div>
+      <div class="market-body">
+        The equivalent "ops end by April 30" market was only 24% with one day left — June 30 is pricing more than double that probability. The market sees a majority chance Trump formally ends military operations against Iran by end of June. Key question is whether the SCOTUS Trump v. Cook ruling (any Monday through late July) provides a domestic "victory" narrative for Trump to announce a draw-down. <strong>New ↑75% trigger added.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- OIL + TRUMP-CHINA -->
+  <section>
+    <h2>Oil Markets & Trump-China Recovery</h2>
+
+    <table class="oil-table" style="margin-bottom:16px">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Quality</th>
+          <th>Price</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>WTI $90 in May</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td style="color:#68d391;font-weight:700">99.8%</td>
+          <td style="color:#a0aec0">WTI already above $90 — certainty</td>
+        </tr>
+        <tr>
+          <td>WTI $100 in May</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td style="color:#68d391;font-weight:700">99.8%</td>
+          <td style="color:#a0aec0">WTI already above $100 — certainty</td>
+        </tr>
+        <tr>
+          <td>WTI $110 in May</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td style="color:#f6ad55;font-weight:700">83.5%</td>
+          <td style="color:#a0aec0">High-conviction: Brent ~$112, WTI ~$105–108</td>
+        </tr>
+        <tr>
+          <td>WTI $120 in May</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td style="color:#fc8181;font-weight:700">53.5%</td>
+          <td style="color:#a0aec0"><strong style="color:#fc8181">Coin-flip</strong>: requires ~$12–15 further rise from current WTI</td>
+        </tr>
+        <tr>
+          <td>WTI $130 in May</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td style="color:#68d391;font-weight:700">27.5%</td>
+          <td style="color:#a0aec0">Tail risk only: ~$25 above current spot</td>
+        </tr>
+        <tr>
+          <td>WTI $150 in May</td>
+          <td><span class="badge badge-med">MED</span></td>
+          <td style="color:#68d391;font-weight:700">8.5%</td>
+          <td style="color:#a0aec0">Black swan: requires major escalation from current</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="market-card warn">
+      <div class="market-top">
+        <div class="market-label">WTI $120 in May (NEW TRIGGER)</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-orange">53.5%</span>
+        <span class="delta delta-up">New</span>
+        <span style="font-size:12px;color:#718096">↑70% trigger added — 16.5pp away</span>
+      </div>
+      <div class="market-body">
+        WTI (proxy for Brent) is at ~$105–108, with the May $120 market pricing a slightly better-than-even chance of a $120 touch. This is a pure structural Hormuz-closed premium accumulating over time — NOT an escalation spike. The April oil bifurcation pattern (34+ consecutive confirmations: geopolitical events ≠ oil moves) continues: no military escalation scenario is being priced; Brent $112 is the locked-in "blockade as infrastructure" price. <strong>Australian petrol impact:</strong> WTI (Brent proxy) at ~$108 translates to ~A$2.25–2.40/L at the bowser. If $120 is touched, expect ~A$2.45–2.55/L. Structural, not transient.
+      </div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="market-top">
+        <div class="market-label">Trump visits China by May 31</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-green">80.0%</span>
+        <span class="delta delta-up">+8pp vs last email (72%)</span>
+      </div>
+      <div class="market-body">
+        Strong recovery from the 72% low in the April 29 5PM email, which had the early-warning trigger (↓70%) only 2pp away. Cancellation scare has passed — Beijing summit May 14–15 remains confirmed on the White House calendar. The recovery happened without a single specific catalyst (thin-book normalisation after the uncertainty narrative from SCMP/Brookings ran its course). <strong>Cancellation trigger at ↓65% is now 15pp away — safe.</strong> If summit proceeds: AUD positive, ASX materials/miners supported on China demand normalisation hope. The multi-front de-escalation narrative (China thaw + Iran structural freeze) remains the base case.
+      </div>
+    </div>
+  </section>
+
+  <!-- FED SUCCESSION -->
+  <section>
+    <h2>Fed Succession — On Track, Warsh Inherits Stagflation</h2>
+
+    <div class="market-card neutral">
+      <div class="market-top">
+        <div class="market-label">Powell out by May 31</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-blue">~93%</span>
+        <span class="delta delta-flat">Stable</span>
+      </div>
+      <div class="market-body">
+        Warsh Senate Banking Committee vote expected to have passed April 29 (10AM ET) as near-certain 13-12 party-line vote. Senate floor vote week of May 11. The "confirmed by May 1" Polymarket market at 0.1% is pure mechanics — Warsh isn't "confirmed" until floor vote passes. <strong>The macro note:</strong> the man who wins the chair inherits PCE at 4.5% and 38% odds of 10%+ unemployment. Warsh's hawkish credibility will be immediately tested. Gold bullish on Warsh uncertainty premium; short-end rates may steepen as market re-prices his first FOMC action.
+      </div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="market-top">
+        <div class="market-label">Fed June hike probability</div>
+        <span class="badge badge-high">HIGH</span>
+      </div>
+      <div class="price-row">
+        <span class="price-big price-blue">1.1%</span>
+        <span class="delta delta-flat">-0.5pp</span>
+        <span style="font-size:12px;color:#718096">3.9pp below ↑5% trigger</span>
+      </div>
+      <div class="market-body">
+        Market still pricing near-zero June hike probability despite PCE at 4.5%. This suggests Warsh's first FOMC is priced as a hold — he won't hike at his first meeting while signalling he'll take inflation seriously. If this crosses 5% (the trigger), that is the Fed-policy-shift story. Currently safely below.
+      </div>
+    </div>
+  </section>
+
+  <!-- DISMISSED -->
+  <section>
+    <h2>Dismissed — Cabinet Reshuffling (Political Noise)</h2>
+    <div class="dismissed">
+      <strong>AG candidate market:</strong> Todd Blanche at 62% (+8pp) — clear frontrunner per Bloomberg April 30. Lee Zeldin fell to 17% (-9pp). Third candidate (likely J. Pirro or H. Dhillon) at 5% (+4.7pp). Pure political reshuffling following Pam Bondi's April 2 firing. Not macro.
+    </div>
+    <div class="dismissed">
+      <strong>Secretary of Labor:</strong> Keith Sonderling at 39% (-15pp). Candidate redistribution after Chavez-DeRemer resignation April 20. Acting secretary Sonderling still leads but a competitor is gaining market share. Not macro.
+    </div>
+    <div class="dismissed">
+      <strong>Ghislaine Maxwell pardon:</strong> 45% (-6pp). Entertainment/celebrity politics. Not macro.
+    </div>
+  </section>
+
+  <!-- TRIGGER UPDATES -->
+  <section>
+    <h2>Trigger Updates</h2>
+    <div class="trigger-new">✅ <strong>ADDED:</strong> wti-may-120-reescalation — fires above 70% (currently 53.5%, 16.5pp away)</div>
+    <div class="trigger-new">✅ <strong>ADDED:</strong> hormuz-blockade-lift-may31 — fires above 65% (currently 40.5%, 24.5pp away)</div>
+    <div class="trigger-new">✅ <strong>ADDED:</strong> iran-ops-end-june30 — fires above 75% (currently 56.5%, 18.5pp away)</div>
+    <div class="trigger-new">✅ <strong>UPDATED:</strong> Kalshi unemployment ≥10% threshold raised 25%→45% (current 38%, 7pp away); ticker migrated KXU3MAX-27→KXU3MAX-30-10</div>
+    <div class="trigger-new">✅ <strong>UPDATED:</strong> Kalshi unemployment ≥7% current 59%→66%; ticker KXU3MAX-30-7</div>
+  </section>
+
+  <!-- FORWARD VIEW -->
+  <div class="forward">
+    <h3>Forward View — What to Watch</h3>
+    <ul class="event-list">
+      <li>
+        <span class="event-date">May 8</span>
+        <span><strong style="color:#fc8181">April NFP (US jobs report)</strong> — the definitive test. If unemployment ticks up to 4.5%+, the stagflation narrative accelerates. Kalshi ≥7% at 66% (8pp from ↑74% trigger). If weekly claims remain below 200K and jobs print 150K+, some of the tail repricing unwinds. This is the single most important data point in the next two weeks.</span>
+      </li>
+      <li>
+        <span class="event-date">May 11–14</span>
+        <span><strong style="color:#63b3ed">Warsh Senate floor vote</strong> (week of May 11) — near-certain confirmation. Powell out formally by May 31. Warsh's first act: navigate a 4.5% PCE environment. Watch the short-end rates market and gold on confirmation day.</span>
+      </li>
+      <li>
+        <span class="event-date">May 14–15</span>
+        <span><strong style="color:#68d391">Trump–Xi Beijing summit</strong> — 80% probability. AUD/iron-ore sensitive event. A strong joint communiqué on trade could push Trump-China above 85% and provide a positive ASX backdrop for the week of May 18. Hormuz blockade lift market (40.5%) could surge if Iran is on the agenda.</span>
+      </li>
+      <li>
+        <span class="event-date">Any Monday</span>
+        <span><strong style="color:#f6ad55">SCOTUS Trump v. Cook</strong> — decision window open through late July. FOR-Trump ruling → Powell June 30 surges above 98%; AGAINST-Trump (base case 60%) → minimal impact at current 96.8%. Not Fridays; any Monday from now through late July.</span>
+      </li>
+      <li>
+        <span class="event-date">May 31</span>
+        <span>Hormuz blockade lift deadline (40.5%). Iran ops end June 30 market (56.5%) continues accumulating probability. Watch for Trump–Xi side channels on Iran.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst | Generated 2026-05-01 13:40 AEST | Data: Polymarket Gamma API + Kalshi | Prices as of 2026-05-01 13:31 AEST<br>
+    Oil note: WTI used as proxy for Brent. Brent–WTI spread ~$4–6/bbl in current Hormuz-closed environment. Australian fuel pricing tracks Brent.
+  </div>
+
+</div>
+</body>
+</html>
