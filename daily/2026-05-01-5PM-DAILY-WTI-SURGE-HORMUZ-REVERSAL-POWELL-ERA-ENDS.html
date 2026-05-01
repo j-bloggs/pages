@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 1 May 2026 5PM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+  .header { border-bottom: 2px solid #21262d; padding-bottom: 20px; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; margin-bottom: 4px; }
+  .header .meta { font-size: 13px; color: #8b949e; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+  .badge-high { background: #388bfd22; color: #58a6ff; border: 1px solid #1f6feb; }
+  .badge-med { background: #d29922aa; color: #e3b341; border: 1px solid #9e6a03; }
+  .badge-low { background: #8957e522; color: #bc8cff; border: 1px solid #6e40c9; }
+  .badge-alert { background: #da363322; color: #f85149; border: 1px solid #da3633; }
+  .badge-green { background: #23863622; color: #3fb950; border: 1px solid #238636; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #8b949e; margin-bottom: 12px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+  .narrative { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .narrative p { font-size: 15px; color: #c9d1d9; margin-bottom: 10px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative strong { color: #f0f6fc; }
+  .market-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .market-card:hover { border-color: #30363d; }
+  .market-left { flex: 1; min-width: 0; }
+  .market-label { font-size: 14px; font-weight: 600; color: #f0f6fc; margin-bottom: 2px; }
+  .market-desc { font-size: 12px; color: #8b949e; line-height: 1.4; }
+  .market-right { text-align: right; flex-shrink: 0; }
+  .market-price { font-size: 22px; font-weight: 700; color: #58a6ff; }
+  .market-price.price-red { color: #f85149; }
+  .market-price.price-green { color: #3fb950; }
+  .market-price.price-yellow { color: #e3b341; }
+  .market-delta { font-size: 12px; margin-top: 2px; }
+  .delta-up { color: #3fb950; }
+  .delta-down { color: #f85149; }
+  .delta-flat { color: #8b949e; }
+  .trigger-row { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #0d1117; border-radius: 6px; margin-bottom: 6px; border: 1px solid #21262d; }
+  .trigger-label { font-size: 13px; color: #c9d1d9; flex: 1; }
+  .trigger-price { font-size: 13px; font-weight: 600; color: #58a6ff; }
+  .trigger-gap { font-size: 11px; color: #8b949e; }
+  .resolved-card { background: #161b22; border: 1px solid #238636; border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; }
+  .resolved-label { font-size: 13px; color: #3fb950; font-weight: 600; }
+  .resolved-desc { font-size: 12px; color: #8b949e; }
+  .table-section { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .table-section th { text-align: left; padding: 8px 10px; background: #161b22; color: #8b949e; font-weight: 600; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #21262d; }
+  .table-section td { padding: 8px 10px; border-bottom: 1px solid #161b22; color: #c9d1d9; }
+  .table-section tr:last-child td { border-bottom: none; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 20px 0; }
+  .callout { border-left: 3px solid #1f6feb; background: #161b22; padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 12px; }
+  .callout-warn { border-left-color: #9e6a03; }
+  .callout-green { border-left-color: #238636; }
+  .callout-red { border-left-color: #da3633; }
+  .callout p { font-size: 13px; color: #c9d1d9; margin-bottom: 0; }
+  .callout strong { color: #f0f6fc; }
+  .forward-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+  .forward-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #21262d; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-num { font-size: 16px; font-weight: 700; color: #58a6ff; flex-shrink: 0; width: 22px; }
+  .forward-text { font-size: 13px; color: #c9d1d9; flex: 1; }
+  .forward-text strong { color: #f0f6fc; }
+  .stale-row { opacity: 0.5; }
+  .footer { font-size: 11px; color: #484f58; text-align: center; padding-top: 20px; border-top: 1px solid #21262d; }
+  @media (max-width: 600px) { .market-card { flex-direction: column; } .market-right { text-align: left; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Polymarket Daily Briefing — Friday 1 May 2026, 5PM AEST</h1>
+    <div class="meta">
+      ASX closed ✓ &nbsp;|&nbsp; NYSE opens 23:30 AEST &nbsp;|&nbsp; London open &nbsp;|&nbsp; Next ASX: Monday 4 May
+      &nbsp;|&nbsp; Last collection: 17:01 AEST
+    </div>
+  </div>
+
+  <!-- HEADLINE NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Today's Macro Narrative</div>
+    <div class="narrative">
+      <p>
+        <strong>The defining signal of the afternoon:</strong> WTI $120 in May surged from 53.5% at noon to <strong>58%</strong> (+4.5pp) after Iran briefly declared the Strait of Hormuz open — then immediately reversed course when Trump refused to lift the US naval blockade. Tehran's announcement was real; Trump's refusal was realer. The strait remains closed, structural Hormuz premium is re-accumulating, and Brent crude at ~$112-115 continues to press upward. With WTI proxy at ~$105-108, the $120 threshold is now a near-coin-flip for May.
+      </p>
+      <p>
+        <strong>The Powell era formally ends.</strong> Both the May 31 and June 30 "Powell out" markets have disappeared from the Polymarket API — they resolved YES when it became certain his chairmanship expires <strong>May 15</strong> (before both deadlines). Kevin Warsh cleared the Senate Banking Committee 13-11 on April 29; floor vote is week of May 11. At 99.4%, the succession is confirmed. Warsh inherits: PCE 4.5%, GDP 2.0%, unemployment 4.3%, Hormuz closed.
+      </p>
+      <p>
+        <strong>Trump-China summit strengthened</strong> from 80% at 1PM to <strong>84.5%</strong> — the cancellation scare from April 29 (fell to 72%) is definitively over. Beijing May 14-15 is 13 days away. UAE exit from OPEC effective today adds structural noise to energy markets but doesn't shift the Hormuz narrative — no Gulf state can export meaningfully through a closed strait regardless of quotas.
+      </p>
+    </div>
+  </div>
+
+  <!-- TRIGGERS DASHBOARD -->
+  <div class="section">
+    <div class="section-title">Active Trigger Dashboard</div>
+
+    <div class="callout callout-warn">
+      <p><strong>No triggers fired this run.</strong> Closest active trigger: Iran invasion 2027 at 33.5% — <strong>6.5pp below</strong> the ↑40% fire threshold. WTI $120 May at 58% is now <strong>12pp below</strong> ↑70% (moved from 17.5pp gap at 7AM — watch carefully).</p>
+    </div>
+
+    <div class="trigger-row">
+      <span class="trigger-label">🛢️ WTI $120 in May <span class="badge badge-med">MED</span></span>
+      <span class="trigger-price">58.0%</span>
+      <span class="trigger-gap">↑70% fires — 12.0pp away <span class="delta-up">↑4.5pp vs noon</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">🌊 Hormuz blockade lifted May 31 <span class="badge badge-med">MED</span></span>
+      <span class="trigger-price">39.5%</span>
+      <span class="trigger-gap">↑65% fires — 25.5pp away <span class="delta-down">↓1.0pp</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">🎖️ Iran military ops end June 30 <span class="badge badge-med">MED</span></span>
+      <span class="trigger-price">54.0%</span>
+      <span class="trigger-gap">↑75% fires — 21.0pp away <span class="delta-down">↓2.5pp vs noon</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">🇨🇳 Trump visits China by May 31 <span class="badge badge-high">HIGH</span></span>
+      <span class="trigger-price">84.5%</span>
+      <span class="trigger-gap">↓70% early-warning — 14.5pp above <span class="delta-up">↑4.5pp vs noon</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">💼 Kevin Warsh confirmed as Fed Chair <span class="badge badge-high">HIGH</span></span>
+      <span class="trigger-price">99.4%</span>
+      <span class="trigger-gap">Floor vote week of May 11 — succession confirmed</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">⚔️ US invades Iran before 2027 <span class="badge badge-low">LOW</span></span>
+      <span class="trigger-price">33.5%</span>
+      <span class="trigger-gap">↑40% fires — 6.5pp away <span class="delta-flat">flat</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">🏦 Kalshi: US unemployment ≥10% before 2030 <span class="badge badge-high">HIGH</span></span>
+      <span class="trigger-price">38.0%</span>
+      <span class="trigger-gap">↑45% fires — 7.0pp away <span class="delta-flat">flat since Q1 GDP print</span></span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">🏦 Kalshi: US unemployment ≥7% before 2030 <span class="badge badge-high">HIGH</span></span>
+      <span class="trigger-price">66.0%</span>
+      <span class="trigger-gap">↑74% fires — 8.0pp away <span class="delta-flat">flat</span></span>
+    </div>
+    <div class="trigger-row stale-row">
+      <span class="trigger-label">✅ Powell out by May 31 — RESOLVED</span>
+      <span class="trigger-price" style="color:#3fb950">YES</span>
+      <span class="trigger-gap">Term expires May 15 &lt; deadline — market delisted</span>
+    </div>
+    <div class="trigger-row stale-row">
+      <span class="trigger-label">✅ Powell out by June 30 — RESOLVED</span>
+      <span class="trigger-price" style="color:#3fb950">YES</span>
+      <span class="trigger-gap">Term expires May 15 &lt; deadline — market delisted</span>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <div class="section-title">Key Moves (Since 1:44PM AEST Alert)</div>
+
+    <div class="market-card">
+      <div class="market-left">
+        <div class="market-label">WTI Crude Oil hits $120 in May <span class="badge badge-med">MED</span></div>
+        <div class="market-desc">
+          <strong>Catalyst: Hormuz ceasefire reversal.</strong> Iran FM Araghchi briefly declared the strait "open for commercial vessels" — then Trump refused to lift the US naval blockade, Tehran reversed within hours. Strait confirmed still closed. Structural premium re-bids. Brent ~$112-115 (WTI proxy ~$105-108). UAE exits OPEC today — symbolic, but Saudi/UAE/Kuwait cannot export meaningfully through a closed strait regardless. <br><br>
+          <strong>Australian impact:</strong> Current Brent ~$112 → petrol ~A$2.30-2.40/L. A WTI $120 touch (Brent ~$125) → ~A$2.50/L. At ↑70% trigger: structural re-escalation narrative confirmed.
+          <br><br>
+          <strong>35th consecutive oil bifurcation:</strong> Iran invasion 2027 flat at 33.5%. Oil not pricing military escalation — pricing entrenched Hormuz closure.
+        </div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-yellow">58.0%</div>
+        <div class="market-delta delta-up">+4.5pp vs noon</div>
+        <div class="market-delta delta-up">+5.0pp/24h</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-left">
+        <div class="market-label">Trump visits China by May 31 <span class="badge badge-high">HIGH</span></div>
+        <div class="market-desc">
+          The April 29 cancellation scare (fell to 72%, 2pp from early-warning trigger) is definitively over. Summit date confirmed May 14-15 Beijing by White House March 25. Market now 14.5pp above early-warning (↓70%) and 19.5pp above cancellation trigger (↓65%). <br><br>
+          <strong>ASX/AUD implications:</strong> Summit confirmation = iron ore demand normalization thesis holds, AUD positive, ASX materials sector. 13 days away.
+        </div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-green">84.5%</div>
+        <div class="market-delta delta-up">+4.5pp vs noon</div>
+        <div class="market-delta delta-flat">↑ from 72% (Apr 29 low)</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-left">
+        <div class="market-label">Kevin Warsh confirmed as Fed Chair <span class="badge badge-high">HIGH</span></div>
+        <div class="market-desc">
+          Powell's chairmanship expires <strong>May 15</strong>. Warsh cleared Banking Committee April 29 (13-11 party-line vote). Senate floor vote expected week of May 11 — 10 days away. Powell stays on the Board of Governors but exits the chair role. <br><br>
+          <strong>Warsh's inheritance:</strong> PCE 4.5% (Q1 2026), GDP 2.0% miss, unemployment 4.3% (March), Hormuz closed, tariff-inflation complex. The <em>stagflation trap</em> — can't cut with 4.5% PCE, can't hike into slowing growth. First test: April NFP on May 8 (one week away). <br><br>
+          <strong>Market resolved YES:</strong> Both May 31 and June 30 Powell-out markets have been delisted from Polymarket (resolved when term expiry certainty hit 100%).
+        </div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-green">99.4%</div>
+        <div class="market-delta delta-flat">stable</div>
+        <div class="market-delta delta-flat">Floor vote ~May 11</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-left">
+        <div class="market-label">US Hormuz blockade lifted by May 31 <span class="badge badge-med">MED</span></div>
+        <div class="market-desc">
+          Iran's brief opening announcement (reversed today) directly tested this market. Result: fell slightly from 40.5% to 39.5% — the reversal confirms Trump is not willing to lift the US naval blockade unilaterally. 25.5pp from ↑65% trigger. <br><br>
+          <strong>Cross-market check:</strong> If Hormuz stays closed (60.5% probability) AND WTI $120 May approaches 70%, that is <em>structural re-escalation</em>, not a temporary spike. Current 58% on WTI $120 vs 39.5% on Hormuz lift = market pricing Hormuz stays closed AND $120 touched in May. Not contradictory — it IS contradictory to expect $120 AND Hormuz open simultaneously.
+        </div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-yellow">39.5%</div>
+        <div class="market-delta delta-down">-1.0pp</div>
+        <div class="market-delta delta-flat">25.5pp from trigger</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-left">
+        <div class="market-label">Trump ends Iran military ops by June 30 <span class="badge badge-med">MED</span></div>
+        <div class="market-desc">
+          Slight easing from 56.5% to 54.0% (-2.5pp since noon). Today's Hormuz reversal marginally reduces the probability of formal ops-end by June 30 — if Trump can't lift the naval blockade even briefly, formal "end of military operations" before June 30 is modestly less certain. Still 21pp from ↑75% trigger. Cross-ref: April 30 equivalent was at 24% just before expiry; June 30 window substantially more likely.
+        </div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-yellow">54.0%</div>
+        <div class="market-delta delta-down">-2.5pp vs noon</div>
+        <div class="market-delta delta-flat">21.0pp from trigger</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STAGFLATION MONITOR -->
+  <div class="section">
+    <div class="section-title">Stagflation Monitor (Kalshi — Unchanged Since Q1 GDP Print)</div>
+
+    <div class="callout callout-warn">
+      <p><strong>Kalshi unemployment tail risks are unchanged since the 1:44PM alert.</strong> The Q1 GDP stagflation print (PCE 4.5%, GDP 2.0% miss) drove a +10pp single-session surge in the ≥10% bucket this morning. No further repricing has occurred this afternoon — markets are waiting for the next data point.</p>
+    </div>
+
+    <table class="table-section">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Price</th>
+          <th>Trigger</th>
+          <th>Gap</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>US unemployment ≥5% before 2030 <span class="badge badge-high">HIGH</span></td>
+          <td style="color:#f85149;font-weight:700">92.0%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Near-certainty (US currently 4.3%, March)</td>
+        </tr>
+        <tr>
+          <td>US unemployment ≥7% before 2030 <span class="badge badge-high">HIGH</span></td>
+          <td style="color:#e3b341;font-weight:700">66.0%</td>
+          <td>↑74%</td>
+          <td>8.0pp below</td>
+          <td>2-in-3 chance; stagflation tail scenario</td>
+        </tr>
+        <tr>
+          <td>US unemployment ≥10% before 2030 <span class="badge badge-high">HIGH</span></td>
+          <td style="color:#e3b341;font-weight:700">38.0%</td>
+          <td>↑45%</td>
+          <td>7.0pp below</td>
+          <td>Hard-landing/Great-Depression-adjacent risk</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 12px;">
+      <div class="callout">
+        <p><strong>Fed trap in context:</strong> Warsh takes chair with PCE at 4.5% (Q1 2026, vs 2.9% Q4 2025) and unemployment at 4.3% (March). The mandate is split: inflation says hold/hike, growth says cut. April NFP on May 8 is the decisive data point. If unemployment rises to 4.5%+ with payrolls below 100K, the ≥7% Kalshi bucket approaches ↑74% trigger (currently 66%, 8pp away) — that's a report-warranting move. If the labour market holds (150K+ payrolls), some tail risk unwinds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IRAN COMPLEX -->
+  <div class="section">
+    <div class="section-title">Iran Complex — Post-April-30 State</div>
+    <table class="table-section">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Quality</th>
+          <th>Price</th>
+          <th>24h Δ</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>WTI $120 in May</td>
+          <td><span class="badge badge-med">MED</span></td>
+          <td style="color:#e3b341;font-weight:700">58.0%</td>
+          <td style="color:#3fb950">+5.0pp</td>
+          <td>Hormuz reversal today; coin-flip+</td>
+        </tr>
+        <tr>
+          <td>Hormuz blockade lifted May 31</td>
+          <td><span class="badge badge-med">MED</span></td>
+          <td>39.5%</td>
+          <td style="color:#f85149">-1.0pp</td>
+          <td>60.5% probability stays closed in May</td>
+        </tr>
+        <tr>
+          <td>Iran military ops end June 30</td>
+          <td><span class="badge badge-med">MED</span></td>
+          <td>54.0%</td>
+          <td style="color:#f85149">-2.5pp</td>
+          <td>Slight retreat; 21pp from trigger</td>
+        </tr>
+        <tr>
+          <td>US invades Iran before 2027</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>33.5%</td>
+          <td style="color:#8b949e">flat</td>
+          <td>35th consecutive non-confirmation vs oil</td>
+        </tr>
+        <tr>
+          <td>Iranian regime change by Dec 31</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>39.5%</td>
+          <td style="color:#f85149">-1.0pp</td>
+          <td>Slow drift; 20.5pp from trigger</td>
+        </tr>
+        <tr>
+          <td>Iranian regime fall by May 31</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>3.1%</td>
+          <td style="color:#f85149">-0.2pp</td>
+          <td>Near-zero; no short-term regime change priced</td>
+        </tr>
+        <tr>
+          <td>US x Iran diplomatic meeting</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>5.6%</td>
+          <td style="color:#f85149">-2.9pp</td>
+          <td>Fading; formal channel dead post-April 30</td>
+        </tr>
+        <tr>
+          <td>Vance at next diplomatic meeting</td>
+          <td><span class="badge badge-med">MED</span></td>
+          <td>38.4%</td>
+          <td style="color:#f85149">-9.2pp</td>
+          <td>Sharp decline; post-April 30 reset</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 12px;">
+      <div class="callout callout-green">
+        <p><strong>Oil bifurcation intact (35th consecutive confirmation):</strong> Through every Iran catalyst this week — Hormuz ceasefire reversal, UAE OPEC exit, Vance market collapse, dual blockade continuation — WTI $120 May has moved on <em>closing probability</em>, not on military escalation signals. Iran invasion 2027 [LOW] flat at 33.5%. Market explicitly prices "permanent conflict economy" (Hormuz closed, blockade enforced, no deal) as base case, NOT "war tomorrow."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWELL / FED SUCCESSION -->
+  <div class="section">
+    <div class="section-title">Fed Succession — Powell Era Ends May 15</div>
+
+    <div class="narrative">
+      <p>
+        <strong>Powell's chairmanship ends May 15, 2026.</strong> Both Polymarket markets ("out by May 31" and "out by June 30") have resolved YES and been delisted — they were correct at 93% and 97% respectively. Powell confirmed during his April 29 FOMC press conference (his last) that he will step down from the chair role at his term's end but remain on the Board of Governors.
+      </p>
+      <p>
+        <strong>Warsh timeline:</strong> Banking Committee cleared 13-11 (April 29). Senate recess ends May 4. Floor vote week of May 11. Warsh takes the chair around May 12-15, before Powell's formal May 15 exit date. SCOTUS Trump v. Cook — first window opened April 27; any Monday through late July. A FOR-Trump ruling (grants executive power to fire Fed governors) would surge Warsh certainty toward 100%. An AGAINST-Trump ruling (base case ~60%) is already priced and has minimal additional impact.
+      </p>
+      <p>
+        <strong>Macro transmission:</strong> Warsh's first press conference will set the tone for whether he is more hawkish than Powell (PCE 4.5% demands it) or more pragmatic (GDP 2.0% cautions against it). For Australia: US rates higher-for-longer → AUD headwind → RBA May/June meeting complicated by imported inflation dynamics. Watch Warsh's first interview post-confirmation (likely week of May 11).
+      </p>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch Next</div>
+    <div class="forward-box">
+      <div class="forward-item">
+        <div class="forward-num">1</div>
+        <div class="forward-text">
+          <strong>May 8 — April US NFP (jobs report).</strong> The decisive stagflation test. Scenario A: payrolls below 100K + unemployment 4.5%+ → Kalshi ≥7% approaches ↑74% trigger, Warsh forced to signal rate hold despite PCE 4.5%, gold surge, bond yields fall. Scenario B: resilient labour (150K+, unemployment holds) → tail risk partially unwinds, Warsh gets cover for hawkish stance. Watch Kalshi ≥7% (currently 66%, 8pp from trigger) and ≥10% (38%, 7pp from trigger) in real-time after the print.
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">2</div>
+        <div class="forward-text">
+          <strong>May 11-12 — Warsh Senate floor vote.</strong> Near-certain confirmation (99.4%). Any surprise hold → Powell May 31 already resolved YES, so pro-tem scenario extends to June 30 window. Unlikely but monitor. Post-confirmation: immediate Warsh press conference sets the hawkish/pragmatic tone for rates markets.
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">3</div>
+        <div class="forward-text">
+          <strong>May 14-15 — Trump Beijing summit (84.5%).</strong> AUD and ASX materials most sensitive. Pre-summit: watch for any fresh tariff salvo or Taiwan statement that could push market back toward the 70% early-warning zone (currently 14.5pp above). Post-summit: any joint communiqué on rare earths, soybeans, tech restrictions = immediate AUD/iron-ore repricing.
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">4</div>
+        <div class="forward-text">
+          <strong>WTI $120 May intraday momentum.</strong> Today's Hormuz reversal moved the market from 53.5% to 58% in a single afternoon session. The trigger fires at ↑70% — 12pp away. If a second Hormuz escalation event surfaces over the weekend (IRGC attack, US escalation, ceasefire deterioration), the gap closes fast. Cross-ref: if WTI $120 approaches 70% AND Hormuz lift stays at 40%, that is structural re-escalation — run full analysis immediately.
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">5</div>
+        <div class="forward-text">
+          <strong>SCOTUS Trump v. Cook — any Monday, through late July.</strong> FOR-Trump: Warsh certainty 100%, Powell removal uncontestable, gold under pressure (uncertainty resolves), USD stronger. AGAINST-Trump (base case ~60%): minimal additional market impact — already priced. No ruling is expected on Fridays; next window Monday May 4.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section">
+    <div class="section-title">Trigger Config Changes This Run</div>
+    <div class="resolved-card">
+      <div class="resolved-label">✓ DEACTIVATED: powell-june30-structural-break (threshold 0.75 → -1)</div>
+      <div class="resolved-desc">jerome-powell-out-as-fed-chair-by-june-30-2026 resolved YES — term expires May 15, market delisted from API.</div>
+    </div>
+    <div class="resolved-card">
+      <div class="resolved-label">✓ DEACTIVATED: powell-may31-senate-delay (threshold 0.55 → -1)</div>
+      <div class="resolved-desc">jerome-powell-out-as-fed-chair-by-may-31-2026 resolved YES — term expires May 15, market delisted from API.</div>
+    </div>
+    <div style="margin-top: 10px; padding: 10px 14px; background: #161b22; border: 1px solid #21262d; border-radius: 6px; font-size: 12px; color: #8b949e;">
+      No new triggers added this run. WTI $140 June market not found on API (search returned noise). Will re-check via market-discover.sh next run. All other triggers unchanged.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Polymarket Analyst · 1 May 2026 17:07 AEST · Data: Polymarket + Kalshi ·
+    Prices are prediction market probabilities, not investment advice.
+    <br>Brent crude is the correct benchmark for Australian fuel pricing. WTI used as proxy (Brent premium ~$5-7/bbl in closed-Hormuz environment).
+  </div>
+
+</div>
+</body>
+</html>
