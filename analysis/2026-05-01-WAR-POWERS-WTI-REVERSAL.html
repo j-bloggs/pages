@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert — WTI $120 May Reversal: War Powers Deadline | 1 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+  .header { border-left: 4px solid #f59e0b; padding-left: 20px; margin-bottom: 32px; }
+  .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #f59e0b; margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f1f5f9; line-height: 1.3; margin-bottom: 8px; }
+  .header .meta { font-size: 13px; color: #64748b; }
+  .alert-box { background: #1e1b0e; border: 1px solid #f59e0b44; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 28px; }
+  .alert-box .alert-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #f59e0b; margin-bottom: 8px; }
+  .alert-box p { font-size: 14px; color: #cbd5e1; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .market-row { background: #131825; border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .market-row .label-block { flex: 1; }
+  .market-row .market-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
+  .market-row .market-detail { font-size: 12px; color: #64748b; }
+  .market-row .price-block { text-align: right; white-space: nowrap; }
+  .market-row .price { font-size: 18px; font-weight: 700; }
+  .market-row .delta { font-size: 12px; margin-top: 2px; }
+  .price-down { color: #f87171; }
+  .price-stable { color: #94a3b8; }
+  .price-up { color: #4ade80; }
+  .delta-down { color: #f87171; }
+  .delta-up { color: #4ade80; }
+  .delta-neutral { color: #64748b; }
+  .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+  .badge-high { background: #134e4a; color: #2dd4bf; }
+  .badge-med { background: #1e3a5f; color: #60a5fa; }
+  .badge-low { background: #2d1b69; color: #a78bfa; }
+  .analysis-block { background: #131825; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .analysis-block h3 { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .analysis-block p { font-size: 14px; color: #cbd5e1; margin-bottom: 8px; }
+  .analysis-block p:last-child { margin-bottom: 0; }
+  .highlight { color: #fbbf24; font-weight: 600; }
+  .callout { background: #0c1a2e; border: 1px solid #1e40af44; border-left: 3px solid #3b82f6; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 13px; color: #93c5fd; }
+  .timeline { list-style: none; padding: 0; }
+  .timeline li { padding: 8px 0 8px 20px; border-left: 2px solid #1e293b; position: relative; font-size: 13px; color: #94a3b8; }
+  .timeline li::before { content: ''; position: absolute; left: -5px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: #334155; }
+  .timeline li.key::before { background: #f59e0b; }
+  .timeline li strong { color: #e2e8f0; }
+  .siblings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; }
+  .sibling-card { background: #0f172a; border-radius: 5px; padding: 10px; text-align: center; }
+  .sibling-card .s-label { font-size: 11px; color: #64748b; margin-bottom: 4px; }
+  .sibling-card .s-price { font-size: 16px; font-weight: 700; }
+  .sibling-card.s-active { border: 1px solid #f59e0b44; }
+  .forward-box { background: #0c1a0c; border: 1px solid #166534; border-radius: 8px; padding: 18px 20px; }
+  .forward-box h2 { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #4ade80; margin-bottom: 12px; }
+  .forward-box ul { padding-left: 20px; }
+  .forward-box ul li { font-size: 13px; color: #86efac; margin-bottom: 8px; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; font-size: 11px; color: #475569; }
+  .war-powers-box { background: #1a0f0f; border: 1px solid #b91c1c44; border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .war-powers-box .wplabel { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #ef4444; margin-bottom: 8px; }
+  .war-powers-box p { font-size: 13px; color: #fca5a5; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="label">⚠ Polymarket Alert — Oil Complex</div>
+    <h1>WTI $120 May Reversal: War Powers Act Deadline Fires</h1>
+    <div class="meta">Friday 1 May 2026 · 23:20 AEST · Alert-triggered run</div>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-label">📊 What Fired</div>
+    <p>WTI $120 in May crossed the <strong>-10pp/6h large-move threshold</strong> — falling from <strong class="highlight">58.0% at 5PM AEST</strong> (this afternoon's high, driven by Iran's brief Hormuz open) to <strong class="highlight">44.0% now</strong> (−14pp). The catalyst is the <strong>War Powers Act 60-day deadline</strong> expiring today without congressional authorisation — introducing a new legal vector on the US naval blockade's durability.</p>
+  </div>
+
+  <!-- War Powers Section -->
+  <div class="war-powers-box">
+    <div class="wplabel">⚖ Catalyst — War Powers Act Deadline (May 1, 2026)</div>
+    <p>US-Iran strikes began <strong>February 28</strong>. Congress was formally notified <strong>March 2</strong>, starting the 60-day War Powers Resolution clock. That clock expired today, <strong>May 1</strong>, without a congressional authorisation vote. The Trump administration argues the ceasefire "terminated hostilities" and reset the clock — Democrats and legal scholars dispute this. Courts could take weeks or months to rule. In parallel, Pakistan dismantled Islamabad security checkpoints for Round 3 US-Iran talks — no diplomatic solution in the pipeline.</p>
+  </div>
+
+  <!-- Afternoon Price Trajectory -->
+  <div class="section">
+    <h2>📉 Price Trajectory — WTI $120 May</h2>
+    <ul class="timeline">
+      <li><strong>5PM AEST (daily report):</strong> 58.0% — post-surge from Iran's brief Hormuz opening (Trump refused to lift blockade; Tehran reversed)</li>
+      <li class="key"><strong>22:15 AEST:</strong> 51.5% — already falling; WTI spot ~$106</li>
+      <li class="key"><strong>22:30 AEST:</strong> 45.5% — acute 6pp drop in 15 minutes (War Powers news + Pakistan checkpoint dismantling confirmed)</li>
+      <li><strong>22:45 AEST:</strong> 43.5%</li>
+      <li><strong>23:00 AEST:</strong> 43.0%</li>
+      <li><strong>23:15 AEST:</strong> 44.0% — stabilising</li>
+    </ul>
+    <div class="callout">
+      Resolution criteria: YES if any 1-min WTI futures candle hits ≥$120 at any point in May 2026. [MED] quality (Pyth-price fed, objective trigger). WTI spot currently ~$106 — 13.2% below the strike. Trigger threshold: ↑70% (26pp away; no threshold crossed).
+    </div>
+  </div>
+
+  <!-- Key Markets Now -->
+  <div class="section">
+    <h2>📊 Key Markets (23:15 AEST)</h2>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-med">MED</span> WTI $120 in May 2026</div>
+        <div class="market-detail">Any 1-min WTI candle ≥$120 during May. Spot WTI ~$106. Trigger: ↑70% (26pp away)</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-down">44.0%</div>
+        <div class="delta delta-down">−14pp since 5PM</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-med">MED</span> Trump ends Iran military ops by June 30</div>
+        <div class="market-detail">Formal Trump announcement ending ops. Was 56.5% at 5PM. Fell ~5pp in past hour — War Powers challenge makes voluntary announcement politically harder.</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-down">~51.5%</div>
+        <div class="delta delta-down">−5pp/hour</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-med">MED</span> US Hormuz blockade lifted by May 31</div>
+        <div class="market-detail">Requires Trump announcement of blockade lift. War Powers challenge creates theoretical path to forced lift, but market is not pricing it near-term. Trigger: ↑65% (24pp away)</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-stable">41.0%</div>
+        <div class="delta delta-neutral">stable</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-low">LOW</span> US Iran invasion 2027</div>
+        <div class="market-detail">Stable — War Powers deadline not read as escalation catalyst. Oil flat = no escalation signal. Trigger: ↑40% (6.5pp away)</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-stable">33.5%</div>
+        <div class="delta delta-neutral">flat</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-high">HIGH</span> Trump visits China by May 31</div>
+        <div class="market-detail">Summit May 14-15 Beijing. Recovered strongly to 80.5% after April 29 scare. Trigger: ↓70% early-warning (10.5pp away)</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-up">80.5%</div>
+        <div class="delta delta-neutral">stable</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <div class="label-block">
+        <div class="market-name"><span class="badge badge-high">HIGH</span> Kevin Warsh confirmed as Fed Chair</div>
+        <div class="market-detail">Banking Committee cleared 13-11 (April 29). Floor vote week of May 11. Inherits PCE 4.5%, GDP 2.0%, Hormuz closed.</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-up">99.4%</div>
+        <div class="delta delta-neutral">stable</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WTI Sibling Strip -->
+  <div class="section">
+    <h2>🛢 WTI May 2026 — Full Sibling Strip</h2>
+    <div class="siblings-grid">
+      <div class="sibling-card"><div class="s-label">≥$90</div><div class="s-price price-up">99.8%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$100</div><div class="s-price price-up">99.9%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$110</div><div class="s-price price-up">83%</div></div>
+      <div class="sibling-card s-active"><div class="s-label">≥$120 ← alert</div><div class="s-price price-down">44%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$130</div><div class="s-price price-stable">28%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$140</div><div class="s-price price-stable">14.8%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$150</div><div class="s-price price-stable">8.5%</div></div>
+      <div class="sibling-card"><div class="s-label">≥$200</div><div class="s-price price-stable">1.35%</div></div>
+    </div>
+    <div class="callout" style="margin-top:12px">
+      $110 at 83%: WTI spot already above $110 (Hormuz premium). $120 at 44% (down from 58%) is where the War Powers uncertainty bites — market pricing ~56% chance WTI stays below $120 all month. $130 at 28% is structurally low, consistent with "permanent conflict economy" pricing.
+    </div>
+  </div>
+
+  <!-- Analysis -->
+  <div class="section">
+    <h2>🔍 Analysis</h2>
+
+    <div class="analysis-block">
+      <h3>What the Market Is Saying</h3>
+      <p>The -14pp drop does <strong>not</strong> mean oil is crashing. WTI spot remains ~$106 with Hormuz closed — the structural premium is intact. What the market is re-pricing is the <strong>probability of a spike to $120+</strong> during May. The War Powers deadline creates a new path: if courts enjoin the blockade operations, or Congress forces a vote and loses, the US naval presence could be legally challenged — potentially accelerating the Hormuz opening timeline. That reduces the "sudden escalation spike" scenario probability.</p>
+      <p>The "Trump ends ops June 30" market falling simultaneously (−5pp/hour) is the counter-intuitive signal: a War Powers legal challenge actually makes it <em>harder</em> for Trump to voluntarily announce ops-end, because doing so would be politically framed as capitulation to congressional pressure. Trump is more likely to contest the legal challenge through courts while maintaining the blockade, rather than voluntarily announcing withdrawal. Markets are pricing lower probability of a clean formal announcement.</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>Cross-Market Validation</h3>
+      <p><strong>Hormuz blockade lift May 31 stable at 41%</strong> — if the War Powers ruling was an imminent forced blockade withdrawal, this market would have surged. Its stability confirms markets are not pricing imminent forced de-escalation. The legal challenge is priced as a <em>tail risk that clips the oil ceiling</em>, not a near-term resolution catalyst.</p>
+      <p><strong>Iran invasion 2027 flat at 33.5%</strong> — no escalation signal. War Powers debate is a legal/domestic US story, not an Iran military posture story. Consistent with "blockade theater" base case.</p>
+      <p><strong>Trump-China 80.5% stable</strong> — trade-war de-escalation narrative unaffected. Any Iran compromise at the Beijing summit (May 14-15) remains the key upside catalyst for Hormuz reopening — still the core trade to watch.</p>
+    </div>
+
+    <div class="analysis-block">
+      <h3>Australian Impact</h3>
+      <p><strong>Petrol:</strong> WTI (proxy for Brent) spot ~$106. $120 probability at 44% vs 58% this afternoon. The "Australian petrol at A$2.50/L" scenario is now 14pp less likely than it appeared at 5PM. A$2.30–2.40/L remains the near-term base (Brent ~$112–115, Hormuz closed premium).</p>
+      <p><strong>ASX Energy (Monday May 4):</strong> WDS and STO face slight headwind from declining oil upside odds. Energy sector priced for elevated-but-stable oil environment ($100–115 range), not $120+ spike. The War Powers headline may generate noise at ASX open but is not a structural sector re-rating catalyst.</p>
+      <p><strong>RBA:</strong> Slightly lower oil upside = marginally less energy-driven CPI pressure. Immaterial for near-term RBA decisions (next meeting is May 20 — the board will be watching April Australian CPI and US NFP May 8 more closely).</p>
+      <p><strong>Bigger ASX Monday catalyst: SCOTUS.</strong> Trump v. Cook decision window opens Monday May 4 — any ruling immediately reprices Warsh's mandate, gold, and short-end rates. The War Powers story is secondary.</p>
+    </div>
+
+  </div>
+
+  <!-- Forward View -->
+  <div class="forward-box">
+    <h2>📡 What to Watch</h2>
+    <ul>
+      <li><strong>War Powers court proceedings:</strong> Any federal judge filing an injunction against blockade operations would immediately spike Hormuz lift probability and crash WTI $120 toward 20–25%. Watch for ACLU/Dem senator litigation news over the weekend.</li>
+      <li><strong>SCOTUS Trump v. Cook (Monday May 4):</strong> Still the primary ASX catalyst — decisions Mondays only. A FOR-Trump ruling removes blockade legal risk (WTI $120 may recover). An AGAINST-Trump ruling compounds the War Powers challenge and could force a formal ops withdrawal by executive order.</li>
+      <li><strong>Trump-China Beijing summit (May 14-15, 80.5%):</strong> Any Hormuz/Iran carve-out in trade communiqué would be the "WTI $120 → 15%" catalyst — far more powerful than War Powers litigation.</li>
+      <li><strong>US April NFP (May 8):</strong> Stagflation test. PCE already at 4.5%. If unemployment ticks up, Kalshi ≥7% approaches ↑74% trigger (currently 66%).</li>
+      <li><strong>WTI $120 ↑70% trigger remains active</strong> — 26pp away at 44%. A spike back above 55% alongside any Hormuz escalation catalyst would warrant a new alert. Don't chase the overnight noise.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>Polymarket Alert · Generated 2026-05-01 23:20 AEST · Data as of 23:15 AEST collect run</p>
+    <p style="margin-top:4px">Trigger fired: WTI $120 May -10pp/6h alert. Threshold ↑70% not crossed (current 44%, 26pp away). No trigger config changes.</p>
+  </div>
+
+</div>
+</body>
+</html>
