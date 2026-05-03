@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 4 May 7AM | Pre-NFP Monday; Hormuz 33.5%; Summit 10 Days</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 28px 40px; }
+  .header-meta { font-size: 11px; color: #718096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f7fafc; line-height: 1.3; }
+  .header .subtitle { margin-top: 8px; font-size: 14px; color: #a0aec0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 40px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #718096; border-bottom: 1px solid #2d3748; padding-bottom: 8px; margin-bottom: 16px; }
+  .trigger-panel { background: #1a1f2e; border-radius: 8px; padding: 16px 20px; margin-bottom: 10px; border-left: 4px solid #4a5568; }
+  .trigger-panel.watching { border-left-color: #4299e1; }
+  .trigger-panel.safe { border-left-color: #48bb78; }
+  .trigger-panel.stale { border-left-color: #718096; opacity: 0.6; }
+  .trigger-label { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+  .trigger-detail { font-size: 12px; color: #a0aec0; margin-top: 4px; }
+  .trigger-gap { font-size: 12px; color: #718096; margin-top: 2px; }
+  .market-card { background: #1a1f2e; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; border: 1px solid #2d3748; }
+  .market-card.moved-down { border-color: #e53e3e; }
+  .market-card.moved-up { border-color: #48bb78; }
+  .market-card.neutral { border-color: #2d3748; }
+  .market-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .market-name { font-size: 14px; font-weight: 600; color: #f7fafc; flex: 1; padding-right: 12px; }
+  .market-price { font-size: 22px; font-weight: 700; white-space: nowrap; }
+  .price-up { color: #68d391; }
+  .price-down { color: #fc8181; }
+  .price-neutral { color: #a0aec0; }
+  .market-delta { font-size: 12px; margin-top: 2px; text-align: right; }
+  .delta-up { color: #68d391; }
+  .delta-down { color: #fc8181; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 1px 6px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+  .qual-high { background: #276749; color: #9ae6b4; }
+  .qual-med { background: #744210; color: #fbd38d; }
+  .qual-low { background: #553c9a; color: #e9d8fd; }
+  .market-analysis { font-size: 12.5px; color: #a0aec0; line-height: 1.55; }
+  .market-analysis strong { color: #e2e8f0; }
+  .strip-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .strip-item { background: #2d3748; border-radius: 4px; padding: 4px 10px; font-size: 11px; color: #a0aec0; }
+  .strip-item.highlight { background: #2c5282; color: #bee3f8; }
+  .callout { background: #1a202c; border: 1px solid #2d3748; border-left: 4px solid #ed8936; border-radius: 6px; padding: 14px 18px; margin: 16px 0; font-size: 13px; color: #a0aec0; line-height: 1.6; }
+  .callout strong { color: #fbd38d; }
+  .callout.green { border-left-color: #48bb78; }
+  .callout.green strong { color: #9ae6b4; }
+  .callout.blue { border-left-color: #4299e1; }
+  .callout.blue strong { color: #90cdf4; }
+  .callout.red { border-left-color: #e53e3e; }
+  .callout.red strong { color: #fc8181; }
+  .table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #718096; padding: 8px 12px; border-bottom: 1px solid #2d3748; }
+  .table td { padding: 9px 12px; border-bottom: 1px solid #1a1f2e; color: #a0aec0; }
+  .table td:first-child { color: #e2e8f0; font-weight: 500; }
+  .table tr:last-child td { border-bottom: none; }
+  .calendar-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #2d3748; }
+  .calendar-item:last-child { border-bottom: none; }
+  .cal-date { font-size: 11px; font-weight: 700; color: #4299e1; width: 100px; flex-shrink: 0; padding-top: 2px; }
+  .cal-event { font-size: 13px; color: #e2e8f0; }
+  .cal-sub { font-size: 11.5px; color: #718096; margin-top: 2px; }
+  .actions-list { list-style: none; }
+  .actions-list li { padding: 7px 0; border-bottom: 1px solid #1a1f2e; font-size: 12.5px; color: #a0aec0; display: flex; gap: 8px; }
+  .actions-list li:last-child { border-bottom: none; }
+  .action-badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; align-self: flex-start; margin-top: 1px; }
+  .badge-watching { background: #2c5282; color: #bee3f8; }
+  .badge-noting { background: #4a5568; color: #cbd5e0; }
+  .footer { border-top: 1px solid #2d3748; padding: 20px 40px; font-size: 11px; color: #4a5568; }
+  @media (max-width: 600px) { .container, .header, .footer { padding: 20px; } .market-price { font-size: 18px; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Daily Briefing &nbsp;·&nbsp; Monday 4 May 2026 &nbsp;·&nbsp; 7:00 AM AEST</div>
+  <h1>Pre-NFP Monday — Hormuz Oscillating; WTI Drifting; Summit 10 Days Out</h1>
+  <div class="subtitle">No new catalysts overnight · Hormuz recovered 8pp from Sunday low but weekly trend still -26pp · WTI $110 May slides to 63% · China summit 92.5%, May 15 at 86.5% · NFP Friday is the week's defining event</div>
+</div>
+
+<div class="container">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section">
+    <div class="section-title">Executive Summary</div>
+    <div class="callout">
+      <strong>Quiet overnight session — no triggers fired, no new macro catalyst.</strong> The overnight story is thin-market oscillation: Hormuz recovered from its Sunday 5PM low of 25.5% back to 33.5% (+8pp) with no identifiable catalyst — this is mean reversion after Friday's 15pp weekly collapse, not a diplomatic breakthrough. The weekly trend remains deeply negative (-25.5pp from ~59% last week), and the full diplomatic track is dead (Iran meeting by May 5 at 1.1%). WTI $110 May continues a slow drip lower to 63% (from 68.5% Friday), with the full oil strip confirming WTI spot is rangebound at $100–115. All Kalshi unemployment buckets are flat. The structural picture is unchanged: Hormuz blockade entrenched, China summit in 10 days, NFP Friday the only near-term macro inflection point.
+    </div>
+  </div>
+
+  <!-- TRIGGERS STATUS -->
+  <div class="section">
+    <div class="section-title">Active Triggers — Status</div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">US Hormuz blockade lifted by May 31 — de-escalation signal</div>
+      <div class="trigger-detail">Current: <strong>33.5%</strong> | Direction: ↑ | Fires at: 65%</div>
+      <div class="trigger-gap">31.5pp below trigger (fires at ↑65%) — recovered from Sunday 5PM low of 25.5% but weekly trend sharply down. No catalyst for reversal in sight.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">WTI $110 in May — oil premium escalation signal</div>
+      <div class="trigger-detail">Current: <strong>63%</strong> | Direction: ↑ | Fires at: 85%</div>
+      <div class="trigger-gap">22pp below trigger (fires at ↑85%) — slow drift lower from 68.5% on Friday. No escalation signal.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">WTI $110 in May — de-escalation floor warning</div>
+      <div class="trigger-detail">Current: <strong>63%</strong> | Direction: ↓ | Fires at: 35%</div>
+      <div class="trigger-gap">28pp above trigger (fires at ↓35%) — drifting toward this level slowly. No de-escalation signal yet.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">Trump-China summit cancellation signal (&lt;65%) — May 14–15 Beijing</div>
+      <div class="trigger-detail">Current: <strong>92.5%</strong> | Direction: ↓ | Fires at: 65%</div>
+      <div class="trigger-gap">27.5pp above trigger (fires at ↓65%) — locked in. Early-warning trigger (↓70%) 22.5pp away.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">US Iran invasion 2027 escalation signal (&gt;40%)</div>
+      <div class="trigger-detail">Current: <strong>29.5%</strong> | Direction: ↑ | Fires at: 40%</div>
+      <div class="trigger-gap">10.5pp below trigger (fires at ↑40%) — stable, slight declining trend. 39th consecutive bifurcation.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">US Iran invasion 2027 near-zero floor (&lt;10%)</div>
+      <div class="trigger-detail">Current: <strong>29.5%</strong> | Direction: ↓ | Fires at: 10%</div>
+      <div class="trigger-gap">19.5pp above trigger (fires at ↓10%) — not approaching.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">Iran leadership change by December 31 — regime pressure signal</div>
+      <div class="trigger-detail">Current: <strong>33.5%</strong> | Direction: ↑ | Fires at: 60%</div>
+      <div class="trigger-gap">26.5pp below trigger (fires at ↑60%) — stable, no new catalyst.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">China invades Taiwan by end 2026</div>
+      <div class="trigger-detail">Current: <strong>7.4%</strong> | Direction: ↑ | Fires at: 15%</div>
+      <div class="trigger-gap">7.6pp below trigger (fires at ↑15%) — flat. Summit could create intraday volatility if Taiwan language is pointed.</div>
+    </div>
+
+    <div class="trigger-panel safe">
+      <div class="trigger-label">Fed June hike probability</div>
+      <div class="trigger-detail">Current: <strong>0.8%</strong> | Direction: ↑ | Fires at: 5%</div>
+      <div class="trigger-gap">4.2pp below trigger (fires at ↑5%) — near-zero. No June hike priced whatsoever.</div>
+    </div>
+
+    <div class="section-title" style="margin-top:20px;">Kalshi Triggers — Status</div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">Kalshi: US unemployment hits ≥7% before 2030</div>
+      <div class="trigger-detail">Current: <strong>66%</strong> | Direction: ↑ | Fires at: 74%</div>
+      <div class="trigger-gap">8pp below trigger (fires at ↑74%) — flat since Q1 stagflation print. April NFP (Friday May 8) is the next repricing trigger.</div>
+    </div>
+
+    <div class="trigger-panel watching">
+      <div class="trigger-label">Kalshi: Unemployment ≥10% tail above 45% (stagflation catastrophe)</div>
+      <div class="trigger-detail">Current: <strong>38%</strong> | Direction: ↑ | Fires at: 45%</div>
+      <div class="trigger-gap">7pp below trigger (fires at ↑45%) — flat. If NFP misses badly (ADP 62K vs 133K consensus), expect this to move toward 42–43%.</div>
+    </div>
+
+  </div>
+
+  <!-- KEY MARKETS -->
+  <div class="section">
+    <div class="section-title">Key Markets — 4 May 7AM AEST</div>
+
+    <!-- Hormuz — oscillation -->
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-med">MED</span>
+          US Hormuz blockade lifted by May 31
+        </div>
+        <div>
+          <div class="market-price price-neutral">33.5%</div>
+          <div class="market-delta delta-up">▲ +8pp from Sunday 5PM low (25.5%) — thin-market bounce</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        <strong>No new catalyst — this is mean reversion after a thin-weekend session.</strong> On Sunday 5PM, Hormuz had slid to 25.5% after Trump's fourth consecutive rejection of an Iranian proposal. Overnight, with low volume and no new news, the market snapped back 8pp to 33.5%. This is the same kind of oscillation seen throughout the blockade period and does not reflect any diplomatic progress.
+        <br><br>
+        <strong>The weekly trend is the real signal:</strong> Hormuz peaked at ~58.5% on Wednesday April 29, then collapsed as Trump-Iran talks failed entirely. From that peak to Sunday's trough = −33pp in 5 days. The overnight +8pp is noise against that backdrop.
+        <br><br>
+        <strong>Sibling strip (updated):</strong>
+        <div class="strip-row">
+          <div class="strip-item">May 5: ~1%</div>
+          <div class="strip-item">May 8: 4.4%</div>
+          <div class="strip-item highlight">May 15 (summit): 10.5%</div>
+          <div class="strip-item">May 22: 18.5%</div>
+          <div class="strip-item highlight">May 31: 28.5–33.5%</div>
+        </div>
+        <br>
+        The May 15 sibling (summit date) fell from 15.5% to 10.5% since Friday. The market has continued to price OUT any summit-Hormuz linkage. Iranian enriched uranium transfer by May 31: 9.5% — the only remaining deal-adjacent signal, and it's declining too.
+        <br><br>
+        <strong>39th consecutive bifurcation:</strong> invasion flat at 29.5%, oil drifting lower, Hormuz oscillating down. Stalemate entrenching, not escalating. Trigger (↑65%) is 31.5pp away and moving further.
+      </div>
+    </div>
+
+    <!-- WTI strip -->
+    <div class="market-card moved-down">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-med">MED</span>
+          WTI Crude Oil May Strip (proxy for Brent)
+        </div>
+        <div>
+          <div class="market-price price-down">63%</div>
+          <div class="market-delta delta-down">▼ −5.5pp since Friday 5PM · $110 May threshold</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        WTI $110 in May has drifted from 68.5% (Friday 5PM) to 63% (Monday 7AM) — a −5.5pp slide over ~38 hours with no specific catalyst. This reflects gradual decay from the "war premium expectation" level set in early May, as the blockade shows no signs of escalating toward a full confrontation.
+        <br><br>
+        <strong>Full WTI May upside strip:</strong>
+        <div class="strip-row">
+          <div class="strip-item">≥$100: 100% (hit)</div>
+          <div class="strip-item highlight">≥$105: 89.5%</div>
+          <div class="strip-item highlight">≥$110: 63%</div>
+          <div class="strip-item">≥$115: 57.5%</div>
+          <div class="strip-item">≥$120: 41.5%</div>
+          <div class="strip-item">≥$130: 20%</div>
+          <div class="strip-item">≥$140: 11.2%</div>
+          <div class="strip-item">≥$150: 5.5%</div>
+        </div>
+        <br>
+        <strong>Full WTI May downside strip:</strong>
+        <div class="strip-row">
+          <div class="strip-item highlight">≤$95: 73.5%</div>
+          <div class="strip-item highlight">≤$90: 63.5%</div>
+          <div class="strip-item">≤$85: 46%</div>
+          <div class="strip-item">≤$80: 26%</div>
+          <div class="strip-item">≤$70: 6.5%</div>
+        </div>
+        <br>
+        <strong>Strip interpretation:</strong> WTI spot has already touched $100–105 (100%/89.5%). From current spot (~$102–106), the market prices a 63% chance of a $110 high and a 73.5% chance of a $95 low — i.e., the most likely May range is $95–115, with the midpoint around $103–105. The $90 low at 63.5% probability captures a potential de-escalation/Hormuz-opening scenario. <strong>No escalation toward $120+ is primary expectation (only 41.5%).</strong>
+        <br><br>
+        <strong>Australia:</strong> WTI (proxy for Brent) at $102–106 spot translates to Brent ~$110–115. Australian petrol remains at A$2.20–2.35/L. No relief until Hormuz opens (33.5%, stalled). WDS/Santos constructive on structural LNG premium from Qatar Ras Laffan damage.
+      </div>
+    </div>
+
+    <!-- Trump-China summit -->
+    <div class="market-card moved-up">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-high">HIGH</span>
+          Trump visits China by May 31
+        </div>
+        <div>
+          <div class="market-price price-up">92.5%</div>
+          <div class="market-delta delta-up">▲ +3pp/day · May 15 specific: 86.5%</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        Overnight move in Trump-China is effectively flat — the +3pp/day reading is held over from yesterday's session. At 92.5%, this is essentially priced-in. May 15 specific market at 86.5% (confirmed in siblings).
+        <br><br>
+        <strong>10 days to summit.</strong> Japan stopover (May 13 Tokyo) remains at 69%, unconfirmed. Xi's agenda priority: Taiwan. US agenda: trade stability, rare-earth export controls, chips sector. The "US-Iran peace deal by May 15" market (4.5%) confirms the market does not expect any Hormuz breakthrough from the summit bilateral.
+        <br><br>
+        <strong>Cancellation risk is negligible:</strong> 27.5pp above ↓65% trigger, 22.5pp above ↓70% early-warning. The only credible cancellation catalyst would be a major Taiwan incident or sudden Iran escalation — neither is pricing.
+        <br><br>
+        <strong>ASX Monday open:</strong> confirmed normal trading day. China-summit narrative provides a modest constructive backdrop for materials (BHP, RIO, FMG) and AUD into the summit.
+      </div>
+    </div>
+
+    <!-- Warsh / Fed -->
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-high">HIGH</span>
+          Kevin Warsh confirmed as Fed Chair
+        </div>
+        <div>
+          <div class="market-price price-neutral">99.6%</div>
+          <div class="market-delta" style="color:#718096;">— stable (+0.2pp/day)</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        Senate floor vote scheduled week of May 11 — 7 days away. Banking Committee passed 13-11 (party-line, April 29). Near-certain confirmation. Powell departs May 15.
+        <br><br>
+        <strong>Warsh's mandate is impossible:</strong> Q1 PCE 4.5% (from 2.9%), GDP 2.0% miss, Kalshi ≥7% unemployment at 66%, Hormuz oil premium structural. Can't cut with PCE at 4.5%; can't hike into slowing growth. Watch his first post-confirmation public remarks — likely the dominant rate-direction signal of the May 11–15 window. US June hike probability: 0.8% (trivial).
+      </div>
+    </div>
+
+    <!-- Kalshi stagflation -->
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-high">HIGH</span>
+          Kalshi: US Unemployment Tail Risk (≥7% / ≥10% before 2030)
+        </div>
+        <div>
+          <div class="market-price price-neutral">66% / 38%</div>
+          <div class="market-delta" style="color:#718096;">— both flat since Q1 print</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        Full Kalshi unemployment strip: ≥5%=92%, ≥6%=78%, <strong>≥7%=66%</strong>, ≥8%=54%, ≥9%=44%, <strong>≥10%=38%</strong>. All flat since Q1 stagflation print (PCE 4.5%, GDP 2.0% miss, April 30). Stagflation baseline is locked in.
+        <br><br>
+        <strong>April US NFP — Friday May 8 (10:30pm AEST) — is the week's pivotal event.</strong> ADP for April printed 62K (vs 133K consensus) — a strong miss flagging downside NFP risk. If April payrolls come in below 75–100K, or unemployment ticks to 4.4–4.5%, expect: ≥7% moving from 66% toward the ↑74% trigger (8pp away), ≥10% from 38% toward the ↑45% trigger (7pp away). Both firing simultaneously = stagflation-emergency signal.
+        <br><br>
+        <strong>RBA implication:</strong> US stagflation constrains RBA's cutting cycle. If NFP misses and Kalshi triggers fire, US rates higher-for-longer narrative returns hard — AUD headwind, mortgage pressure persists. China summit trade thaw is the partial offset.
+      </div>
+    </div>
+
+    <!-- Iran invasion — bifurcation counter -->
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge qual-low">LOW</span>
+          US invades Iran before 2027
+        </div>
+        <div>
+          <div class="market-price price-neutral">29.5%</div>
+          <div class="market-delta" style="color:#718096;">▼ −1pp/day · 39th consecutive bifurcation</div>
+        </div>
+      </div>
+      <div class="market-analysis">
+        Continuing its slow drift lower despite the blockade continuing, Hormuz shut, and all diplomatic tracks dead. <strong>39th consecutive bifurcation:</strong> the market reads the current situation as "permanent conflict economy freeze" — not military escalation. Cross-check: oil flat ($102–106 spot WTI), no escalation premium building. 10.5pp below the ↑40% escalation trigger. Resolution quality [LOW] — trust oil as ground truth.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CROSS-MARKET NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Cross-Market Narrative</div>
+
+    <div class="callout blue">
+      <strong>The 10-day window (May 4–15) is the most event-dense macro sequence of 2026.</strong> NFP Friday tests the stagflation thesis. Warsh vote next week formally opens the new US monetary era. Powell departs May 15, same day as the Beijing summit. Each event shapes the interpretation of the others: a bad NFP + Warsh "fight inflation" signal = recession trade; a bad NFP + Warsh "support growth" signal = stagflation nightmare; a good NFP + summit trade deliverables = Goldilocks bounce for AUD/ASX materials.
+    </div>
+
+    <div class="callout">
+      <strong>Hormuz oscillation is not a signal — the trend is.</strong> The overnight bounce from 25.5% to 33.5% has no news catalyst. The relevant metric is the weekly trajectory: −25.5pp from Wednesday. Every Iranian proposal has been rejected. The May 15 Hormuz lift probability (10.5%) has now fallen below the "one-in-ten" threshold. <strong>The summit will not open the Hormuz strait.</strong> Australian petrol at A$2.20–2.35/L (Brent proxy ~$110–115) is structural through at least end of May 31 with 66.5% confidence (Hormuz stays closed probability).
+    </div>
+
+    <div class="callout green">
+      <strong>China summit narrative is the AUD's best friend this fortnight.</strong> With summit locked at 92.5% and 10 days out, AUD and iron ore names have modest upside on any positive trade deliverables. The Japan stopover narrative (May 13 Tokyo, 69%) is unconfirmed but would signal elevated summit importance. Xi's Taiwan priority is the tail risk — watch for any pre-summit posturing from Beijing on Taiwan Strait activity. If the Taiwan invasion market (7.4%) moves above 10%, that's the warning sign.
+    </div>
+
+    <div class="callout red">
+      <strong>NFP is the dominant risk event — don't be lulled by the quiet overnight.</strong> ADP 62K vs 133K consensus is a large miss. March NFP was inflated by 76K healthcare strike-return workers who won't repeat. The base case consensus (+133K, 4.2% unemployment) looks optimistic. If April unemployment prints 4.5%+ or payrolls miss 100K, the Kalshi ≥7% trigger (66% → ↑74%) and ≥10% trigger (38% → ↑45%) both become live in real time Friday night. An immediate alert report would follow.
+    </div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="section">
+    <div class="section-title">Key Catalyst Calendar</div>
+    <div class="calendar-item">
+      <div class="cal-date">TODAY<br>MON 4 MAY</div>
+      <div>
+        <div class="cal-event">ASX opens — confirmed normal trading day</div>
+        <div class="cal-sub">No national public holiday. QLD Labour Day does not close ASX. China summit narrative provides mild materials/AUD tailwind. Watch for any Iran news during Australian trading hours.</div>
+      </div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">FRI 8 MAY</div>
+      <div>
+        <div class="cal-event">US April NFP — 8:30am ET / 10:30pm AEST (Friday night)</div>
+        <div class="cal-sub">ADP 62K vs 133K consensus = serious downside risk. Key triggers: Kalshi ≥7% unemployment 8pp from ↑74% fire; ≥10% 7pp from ↑45% fire. If both fire simultaneously: immediate alert report. Consensus payrolls ~+133K, unemployment 4.2% — a miss to 4.4–4.5% and payrolls below 75K would be the trigger scenario.</div>
+      </div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">WK 11 MAY</div>
+      <div>
+        <div class="cal-event">Kevin Warsh Senate floor vote (99.6%) + Powell departure May 15</div>
+        <div class="cal-sub">Near-certain passage. Watch Warsh's first post-confirmation remarks for rate-path signal. Impossible mandate: PCE 4.5%, GDP 2.0%, ≥7% unemployment at 66%. Any hint of "hike to fight inflation" = Treasury sell-off, equity pressure, AUD hit.</div>
+      </div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">13 MAY?</div>
+      <div>
+        <div class="cal-event">Japan stopover — Tokyo (69%, unconfirmed)</div>
+        <div class="cal-sub">Japan pushing for Trump Tokyo visit en route to Beijing. If confirmed, elevates summit significance and adds Japan trade dimension. Not yet priced as separate market.</div>
+      </div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">14-15 MAY</div>
+      <div>
+        <div class="cal-event">Trump-Xi Beijing summit (92.5%) — the AUD catalyst</div>
+        <div class="cal-sub">36-hour visit. Agenda: trade, rare earths, chips (US side); Taiwan (Xi's stated priority). Hormuz NOT on bilateral agenda (May 15 Hormuz lift only 10.5%). Summit communiqué trade deliverables = AUD/BHP/RIO positive. Pointed Taiwan language = China invasion market (7.4%) spikes intraday.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUSTRALIA / RBA -->
+  <div class="section">
+    <div class="section-title">Australia — RBA &amp; Markets</div>
+    <table class="table">
+      <tr>
+        <th>Indicator</th>
+        <th>Current Signal</th>
+        <th>Implication</th>
+      </tr>
+      <tr>
+        <td>Brent proxy (WTI ~$102–106)</td>
+        <td>Structural floor ~$110–115 Brent; ≤$95 WTI at 73.5%</td>
+        <td>Petrol A$2.20–2.35/L structural. No relief unless Hormuz opens (66.5% stays closed). WDS/Santos supported.</td>
+      </tr>
+      <tr>
+        <td>China summit</td>
+        <td>92.5% · May 14-15 · Taiwan risk</td>
+        <td>AUD constructive; BHP/RIO/FMG positioned for upside on trade deliverables. Taiwan language = intraday tail risk.</td>
+      </tr>
+      <tr>
+        <td>US stagflation baseline</td>
+        <td>PCE 4.5%, Kalshi ≥7% at 66%</td>
+        <td>RBA cannot cut aggressively while US rates are higher-for-longer. AUD/JPY risk reversal on NFP miss.</td>
+      </tr>
+      <tr>
+        <td>New Fed era (Warsh)</td>
+        <td>Vote week of May 11; Powell exits May 15</td>
+        <td>Policy direction signal post-confirmation moves US Treasuries. AUD sensitive to "fight inflation" vs "support growth" framing.</td>
+      </tr>
+      <tr>
+        <td>April US NFP (May 8)</td>
+        <td>ADP 62K miss; consensus 133K at risk</td>
+        <td>Miss scenario: Kalshi triggers fire Friday night, ASX Monday May 11 opens pricing recession risk. BHP/banks most sensitive.</td>
+      </tr>
+      <tr>
+        <td>Qatar LNG</td>
+        <td>Trains 4+6 offline 2–4 years (~13 mtpa, 17% capacity)</td>
+        <td>Structurally bullish WDS/Santos; Asian/European LNG spot elevated permanently regardless of Iran resolution.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="section">
+    <div class="section-title">Actions Taken This Session</div>
+    <ul class="actions-list">
+      <li>
+        <span class="action-badge badge-watching">WATCHING</span>
+        <div>All 10 Polymarket triggers and 8 Kalshi triggers confirmed active. No threshold changes warranted — no triggers approaching fire level. Closest: Kalshi ≥7% unemployment at 8pp from ↑74%; Kalshi ≥10% at 7pp from ↑45%.</div>
+      </li>
+      <li>
+        <span class="action-badge badge-noting">NOTING</span>
+        <div>WTI May strip fully mapped: $110=63%, $120=41.5%, $130=20%, $140=11.2%, $150=5.5%. Downside: ≤$95=73.5%, ≤$90=63.5%, ≤$85=46%, ≤$80=26%. Market confirms WTI rangebound $95–115 for May. No new coverage gaps identified.</div>
+      </li>
+      <li>
+        <span class="action-badge badge-noting">NOTING</span>
+        <div>Hormuz overnight recovery (+8pp from Sunday 5PM) confirmed as thin-market mean reversion — no news catalyst. Weekly trend -25.5pp. The May 15 Hormuz lift sibling (10.5%) has fallen from 15.5%, confirming continued market view: summit does not resolve blockade.</div>
+      </li>
+      <li>
+        <span class="action-badge badge-noting">NOTING</span>
+        <div>Market discovery found only sports/esports markets (CS2, Dota 2) — no new macro markets. No watchlist additions warranted.</div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst &nbsp;·&nbsp; 4 May 2026 07:00 AEST &nbsp;·&nbsp; All prices at time of collection. Polymarket: 64 markets tracked, 10 triggers active (0 fired). Kalshi: 8 triggers active (0 fired). Next scheduled run: 5PM AEST today.
+</div>
+
+</body>
+</html>
