@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Trump-China Summit Repricing — 92.5%→82.0% in 80 Minutes</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 2rem; border-bottom: 2px solid #e53e3e; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+  .header .meta { color: #a0aec0; font-size: 0.85rem; }
+  .alert-badge { display: inline-block; background: #e53e3e; color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 0.5rem; }
+  .container { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+  .section { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+  .section h2 { font-size: 0.95rem; font-weight: 700; color: #90cdf4; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.9rem; border-bottom: 1px solid #2d3748; padding-bottom: 0.5rem; }
+  .market-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid #2d3748; }
+  .market-row:last-child { border-bottom: none; }
+  .market-name { font-size: 0.9rem; color: #e2e8f0; flex: 1; }
+  .market-meta { font-size: 0.78rem; color: #718096; margin-top: 0.1rem; }
+  .price-block { text-align: right; min-width: 110px; }
+  .price { font-size: 1.1rem; font-weight: 700; }
+  .delta { font-size: 0.8rem; font-weight: 600; margin-top: 0.1rem; }
+  .delta.down { color: #fc8181; }
+  .delta.up { color: #68d391; }
+  .delta.flat { color: #a0aec0; }
+  .badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; margin-right: 0.3rem; text-transform: uppercase; }
+  .badge-high { background: #276749; color: #9ae6b4; }
+  .badge-med { background: #744210; color: #fbd38d; }
+  .badge-low { background: #44337a; color: #d6bcfa; }
+  .trigger-bar { margin: 0.6rem 0; }
+  .trigger-label { font-size: 0.8rem; color: #a0aec0; margin-bottom: 0.3rem; }
+  .bar-track { background: #2d3748; border-radius: 999px; height: 8px; overflow: visible; position: relative; }
+  .bar-fill { height: 8px; border-radius: 999px; }
+  .bar-fill.amber { background: #d69e2e; }
+  .bar-fill.red { background: #e53e3e; }
+  .bar-fill.green { background: #38a169; }
+  .bar-threshold { position: absolute; top: -3px; width: 3px; height: 14px; background: #e53e3e; border-radius: 2px; }
+  .threshold-label { position: absolute; top: -18px; font-size: 0.65rem; color: #fc8181; font-weight: 700; transform: translateX(-50%); white-space: nowrap; }
+  .velocity-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .velocity-table th { text-align: left; color: #718096; font-weight: 600; padding: 0.3rem 0.5rem; border-bottom: 1px solid #2d3748; }
+  .velocity-table td { padding: 0.35rem 0.5rem; border-bottom: 1px solid #1a202c; }
+  .velocity-table tr:last-child td { border-bottom: none; }
+  .drop { color: #fc8181; font-weight: 600; }
+  .stable { color: #68d391; font-weight: 600; }
+  .up-sm { color: #68d391; }
+  .highlight-box { background: #2d1e00; border: 1px solid #d69e2e; border-radius: 6px; padding: 0.9rem 1rem; margin-bottom: 0.8rem; }
+  .highlight-box.red { background: #2d0a0a; border-color: #e53e3e; }
+  .highlight-box.green { background: #0a2d1a; border-color: #38a169; }
+  .highlight-box .title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; color: #d69e2e; }
+  .highlight-box.red .title { color: #fc8181; }
+  .highlight-box.green .title { color: #68d391; }
+  .highlight-box p, .highlight-box ul { font-size: 0.87rem; color: #e2e8f0; }
+  .highlight-box ul { padding-left: 1.2rem; }
+  .highlight-box li { margin-bottom: 0.2rem; }
+  .implication-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  @media (max-width: 600px) { .implication-grid { grid-template-columns: 1fr; } }
+  .impl-card { background: #2d3748; border-radius: 6px; padding: 0.8rem; }
+  .impl-card .asset { font-size: 0.75rem; font-weight: 700; color: #90cdf4; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .impl-card p { font-size: 0.84rem; color: #e2e8f0; }
+  .watchlist { list-style: none; padding: 0; }
+  .watchlist li { padding: 0.5rem 0; border-bottom: 1px solid #2d3748; font-size: 0.87rem; }
+  .watchlist li:last-child { border-bottom: none; }
+  .watchlist .num { display: inline-block; background: #2d3748; color: #90cdf4; font-weight: 700; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; margin-right: 0.5rem; min-width: 22px; text-align: center; }
+  .footer { text-align: center; color: #4a5568; font-size: 0.75rem; padding: 2rem; border-top: 1px solid #2d3748; margin-top: 1rem; }
+  .price-yellow { color: #ecc94b; }
+  .price-red { color: #fc8181; }
+  .price-green { color: #68d391; }
+  .watermark { font-size: 0.78rem; color: #4a5568; font-style: italic; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span class="alert-badge">Alert</span> Trump-China Summit Repricing: 92.5% → 82.0%</h1>
+  <div class="meta">Polymarket Financial Analyst · Tuesday 5 May 2026, 02:25 AEST · ASX open today</div>
+</div>
+
+<div class="container">
+
+  <!-- LEAD BOX -->
+  <div class="highlight-box red">
+    <div class="title">⚠️ Rapid Repricing — Neither Trigger Fired, But Velocity Is Elevated</div>
+    <p>Trump visits China by May 31 has fallen from 92.5% to 82.0% in the past 80 minutes — the sharpest single-session drop since monitoring began. Volume has surged from $431K to $538K/day in 45 minutes, confirming genuine institutional repositioning. <strong>The reader was told 92.5% (flat) at 00:53 AEST.</strong> Neither the early-warning trigger (↓70%) nor the cancellation trigger (↓65%) has fired — but at this velocity, ↓70% could fire within 30–60 minutes if a fresh catalyst emerges.</p>
+  </div>
+
+  <!-- VELOCITY TABLE -->
+  <div class="section">
+    <h2>📉 Price Velocity — Trump-China Summit (will-trump-visit-china-by-may-31-344)</h2>
+    <table class="velocity-table">
+      <thead><tr><th>Time (AEST)</th><th>Price</th><th>Move</th><th>Volume (24h)</th></tr></thead>
+      <tbody>
+        <tr><td>00:30 — Jask Overnight Update email sent</td><td>92.5%</td><td class="flat">flat from prior</td><td>—</td></tr>
+        <tr><td>01:00</td><td>92.0%</td><td class="drop">−0.5pp</td><td>—</td></tr>
+        <tr><td>01:15</td><td>91.5%</td><td class="drop">−0.5pp</td><td>—</td></tr>
+        <tr><td>01:30</td><td>91.5%</td><td class="flat">flat</td><td>$431K/day</td></tr>
+        <tr><td><strong>01:45 — Acceleration point</strong></td><td><strong>86.5%</strong></td><td class="drop"><strong>−5.0pp step-change</strong></td><td>$504K/day ↑</td></tr>
+        <tr><td>02:00</td><td>86.5%</td><td class="flat">flat</td><td>$509K/day</td></tr>
+        <tr><td><strong>02:15 — Alert collection</strong></td><td><strong>82.0%</strong></td><td class="drop"><strong>−4.5pp</strong></td><td>$538K/day ↑↑</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:0.8rem;">
+      <div class="trigger-label">Current 82% vs triggers: ↓70% early-warning (12pp away) and ↓65% cancellation signal (17pp away)</div>
+      <div class="bar-track" style="margin-top:0.5rem;">
+        <div class="bar-fill amber" style="width:82%;"></div>
+        <div class="bar-threshold" style="left:70%;"><span class="threshold-label">↓70% EW</span></div>
+        <div class="bar-threshold" style="left:65%; background:#d69e2e;"><span class="threshold-label" style="color:#fbd38d;">↓65% CANCEL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATALYST -->
+  <div class="section">
+    <h2>🔍 Catalyst: Project Freedom → China's Political Red Line</h2>
+    <div class="highlight-box">
+      <div class="title">CNN May 4: Chinese Analysts Explicitly Link Hormuz to Summit Viability</div>
+      <ul>
+        <li>Wu Xinbo (US-China Centre, Foreign Ministry adviser): <em>"The US simply couldn't handle Iran... its relative bargaining position has weakened."</em></li>
+        <li>Cui Hongjian (Beijing Foreign Studies University): The Hormuz situation has <em>"seriously disrupted"</em> China's summit planning.</li>
+        <li>Core red line: If Trump visits Beijing <em>then</em> attacks Iran post-visit, <em>"it would appear as if China has abandoned Iran."</em> China imports ~35% of its oil via Hormuz — Xi cannot be seen endorsing a US operation that threatens China's own energy supply.</li>
+        <li><strong>Beijing has still not officially confirmed the May 14–15 dates</strong> — the confirmation came via Wang Yi–Rubio phone call, but no Chinese state media anchor confirmation as of reporting.</li>
+      </ul>
+    </div>
+    <p style="font-size:0.87rem; color:#a0aec0;">This is not a new Iran escalation — it is the <em>existing</em> Jask/Project Freedom situation (covered in the 00:53 AEST email) now feeding through to Chinese diplomatic calculations. Oil markets confirm: no fresh kinetic event.</p>
+  </div>
+
+  <!-- CROSS-MARKET VALIDATION -->
+  <div class="section">
+    <h2>✅ Cross-Market Validation — No Fresh Iran Escalation</h2>
+    <div class="market-row">
+      <div>
+        <div class="market-name"><span class="badge badge-high">HIGH</span> WTI Crude $110 in May</div>
+        <div class="market-meta">Jask incident disputed; Project Freedom continuing</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-yellow">84.5%</div>
+        <div class="delta down">−0.5pp (stable/slight fade)</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name"><span class="badge badge-high">HIGH</span> WTI Crude $120 in May</div>
+        <div class="market-meta">No additional escalation priced overnight</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-yellow">~40.5%</div>
+        <div class="delta flat">flat</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name"><span class="badge badge-med">MED</span> Hormuz blockade lift May 31</div>
+        <div class="market-meta">Slight uptick — no breakthrough, no worsening</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-yellow">25.5%</div>
+        <div class="delta up">+1.0pp (marginal)</div>
+      </div>
+    </div>
+    <div class="market-row">
+      <div>
+        <div class="market-name"><span class="badge badge-low">LOW</span> US invasion of Iran before 2027</div>
+        <div class="market-meta">43rd+ consecutive bifurcation</div>
+      </div>
+      <div class="price-block">
+        <div class="price price-green">30.5%</div>
+        <div class="delta flat">flat</div>
+      </div>
+    </div>
+    <div style="margin-top:0.8rem; padding:0.6rem; background:#1a2a1a; border-radius:6px; font-size:0.84rem;">
+      <strong style="color:#68d391;">Cross-market verdict: COHERENT.</strong> Oil is stable/slightly fading, invasion is flat, Hormuz marginally higher. The Trump-China drop is a <em>clean diplomatic repricing</em> from the Iran-summit linkage — not a fresh escalation signal. These signals reinforce each other: Iran stalemate (no resolution) → China summit complicated. Oil flat → no new kinetic event.
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>🌏 Macro Implications</h2>
+    <div class="implication-grid">
+      <div class="impl-card">
+        <div class="asset">AUD/USD</div>
+        <p>Downside pressure. China summit was the dominant AUD positive catalyst for May 4–14. Every 5pp decline in summit probability erodes that structural bid. If ↓70% fires, expect AUD to soften on open.</p>
+      </div>
+      <div class="impl-card">
+        <div class="asset">ASX Materials — BHP, RIO, FMG</div>
+        <p>Iron ore and copper names priced China demand recovery from summit goodwill. Further summit repricing → these names underperform on ASX open today. Relatively contained at 82% but watch velocity.</p>
+      </div>
+      <div class="impl-card">
+        <div class="asset">ASX Energy — WDS, STO</div>
+        <p>No direct impact. WTI $110 at 84.5% (stable) means oil thesis unchanged. Energy sector neutral here.</p>
+      </div>
+      <div class="impl-card">
+        <div class="asset">US-China Trade Policy</div>
+        <p>If summit is postponed: tariff de-escalation narrative pauses. Rare earth export suspension extension likely. Section 301 probe remains active. Risk-off posture for US multinationals with China exposure.</p>
+      </div>
+      <div class="impl-card">
+        <div class="asset">AUD/JPY</div>
+        <p>Double negative: risk-off from China summit risk + stagflation macro (US Fed stuck) → AUD/JPY biased lower. JPY safe-haven bid competes with AUD China optionality.</p>
+      </div>
+      <div class="impl-card">
+        <div class="asset">Australian Petrol</div>
+        <p>No change. WTI flat at ~$101–$102 (Brent proxy ~$108–$112). Australian petrol at A$2.20–$2.35/L floor. Summit cancellation doesn't directly affect oil — Iran stalemate is the driver.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOLUTION QUALITY NOTE -->
+  <div class="section">
+    <h2>📋 Resolution Quality Note</h2>
+    <div style="font-size:0.87rem; color:#e2e8f0;">
+      <p><span class="badge badge-low">LOW</span> <strong>Trump visits China by May 31</strong> — YES resolves if Trump physically enters Chinese territory by May 31. While "physical entry" is an objective fact, UMA token holders decide edge cases. The market is structurally a reasonable proxy for the diplomatic probability but treat with appropriate caution. The −10.5pp move represents genuine information (CNN catalyst, volume surge) regardless of resolution quality classification.</p>
+      <p style="margin-top:0.5rem; color:#a0aec0;">For Australian macro purposes: the <em>summit probability</em> (not UMA resolution quality) is what drives AUD/iron ore optionality. A 82% probability of the summit happening is still a strong positive skew — just less certain than the 92.5% from 80 minutes ago.</p>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section">
+    <h2>🔭 What to Watch (Next 2–12 Hours)</h2>
+    <ul class="watchlist">
+      <li><span class="num">1</span><strong>Beijing official confirmation of May 14–15 dates</strong> — Chinese state media (Xinhua, Global Times) silence on dates is itself a signal. If confirmation appears before ASX open, market likely stabilises. If silence continues into Tuesday AEST: summit risk elevated.</li>
+      <li><span class="num">2</span><strong>↓70% early-warning trigger fire</strong> — at current velocity (−4.5pp/15min), could fire within 30–60 minutes if a fresh catalyst emerges. No email needed unless triggered (you're being updated now); trigger system will alert.</li>
+      <li><span class="num">3</span><strong>WTI $110 direction</strong> — if oil starts dropping below 80% (from 84.5%), it signals the Jask de-escalation narrative is winning AND the China summit risk is real (double de-escalation). If oil holds 84%+, Iran stalemate is persisting but not worsening.</li>
+      <li><span class="num">4</span><strong>Trump Truth Social</strong> — any post mentioning China, Beijing, or May summit would be the primary catalyst either way. A "looking forward to seeing President Xi" post would send market to 90%+. A "not the right time" post = ↓65% immediately.</li>
+      <li><span class="num">5</span><strong>Project Freedom transit completion</strong> — CENTCOM announced escorts for May 4 ships. If transit completes without further incident through May 5, Iran/Hormuz narrative softens and summit risk premium recedes.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div>Polymarket Financial Analyst · Alert generated 02:25 AEST 5 May 2026</div>
+    <div class="watermark">Data: Polymarket, Kalshi, market_log.tsv. Catalyst: CNN May 4 2026 (Wu Xinbo / Cui Hongjian). Analysis: buy-side macro framework.</div>
+  </div>
+
+</div>
+</body>
+</html>
