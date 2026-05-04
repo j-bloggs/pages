@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 5 May 2026 7AM AEST — Fujairah Bypass Attacked</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d26;
+    --border: #2a2d3a;
+    --accent-red: #ff4560;
+    --accent-green: #00e396;
+    --accent-yellow: #feb019;
+    --accent-blue: #008ffb;
+    --accent-purple: #775dd0;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-high: #1a3a2a;
+    --tag-high-text: #00e396;
+    --tag-med: #2a2a1a;
+    --tag-med-text: #feb019;
+    --tag-low: #2a1a1a;
+    --tag-low-text: #ff7070;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+  /* Header */
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 24px; }
+  .header-meta { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+  .header h1 { font-size: 24px; font-weight: 700; line-height: 1.3; }
+  .header .subtitle { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  /* Alert banner */
+  .alert-banner { background: #2d1515; border: 1px solid #6b2020; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; }
+  .alert-banner .alert-title { color: var(--accent-red); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .alert-banner p { font-size: 14px; color: #e0c0c0; }
+  .alert-stable { background: #1a2520; border: 1px solid #204020; }
+  .alert-stable .alert-title { color: var(--accent-green); }
+  .alert-stable p { color: #c0e0c0; }
+
+  /* Section headings */
+  h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 28px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+  /* Market cards */
+  .market-grid { display: flex; flex-direction: column; gap: 10px; }
+  .market-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .market-card.highlight { border-color: #6b2020; background: #1d1515; }
+  .market-card.highlight-green { border-color: #1a4a30; }
+  .market-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .market-label { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+  .market-price-block { text-align: right; flex-shrink: 0; }
+  .market-price { font-size: 22px; font-weight: 700; line-height: 1; }
+  .market-delta { font-size: 12px; margin-top: 3px; }
+  .delta-up { color: var(--accent-green); }
+  .delta-down { color: var(--accent-red); }
+  .delta-flat { color: var(--muted); }
+  .market-interp { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+  .market-interp strong { color: var(--text); }
+
+  /* Quality tags */
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; margin-right: 6px; vertical-align: middle; }
+  .tag-high { background: var(--tag-high); color: var(--tag-high-text); }
+  .tag-med { background: var(--tag-med); color: var(--tag-med-text); }
+  .tag-low { background: var(--tag-low); color: var(--tag-low-text); }
+  .tag-fired { background: #3a1a00; color: #ff9040; }
+  .tag-watch { background: #1a1a3a; color: #8888ff; }
+
+  /* Trigger table */
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { text-align: left; color: var(--muted); font-weight: 600; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .trigger-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .trigger-watching { color: var(--accent-yellow); font-weight: 600; }
+  .trigger-safe { color: var(--muted); }
+
+  /* Kalshi section */
+  .kalshi-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .kalshi-row:last-child { border-bottom: none; }
+  .kalshi-bucket { color: var(--muted); }
+  .kalshi-bar-wrap { flex: 1; margin: 0 14px; height: 6px; background: var(--border); border-radius: 3px; }
+  .kalshi-bar { height: 100%; border-radius: 3px; background: var(--accent-blue); }
+  .kalshi-val { font-weight: 700; min-width: 38px; text-align: right; }
+  .kalshi-delta { min-width: 52px; text-align: right; font-size: 12px; }
+
+  /* Forward view */
+  .forward-block { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .forward-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-item .fw-date { color: var(--accent-yellow); font-weight: 700; font-size: 13px; }
+  .forward-item .fw-desc { color: var(--muted); margin-top: 2px; font-size: 13px; }
+
+  /* Narrative */
+  .narrative { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; font-size: 14px; line-height: 1.7; }
+  .narrative p { margin-bottom: 10px; }
+  .narrative p:last-child { margin-bottom: 0; }
+
+  /* Cross-market */
+  .xmarket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 600px) { .xmarket-grid { grid-template-columns: 1fr; } }
+  .xmarket-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 13px; }
+  .xmarket-card .xm-title { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px; }
+  .xmarket-card .xm-body { color: var(--text); line-height: 1.5; }
+
+  /* Footer */
+  .footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+  .price-red { color: var(--accent-red); }
+  .price-green { color: var(--accent-green); }
+  .price-yellow { color: var(--accent-yellow); }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-meta">Tuesday 5 May 2026 · 07:00 AEST · Daily Briefing</div>
+    <h1>Iran Attacks UAE Fujairah Bypass Terminal<br>Dual Oil Route Closure Risk Materialises</h1>
+    <div class="subtitle">Brent $114.44 · WTI $106.42 · $3.58 from $110 threshold · Summit recovering 87.5% · NFP Friday</div>
+  </div>
+
+  <!-- Alert banner -->
+  <div class="alert-banner">
+    <div class="alert-title">⚠ Escalation: Hormuz Bypass Under Attack</div>
+    <p>Iran fired 15 missiles and 4 drones at the UAE's Fujairah Oil Industry Zone (VTTI facility) on Monday May 4 — the terminus of the Habshan-Fujairah pipeline, the UAE's 1.5–1.8 mb/d Hormuz bypass. 3 injured, fire confirmed. Iran is demonstrating it can close <em>all</em> Gulf oil export routes — not just Hormuz. Brent surged to $114.44. WTI $110 in May is now 83% likely.</p>
+  </div>
+
+  <!-- Trigger status -->
+  <h2>Trigger Status — No Fires This Run</h2>
+  <table class="trigger-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Price</th>
+        <th>vs Trigger</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> WTI $110 in May — escalation (↑99%)</td>
+        <td>83.0%</td>
+        <td>16.0pp below trigger</td>
+        <td class="trigger-safe">watching (deact.)</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> WTI $110 in May — floor warn (↓35%)</td>
+        <td>83.0%</td>
+        <td>48.0pp above trigger</td>
+        <td class="trigger-safe">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> WTI $120 in May — escalation (↑65%)</td>
+        <td>45.5%</td>
+        <td>19.5pp below trigger</td>
+        <td class="trigger-watching">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-med">MED</span> Hormuz lift May 31 — early warn (↑50%)</td>
+        <td>26.0%</td>
+        <td>24.0pp below trigger</td>
+        <td class="trigger-safe">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-med">MED</span> Hormuz lift May 31 — main (↑65%)</td>
+        <td>26.0%</td>
+        <td>39.0pp below trigger</td>
+        <td class="trigger-safe">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-low">LOW</span> Trump-China summit — early warn (↓70%)</td>
+        <td>87.5%</td>
+        <td>17.5pp above trigger</td>
+        <td class="trigger-safe">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-low">LOW</span> Trump-China summit — cancel (↓65%)</td>
+        <td>87.5%</td>
+        <td>22.5pp above trigger</td>
+        <td class="trigger-safe">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-low">LOW</span> Iran invasion 2027 — escalation (↑40%)</td>
+        <td>31.5%</td>
+        <td>8.5pp below trigger</td>
+        <td class="trigger-watching">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> Kalshi: US unemployment ≥7% (↑74%)</td>
+        <td>67.0%</td>
+        <td>7.0pp below trigger</td>
+        <td class="trigger-watching">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> Kalshi: US unemployment ≥10% (↑45%)</td>
+        <td>38.0%</td>
+        <td>7.0pp below trigger</td>
+        <td class="trigger-watching">watching</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-high">HIGH</span> Kalshi: US unemployment ≥20% (↑15%) <em>NEW</em></td>
+        <td>8.0%</td>
+        <td>7.0pp below trigger</td>
+        <td class="trigger-watching">new trigger</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Key Market Moves -->
+  <h2>Key Markets</h2>
+  <div class="market-grid">
+
+    <!-- Fujairah / WTI $110 -->
+    <div class="market-card highlight">
+      <div class="market-top">
+        <div class="market-label">
+          <span class="tag tag-high">HIGH</span> WTI crude hits $110 in May
+        </div>
+        <div class="market-price-block">
+          <div class="market-price price-yellow">83.0%</div>
+          <div class="market-delta delta-flat">0.0pp (5AM→7AM)</div>
+        </div>
+      </div>
+      <div class="market-interp">
+        <strong>Near-certain May touch following Fujairah attack.</strong> WTI spot closed May 4 at $106.42 (+4%) — only $3.58 from $110. Brent surged to $114.44 (+6%). Iran struck the VTTI terminal at Fujairah: the terminus of the Habshan-Fujairah bypass pipeline (380km, 1.5–1.8 mb/d capacity — UAE exports ~1.1 mb/d via this route). Fire confirmed; three injured. UAE intercepted 15 missiles + 4 drones. Jask incident (May 4 overnight) now secondary — the Fujairah attack is the dominant catalyst. The $110 trigger (↑99%) was de-activated after the Jask spike; it remains de-activated as pricing reflects known information. Australian petrol: <strong>Brent $114 → A$2.35–2.50/L structural floor</strong> (WTI proxy for Brent; Brent-WTI spread ~$8).
+      </div>
+    </div>
+
+    <!-- WTI $120 -->
+    <div class="market-card highlight">
+      <div class="market-top">
+        <div class="market-label">
+          <span class="tag tag-high">HIGH</span> WTI crude hits $120 in May
+        </div>
+        <div class="market-price-block">
+          <div class="market-price price-yellow">45.5%</div>
+          <div class="market-delta delta-flat">0.0pp (stable)</div>
+        </div>
+      </div>
+      <div class="market-interp">
+        <strong>Coin-flip, with asymmetric upside from Fujairah escalation.</strong> Near-even odds on WTI retesting April's wartime high ($126). If Habshan-Fujairah pipeline is operationally disrupted (full bypass closure), Brent could spike to $130–$145 — the $120 threshold becomes near-certain. Trigger fires at ↑65% (19.5pp away). Key escalation watch: does Iran strike pipeline infrastructure directly (not just the terminal) in follow-on attacks? Australian petrol at ↑$120 WTI: Brent ~$127–132, <strong>A$2.60–2.80/L</strong>.
+      </div>
+    </div>
+
+    <!-- Trump-China -->
+    <div class="market-card">
+      <div class="market-top">
+        <div class="market-label">
+          <span class="tag tag-low">LOW</span> Trump visits China by May 31
+        </div>
+        <div class="market-price-block">
+          <div class="market-price price-green">87.5%</div>
+          <div class="market-delta delta-up">+5.5pp since 02:22 AEST</div>
+        </div>
+      </div>
+      <div class="market-interp">
+        <strong>Full recovery from overnight 82% panic — summit proceeding.</strong> Description cache shows 91% (1h: −0.5pp), confirming recovery extends beyond the 7AM market-watch snapshot. Overnight drop (92.5% → 82.0%) was driven by CNN analysis that Iran stalemate weakens US bargaining position vs Xi. Recovery reflects: (a) no cancellation catalyst materialised, (b) White House logistics (36-hour visit, Temple of Heaven confirmed), (c) Wang Yi-Rubio phone call reconfirmed intent (May 1). Beijing has NOT officially confirmed — the last explicit "risk" in this market. <strong>9 days to summit.</strong> Triggers at ↓70% (17.5pp away) and ↓65% (22.5pp away) well-buffered.
+      </div>
+    </div>
+
+    <!-- Hormuz -->
+    <div class="market-card">
+      <div class="market-top">
+        <div class="market-label">
+          <span class="tag tag-med">MED</span> Hormuz blockade lifted by May 31
+        </div>
+        <div class="market-price-block">
+          <div class="market-price price-red">26.0%</div>
+          <div class="market-delta delta-flat">0.0pp (stable)</div>
+        </div>
+      </div>
+      <div class="market-interp">
+        <strong>Fujairah attack makes Hormuz lift even less likely in May.</strong> Iran attacking the bypass route demonstrates its leverage maximisation — it will NOT lift Hormuz until it extracts maximum concessions. Every rejected proposal + new attack = longer blockade. May 15 sibling (summit date specific) sits at ~10.5%. The Hormuz June 30 sibling (thin, $30 liq) is at 38% — June premium (+12pp vs May) reflects legal/diplomatic resolution scenario post-summit. Both ↑50% and ↑65% triggers are far away (24pp, 39pp respectively) and moving further.
+      </div>
+    </div>
+
+    <!-- Iran invasion -->
+    <div class="market-card">
+      <div class="market-top">
+        <div class="market-label">
+          <span class="tag tag-low">LOW</span> US invades Iran before 2027
+        </div>
+        <div class="market-price-block">
+          <div class="market-price">31.5%</div>
+          <div class="market-delta delta-up">+1.0pp (1d)</div>
+        </div>
+      </div>
+      <div class="market-interp">
+        <strong>45th+ consecutive bifurcation — Fujairah attack does not price invasion.</strong> Market absorbs kinetic incident (Jask, disputed) + UAE bypass attack + oil spike without moving toward invasion scenario. Confirms: these are calibrated pressure tactics, not ceasefire collapse signals. Cross-market validation: Brent $114 is a "premium blockade" print, not a "war resumption" print. 8.5pp below ↑40% trigger. [LOW] quality market — trust oil ($114 Brent) as ground truth.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Kalshi unemployment -->
+  <h2>Kalshi — US Unemployment Before 2030</h2>
+  <div class="market-card">
+    <div class="market-interp" style="margin-bottom:12px">
+      <strong>New signal: ≥20% extreme tail +5pp to 8%.</strong> This is the "Great Depression" bucket — the last time US unemployment hit 20% was 1932. The move from ~3% to 8% (+5pp) tracks the escalating dual oil-route closure risk: Hormuz closed + Fujairah bypass attacked. Scenario path: sustained $130+ Brent → persistent supply-shock inflation → Fed forced to hold/hike into recession → hard landing → depression-scale unemployment. The ≥7% bucket (67%, 7pp from ↑74% trigger) is the near-term sentinel; <strong>April NFP (Friday May 8, 10:30pm AEST)</strong> is the next repricing event. ADP printed 62K vs 133K consensus — serious downside risk.
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥5%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:92%"></div></div>
+      <span class="kalshi-val">92.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥6%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:78%"></div></div>
+      <span class="kalshi-val">78.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥7%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:67%"></div></div>
+      <span class="kalshi-val" style="color:#feb019">67.0%</span>
+      <span class="kalshi-delta delta-up">+1.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥8%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:54%"></div></div>
+      <span class="kalshi-val">54.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥9%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:44%"></div></div>
+      <span class="kalshi-val">44.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥10%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:38%; background:#ff7040"></div></div>
+      <span class="kalshi-val" style="color:#ff7040">38.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥12%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:23%; background:#ff7040"></div></div>
+      <span class="kalshi-val" style="color:#ff7040">23.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥15%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:11%; background:#ff4040"></div></div>
+      <span class="kalshi-val" style="color:#ff4040">11.0%</span>
+      <span class="kalshi-delta delta-flat">0.0pp</span>
+    </div>
+    <div class="kalshi-row">
+      <span class="kalshi-bucket" style="width:50px">≥20%</span>
+      <div class="kalshi-bar-wrap"><div class="kalshi-bar" style="width:8%; background:#ff4040"></div></div>
+      <span class="kalshi-val" style="color:#ff4040">8.0%</span>
+      <span class="kalshi-delta delta-up" style="color:#ff9060"><strong>+5.0pp ↑</strong></span>
+    </div>
+    <div class="market-interp" style="margin-top:10px; font-size:12px;">
+      ↑74% trigger on ≥7% bucket: currently 7.0pp away. ↑45% trigger on ≥10% bucket: currently 7.0pp away. <strong>New ↑15% trigger added on ≥20% bucket: currently 7.0pp away.</strong> April US NFP (Friday May 8, 10:30pm AEST) is next repricing event. ADP missed badly: 62K vs 133K consensus.
+    </div>
+  </div>
+
+  <!-- Macro cross-market -->
+  <h2>Cross-Market Implications</h2>
+  <div class="xmarket-grid">
+    <div class="xmarket-card">
+      <div class="xm-title">🇦🇺 Australian Petrol</div>
+      <div class="xm-body">Brent $114.44 (WTI proxy; Brent-WTI spread ~$8). Current: <strong>A$2.35–2.50/L</strong>. If WTI hits $120 (45.5%): Brent ~$128, petrol <strong>A$2.65–2.80/L</strong>. Fujairah attack adds permanent upside risk: bypass disruption would remove 1.5–1.8 mb/d from global supply.</div>
+    </div>
+    <div class="xmarket-card">
+      <div class="xm-title">🇦🇺 ASX (Open Today)</div>
+      <div class="xm-body">Energy sector (WDS, STO) outperform on Brent $114. Airlines (QAN) under pressure. Materials/miners (BHP, RIO, FMG) hold China-summit bid — 9 days to May 14. Broad index under pressure from oil shock → stagflation → margin compression.</div>
+    </div>
+    <div class="xmarket-card">
+      <div class="xm-title">🇺🇸 US Rates / Fed</div>
+      <div class="xm-body">Warsh confirmed (99.5%) inherits PCE 4.5% + GDP 2.0% + <strong>Brent $114</strong>. Cannot cut (oil/PCE forces held). Cannot hike into 2.0% growth. Stagflation trap tightening. Kalshi ≥7% at 67%, 7pp from ↑74% trigger — NFP Friday is next test.</div>
+    </div>
+    <div class="xmarket-card">
+      <div class="xm-title">🇦🇺 AUD / FX</div>
+      <div class="xm-body">Mixed signals. Summit recovery (+5.5pp) supports AUD via China demand optimism. Fujairah escalation → risk-off headwind. Net: AUD roughly flat but volatile. Watch for Beijing official confirmation (or silence) before Tuesday ASX close.</div>
+    </div>
+    <div class="xmarket-card">
+      <div class="xm-title">🛢 Oil Macro Narrative</div>
+      <div class="xm-body">Iran's strategic posture: block Hormuz <em>and</em> attack the bypass. Dual-route denial maximises leverage ahead of Trump-Xi summit. Xi can now position as the only party that can pressure Iran to open Hormuz. Summit agenda: Iran tops energy security discussion.</div>
+    </div>
+    <div class="xmarket-card">
+      <div class="xm-title">🌐 China Summit</div>
+      <div class="xm-body">Paradoxically, Fujairah attack strengthens summit rationale — both sides need resolution. Trump needs Hormuz open; Xi can deliver pressure on Iran. May 14-15 Beijing: energy security will dominate agenda alongside Taiwan, trade/chips. Summit= most important macro catalyst next 2 weeks.</div>
+    </div>
+  </div>
+
+  <!-- Macro narrative -->
+  <h2>Analyst View</h2>
+  <div class="narrative">
+    <p>Iran's Fujairah attack is strategically calculated, not desperate. By striking the VTTI terminal — the endpoint of the UAE's Habshan bypass pipeline — Iran signals it can close <em>all</em> Gulf oil export infrastructure, not just Hormuz. The message is directed as much at Trump (ahead of the China summit) as at the UAE: <em>"You cannot route around us."</em></p>
+    <p>The market's response is rational: WTI $120 in May is now a coin-flip (45.5%), up from 35% before the Jask incident. But the <strong>invasion market at 31.5% is unchanged</strong> — this is the critical cross-market signal. Markets are not pricing military retaliation by the US. The 45th consecutive bifurcation holds: oil rises on supply-disruption premium, but the war-resumption scenario remains unpriced.</p>
+    <p>The most important macro story for Australia in the next 10 days remains the <strong>Trump-Xi summit (May 14-15)</strong>. Iran's escalation has ironically made the summit more valuable, not less — Xi is the only counterparty who can plausibly pressure Tehran. If the summit delivers an energy security communiqué with a Hormuz opening timeline, expect Brent to fall $15–20/bbl instantly. If the summit produces only a "stability framework" with no Iran specifics, the blockade persists and A$2.50+/L petrol becomes entrenched through mid-year.</p>
+    <p>The Kalshi ≥20% unemployment signal (+5pp to 8%) is the new tail risk to monitor. It is not imminent — it requires a cascade: sustained $130+ Brent → PCE at 5%+ → Fed forced to hold → hard landing → depression-scale job losses. That cascade path is not the base case but it is being priced more seriously than a week ago. Friday's NFP (ADP: 62K vs 133K) is the first test of whether the jobs market is softening fast enough to trigger Kalshi escalations. If unemployment ≥4.5% or payrolls <100K, the ≥7% trigger (7pp away) becomes a live risk for next week.</p>
+  </div>
+
+  <!-- Forward view -->
+  <h2>Forward View — Next 10 Days</h2>
+  <div class="forward-block">
+    <div class="forward-item">
+      <div class="fw-date">Ongoing: Fujairah Pipeline Monitoring</div>
+      <div class="fw-desc">Does Iran follow up on the VTTI terminal strike with attacks on the Habshan-Fujairah pipeline itself (380km overland)? A pipeline rupture = 1.5 mb/d off global supply → WTI $120+ likely. Watch CENTCOM statements and UAE infrastructure reports.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fw-date">Friday 8 May — US April NFP (10:30pm AEST)</div>
+      <div class="fw-desc">ADP printed 62K vs 133K consensus. If unemployment ≥4.5% or payrolls &lt;100K: Kalshi ≥7% approaches ↑74% trigger (currently 67%, 7pp away). Simultaneous ≥10% move above 40% would be the dual-front stagflation signal. Immediate alert report would follow.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fw-date">Week of 11 May — Warsh Senate Floor Vote</div>
+      <div class="fw-desc">Kevin Warsh (99.5% confirmed) takes the floor. He inherits Brent $114, PCE 4.5%, GDP 2.0%. Markets will immediately price his first FOMC meeting (June). Fed June hike probability is only 1.1% now — but Warsh's first testimony could reshape rate expectations sharply.</div>
+    </div>
+    <div class="forward-item">
+      <div class="fw-date">14–15 May — Trump-Xi Beijing Summit (87.5–91%)</div>
+      <div class="fw-desc">The dominant AUD/ASX catalyst of the month. Iran's energy security will top the agenda after Fujairah. Three outcomes matter: (1) No Hormuz commitment — blockade persists, oil elevated; (2) "Framework" with vague timeline — markets rally 5–7% intraday then give back; (3) Xi commits to Iranian Hormuz opening timetable — Brent crashes $15–20, AUD surges, ASX rallies. Also watch Taiwan communiqué language — China invasion trigger at 7.4% (7.6pp below ↑15%).</div>
+    </div>
+    <div class="forward-item">
+      <div class="fw-date">15 May — Powell Departure</div>
+      <div class="fw-desc">Powell's term expires. Warsh sworn in. Staging for first Warsh-era FOMC (June 16-17). Market will watch whether Warsh signals any divergence from Powell's "patient" framework given the stagflation data.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Generated 2026-05-05 07:00 AEST · Polymarket Analyst · Data: Polymarket + Kalshi · Market-watch: 75 markets, 12 triggers, 0 fires · Kalshi: 270 markets, 0 trigger fires · Sources: <a href="https://www.aljazeera.com/news/liveblog/2026/5/4/iran-war-live-tehran-says-trumps-hormuz-mission-violates-ceasefire" style="color:#666">Al Jazeera Iran war liveblog</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-04/vtti-oil-facility-in-fujairah-struck-in-aerial-attack" style="color:#666">Bloomberg Fujairah strike</a> · <a href="https://www.thenationalnews.com/news/uae/2026/05/04/uae-intercepts-four-missiles-as-new-safety-alerts-issued/" style="color:#666">The National UAE</a> · <a href="https://edition.cnn.com/2026/05/04/china/china-us-talks-iran-intl-hnk" style="color:#666">CNN China-Iran-summit</a>
+  </div>
+
+</div>
+</body>
+</html>
