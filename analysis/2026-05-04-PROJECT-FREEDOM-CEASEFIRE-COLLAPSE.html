@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Project Freedom — Iran Fires on US Navy; Ceasefire Collapse Signal | 4 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); padding: 2rem; border-bottom: 3px solid #ef4444; }
+  .header .alert-badge { background: #ef4444; color: white; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.15em; padding: 0.2rem 0.6rem; border-radius: 3px; display: inline-block; margin-bottom: 0.5rem; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 0.3rem; }
+  .header .subtitle { color: #fca5a5; font-size: 0.95rem; }
+  .header .timestamp { color: #fecaca; font-size: 0.82rem; margin-top: 0.5rem; }
+  .container { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+  .trigger-box { background: #1a0505; border: 2px solid #ef4444; border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; }
+  .trigger-box h2 { color: #ef4444; font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid #2d1414; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-label { color: #d1d5db; font-size: 0.88rem; }
+  .trigger-price { font-weight: 700; font-size: 1rem; }
+  .fired { color: #ef4444; }
+  .watching { color: #f59e0b; }
+  .safe { color: #6b7280; }
+  .section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.4rem 1.6rem; margin-bottom: 1.2rem; }
+  .section h2 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8b949e; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #30363d; }
+  .section h3 { font-size: 1rem; font-weight: 600; color: #f0f6fc; margin-bottom: 0.5rem; margin-top: 0.8rem; }
+  .section p { color: #c9d1d9; font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.8rem; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+  .market-card { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 0.9rem 1rem; }
+  .market-card .label { font-size: 0.78rem; color: #8b949e; margin-bottom: 0.3rem; }
+  .market-card .price { font-size: 1.35rem; font-weight: 700; }
+  .market-card .delta { font-size: 0.82rem; margin-top: 0.2rem; }
+  .market-card .interp { font-size: 0.78rem; color: #8b949e; margin-top: 0.3rem; line-height: 1.4; }
+  .up { color: #f87171; }
+  .down { color: #34d399; }
+  .neutral { color: #fbbf24; }
+  .quality-high { background: #14532d; color: #86efac; font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.35rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: middle; }
+  .quality-med { background: #451a03; color: #fcd34d; font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.35rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: middle; }
+  .quality-low { background: #1c1917; color: #d6d3d1; font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.35rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: middle; }
+  .callout { background: #161205; border-left: 3px solid #f59e0b; padding: 0.8rem 1rem; border-radius: 0 6px 6px 0; margin: 0.8rem 0; }
+  .callout.red { background: #160808; border-left-color: #ef4444; }
+  .callout.green { background: #061208; border-left-color: #22c55e; }
+  .callout p { color: #c9d1d9; font-size: 0.88rem; }
+  .callout .title { font-weight: 700; color: #f59e0b; font-size: 0.82rem; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .callout.red .title { color: #f87171; }
+  .callout.green .title { color: #4ade80; }
+  ul.bullets { list-style: none; padding: 0; }
+  ul.bullets li { padding: 0.35rem 0; border-bottom: 1px solid #21262d; font-size: 0.88rem; color: #c9d1d9; padding-left: 1.2rem; position: relative; }
+  ul.bullets li::before { content: "›"; position: absolute; left: 0; color: #8b949e; }
+  ul.bullets li:last-child { border-bottom: none; }
+  .catalyst-steps { counter-reset: steps; }
+  .catalyst-step { counter-increment: steps; padding: 0.7rem 0; border-bottom: 1px solid #21262d; }
+  .catalyst-step:last-child { border-bottom: none; }
+  .catalyst-step::before { content: "Step " counter(steps); display: block; font-size: 0.72rem; font-weight: 700; color: #8b949e; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .catalyst-step p { font-size: 0.88rem; color: #c9d1d9; }
+  .catalyst-step .verdict { font-weight: 600; color: #f0f6fc; }
+  .watch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  @media (max-width: 600px) { .watch-grid { grid-template-columns: 1fr; } }
+  .watch-item { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 0.8rem; }
+  .watch-item .wlabel { font-size: 0.8rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.3rem; }
+  .watch-item .wdesc { font-size: 0.78rem; color: #8b949e; }
+  .actions { background: #0a1628; border: 1px solid #1d4ed8; border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; }
+  .actions h2 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #60a5fa; margin-bottom: 0.8rem; }
+  .actions ul { list-style: none; padding: 0; }
+  .actions ul li { font-size: 0.86rem; color: #bfdbfe; padding: 0.3rem 0; border-bottom: 1px solid #1e3a6e; }
+  .actions ul li:last-child { border-bottom: none; }
+  .footer { text-align: center; color: #484f58; font-size: 0.78rem; padding: 1.5rem; border-top: 1px solid #21262d; margin-top: 1rem; }
+  .oil-strip { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+  .oil-chip { background: #0d1117; border: 1px solid #30363d; border-radius: 4px; padding: 0.4rem 0.7rem; text-align: center; }
+  .oil-chip .level { font-size: 0.7rem; color: #8b949e; }
+  .oil-chip .prob { font-size: 0.95rem; font-weight: 700; }
+  .high-p { color: #ef4444; }
+  .mid-p { color: #f59e0b; }
+  .low-p { color: #6b7280; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚠ TRIGGER ALERT — ESCALATION</div>
+  <h1>Project Freedom: Iran Fires on US Navy — Ceasefire Collapse Signal</h1>
+  <div class="subtitle">WTI $110 trigger fired · Kinetic ceasefire breach · Oil surging toward April 30 highs</div>
+  <div class="timestamp">4 May 2026 · 20:45 AEST · Alert-triggered run (collection: 20:30 AEST)</div>
+</div>
+
+<div class="container">
+
+  <!-- TRIGGER STATUS -->
+  <div class="trigger-box">
+    <h2>⚡ TRIGGER STATUS</h2>
+    <div class="trigger-row">
+      <span class="trigger-label">WTI $110 in May <span class="quality-high">HIGH</span> — oil premium escalation signal</span>
+      <span class="trigger-price fired">92.5% ↑ FIRED (+24pp/6h)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">WTI $120 in May <span class="quality-high">HIGH</span> — full collapse escalation signal (NEW)</span>
+      <span class="trigger-price neutral">46.5% · 18.5pp below ↑65% trigger</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Iran invasion 2027 <span class="quality-low">LOW</span> — escalation signal</span>
+      <span class="trigger-price watching">30.5% · 9.5pp below ↑40% trigger (may be moving)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Hormuz blockade lifted May 31 <span class="quality-med">MED</span> — de-escalation signal</span>
+      <span class="trigger-price safe">31.5% · 33.5pp below ↑65% trigger (moving lower)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-label">Trump visits China by May 31 <span class="quality-high">HIGH</span> — new complication risk</span>
+      <span class="trigger-price watching">92.5% · 22.5pp above ↓70% early warning trigger</span>
+    </div>
+  </div>
+
+  <!-- CATALYST IDENTIFICATION -->
+  <div class="section">
+    <h2>4-Step Catalyst Identification</h2>
+
+    <div class="catalyst-steps">
+      <div class="catalyst-step">
+        <p><span class="verdict">Description:</span> "Will WTI Crude Oil hit (HIGH) $110 in May?" — resolves YES if any 1-minute candle for Active Month WTI futures (Pyth/CME data) touches or exceeds $110 at any point during May 2026. <span class="quality-high">HIGH</span> quality — fully objective CME price data, no UMA subjectivity. (Resolution-quality override applied.)</p>
+      </div>
+      <div class="catalyst-step">
+        <p><span class="verdict">Timing:</span> Price jumped from 68.5% (20:00 AEST) → 73.0% (20:15) → 92.5% (20:30) — a +24pp move in 30 minutes. WTI spot confirmed at ~$106.50 (+$5/day = +4.9%) in Asian session, approaching $110 threshold. The 1-minute candle has not yet printed ≥$110, but WTI is $3.50 away with strong momentum. Description cache 1h change = +1pp (cache predates the spike), confirming the move is very recent.</p>
+      </div>
+      <div class="catalyst-step">
+        <p><span class="verdict">Catalyst identified:</span> Iran's IRGC Navy fired two missiles at a US Navy warship near Jask Island, eastern Strait of Hormuz (Al Jazeera/CNN live blogs, confirmed). The warship was participating in <em>Project Freedom</em> — Trump's announced naval escort mission to shepherd stranded commercial vessels through Hormuz. Iran declared Project Freedom a ceasefire violation; IRGC released a map asserting control over portions of the Strait. This is the <strong>first kinetic US-Iran naval exchange since the April 7 ceasefire</strong>. Source: Al Jazeera live blog, CNN live updates.</p>
+      </div>
+      <div class="catalyst-step">
+        <p><span class="verdict">Cross-market validation:</span> WTI at $106.50 and rising is <em>fully consistent</em> with $110 market at 92.5% — only $3.50 gap remaining. $120 market moved from 35.5% → 46.5% (+11pp) simultaneously. No contradictions. Hormuz blockade lift at 31.5% (dropping) = correct direction for escalation. Invasion 2027 at 30.5% is flat as of collection (may lag the kinetic news by one cycle). <strong>No cross-market contradictions detected. Interpretation confirmed: genuine ceasefire breach signal, oil long.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE EVENT -->
+  <div class="section">
+    <h2>The Breaking Story</h2>
+    <h3>Project Freedom → Iran Fires → Ceasefire Collapses</h3>
+    <p>The April 7 ceasefire between US forces and Iran has held for 27 days — until tonight. Trump's "Project Freedom" initiative to escort commercial tankers through the Hormuz chokepoint was the flashpoint. Iran viewed armed US escort of non-US vessels as a direct ceasefire violation and responded with a kinetic missile strike.</p>
+
+    <div class="callout red">
+      <div class="title">THE SEQUENCE</div>
+      <p>Trump announces Project Freedom → US Navy warship enters Hormuz escort corridor → IRGC fires 2 missiles at warship near Jask Island → Ceasefire status now uncertain → WTI spikes $5/day to $106.50, approaching $110 → Polymarket WTI $110 fires at 92.5%</p>
+    </div>
+
+    <p>The ceasefire since April 7 has been a "managed freeze" — hostilities halted but the blockade persisted, diplomatic talks failed across 5 rounds, and WTI held $102-106 as a structural floor. Project Freedom appears to have been the US's unilateral attempt to partially normalise Hormuz traffic without a diplomatic deal. Iran's response is that the rules of engagement remain: no transit without Iran's consent.</p>
+
+    <p>The critical question is now: does Trump respond militarily (full escalation → WTI toward $126-130), de-escalate by pausing Project Freedom (prices stabilise near $110), or is this a one-off warning shot that both sides walk back (temporary spike, WTI retreats to $102-106)?</p>
+  </div>
+
+  <!-- OIL COMPLEX -->
+  <div class="section">
+    <h2>Oil Complex — Current Strip</h2>
+    <p>WTI spot: ~$106.50 (+$5.00 / +4.9% today). Brent proxy: ~$113-118. <strong>WTI $110 threshold is $3.50 away.</strong></p>
+
+    <div class="oil-strip">
+      <div class="oil-chip">
+        <div class="level">↑ $100</div>
+        <div class="prob high-p">100%</div>
+        <div class="level">already hit</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $105</div>
+        <div class="prob high-p">88%</div>
+        <div class="level">near-certain</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $110</div>
+        <div class="prob high-p">~90%</div>
+        <div class="level">TRIGGER FIRED</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $115</div>
+        <div class="prob mid-p">~60-65%</div>
+        <div class="level">post-news est.</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $120</div>
+        <div class="prob mid-p">46.5%</div>
+        <div class="level">confirmed API</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $130</div>
+        <div class="prob mid-p">~25%</div>
+        <div class="level">est.</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↑ $150</div>
+        <div class="prob low-p">6.5%</div>
+        <div class="level">tail risk</div>
+      </div>
+      <div class="oil-chip">
+        <div class="level">↓ $90</div>
+        <div class="prob low-p">~25-30%</div>
+        <div class="level">de-escal.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:1rem;">
+      <div class="title">AUSTRALIAN PETROL IMPACT (WTI proxy for Brent)</div>
+      <p>Current base (WTI ~$107): Brent ~$113-118 → petrol A$2.25-2.40/L. If WTI hits $110 (Brent ~$116-121): petrol A$2.35-2.50/L. If WTI $120 (Brent ~$126-132): petrol A$2.55-2.70/L. The Brent-WTI spread has been ~$6-10/bbl under Hormuz blockade; spread may widen if conflict intensifies (Brent more directly exposed to MENA supply routes).</p>
+    </div>
+  </div>
+
+  <!-- MARKET SNAPSHOT -->
+  <div class="section">
+    <h2>Key Market Readings (20:30 AEST)</h2>
+    <div class="market-grid">
+
+      <div class="market-card">
+        <div class="label">WTI $110 in May <span class="quality-high">HIGH</span></div>
+        <div class="price up">92.5%</div>
+        <div class="delta up">+24pp in 30 min / FIRED</div>
+        <div class="interp">Near-certain WTI touches $110 this month. $3.50 gap from current spot $106.50. Expect resolution YES within hours if overnight session holds gains.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">WTI $120 in May <span class="quality-high">HIGH</span></div>
+        <div class="price up">46.5%</div>
+        <div class="delta up">+11pp since pre-incident (~35.5%)</div>
+        <div class="interp">Near coin-flip on WTI reaching April 30 wartime high ($126). New trigger added at ↑65%. 18.5pp buffer. Watch with US military response.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Hormuz blockade lifted May 31 <span class="quality-med">MED</span></div>
+        <div class="price down">31.5%</div>
+        <div class="delta down">-2.5pp (heading lower post-incident)</div>
+        <div class="interp">Blockade lift now less likely, not more. Project Freedom failure = US lacking leverage to force Hormuz opening via military action. 33.5pp below ↑65% trigger.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Iran invasion before 2027 <span class="quality-low">LOW</span></div>
+        <div class="price neutral">30.5%</div>
+        <div class="delta neutral">flat at collection (may lag)</div>
+        <div class="interp">Flat as of 20:30 AEST — likely pre-dates kinetic news processing. Watch closely. 9.5pp below ↑40% escalation trigger. Kinetic exchange could drive 3-6pp rise in next session.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Trump visits China May 14-15 <span class="quality-high">HIGH</span></div>
+        <div class="price neutral">92.5%</div>
+        <div class="delta neutral">-1pp (hasn't repriced yet)</div>
+        <div class="interp">NEW COMPLICATION: Trump arriving in Beijing during an active naval exchange with Iran creates political pressure to either cancel or send strong signals. Watch for next 24h. 22.5pp above ↓70% early-warning trigger.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Kevin Warsh as US Fed Chair <span class="quality-high">HIGH</span></div>
+        <div class="price up">99.5%</div>
+        <div class="delta neutral">flat (floor vote week May 11)</div>
+        <div class="interp">Warsh inherits a worse situation than yesterday: PCE 4.5% + GDP 2.0% + now oil spike toward $110+. Stagflation mandate just got harder. Cannot cut; cannot hike. Markets will test Warsh immediately.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Kalshi US unemployment ≥7% <span class="quality-high">HIGH</span></div>
+        <div class="price up">66%</div>
+        <div class="delta neutral">flat (NFP Friday May 8)</div>
+        <div class="interp">Oil shock amplifies stagflation scenario. If WTI $110+ locks in, add ~0.3-0.5pp to PCE trajectory, pushing Warsh further from any cut. NFP Friday still the near-term catalyst; hard-landing risk elevated.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label">Iran leadership change Dec 31 <span class="quality-low">LOW</span></div>
+        <div class="price neutral">34%</div>
+        <div class="delta up">+0.5pp</div>
+        <div class="interp">Modest uptick. Kinetic exchange may represent hardline IRGC faction overriding moderate diplomatic factions — mixed signal for regime stability. Watching.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Cross-Market Implications</h2>
+
+    <h3>🛢️ Oil — Long, WTI $110+ Near-Certain; $120 Coin-Flip</h3>
+    <p>WTI is $3.50 from $110 and rising during Asian session. A kinetic ceasefire breach typically generates an initial $5-15/bbl spike as risk-premium reprices. The April 30 wartime high of $126 WTI is the bull case upside target — now at 46.5% probability for touching $120 this month (up +11pp on this news). Energy producers globally benefit: WDS, STO, WPL (Woodside), BHP energy division outperform. Refinery margin concerns mount for Asian demand centres.</p>
+
+    <h3>📊 ASX — Opens Tuesday May 5 (10:00 AEST)</h3>
+    <ul class="bullets" style="margin-top:0.5rem;">
+      <li><strong>Energy sector:</strong> Woodside (WDS), Santos (STO), Beach Energy outperform strongly. LNG structurally bullish (Qatar already at 83% capacity; Australian LNG premium).</li>
+      <li><strong>Airlines:</strong> Qantas (QAN), Rex Airlines — jet fuel at record levels. Cost pressure intensifies. Already pricing in elevated fuel costs but fresh oil spike = new pressure.</li>
+      <li><strong>Consumer staples/retail:</strong> Woolworths (WOW), Coles (COL) — logistics/transport cost inflation. Margin pressure.</li>
+      <li><strong>Industrials/mining:</strong> Mixed. Iron ore/copper benefit from risk-on China story (summit still 10 days away at 92.5%), but global growth headwind from oil shock offsets.</li>
+      <li><strong>Broad index:</strong> Risk-off bias. Oil shock = stagflation amplification = equity multiple contraction. S&P 500 futures likely down at US open (23:30 AEST).</li>
+    </ul>
+
+    <h3>💱 AUD — Mixed; China Summit Still Dominant Near-Term</h3>
+    <p>Australia is a commodity exporter (LNG, coal) — oil shock has a positive income effect for national accounts and energy-sector earnings. However, global risk-off from a kinetic US-Iran exchange is USD-positive, AUD-negative. Net effect: AUD likely weakens modestly. The May 14-15 China summit (still at 92.5%) remains the dominant AUD catalyst — iron ore/base metals demand outlook. If the kinetic incident causes Trump to reschedule or cancel Beijing trip (watch Trump-China market over next 24h), AUD would face sharp downside.</p>
+
+    <h3>📉 US Rates / Warsh — Stagflation Trap Tightens</h3>
+    <p>PCE was already 4.5% (Q1 2026). Every $10/bbl sustained WTI increase adds ~0.2-0.3pp to US headline CPI and ~0.15pp to core PCE. WTI $110-120 vs. prior $102-106 baseline = additional ~0.1-0.2pp PCE headwind. Warsh (taking over week of May 11) inherits a scenario where: cutting is impossible (PCE accelerating), hiking into 2.0% GDP is also dangerous. The "higher for longer" US rate narrative intensifies. Kalshi ≥7% unemployment at 66% (8pp from ↑74% trigger) is the stagflation sentinel; NFP Friday May 8 is the next quantitative check.</p>
+
+    <h3>🏗️ Trump-China Summit — New Complication</h3>
+    <p>A kinetic US-Iran exchange 10 days before Beijing creates political pressure: hawks will argue Trump shouldn't engage in diplomacy with China while US forces are under fire in the Persian Gulf. Conversely, Trump may use Beijing to signal multi-front de-escalation capability. The summit market has not repriced (still 92.5%, -1pp only). Watch for: any Trump Truth Social statement about Project Freedom continuation, US military retaliation announcement, or explicit linkage of China trip to Iran crisis. The ↓70% early-warning trigger is 22.5pp away — a 5-8pp move in the next session would warrant a re-check.</p>
+
+    <div class="callout">
+      <div class="title">41ST BIFURCATION CHECK</div>
+      <p>Iran invasion 2027 is flat at 30.5% as of the collection run (pre-news processing). The kinetic exchange is a ceasefire breach, NOT a full invasion resumption signal. Key distinction: Iran fired a warning/deterrent shot, not an all-out offensive. The invasion market should rise modestly (to ~32-35%) but should NOT spike to 40%+ unless US retaliates militarily. If invasion 2027 rises to 38-39%+ alongside WTI $120 moving past 55-60%, that would be a genuine escalation spiral signal. Monitor closely over next 2-3 collection runs.</p>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section">
+    <h2>Forward View — Next 24-48 Hours</h2>
+    <div class="watch-grid">
+      <div class="watch-item">
+        <div class="wlabel">🔴 US Military Response</div>
+        <div class="wdesc">Does Trump retaliate? If yes: WTI $120 highly likely, invasion 2027 approaches ↑40% trigger, China summit at risk. If no retaliation: WTI stabilises $108-112, ceasefire technically continues under tension.</div>
+      </div>
+      <div class="watch-item">
+        <div class="wlabel">🛢️ WTI Real-Time</div>
+        <div class="wdesc">WTI spot is $3.50 from $110. If $110 prints on a 1-minute candle before month end, market resolves YES. Watch overnight CME session. US market open at 23:30 AEST will likely gap WTI.</div>
+      </div>
+      <div class="watch-item">
+        <div class="wlabel">🇨🇳 China Summit Status</div>
+        <div class="wdesc">Trump-China at 92.5% (-1pp), not yet repriced. If any cancellation/postponement language emerges from White House: expect drop toward 85-88%, approaching ↓70% early-warning trigger. AUD downside scenario.</div>
+      </div>
+      <div class="watch-item">
+        <div class="wlabel">⚔️ Iran Invasion 2027</div>
+        <div class="wdesc">30.5% flat (collection pre-dated news). Expected to rise to 32-35% as markets process kinetic exchange. If approaches 37-38%, full 4-step catalyst check required before ↑40% trigger fires.</div>
+      </div>
+      <div class="watch-item">
+        <div class="wlabel">📊 NFP Friday May 8</div>
+        <div class="wdesc">Still the macro data anchor: ADP printed 62K vs 133K consensus. Oil shock makes NFP interpretation harder (stagflation = employment + inflation both deteriorating). Kalshi ≥7% at 66%, 8pp from ↑74% trigger.</div>
+      </div>
+      <div class="watch-item">
+        <div class="wlabel">🔵 New Markets on Polymarket</div>
+        <div class="wdesc">Expect new "US-Iran ceasefire broken" or "Project Freedom continues" markets to appear in next 24-48h. Discovery script will surface them. Watch for "WTI $130 in May" market creation — that would signal market pricing full escalation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="actions">
+    <h2>🔧 Actions Taken This Run</h2>
+    <ul>
+      <li>TRIGGER RAISED: <code>wti-may-110-escalation</code> threshold 0.85→0.99 (fired at 92.5%; news fully disseminated; deactivated to prevent noise repeat-fires)</li>
+      <li>TRIGGER ADDED: <code>wti-may-120-escalation</code> at ↑65% — slug confirmed <code>will-wti-reach-120-in-may-2026-592-217</code>, current 46.5%, 18.5pp buffer. Successor to fired trigger.</li>
+      <li>QUALITY OVERRIDE ADDED: WTI $110 and $120 May markets upgraded to [HIGH] (Pyth/CME objective price data, no UMA subjectivity). Default heuristic had MEDIUM.</li>
+      <li>COMPANION TRIGGER RETAINED: <code>wti-may-110-deescalation</code> (↓35%) stays active — if WTI reverses hard on diplomatic de-escalation, this fires the peace-dividend signal.</li>
+      <li>NOTE: WTI $115 sibling exists (estimated ~60-65% post-news) — slug not yet verified via Polymarket API. Will surface in next discovery run.</li>
+      <li>Active trigger count: 12 Polymarket + 8 Kalshi</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Generated 4 May 2026 · 20:45 AEST · Polymarket Market Analyst Agent · Alert-triggered (WTI $110 FIRED)
+</div>
+
+</body>
+</html>
