@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert — Jask Incident Disputed: WTI Reverting | 5 May 2026 00:50 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Header */
+  .header { border-left: 4px solid #f6ad55; padding: 16px 20px; background: #1a1d2e; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .header .tag { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; color: #f6ad55; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; color: #94a3b8; }
+
+  /* Context box */
+  .context-box { background: #1e2130; border: 1px solid #2d3350; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .context-box h3 { font-size: 13px; font-weight: 700; color: #94a3b8; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 10px; }
+  .context-box p { font-size: 14px; color: #cbd5e1; }
+
+  /* Alert correction banner */
+  .correction-banner { background: #1c1a0f; border: 1px solid #f6ad55; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px; }
+  .correction-banner .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .correction-banner .text { font-size: 14px; color: #fef3c7; }
+  .correction-banner .text strong { color: #f6ad55; }
+
+  /* Section */
+  section { margin-bottom: 28px; }
+  section h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748b; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e2433; }
+
+  /* Market cards */
+  .market-grid { display: grid; gap: 12px; }
+  .market-card { background: #1a1d2e; border: 1px solid #252840; border-radius: 8px; padding: 14px 16px; }
+  .market-card.reverting { border-left: 3px solid #f6ad55; }
+  .market-card.stable { border-left: 3px solid #475569; }
+  .market-card.new { border-left: 3px solid #60a5fa; }
+  .market-card .mc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 12px; }
+  .market-card .mc-label { font-size: 13px; font-weight: 600; color: #e2e8f0; flex: 1; }
+  .market-card .mc-quality { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+  .quality-high { background: #0f4c2a; color: #4ade80; }
+  .quality-med { background: #2d2a0f; color: #fbbf24; }
+  .quality-low { background: #1a1a2e; color: #94a3b8; }
+  .market-card .mc-prices { display: flex; gap: 16px; margin-bottom: 6px; }
+  .mc-price-item { text-align: center; }
+  .mc-price-item .val { font-size: 20px; font-weight: 700; }
+  .mc-price-item .lbl { font-size: 10px; color: #64748b; text-transform: uppercase; }
+  .price-down { color: #f87171; }
+  .price-flat { color: #94a3b8; }
+  .price-up { color: #34d399; }
+  .market-card .mc-note { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+
+  /* Narrative sections */
+  .narrative { background: #1a1d2e; border-radius: 8px; padding: 16px 20px; }
+  .narrative p { font-size: 14px; color: #cbd5e1; margin-bottom: 10px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative strong { color: #e2e8f0; }
+
+  /* Timeline */
+  .timeline { list-style: none; }
+  .timeline li { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+  .timeline .tl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .dot-amber { background: #f6ad55; }
+  .dot-green { background: #34d399; }
+  .dot-blue { background: #60a5fa; }
+  .dot-grey { background: #475569; }
+  .timeline .tl-content { font-size: 14px; color: #cbd5e1; }
+  .timeline .tl-content strong { color: #e2e8f0; }
+  .timeline .tl-time { font-size: 11px; color: #64748b; margin-bottom: 2px; }
+
+  /* Macro implications table */
+  .implications { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .implications th { text-align: left; padding: 8px 12px; background: #131620; color: #64748b; font-weight: 600; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .implications td { padding: 9px 12px; border-top: 1px solid #1e2433; color: #cbd5e1; vertical-align: top; }
+  .implications tr:hover td { background: #1e2130; }
+  .implications .asset { color: #e2e8f0; font-weight: 600; }
+
+  /* Forward view */
+  .forward { background: #0d1520; border: 1px solid #1e3a5f; border-radius: 8px; padding: 18px 20px; }
+  .forward h3 { font-size: 13px; font-weight: 700; color: #60a5fa; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px; }
+  .forward ol { padding-left: 20px; }
+  .forward ol li { font-size: 14px; color: #cbd5e1; margin-bottom: 10px; line-height: 1.5; }
+  .forward ol li strong { color: #e2e8f0; }
+
+  /* Footer */
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e2433; font-size: 11px; color: #475569; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="tag">⚡ Overnight Update · Polymarket Macro</div>
+    <h1>Jask Incident Disputed — WTI Reverting; Project Freedom Continues</h1>
+    <div class="meta">Tuesday 5 May 2026 · 00:50 AEST &nbsp;|&nbsp; Alert-triggered run · No new triggers fired</div>
+  </div>
+
+  <!-- Context box -->
+  <div class="context-box">
+    <h3>Context: Last alert (20:41 AEST Mon 4 May)</h3>
+    <p>You were told: <em>"Iran's IRGC Navy fired two missiles at a US Navy warship near Jask Island during Project Freedom — first kinetic exchange since the April 7 ceasefire. WTI $110 May hit 92.5% (trigger FIRED). WTI spot $106.50, only $3.50 from the $110 threshold."</em> Overnight data materially updates that picture.</p>
+  </div>
+
+  <!-- Correction banner -->
+  <div class="correction-banner">
+    <div class="icon">⚠️</div>
+    <div class="text">
+      <strong>Incident disputed by US military:</strong> CENTCOM issued an overnight denial — "No US Navy ships have been struck. US forces are supporting Project Freedom and enforcing the naval blockade." Iran IRGC claimed two missiles "repelled" a US frigate; no independent confirmation of a hit. The Jask incident is consistent with Iranian <em>warning shots or exaggerated state media</em>, not a confirmed kinetic exchange. <strong>The "first kinetic exchange since April 7" characterisation in the 20:41 alert should be treated as unverified.</strong>
+    </div>
+  </div>
+
+  <!-- Timeline section -->
+  <section>
+    <h2>What happened overnight</h2>
+    <ul class="timeline">
+      <li>
+        <div class="tl-dot dot-amber"></div>
+        <div class="tl-content">
+          <div class="tl-time">~20:00–20:30 AEST Mon 4 May</div>
+          <strong>Jask incident reported:</strong> Iran Fars News Agency claims IRGC fired 2 missiles at US Navy frigate near Jask Island/eastern Hormuz during Project Freedom. WTI $110 May spikes from 68.5% to 92.5% (+24pp). WTI spot reaches ~$106.50.
+        </div>
+      </li>
+      <li>
+        <div class="tl-dot dot-green"></div>
+        <div class="tl-content">
+          <div class="tl-time">Overnight Mon–Tue (ET)</div>
+          <strong>CENTCOM denial issued:</strong> No US ship was struck. Project Freedom continues — ships transited the Strait on May 4. Two CSGs operational (Ford, Lincoln); 15,000+ personnel; 100+ aircraft. No US retaliation announced.
+        </div>
+      </li>
+      <li>
+        <div class="tl-dot dot-green"></div>
+        <div class="tl-content">
+          <div class="tl-time">Overnight</div>
+          <strong>WTI spot retraces:</strong> Oil falls from ~$106.50 to ~$101.60 (-$4.90). Partial reversal of the attack premium. WTI $110 May market follows: 92.5% → 81.5% (-11pp from peak).
+        </div>
+      </li>
+      <li>
+        <div class="tl-dot dot-blue"></div>
+        <div class="tl-content">
+          <div class="tl-time">May 3 CNN (most recent Trump statement)</div>
+          <strong>Trump "very positive discussions"</strong> with Iran — suggests diplomatic track not fully severed despite Project Freedom tensions. No new Trump statement overnight.
+        </div>
+      </li>
+      <li>
+        <div class="tl-dot dot-grey"></div>
+        <div class="tl-content">
+          <div class="tl-time">00:45 AEST Tue 5 May</div>
+          <strong>New market discovered:</strong> "Hormuz lifted by June 30, 2026" at 38.0% ($30 liq, thin). June 30 = +9pp premium vs May 31 (29.0%) — market prices higher probability given longer runway.
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Market snapshot -->
+  <section>
+    <h2>Market snapshot — 00:45 AEST vs 20:41 AEST alert</h2>
+    <div class="market-grid">
+
+      <div class="market-card reverting">
+        <div class="mc-header">
+          <div class="mc-label">WTI Crude Oil hits $110 in May 2026</div>
+          <span class="mc-quality quality-high">HIGH</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-down">81.5%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-down">92.5%</div>
+            <div class="lbl">Alert peak</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">66.5%</div>
+            <div class="lbl">Pre-attack 5PM</div>
+          </div>
+        </div>
+        <div class="mc-note">Fell from 92.5% peak to 81.5% overnight (-11pp) as Jask incident disputed and WTI spot reversed to ~$101.60 (-$4.90 from $106.50 attack peak). Still pricing high probability spot touches $110 at some point in May — $8.40 remains between spot and the threshold. Trigger threshold at ↑99% (deactivated, already fired). De-escalation floor trigger at ↓35% remains active (46.5pp away).</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="mc-header">
+          <div class="mc-label">WTI Crude Oil hits $120 in May 2026</div>
+          <span class="mc-quality quality-high">HIGH</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-flat">40.5%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">40.5%</div>
+            <div class="lbl">Alert price</div>
+          </div>
+        </div>
+        <div class="mc-note">Unchanged overnight. No additional escalation priced. Coin-flip on WTI retesting April wartime high remains intact — but the disputed Jask incident is not pushing it higher. Trigger at ↑65% (24.5pp away). Key cross-check: if this starts rising toward 50–55% alongside invasion 2027, run full catalyst check before reporting escalation.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="mc-header">
+          <div class="mc-label">Hormuz blockade lifted by May 31</div>
+          <span class="mc-quality quality-med">MED</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-down">29.0%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">31.5%</div>
+            <div class="lbl">Alert price</div>
+          </div>
+        </div>
+        <div class="mc-note">Slipped -2.5pp overnight. Project Freedom friction (Iran declaring escort mission a ceasefire violation) slightly reduces near-term deal probability. 21pp below ↑50% intermediate trigger; 36pp below ↑65% main trigger. Structural stalemate intact.</div>
+      </div>
+
+      <div class="market-card new">
+        <div class="mc-header">
+          <div class="mc-label">Hormuz blockade lifted by June 30 🆕</div>
+          <span class="mc-quality quality-med">MED</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-flat">38.0%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">$30</div>
+            <div class="lbl">Liquidity</div>
+          </div>
+        </div>
+        <div class="mc-note">Newly discovered market (created May 4, thin). June 30 carries +9pp premium vs May 31 (29.0%) for an extra 30-day window. Added to watchlist — monitor for liquidity growth before adding trigger. Structural read: market prices roughly 1-in-3 chance of Hormuz opening per monthly deadline.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="mc-header">
+          <div class="mc-label">US invades Iran before 2027</div>
+          <span class="mc-quality quality-low">LOW</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-flat">30.5%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">30.5%</div>
+            <div class="lbl">Alert price</div>
+          </div>
+        </div>
+        <div class="mc-note"><strong>42nd consecutive bifurcation.</strong> Despite the Jask incident, invasion has not repriced. This is the definitive ground truth: the market does not read the Hormuz kinetic friction as an invasion signal. 9.5pp below ↑40% escalation trigger. If Jask escalates into confirmed hits + US retaliation, expect this to move toward 33–36% first.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="mc-header">
+          <div class="mc-label">Trump visits China by May 31</div>
+          <span class="mc-quality quality-high">HIGH</span>
+        </div>
+        <div class="mc-prices">
+          <div class="mc-price-item">
+            <div class="val price-flat">92.5%</div>
+            <div class="lbl">Now</div>
+          </div>
+          <div class="mc-price-item">
+            <div class="val price-flat">92.5%</div>
+            <div class="lbl">Alert price</div>
+          </div>
+        </div>
+        <div class="mc-note">Unchanged. Summit 10 days away. No cancellation signal from Jask — market not repricing. 27.5pp above ↓65% cancellation trigger. The Jask narrative (warning shots, not confirmed hit) reduces the political pressure to cancel a summit while US forces are "under fire."</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Macro implications -->
+  <section>
+    <h2>Macro implications update — ASX opens 10:00 AEST</h2>
+    <table class="implications">
+      <thead>
+        <tr>
+          <th>Asset / Market</th>
+          <th>Alert assessment (20:41)</th>
+          <th>Updated assessment (00:50)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="asset">WTI / Brent (proxy)</td>
+          <td>$106.50 spot, $110 near-certain (92.5%); $120 coin-flip (46.5%)</td>
+          <td>~$101.60 spot (-$4.90); $110 likely (81.5%); $120 unchanged (40.5%). Attack premium partially unwound. Still $8.40 from $110 threshold.</td>
+        </tr>
+        <tr>
+          <td class="asset">Australian petrol</td>
+          <td>A$2.35–2.50/L near-term; A$2.55–2.70/L if $120</td>
+          <td>A$2.20–2.35/L structural base; $110 scenario (81.5%) = A$2.35–2.50/L; partial reversal doesn't change structural Brent premium</td>
+        </tr>
+        <tr>
+          <td class="asset">ASX energy</td>
+          <td>WDS/STO outperform; broad risk-off</td>
+          <td>Energy still elevated, but less extreme panic. Broad risk-off headwind reduced — disputed incident ≠ confirmed ceasefire breakdown. Monitor for opening gap vs US close.</td>
+        </tr>
+        <tr>
+          <td class="asset">AUD</td>
+          <td>Mixed: commodity positive vs risk-off negative</td>
+          <td>Slightly more positive — China summit still 92.5% (T-10 days), Jask not confirmed = less risk-off pressure. US stagflation still the dominant AUD headwind.</td>
+        </tr>
+        <tr>
+          <td class="asset">US rates / Warsh</td>
+          <td>Stagflation amplified by oil spike; Warsh floor vote May 11</td>
+          <td>Oil reversal removes marginal inflation pressure. Core stagflation narrative intact (PCE 4.5% + GDP 2.0%). Warsh still floor vote week May 11 at 99.5%.</td>
+        </tr>
+        <tr>
+          <td class="asset">NFP risk (Fri 8 May)</td>
+          <td>ADP 62K miss; Kalshi ≥7% 66%; ≥10% 38%</td>
+          <td>Unchanged — no new Kalshi data. NFP is still the week's dominant macro event. Kalshi buckets all flat overnight. 10:30pm AEST Friday.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Narrative -->
+  <section>
+    <h2>Interpretation</h2>
+    <div class="narrative">
+      <p>The 20:41 alert framed the Jask incident as the <em>first confirmed kinetic exchange since April 7</em>. Overnight, US CENTCOM flatly denied any ship was hit — Iran's claim is consistent with warning shots or state media exaggeration during an operationally tense Project Freedom transit. This is not unprecedented: Iran has made similar unverified claims during Hormuz blockade enforcement since April 12.</p>
+      <p><strong>The oil market is the ground truth.</strong> WTI spot fell from ~$106.50 to ~$101.60 overnight — the market is reading the Jask incident as contained/disputed, not as a confirmed escalation. WTI $110 May pulling back from 92.5% to 81.5% is consistent with this: still highly likely spot touches $110 at some point in May (we are only $8.40 from the threshold), but the peak panic pricing overstated the risk.</p>
+      <p>Project Freedom continuing despite Iran's objections is actually a <em>moderate positive</em> for Hormuz de-escalation: if US escorts successfully transit the Strait, the blockade's practical hold loosens and commercial confidence may return, increasing Hormuz lift probability over time. The near-term June 30 market at 38% captures this optionality.</p>
+      <p><strong>Key watch:</strong> The test of the Jask interpretation is Project Freedom's completion. If US-escorted ships successfully transit without further incident and return to a safe zone, WTI $110 May should continue drifting down from 81.5%. If Iran fires again (confirmed hit), expect immediate re-spike toward 90–95% and a WTI $120 move above 50%. <em>Do not pre-position on either scenario — wait for confirmation.</em></p>
+    </div>
+  </section>
+
+  <!-- Forward view -->
+  <section>
+    <h2>What to watch</h2>
+    <div class="forward">
+      <h3>Watch list — next 24h</h3>
+      <ol>
+        <li><strong>Project Freedom completion signal:</strong> If CENTCOM confirms escorted convoy successfully exits Hormuz → WTI $110 continues reversing (possible path to 70–75%), Hormuz May/June lift markets re-price higher. This would be the de-escalation trade signal. ASX airlines/logistics benefit.</li>
+        <li><strong>Jask incident clarification:</strong> Any independent confirmation (satellite imagery, third-party shipping data, Lloyd's intelligence) that an Iranian missile did strike a US vessel would immediately invalidate the overnight reversal. If confirmed hit surfaces → re-escalation alert, WTI $110 back toward 90%, WTI $120 toward 55%+, invasion 2027 moves toward 35%.</li>
+        <li><strong>Trump statement on Iran / Project Freedom:</strong> Trump's last statement was "very positive discussions" (CNN May 3). Any new hawkish statement (retaliation threat) or dovish statement (Project Freedom paused for talks) would re-price the entire complex. Watch Truth Social.</li>
+        <li><strong>US April NFP — Friday 8 May 10:30pm AEST:</strong> The week's dominant macro event. ADP missed badly (62K vs 133K). If unemployment ≥4.5% or payrolls <100K: Kalshi ≥7% approaches ↑74% trigger, stagflation narrative tightens. Warsh inherits on May 15 with no good options.</li>
+        <li><strong>Hormuz June 30 market liquidity:</strong> New market at 38.0% but only $30 liq. Watch for volume growth over next 24–48h. If it develops deep books, add ↑65% trigger (mirrors May 31 setup). June 30 timeline gives Trump-China summit (May 14-15) as an intermediate catalyst.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="footer">
+    Polymarket macro monitor · 5 May 2026 00:50 AEST · Overnight update report · All market references: Polymarket prediction markets, not direct commodity or equity prices · WTI used as proxy for Brent (no Brent Polymarket market) · Australian petrol estimates based on WTI-Brent spread ~$8-10/bbl + refining/AUD/retail assumptions
+  </div>
+
+</div>
+</body>
+</html>
