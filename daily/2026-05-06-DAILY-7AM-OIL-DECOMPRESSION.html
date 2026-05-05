@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 6 May 2026 7AM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%); border-bottom: 1px solid #2d3748; padding: 28px 40px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .title { font-size: 22px; font-weight: 700; color: #f7fafc; letter-spacing: -0.3px; }
+  .subtitle { font-size: 13px; color: #718096; margin-top: 4px; }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  .badge-blue { background: #2b4c7e; color: #90cdf4; }
+  .badge-green { background: #1a3a2a; color: #68d391; }
+  .badge-amber { background: #3d2f0a; color: #f6c157; }
+  .badge-red { background: #3d1515; color: #fc8181; }
+  .badge-gray { background: #2d3748; color: #a0aec0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #718096; margin-bottom: 14px; border-bottom: 1px solid #2d3748; padding-bottom: 8px; }
+  .card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 10px; }
+  .card:last-child { margin-bottom: 0; }
+  .market-row { display: flex; align-items: flex-start; gap: 14px; }
+  .market-price { font-size: 28px; font-weight: 700; line-height: 1; min-width: 80px; }
+  .price-up { color: #68d391; }
+  .price-neutral { color: #90cdf4; }
+  .price-down { color: #fc8181; }
+  .price-flat { color: #e2e8f0; }
+  .market-body { flex: 1; }
+  .market-label { font-size: 14px; font-weight: 600; color: #f7fafc; }
+  .market-delta { font-size: 12px; margin-top: 2px; }
+  .delta-up { color: #68d391; }
+  .delta-down { color: #fc8181; }
+  .delta-flat { color: #718096; }
+  .market-note { font-size: 12px; color: #a0aec0; margin-top: 6px; }
+  .trigger-bar-wrap { margin-top: 8px; }
+  .trigger-label { font-size: 10px; color: #718096; margin-bottom: 3px; }
+  .trigger-bar { height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden; }
+  .trigger-fill { height: 100%; border-radius: 2px; }
+  .fill-safe { background: #68d391; }
+  .fill-watch { background: #f6c157; }
+  .fill-danger { background: #fc8181; }
+  .narrative { background: #1a1f2e; border-left: 3px solid #90cdf4; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 10px; }
+  .narrative p { font-size: 14px; color: #e2e8f0; margin-bottom: 8px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative strong { color: #f7fafc; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .market-row { flex-direction: column; gap: 6px; } .market-price { font-size: 22px; } }
+  .trigger-alert { background: #2a1f0a; border: 1px solid #744210; border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
+  .trigger-alert-label { font-size: 11px; font-weight: 700; color: #f6c157; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .trigger-alert-text { font-size: 13px; color: #fbd38d; }
+  .macro-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .macro-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 14px 16px; }
+  .macro-asset { font-size: 11px; color: #718096; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .macro-value { font-size: 20px; font-weight: 700; color: #f7fafc; margin: 4px 0; }
+  .macro-note { font-size: 11px; color: #a0aec0; }
+  .kalshi-ladder { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .ladder-bucket { padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; text-align: center; min-width: 52px; }
+  .bucket-normal { background: #1f2937; color: #9ca3af; }
+  .bucket-elevated { background: #3d2f0a; color: #f6c157; }
+  .bucket-high { background: #3d1515; color: #fc8181; }
+  .bucket-label { font-size: 9px; display: block; opacity: 0.8; }
+  .forward-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #2d3748; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-num { font-size: 20px; font-weight: 700; color: #718096; min-width: 28px; }
+  .forward-body { flex: 1; }
+  .forward-title { font-size: 13px; font-weight: 600; color: #f7fafc; }
+  .forward-detail { font-size: 12px; color: #a0aec0; margin-top: 3px; }
+  .footer { border-top: 1px solid #2d3748; padding: 20px 40px; text-align: center; }
+  .footer-text { font-size: 11px; color: #4a5568; }
+  .quality-high { color: #68d391; font-size: 10px; font-weight: 700; }
+  .quality-med { color: #f6c157; font-size: 10px; font-weight: 700; }
+  .quality-low { color: #fc8181; font-size: 10px; font-weight: 700; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="title">Polymarket Daily Briefing</div>
+      <div class="subtitle">Wednesday 6 May 2026 · 7:00 AM AEST · Compiled by Macro Analyst Agent</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="badge badge-green">NO TRIGGERS FIRED</span>
+      <span class="badge badge-blue">OIL DECOMPRESSING</span>
+      <span class="badge badge-blue">SUMMIT T−8 DAYS</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HEADLINE NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Headline Narrative</div>
+    <div class="narrative">
+      <p>The Fujairah bypass-attack premium has reversed. US Gen. Dan Caine declared Iran's May 4 missile strike on the UAE's Fujairah oil terminal "below the threshold of restarting major combat operations" and Defense Secretary Hegseth confirmed "the ceasefire is not over." Markets moved immediately: WTI $110 May fell from 83.0% (Fujairah spike peak) to <strong>68.5%</strong> now, with spot WTI settling back to ~$101–102/bbl (Brent ~$108–112).</p>
+      <p>The broader picture hasn't changed — Iran still controls Hormuz, the Habshan-Fujairah pipeline is damaged (operational status unconfirmed), and the blockade persists. But the acute panic of a second oil-exit route closing is fading. <strong>This is decompression, not de-escalation</strong>: Hormuz lift May 31 sits at 25.5% (flat) and the 50th+ consecutive bifurcation holds — no invasion pricing despite kinetic incidents.</p>
+      <p>The week's dominant catalysts: <strong>Trump-Xi summit May 14–15</strong> (8 days, 92.5% confirmed), <strong>April US NFP this Friday May 8</strong> (consensus 49K jobs, 4.3% unemployment — three Kalshi unemployment buckets each sit 7pp below their alert thresholds), and <strong>Warsh Senate floor vote week of May 11</strong> (near-certain confirmation; Powell departs May 15).</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <div class="section-title">Trigger Status — All Watching, None Fired</div>
+    <div class="trigger-alert" style="background:#1a3a2a;border-color:#276749;">
+      <div class="trigger-alert-label" style="color:#68d391;">✓ ALL CLEAR — 13 TRIGGERS WATCHING</div>
+      <div class="trigger-alert-text" style="color:#9ae6b4;">No thresholds breached this run. Closest: Hormuz June 30 at 52.0% (13.0pp below ↑65% fire). Iran invasion at 30.5% (9.5pp below ↑40%). Three Kalshi unemployment buckets each 7pp from triggers — NFP Friday is the catalyst event.</div>
+    </div>
+  </div>
+
+  <!-- KEY MARKETS -->
+  <div class="section">
+    <div class="section-title">Key Market Moves — Since Last Email (17:09 AEST May 5)</div>
+
+    <!-- OIL -->
+    <div class="card">
+      <div class="market-row">
+        <div>
+          <div class="market-price price-down">68.5%</div>
+          <div style="font-size:11px;color:#fc8181;margin-top:2px;">−10.0pp</div>
+        </div>
+        <div class="market-body">
+          <div class="market-label">WTI reaches $110 in May <span class="quality-high">[HIGH]</span></div>
+          <div class="market-delta delta-down">Fell from 78.5% (17:09 yesterday) → 68.5% now</div>
+          <div class="market-note">Fujairah panic unwinding. US military: attack "below threshold for restarting major combat." Spot WTI ~$101–102/bbl, Brent ~$108–112. Deescalation trigger (↓35%) is 33.5pp away — no concern. Escalation trigger (↑92%) is 23.5pp away — requires fresh kinetic incident.</div>
+          <div class="trigger-bar-wrap">
+            <div class="trigger-label">Position: 33.5pp above de-escalation floor (↓35%) · 23.5pp below escalation ceiling (↑92%)</div>
+            <div class="trigger-bar"><div class="trigger-fill fill-safe" style="width:52%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="market-row">
+        <div>
+          <div class="market-price price-down">34.5%</div>
+          <div style="font-size:11px;color:#fc8181;margin-top:2px;">−8.0pp</div>
+        </div>
+        <div class="market-body">
+          <div class="market-label">WTI reaches $120 in May <span class="quality-high">[HIGH]</span></div>
+          <div class="market-delta delta-down">Fell from 42.5% → 34.5%</div>
+          <div class="market-note">Same Fujairah premium rolloff. $120 scenario requires full Habshan-Fujairah pipeline shutdown (not confirmed). Spot WTI at $101–102 = $18–19 below $120 threshold. Trigger fires at ↑65% — 30.5pp away.</div>
+          <div class="trigger-bar-wrap">
+            <div class="trigger-label">30.5pp below ↑65% trigger</div>
+            <div class="trigger-bar"><div class="trigger-fill fill-safe" style="width:35%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMIT -->
+    <div class="card">
+      <div class="market-row">
+        <div>
+          <div class="market-price price-up">92.5%</div>
+          <div style="font-size:11px;color:#68d391;margin-top:2px;">+1.0pp</div>
+        </div>
+        <div class="market-body">
+          <div class="market-label">Trump visits China by May 31 <span class="quality-low">[LOW]</span></div>
+          <div class="market-delta delta-up">Rose from 91.5% → 92.5% (full recovery from 82% overnight panic May 5)</div>
+          <div class="market-note">Summit confirmed May 14–15 Beijing. Sources: Bloomberg, SCMP, Eurasia Review all concur. White House locked in dates March 25; Wang Yi-Rubio call (May 1) confirmed. China MOFCOM No.21 sanctions defiance (May 4) = pre-summit hardball, not cancellation signal. Both cancellation triggers are well clear: ↓70% early-warning is 22.5pp away, ↓65% cancellation is 27.5pp away.</div>
+          <div class="trigger-bar-wrap">
+            <div class="trigger-label">22.5pp above ↓70% early warning trigger · fully safe</div>
+            <div class="trigger-bar"><div class="trigger-fill fill-safe" style="width:90%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HORMUZ -->
+    <div class="two-col">
+      <div class="card">
+        <div class="market-row">
+          <div>
+            <div class="market-price price-down" style="font-size:22px;">25.5%</div>
+            <div style="font-size:11px;color:#fc8181;margin-top:2px;">−1.0pp</div>
+          </div>
+          <div class="market-body">
+            <div class="market-label" style="font-size:13px;">Hormuz lift by May 31 <span class="quality-med">[MED]</span></div>
+            <div class="market-note">Fujairah attack logic: Iran closing bypass routes, not de-escalating. May 31 lift now near-impossible. 24.5pp below ↑50% trigger; 39.5pp below ↑65% trigger. Declining.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="border-color:#744210;">
+        <div class="market-row">
+          <div>
+            <div class="market-price price-down" style="font-size:22px;">52.0%</div>
+            <div style="font-size:11px;color:#fc8181;margin-top:2px;">−3.0pp</div>
+          </div>
+          <div class="market-body">
+            <div class="market-label" style="font-size:13px;">Hormuz lift by June 30 <span class="quality-med">[MED]</span> ⚠️</div>
+            <div class="market-note"><strong>Closest trigger (13.0pp below ↑65%).</strong> Summit premium: 26.5pp above May 31 = market pricing Trump-Xi May 14–15 as the Hormuz catalyst. Thin market (~$2K/day vol). Directional signal only.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVASION -->
+    <div class="card">
+      <div class="market-row">
+        <div>
+          <div class="market-price price-flat">30.5%</div>
+          <div style="font-size:11px;color:#718096;margin-top:2px;">0.0pp</div>
+        </div>
+        <div class="market-body">
+          <div class="market-label">US invades Iran before 2027 <span class="quality-low">[LOW]</span></div>
+          <div class="market-delta delta-flat">Flat — 50th+ consecutive bifurcation</div>
+          <div class="market-note">Fujairah attack absorbed. Oil retreating confirms interpretation: no military resumption scenario priced. WTI retreating is ground truth — if invasion were being priced, oil would be surging. 9.5pp below ↑40% trigger.</div>
+          <div class="trigger-bar-wrap">
+            <div class="trigger-label">9.5pp below ↑40% escalation trigger</div>
+            <div class="trigger-bar"><div class="trigger-fill fill-watch" style="width:76%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- KALSHI UNEMPLOYMENT LADDER -->
+  <div class="section">
+    <div class="section-title">Kalshi: US Unemployment Tail (Before 2030) — All Flat, Awaiting NFP Friday</div>
+    <div class="card">
+      <div style="font-size:13px;color:#a0aec0;margin-bottom:12px;">Entire ladder unchanged since yesterday. Three buckets sit 7pp from their alert thresholds — NFP Friday May 8 (8:30am ET / 10:30pm AEST) is the repricing catalyst. April consensus: 49K jobs added, 4.3% unemployment rate. ADP missed badly (62K vs 133K prior benchmark).</div>
+      <div class="kalshi-ladder">
+        <div class="ladder-bucket bucket-high"><span class="bucket-label">≥5%</span>92%</div>
+        <div class="ladder-bucket bucket-elevated"><span class="bucket-label">≥6%</span>78%</div>
+        <div class="ladder-bucket bucket-elevated" style="border:2px solid #f6c157;"><span class="bucket-label">≥7% ⚠️</span>67%</div>
+        <div class="ladder-bucket bucket-normal"><span class="bucket-label">≥8%</span>54%</div>
+        <div class="ladder-bucket bucket-normal"><span class="bucket-label">≥9%</span>44%</div>
+        <div class="ladder-bucket bucket-normal" style="border:2px solid #f6c157;"><span class="bucket-label">≥10% ⚠️</span>38%</div>
+        <div class="ladder-bucket bucket-normal"><span class="bucket-label">≥12%</span>23%</div>
+        <div class="ladder-bucket bucket-normal"><span class="bucket-label">≥15%</span>11%</div>
+        <div class="ladder-bucket bucket-normal"><span class="bucket-label">≥17%</span>10%</div>
+        <div class="ladder-bucket bucket-normal" style="border:2px solid #f6c157;"><span class="bucket-label">≥20% ⚠️</span>8%</div>
+      </div>
+      <div style="font-size:11px;color:#718096;margin-top:12px;">⚠️ = 7pp from alert trigger | Triggers: ≥7% fires at ↑74% · ≥10% fires at ↑45% · ≥20% fires at ↑15%</div>
+    </div>
+  </div>
+
+  <!-- AUSTRALIAN MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Market Implications</div>
+    <div class="macro-grid">
+      <div class="macro-card">
+        <div class="macro-asset">Brent Crude (WTI proxy)</div>
+        <div class="macro-value" style="color:#f6c157;">~$108–112</div>
+        <div class="macro-note">Down from $114.44 Fujairah peak. Blockade premium intact but Fujairah panic fading. A$2.25–2.40/L petrol (slight relief from $2.35–2.50 peak).</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-asset">ASX Today (Open)</div>
+        <div class="macro-value" style="color:#68d391;">Mild +</div>
+        <div class="macro-note">Oil decompressing + China summit 8 days = mild risk-on. Materials bid (BHP/RIO/FMG). Energy (WDS/STO) still outperform but less aggressively. QAN small tailwind.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-asset">AUD/USD</div>
+        <div class="macro-value" style="color:#68d391;">Mild +</div>
+        <div class="macro-note">Oil retreat + summit approaching = positive. China MOFCOM sanctions defiance = pre-summit hardball; iron ore demand optimism. NFP Friday uncertainty caps any bid.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-asset">US Fed (Warsh)</div>
+        <div class="macro-value" style="color:#90cdf4;">Hold</div>
+        <div class="macro-note">Floor vote week of May 11. Inherits: PCE 4.5%, GDP 2.0%, Brent $108-112. June 16-17 FOMC = hold-and-sweat. Fed June hike at 0.9% (↑5% trigger — 4.1pp away).</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-asset">Iron Ore / Materials</div>
+        <div class="macro-value" style="color:#68d391;">Bid</div>
+        <div class="macro-note">Trump-Xi at 92.5% = China demand recovery optionality priced. BHP/RIO/FMG maintain bull case through summit window (T−8 days). Watch for Beijing official communiqué.</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-asset">Australian Petrol</div>
+        <div class="macro-value" style="color:#f6c157;">A$2.25–2.40</div>
+        <div class="macro-note">Slight Fujairah relief. Structural floor: Hormuz blockade premium (~$8–12/bbl Brent-WTI spread) locked in through 2026. Full relief requires June 30 Hormuz opening (currently 52%).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET LOGIC -->
+  <div class="section">
+    <div class="section-title">Cross-Market Logic Check</div>
+    <div class="narrative" style="border-left-color:#68d391;">
+      <p><strong>Oil retreating ↔ No new escalation:</strong> WTI $110 fell 10pp and WTI $120 fell 8pp. If Iran's Fujairah attack were being interpreted as a new escalation phase, oil would be surging — not retreating. The market has accepted US military framing ("below threshold") and is pricing the blockade as structural/static, not intensifying. This is the 50th+ confirmation of the bifurcation pattern: kinetic events are absorbed without invasion premium accreting.</p>
+      <p><strong>Hormuz June 30 at 52% ↔ Summit at 92.5%:</strong> The 26.5pp premium of June 30 over May 31 Hormuz pricing tells you what the market is betting: Trump-Xi summit (May 14–15) produces some kind of Hormuz framework. China's MOFCOM sanctions defiance (ordering Chinese firms to ignore US sanctions on Iranian oil) pre-summit hardball is paradoxically bullish for a deal — Beijing is establishing its leverage position before trading it away for US concessions.</p>
+      <p><strong>Contradiction check:</strong> None detected. Oil retreating, summit approaching, invasion flat, Hormuz June 30 building toward summit window. All signals internally consistent with "permanent conflict economy at moderate oil price" base case.</p>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch — Next 10 Days</div>
+    <div class="card" style="padding:0 20px;">
+      <div class="forward-item">
+        <div class="forward-num">1</div>
+        <div class="forward-body">
+          <div class="forward-title">📊 FRIDAY 8 MAY (10:30pm AEST) — April US NFP</div>
+          <div class="forward-detail">Consensus: 49K jobs added, 4.3% unemployment. ADP missed badly (62K vs 133K prior benchmark). Three Kalshi buckets sit 7pp from their triggers: ≥7% at 67% (↑74% trigger), ≥10% at 38% (↑45% trigger), ≥20% at 8% (↑15% trigger). If unemployment prints ≥4.5% AND payrolls &lt;50K, expect the ≥7% bucket to approach its trigger. Simultaneous trigger fire from all three buckets = stagflation catastrophe scenario — immediate report warranted. Warsh inherits this data for June 16-17 FOMC.</div>
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">2</div>
+        <div class="forward-body">
+          <div class="forward-title">🏛️ WEEK OF MAY 11 — Warsh Senate Floor Vote</div>
+          <div class="forward-detail">Near-certain confirmation (partisan 13-11 committee vote April 29). Powell departs May 15. Warsh takes over before June 16-17 FOMC. His mandate: stagflation trap (PCE 4.5%, GDP 2.0%, Brent $108-112). Policy: hold-and-watch. No immediate rate market impact expected; June FOMC is the first live policy catalyst. Fed June hike currently at 0.9% — 4.1pp below ↑5% trigger.</div>
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">3</div>
+        <div class="forward-body">
+          <div class="forward-title">🇨🇳 MAY 14–15 — Trump-Xi Beijing Summit</div>
+          <div class="forward-detail">T−8 days. At 92.5%, confirmed by all major outlets. Watch for: (a) official Beijing communiqué confirming summit, (b) pre-summit leaks on trade agenda (tariff relief? fentanyl deal?), (c) any Hormuz framework language — the 26.5pp June 30 premium over May 31 reflects market pricing a summit Hormuz breakthrough. If summit produces a Hormuz framework, June 30 Hormuz lift (52%, 13pp below ↑65% trigger) will fire. AUD and ASX materials would outperform on both trade-thaw AND oil-relief narratives simultaneously.</div>
+        </div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">4</div>
+        <div class="forward-body">
+          <div class="forward-title">🛢️ Habshan-Fujairah Pipeline Operational Status</div>
+          <div class="forward-detail">Fujairah VTTI facility confirmed damaged (fire, 3 injured). Pipeline operational status unconfirmed. 380km, 1.5-1.8 mb/d capacity. If pipeline taken offline, WTI $110 re-prices toward 80%+ and WTI $120 approaches ↑65% trigger (currently 30.5pp away). Watch for UAE ADNOC or VTTI press releases. A market on "Habshan-Fujairah pipeline operational" has not appeared on Polymarket yet — watching for creation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL TRIGGERS AT A GLANCE -->
+  <div class="section">
+    <div class="section-title">All Active Triggers At A Glance</div>
+    <div class="card" style="padding:0;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:#151a26;color:#718096;text-align:left;">
+            <th style="padding:10px 16px;font-weight:600;letter-spacing:0.5px;">MARKET</th>
+            <th style="padding:10px 16px;font-weight:600;letter-spacing:0.5px;">PRICE</th>
+            <th style="padding:10px 16px;font-weight:600;letter-spacing:0.5px;">TRIGGER</th>
+            <th style="padding:10px 16px;font-weight:600;letter-spacing:0.5px;">GAP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Hormuz June 30 lift</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:700;">52.0%</td>
+            <td style="padding:10px 16px;color:#718096;">↑65%</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:600;">13.0pp ⚠️</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Iran invasion 2027 escalation</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">30.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↑40%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">9.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Kalshi ≥7% unemployment</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:700;">67.0%</td>
+            <td style="padding:10px 16px;color:#718096;">↑74%</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:600;">7.0pp ⚠️ NFP Fri</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Kalshi ≥10% unemployment</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:700;">38.0%</td>
+            <td style="padding:10px 16px;color:#718096;">↑45%</td>
+            <td style="padding:10px 16px;color:#f6c157;font-weight:600;">7.0pp ⚠️ NFP Fri</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Kalshi ≥20% unemployment</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">8.0%</td>
+            <td style="padding:10px 16px;color:#718096;">↑15%</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:600;">7.0pp ⚠️ NFP Fri</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">WTI $110 May escalation</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">68.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↑92%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">23.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">WTI $110 May floor warning</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">68.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↓35%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">33.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">WTI $120 May</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">34.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↑65%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">30.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Hormuz May 31 intermediate</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">25.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↑50%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">24.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Hormuz May 31 main signal</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">25.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↑65%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">39.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Trump-China early warning</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">92.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↓70%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">22.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;background:#1a1f2e;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Trump-China cancellation</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">92.5%</td>
+            <td style="padding:10px 16px;color:#718096;">↓65%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">27.5pp ✓</td>
+          </tr>
+          <tr style="border-top:1px solid #2d3748;">
+            <td style="padding:10px 16px;color:#e2e8f0;">Fed June hike</td>
+            <td style="padding:10px 16px;color:#e2e8f0;font-weight:700;">0.9%</td>
+            <td style="padding:10px 16px;color:#718096;">↑5%</td>
+            <td style="padding:10px 16px;color:#9ae6b4;font-weight:600;">4.1pp ✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-text">Polymarket Analyst Agent · 6 May 2026 07:00 AEST · Data: Polymarket + Kalshi · <span style="color:#4a5568;">Resolution quality: [HIGH]=objective data · [MED]=criteria-based · [LOW]=UMA-voted/subjective</span></div>
+</div>
+
+</body>
+</html>
