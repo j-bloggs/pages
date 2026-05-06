@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert: Araghchi in Beijing — Oil De-escalation Accelerating | 6 May 2026 7PM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #141820 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px; }
+  .alert-badge { display: inline-block; background: #2d6a4f; color: #52b788; border: 1px solid #52b788; border-radius: 4px; padding: 3px 10px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f7fafc; margin-bottom: 6px; }
+  .header .meta { color: #718096; font-size: 13px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+  .section { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; }
+  .section h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #2d3748; }
+  .summary-text { color: #cbd5e0; font-size: 15px; line-height: 1.7; }
+  .summary-text strong { color: #f7fafc; }
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+  .market-card { background: #141820; border: 1px solid #2d3748; border-radius: 6px; padding: 14px 16px; }
+  .market-card.highlight { border-color: #52b788; }
+  .market-card .label { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .market-card .question { font-size: 13px; color: #a0aec0; margin-bottom: 8px; line-height: 1.4; }
+  .market-card .price-row { display: flex; align-items: baseline; gap: 8px; }
+  .market-card .price { font-size: 26px; font-weight: 700; color: #f7fafc; }
+  .market-card .delta { font-size: 14px; font-weight: 600; }
+  .delta-down { color: #52b788; }
+  .delta-up-green { color: #52b788; }
+  .delta-flat { color: #718096; }
+  .market-card .context { font-size: 12px; color: #718096; margin-top: 6px; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; vertical-align: middle; margin-right: 4px; }
+  .badge-high { background: #276749; color: #68d391; }
+  .badge-med { background: #744210; color: #f6ad55; }
+  .badge-low { background: #553c2e; color: #c6956e; }
+  .catalyst-block { background: #141820; border-left: 3px solid #52b788; border-radius: 4px; padding: 14px 18px; margin-bottom: 14px; }
+  .catalyst-block h3 { font-size: 13px; font-weight: 700; color: #52b788; margin-bottom: 8px; }
+  .catalyst-block p { font-size: 14px; color: #cbd5e0; line-height: 1.6; }
+  .catalyst-block a { color: #63b3ed; text-decoration: none; }
+  .step-list { list-style: none; }
+  .step-list li { padding: 9px 0; border-bottom: 1px solid #1e2535; font-size: 14px; color: #a0aec0; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li strong { color: #f7fafc; }
+  .implication-row { display: flex; gap: 12px; margin-bottom: 10px; }
+  .impl-icon { font-size: 18px; flex-shrink: 0; padding-top: 1px; }
+  .impl-text { font-size: 14px; color: #a0aec0; line-height: 1.6; }
+  .impl-text strong { color: #f7fafc; }
+  .watch-item { background: #141820; border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; border-left: 3px solid #2d3748; }
+  .watch-item.hot { border-left-color: #f6ad55; }
+  .watch-item h4 { font-size: 13px; font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+  .watch-item p { font-size: 13px; color: #718096; }
+  .trigger-status { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #1e2535; }
+  .trigger-status:last-child { border-bottom: none; }
+  .trigger-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-watch { background: #4a5568; }
+  .dot-approaching { background: #f6ad55; }
+  .trigger-label { font-size: 13px; color: #a0aec0; flex: 1; }
+  .trigger-gap { font-size: 12px; color: #718096; }
+  .note-box { background: #1a2235; border: 1px solid #2d4a6e; border-radius: 6px; padding: 12px 16px; margin-top: 16px; }
+  .note-box p { font-size: 13px; color: #7fa8c9; line-height: 1.5; }
+  footer { text-align: center; padding: 20px; color: #4a5568; font-size: 12px; border-top: 1px solid #1e2535; margin-top: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="alert-badge">🟢 Alert — De-escalation</div>
+    <h1>Araghchi in Beijing: Oil De-escalation Accelerating</h1>
+    <div class="meta">Wednesday 6 May 2026 · 7:15pm AEST &nbsp;|&nbsp; Alert-triggered run &nbsp;|&nbsp; Analyst: Polymarket Macro</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <h2>Executive Summary</h2>
+    <p class="summary-text">
+      Iran FM Araghchi is <strong>physically in Beijing right now</strong> meeting with China FM Wang Yi — the first senior Iranian diplomatic engagement since the Project Freedom pause. China is pressing Iran to open Hormuz as a pre-Trump-Xi summit concession, with US advisers explicitly linking May 14-15 summit progress to Beijing's role. The market responded immediately: <strong>WTI $110 May fell from 60.5% (5PM daily) to 50.0% — a coin flip on oil staying below $110 this month</strong>. That is not in your last email.
+    </p>
+    <br>
+    <p class="summary-text">
+      This is a three-party diplomatic triangle (US/China/Iran) compressing simultaneously: Trump pauses Project Freedom to create deal space; Araghchi flies to Beijing; China delivers the message Tehran must open Hormuz or the summit produces nothing. <strong>No deal has been signed.</strong> The market is repricing the probability of a deal process, not a resolution. But the process just got real.
+    </p>
+  </div>
+
+  <!-- WHAT MOVED SINCE YOUR LAST EMAIL -->
+  <div class="section">
+    <h2>What Changed Since Your 5PM Daily (17:09 AEST)</h2>
+    <div class="market-grid">
+
+      <div class="market-card highlight">
+        <div class="label"><span class="badge badge-high">HIGH</span> WTI — Key Signal</div>
+        <div class="question">WTI Crude hits $110 in May 2026?</div>
+        <div class="price-row">
+          <span class="price">50.0%</span>
+          <span class="delta delta-down">↓ from 60.5%</span>
+        </div>
+        <div class="context">−10.5pp since 5PM email · De-escalation floor trigger (↓35%) now 15pp away</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label"><span class="badge badge-high">HIGH</span> WTI — Tail Risk</div>
+        <div class="question">WTI Crude hits $120 in May 2026?</div>
+        <div class="price-row">
+          <span class="price">21.5%</span>
+          <span class="delta delta-down">↓ from 28.5%</span>
+        </div>
+        <div class="context">−7pp since 5PM email · Full escalation scenario collapsing</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label"><span class="badge badge-low">LOW</span> Hormuz — May 31</div>
+        <div class="question">Trump announces Hormuz blockade lifted by May 31?</div>
+        <div class="price-row">
+          <span class="price">42.5%</span>
+          <span class="delta delta-up-green">↑ from 37.5%</span>
+        </div>
+        <div class="context">+5pp since 5PM email · Now above May 2 structural baseline (40.5%) for first time · ↑50% trigger 7.5pp away</div>
+      </div>
+
+      <div class="market-card">
+        <div class="label"><span class="badge badge-low">LOW</span> Hormuz — June 30</div>
+        <div class="question">Trump announces Hormuz blockade lifted by June 30?</div>
+        <div class="price-row">
+          <span class="price">62.5%</span>
+          <span class="delta delta-flat">→ flat</span>
+        </div>
+        <div class="context">Unchanged from 5PM email · May31 closing gap vs June30 (now 20pp, was 25pp)</div>
+      </div>
+
+    </div>
+
+    <div class="note-box" style="margin-top:14px;">
+      <p><strong>Oil is the ground truth:</strong> WTI $110 and WTI $120 are NYMEX-settle resolution markets — [HIGH] quality, no UMA subjectivity. A 10.5pp fall in 2 hours on a $1.3M/day volume market is institutional-grade signal, not a thin-market artifact. The Hormuz market movements are [LOW] quality but consistent with the [HIGH] oil signal — no contradictions.</p>
+    </div>
+  </div>
+
+  <!-- CATALYST -->
+  <div class="section">
+    <h2>Catalyst Identified — 4-Step Check</h2>
+
+    <div class="catalyst-block">
+      <h3>Step A — What the markets resolve on</h3>
+      <p>Hormuz May 31 and June 30: YES resolves if Trump/US gov <em>announces</em> the blockade has been lifted by the relevant date. Resolution quality: <strong>[LOW]</strong> — UMA-voted, subjective. WTI $110/$120: YES resolves on NYMEX WTI spot settle at or above threshold. Resolution quality: <strong>[HIGH]</strong>. Anchor analysis on the oil signal; use Hormuz markets as directional support only.</p>
+    </div>
+
+    <div class="catalyst-block">
+      <h3>Step B — When did the move happen?</h3>
+      <p>WTI $110 was flat at 60.5% from 17:00 to 17:45 AEST. It began falling at 18:00 (−3pp) and accelerated sharply at 19:00 (−7.5pp in 15 minutes). Hormuz May 31 spiked +6pp in the same 19:00 window. Coordinated move in one 15-minute period = specific catalyst, not drift.</p>
+    </div>
+
+    <div class="catalyst-block">
+      <h3>Step C — The specific real-world catalyst</h3>
+      <p><strong>Araghchi physically in Beijing for face-to-face talks with Wang Yi (live, May 6).</strong> CNBC: <em>"China presses Iran against resuming war, urges Hormuz reopening ahead of Trump-Xi summit."</em> US News: <em>"Trump Advisers Step up Calls on China to Help Open Strait of Hormuz Ahead of Beijing Summit."</em> Context: Trump's Project Freedom pause (already known from 5PM daily) created the diplomatic space; the Araghchi-Wang Yi meeting is the first concrete use of that space. Iran's 14-point peace proposal is under active US review. No deal yet — but both sides are at the table through China as intermediary.</p>
+    </div>
+
+    <div class="catalyst-block">
+      <h3>Step D — Cross-market validation</h3>
+      <p>✅ WTI $110 [HIGH]: −10.5pp (de-escalation) ✅ WTI $120 [HIGH]: −7pp (de-escalation) ✅ Hormuz May 31 [LOW]: +5pp (consistent) ✅ Hormuz June 30 [LOW]: flat (no contradiction — June was already pricing summit framework) ✅ Trump-China summit: 93.5% (stable, no cancellation) ✅ Iran invasion 2027: 25.5% (flat, no escalation premium). <strong>Zero contradictions. Oil ground truth validates.</strong></p>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Implications for Australian Investors</h2>
+
+    <div class="implication-row">
+      <div class="impl-icon">⛽</div>
+      <div class="impl-text">
+        <strong>Australian petrol (Brent proxy via WTI):</strong> WTI at 50% on $110 = spot WTI likely $99-103, Brent ~$106-110. If the deal process delivers Hormuz opening by late May/June, WTI spot could fall below $95 by July. Australian pump prices would follow to <strong>A$1.90-2.10/L</strong> from the current structural floor of A$2.25-2.40/L. Timeline: summit framework May 14-15 → implementation → blockade lift → prices fall 4-6 weeks after.
+      </div>
+    </div>
+
+    <div class="implication-row">
+      <div class="impl-icon">💹</div>
+      <div class="impl-text">
+        <strong>AUD/USD:</strong> Multi-catalyst positive. De-escalation + China actively mediating + summit 8 days away = risk-on. AUD should bid on any Araghchi statement post-Wang Yi meeting. The dual de-escalation (Iran + trade war thaw) is structurally AUD-positive. Watch AUD/USD tomorrow morning.
+      </div>
+    </div>
+
+    <div class="implication-row">
+      <div class="impl-icon">📉</div>
+      <div class="impl-text">
+        <strong>ASX energy (WDS, STO, Beach):</strong> The oil de-escalation trajectory is a headwind for LNG producers. At $95-100 WTI, LNG contract pricing pressure resumes. Positions in Australian energy should be monitored — if WTI $110 falls below 45% (another 5pp), that's the signal to de-risk.
+      </div>
+    </div>
+
+    <div class="implication-row">
+      <div class="impl-icon">🏗️</div>
+      <div class="impl-text">
+        <strong>ASX materials (BHP, RIO, FMG):</strong> Dual positive still intact. China summit + de-escalation = iron ore demand optimism. The Araghchi-Wang Yi meeting underscores China's active engagement — Beijing has every incentive to deliver a summit "win" on Iran. BHP/RIO should get a small additional de-escalation bid.
+      </div>
+    </div>
+
+    <div class="implication-row">
+      <div class="impl-icon">🏦</div>
+      <div class="impl-text">
+        <strong>US Fed (Warsh) + RBA:</strong> Oil de-escalation is a modest inflation relief. WTI falling toward $95-100 reduces PCE pressure from the Q1 4.5% PCE print — Warsh's first FOMC (June 16-17) gets a slightly easier backdrop. For the RBA, lower petrol prices reduce imported inflation but don't resolve the structural stagflation picture. <strong>Still cannot cut.</strong>
+      </div>
+    </div>
+
+    <div class="implication-row">
+      <div class="impl-icon">☢️</div>
+      <div class="impl-text">
+        <strong>New market — US-Iran nuclear deal by June 30:</strong> Discovered in tonight's scan at <strong>33.5%</strong>. Context: Iran's 14-point proposal includes nuclear terms. Trump has indicated the proposal is "not yet acceptable." The Araghchi-Wang Yi meeting includes nuclear framework discussion. This is the next-leg market to watch if Hormuz opens — nuclear deal is the end-state market. Not yet adding a trigger (thin liquidity) but tracking.
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <h2>Trigger Status — No Fires This Run</h2>
+
+    <div class="trigger-status">
+      <div class="trigger-dot dot-approaching"></div>
+      <div class="trigger-label"><span class="badge badge-low">LOW</span> Hormuz May 31 ↑50% trigger</div>
+      <div class="trigger-gap">42.5% current · <strong>7.5pp below trigger</strong> · approaching</div>
+    </div>
+    <div class="trigger-status">
+      <div class="trigger-dot dot-approaching"></div>
+      <div class="trigger-label"><span class="badge badge-high">HIGH</span> WTI $110 May ↓35% de-escalation floor</div>
+      <div class="trigger-gap">50.0% current · <strong>15pp above floor trigger</strong> · elevated watch (was 25.5pp at 5PM)</div>
+    </div>
+    <div class="trigger-status">
+      <div class="trigger-dot dot-watch"></div>
+      <div class="trigger-label"><span class="badge badge-low">LOW</span> Hormuz June 30 ↑85% trigger</div>
+      <div class="trigger-gap">62.5% current · 22.5pp below trigger · watching</div>
+    </div>
+    <div class="trigger-status">
+      <div class="trigger-dot dot-watch"></div>
+      <div class="trigger-label"><span class="badge badge-high">HIGH</span> WTI $110 May ↑92% escalation ceiling</div>
+      <div class="trigger-gap">50.0% current · 42pp below trigger · no concern</div>
+    </div>
+    <div class="trigger-status">
+      <div class="trigger-dot dot-watch"></div>
+      <div class="trigger-label"><span class="badge badge-high">HIGH</span> WTI $120 May ↑65% trigger</div>
+      <div class="trigger-gap">21.5% current · 43.5pp below trigger · no concern</div>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section">
+    <h2>What to Watch</h2>
+
+    <div class="watch-item hot">
+      <h4>🔴 Tonight/Tomorrow: Araghchi-Wang Yi Joint Statement</h4>
+      <p>The most important near-term signal. Any Chinese statement that Iran "agreed in principle" to Hormuz opening = Hormuz June 30 spikes toward 75-80% (next trigger at 85%). Any breakdown = Hormuz crashes back to 30-35%, WTI re-escalates. Check Chinese state media (Xinhua, Global Times) for post-meeting readout.</p>
+    </div>
+
+    <div class="watch-item hot">
+      <h4>🔴 Friday 10:30pm AEST — US April NFP (May 8)</h4>
+      <p>Still the dominant macro binary. Consensus 49K, 4.3% unemployment. Three Kalshi unemployment triggers each 7pp from their thresholds (≥7%: 67%, ≥10%: 38%, ≥20%: 8%). Bad print = stagflation narrative overwhelms de-escalation; strong print = risk-on amplified by de-escalation. The two narratives compete Friday night.</p>
+    </div>
+
+    <div class="watch-item">
+      <h4>🟡 WTI $110 approaching 45%</h4>
+      <p>Current 50.0%, de-escalation floor trigger at 35% (15pp away). If WTI $110 falls another 5pp to 45%, that's a strong signal to flag — the coin-flip becomes de-escalation-skewed. Watch for any post-Araghchi movement here.</p>
+    </div>
+
+    <div class="watch-item">
+      <h4>🟡 May 14-15 Trump-Xi Summit — 8 Days</h4>
+      <p>The Hormuz June 30 market (62.5%) is explicitly pricing this summit as the framework event. Any pre-summit Hormuz announcement — from either Beijing or Washington — will move markets sharply. The Araghchi-Wang Yi meeting today is the pre-summit preparation for this. Watch for Trump Truth Social posts on "Iran deal" in the coming days.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <p>Polymarket Macro Analyst · Alert Report · 6 May 2026 19:15 AEST</p>
+  <p style="margin-top:4px;">Sources: Polymarket market data, Kalshi, CNBC, NPR, Time, Al Jazeera, US News · WTI prices are Polymarket binary futures, not NYMEX spot · Brent prices estimated via WTI proxy with ~$6-8 spread</p>
+</footer>
+
+</body>
+</html>
