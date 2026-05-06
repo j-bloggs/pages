@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Wang Yi "Swift Reopening" — Hormuz May 31 Fires ↑50% | 6 May 2026 19:30 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px 24px; }
+  .alert-badge { display: inline-block; background: #f59e0b; color: #000; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; text-transform: uppercase; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .header .meta { font-size: 13px; color: #64748b; }
+  .header .meta span { color: #94a3b8; margin-right: 16px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 32px; }
+
+  /* Trigger fired banner */
+  .trigger-banner { background: #1a0a00; border: 1.5px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 14px; }
+  .trigger-banner .icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .trigger-banner .text { flex: 1; }
+  .trigger-banner .label { font-size: 13px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .trigger-banner .detail { font-size: 14px; color: #d4a855; }
+
+  /* China-Iran divergence highlight */
+  .divergence-box { background: #0a1628; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 24px; }
+  .divergence-box .title { font-size: 12px; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .divergence-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+  .divergence-side { background: #111827; border-radius: 6px; padding: 12px 14px; }
+  .divergence-side .flag { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+  .divergence-side.china .flag { color: #ef4444; }
+  .divergence-side.iran .flag { color: #10b981; }
+  .divergence-side p { font-size: 13px; color: #cbd5e1; font-style: italic; line-height: 1.5; }
+
+  /* Price table */
+  .section-title { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 28px; }
+  .price-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .price-table th { text-align: left; font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; border-bottom: 1px solid #1e293b; }
+  .price-table td { padding: 11px 12px; border-bottom: 1px solid #1e293b; font-size: 14px; vertical-align: middle; }
+  .price-table tr:last-child td { border-bottom: none; }
+  .price-table tr:hover td { background: #1a2035; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+  .badge.high { background: #064e3b; color: #6ee7b7; }
+  .badge.med { background: #78350f; color: #fbbf24; }
+  .badge.low { background: #1e1b4b; color: #a5b4fc; }
+  .badge.fired { background: #f59e0b; color: #000; }
+  .delta-up { color: #10b981; font-weight: 600; }
+  .delta-down { color: #ef4444; font-weight: 600; }
+  .price-num { font-weight: 700; color: #fff; }
+  .trigger-dist { font-size: 12px; color: #64748b; }
+
+  /* Sibling curve */
+  .sibling-curve { background: #111827; border-radius: 8px; padding: 18px 20px; margin-bottom: 24px; }
+  .sibling-title { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .sibling-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+  .sibling-date { font-size: 12px; color: #94a3b8; width: 58px; flex-shrink: 0; }
+  .sibling-bar-wrap { flex: 1; background: #1e293b; border-radius: 4px; height: 8px; overflow: hidden; }
+  .sibling-bar { height: 8px; border-radius: 4px; }
+  .sibling-pct { font-size: 12px; font-weight: 700; color: #fff; width: 44px; text-align: right; flex-shrink: 0; }
+  .sibling-note { font-size: 11px; color: #64748b; width: 160px; flex-shrink: 0; }
+
+  /* Analysis */
+  .analysis-card { background: #111827; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .analysis-card h3 { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+  .analysis-card p { font-size: 14px; color: #94a3b8; line-height: 1.65; margin-bottom: 10px; }
+  .analysis-card p:last-child { margin-bottom: 0; }
+  .analysis-card strong { color: #e2e8f0; }
+  .highlight { background: #1a2035; border-radius: 5px; padding: 10px 14px; margin: 10px 0; font-size: 14px; color: #cbd5e1; border-left: 3px solid #f59e0b; }
+  ul.tight { padding-left: 18px; margin-top: 6px; }
+  ul.tight li { font-size: 14px; color: #94a3b8; margin-bottom: 6px; line-height: 1.55; }
+  ul.tight li strong { color: #e2e8f0; }
+
+  /* Macro table */
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .macro-cell { background: #111827; border-radius: 8px; padding: 16px; }
+  .macro-cell .asset { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .macro-cell .signal { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .macro-cell.bullish { border-top: 2px solid #10b981; }
+  .macro-cell.bearish { border-top: 2px solid #ef4444; }
+  .macro-cell.neutral { border-top: 2px solid #64748b; }
+
+  /* Footer */
+  .footer { border-top: 1px solid #1e293b; padding: 20px 32px; text-align: center; font-size: 12px; color: #475569; margin-top: 8px; }
+
+  /* Quality note */
+  .quality-note { background: #1a0a28; border: 1px solid #7c3aed; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #c4b5fd; margin: 14px 0; }
+  .quality-note strong { color: #a78bfa; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚡ Trigger Alert — 6 May 2026 19:30 AEST</div>
+  <h1>Wang Yi: "Swift Reopening" of Hormuz<br>May 31 Market Fires ↑50% at 57.5% — China-Iran Public Divergence</h1>
+  <div class="meta">
+    <span>📍 Beijing (Araghchi-Wang Yi post-meeting statement)</span>
+    <span>🕕 6 May 2026 | 19:30 AEST</span>
+    <span>⚡ Trigger: hormuz-intermediate-warning ↑50%</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="trigger-banner">
+    <div class="icon">🔔</div>
+    <div class="text">
+      <div class="label">Trigger Fired: Hormuz May 31 crossed ↑50%</div>
+      <div class="detail">
+        <strong>57.5%</strong> (+15pp in a single 15-minute window, 19:00–19:15 AEST) &nbsp;·&nbsp;
+        Catalyst: SCMP <em>Breaking</em> — China FM Wang Yi calls for "swift reopening" of Hormuz post-meeting &nbsp;·&nbsp;
+        Oil [HIGH] confirming: WTI $110 fell from 50% → 46.5% simultaneously
+      </div>
+    </div>
+  </div>
+
+  <!-- China-Iran divergence -->
+  <div class="divergence-box">
+    <div class="title">🔑 The New Signal: China-Iran Public Divergence on Hormuz</div>
+    <p style="font-size:13px; color:#94a3b8; margin-bottom:10px;">This is NOT the same story as the 19:09 Araghchi-in-Beijing email. The post-meeting <em>readout</em> revealed a diplomatic fault line:</p>
+    <div class="divergence-row">
+      <div class="divergence-side china">
+        <div class="flag">🇨🇳 CHINA'S READOUT — included</div>
+        <p>"China hopes that the parties concerned will respond promptly to the strong calls of the international community… [for] swift reopening of the Strait of Hormuz."<br><em>— FM Wang Yi, post-meeting public statement</em></p>
+      </div>
+      <div class="divergence-side iran">
+        <div class="flag">🇮🇷 IRAN'S READOUT — omitted</div>
+        <p>Iran's Foreign Ministry statement on the same meeting made <strong>no mention</strong> of Hormuz reopening.<br><br><em>Araghchi: "We only accept a fair and comprehensive agreement."</em></p>
+      </div>
+    </div>
+    <p style="font-size:13px; color:#64748b; margin-top:12px;">
+      China has publicly staked its pre-summit prestige on Hormuz opening. Iran's silence is resistance — but it is now visible, public resistance against its most important patron.
+    </p>
+  </div>
+
+  <!-- Price table -->
+  <div class="section-title">Current Market Prices</div>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Price</th>
+        <th>15-min Change</th>
+        <th>24h Change</th>
+        <th>Trigger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge fired">FIRED</span><span class="badge low">LOW</span> Hormuz lift May 31</td>
+        <td><span class="price-num">57.5%</span></td>
+        <td><span class="delta-up">+15.0pp</span></td>
+        <td><span class="delta-up">+20.0pp</span></td>
+        <td><span class="trigger-dist">↑65% next (7.5pp away)</span></td>
+      </tr>
+      <tr>
+        <td><span class="badge low">LOW</span> Hormuz lift June 30</td>
+        <td><span class="price-num">72.5%</span></td>
+        <td><span class="delta-up">+10.0pp</span></td>
+        <td><span class="delta-up">+20.0pp</span></td>
+        <td><span class="trigger-dist">↑85% trigger (12.5pp away)</span></td>
+      </tr>
+      <tr>
+        <td><span class="badge high">HIGH</span> WTI reaches $110 May</td>
+        <td><span class="price-num">46.5%</span></td>
+        <td><span class="delta-down">−3.5pp</span></td>
+        <td><span class="delta-down">−22.0pp</span></td>
+        <td><span class="trigger-dist">✓ Oil confirming de-escalation</span></td>
+      </tr>
+      <tr>
+        <td><span class="badge high">HIGH</span> WTI reaches $120 May</td>
+        <td><span class="price-num">20.5%</span></td>
+        <td><span class="delta-down">−1.0pp</span></td>
+        <td><span class="delta-down">−22.0pp</span></td>
+        <td><span class="trigger-dist">↑65% trigger (44.5pp away)</span></td>
+      </tr>
+      <tr>
+        <td><span class="badge low">LOW</span> Trump visits China May 31</td>
+        <td><span class="price-num">93.5%</span></td>
+        <td>flat</td>
+        <td>flat</td>
+        <td><span class="trigger-dist">Summit May 14–15 (T-8 days)</span></td>
+      </tr>
+      <tr>
+        <td><span class="badge low">LOW</span> Iran invasion 2027</td>
+        <td><span class="price-num">25.5%</span></td>
+        <td>flat</td>
+        <td><span class="delta-down">−5.0pp</span></td>
+        <td><span class="trigger-dist">↑40% trigger (14.5pp away)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quality-note">
+    <strong>[LOW] quality note:</strong> Both Hormuz markets resolve on <em>Trump/US government officially announcing the end of the blockade</em> — not on China's demand, Iran's compliance, or physical Hormuz reopening. The 57.5% reads as: market assigns 57.5% probability that Wang Yi's demand + pre-summit pressure + Trump's convoy pause = a formal US blockade-lift announcement by May 31. [HIGH] WTI $110 at 46.5% is the ground truth — both markets consistent.
+  </div>
+
+  <!-- Sibling curve -->
+  <div class="sibling-curve">
+    <div class="sibling-title">Hormuz Lift Sibling Curve — Timeline Compression (19:15 AEST)</div>
+    <div class="sibling-row">
+      <div class="sibling-date">May 8</div>
+      <div class="sibling-bar-wrap"><div class="sibling-bar" style="width:2.8%; background:#ef4444;"></div></div>
+      <div class="sibling-pct">2.8%</div>
+      <div class="sibling-note" style="color:#64748b">2 days — near zero</div>
+    </div>
+    <div class="sibling-row">
+      <div class="sibling-date">May 15</div>
+      <div class="sibling-bar-wrap"><div class="sibling-bar" style="width:11%; background:#f97316;"></div></div>
+      <div class="sibling-pct">11%</div>
+      <div class="sibling-note" style="color:#64748b">9 days — summit week</div>
+    </div>
+    <div class="sibling-row">
+      <div class="sibling-date">May 22</div>
+      <div class="sibling-bar-wrap"><div class="sibling-bar" style="width:16.5%; background:#eab308;"></div></div>
+      <div class="sibling-pct">16.5%</div>
+      <div class="sibling-note" style="color:#64748b">16 days — post-summit</div>
+    </div>
+    <div class="sibling-row">
+      <div class="sibling-date">May 31</div>
+      <div class="sibling-bar-wrap"><div class="sibling-bar" style="width:57.5%; background:#f59e0b;"></div></div>
+      <div class="sibling-pct" style="color:#f59e0b;">57.5%</div>
+      <div class="sibling-note" style="color:#f59e0b; font-weight:700">25 days — ↑50% FIRED ⚡</div>
+    </div>
+    <div class="sibling-row">
+      <div class="sibling-date">June 30</div>
+      <div class="sibling-bar-wrap"><div class="sibling-bar" style="width:72.5%; background:#10b981;"></div></div>
+      <div class="sibling-pct" style="color:#10b981;">72.5%</div>
+      <div class="sibling-note" style="color:#94a3b8">55 days — still dominant</div>
+    </div>
+    <p style="font-size:12px; color:#64748b; margin-top:12px;">
+      The May31–June30 spread <strong>collapsed from 44pp (09:12 AEST this morning) to 15pp (19:15 AEST)</strong>. Market is pulling the Hormuz opening timeline forward from June (post-summit) toward May (pre-summit). This shift is driven by Wang Yi's explicit pre-summit demand — implying Iran compliance by May 14, not after.
+    </p>
+  </div>
+
+  <!-- Analysis -->
+  <div class="section-title">Analysis</div>
+
+  <div class="analysis-card">
+    <h3>Why Wang Yi's Public Statement Changes the Calculus</h3>
+    <p>The Araghchi-Wang Yi meeting was already known and priced at 19:09 AEST. What the market repriced on was the <strong>post-meeting public readout</strong> — specifically Wang Yi calling for "swift reopening" of Hormuz in a formal Foreign Ministry statement picked up by SCMP (<em>Breaking</em>).</p>
+    <p>This matters because China is not just privately lobbying Iran in this scenario. China is publicly committing its diplomatic prestige — in front of the world, one week before Trump arrives in Beijing — to demanding Hormuz open. If Iran refuses and Trump arrives to a still-blocked strait, China's role as indispensable mediator is undermined. Iran cannot easily say no without damaging its most critical bilateral relationship.</p>
+    <div class="highlight">
+      Iran's readout omitting the Hormuz demand is not reassuring — it is the tell. Iran is actively resisting China's preferred framing. But in this diplomatic triangle, silent resistance is weaker than public commitment. China wins the narrative war by being on record.
+    </div>
+    <p>Trump's incentive structure also aligns: he has already paused "Project Freedom" convoy escorts. A pre-summit Hormuz announcement lets him arrive in Beijing claiming he solved the Middle East crisis, give China credit for mediating, and declare a summit win. That is a better deal than arriving with Hormuz still closed.</p>
+  </div>
+
+  <div class="analysis-card">
+    <h3>Cross-Market Validation</h3>
+    <p>The <strong>[HIGH] quality WTI $110 May market at 46.5%</strong> is the ground truth check. Oil is NOT contradicting the Hormuz market — it is confirming. WTI $110 has fallen 22pp today alone (from 68.5% at 7AM to 46.5% now), driven by the same de-escalation cascade: Project Freedom pause → Araghchi Beijing → Wang Yi "swift reopening" demand.</p>
+    <ul class="tight">
+      <li><strong>WTI $110 coin flip broken bearishly:</strong> 46.5% means market now assigns a slight edge to WTI staying sub-$110 all month — the first time this has been sub-50% since before the Fujairah spike on May 4.</li>
+      <li><strong>WTI $120 at 20.5%:</strong> full escalation scenario now priced as a 1-in-5 event, down from 45.5% on May 4 at the Fujairah peak. 22pp de-escalation in 2 days.</li>
+      <li><strong>Iran invasion 2027 at 25.5%:</strong> new session monitoring low, 58th+ consecutive bifurcation. No war-resumption scenario being priced despite all diplomatic noise.</li>
+    </ul>
+  </div>
+
+  <!-- Macro implications -->
+  <div class="section-title">Macro Implications (for Australia)</div>
+  <div class="macro-grid">
+    <div class="macro-cell bullish">
+      <div class="asset">🇦🇺 Australian Petrol</div>
+      <div class="signal">WTI $110 at 46.5% → spot WTI likely $98–103/bbl. Hormuz lift by May 31 scenario: Brent drops toward $100-105 on announcement. Australian pump prices relief scenario: <strong>A$2.05–2.20/L</strong> by June (from current structural A$2.25–2.40/L). Timeline: deal May 14-15 → announcement May 20-31 → pump prices fall 3-4 weeks later.</div>
+    </div>
+    <div class="macro-cell bullish">
+      <div class="asset">🇦🇺 ASX — Airlines &amp; Retail</div>
+      <div class="signal">QAN, REX: jet fuel cost relief if Brent approaches $100. WOW, COL: diesel logistics cost improvement. Airlines typically see 1-2% margin improvement per $10/bbl Brent fall. <em>Not actionable until WTI $110 falls below 40% (de-escalation floor ↓35% trigger).</em></div>
+    </div>
+    <div class="macro-cell bullish">
+      <div class="asset">🇦🇺 AUD/USD</div>
+      <div class="signal">De-escalation is risk-on: AUD benefits from reduced Middle East tail risk + China trade thaw narrative (summit T-8). China pressing Iran = China wants summit success = good for Australia's iron ore/LNG trade. Iron ore demand signal positive if summit produces trade commitments.</div>
+    </div>
+    <div class="macro-cell neutral">
+      <div class="asset">🇺🇸 US Fed / Warsh</div>
+      <div class="signal">Oil falling reduces imported inflation: if Brent drops $10-15/bbl on Hormuz opening, PCE downside pressure opens. Warsh inherits less-bad inflation backdrop than feared. But NFP tomorrow (10:30pm AEST) is the dominant near-term signal — three Kalshi unemployment buckets each 7pp from triggers.</div>
+    </div>
+  </div>
+
+  <!-- What to watch -->
+  <div class="analysis-card">
+    <h3>⚠️ What to Watch Next</h3>
+    <ul class="tight">
+      <li><strong>Hormuz May 31 approaching ↑65% trigger (7.5pp away):</strong> If May 31 reaches 65%, market is pricing near-certainty of a pre-summit deal announcement. Full de-escalation trade fires: short WTI, long AUD, long ASX airlines/logistics.</li>
+      <li><strong>Iran's formal response to Wang Yi's demand:</strong> Any Araghchi public statement acknowledging or rejecting the Hormuz demand will move markets. A joint communiqué mentioning Hormuz = +10pp on May 31. A public Iranian rejection = reversal back to 40-45%.</li>
+      <li><strong>Friday May 8, 10:30pm AEST — US April NFP:</strong> Consensus 49K jobs, 4.3% unemployment. Three Kalshi unemployment buckets are each 7pp from their triggers. A weak print (payrolls &lt;50K, unemployment ≥4.5%) fires the stagflation signal simultaneously with this Hormuz de-escalation narrative — contradictory macro forces.</li>
+      <li><strong>WTI $110 approaching ↓35% de-escalation floor trigger (11.5pp away at 46.5%):</strong> If WTI $110 falls below 35%, full Hormuz-open scenario confirmed by the [HIGH] oil market. At that point the de-escalation trade is unambiguous.</li>
+      <li><strong>June 30 Hormuz approaching ↑85% trigger (12.5pp away at 72.5%):</strong> Any further de-escalation news pushes this toward 85%, at which point the summit-as-Hormuz-deal-signing ceremony interpretation approaches certainty.</li>
+    </ul>
+  </div>
+
+  <!-- Trigger actions -->
+  <div class="analysis-card" style="border-left: 3px solid #4b5563;">
+    <h3>Trigger Actions Taken</h3>
+    <ul class="tight">
+      <li><strong>hormuz-intermediate-warning (↑50%):</strong> FIRED at 57.5%. Threshold raised ↑50%→↑62% (effectively deactivated — sits between existing ↑65% trigger). The ↑65% trigger (hormuz-blockade-lift-may31) is the active sentinel from here.</li>
+      <li><strong>hormuz-blockade-lift-may31 (↑65%):</strong> UNCHANGED. Currently 7.5pp away. This is the next threshold to watch.</li>
+      <li><strong>hormuz-june30-lift (↑85%):</strong> UNCHANGED. Currently 12.5pp away at 72.5%.</li>
+      <li><strong>wti-may-110-deescalation (↓35%):</strong> UNCHANGED. Currently 11.5pp away at 46.5%. Monitor closely — may fire before end of day if de-escalation continues.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 6 May 2026 19:30 AEST · Alert-triggered run ·
+  Markets: <a href="https://polymarket.com/event/trump-announces-us-blockade-of-hormuz-lifted-by" style="color:#3b82f6;">Hormuz lift sibling curve</a> ·
+  Sources: <a href="https://www.scmp.com/news/china/diplomacy/article/3352590/chinese-fm-wang-yi-calls-swift-reopening-strait-hormuz" style="color:#3b82f6;">SCMP Breaking</a> ·
+  <a href="https://www.cnbc.com/2026/05/06/china-iran-araghchi-wang-yi-trump-beijing-hormuz-talks.html" style="color:#3b82f6;">CNBC</a> ·
+  <a href="https://www.aljazeera.com/news/2026/5/6/irans-araghchi-holds-talks-with-chinas-wang-yi-in-beijing" style="color:#3b82f6;">Al Jazeera</a>
+</div>
+
+</body>
+</html>
