@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: WTI De-Escalation Floor Triggered — US-Iran MOU Exclusive</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Alert banner */
+  .alert-banner { background: linear-gradient(135deg, #1a3a1a 0%, #0f2d0f 100%); border: 2px solid #238636; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+  .alert-banner .alert-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #3fb950; text-transform: uppercase; margin-bottom: 8px; }
+  .alert-banner h1 { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+  .alert-banner .alert-meta { font-size: 13px; color: #8b949e; }
+  .alert-banner .alert-meta span { color: #3fb950; font-weight: 600; }
+
+  /* Sections */
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #8b949e; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-bottom: 16px; }
+
+  /* Trigger fired card */
+  .trigger-fired { background: #0d2818; border: 1px solid #238636; border-left: 4px solid #3fb950; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .trigger-fired .label { font-size: 13px; font-weight: 700; color: #3fb950; margin-bottom: 6px; }
+  .trigger-fired .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .trigger-fired .price { font-size: 32px; font-weight: 800; color: #ffffff; }
+  .trigger-fired .delta { font-size: 16px; font-weight: 600; color: #3fb950; }
+  .trigger-fired .quality { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1a3a2a; color: #3fb950; border: 1px solid #238636; }
+  .trigger-fired .interp { font-size: 14px; color: #c9d1d9; margin-top: 4px; }
+
+  /* Market cards grid */
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+
+  .market-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 14px 16px; }
+  .market-card.rising { border-left: 3px solid #3fb950; }
+  .market-card.falling { border-left: 3px solid #f85149; }
+  .market-card.flat { border-left: 3px solid #8b949e; }
+  .market-card .mc-label { font-size: 11px; color: #8b949e; margin-bottom: 6px; }
+  .market-card .mc-quality { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 6px; }
+  .market-card .mc-quality.high { background: #0d2818; color: #3fb950; border: 1px solid #238636; }
+  .market-card .mc-quality.low { background: #1c1410; color: #d29922; border: 1px solid #9e6a03; }
+  .market-card .mc-quality.med { background: #131d2e; color: #58a6ff; border: 1px solid #1f6feb; }
+  .market-card .mc-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .market-card .mc-price { font-size: 24px; font-weight: 700; color: #ffffff; }
+  .market-card .mc-delta { font-size: 13px; font-weight: 600; }
+  .market-card .mc-delta.up { color: #3fb950; }
+  .market-card .mc-delta.down { color: #f85149; }
+  .market-card .mc-delta.flat { color: #8b949e; }
+  .market-card .mc-interp { font-size: 12px; color: #8b949e; line-height: 1.4; }
+
+  /* Catalyst box */
+  .catalyst-box { background: #13111a; border: 1px solid #6e40c9; border-left: 4px solid #a371f7; border-radius: 8px; padding: 18px 20px; }
+  .catalyst-box .cb-headline { font-size: 15px; font-weight: 700; color: #a371f7; margin-bottom: 10px; }
+  .catalyst-box .cb-source { font-size: 12px; color: #8b949e; margin-bottom: 12px; font-style: italic; }
+  .catalyst-box .cb-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #c9d1d9; }
+  .catalyst-box .cb-item .cb-dot { color: #a371f7; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+
+  /* 4-step validation */
+  .validation-box { background: #161b22; border: 1px solid #21262d; border-radius: 8px; overflow: hidden; }
+  .validation-step { padding: 14px 18px; border-bottom: 1px solid #21262d; display: flex; gap: 14px; }
+  .validation-step:last-child { border-bottom: none; }
+  .validation-step .vs-label { font-size: 11px; font-weight: 700; color: #a371f7; text-transform: uppercase; letter-spacing: 1px; min-width: 60px; margin-top: 1px; flex-shrink: 0; }
+  .validation-step .vs-content { font-size: 13px; color: #c9d1d9; line-height: 1.5; }
+  .validation-step .vs-content strong { color: #ffffff; }
+
+  /* Sibling chain */
+  .sibling-chain { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .sibling-chip { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .sibling-chip.resolved { background: #1a3a2a; color: #3fb950; border: 1px solid #238636; }
+  .sibling-chip.active { background: #13111a; color: #a371f7; border: 1px solid #6e40c9; }
+  .sibling-chip.low { background: #1c1e22; color: #8b949e; border: 1px solid #30363d; }
+
+  /* Timing card */
+  .timing-card { background: #1c1410; border: 1px solid #9e6a03; border-left: 4px solid #d29922; border-radius: 8px; padding: 18px 20px; }
+  .timing-card h3 { font-size: 13px; font-weight: 700; color: #d29922; margin-bottom: 14px; }
+  .timing-item { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .timing-item .ti-time { font-size: 11px; font-weight: 700; color: #d29922; min-width: 120px; flex-shrink: 0; padding-top: 2px; }
+  .timing-item .ti-text { font-size: 13px; color: #c9d1d9; line-height: 1.4; }
+  .timing-item .ti-text strong { color: #ffffff; }
+
+  /* Macro implications */
+  .macro-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .macro-table th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #21262d; }
+  .macro-table td { padding: 10px 12px; border-bottom: 1px solid #161b22; color: #c9d1d9; vertical-align: top; }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table .asset { font-weight: 600; color: #ffffff; }
+  .macro-table .bullish { color: #3fb950; font-weight: 600; }
+  .macro-table .bearish { color: #f85149; font-weight: 600; }
+  .macro-table .neutral { color: #8b949e; }
+
+  /* Petrol box */
+  .petrol-box { background: #0d2818; border: 1px solid #238636; border-radius: 8px; padding: 16px 20px; }
+  .petrol-box h3 { font-size: 12px; font-weight: 700; color: #3fb950; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .petrol-scenario { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1a3a2a; font-size: 13px; }
+  .petrol-scenario:last-child { border-bottom: none; }
+  .petrol-scenario .ps-label { color: #8b949e; }
+  .petrol-scenario .ps-price { font-weight: 700; color: #3fb950; }
+  .petrol-scenario .ps-prob { font-size: 11px; color: #8b949e; margin-left: 8px; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 11px; color: #484f58; padding-top: 20px; border-top: 1px solid #21262d; margin-top: 32px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-label">⚡ Trigger Alert — 2026-05-06 21:00 AEST</div>
+    <h1>WTI De-Escalation Floor Triggered: Axios Reports US-Iran One-Page MOU</h1>
+    <div class="alert-meta">
+      <span>wti-may-110-deescalation FIRED at 34.5%</span> &nbsp;·&nbsp; [HIGH] resolution quality &nbsp;·&nbsp; Cross-market: coherent ✓ &nbsp;·&nbsp; Catalyst: confirmed ✓
+    </div>
+  </div>
+
+  <!-- Trigger Fired Card -->
+  <div class="section">
+    <div class="section-title">Trigger Fired</div>
+    <div class="trigger-fired">
+      <div class="label">WTI $110 in May — De-Escalation Floor &nbsp;<span class="quality">HIGH</span></div>
+      <div class="price-row">
+        <div class="price">34.5%</div>
+        <div class="delta">▼ −12pp since 19:09 AEST</div>
+      </div>
+      <div class="interp">Market now prices <strong>65% probability WTI stays below $110 all month</strong>. Trigger threshold: ↓35%. Crossed tonight on the Axios MOU exclusive. This is a <strong>[HIGH] ground-truth oil signal</strong> — not a low-quality UMA-decided market. Oil is speaking.</div>
+    </div>
+  </div>
+
+  <!-- Catalyst -->
+  <div class="section">
+    <div class="section-title">Catalyst Identified (Step C)</div>
+    <div class="catalyst-box">
+      <div class="cb-headline">Axios Exclusive: "US and Iran Closing in on One-Page MOU to End War"</div>
+      <div class="cb-source">Published ~19:00–20:00 AEST May 6 · Corroborated by Reuters, Al-Monitor, Times of Israel, Arab News</div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>One-page MOU framework:</strong> 14-point memorandum negotiated by Witkoff/Kushner and Iranian officials; opens 30-day negotiation window on nuclear deal</span></div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>Hormuz provision:</strong> US naval blockade and Iran's shipping restrictions "gradually lifted" during the 30-day implementation period — not a snap announcement, a phased reopening</span></div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>Nuclear terms:</strong> Iran commits to 12–15 year enrichment moratorium; US lifts sanctions and releases frozen funds</span></div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>Timeline:</strong> Iran's response expected within 48 hours (~18:00–20:00 AEST Friday May 8 — directly before NFP)</span></div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>Secondary catalyst:</strong> Araghchi stated "military means cannot resolve the crisis" after Wang Yi meeting — Iran's closest public acknowledgment that Hormuz must reopen</span></div>
+      <div class="cb-item"><span class="cb-dot">▸</span><span><strong>China factor:</strong> Wang Yi publicly demanded "swift reopening" before Trump-Xi summit (May 14–15 Beijing). China has staked diplomatic prestige on Iranian compliance. Beijing is squeezing Tehran.</span></div>
+    </div>
+  </div>
+
+  <!-- 4-Step Validation -->
+  <div class="section">
+    <div class="section-title">4-Step Catalyst Validation</div>
+    <div class="validation-box">
+      <div class="validation-step">
+        <div class="vs-label">Step A</div>
+        <div class="vs-content"><strong>Resolution quality: [HIGH].</strong> Resolves YES if any 1-minute Pyth/CME candle has a HIGH price ≥ $110 in May 2026. Objective, automated, cannot be UMA-manipulated. The 34.5% reading is the market's unambiguous assessment of oil supply fundamentals.</div>
+      </div>
+      <div class="validation-step">
+        <div class="vs-label">Step B</div>
+        <div class="vs-content"><strong>Price trajectory tonight:</strong> 60.5% (17:00 AEST) → 50.0% (19:09, Araghchi Beijing arrival) → 46.5% (19:23, Wang Yi demand) → 41.5% (19:31) → <strong>34.5% (21:00, Axios MOU)</strong>.
+        <br><br><strong>Critical sibling discovery:</strong>
+        <div class="sibling-chain" style="margin-top:8px;">
+          <span class="sibling-chip resolved">↓$100 ✓ RESOLVED YES</span>
+          <span class="sibling-chip resolved">↓$105 ✓ RESOLVED YES</span>
+          <span class="sibling-chip active">↓$90: 69% YES</span>
+          <span class="sibling-chip active">↓$85: 48% YES</span>
+          <span class="sibling-chip active">↑$110: 34.5%</span>
+          <span class="sibling-chip low">↑$120: 16.5%</span>
+          <span class="sibling-chip low">↑$130: 14.5%</span>
+        </div>
+        WTI already traded below $100 intraday in May. Market prices 69% chance of sub-$90 intraday before month-end.</div>
+      </div>
+      <div class="validation-step">
+        <div class="vs-label">Step C</div>
+        <div class="vs-content"><strong>Catalyst confirmed:</strong> Axios US-Iran MOU exclusive (published ~19:00–20:00 AEST). 30-day gradual Hormuz reopening provision embedded in the MOU. The -12pp move in WTI $110 probability directly tracks the Axios publication time.</div>
+      </div>
+      <div class="validation-step">
+        <div class="vs-label">Step D</div>
+        <div class="vs-content"><strong>Cross-market: all coherent, zero contradictions.</strong>
+          <br>• WTI $120 May [HIGH]: 16.5% (falling) — escalation scenario priced out ✓
+          <br>• Hormuz June 30 [LOW]: 76.0% (+1pp) — rising, consistent with 30-day MOU implementation post-summit ✓
+          <br>• Hormuz May 31 [LOW]: 62.5% (−5pp) — market pushing Hormuz announcement to June (30-day MOU timeline, not snap deal) ✓ <em>not a contradiction</em>
+          <br>• Trump-China summit [LOW]: 94.5% (+1pp) — MOU boosts summit optimism ✓
+          <br>• Iran invasion 2027 [LOW]: 19.5% (stable) — no escalation pricing ✓
+          <br><br><strong>Decision: interpretation confirmed.</strong> Oil market validates de-escalation. No contradictions requiring re-analysis.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Markets -->
+  <div class="section">
+    <div class="section-title">Market Snapshot — 21:00 AEST May 6</div>
+    <div class="market-grid">
+
+      <div class="market-card falling">
+        <div class="mc-label">WTI $110 in May <span class="mc-quality high">HIGH</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">34.5%</div>
+          <div class="mc-delta down">▼ −12pp since 19:09</div>
+        </div>
+        <div class="mc-interp">65% chance WTI stays sub-$110 all month. TRIGGER FIRED. Threshold lowered to ↓20%.</div>
+      </div>
+
+      <div class="market-card falling">
+        <div class="mc-label">WTI $120 in May <span class="mc-quality high">HIGH</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">16.5%</div>
+          <div class="mc-delta down">▼ −5pp from Wang Yi peak</div>
+        </div>
+        <div class="mc-interp">Full ceasefire collapse scenario: 1-in-6 chance. WTI spot already tested sub-$100 in May.</div>
+      </div>
+
+      <div class="market-card rising">
+        <div class="mc-label">WTI drops to $90 intraday <span class="mc-quality high">HIGH</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">69%</div>
+          <div class="mc-delta up">▲ KEY SIGNAL</div>
+        </div>
+        <div class="mc-interp">Market pricing near-certainty WTI trades $85–90 at some point in May. Brent $92–97, petrol A$1.90–2.10/L.</div>
+      </div>
+
+      <div class="market-card rising">
+        <div class="mc-label">Hormuz Lifted by June 30 <span class="mc-quality low">LOW</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">76.0%</div>
+          <div class="mc-delta up">▲ +1pp</div>
+        </div>
+        <div class="mc-interp">9pp below ↑85% trigger. MOU 30-day timeline (sign ~May 14) → implementation complete ~June 14. June 30 = rational deadline.</div>
+      </div>
+
+      <div class="market-card falling">
+        <div class="mc-label">Hormuz Lifted by May 31 <span class="mc-quality low">LOW</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">62.5%</div>
+          <div class="mc-delta down">▼ −5pp since Wang Yi</div>
+        </div>
+        <div class="mc-interp">Pullback from 67.5% Wang Yi peak is NOT bearish — market correctly repricing from snap announcement to gradual 30-day MOU. 9.5pp below ↑72% trigger.</div>
+      </div>
+
+      <div class="market-card rising">
+        <div class="mc-label">Trump visits China by May 31 <span class="mc-quality low">LOW</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">94.5%</div>
+          <div class="mc-delta up">▲ +1pp</div>
+        </div>
+        <div class="mc-interp">MOU news reinforces summit optimism. T-8 days (May 14–15 Beijing). 24.5pp and 29.5pp clear of cancellation triggers.</div>
+      </div>
+
+      <div class="market-card flat">
+        <div class="mc-label">Iran Invasion before 2027 <span class="mc-quality low">LOW</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">19.5%</div>
+          <div class="mc-delta flat">→ flat</div>
+        </div>
+        <div class="mc-interp">60th+ consecutive bifurcation confirmation. MOU does not directly move invasion odds — market already priced diplomatic resolution as dominant scenario.</div>
+      </div>
+
+      <div class="market-card flat">
+        <div class="mc-label">Kalshi: US Unemployment ≥7% <span class="mc-quality high">HIGH</span></div>
+        <div class="mc-price-row">
+          <div class="mc-price">67%</div>
+          <div class="mc-delta flat">→ flat</div>
+        </div>
+        <div class="mc-interp">Stagflation narrative intact. NFP Friday 10:30pm AEST (May 8) — 7pp from ↑74% trigger. Competing narrative to de-escalation.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Australian Petrol Outlook -->
+  <div class="section">
+    <div class="section-title">Australian Petrol Outlook (WTI proxy for Brent)</div>
+    <div class="petrol-box">
+      <h3>Scenario Range — Based on WTI Sibling Markets</h3>
+      <div class="petrol-scenario">
+        <span class="ps-label">Current (WTI ~$101, Brent ~$108–112, Hormuz blockade)</span>
+        <span><span class="ps-price">A$2.30–2.40/L</span></span>
+      </div>
+      <div class="petrol-scenario">
+        <span class="ps-label">WTI $95 (Brent ~$102–106) — 82.5% chance by month-end</span>
+        <span><span class="ps-price">A$2.10–2.20/L</span> <span class="ps-prob">(-20–30c)</span></span>
+      </div>
+      <div class="petrol-scenario">
+        <span class="ps-label">WTI $90 (Brent ~$97–101) — 69% chance by month-end</span>
+        <span><span class="ps-price">A$1.95–2.10/L</span> <span class="ps-prob">(-30–45c)</span></span>
+      </div>
+      <div class="petrol-scenario">
+        <span class="ps-label">WTI $85 (Brent ~$92–96) — 48% chance by month-end</span>
+        <span><span class="ps-price">A$1.85–2.00/L</span> <span class="ps-prob">(-40–55c)</span></span>
+      </div>
+      <div class="petrol-scenario">
+        <span class="ps-label">MOU signed + Hormuz open June (gradual reopening, WTI $80–85)</span>
+        <span><span class="ps-price">A$1.75–1.90/L</span> <span class="ps-prob">(July timeline)</span></span>
+      </div>
+    </div>
+    <p style="font-size:11px; color:#484f58; margin-top:8px;">Note: Uses WTI as proxy for Brent (no Brent Polymarket). Brent-WTI spread historically $3–8/bbl; Hormuz blockade adds ~$5–10 geographic premium. Prices estimated at average Australian retail margin assumptions. Actual timing depends on retail pass-through lag (typically 2–4 weeks).</p>
+  </div>
+
+  <!-- Watch Window -->
+  <div class="section">
+    <div class="section-title">What to Watch — Next 48 Hours</div>
+    <div class="timing-card">
+      <h3>⏱ Critical 48-Hour Window</h3>
+
+      <div class="timing-item">
+        <div class="ti-time">NOW → 20:00 AEST Thu</div>
+        <div class="ti-text"><strong>Iran's formal MOU response.</strong> Iran has 48 hours from Axios publication to signal acceptance or rejection. Watch: IRNA (state media), Araghchi public statement, IRGC spokesperson. <strong>Accept:</strong> WTI $110 collapses toward ↓20%; Hormuz June 30 spikes toward ↑85% trigger; AUD strengthens; ASX open (Thursday) outperforms airlines/retail. <strong>Reject:</strong> WTI $110 snaps back above 45%; Hormuz markets reverse; oil short-squeeze risk.</div>
+      </div>
+
+      <div class="timing-item">
+        <div class="ti-time">10:30pm AEST Fri May 8</div>
+        <div class="ti-text"><strong>US April NFP.</strong> Consensus: 49K jobs, 4.3% unemployment. Three Kalshi unemployment triggers each 7pp from threshold. Weak print (≥4.5% unemployment) fires stagflation signal <em>simultaneously</em> with MOU de-escalation. The two narratives compete Friday night — conflicting signals possible.</div>
+      </div>
+
+      <div class="timing-item">
+        <div class="ti-time">May 14–15 Beijing</div>
+        <div class="ti-text"><strong>Trump-Xi Summit.</strong> The MOU signing ceremony — if Iran accepts framework in next 48 hours. MOU framework + summit = Hormuz gradual reopening begins immediately post-summit. June 30 [LOW] at 76% prices exactly this scenario: sign May 14 → 30-day implementation → blockade lifted mid-June → market resolves YES June 30.</div>
+      </div>
+
+      <div class="timing-item">
+        <div class="ti-time">Week of May 11</div>
+        <div class="ti-text"><strong>Warsh Senate floor vote.</strong> Powell departs May 15. Warsh inherits stagflation (PCE 4.5%, GDP 2.0%) — impossible mandate. Kalshi ≥7% unemployment at 67% (7pp from ↑74% trigger). If NFP prints weak AND Warsh faces hostile vote, US rates higher-for-longer narrative intensifies. Competes with de-escalation oil relief.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASX Macro Implications -->
+  <div class="section">
+    <div class="section-title">Macro Implications (Australian Investor)</div>
+    <table class="macro-table">
+      <tr>
+        <th>Asset</th>
+        <th>Direction</th>
+        <th>Rationale</th>
+      </tr>
+      <tr>
+        <td class="asset">AUD/USD</td>
+        <td class="bullish">BULLISH</td>
+        <td>Hormuz reopening → Brent falls → Australian terms of trade improve (LNG, coal still export winners; import petrol relief) → RBA less constrained → AUD supported on risk-on</td>
+      </tr>
+      <tr>
+        <td class="asset">ASX Airlines (QAN)</td>
+        <td class="bullish">BULLISH</td>
+        <td>Fuel is 25–30% of QAN's operating cost. WTI at $85–90 (Brent $92–97) removes the jet fuel headwind. Positive for yield/margin expansion.</td>
+      </tr>
+      <tr>
+        <td class="asset">ASX Retail (WOW, COL)</td>
+        <td class="bullish">BULLISH</td>
+        <td>Petrol at A$1.90/L = A$30–40/week household fuel saving → discretionary spending uplift. Logistics cost deflation (diesel) flows through to margins.</td>
+      </tr>
+      <tr>
+        <td class="asset">ASX Energy (WDS, STO)</td>
+        <td class="bearish">BEARISH</td>
+        <td>Woodside and Santos track Brent closely. WTI $85–90 = Brent $92–97 = ~15–20% revenue headwind on realised oil prices vs. current. LNG partially offsets but oil-linked LNG contracts lag 3–6 months.</td>
+      </tr>
+      <tr>
+        <td class="asset">ASX Materials (BHP, RIO)</td>
+        <td class="bullish">MILDLY BULLISH</td>
+        <td>Trump-Xi summit (T-8 days) + de-escalation narrative = China demand recovery expectations. Iron ore and copper should benefit from summit optimism. Not directly oil-driven.</td>
+      </tr>
+      <tr>
+        <td class="asset">US Treasuries</td>
+        <td class="neutral">MIXED</td>
+        <td>De-escalation → oil lower → US CPI relief → POTENTIAL Warsh cut path opens → bullish for duration. But NFP risk Friday + stagflation (PCE 4.5%) = offset. Net: rates volatile not directional this week.</td>
+      </tr>
+      <tr>
+        <td class="asset">Gold</td>
+        <td class="neutral">FLAT–SLIGHTLY BEARISH</td>
+        <td>De-escalation removes geopolitical risk premium. But US stagflation (real rates still negative if PCE 4.5%) is goldpositive. Two forces roughly cancel this week.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Trigger Actions -->
+  <div class="section">
+    <div class="section-title">Trigger Actions Taken</div>
+    <div style="background:#161b22; border:1px solid #21262d; border-radius:8px; padding:16px 20px; font-size:13px; color:#c9d1d9;">
+      <p><strong style="color:#ffffff;">wti-may-110-deescalation</strong> — FIRED at 34.5% (↓35%). Threshold lowered to <strong>↓20%</strong>. At ↓20%, spot WTI is structurally below $100 — full de-escalation certainty, not just probability. The Hormuz June 30 and WTI ↓$90 triggers remain the continuation signals to watch.</p>
+      <br>
+      <p><strong style="color:#8b949e;">All other triggers unchanged.</strong> Hormuz May 31 (62.5%) and June 30 (76.0%) are 9–10pp from their next thresholds — no action warranted this run. Kalshi unemployment ladder stable.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst · Alert Report · 2026-05-06 21:00 AEST<br>
+    WTI $110 trigger (wti-may-110-deescalation) fired at 34.5% · Next threshold: ↓20%<br>
+    Catalyst: Axios US-Iran MOU exclusive · 48-hour Iran response window → ~18:00 AEST May 8
+  </div>
+
+</div>
+</body>
+</html>
