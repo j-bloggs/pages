@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 16 May 2026 7AM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #12161f 100%); border-bottom: 2px solid #2d3748; padding: 28px 32px 24px; }
+  .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .logo { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4a5568; }
+  .timestamp { font-size: 11px; color: #4a5568; }
+  h1 { font-size: 26px; font-weight: 700; color: #f7fafc; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #718096; }
+  .alert-bar { background: #744210; border-left: 4px solid #d69e2e; padding: 10px 32px; font-size: 13px; color: #fbd38d; font-weight: 500; }
+  .alert-bar.info { background: #1a365d; border-left-color: #63b3ed; color: #90cdf4; }
+  .content { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+  .section { margin-bottom: 32px; }
+  h2 { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #4a9eff; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e2a3a; }
+  .summary-box { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; font-size: 14px; color: #cbd5e0; line-height: 1.75; }
+  .summary-box strong { color: #f7fafc; }
+  .market-grid { display: grid; gap: 12px; }
+  .market-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
+  .market-card.escalation { border-left: 3px solid #fc8181; }
+  .market-card.deescalation { border-left: 3px solid #68d391; }
+  .market-card.neutral { border-left: 3px solid #4a9eff; }
+  .market-card.stale { border-left: 3px solid #4a5568; opacity: 0.75; }
+  .market-label { font-size: 12px; font-weight: 600; color: #a0aec0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+  .market-question { font-size: 13px; color: #e2e8f0; margin-bottom: 4px; }
+  .market-interp { font-size: 12px; color: #718096; line-height: 1.5; }
+  .market-price { text-align: right; min-width: 90px; }
+  .price-num { font-size: 22px; font-weight: 700; color: #f7fafc; }
+  .price-delta { font-size: 12px; font-weight: 600; margin-top: 2px; }
+  .delta-up { color: #68d391; }
+  .delta-down { color: #fc8181; }
+  .delta-flat { color: #4a5568; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 5px; border-radius: 3px; margin-left: 5px; vertical-align: middle; }
+  .q-high { background: #1c4532; color: #68d391; }
+  .q-med { background: #322659; color: #b794f4; }
+  .q-low { background: #2d3748; color: #a0aec0; }
+  .q-stale { background: #1a202c; color: #4a5568; }
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .trigger-table th { text-align: left; padding: 8px 10px; color: #4a5568; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #2d3748; }
+  .trigger-table td { padding: 8px 10px; border-bottom: 1px solid #1a2030; color: #a0aec0; vertical-align: top; }
+  .trigger-table td:first-child { color: #e2e8f0; }
+  .status-watching { color: #d69e2e; font-weight: 600; }
+  .status-stale { color: #4a5568; }
+  .status-safe { color: #68d391; }
+  .status-resolved { color: #63b3ed; }
+  .forward-box { background: #0d1117; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-bullet { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .bullet-red { background: #fc8181; }
+  .bullet-yellow { background: #d69e2e; }
+  .bullet-green { background: #68d391; }
+  .bullet-blue { background: #4a9eff; }
+  .forward-text { font-size: 13px; color: #a0aec0; line-height: 1.6; }
+  .forward-text strong { color: #e2e8f0; }
+  .actions-box { background: #131820; border: 1px solid #1e2a3a; border-radius: 6px; padding: 14px 16px; font-size: 12px; color: #4a9eff; line-height: 1.8; }
+  .actions-box span { color: #718096; }
+  .footer { border-top: 1px solid #1e2a3a; padding: 20px 32px; font-size: 11px; color: #2d3748; text-align: center; }
+  .outage-banner { background: #2d1515; border-left: 4px solid #fc8181; padding: 10px 32px; font-size: 12px; color: #feb2b2; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="logo">Polymarket Analyst</span>
+    <span class="timestamp">Saturday 16 May 2026 · 07:00 AEST</span>
+  </div>
+  <h1>Oil Rebounds on Deal Pessimism; Warsh Day 2; Taiwan Risk Deflates</h1>
+  <div class="subtitle">Daily 7AM · Kalshi live · Polymarket DNS Day 4 · All 15 Polymarket triggers STALE</div>
+</div>
+
+<div class="outage-banner">
+  ⚠ Polymarket API DNS outage — Day 4 (since ~10:35 AEST May 13). All 15 Polymarket triggers are STALE. All Polymarket prices are web-sourced estimates only. Kalshi data is live and confirmed.
+</div>
+<div class="alert-bar info">
+  📊 Key new data: WTI spot +$3 to ~$104 overnight | US-Iran 5th round scheduled May 23 Rome | Kalshi Taiwan L4 by 2028 −4pp | US CPI April +3.8% YoY | Warsh officially Day 2 as Fed chair
+</div>
+
+<div class="content">
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <h2>Market Summary</h2>
+    <div class="summary-box">
+      <p>WTI crude bounced from ~$101 to <strong>~$104/bbl overnight</strong> as deal pessimism took hold: Trump rejected Iran's counterproposal on May 11 as "totally unacceptable," Iran countered "we will never bow," and the Trump-Xi summit produced no binding Iran framework. The Hormuz blockade premium is <strong>entrenched</strong>. The saving grace: a 5th round of US-Iran talks is scheduled for <strong>May 23 in Rome</strong>, keeping the diplomatic channel open — this is a fourth consecutive direct meeting, and the June 30 Hormuz market has likely held above the ↓45% collapse sentinel.</p>
+      <br>
+      <p>On the positive side, <strong>Taiwan risk is deflating</strong>: Kalshi's Level 4 warning market (by Jan 2028) fell −4pp to 31%, reflecting the summit's de-escalation narrative and the IC's assessment that China lacks a firm 2027 invasion timeline. Kevin Warsh begins Day 2 as Fed chair; his hawkish-but-hold posture (JPMorgan: rates on hold through 2026) provides no near-term AUD relief. Australian petrol at <strong>A$2.30–2.45/L</strong> is unchanged — the blockade premium is locked in through at least May 23.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <h2>Key Moves Since Yesterday 5PM</h2>
+    <div class="market-grid">
+
+      <div class="market-card escalation">
+        <div>
+          <div class="market-label">COMMODITIES — WTI (proxy for Brent) <span class="quality-badge q-high">HIGH</span></div>
+          <div class="market-question">WTI Crude Oil spot price</div>
+          <div class="market-interp">Rose from ~$101 to ~$104/bbl overnight. Trump rejected Iran's MOU counter ("totally unacceptable," May 11), Iran replied "will never bow," summit produced no binding Iran commitment. Blockade premium entrenched. Brent proxy ~$108–110/bbl. Australian petrol A$2.30–2.45/L unchanged. <strong>85th consecutive bifurcation</strong> — no invasion repricing, but oil is now drifting UP on deal pessimism rather than DOWN on de-escalation hope.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num">$104</div>
+          <div class="price-delta delta-up">+$3 vs 5PM</div>
+          <div class="price-delta" style="font-size:10px; color:#fc8181">DEAL STALL</div>
+        </div>
+      </div>
+
+      <div class="market-card neutral">
+        <div>
+          <div class="market-label">GEOPOLITICS — US-Iran Talks</div>
+          <div class="market-question">4th round Oman May 11 · 5th round Rome May 23 scheduled</div>
+          <div class="market-interp">Web intelligence confirms 4th round held May 11 in Oman (3+ hours, "difficult but constructive"). 5th round confirmed for May 23 in Rome. Channel open despite Trump "totally unacceptable" rejection. Technical negotiators did NOT participate in Round 4 — deal still at political stage, not implementation. New US sanctions on Iranian nuclear entities + Chinese suppliers imposed around May 12 (pressure tactic alongside talks). Direct meeting by May 31 [LOW] has almost certainly resolved YES (meeting occurred May 11).</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:16px; color:#d69e2e">ACTIVE</div>
+          <div class="price-delta delta-flat">Round 5: May 23</div>
+        </div>
+      </div>
+
+      <div class="market-card deescalation">
+        <div>
+          <div class="market-label">GEOPOLITICS — Taiwan Risk <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-question">Kalshi: US State Dept Level 4 warning for Taiwan by Jan 2028</div>
+          <div class="market-interp">Fell from ~35% to 31% (−4pp). Post-summit de-escalation: Trump-Xi showed bilateral cooperation pathways. IC 2026 assessment holds — China lacks a firm 2027 invasion timeline. No PLA escalation or ADIZ incursions May 15–16. Near-term (by Jul 2026) L4 warning unchanged at 3.1%. Medium-term risk (2028) deflating as summit signals diplomatic engagement framework. Taiwan remains Level 1 ("Exercise Normal Precautions") — no Level 4 issued or signalled.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num">31%</div>
+          <div class="price-delta delta-down">−4pp</div>
+        </div>
+      </div>
+
+      <div class="market-card stale">
+        <div>
+          <div class="market-label">GEOPOLITICS — Hormuz June 30 <span class="quality-badge q-low">LOW</span> <span class="quality-badge q-stale">STALE</span></div>
+          <div class="market-question">Will the US Hormuz blockade be lifted by June 30 2026?</div>
+          <div class="market-interp">Polymarket API down — last estimate was ~45–55% (May 15 5PM). With 5th round May 23 confirming channel open, collapse sentinel (↓45%) has likely NOT fired — estimate now ~50–58%. Cannot confirm without API access. <strong>Priority check on DNS recovery</strong>. Trump-rejected-counter + deal pessimism is negative signal; 5th round scheduled is moderately positive. Net: anchored in 50–58% range.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:14px; color:#4a5568">EST ~52%</div>
+          <div class="price-delta delta-flat">STALE · est</div>
+        </div>
+      </div>
+
+      <div class="market-card stale">
+        <div>
+          <div class="market-label">GEOPOLITICS — Nuclear Deal 2027 <span class="quality-badge q-low">LOW</span> <span class="quality-badge q-stale">STALE</span></div>
+          <div class="market-question">US-Iran nuclear deal before 2027</div>
+          <div class="market-interp">Last estimate ~45–52% (May 15 5PM). Trump's "totally unacceptable" rejection and Iran's "never bow" response are bearish; but 5th round scheduling is positive. May be at or near ↓45% breakdown sentinel — this is the highest priority Polymarket check on API recovery. If below 45%: full re-escalation report required. Without API access, estimate ~47–53%. Enrichment sequencing (Iran: Hormuz-first; US: nuclear-first) remains the foundational impasse from Oman Round 4 (May 10: Araghchi confirmed "enrichment non-negotiable").</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:14px; color:#4a5568">EST ~49%</div>
+          <div class="price-delta delta-flat">STALE · est ⚠</div>
+        </div>
+      </div>
+
+      <div class="market-card stale">
+        <div>
+          <div class="market-label">GEOPOLITICS — Iran Invasion 2027 <span class="quality-badge q-low">LOW</span> <span class="quality-badge q-stale">STALE</span></div>
+          <div class="market-question">Will the US invade Iran before 2027?</div>
+          <div class="market-interp">Last confirmed 27.5% (May 14 web source, 12.5pp below ↑40% trigger). Oil +$3 is slightly escalatory but still far from the structural $110–120 range that would force invasion repricing. 5th round talks = diplomacy active = invasion ceiling intact. Estimate ~27–30%. 85th consecutive bifurcation: deal pessimism absorbed without war premium. ↑40% trigger safe at ~10–13pp gap.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:14px; color:#4a5568">EST ~28%</div>
+          <div class="price-delta delta-flat">STALE · est</div>
+        </div>
+      </div>
+
+      <div class="market-card neutral">
+        <div>
+          <div class="market-label">RATES — US Federal Reserve</div>
+          <div class="market-question">Warsh Day 2; June FOMC June 16–17; JPMorgan: hold through 2026</div>
+          <div class="market-interp">Kevin Warsh officially took chair May 15 (confirmed 54–45, closest Senate vote in Fed history). No public statements yet. CPI April: +3.8% YoY (+0.6% MoM — energy 40%+ of monthly gain). Core still elevated. JPMorgan base case: rates on hold through end-2026. Warsh's hawkish-but-hold posture (tighter inflation discipline, narrow mandate, no White House rate orders) = June FOMC June 16–17 is a hold with hawkish guidance. AUD structural headwind from rates-higher-for-longer persists. No June hike pressure (GDP 2.0%, NFP +115K) but no cut signal either.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:14px">HOLD</div>
+          <div class="price-delta delta-flat">Jun 16–17 FOMC</div>
+        </div>
+      </div>
+
+      <div class="market-card neutral">
+        <div>
+          <div class="market-label">ECONOMICS — US Labor Market <span class="quality-badge q-high">HIGH</span></div>
+          <div class="market-question">Kalshi: US unemployment ≥7% before 2030</div>
+          <div class="market-interp">Rose from 67% to 68% (+1pp) — marginal drift upward. April employment report: headline +4.3% unchanged, but U-6 (broad unemployment) rose to 8.2% from 8.0% — softening at the margin. Total employment fell 226k. NFP headline (+115K) was resilient but underlying detail is weaker. Kalshi ≥10%: 38% (unchanged). ≥20% depression tail: 10% (unchanged, 5pp below ↑15% trigger). Labor market softening is slow-burn, not crisis — consistent with stagflation scenario (growth slowing, inflation sticky).</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num">68%</div>
+          <div class="price-delta delta-up">+1pp</div>
+        </div>
+      </div>
+
+      <div class="market-card neutral">
+        <div>
+          <div class="market-label">POLITICS — US Cabinet Reshuffle Signal</div>
+          <div class="market-question">Kalshi: New "Next Secretary of Labor" markets opened May 15</div>
+          <div class="market-interp">Six new "Who will be Trump's next Secretary of Labor?" candidates appeared on Kalshi (created May 15). Frontrunner: KSON at 30% (likely Kari Lake or similar). Appearance of succession markets implies current Labor Secretary departure is anticipated. Weak signal — thin markets ($0 vol), but worth monitoring as a potential cabinet reshuffle indicator. No direct macro implication yet.</div>
+        </div>
+        <div class="market-price">
+          <div class="price-num" style="font-size:14px; color:#718096">NEW MKT</div>
+          <div class="price-delta delta-flat">6 candidates</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <h2>Trigger Status</h2>
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>Trigger</th>
+          <th>Threshold</th>
+          <th>Current</th>
+          <th>Gap</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kalshi ≥7% unemployment ↑74%</td>
+          <td>74%</td>
+          <td>68%</td>
+          <td>6pp below trigger</td>
+          <td class="status-watching">WATCHING (+1pp today)</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥20% depression tail ↑15%</td>
+          <td>15%</td>
+          <td>10%</td>
+          <td>5pp below trigger</td>
+          <td class="status-watching">WATCHING (unchanged)</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥10% stagflation ↑45%</td>
+          <td>45%</td>
+          <td>38%</td>
+          <td>7pp below trigger</td>
+          <td class="status-safe">SAFE</td>
+        </tr>
+        <tr>
+          <td>Hormuz June 30 collapse ↓45% [LOW]</td>
+          <td>45%</td>
+          <td>est ~52%</td>
+          <td>est ~7pp above threshold</td>
+          <td class="status-stale">STALE — may be safe (5th round scheduled)</td>
+        </tr>
+        <tr>
+          <td>Nuclear deal breakdown ↓45% [LOW]</td>
+          <td>45%</td>
+          <td>est ~49%</td>
+          <td>est ~4pp above threshold ⚠</td>
+          <td class="status-stale">STALE — ⚠ PRIORITY CHECK ON API RECOVERY</td>
+        </tr>
+        <tr>
+          <td>Iran invasion ↑40% [LOW]</td>
+          <td>40%</td>
+          <td>est ~28%</td>
+          <td>est ~12pp below trigger</td>
+          <td class="status-stale">STALE — estimated safe</td>
+        </tr>
+        <tr>
+          <td>WTI $110 May ↑92% [HIGH]</td>
+          <td>92%</td>
+          <td>est ~30–40%</td>
+          <td>well below (May expiry ~May 20)</td>
+          <td class="status-stale">STALE — EXPIRING MAY 20 · June slug needed</td>
+        </tr>
+        <tr>
+          <td>WTI $110 May ↓20% [HIGH]</td>
+          <td>20%</td>
+          <td>est ~30–40%</td>
+          <td>est ~10–20pp above threshold</td>
+          <td class="status-stale">STALE — EXPIRING MAY 20 · June slug needed</td>
+        </tr>
+        <tr>
+          <td>US-Iran meeting May 31 ↑75% [LOW]</td>
+          <td>75%</td>
+          <td>likely ~100%</td>
+          <td>LIKELY RESOLVED YES</td>
+          <td class="status-resolved">LIKELY RESOLVED — 4th round May 11 Oman</td>
+        </tr>
+        <tr>
+          <td>All other Polymarket triggers (7)</td>
+          <td>—</td>
+          <td>N/A</td>
+          <td>DNS Day 4</td>
+          <td class="status-stale">ALL STALE</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CROSS-MARKET NARRATIVE -->
+  <div class="section">
+    <h2>Cross-Market Narrative</h2>
+    <div class="summary-box">
+      <p><strong>The bifurcation pattern is bending — not breaking.</strong> For 85 consecutive data points, oil refused to confirm invasion escalation even when geopolitical noise surged. Today, oil is rising (+$3 to $104) on deal <em>pessimism</em> — not kinetics. This is a new flavour of the same structural theme: the conflict economy baseline is entrenching at a higher oil floor as negotiating gaps harden. Trump's "totally unacceptable" (May 11) and Iran's "never bow" creates a narrower channel for the May 23 Rome talks to navigate.</p>
+      <br>
+      <p><strong>Taiwan de-escalation is the clearest signal today.</strong> Kalshi's 2028 L4 market fell 4pp — the summit's cooperative framework (Trump-Xi on Hormuz, nukes, military equipment) is being priced as structurally reducing Taiwan crisis risk in the medium term. This is the right macro read: if US-China are coordinating on Iran, the cost of a Taiwan escalation is higher for Beijing.</p>
+      <br>
+      <p><strong>Warsh + sticky inflation = AUD headwind persists.</strong> CPI 3.8% YoY, energy-driven, with U-6 rising to 8.2%. Warsh's mandate is explicitly inflation-first. JPMorgan's hold-through-2026 call means Australian mortgage holders and AUD bulls get no rate-differential relief from the US side. RBA faces: oil/inflation (bearish for cuts), China demand recovery (bullish via tariff thaw), housing (neutral). AUD likely range-bound 0.62–0.68 USD through June.</p>
+      <br>
+      <p><strong>Key contradiction to watch:</strong> Oil rising on deal pessimism while 5th round is scheduled. These are not contradictory — oil is pricing the <em>current</em> impasse, not the <em>future</em> meeting. If Rome May 23 delivers a framework (any concrete sequencing agreement), expect WTI to fall $5–8 in 24h. If Rome fails, WTI tests $110, and our WTI $110 escalation trigger (needing June slug) would fire.</p>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View — What to Watch</h2>
+    <div class="forward-box">
+      <div class="forward-item">
+        <div class="forward-bullet bullet-red"></div>
+        <div class="forward-text"><strong>May 23 Rome Round 5 (US-Iran):</strong> This is the next binary catalyst for oil and Hormuz markets. If framework agreed → WTI falls $5–8, Hormuz June 30 reprices from ~52% toward 65–70%. If talks collapse → WTI tests $108–110, nuclear deal breakdown sentinel ↓45% fires (⚠ already estimated only ~4pp above threshold). Watch Araghchi's post-meeting readout and Trump's response for the sequencing (Hormuz-first vs nuclear-first) signal.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-bullet bullet-red"></div>
+        <div class="forward-text"><strong>WTI May contract expiry ~May 20–21:</strong> With spot at $104 and ~$110 target requiring another +6 in 3–4 trading days, WTI May contracts (both escalation ↑92% and de-escalation ↓20% triggers) are expiring. On Polymarket API recovery, immediately source June WTI slug (pattern: will-wti-reach-110-in-june-2026-XXXX) and add June equivalents. This is the highest operational priority.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-bullet bullet-yellow"></div>
+        <div class="forward-text"><strong>Nuclear deal breakdown sentinel (Polymarket ↓45%):</strong> Last estimate was ~49% (May 15 5PM), estimated only ~4pp above the threshold. Trump's "totally unacceptable" rejection (May 11) likely pushed this lower. On API recovery, check immediately — if below 45%, full re-escalation report required. Cross-check: if simultaneously Hormuz June 30 breaks below 45%, that is the full escalation triple-signal.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-bullet bullet-yellow"></div>
+        <div class="forward-text"><strong>Warsh FOMC June 16–17:</strong> First meeting as chair. Markets pricing hold (100% effective probability). Watch the policy statement for: (a) any Warsh-specific language on inflation tolerance, (b) balance sheet guidance (he's signalled gradual reduction), (c) any hint at the forward path. A hawkish statement (e.g., "inflation remains too high and we are prepared to act") would spike AUD/USD lower and compress ASX consumer discretionary.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-bullet bullet-blue"></div>
+        <div class="forward-text"><strong>US unemployment data (next release):</strong> Kalshi ≥7% at 68% (+1pp today, up from 67% on May 15). U-6 rose to 8.2% on April data. The ≥20% depression tail at 10% is only 5pp below ↑15% trigger. Monitor May claims data (weekly, each Thursday) and May NFP (scheduled early June). If May NFP misses badly, ≥20% tail fires the alert.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-bullet bullet-blue"></div>
+        <div class="forward-text"><strong>Polymarket DNS recovery:</strong> All 15 triggers stale since May 13. Highest priority checks on recovery: (1) nuclear deal ↓45% sentinel, (2) Hormuz June 30 vs ↓45%, (3) Iran invasion proximity to ↑40%, (4) source June WTI slugs, (5) deactivate Iran meeting May 31 (likely resolved YES). ASX and NYSE are open Monday May 18 (no public holidays in AU or US next week — ANZAC Day was April 25, Queen's Birthday varies by state but not this weekend).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="section">
+    <h2>Actions Taken This Run</h2>
+    <div class="actions-box">
+      ✓ <span>Kalshi triggers updated:</span> ≥7% current 0.67→0.68 (+1pp confirmed live)<br>
+      ✓ <span>Iran direct meeting May 31 trigger:</span> flagged "LIKELY RESOLVED YES" — 4th round Oman May 11 occurred; deactivate on API recovery<br>
+      ✓ <span>WTI May triggers:</span> existing expiry note confirmed (May 20–21 expiry); June slug sourcing flagged as highest priority on API recovery<br>
+      ⚠ <span>Nuclear deal breakdown sentinel:</span> flagged as ⚠ PRIORITY CHECK — estimated ~4pp above ↓45% threshold<br>
+      — <span>No Polymarket trigger config changes possible (DNS Day 4)</span><br>
+      — <span>New Secretary of Labor markets (Kalshi):</span> noted, no trigger added (zero vol, weak signal)
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 16 May 2026 07:00 AEST · Kalshi live · Polymarket DNS Day 4 · 15 triggers stale<br>
+  Data sources: Kalshi API (live), web intelligence (WTI spot, Iran talks, Taiwan), analyst estimates for Polymarket markets.<br>
+  Oil note: Brent crude is the correct benchmark for Australian fuel pricing. WTI ($104) used as proxy; Brent ~$108–110/bbl estimated. Australian petrol A$2.30–2.45/L.
+</div>
+
+</body>
+</html>
