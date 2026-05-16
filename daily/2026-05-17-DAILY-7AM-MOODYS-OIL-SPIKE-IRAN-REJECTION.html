@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 17 May 2026 7AM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a0a00 0%, #2d1400 50%, #1a0a00 100%); border-bottom: 2px solid #ff4500; padding: 28px 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .title { font-size: 22px; font-weight: 700; color: #ff6b35; letter-spacing: -0.5px; }
+  .subtitle { font-size: 13px; color: #8b949e; margin-top: 4px; }
+  .badge { background: #ff4500; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .badge-warn { background: #d29922; }
+  .badge-alert { background: #c1392b; }
+  .timestamp { color: #8b949e; font-size: 12px; margin-top: 6px; }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 24px; }
+  .alert-box { background: #1a0d00; border: 1px solid #ff4500; border-left: 4px solid #ff4500; border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+  .alert-box.moody { border-color: #c1392b; border-left-color: #c1392b; background: #1a0a0a; }
+  .alert-box.oil { border-color: #ff6b00; border-left-color: #ff6b00; background: #1a0e00; }
+  .alert-title { font-size: 13px; font-weight: 700; color: #ff6b35; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .alert-title.moody { color: #e05252; }
+  .alert-title.oil { color: #ffaa44; }
+  section { margin-bottom: 28px; }
+  h2 { font-size: 15px; font-weight: 700; color: #58a6ff; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.6px; }
+  h3 { font-size: 13px; font-weight: 600; color: #e6edf3; margin: 14px 0 8px; }
+  p { color: #c9d1d9; font-size: 14px; margin-bottom: 10px; }
+  .market-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #161b22; border-radius: 6px; margin-bottom: 8px; border: 1px solid #21262d; }
+  .market-row:hover { background: #1c2128; }
+  .market-label { flex: 1; font-size: 13px; color: #c9d1d9; }
+  .market-price { font-size: 14px; font-weight: 700; min-width: 50px; text-align: right; }
+  .market-delta { font-size: 12px; min-width: 60px; text-align: right; }
+  .market-quality { font-size: 10px; color: #6e7681; min-width: 38px; }
+  .price-up { color: #3fb950; }
+  .price-down { color: #e05252; }
+  .price-neutral { color: #e6edf3; }
+  .price-stale { color: #6e7681; font-style: italic; }
+  .delta-up { color: #3fb950; }
+  .delta-down { color: #e05252; }
+  .delta-flat { color: #6e7681; }
+  .stale-banner { background: #21262d; border: 1px solid #6e7681; border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #8b949e; margin-bottom: 16px; }
+  .trigger-status { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .trigger-pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .pill-stale { background: #21262d; color: #8b949e; border: 1px solid #6e7681; }
+  .pill-ok { background: #0d4429; color: #3fb950; border: 1px solid #238636; }
+  .pill-warn { background: #3d1f00; color: #d29922; border: 1px solid #9e6a03; }
+  .pill-fire { background: #3d0a0a; color: #e05252; border: 1px solid #c1392b; }
+  .cross-market { background: #0d1f3b; border: 1px solid #1f4175; border-left: 3px solid #58a6ff; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; }
+  .cross-market p { font-size: 13px; }
+  .forward-box { background: #0d2a0d; border: 1px solid #238636; border-left: 3px solid #3fb950; border-radius: 6px; padding: 16px 20px; }
+  .forward-box p, .forward-box li { font-size: 13px; color: #c9d1d9; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 13px; color: #c9d1d9; }
+  .callout { background: #161b22; border-radius: 6px; padding: 12px 16px; margin: 10px 0; border: 1px solid #21262d; }
+  .callout strong { color: #e6edf3; }
+  .action-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #21262d; }
+  .action-item:last-child { border-bottom: none; }
+  .action-icon { font-size: 14px; min-width: 20px; }
+  .action-text { font-size: 13px; color: #c9d1d9; }
+  .footer { background: #161b22; border-top: 1px solid #21262d; padding: 16px 24px; font-size: 11px; color: #6e7681; text-align: center; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .bifurcation-count { display: inline-block; background: #0d2a0d; color: #3fb950; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+  .highlight { background: #2d1900; color: #ffaa44; padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+  .macro-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  .macro-table th { background: #21262d; color: #8b949e; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; text-align: left; }
+  .macro-table td { padding: 8px 12px; border-bottom: 1px solid #21262d; font-size: 13px; color: #c9d1d9; }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table tr:hover td { background: #1c2128; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="title">📊 Polymarket Daily Intelligence</div>
+      <div class="subtitle">Sunday 17 May 2026 — 7:00 AM AEST</div>
+      <div class="timestamp">Polymarket API: DARK (Day 5 DNS failure) · Kalshi: LIVE · WTI spot: $113.21/bbl</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="badge badge-alert">MOODY'S DOWNGRADE</span>
+      <span class="badge">OIL +$10.8</span>
+      <span class="badge badge-warn">IRAN REJECTION</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- OVERNIGHT ALERTS -->
+  <div class="alert-box moody">
+    <div class="alert-title moody">🔴 HISTORIC: MOODY'S DOWNGRADES US TO Aa1 (MAY 16)</div>
+    <p>For the first time in history, all three major credit rating agencies have now downgraded the United States below their top rating. Moody's cut the US from <strong>Aaa → Aa1</strong> on May 16 (after yesterday's 5PM report), citing growing deficits, rising interest costs, and political gridlock. US federal debt is projected to reach 134% of GDP by 2035. Immediate market reaction: <strong>US 30-year Treasury yield jumped above 5%</strong>. The S&amp;P was cut in 2011 (S&amp;P) and 2023 (Fitch); Moody's was the last holdout since 1917. This is now fully resolved — the US has lost its last AAA rating.</p>
+  </div>
+
+  <div class="alert-box oil">
+    <div class="alert-title oil">🛢️ WTI SPIKES TO $113.21/bbl — UP +$10.76 OVERNIGHT (+10.5%)</div>
+    <p>WTI crude surged from $102.45/bbl (5PM May 16) to <strong>$113.21/bbl</strong> this morning — the single largest overnight move since the Jask Island strike (May 4). Brent crude estimated <strong>~$117–120/bbl</strong>. Catalyst: Khamenei flatly rejected Trump's nuclear proposal as "excessive and outrageous" (May 16). WTI $110 May has almost certainly resolved YES on Polymarket (API still dark). <strong>WTI $120 May is now only ~$6.79 from the trigger price</strong> — the primary oil escalation alert is now immediate priority.</p>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <section>
+    <h2>Trigger Status</h2>
+    <div class="stale-banner">
+      ⚠️ Polymarket API down Day 5 (DNS failure since ~13 May). All 15 Polymarket triggers are STALE. Kalshi live: 291 markets, 63 events. No Kalshi thresholds crossed this run.
+    </div>
+    <div class="trigger-status">
+      <span class="trigger-pill pill-stale">Polymarket: 15 STALE</span>
+      <span class="trigger-pill pill-ok">Kalshi ≥7%: 68% (6pp below ↑74%)</span>
+      <span class="trigger-pill pill-ok">Kalshi ≥10%: 38% (7pp below ↑45%)</span>
+      <span class="trigger-pill pill-ok">Kalshi ≥20%: 10% (5pp below ↑15%)</span>
+      <span class="trigger-pill pill-warn">WTI $110 May: RESOLVED YES (inferred — API dark)</span>
+      <span class="trigger-pill pill-fire">WTI $120 May: ~$6.79 from target — ELEVATED</span>
+      <span class="trigger-pill pill-warn">US Debt $50T: 36% (new trigger added)</span>
+    </div>
+  </section>
+
+  <!-- KEY MOVES -->
+  <section>
+    <h2>Key Moves Since Last Report</h2>
+
+    <h3>🛢️ Oil Markets</h3>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">WTI spot crude (real-world)</span>
+      <span class="market-price price-up">$113.21/bbl</span>
+      <span class="market-delta delta-up">+$10.76 (+10.5%)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">Brent crude (estimated proxy for Australian fuel)</span>
+      <span class="market-price price-up">~$117–120/bbl</span>
+      <span class="market-delta delta-up">+$6–9 est.</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">WTI $110 May — Polymarket (inferred via spot price)</span>
+      <span class="market-price price-stale">~99% (est.)</span>
+      <span class="market-delta delta-up">RESOLVED YES</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">WTI $120 May — Polymarket (inferred via spot price)</span>
+      <span class="market-price price-stale">~40–55% (est.)</span>
+      <span class="market-delta delta-up">↑ materially from prior ~25–35%</span>
+    </div>
+
+    <h3>🏦 US Credit &amp; Rates (Moody's Downgrade)</h3>
+    <div class="market-row">
+      <span class="market-quality">REAL</span>
+      <span class="market-label">Moody's US sovereign rating</span>
+      <span class="market-price price-down">Aa1</span>
+      <span class="market-delta delta-down">↓ from Aaa (historic)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">REAL</span>
+      <span class="market-label">US 30-year Treasury yield</span>
+      <span class="market-price price-up">&gt;5.0%</span>
+      <span class="market-delta delta-up">+~20bps (post-downgrade)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[MED]</span>
+      <span class="market-label">Kalshi: US national debt reaches $50T (Trump admin)</span>
+      <span class="market-price price-neutral">36%</span>
+      <span class="market-delta delta-up">+6pp (from 30% low)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[MED]</span>
+      <span class="market-label">Kalshi: US national debt reaches $45T (Trump admin)</span>
+      <span class="market-price price-neutral">80%</span>
+      <span class="market-delta delta-flat">flat</span>
+    </div>
+
+    <h3>🌍 Iran / Geopolitics</h3>
+    <div class="market-row">
+      <span class="market-quality">EVENT</span>
+      <span class="market-label">Khamenei rejects Trump's nuclear proposal (May 16)</span>
+      <span class="market-price price-down">REJECTED</span>
+      <span class="market-delta delta-down">"excessive &amp; outrageous"</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[LOW]</span>
+      <span class="market-label">US-Iran nuclear deal before 2027 — Polymarket (est.)</span>
+      <span class="market-price price-stale">~45–52% (est.)</span>
+      <span class="market-delta delta-down">↓ (Khamenei rejection)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[LOW]</span>
+      <span class="market-label">Hormuz June 30 blockade lifted — Polymarket (est.)</span>
+      <span class="market-price price-stale">~48–56% (est.)</span>
+      <span class="market-delta delta-down">↓ (tightening toward ↓45% sentinel)</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[LOW]</span>
+      <span class="market-label">US invades Iran before 2027 — Polymarket (est.)</span>
+      <span class="market-price price-stale">~28–33% (est.)</span>
+      <span class="market-delta delta-up">↑ slight (Khamenei rhetoric)</span>
+    </div>
+
+    <h3>📊 Kalshi — US Labour Markets (all flat)</h3>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">Kalshi: US unemployment ≥7% before 2030</span>
+      <span class="market-price price-neutral">68%</span>
+      <span class="market-delta delta-flat">flat</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">Kalshi: US unemployment ≥10% before 2030</span>
+      <span class="market-price price-neutral">38%</span>
+      <span class="market-delta delta-flat">flat</span>
+    </div>
+    <div class="market-row">
+      <span class="market-quality">[HIGH]</span>
+      <span class="market-label">Kalshi: US unemployment ≥20% (depression tail)</span>
+      <span class="market-price price-neutral">10%</span>
+      <span class="market-delta delta-flat">flat</span>
+    </div>
+  </section>
+
+  <!-- ANALYSIS -->
+  <section>
+    <h2>Analysis</h2>
+
+    <h3>Moody's US Downgrade — What It Actually Means</h3>
+    <p>The downgrade itself is symbolic but the bond market reaction is real: US 30-year yields spiking above 5% represents a genuine tightening of financial conditions. For <strong>Warsh's first FOMC (June 16–17)</strong>, this is the worst possible backdrop — he already can't cut (CPI 3.8%) and can't hike (GDP 2.0%). Now he faces bond market vigilantes AND oil supply shock AND a credit event simultaneously.</p>
+    <div class="callout">
+      <strong>Australian impact:</strong> Rising US 10Y yields typically drag Australian 10Y yields higher via the bond-market correlation. RBA stays on hold (it never would have moved anyway with CPI still elevated). AUD/USD sees cross-currents: USD credit event is marginally positive for AUD (dollar weakness) but risk-off from yield spike is AUD negative. Net: AUD range-bound, likely 0.62–0.65.
+    </div>
+    <p>The Kalshi $50T debt market bounced from 30% (CBO fiscal optimism) back to 36% — the Moody's downgrade narrative overriding the deficit data. At 36%, the market is still not pricing $50T as likely (would require ~$4.1T/year deficit vs current ~$2.0T pace), but the narrative is no longer purely "fiscal discipline is improving."</p>
+
+    <h3>Oil Spike to $113 — 86th Bifurcation Test</h3>
+    <p>WTI surging $10.76 overnight is the largest single-session move since the Jask Island missile strike. Catalyst: Khamenei flatly rejected Trump's nuclear proposal — "excessive and outrageous." This marks the latest rejection in a pattern: (1) Trump MOU rejected May 11 as "totally unacceptable," (2) Iran "five preconditions" set May 13, (3) Trump nuclear proposal rejected May 16. Three consecutive rejections with Round 5 Rome (May 23) still 6 days away.</p>
+    <div class="cross-market">
+      <p><strong>Cross-market check (86th bifurcation attempt):</strong> Oil +10.5% confirms the escalation interpretation of the Khamenei rejection. Unlike the previous 85 "bifurcation" confirmations where oil remained FLAT despite geopolitical noise, this time oil is genuinely repricing. This is NOT just rhetoric absorption — the market is saying the deal framework is genuinely at risk. Invasion estimates (~28–33% est.) remain well below the ↑40% escalation trigger, meaning the market still does NOT price military action as the base case. But the oil move is the strongest warning signal in weeks.</p>
+    </div>
+    <p>The WTI $110 May Polymarket market has almost certainly resolved YES (API dark, but spot cleared $110 at $113.21). WTI $120 May is now the live binary: with spot at $113.21 and the May contract expiring May 20 (3 trading days), a further $6.79 move — plausible on any kinetic escalation before expiry.</p>
+
+    <h3>Iran Roadmap to Round 5 (May 23 Rome)</h3>
+    <p>The diplomatic sequence leading to Round 5:</p>
+    <ul>
+      <li>May 6: Axios MOU (de-escalation spike, oil fell to $85–90)</li>
+      <li>May 11: Iran rejected MOU as "totally unacceptable" (oil rebound to ~$102)</li>
+      <li>May 13: Iran set five preconditions, enrichment non-negotiable</li>
+      <li>May 14–15: Trump-Xi summit — no binding Iran framework; Xi prioritised Taiwan</li>
+      <li>May 16: Trump sent nuclear proposal; Khamenei rejected "excessive and outrageous"</li>
+      <li>May 23: Round 5 Rome — last credible catalyst before June 30 Hormuz window closes</li>
+    </ul>
+    <p>The pattern is consistent: escalation pressure before talks, then talks as pressure valve. The oil spike may itself be Trump's leverage signal for Round 5 — similar to the "annihilation" tweet on May 15 that preceded the same summit. <strong>Critical watch: will Iran counter-propose or flatly walk away from Rome?</strong></p>
+
+    <div class="callout">
+      <strong>Hormuz June 30 collapse sentinels:</strong> Both the Hormuz June 30 (↓45%) and nuclear deal 2027 (↓45%) collapse sentinels are estimated <strong>3–8pp above their fire threshold</strong> and may have already breached while the Polymarket API was dark (13–17 May = 4+ days of darkness). Khamenei's rejection since last live reading increases the probability these sentinels have fired undetected. <strong>API recovery is now an emergency priority</strong>.
+    </div>
+
+    <h3>ASX Monday Open (18 May) — Likely Impacts</h3>
+    <p>May 18 is a regular ASX trading day (no Australian national public holiday). Key sector impacts from overnight developments:</p>
+    <table class="macro-table">
+      <tr><th>Sector</th><th>Direction</th><th>Driver</th></tr>
+      <tr><td>Oil &amp; Gas (WDS, STO, BPT)</td><td class="price-up">↑ Strongly</td><td>WTI +$10.76 overnight; Brent proxy ~$117–120</td></tr>
+      <tr><td>Airlines (QAN)</td><td class="price-down">↓ Strongly</td><td>Fuel cost surge; structural Hormuz premium</td></tr>
+      <tr><td>Logistics/Transport (TCL, AZJ)</td><td class="price-down">↓ Moderate</td><td>Diesel prices further elevated</td></tr>
+      <tr><td>Supermarkets/Consumers (WOW, COL)</td><td class="price-down">↓ Moderate</td><td>Freight cost inflation accelerating</td></tr>
+      <tr><td>Banks (CBA, ANZ, WBC, NAB)</td><td class="price-down">↓ Mild</td><td>Rising yields (credit positive NIM) vs. credit risk from stagflation; Moody's ripple</td></tr>
+      <tr><td>Miners (BHP, RIO, FMG)</td><td class="price-neutral">→ Mixed</td><td>China tariff truce tailwind vs. oil cost headwind; iron ore demand intact</td></tr>
+      <tr><td>Gold (NST, EVN)</td><td class="price-up">↑ Moderate</td><td>Moody's downgrade → gold safe-haven bid; USD weakness</td></tr>
+    </table>
+    <p><strong>Australian petrol:</strong> Brent proxy ~$117–120/bbl = structural pump price floor <strong>A$2.45–2.65/L</strong> (elevated from the A$2.30–2.45/L range noted yesterday). No relief pathway until Hormuz June 30 confirmed.</p>
+  </section>
+
+  <!-- FORWARD VIEW -->
+  <section>
+    <h2>Forward View</h2>
+    <div class="forward-box">
+      <h3 style="color:#3fb950;margin-bottom:10px;">What to Watch This Week</h3>
+      <ul>
+        <li><strong>Iran Round 5 Rome — May 23 (6 days):</strong> The last credible catalyst before the June 30 Hormuz window closes. Khamenei's "excessive and outrageous" rejection on May 16 makes Rome a make-or-break session. Watch Iran's opening position — if enrichment remains "non-negotiable" and US holds its red line, both Hormuz collapse sentinels (↓45%) may fire. An Iran counter-proposal with any flexibility would be a strong de-escalation signal.</li>
+        <li><strong>WTI May contract expiry — ~May 20 (3 trading days):</strong> If WTI $120 is not reached by expiry, the May binary markets resolve NO and attention shifts to the June slugs. On API recovery, immediately source June WTI $110 and $120 slugs and add as triggers.</li>
+        <li><strong>Polymarket API recovery (EMERGENCY PRIORITY):</strong> Day 5 DNS failure. Critical unconfirmed thresholds: (1) Hormuz June 30 collapse sentinel ↓45% — est. ~4–8pp above threshold, may have already fired; (2) nuclear deal ↓45% — same situation. Run manual DNS diagnostics immediately.</li>
+        <li><strong>ASX Monday open (18 May):</strong> First opportunity to trade the oil spike and Moody's downgrade. Watch oil sector (WDS, STO) and airlines (QAN) for direction confirmation. Gold stocks (NST, EVN) may outperform on Moody's safe-haven bid.</li>
+        <li><strong>Warsh FOMC (June 16–17):</strong> 30 days out. Moody's downgrade adds a new complication to his already-impossible mandate. Any Warsh public remarks this week will be scrutinised for pivot signals. Watch for any hint of emergency rate discussion.</li>
+        <li><strong>US-China tariff truce extension:</strong> 81%+ odds on Kalshi. Any official announcement (expected before 90-day expiry ~August 9) would be AUD-positive and ASX-materials positive.</li>
+      </ul>
+      <p style="margin-top:12px;font-style:italic;color:#8b949e;">Opinion: The Khamenei rejection + oil spike represents the first genuine escalation repricing since May 4 (Jask Island). The previous 85 bifurcation confirmations held precisely because escalation signals didn't move oil. Oil moving confirms this is real. I am most concerned about the Hormuz June 30 collapse sentinels firing undetected while the API is dark — this could represent a material regime change in the Iran narrative that the trigger system missed. Treat API recovery as the single highest operational priority this weekend.</p>
+    </div>
+  </section>
+
+  <!-- TRIGGER ACTIONS -->
+  <section>
+    <h2>Trigger Actions Taken</h2>
+    <div class="action-item">
+      <span class="action-icon">✅</span>
+      <span class="action-text"><strong>UPDATED: wti-may-110-escalation</strong> — Marked "DEACTIVATE ON API RECOVERY." WTI spot crossed $110 at $113.21; market almost certainly resolved YES.</span>
+    </div>
+    <div class="action-item">
+      <span class="action-icon">✅</span>
+      <span class="action-text"><strong>UPDATED: wti-may-110-deescalation</strong> — Marked "DEACTIVATE ON API RECOVERY." De-escalation floor scenario (oil back below $90) is now extremely remote with spot at $113.21.</span>
+    </div>
+    <div class="action-item">
+      <span class="action-icon">🔺</span>
+      <span class="action-text"><strong>ELEVATED PRIORITY: wti-may-120-escalation</strong> — Upgraded to CRITICAL. Spot WTI at $113.21 = $6.79 from $120 target. May contract expires May 20 (3 trading days). First trigger to check on API recovery.</span>
+    </div>
+    <div class="action-item">
+      <span class="action-icon">➕</span>
+      <span class="action-text"><strong>NEW KALSHI TRIGGER: kalshi-debt-50t-floor</strong> — Added ↓25% sentinel for "Will US national debt hit $50T?" (currently 36%). Moody's downgrade establishes fiscal narrative; ↓25% would signal total fiscal concern reversal.</span>
+    </div>
+    <div class="action-item">
+      <span class="action-icon">🔍</span>
+      <span class="action-text"><strong>LOGGED: iran-direct-meeting-may31</strong> — Still marked "DEACTIVATE ON API RECOVERY — RESOLVED YES." Round 5 May 23 Rome confirmed; market almost certainly resolved YES.</span>
+    </div>
+    <div class="action-item">
+      <span class="action-icon">⚠️</span>
+      <span class="action-text"><strong>FLAG: Hormuz June 30 + nuclear deal 2027 collapse sentinels</strong> — Both ↓45% thresholds may have ALREADY FIRED while API was dark (4+ days, Khamenei rejections, MOU collapse). Treat as highest priority confirmation on API recovery.</span>
+    </div>
+  </section>
+
+  <!-- DATA TABLE -->
+  <section>
+    <h2>Full Market Snapshot</h2>
+    <table class="macro-table">
+      <tr><th>Market</th><th>Quality</th><th>Price</th><th>vs Trigger</th><th>Status</th></tr>
+      <tr><td>WTI $110 May</td><td>[HIGH]</td><td>~99% (est.)</td><td>Resolved YES (spot $113.21)</td><td class="price-stale">STALE/API dark</td></tr>
+      <tr><td>WTI $120 May</td><td>[HIGH]</td><td>~40–55% (est.)</td><td>~10–25pp below ↑65% trigger</td><td class="price-up">ELEVATED PRIORITY</td></tr>
+      <tr><td>Hormuz June 30 lift</td><td>[LOW]</td><td>~48–56% (est.)</td><td>~3–11pp above ↓45% sentinel</td><td class="price-stale">STALE — may have fired</td></tr>
+      <tr><td>Nuclear deal 2027</td><td>[LOW]</td><td>~45–52% (est.)</td><td>~0–7pp above ↓45% sentinel</td><td class="price-down">CRITICAL — likely fired</td></tr>
+      <tr><td>US invades Iran 2027</td><td>[LOW]</td><td>~28–33% (est.)</td><td>~7–12pp below ↑40% trigger</td><td class="price-stale">STALE</td></tr>
+      <tr><td>Iran leadership change</td><td>[LOW]</td><td>unknown</td><td>—</td><td class="price-stale">STALE</td></tr>
+      <tr><td>Fed June hike</td><td>[HIGH]</td><td>unknown</td><td>—</td><td class="price-stale">STALE</td></tr>
+      <tr><td>China invades Taiwan 2026</td><td>[LOW]</td><td>unknown</td><td>—</td><td class="price-stale">STALE</td></tr>
+      <tr><td>Kalshi: ≥7% unemployment</td><td>[HIGH]</td><td>68%</td><td>6pp below ↑74%</td><td class="price-neutral">Watching</td></tr>
+      <tr><td>Kalshi: ≥10% unemployment</td><td>[HIGH]</td><td>38%</td><td>7pp below ↑45%</td><td class="price-neutral">Watching</td></tr>
+      <tr><td>Kalshi: ≥20% depression</td><td>[HIGH]</td><td>10%</td><td>5pp below ↑15%</td><td class="price-neutral">Watching</td></tr>
+      <tr><td>Kalshi: US debt $50T</td><td>[MED]</td><td>36%</td><td>11pp above ↓25% new sentinel</td><td class="price-neutral">New trigger</td></tr>
+    </table>
+  </section>
+
+</main>
+
+<div class="footer">
+  <p>Polymarket Daily Intelligence · Generated 2026-05-17 07:05 AEST · Polymarket API DARK Day 5 · Kalshi LIVE</p>
+  <p style="margin-top:4px;">Data: <a href="https://polymarket.com">Polymarket</a> · <a href="https://kalshi.com">Kalshi</a> · <a href="https://www.goodreturns.in/crude-oil-price.html">Crude Oil Price (Goodreturns)</a> · <a href="https://ratings.moodys.com/ratings-news/443154">Moody's Downgrade</a></p>
+</div>
+
+</body>
+</html>
