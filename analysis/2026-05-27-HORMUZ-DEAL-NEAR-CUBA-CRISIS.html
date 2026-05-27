@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Alert: Hormuz Deal Near-Signed; WTI Crashes to $94; Cuba Crisis Emerges — 27 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e0e0e0; line-height: 1.6; padding: 0; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border-bottom: 2px solid #2d5a27; padding: 28px 40px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .report-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #4a7c59; font-weight: 600; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f0f0f0; line-height: 1.3; max-width: 700px; }
+  .meta { text-align: right; }
+  .meta-date { font-size: 15px; color: #8b9ab5; }
+  .meta-time { font-size: 13px; color: #5a6a80; margin-top: 4px; }
+  .alert-band { background: #1e3a2f; border-left: 4px solid #4caf50; padding: 14px 40px; font-size: 13px; color: #81c784; }
+  .alert-band strong { color: #a5d6a7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 40px; }
+  .section { margin-bottom: 36px; }
+  .section-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #4a7c59; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #1e2a1a; padding-bottom: 8px; }
+  .narrative { font-size: 15px; color: #c8d0dc; line-height: 1.75; }
+  .narrative p { margin-bottom: 14px; }
+  .narrative strong { color: #e8eaf0; }
+  .trigger-grid { display: grid; gap: 10px; }
+  .trigger-card { background: #141820; border: 1px solid #1e2535; border-radius: 6px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 14px; }
+  .trigger-card.near { border-color: #d4a017; background: #1a1700; }
+  .trigger-card.fired { border-color: #4caf50; background: #0f1f0f; }
+  .trigger-card.new { border-color: #1565c0; background: #0a0f1f; }
+  .trigger-card.deactivated { border-color: #333; background: #111316; opacity: 0.6; }
+  .trigger-card.warning { border-color: #e53935; background: #1f0a0a; }
+  .tc-status { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; min-width: 80px; padding-top: 2px; }
+  .tc-status.watching { color: #5c8dd4; }
+  .tc-status.near { color: #d4a017; }
+  .tc-status.new { color: #42a5f5; }
+  .tc-status.deactivated { color: #555; }
+  .tc-status.warning { color: #ef5350; }
+  .tc-status.fired { color: #66bb6a; }
+  .tc-body { flex: 1; }
+  .tc-label { font-size: 14px; font-weight: 600; color: #dde1ea; margin-bottom: 4px; }
+  .tc-detail { font-size: 12px; color: #6a7a9a; }
+  .tc-detail em { color: #8a9ab5; font-style: normal; }
+  .moves-list { display: grid; gap: 12px; }
+  .move { background: #141820; border-left: 3px solid #2a3a5a; border-radius: 0 6px 6px 0; padding: 14px 18px; }
+  .move.up { border-left-color: #4caf50; }
+  .move.down { border-left-color: #ef5350; }
+  .move.neutral { border-left-color: #607d8b; }
+  .move.new { border-left-color: #1565c0; }
+  .move-header { font-size: 14px; font-weight: 600; color: #e0e4ee; margin-bottom: 4px; }
+  .move-price { font-size: 13px; color: #8a9ab5; }
+  .move-interp { font-size: 13px; color: #b0b8cc; margin-top: 6px; line-height: 1.5; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 3px; padding: 1px 6px; margin-right: 6px; }
+  .badge.high { background: #1b3a1b; color: #66bb6a; border: 1px solid #2e5c2e; }
+  .badge.med { background: #1a2f1a; color: #a5c882; border: 1px solid #2a4a2a; }
+  .badge.low { background: #2a1f00; color: #d4a017; border: 1px solid #3a2f00; }
+  .badge.new-badge { background: #0a1535; color: #42a5f5; border: 1px solid #1565c0; }
+  .forward-box { background: #141820; border: 1px solid #1e2535; border-radius: 8px; padding: 20px 24px; }
+  .forward-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #1a2030; }
+  .forward-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .forward-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5c8dd4; font-weight: 700; margin-bottom: 6px; }
+  .forward-text { font-size: 14px; color: #b8c0d0; line-height: 1.6; }
+  .divider { height: 1px; background: #1a2030; margin: 28px 0; }
+  .sub-head { font-size: 16px; font-weight: 700; color: #d0d8e8; margin-bottom: 12px; margin-top: 20px; }
+  .oil-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .oil-table th { text-align: left; color: #5a6a80; font-weight: 600; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 8px 12px; border-bottom: 1px solid #1e2535; }
+  .oil-table td { padding: 10px 12px; border-bottom: 1px solid #141820; color: #c0c8d8; }
+  .oil-table tr:hover td { background: #141820; }
+  .green { color: #66bb6a; }
+  .red { color: #ef5350; }
+  .yellow { color: #d4a017; }
+  .blue { color: #42a5f5; }
+  .disclaimer { font-size: 11px; color: #3a4a5a; text-align: center; padding: 20px 40px; border-top: 1px solid #1a2030; margin-top: 20px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="report-label">Polymarket Alert — 10-Day Catch-Up</div>
+      <h1>Hormuz Deal Near-Signed; WTI Crashes $19 to $94; Cuba Crisis Emerges at 49.5%</h1>
+    </div>
+    <div class="meta">
+      <div class="meta-date">Wednesday 27 May 2026</div>
+      <div class="meta-time">13:30 AEST</div>
+    </div>
+  </div>
+</div>
+
+<div class="alert-band">
+  <strong>10-day catch-up report</strong> — last email 17 May 07:11 AEST (Moody's downgrade, WTI $113, Khamenei rejection). WTI has since crashed -17% to $94. Iran deal is near-signed. A Cuba military crisis has emerged at near-coin-flip odds. Two triggers approaching fire.
+</div>
+
+<div class="container">
+
+  <!-- NARRATIVE -->
+  <div class="section">
+    <div class="section-title">The Story Since 17 May</div>
+    <div class="narrative">
+      <p>The last email you received described the worst day of the Iran negotiations: Khamenei had called Trump's nuclear proposal "excessive and outrageous," WTI had spiked to <strong>$113.21/bbl</strong> (+10.5% overnight), and Moody's had just stripped the US of its last triple-A credit rating. Since then, everything has reversed — and one new front has opened.</p>
+
+      <p><strong>Iran: de-escalation confirmed, deal near-signed.</strong> Round 5 talks in Rome on 23 May produced "some but not conclusive progress" (Omani FM Badr al-Busaidi). On the same day, Trump told reporters the deal was <em>"largely negotiated, will be announced soon."</em> The next day, <a href="https://www.axios.com/2026/05/24/iran-deal-strait-hormuz-sanctions-nuclear" style="color:#5c8dd4">Axios reported the framework</a>: a <strong>60-day ceasefire extension</strong> in which the Strait of Hormuz reopens with no tolls, Iran clears its mines, the US lifts its blockade on Iranian ports, and sanctions waivers allow Iran to sell oil freely. Nuclear talks are deferred to a second track after the ceasefire.</p>
+
+      <p><strong>Oil: -$19/bbl in 10 days.</strong> WTI peaked at $113.21 on 17 May (the Khamenei-rejection spike), then pulled back to $107.35 at the 20 May contract expiry — <strong>WTI $120 in May resolved NO</strong>. By today (27 May) spot WTI is ~<strong>$93.96/bbl</strong>, a 17% decline. Markets are pricing a high probability of imminent Hormuz normalisation. Brent proxy ~$98/bbl. Australian petrol estimated down from A$2.45–2.65/L (peak) to ~<strong>A$2.15–2.30/L</strong> today, and potentially A$1.90–2.10/L if the deal formally signs.</p>
+
+      <p><strong>Cuba: new conflict risk at 49.5%.</strong> While Iran has de-escalated, Trump's attention has shifted. The DOJ indicted former Cuban president Raúl Castro on 22 May. The USS Nimitz arrived in the Caribbean on 20 May (Cuban Independence Day). Intelligence flights off Cuba's coast have surged — the same pre-conflict pattern observed before the Iran and Venezuela operations. Trump himself said: <em>"It looks like I'll be the one that does it."</em> <a href="https://foreignpolicy.com/2026/05/22/cuba-war-trump-united-states-castro-indictment/" style="color:#5c8dd4">Foreign Policy</a> and <a href="https://www.cnbc.com/2026/05/22/the-cuba-situation-is-starting-to-resemble-a-pre-conflict-playbook.html" style="color:#5c8dd4">CNBC</a> both characterised the situation as a "pre-conflict playbook." Polymarket is pricing a US strike on Cuba by December 31 at <strong>49.5%</strong> — near-coin-flip.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGERS STATUS -->
+  <div class="section">
+    <div class="section-title">Trigger Status</div>
+    <div class="trigger-grid">
+
+      <div class="trigger-card near">
+        <div class="tc-status near">⚠ NEAR</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> Iran invasion 2027 — peace-dividend early warning (&lt;15%)</div>
+          <div class="tc-detail">Currently <strong>18.5%</strong> (−10.0pp this run) — <em>3.5pp above trigger threshold of 15%</em>. Deal-signing catalyst could close this gap in one run. Do NOT email standalone — wait for cross-market confirmation (Hormuz + WTI concurrent).</div>
+        </div>
+      </div>
+
+      <div class="trigger-card near">
+        <div class="tc-status near">⚠ NEAR</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> US-Iran nuclear deal before 2027 — approaching certainty (&gt;85%)</div>
+          <div class="tc-detail">Currently <strong>79.0%</strong> (+14.0pp this run) — <em>6.0pp below trigger threshold of 85%</em>. A formal deal announcement this week could push through 85% in a single session. At 85%: full peace dividend report.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card new">
+        <div class="tc-status new">✦ NEW</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge med">MED</span> Hormuz traffic normal by July 31 — confirmation (&gt;85%) / collapse (&lt;35%)</div>
+          <div class="tc-detail">Currently <strong>60.5%</strong> — 25pp below ↑85% certainty trigger; 25.5pp above ↓35% collapse sentinel. New slug confirmed: <em>strait-of-hormuz-traffic-returns-to-normal-by-july-31</em>. Replaced the stale June 30 Trump-announcement markets.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card warning">
+        <div class="tc-status warning">⚡ NEW RISK</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge new-badge">UNTRACKED</span> US military strike on Cuba by December 31</div>
+          <div class="tc-detail">Currently <strong>49.5%</strong> — coin-flip. Slug not confirmed; added to market discovery search. USS Nimitz in Caribbean, DOJ Castro indictment, intelligence flights surging. Cuba itself limited macro impact but Venezuela (ally) is a secondary supply risk. Will promote to active trigger once slug confirmed.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="tc-status watching">WATCHING</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> Iran invasion 2027 near-zero floor (&lt;10%)</div>
+          <div class="tc-detail">Currently <strong>18.5%</strong> — 8.5pp above ↓10% trigger. Below the ↓15% early-warning layer. Not immediately threatening but on watch.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="tc-status watching">WATCHING</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> Iran invasion 2027 escalation signal (&gt;40%)</div>
+          <div class="tc-detail">Currently <strong>18.5%</strong> — 21.5pp below ↑40% trigger. De-escalation trend firmly intact. Not threatening.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="tc-status watching">WATCHING</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> US-Iran nuclear deal before 2027 — breakdown sentinel (&lt;45%)</div>
+          <div class="tc-detail">Currently <strong>79.0%</strong> — 34pp above ↓45% collapse sentinel. Firmly safe. Moving in the right direction (was estimated ~47-53% when API was dark).</div>
+        </div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="tc-status watching">WATCHING</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge low">LOW</span> Iran leadership change by Dec 31 — regime pressure (&gt;60%)</div>
+          <div class="tc-detail">Currently <strong>29.0%</strong> (−4.5pp) — 31pp below ↑60% trigger. De-escalation trade reducing regime-change pricing. Not threatening.</div>
+        </div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="tc-status watching">WATCHING</div>
+        <div class="tc-body">
+          <div class="tc-label"><span class="badge high">HIGH</span> US Fed June hike probability (&gt;5%)</div>
+          <div class="tc-detail">Currently <strong>0.7%</strong> (−0.1pp) — 4.4pp below ↑5% trigger. June hold fully locked. Oil-price decline reduces inflationary pressure but Warsh still cannot cut (US CPI 3.8% April).</div>
+        </div>
+      </div>
+
+      <div class="trigger-card deactivated">
+        <div class="tc-status deactivated">DEACT</div>
+        <div class="tc-body">
+          <div class="tc-label">4 stale triggers deactivated this run</div>
+          <div class="tc-detail">Hormuz June 30 collapse sentinel, Hormuz June 30 lift (both slug not found/delisted). US-Iran diplomatic meeting by May 31 (past date; Round 5 Rome happened). US-Iran diplomatic meeting by June 30 (slug not found). Replaced by Hormuz July 31 traffic market.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <div class="section-title">Key Moves (17 May → 27 May)</div>
+    <div class="moves-list">
+
+      <div class="move down">
+        <div class="move-header"><span class="badge high">HIGH proxy</span> WTI Crude Oil Spot</div>
+        <div class="move-price">$113.21/bbl (17 May peak) → $93.96/bbl today — fell $19.25/bbl, −17%</div>
+        <div class="move-interp">The single largest macro development of the 10-day period. Broke from the Khamenei-rejection spike ($113) as the deal framework emerged. WTI $120 May contract expired at $107.35 — resolved NO. Now pricing the near-certain Hormuz reopening under the 60-day ceasefire extension. If the deal formally signs, WTI could fall to $80–85. Australian petrol: estimated A$2.15–2.30/L now (from A$2.45–2.65/L peak); A$1.90–2.10/L possible on deal signing. Use WTI as a proxy for Brent — current Brent ~$98/bbl.</div>
+      </div>
+
+      <div class="move up">
+        <div class="move-header"><span class="badge low">LOW</span> US-Iran Nuclear Deal Before 2027</div>
+        <div class="move-price">Rose from est. ~47–53% (during API outage) to 79.0% today — approximately +26–32pp recovery</div>
+        <div class="move-interp">The biggest Polymarket move of the period. When the API recovered (after 6+ days dark), the nuclear deal had repriced dramatically upward. Catalyst chain: Trump "largely negotiated" announcement (May 23), Axios 60-day framework (May 24), Iran ceasefire holding through May 24. Now only 6pp below the ↑85% certainty trigger — likely fires this week if a formal announcement comes. [LOW] quality — UMA-decided on what constitutes a "nuclear deal." Trust the oil price as ground truth (WTI crash confirms the same de-escalation narrative).</div>
+      </div>
+
+      <div class="move down">
+        <div class="move-header"><span class="badge low">LOW</span> US Iran Invasion 2027</div>
+        <div class="move-price">Fell from ~27–30% (17 May estimate) to 18.5% today — approximately −9–12pp</div>
+        <div class="move-interp">Now only 3.5pp above the ↓15% peace-dividend early-warning trigger. The de-escalation trade is being priced aggressively. Cross-market validation: WTI crashing from $113 to $94 confirms this reading — if the market were pricing genuine residual war risk, oil would not be at $94. Do not email standalone at ↓15% unless there is a new catalyst (per trigger design). [LOW] quality market.</div>
+      </div>
+
+      <div class="move new">
+        <div class="move-header"><span class="badge new-badge">NEW</span> US x Iran Permanent Peace Deal by June 30</div>
+        <div class="move-price">53.5% — new market, above coin-flip</div>
+        <div class="move-interp">A new class of markets has appeared: graduated permanent peace deal timelines (May 31: 25.5%, June 7: 37.5%, June 15: 41.5%, June 30: 53.5%, July 31: 69.5%, December 31: 81.5%). The June 30 market crossing 50% is significant — it means more bettors than not expect a full permanent peace deal within 5 weeks. Note the distinction from the 60-day ceasefire extension: the ceasefire (Hormuz reopening + mine clearing) is near-signed; the permanent peace deal is a further step. Market is pricing these as sequential.</div>
+      </div>
+
+      <div class="move new">
+        <div class="move-header"><span class="badge new-badge">NEW RISK</span> US Military Strike on Cuba by Dec 31</div>
+        <div class="move-price">49.5% — near coin-flip, untracked until this run</div>
+        <div class="move-interp">A brand-new geopolitical risk that has emerged while attention was on Iran. The "2026 Cuban crisis" Wikipedia article confirms this is a real, established pattern. Cuba is not an oil producer (macro impact lower than Iran), but Venezuela — Cuba's key ally and oil supplier — could be drawn in. Caribbean supply routes and refinery capacity affected if conflict escalates. The pattern of USS Nimitz arrival + intelligence flights + DOJ indictment mirrors what preceded the Iran and Venezuela operations. Trump's own words ("looks like I'll be the one") are an unusually direct signal. Watch slug discovery to add as active trigger at ↑60%.</div>
+      </div>
+
+      <div class="move neutral">
+        <div class="move-header"><span class="badge high">HIGH</span> WTI $85 LOW in May</div>
+        <div class="move-price">24.5% — pricing 1-in-4 chance WTI falls below $85 before May 31 (3 days left)</div>
+        <div class="move-interp">With WTI at $94 and 3 days left in May, reaching $85 requires a −10% move. The market is pricing this at 24.5% — suggesting deal-signing could trigger a sharp additional leg down. This is a HIGH-quality market (NYMEX settle). If WTI $85 in May fires YES, it would be the fastest -$28 drop from peak in the post-ceasefire era and a strong signal of full de-escalation premium being priced out.</div>
+      </div>
+
+      <div class="move neutral">
+        <div class="move-header"><span class="badge med">MED</span> Strait of Hormuz Traffic Normal by July 31</div>
+        <div class="move-price">60.5% — new market confirmed; 25pp below ↑85% certainty trigger</div>
+        <div class="move-interp">This is the successor to the expired Hormuz June 30 markets and is now in active monitoring. Framing is physical traffic normalisation (not just Trump's announcement). June 15 version sits at only 18% — market does not expect quick physical normalisation even if the deal is announced soon (mine clearing, port reopening, vessel rerouting all take time). July 31 at 60.5% is the market's base case for physical normalisation.</div>
+      </div>
+
+      <div class="move neutral">
+        <div class="move-header">Kalshi: OpenAI/Anthropic IPO Repricing</div>
+        <div class="move-price">"Will OpenAI or Anthropic IPO first?" rose from ~27% to 75% (+48pp); counterpart fell −55pp</div>
+        <div class="move-interp">This is a market restructure/cleanup — the two questions were separately priced outcomes of the same binary event and the market converged to a coherent 75%/25% split. Not a new catalyst. Net read: market is pricing 75% odds OpenAI IPOs before Anthropic. Monitor for actual IPO news if material to broader risk appetite.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OIL TABLE -->
+  <div class="section">
+    <div class="section-title">Oil Price Timeline</div>
+    <table class="oil-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>WTI Spot</th>
+          <th>Brent (est.)</th>
+          <th>AUS Petrol (est.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>17 May</td><td>Khamenei rejects nuclear proposal</td><td class="red">$113.21</td><td class="red">~$117–120</td><td class="red">A$2.45–2.65/L</td></tr>
+        <tr><td>20 May</td><td>May contract expiry; WTI $120 resolves NO</td><td>$107.35</td><td>~$112–115</td><td>A$2.35–2.50/L</td></tr>
+        <tr><td>23 May</td><td>Trump: deal "largely negotiated"</td><td>~$100</td><td>~$105–108</td><td>A$2.20–2.35/L</td></tr>
+        <tr><td>24 May</td><td>Axios: 60-day ceasefire/Hormuz framework</td><td>~$96</td><td>~$100–103</td><td>A$2.20–2.30/L</td></tr>
+        <tr><td>27 May (today)</td><td>Deal near-signed; invasion 18.5%; deal 79%</td><td class="green">$93.96</td><td class="green">~$97–100</td><td class="green">A$2.15–2.30/L</td></tr>
+        <tr><td>Deal-signing scenario</td><td>Hormuz opening confirmed, mines cleared</td><td class="green">$80–85</td><td class="green">~$84–89</td><td class="green">A$1.90–2.10/L</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CROSS-MARKET READ -->
+  <div class="section">
+    <div class="section-title">Cross-Market Read</div>
+    <div class="narrative">
+      <p><strong>The de-escalation trade is internally consistent.</strong> WTI at $94 (down $19), Iran invasion at 18.5% (down ~10pp), nuclear deal at 79% (up ~25-30pp), Iran ceasefire holding through May 24 — all four signals point the same direction. This is the strongest multi-market coherence since the April 17 peace-dividend wave. Unlike some prior false signals, this one has HIGH-quality ground truth: spot WTI crashing is the objective confirmation. The [LOW]-quality Polymarket markets are moving in the same direction as the oil price ground truth.</p>
+
+      <p><strong>For Australia specifically:</strong> The energy disinflation effect is material. Petrol falling from A$2.65/L to A$2.15–2.30/L is a ~15–20 cent/litre relief for households. If the deal signs and oil continues to A$85–90 WTI, another 20–30 cents/litre comes out. Combined: A$2.65→A$1.95 is a $0.70/L decline — meaningful stimulus for Australian consumer spending, lower CPI, and RBA policy room to cut. ASX beneficiaries: Qantas (QAN), retail (WOW, COL), transport logistics. ASX losers: Woodside (WDS), Santos (STO) — defer any energy overweight until Cuba situation clarifies.</p>
+
+      <p><strong>The Cuba wildcard:</strong> A US-Cuba military conflict at 49.5% introduces meaningful tail risk. Unlike Iran (major oil producer, Hormuz threat), Cuba's direct oil impact is limited. However, Venezuela — Cuba's major ally and itself an oil producer — could be drawn in, and Caribbean refinery capacity (critical for US East Coast supply) could be disrupted. More importantly, it signals Trump's foreign policy aggression has not ended with Iran — it has relocated. Markets may begin pricing a structural US foreign-policy-risk premium. Watch for Caribbean crude supply spread widening and Venezuela crude repricing.</p>
+
+      <p><strong>Warsh Fed context unchanged:</strong> June 16–17 FOMC hold locked (US Fed June hike at 0.7%). Lower oil prices are helpful but insufficient to allow a cut — US CPI April was 3.8% YoY, and even a fall to 3.0% from oil relief would keep the US Fed on hold. The first Warsh cut is not likely before Q4 2026 at earliest.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View</div>
+    <div class="forward-box">
+
+      <div class="forward-item">
+        <div class="forward-label">⚡ This Week — Deal Announcement Window</div>
+        <div class="forward-text">Trump said "announced soon" on May 23. The formal announcement of the 60-day ceasefire extension + Hormuz reopening could come any day this week. When it does: <strong>nuclear deal trigger ↑85% likely fires</strong> (currently 79%, 6pp away), <strong>Iran invasion ↓15% likely fires</strong> (18.5%, 3.5pp away), WTI could test $85 (24.5% market pricing already). Expect a full peace-dividend report when these fire. Australian petrol could fall another 20–30 cents/litre within 2–4 weeks of announcement.</div>
+      </div>
+
+      <div class="forward-item">
+        <div class="forward-label">📅 Key Dates — June</div>
+        <div class="forward-text">
+          • <strong>Hormuz July 31 physical normalisation</strong>: market at 60.5%; watch for mine-clearing updates and vessel rerouting news<br>
+          • <strong>US-Iran nuclear deal secondary track</strong>: begins after ceasefire signs; enrichment impasse remains the structural barrier<br>
+          • <strong>US Fed FOMC June 16–17</strong>: hold locked; Warsh's first meeting; watch for forward guidance shift if oil has fallen below $90<br>
+          • <strong>Cuba USS Nimitz watch</strong>: aircraft carrier in Caribbean + intelligence flights = 2–4 week window for potential action based on historical Iran/Venezuela precedent
+        </div>
+      </div>
+
+      <div class="forward-item">
+        <div class="forward-label">⚠ Risks to the De-escalation Narrative</div>
+        <div class="forward-text">
+          1. <strong>Iran reversal on enrichment</strong>: The 60-day ceasefire defers — doesn't resolve — the enrichment impasse. If Round 6 (post-ceasefire) fails on the nuclear track, Hormuz could re-close at day 60.<br>
+          2. <strong>Cuba escalation</strong>: A US military strike on Cuba diverts political capital and could trigger Venezuelan counter-measures. Venezuela crude at risk if Maduro retaliates.<br>
+          3. <strong>WTI $85 in May</strong>: 24.5% in 3 days — if oil crashes further, it could be disorderly (overshooting below $80) before finding a floor from OPEC+ emergency cuts.
+        </div>
+      </div>
+
+      <div class="forward-item">
+        <div class="forward-label">🇦🇺 Australian Macro Implications</div>
+        <div class="forward-text">
+          Petrol relief is now flowing through. The RBA's June meeting (June 2) falls before the US Fed and before any formal Hormuz announcement — the RBA will hold on existing data. But the outlook is materially improved. If the deal signs before the August RBA meeting and petrol falls to A$1.95–2.10/L, that removes approximately 0.4–0.5pp from headline CPI, giving the RBA room to cut in H2 2026. AUD remains supported by China tariff-truce demand recovery + de-escalation premium.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="disclaimer">
+  Polymarket prediction market data as of 2026-05-27 13:15 AEST. Oil prices sourced from live market data. Brent estimates derived from WTI + blockade-spread adjustment. Australian petrol estimates based on Brent proxy pricing; actual pump prices lag by 7–14 days. Resolution quality badges: [HIGH] = objective/verifiable criteria, [MED] = interpretive, [LOW] = UMA-vote decided. Report generated by Polymarket Financial Analyst agent.
+</div>
+
+</body>
+</html>
