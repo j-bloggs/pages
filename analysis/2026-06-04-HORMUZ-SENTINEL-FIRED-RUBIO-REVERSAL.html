@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Hormuz Collapse Sentinel Fired — Rubio Rally Fully Reversed, WTI $95 | 4 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Header */
+  .alert-banner { background: linear-gradient(135deg, #7c2d12, #9a3412); border: 1px solid #f97316; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; }
+  .alert-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #fb923c; text-transform: uppercase; margin-bottom: 6px; }
+  .alert-title { font-size: 24px; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+  .alert-meta { font-size: 13px; color: #fed7aa; }
+  .alert-meta span { margin-right: 16px; }
+
+  /* Narrative correction box */
+  .correction { background: #1c1917; border: 1px solid #f59e0b; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .correction-head { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #f59e0b; text-transform: uppercase; margin-bottom: 8px; }
+  .correction-body { font-size: 14px; color: #d6d3d1; line-height: 1.65; }
+  .correction-body strong { color: #fcd34d; }
+
+  /* Section */
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #94a3b8; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 16px; }
+
+  /* Market cards */
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+
+  .market-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px 16px; }
+  .market-card.fired { border-color: #ef4444; background: #1c0a0a; }
+  .market-card.ground-truth { border-color: #22c55e; background: #0a1c10; }
+  .market-card.stable { border-color: #3b82f6; background: #0a0f1c; }
+  .market-card.oil { border-color: #eab308; background: #1c1600; }
+
+  .card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; color: #94a3b8; margin-bottom: 4px; }
+  .card-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .badge-med { background: #ca8a04; color: #fff; }
+  .badge-low { background: #9333ea; color: #fff; }
+  .badge-high { background: #15803d; color: #fff; }
+
+  .card-price { font-size: 26px; font-weight: 800; margin: 4px 0; }
+  .price-red { color: #f87171; }
+  .price-green { color: #4ade80; }
+  .price-yellow { color: #facc15; }
+  .price-blue { color: #60a5fa; }
+  .price-white { color: #f1f5f9; }
+
+  .card-delta { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .delta-down { color: #f87171; }
+  .delta-up { color: #4ade80; }
+  .delta-flat { color: #94a3b8; }
+  .card-note { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+
+  /* Status badges */
+  .status-fired { display: inline-block; background: #ef4444; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; margin-left: 8px; }
+  .status-stable { display: inline-block; background: #1d4ed8; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; margin-left: 8px; }
+
+  /* Timeline */
+  .timeline { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .tl-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; font-size: 13px; }
+  .tl-row:last-child { margin-bottom: 0; }
+  .tl-time { min-width: 95px; color: #64748b; font-size: 12px; font-family: monospace; padding-top: 1px; }
+  .tl-val { font-weight: 700; min-width: 44px; }
+  .tl-desc { color: #cbd5e1; flex: 1; }
+  .tl-arrow { color: #f97316; margin: 0 4px; }
+  .tl-highlight { color: #ef4444; font-weight: 700; }
+  .tl-spike { color: #f59e0b; font-weight: 700; }
+
+  /* Interpretation box */
+  .interp { background: #0f172a; border: 1px solid #1e3a5f; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .interp h3 { font-size: 13px; font-weight: 700; color: #93c5fd; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .interp p { font-size: 14px; color: #cbd5e1; margin-bottom: 10px; line-height: 1.65; }
+  .interp p:last-child { margin-bottom: 0; }
+  .interp strong { color: #e2e8f0; }
+
+  /* Macro table */
+  .macro-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .macro-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #64748b; text-transform: uppercase; padding: 8px 10px; border-bottom: 1px solid #1e293b; }
+  .macro-table td { padding: 10px; border-bottom: 1px solid #1e293b; color: #cbd5e1; vertical-align: top; }
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table .asset { font-weight: 700; color: #e2e8f0; }
+  .impact-pos { color: #4ade80; font-weight: 600; }
+  .impact-neg { color: #f87171; font-weight: 600; }
+  .impact-neu { color: #94a3b8; }
+
+  /* Forward view */
+  .forward { background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 18px 20px; }
+  .forward h3 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #94a3b8; margin-bottom: 12px; }
+  .forward ul { list-style: none; }
+  .forward li { padding: 7px 0; border-bottom: 1px solid #1e293b; font-size: 14px; color: #cbd5e1; padding-left: 20px; position: relative; line-height: 1.5; }
+  .forward li:last-child { border-bottom: none; }
+  .forward li::before { content: "→"; position: absolute; left: 0; color: #f97316; font-weight: 700; }
+  .forward li strong { color: #e2e8f0; }
+
+  /* Footer */
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e293b; font-size: 11px; color: #475569; text-align: center; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Alert Header -->
+  <div class="alert-banner">
+    <div class="alert-label">⚠ Polymarket Alert — 4 June 2026, 05:46 AEST</div>
+    <div class="alert-title">Hormuz Collapse Sentinel Fired<br>Rubio Rally Fully Reversed — WTI Rises to $95</div>
+    <div class="alert-meta">
+      <span>Trigger: Hormuz July 31 &lt;35%</span>
+      <span>Current: 35.0% (−13pp from 11PM spike)</span>
+      <span>Nuclear deal: 65.5% (stable)</span>
+    </div>
+  </div>
+
+  <!-- Narrative Correction -->
+  <div class="correction">
+    <div class="correction-head">📋 Correction to 11PM AEST Report</div>
+    <div class="correction-body">
+      Last night's alert ("Sentinel Averted — Rubio + Trump Deal Next Week") has been reversed. The 11PM spike from 38.5% to 48.0% was a <strong>head fake</strong> — sophisticated US overnight money re-read the full Rubio Senate testimony and reversed the position. Hormuz July 31 is now at <strong>35.0%</strong>, not only erasing the +9.5pp gain but overshooting the pre-Rubio level (~37–38%) by a further 2–3pp. The sentinel that was "13pp away" at midnight has now fired.
+    </div>
+  </div>
+
+  <!-- Price Snapshot -->
+  <div class="section">
+    <div class="section-title">Market Snapshot — 5:46 AEST</div>
+    <div class="market-grid">
+
+      <div class="market-card fired">
+        <div class="card-label">Hormuz Traffic Normal by Jul 31 <span class="card-badge badge-med">MED</span> <span class="status-fired">FIRED</span></div>
+        <div class="card-price price-red">35.0%</div>
+        <div class="card-delta delta-down">↓ −13pp from 11PM spike (48.0%); −23pp/week</div>
+        <div class="card-note">Sentinel threshold: &lt;35%. Physical Hormuz normalization (IMF Portwatch ≥60 ships/day 7d MA) by July 31 priced at only 35%. Threshold lowered to 28% — next deep-collapse watch level.</div>
+      </div>
+
+      <div class="market-card ground-truth">
+        <div class="card-label">US-Iran Nuclear Deal before 2027 <span class="card-badge badge-low">LOW</span> <span class="status-stable">STABLE</span></div>
+        <div class="card-price price-green">65.5%</div>
+        <div class="card-delta delta-flat">→ flat overnight</div>
+        <div class="card-note">Ground truth: deal still majority-priced. This is NOT a deal collapse. Breakdown sentinel (↓45%) is 20.5pp away — not threatening. Timeline elongation only.</div>
+      </div>
+
+      <div class="market-card oil">
+        <div class="card-label">WTI Crude Oil (proxy for Brent) <span class="card-badge badge-high">HIGH</span></div>
+        <div class="card-price price-yellow">~$95/bbl</div>
+        <div class="card-delta delta-up">↑ 3rd straight session gain (+5.8% from $90 lows)</div>
+        <div class="card-note">Oil RISING as Hormuz timeline extends = correct market behavior. NOT a bifurcation — oil correctly pricing extended blockade premium. Brent ~$99–101. Australian petrol floor: A$2.20–2.40/L locked through August+.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="card-label">Iran Invasion before 2027 <span class="card-badge badge-low">LOW</span> <span class="status-stable">STABLE</span></div>
+        <div class="card-price price-blue">17.5%</div>
+        <div class="card-delta delta-flat">→ flat overnight (+1pp from June 3 low of 16.5%)</div>
+        <div class="card-note">91st+ consecutive bifurcation: no escalation repricing. Peace-dividend floor trigger (↓15%) is 2.5pp away. Nuclear deal at 65.5% = no war premium building.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="card-label">US Fed June Hike <span class="card-badge badge-high">HIGH</span></div>
+        <div class="card-price price-blue">0.5%</div>
+        <div class="card-delta delta-flat">→ flat; hold 98%+ locked</div>
+        <div class="card-note">Warsh FOMC June 16–17 in 12 days. Hold is locked. Watch: Warsh's first press conference language on oil-driven ("structural vs transitory") inflation — this is the key forward signal for AUD and RBA.</div>
+      </div>
+
+      <div class="market-card stable">
+        <div class="card-label">US Military Strike on Cuba by Dec 31 <span class="card-badge badge-low">LOW</span></div>
+        <div class="card-price price-blue">47.5%</div>
+        <div class="card-delta delta-flat">→ +1pp/session trend, 12.5pp from ↑60% trigger</div>
+        <div class="card-note">Unchanged overnight. Secondary geopolitical story. USS Nimitz in Caribbean; Raúl Castro DOJ indictment. Not the primary focus today.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Timeline of the Reversal -->
+  <div class="section">
+    <div class="section-title">Timeline: The 48% Head Fake</div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-time">Jun 3, 17:00</div>
+        <div class="tl-val" style="color:#f87171">38.5%</div>
+        <div class="tl-desc">End-of-day: Hormuz drifting down -2pp. Sentinel 3.5pp away. Context: Iran talks suspended June 1.</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Jun 3, 23:00</div>
+        <div class="tl-val tl-spike">48.0%</div>
+        <div class="tl-desc"><span class="tl-spike">+9.5pp spike.</span> Catalyst: Rubio Senate testimony (Iran making enrichment concessions), Trump "deal next week," CNN talks back on track, Lebanon ceasefire removal. Sentinel "averted" — 13pp buffer reported.</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Jun 3/4 O'night</div>
+        <div class="tl-val" style="color:#fb923c">~40%</div>
+        <div class="tl-desc">US overnight session re-reads full Rubio testimony: <em>"technical talks could take months to finalise"</em> and <em>"Iran must agree to severe nuclear limits."</em> Bear case outweighs the enrichment-concession bull case. Rapid reversal begins.</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Jun 4, 05:46</div>
+        <div class="tl-val tl-highlight">35.0%</div>
+        <div class="tl-desc"><span class="tl-highlight">SENTINEL FIRED.</span> Full reversal of the +9.5pp spike <em>plus</em> 2–3pp overshoot below pre-Rubio level. Net move: −13pp in 7 hours from the spike peak, −3pp from pre-spike baseline. Interpretation: market now treats Hormuz July 31 as timeline elongation confirmed.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What Actually Happened: Rubio Testimony -->
+  <div class="section">
+    <div class="section-title">Why the Spike Reversed: Rubio's Full Testimony</div>
+    <div class="interp">
+      <h3>The Bull and Bear Cases from Rubio's Senate Testimony (June 2)</h3>
+      <p>
+        The 11PM spike was driven by selectively optimistic headlines: <strong>Iran is making enrichment concessions it refused a month ago.</strong> This is real. But the full testimony contained the countervailing signal that the overnight US session priced in:
+      </p>
+      <p>
+        <strong>Rubio's actual words:</strong> "Iran must agree to negotiate <em>severe</em> nuclear limits" — and "technical talks could take <em>months</em> to finalise." This sets a timeline that is fundamentally incompatible with Hormuz normalization by July 31.
+      </p>
+      <p>
+        Even if Trump's "deal next week" (~June 10) materialises as an announcement, the physical chain required for IMF Portwatch to log ≥60 ships/day over 7 days by July 31 is: <strong>(1)</strong> deal signed → <strong>(2)</strong> Iran orders Hormuz reopening → <strong>(3)</strong> IRGC forces comply → <strong>(4)</strong> shipping industry re-mobilises (2–4 weeks minimum from scratch) → <strong>(5)</strong> transit calls ramp to ≥60/day → <strong>(6)</strong> 7-day moving average reaches threshold. That's a 6-step chain in ~7 weeks. The 35% reading says the market gives this a 35% chance of completing in time.
+      </p>
+      <p>
+        <strong>Cross-market ground truth:</strong> WTI rose to ~$95/bbl on June 3 — the 3rd straight session gain — even as the Rubio "bull case" headlines were circulating. Oil traders were clearly not buying the July 31 timeline, and they were right. Oil at $95 validates the Hormuz "extended" read.
+      </p>
+    </div>
+  </div>
+
+  <!-- Cross-Market Validation -->
+  <div class="section">
+    <div class="section-title">Cross-Market Contradiction Check ✓</div>
+    <div class="interp">
+      <h3>All Markets Internally Consistent — Timeline Elongation Narrative</h3>
+      <p>
+        This is NOT re-escalation. Here is the contradiction check:
+      </p>
+      <p>
+        <strong>Would oil be falling if this were re-escalation?</strong> No — oil is rising (+$4 in 3 sessions to $95). ✓ Consistent with Hormuz extended timeline.<br>
+        <strong>Would invasion be rising if this were re-escalation?</strong> Yes — but invasion is FLAT at 17.5%. ✓ No war premium built.<br>
+        <strong>Would nuclear deal be collapsing if this were deal collapse?</strong> Yes — but nuclear deal is STABLE at 65.5%. ✓ Deal framework intact.<br>
+        <strong>Is the Hormuz move isolated to the July 31 contract?</strong> Yes — the Hormuz July 31 market is a PHYSICAL NORMALIZATION market (IMF Portwatch data), not a deal-announcement market. Its collapse to 35% is entirely consistent with: deal exists at 65% probability but physical reopening takes 2–3 months beyond a deal signing.
+      </p>
+      <p>
+        <strong>Conclusion:</strong> No contradictions. The market complex is telling one coherent story: <em>A deal happens (65%), but Hormuz doesn't physically normalize until September–October at the earliest (35% by July 31). Oil stays elevated in the interim.</em>
+      </p>
+    </div>
+  </div>
+
+  <!-- Macro Implications -->
+  <div class="section">
+    <div class="section-title">Macro Implications</div>
+    <table class="macro-table">
+      <thead>
+        <tr>
+          <th>Asset / Market</th>
+          <th>Direction</th>
+          <th>Logic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="asset">WTI (Brent proxy)</td>
+          <td class="impact-neg">Bullish oil — elevated range</td>
+          <td>Hormuz blockade confirmed extended to September+. No physical supply relief until Q4 at earliest. WTI $90–98 range baseline; Brent ~$95–103.</td>
+        </tr>
+        <tr>
+          <td class="asset">Australian Petrol</td>
+          <td class="impact-neg">Floor A$2.20–2.40/L locked</td>
+          <td>Brent proxy WTI at $95 + AUD ~0.64–0.66 = structural A$2.20–2.40/L floor. No relief pathway until at minimum Q3–Q4 Hormuz opening. August petrol prices will not improve materially.</td>
+        </tr>
+        <tr>
+          <td class="asset">US Fed / Warsh FOMC</td>
+          <td class="impact-neu">Hold locked (98%+) — language is the risk</td>
+          <td>June 16–17 FOMC in 12 days. WTI at $95 keeps US CPI energy component elevated — Warsh cannot cut. But can't hike into GDP slowdown. Watch: Warsh's first press conference language on whether oil inflation is "structural" or "temporary." Structural language = more bearish for rate-sensitive equities.</td>
+        </tr>
+        <tr>
+          <td class="asset">AUD</td>
+          <td class="impact-neu">Range-bound 0.62–0.66 USD</td>
+          <td>Competing forces: China tariff truce (AUD tailwind) vs oil/stagflation headwind (USD support) vs RBA hold. No clear directional break until Hormuz physical status changes.</td>
+        </tr>
+        <tr>
+          <td class="asset">ASX</td>
+          <td class="impact-neg">Mild negative — energy/petrol floor</td>
+          <td>Consumer discretionary (retail, travel, airlines) under pressure from structural petrol costs. Energy sector (WDS, STO) supported at elevated oil. Materials sector: China demand recovery tailwind still active from 90-day tariff truce.</td>
+        </tr>
+        <tr>
+          <td class="asset">Global Equities</td>
+          <td class="impact-neg">Mild headwind — extended premium</td>
+          <td>Oil at $95 + Warsh holding = rate-higher-for-longer extending further into H2. No peace dividend rally on the horizon for July. The "deal next week" Trump claim is now seen as aspirational, not operational.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Forward View -->
+  <div class="section">
+    <div class="section-title">Forward View</div>
+    <div class="forward">
+      <ul>
+        <li><strong>Trump's "deal next week" test (~June 10):</strong> The single most important near-term binary. If a formal announcement comes by June 10, expect Hormuz July 31 to spike back toward 50–55% on the deal news — but tempered by the physical timeline gap. A deal announcement is NOT an immediate oil price collapse; that requires confirmed Hormuz reopening (physical, IMF Portwatch data). Watch for the announcement, then watch for IRGC compliance signals.</li>
+        <li><strong>Warsh FOMC June 16–17 (12 days):</strong> His first press conference. The question is whether he characterises oil-driven US CPI inflation as "structural" (persistent, more hawkish) or "war-related temporary" (less hawkish). The language will set the tone for rate expectations through H2 2026. With WTI at $95 and CPI at ~3.8% YoY, he has very limited room to signal cuts.</li>
+        <li><strong>New deep-collapse sentinel at 28%:</strong> If Hormuz July 31 falls below 28% with nuclear deal simultaneously falling below 55%, that combination signals genuine deal framework deterioration — not just timeline elongation. A simultaneous move would warrant an immediate re-escalation report.</li>
+        <li><strong>Cuba watch (47.5%, 12.5pp from ↑60% trigger):</strong> The secondary story. Trending +1pp/session. The King's Birthday long weekend (ASX closed Monday June 8) could see thin-liquidity volatility in this market. If Cuba reaches 55%+ by end of week, watch for trigger proximity alerts.</li>
+        <li><strong>King's Birthday long weekend (June 6–8):</strong> ASX closed Monday June 8 (NSW/VIC/SA). Thin Polymarket liquidity over the weekend — small positions can move prices more than usual. Treat any 3–5pp moves over the weekend as tentative until confirmed with the 7AM Monday collection.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trigger Status -->
+  <div class="section">
+    <div class="section-title">Trigger Actions Taken</div>
+    <div class="interp">
+      <h3>Changes Made This Run</h3>
+      <p><strong>hormuz-traffic-july31-floor:</strong> Threshold lowered from 35% to 28% following sentinel fire. Label updated to "deep collapse sentinel (&lt;28%)." Trajectory updated with fire event recorded at 35.0% (June 4, 05:46 AEST). The 35% fire is interpreted as timeline elongation (not deal collapse) per existing interpretation rules — nuclear deal at 65.5% and invasion at 17.5% both stable.</p>
+      <p><strong>No other trigger changes warranted.</strong> Nuclear deal breakdown sentinel (↓45%) is 20.5pp from fire — not threatening. Iran invasion floor (↓15%) is 2.5pp away but requires positive catalyst (deal resumption) to fire, not negative catalyst. Cuba (↑60%) is 12.5pp away, trending but not proximate.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst — Alert Report | 4 June 2026 05:46 AEST | Data: Polymarket, Kalshi, web sources<br>
+    Sources: <a href="https://www.cnbc.com/2026/06/02/rubio-iran-nuclear-talks-trump-war-strategy-hormuz.html" style="color:#3b82f6">CNBC — Rubio Senate Testimony</a> |
+    <a href="https://www.thenationalnews.com/news/us/2026/06/02/iran-nuclear-talks-rubio/" style="color:#3b82f6">The National — Rubio "months to finalise"</a> |
+    <a href="https://www.washingtonpost.com/national-security/2026/06/02/rubio-meet-with-congress-iran-ceasefire-falters/" style="color:#3b82f6">WaPo — Iran peace talks falter</a>
+  </div>
+
+</div>
+</body>
+</html>
