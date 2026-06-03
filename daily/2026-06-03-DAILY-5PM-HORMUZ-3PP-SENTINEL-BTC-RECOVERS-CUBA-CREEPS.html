@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 3 June 2026 5PM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f35 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .title { font-size: 22px; font-weight: 700; color: #f7fafc; letter-spacing: -0.3px; }
+  .subtitle { font-size: 13px; color: #718096; margin-top: 4px; }
+  .timestamp { font-size: 12px; color: #4a5568; background: #1a202c; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+  .alert-banner { background: #1a2744; border: 1px solid #2b4590; border-left: 4px solid #4299e8; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 13.5px; color: #bee3f8; }
+  .alert-banner strong { color: #90cdf4; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; color: #4a5568; text-transform: uppercase; border-bottom: 1px solid #2d3748; padding-bottom: 8px; margin-bottom: 16px; }
+  .trigger-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .trigger-card { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 14px 16px; position: relative; }
+  .trigger-card.watching { border-left: 3px solid #2d3748; }
+  .trigger-card.near { border-left: 3px solid #ed8936; background: #1d1810; }
+  .trigger-card.critical { border-left: 3px solid #f56565; background: #1d1010; }
+  .trigger-label { font-size: 12px; font-weight: 600; color: #a0aec0; margin-bottom: 6px; line-height: 1.3; }
+  .trigger-price { font-size: 22px; font-weight: 700; color: #f7fafc; }
+  .trigger-meta { font-size: 11px; color: #4a5568; margin-top: 4px; }
+  .trigger-meta .gap { color: #718096; }
+  .trigger-meta .gap.near { color: #ed8936; }
+  .trigger-meta .gap.critical { color: #f56565; }
+  .market-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .market-table th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #4a5568; border-bottom: 1px solid #2d3748; text-transform: uppercase; letter-spacing: 0.8px; }
+  .market-table td { padding: 10px 12px; border-bottom: 1px solid #1a202c; vertical-align: top; }
+  .market-table tr:last-child td { border-bottom: none; }
+  .market-table tr:hover td { background: #1a202c; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pill-high { background: #1a3a2a; color: #68d391; }
+  .pill-med { background: #1a2744; color: #63b3ed; }
+  .pill-low { background: #2d2012; color: #fbd38d; }
+  .price-up { color: #68d391; }
+  .price-down { color: #f56565; }
+  .price-flat { color: #718096; }
+  .narrative { background: #141820; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; font-size: 14px; line-height: 1.75; color: #cbd5e0; }
+  .narrative p { margin-bottom: 12px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative strong { color: #f7fafc; }
+  .narrative .highlight { background: #1a2744; padding: 2px 6px; border-radius: 4px; color: #90cdf4; font-weight: 600; }
+  .forward { background: #0d1a0d; border: 1px solid #2d4a2d; border-radius: 8px; padding: 18px 20px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 13.5px; color: #c6f6d5; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .bifurcation-badge { display: inline-block; background: #1a2744; border: 1px solid #2b4590; border-radius: 6px; padding: 6px 14px; font-size: 13px; color: #90cdf4; font-weight: 600; margin-bottom: 16px; }
+  .cross-market { background: #161820; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 18px; margin-top: 16px; }
+  .cross-market-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1a202c; font-size: 13px; }
+  .cross-market-row:last-child { border-bottom: none; }
+  .cross-asset-label { color: #a0aec0; }
+  .cross-asset-value { font-weight: 600; }
+  .footer { border-top: 1px solid #2d3748; padding: 20px 32px; font-size: 11px; color: #4a5568; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
+  .holiday-note { background: #1a1a0d; border: 1px solid #4a4a0d; border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #f6e05e; margin-bottom: 20px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="title">Polymarket Daily Briefing</div>
+      <div class="subtitle">Wednesday 3 June 2026 · 5:00 PM AEST</div>
+    </div>
+    <div class="timestamp">Scheduled 17:00 Run</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="holiday-note">
+    ⚠️ <strong>King's Birthday — Monday 8 June 2026:</strong> ASX and most Australian exchanges closed (NSW, VIC, SA). Watch for thin-market moves on Polymarket/Kalshi over the long weekend — low liquidity can exaggerate price swings.
+  </div>
+
+  <div class="alert-banner">
+    <strong>No triggers fired this run.</strong> All 11 active triggers remain in watching state. Nearest: Hormuz collapse sentinel (↓35%) — now just <strong>3.5pp away</strong> at 38.5%. Iran invasion peace-dividend floor (↓15%) is <strong>1.5pp away</strong> at 16.5%.
+  </div>
+
+  <!-- TRIGGERS -->
+  <div class="section">
+    <div class="section-title">Active Triggers — All Watching</div>
+    <div class="trigger-grid">
+
+      <div class="trigger-card critical">
+        <div class="trigger-label">Hormuz July 31 — Collapse Sentinel</div>
+        <div class="trigger-price">38.5%</div>
+        <div class="trigger-meta">
+          <span class="gap critical">3.5pp above trigger (fires at ↓35%)</span><br>
+          -2pp since 7AM · -20.5pp/week <span class="pill pill-med">MED</span>
+        </div>
+      </div>
+
+      <div class="trigger-card near">
+        <div class="trigger-label">Iran Invasion — Peace-Dividend Floor</div>
+        <div class="trigger-price">16.5%</div>
+        <div class="trigger-meta">
+          <span class="gap near">1.5pp above trigger (fires at ↓15%)</span><br>
+          flat all day <span class="pill pill-low">LOW</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">US-Iran Nuclear Deal — Breakdown Sentinel</div>
+        <div class="trigger-price">64.0%</div>
+        <div class="trigger-meta">
+          <span class="gap">19pp above trigger (fires at ↓45%)</span><br>
+          flat · -15.5pp/week <span class="pill pill-low">LOW</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Cuba Strike by Dec 31 — Escalation Signal</div>
+        <div class="trigger-price">47.5%</div>
+        <div class="trigger-meta">
+          <span class="gap">12.5pp below trigger (fires at ↑60%)</span><br>
+          +1pp since 7AM <span class="pill pill-low">LOW</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Nuclear Deal — Approaching Certainty</div>
+        <div class="trigger-price">64.0%</div>
+        <div class="trigger-meta">
+          <span class="gap">21pp below trigger (fires at ↑85%)</span><br>
+          flat <span class="pill pill-low">LOW</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Iran Invasion — Escalation Signal</div>
+        <div class="trigger-price">16.5%</div>
+        <div class="trigger-meta">
+          <span class="gap">23.5pp below trigger (fires at ↑40%)</span><br>
+          flat <span class="pill pill-low">LOW</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Kalshi: US Unemployment ≥20% — Depression Tail</div>
+        <div class="trigger-price">10%</div>
+        <div class="trigger-meta">
+          <span class="gap">5pp below trigger (fires at ↑15%)</span><br>
+          flat
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Kalshi: US Unemployment ≥10% — Stagflation Catastrophe</div>
+        <div class="trigger-price">29%</div>
+        <div class="trigger-meta">
+          <span class="gap">16pp below trigger (fires at ↑45%)</span><br>
+          flat
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">US Fed June Hike</div>
+        <div class="trigger-price">0.5%</div>
+        <div class="trigger-meta">
+          <span class="gap">4.5pp below trigger (fires at ↑5%)</span><br>
+          flat · FOMC in 13 days <span class="pill pill-high">HIGH</span>
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">China Invades Taiwan by End 2026</div>
+        <div class="trigger-price">6.2%</div>
+        <div class="trigger-meta">
+          <span class="gap">8.8pp below trigger (fires at ↑15%)</span><br>
+          flat
+        </div>
+      </div>
+
+      <div class="trigger-card watching">
+        <div class="trigger-label">Iran Leadership Change by Dec 31</div>
+        <div class="trigger-price">28.5%</div>
+        <div class="trigger-meta">
+          <span class="gap">31.5pp below trigger (fires at ↑60%)</span><br>
+          +1pp/24h
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET SNAPSHOT -->
+  <div class="section">
+    <div class="section-title">Cross-Market Snapshot</div>
+    <div class="cross-market">
+      <div class="cross-market-row">
+        <span class="cross-asset-label">WTI Crude (proxy for Brent) <span class="pill pill-high">HIGH</span></span>
+        <span class="cross-asset-value price-flat">~$91.23/bbl · flat since 7AM</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Bitcoin</span>
+        <span class="cross-asset-value price-up">~$69,300 · recovered from $67K crash lows</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">US Fed June Hold <span class="pill pill-high">HIGH</span></span>
+        <span class="cross-asset-value price-flat">98.2% · locked; FOMC June 16–17</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Hormuz July 31 <span class="pill pill-med">MED</span></span>
+        <span class="cross-asset-value price-down">38.5% · -2pp today · -22pp/week</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Nuclear Deal Before 2027 <span class="pill pill-low">LOW</span></span>
+        <span class="cross-asset-value price-flat">64.0% · flat · -15.5pp/week</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Iran Invasion 2027 <span class="pill pill-low">LOW</span></span>
+        <span class="cross-asset-value price-flat">16.5% · flat · bounced from ATL 14.5%</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Cuba Strike by Dec 31 <span class="pill pill-low">LOW</span></span>
+        <span class="cross-asset-value price-up">47.5% · +1pp since 7AM · rising 3-day trend</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">Bitcoin dip to $65K in June</span>
+        <span class="cross-asset-value price-up">74.5% · unchanged · BTC recovering narrows window</span>
+      </div>
+      <div class="cross-market-row">
+        <span class="cross-asset-label">OpenAI IPOs first (Kalshi) <span class="pill pill-low">LOW</span></span>
+        <span class="cross-asset-value price-flat">77% · flat · Anthropic 27%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Market Narrative</div>
+    <div class="bifurcation-badge">📊 89th Consecutive Bifurcation — Iran kinetics absorbed, WTI flat</div>
+    <div class="narrative">
+      <p>A quiet 5PM session — no triggers fired, most markets flat since this morning. The dominant story is Hormuz's continued slow bleed: <strong>38.5%</strong> now, down from 40.5% at 7AM and 60.5% just seven days ago. The collapse sentinel (↓35%) is <strong>3.5pp away</strong>. At the current pace of -2 to -3pp per session, it fires by Friday or Saturday — likely over the low-liquidity King's Birthday long weekend.</p>
+      <p>The critical interpretive rule when it fires: <strong>check the nuclear deal first</strong>. At 64% (flat today), the nuclear deal is the ground truth. Hormuz below 35% with deal at 64% = <em>timeline elongation</em> (physical normalization pushed to August+), not re-escalation. Only reprice to a hawkish oil view if the nuclear deal simultaneously crosses below 60%.</p>
+      <p><strong>Bitcoin recovered.</strong> Overnight crash lows were ~$67K; by 5PM AEST the price is back near $69,300. The "dip to $65K in June" market remains at 74.5% — the $65K test is still the base case, but the bounce suggests short-term capitulation may have happened. ETF outflow data is the key watchpoint: another $300M+ day forces $65K; a reversal stabilizes. Strategy's sale of BTC remains a landmark institutional break regardless of today's price action.</p>
+      <p><strong>Cuba is creeping.</strong> The USS Nimitz sits in the Caribbean, Raúl Castro has been indicted by the DOJ, and the Polymarket market just ticked up to 47.5% (+1pp). Still 12.5pp from the ↑60% trigger, but the directional trend is upward. A Cuba strike is lower macro priority than Iran — Cuba is not a major oil producer — but any escalation involving Venezuela (Cuba's main backer, ~850kb/d exports) would be the secondary commodity disruption to watch.</p>
+      <p><strong>Warsh FOMC countdown: 13 days.</strong> June 16–17 hold is locked at 98.2% — zero probability of action. The real market event is Warsh's first press conference tone. With WTI at $91 and CPI at 3.8% YoY, Warsh cannot sound dovish. Watch for any deviation from the "hold and monitor" script. The only scenario where Warsh opens a September cut door: deal signed before June 17 + oil below $80. That remains a tail scenario.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES TABLE -->
+  <div class="section">
+    <div class="section-title">Key Moves Since 7AM</div>
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Now</th>
+          <th>Δ Since 7AM</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill pill-med">MED</span> Hormuz July 31</td>
+          <td class="price-down">38.5%</td>
+          <td class="price-down">-2.0pp</td>
+          <td>Slow drift toward ↓35% sentinel. Collapse sentinel fires at timeline elongation, not war.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-low">LOW</span> Cuba Strike Dec 31</td>
+          <td class="price-up">47.5%</td>
+          <td class="price-up">+1.0pp</td>
+          <td>Trending up on Nimitz positioning + Castro indictment. 12.5pp from trigger.</td>
+        </tr>
+        <tr>
+          <td>Bitcoin / BTC $65K June</td>
+          <td class="price-up">~$69.3K / 74.5%</td>
+          <td class="price-up">+$2.3K recovery</td>
+          <td>Bounce from crash lows. $65K dip still base case; ETF flow data drives next move.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-high">HIGH</span> WTI crude</td>
+          <td class="price-flat">~$91.23/bbl</td>
+          <td class="price-flat">Flat</td>
+          <td>89th bifurcation. Iran suspension absorbed. Oil pricing global demand, not Iran escalation.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-low">LOW</span> Nuclear Deal 2027</td>
+          <td class="price-flat">64.0%</td>
+          <td class="price-flat">Flat</td>
+          <td>Ground truth intact at majority-likely. Weekly bleed (-15.5pp) concerning but not terminal.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-low">LOW</span> Iran Invasion 2027</td>
+          <td class="price-flat">16.5%</td>
+          <td class="price-flat">Flat</td>
+          <td>1.5pp from ↓15% trigger. Holding despite suspension news — no war premium.</td>
+        </tr>
+        <tr>
+          <td>Iran ceasefire by June 30</td>
+          <td class="price-down">10.5%</td>
+          <td class="price-down">-7.0pp/24h · -57.5pp/week</td>
+          <td>Weekly collapse. Market has abandoned hope for formal June 30 deal announcement.</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥20% unemployment tail</td>
+          <td class="price-flat">10%</td>
+          <td class="price-flat">Flat</td>
+          <td>5pp from ↑15% depression trigger. WTI flat = no new inflation shock today.</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥7% unemployment</td>
+          <td class="price-flat">65%</td>
+          <td class="price-flat">Flat</td>
+          <td>9pp below ↑74% ceiling trigger. Stable on flat oil day.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View — What to Watch</div>
+    <div class="forward">
+      <div class="forward-item">
+        <span class="forward-icon">⚡</span>
+        <span><strong>Hormuz sentinel fire (likely this weekend):</strong> The ↓35% collapse sentinel will probably fire over the King's Birthday long weekend (June 6–8) given the -2pp/session drift. Do NOT position for re-escalation on the fire alone. The interpretation is "Hormuz physical normalization pushed to August+" — only becomes a bear oil signal if the nuclear deal simultaneously falls below 60%. WTI at $91 is the ground truth; it will tell you more than the Hormuz binary.</span>
+      </div>
+      <div class="forward-item">
+        <span class="forward-icon">🔑</span>
+        <span><strong>Iran talks resumption is the single highest-value catalyst:</strong> Trump says deal "largely negotiated." Iran suspended officially June 1 citing Israel-Lebanon. If Oman or Qatar restores the document-exchange channel before June 10, nuclear deal bounces to 68–72%, Hormuz stabilises, invasion falls to 15% (trigger fires in de-escalation mode). Every day without resumption means the nuclear deal loses 2–3pp and Hormuz drifts toward 35%.</span>
+      </div>
+      <div class="forward-item">
+        <span class="forward-icon">₿</span>
+        <span><strong>Bitcoin $65K test imminent (74.5% base case):</strong> BTC bounced from $67K to $69K today but the market isn't changing its view on the downside test. Watch ETF flows tonight (US close): another $300M+ outflow day = $65K test; a reversal stabilises. Strategy's first-ever BTC sale is a structural confidence break — the bounce is likely a dead-cat unless retail steps in.</span>
+      </div>
+      <div class="forward-item">
+        <span class="forward-icon">🇨🇺</span>
+        <span><strong>Cuba at 47.5% and rising:</strong> The USS Nimitz is in the Caribbean, Raúl Castro has been indicted, Trump has telegraphed intent. The market hasn't broken 50% yet. If it crosses 50% (2.5pp away), that crosses from "possible" to "coin-flip" — the Venezuela secondary disruption risk becomes live. Lower priority than Iran but monitor closely.</span>
+      </div>
+      <div class="forward-item">
+        <span class="forward-icon">🏦</span>
+        <span><strong>Warsh FOMC June 16–17 (13 days):</strong> Hold is locked at 98.2%. The event risk is Warsh's press conference tone. WTI at $91 + CPI at 3.8% = no dovish signal possible. Watch for any hint of a September cut door — the market isn't pricing it yet. Dual-session risk for AUD/USD and ASX around the statement and Q&A.</span>
+      </div>
+      <div class="forward-item">
+        <span class="forward-icon">🇦🇺</span>
+        <span><strong>ASX calendar:</strong> ASX open Thursday 4 June and Friday 5 June. <strong>ASX closed Monday 8 June (King's Birthday — NSW, VIC, SA).</strong> QLD and WA not closed June 8 (their observance is later in the year). Energy names (WDS, STO, WPL) still carry the Hormuz blockade premium. Airlines (QAN, REX) facing A$2.10–2.25/L petrol floor. No imminent petrol relief until Hormuz at 50%+ or deal signed.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section">
+    <div class="section-title">Trigger Actions This Run</div>
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Trigger</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#68d391; font-weight:600;">UPDATED</td>
+          <td>Hormuz collapse sentinel</td>
+          <td>Updated proximity note: 3.5pp from fire; long-weekend thin-market risk noted; interpretation rules reinforced.</td>
+        </tr>
+        <tr>
+          <td style="color:#68d391; font-weight:600;">UPDATED</td>
+          <td>Iran invasion peace-dividend floor</td>
+          <td>Proximity note updated: holding stable at 16.5% (1.5pp from trigger) despite Iran suspension.</td>
+        </tr>
+        <tr>
+          <td style="color:#718096;">NO CHANGE</td>
+          <td>All others</td>
+          <td>11/11 triggers in watching state. No new triggers added or removed.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Polymarket Analyst · 3 June 2026 17:00 AEST</span>
+  <span>Sources: Polymarket (50 markets), Kalshi (309 markets), WTI spot, BTC/USD</span>
+  <span>All prediction market quality labelled: [HIGH] [MED] [LOW]</span>
+</div>
+
+</body>
+</html>
