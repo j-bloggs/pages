@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 5 Jun 7AM AEST: Trump MOU Stalls; Hormuz Day 94 at 34.5%; OPEC+ Sunday</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1e2433 0%, #252d3d 100%);
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .header-meta { color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f7fafc; line-height: 1.3; margin-bottom: 10px; }
+  .header-subtitle { font-size: 14px; color: #a0aec0; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 6px;
+  }
+  .tag-daily { background: #2d3748; color: #90cdf4; }
+  .tag-quiet { background: #1a3a2a; color: #68d391; }
+  .tag-watch { background: #3d2a0d; color: #f6ad55; }
+
+  /* Alert banner */
+  .alert-banner {
+    background: #2d1a0d;
+    border: 1px solid #c05621;
+    border-left: 4px solid #dd6b20;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #fbd38d;
+  }
+  .alert-banner strong { color: #f6ad55; }
+
+  /* Summary box */
+  .summary-box {
+    background: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    color: #cbd5e0;
+    line-height: 1.7;
+  }
+
+  /* Section headers */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #718096;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #2d3748;
+  }
+
+  /* Market cards */
+  .markets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  @media (max-width: 600px) { .markets-grid { grid-template-columns: 1fr; } }
+
+  .market-card {
+    background: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .market-card.critical { border-color: #c05621; background: #1f1208; }
+  .market-card.warning { border-color: #d69e2e; background: #1a160a; }
+  .market-card.positive { border-color: #276749; background: #0d1a12; }
+
+  .mc-label { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .mc-question { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 8px; line-height: 1.4; }
+  .mc-price { font-size: 28px; font-weight: 800; color: #f7fafc; line-height: 1; }
+  .mc-delta-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+  .mc-delta { font-size: 13px; font-weight: 600; }
+  .mc-delta.neg { color: #fc8181; }
+  .mc-delta.pos { color: #68d391; }
+  .mc-delta.flat { color: #718096; }
+  .mc-timeframes { font-size: 11px; color: #4a5568; }
+  .mc-trigger {
+    margin-top: 8px;
+    font-size: 11px;
+    padding: 3px 8px;
+    background: #2d3748;
+    border-radius: 4px;
+    color: #a0aec0;
+    display: inline-block;
+  }
+  .mc-trigger.danger { background: #3d1a0d; color: #fc8181; }
+  .mc-trigger.safe { background: #1a3a2a; color: #68d391; }
+  .mc-interp { font-size: 12px; color: #a0aec0; margin-top: 6px; line-height: 1.5; }
+  .quality-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+  .q-high { background: #276749; color: #9ae6b4; }
+  .q-med { background: #744210; color: #fbd38d; }
+  .q-low { background: #4a1942; color: #d6bcfa; }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 4px;
+    background: #2d3748;
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+  .fill-danger { background: #fc8181; }
+  .fill-warning { background: #f6ad55; }
+  .fill-ok { background: #68d391; }
+  .fill-neutral { background: #4a5568; }
+
+  /* Stories section */
+  .story-block {
+    background: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .story-block h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #90cdf4;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .story-block h3 .story-icon { font-size: 16px; }
+  .story-block p { font-size: 13px; color: #a0aec0; line-height: 1.65; }
+  .story-block p + p { margin-top: 6px; }
+
+  /* Kalshi row */
+  .kalshi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) { .kalshi-row { grid-template-columns: 1fr; } }
+
+  .kalshi-card {
+    background: #13192a;
+    border: 1px solid #1e2d45;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .kc-label { font-size: 10px; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .kc-val { font-size: 24px; font-weight: 800; color: #f7fafc; }
+  .kc-sub { font-size: 11px; color: #4a5568; margin-top: 2px; }
+  .kc-delta { font-size: 12px; margin-top: 4px; }
+
+  /* Calendar */
+  .calendar-block {
+    background: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .cal-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #2d3748;
+    font-size: 13px;
+  }
+  .cal-item:last-child { border-bottom: none; }
+  .cal-date { color: #90cdf4; font-weight: 700; min-width: 100px; }
+  .cal-event { color: #a0aec0; }
+  .cal-event strong { color: #e2e8f0; }
+
+  /* Forward view */
+  .forward-block {
+    background: linear-gradient(135deg, #1a202c 0%, #1e2433 100%);
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .forward-block ul { list-style: none; padding: 0; }
+  .forward-block ul li {
+    font-size: 13px;
+    color: #a0aec0;
+    padding: 7px 0;
+    border-bottom: 1px solid #2d3748;
+    padding-left: 16px;
+    position: relative;
+  }
+  .forward-block ul li::before { content: '→'; position: absolute; left: 0; color: #4299e1; }
+  .forward-block ul li:last-child { border-bottom: none; }
+  .forward-block ul li strong { color: #e2e8f0; }
+
+  /* Cross-market */
+  .xmkt-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 24px; }
+  .xmkt-table th {
+    background: #2d3748;
+    color: #a0aec0;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .xmkt-table td { padding: 8px 12px; border-bottom: 1px solid #2d3748; color: #cbd5e0; vertical-align: top; }
+  .xmkt-table tr:last-child td { border-bottom: none; }
+  .xmkt-table tr:hover td { background: #1e2433; }
+  .verdict-pass { color: #68d391; font-weight: 700; }
+  .verdict-warn { color: #f6ad55; font-weight: 700; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #4a5568;
+    padding-top: 20px;
+    border-top: 1px solid #2d3748;
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-meta">
+      <span class="tag tag-daily">Daily Briefing</span>
+      <span class="tag tag-watch">MOU Pending</span>
+      5 June 2026 · 7:00 AM AEST
+    </div>
+    <h1>Trump MOU Unsigned; Hormuz Slides to 34.5% on Day 94; OPEC+ Sunday</h1>
+    <div class="header-subtitle">
+      Iran invasion 1.5pp from peace-dividend floor · 94th consecutive bifurcation holding · Warsh FOMC in 11 days
+    </div>
+  </div>
+
+  <!-- No triggers alert -->
+  <div class="alert-banner">
+    <strong>No triggers fired overnight.</strong> All 11 Polymarket triggers and all Kalshi triggers registered +0.0pp since the June 4 5PM collection. Markets are waiting on the same three events: Trump MOU signature, OPEC+ June 7, and Warsh FOMC June 16–17.
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <p>Overnight the market's attention narrowed to a single unsigned document. VP Vance confirmed the US-Iran 60-day ceasefire extension MOU is agreed in principle but stalled on "a couple of language points" — Hormuz reopening sequencing, mine-clearing liability, and sanctions waiver timing. Until it's signed, the market is marking time: Iran invasion is 1.5pp above its peace-dividend floor, Hormuz is sliding toward its deep-collapse sentinel, and the nuclear deal is holding steady at 67%.</p>
+    <p style="margin-top:10px;">The 94th consecutive oil-invasion bifurcation held: WTI ~$95–96/bbl (blockade premium intact) while Iran invasion slipped to 16.5% and nuclear deal firmed slightly. Hormuz physical data is brutal — Day 94, only 10 transits/day vs. a 95/day pre-crisis baseline. DHL projects 4–6 months minimum to normalize regardless of when a deal is signed. Australian petrol at A$2.20–2.40/L is locked through at least Q3.</p>
+  </div>
+
+  <!-- Trigger proximity -->
+  <h2>Trigger Proximity</h2>
+  <div class="markets-grid">
+
+    <div class="market-card critical">
+      <div class="mc-label">Iran · Polymarket <span class="quality-badge q-low">LOW</span></div>
+      <div class="mc-question">US invades Iran before 2027?</div>
+      <div class="mc-price">16.5%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta neg">−1.0pp/24h</span>
+        <span class="mc-timeframes">−4.5pp/wk</span>
+      </div>
+      <div class="mc-trigger danger">1.5pp above ↓15% peace-dividend trigger</div>
+      <div class="progress-bar"><div class="progress-fill fill-danger" style="width:16.5%"></div></div>
+      <div class="mc-interp">ATL range. Signed MOU likely pushes through ↓15% in one session. 94th consecutive bifurcation — oil and invasion declining in tandem. Do not email at ↓15% standalone; include in next scheduled run if oil flat and nuclear deal >60%.</div>
+    </div>
+
+    <div class="market-card warning">
+      <div class="mc-label">Hormuz · Polymarket <span class="quality-badge q-med">MED</span></div>
+      <div class="mc-question">Hormuz traffic normal by July 31?</div>
+      <div class="mc-price">34.5%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta neg">−2.5pp/24h</span>
+        <span class="mc-timeframes">−23.0pp/wk</span>
+      </div>
+      <div class="mc-trigger danger">6.5pp above ↓28% deep collapse sentinel</div>
+      <div class="progress-bar"><div class="progress-fill fill-warning" style="width:34.5%"></div></div>
+      <div class="mc-interp">Day 94 of crisis. 10 transits/day vs 95/day baseline. 300 vessels idling at Gulf ports. DHL: 4–6 months to normalize. Physical reopening by July 31 increasingly implausible — market pricing September/October at earliest.</div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="mc-label">Nuclear Deal · Polymarket <span class="quality-badge q-low">LOW</span></div>
+      <div class="mc-question">US-Iran nuclear deal before 2027?</div>
+      <div class="mc-price">67.0%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta pos">+1.5pp/24h</span>
+        <span class="mc-timeframes">−10.0pp/wk</span>
+      </div>
+      <div class="mc-trigger safe">22.0pp above ↓45% breakdown sentinel</div>
+      <div class="progress-bar"><div class="progress-fill fill-ok" style="width:67%"></div></div>
+      <div class="mc-interp">Ground truth for entire Iran complex. +1.5pp overnight recovery confirms Rubio's June 2 testimony anchoring ("Iran conceding on enrichment points"). Deal still majority-likely; weekly −10pp reflects timeline elongation, not collapse.</div>
+    </div>
+
+    <div class="market-card">
+      <div class="mc-label">Cuba · Polymarket <span class="quality-badge q-low">LOW</span></div>
+      <div class="mc-question">US military strike on Cuba by Dec 31?</div>
+      <div class="mc-price">45.5%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta neg">−0.5pp/1h</span>
+        <span class="mc-timeframes">+0.5pp/24h · −1.5pp/wk</span>
+      </div>
+      <div class="mc-trigger safe">14.5pp below ↑60% trigger</div>
+      <div class="progress-bar"><div class="progress-fill fill-neutral" style="width:45.5%"></div></div>
+      <div class="mc-interp">Declining slowly. USS Nimitz in Caribbean, Raúl Castro DOJ indictment still in play, but momentum fading. Cuba is secondary story vs. Iran. Blanche confirmed as next AG — DOJ mandate for Cuba may harden, but slowly.</div>
+    </div>
+
+    <div class="market-card">
+      <div class="mc-label">Taiwan · Polymarket <span class="quality-badge q-low">LOW</span></div>
+      <div class="mc-question">China invades Taiwan by end of 2026?</div>
+      <div class="mc-price">6.2%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta flat">−0.1pp/24h</span>
+        <span class="mc-timeframes">−0.3pp/wk</span>
+      </div>
+      <div class="mc-trigger safe">8.8pp below ↑15% trigger</div>
+      <div class="progress-bar"><div class="progress-fill fill-ok" style="width:6.2%"></div></div>
+      <div class="mc-interp">Post-summit deflation confirmed. Xi Taiwan-first agenda at Beijing summit (May 14–15) produced no escalation signal — market correctly priced the session as strategic posturing. Flat/declining trend.</div>
+    </div>
+
+    <div class="market-card">
+      <div class="mc-label">US Fed · Polymarket <span class="quality-badge q-high">HIGH</span></div>
+      <div class="mc-question">Fed June 2026 rate hike (+25bps)?</div>
+      <div class="mc-price">0.4%</div>
+      <div class="mc-delta-row">
+        <span class="mc-delta flat">−0.1pp/24h</span>
+        <span class="mc-timeframes">flat/wk</span>
+      </div>
+      <div class="mc-trigger safe">4.6pp below ↑5% trigger</div>
+      <div class="progress-bar"><div class="progress-fill fill-ok" style="width:0.4%"></div></div>
+      <div class="mc-interp">Hold locked at 99.6% probability. Warsh FOMC June 16–17 in 11 days. The real event is the press conference: will Warsh characterize oil-driven inflation as "supply-side/temporary" (dovish) or "structural/demand-driven" (hawkish surprise)? Market assuming the former.</div>
+    </div>
+
+  </div>
+
+  <!-- Kalshi -->
+  <h2>Kalshi Economic Tail Risk</h2>
+  <div class="kalshi-row">
+    <div class="kalshi-card">
+      <div class="kc-label">Unemployment ≥7% before 2030</div>
+      <div class="kc-val" style="color:#f6ad55">65%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↑74% trigger · 9pp away</div>
+    </div>
+    <div class="kalshi-card">
+      <div class="kc-label">Unemployment ≥10% before 2030</div>
+      <div class="kc-val" style="color:#fc8181">29%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↑45% trigger · 16pp away</div>
+    </div>
+    <div class="kalshi-card">
+      <div class="kc-label">≥20% Depression tail before 2030</div>
+      <div class="kc-val" style="color:#fc8181">10%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↑15% trigger · 5pp away</div>
+    </div>
+  </div>
+  <div class="kalshi-row">
+    <div class="kalshi-card">
+      <div class="kc-label">US National Debt hits $50T</div>
+      <div class="kc-val" style="color:#90cdf4">35%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↓25% sentinel · 10pp above</div>
+    </div>
+    <div class="kalshi-card">
+      <div class="kc-label">Habeas Corpus suspended</div>
+      <div class="kc-val" style="color:#a0aec0">18%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↑30% trigger · 12pp away</div>
+    </div>
+    <div class="kalshi-card">
+      <div class="kc-label">Clarence Thomas resigns</div>
+      <div class="kc-val" style="color:#a0aec0">47%</div>
+      <div class="kc-delta" style="color:#718096">flat</div>
+      <div class="kc-sub">↑55% trigger · 8pp away</div>
+    </div>
+  </div>
+
+  <!-- Stories -->
+  <h2>Key Stories</h2>
+
+  <div class="story-block">
+    <h3><span class="story-icon">📋</span> Story 1 — Trump MOU: Agreed in Principle, Unsigned</h3>
+    <p>VP Vance overnight: the 60-day ceasefire extension MOU is agreed but "going back and forth on a couple of language points." Outstanding issues: Hormuz reopening sequencing (who moves first — Iran mine-clearing or US blockade lift), toll/tariff language, sanctions waiver timing, and what happens to Iran's 60% enriched uranium stockpile (deferred to follow-on talks). Trump's June 3 statement — "Iran agrees to no nuclear weapons" — was real, but the MOU itself is the binding instrument. No fixed signing deadline.</p>
+    <p>Market implication: the MOU has been "imminent" for a week. Markets have largely priced its eventual signing. A signature is a confirmation, not a surprise — expect Iran invasion to decline through ↓15%, Hormuz to bounce modestly, and the nuclear deal to firm. The trade has mostly been made.</p>
+  </div>
+
+  <div class="story-block">
+    <h3><span class="story-icon">🛢️</span> Story 2 — Hormuz Day 94: Physical Reality vs Market Price</h3>
+    <p>The Hormuz July 31 market at 34.5% says there's a one-in-three chance Hormuz shipping returns to normal by end of July. The physical data says this is optimistic: 10 transits/day vs. 95/day pre-crisis, 300 vessels idling at Gulf ports, Brent crude ~$98/bbl, DHL projecting 4–6 months minimum to normalize. Trump himself warned the blockade could last through autumn. Even if the MOU is signed tomorrow, the physical chain requires: Iran orders IRGC to stand down → mine-clearing begins (2–4 weeks) → first commercial transits → shipping industry remobilizes vessels (further weeks) → IMF Portwatch logs ≥60 transit calls on a 7-day MA → all by July 31. The 34.5% price is the market saying "possible but unlikely."</p>
+    <p><strong>Australian impact:</strong> WTI (proxy for Brent) at ~$95–96/bbl. Brent ~$98/bbl. Australian petrol floor A$2.20–2.40/L locked through at least Q3. No relief pathway visible until physical Hormuz normalization begins — probably September/October 2026 at earliest.</p>
+  </div>
+
+  <div class="story-block">
+    <h3><span class="story-icon">⛽</span> Story 3 — OPEC+ June 7 (Sunday): Symbolic, Hormuz-Blunted</h3>
+    <p>The 41st OPEC+ Ministerial Conference meets Sunday June 7. Expected decision: +188K bpd from June (Saudi Arabia and Russia each adding 62K bpd). This sounds bearish for oil, but in the current environment it barely matters: the oil can't leave the Gulf. OPEC+ can pump more, but without Hormuz, it piles up in storage at Gulf terminals. The real signal from OPEC+ is confidence — if they're adding supply, they're pricing an eventual Hormuz reopening and don't want to cede market share to non-OPEC producers. That's a mild positive for the de-escalation narrative, not a near-term oil price driver.</p>
+    <p><strong>ASX timing:</strong> OPEC+ decision announced Sunday. Monday June 8 is King's Birthday (NSW, VIC, SA closed). ASX impact for NSW/VIC/SA traders: Tuesday June 10. QLD and WA ASX opens Monday June 8.</p>
+  </div>
+
+  <div class="story-block">
+    <h3><span class="story-icon">🏛️</span> Story 4 — Warsh FOMC June 16–17: Language Is the Event</h3>
+    <p>US Fed June hike probability: 0.4% — effectively zero. The hold is locked. But Warsh's first press conference as US Fed chair is the real event. Two framings are possible: (1) "Supply-side shock from Iran blockade driving energy inflation — temporary, does not warrant a policy response" → dovish, supports equities, AUD positive; (2) "Sticky energy costs are embedding into core services and wages — structural, warrants policy vigilance" → hawkish surprise, rate-hike probability reprices above 5% trigger, 10Y yield spikes further above 4.82%. JPMorgan has penciled in hold through 2026. CPI April at 3.8% YoY (highest since May 2023), energy component +17.9% YoY. Warsh cannot cut (CPI too hot) and cannot hike (GDP growth softening). "Hold and sweat" is the baseline; watch the language.</p>
+  </div>
+
+  <div class="story-block">
+    <h3><span class="story-icon">₿</span> Story 5 — BTC ~$62K: Fed Shock Absorbed, Recovering</h3>
+    <p>Bitcoin is trading ~$62K, down ~$12.5K from its May peak of ~$74.5K — a 16.8% drawdown. The June 4 crash was driven by US Fed rate shock (removed "progress toward 2% inflation" language, 2 voting members pushed cuts to 2027, 10Y yield +18bps to 4.82%), triggering $3.4B ETF outflows (largest-ever weekly figure) and ~$1.5B in leveraged-long liquidations. BTC has since recovered from crash lows — the Polymarket "Bitcoin dips to $60K in June" market has been delisted, confirming BTC held above that floor. The next leg depends on Warsh's June 16–17 press conference language: another hawkish signal risks a re-test of $60K; a neutral-to-dovish tone supports recovery toward $65–68K.</p>
+  </div>
+
+  <!-- Cross-market validation -->
+  <h2>Cross-Market Validation — 94th Consecutive Bifurcation</h2>
+  <table class="xmkt-table">
+    <thead>
+      <tr>
+        <th>Signal</th>
+        <th>Current Reading</th>
+        <th>Implied Narrative</th>
+        <th>Coherent?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>WTI crude (proxy for Brent)</td>
+        <td>~$95–96/bbl, 3rd session gain</td>
+        <td>Blockade premium intact, no full de-escalation priced in oil</td>
+        <td class="verdict-pass">✓ PASS</td>
+      </tr>
+      <tr>
+        <td>Iran invasion [LOW]</td>
+        <td>16.5% (−1pp/24h)</td>
+        <td>De-escalation bias, no war premium</td>
+        <td class="verdict-pass">✓ PASS</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal [LOW]</td>
+        <td>67.0% (+1.5pp/24h)</td>
+        <td>Deal majority-likely, still progressing</td>
+        <td class="verdict-pass">✓ PASS</td>
+      </tr>
+      <tr>
+        <td>Hormuz July 31 [MED]</td>
+        <td>34.5% (−2.5pp/24h)</td>
+        <td>Physical reopening by July 31 unlikely — timeline to Sep/Oct</td>
+        <td class="verdict-pass">✓ PASS (consistent with oil premium)</td>
+      </tr>
+      <tr>
+        <td>Kalshi unemployment ≥20%</td>
+        <td>10% (flat)</td>
+        <td>No recession repricing; depression tail stable</td>
+        <td class="verdict-pass">✓ PASS</td>
+      </tr>
+      <tr>
+        <td>US Fed June hike [HIGH]</td>
+        <td>0.4% (effectively zero)</td>
+        <td>Hold locked; stagflation trap confirmed</td>
+        <td class="verdict-pass">✓ PASS</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="summary-box" style="margin-top:0; font-size:13px; color:#a0aec0;">
+    <strong style="color:#68d391;">94th consecutive bifurcation — all signals coherent.</strong> The Iran-Hormuz-oil complex is moving as a unit: invasion declining, nuclear deal stable, Hormuz timeline elongating, oil holding blockade premium. No contradictions across Polymarket, Kalshi, and spot commodity markets. Resolution-quality hierarchy respected: HIGH-quality oil price ground truth validates the direction of LOW-quality binary markets.
+  </div>
+
+  <!-- Forward view -->
+  <h2>What to Watch — Next 12 Days</h2>
+  <div class="forward-block">
+    <ul>
+      <li><strong>Trump MOU signature (imminent, no fixed date):</strong> When signed, Iran invasion likely breaks below ↓15% peace-dividend trigger. Hormuz gets a timeline reset (not a price spike — physical reopening still Sep/Oct). Do NOT treat as oil-crash signal — that requires IMF Portwatch data confirming >60 transits/day. Include in the next scheduled report without a standalone alert.</li>
+      <li><strong>OPEC+ June 7 (Sunday):</strong> Decision announced Sunday. Expected +188K bpd. Practically blunted by Hormuz. ASX impact: QLD/WA Monday June 9; NSW/VIC/SA Tuesday June 10 (King's Birthday closure June 8). Watch if OPEC+ decision surprises to the upside — any cut reversal above 350K bpd = WTI support collapses, Australian petrol floor shifts.</li>
+      <li><strong>King's Birthday June 8 (Monday):</strong> NSW, VIC, SA ASX closed. QLD and WA open. Thin-market risk on any overnight Polymarket moves from OPEC+ announcement — treat with caution until full ASX liquidity returns Tuesday.</li>
+      <li><strong>Warsh FOMC June 16–17 (11 days):</strong> Hold is locked (0.4% hike probability). Language is the event. "Supply-side/temporary" framing = dovish; "structural" framing = 10Y yield spike + BTC re-test of $60K. Watch Warsh's first-ever post-FOMC press conference tone carefully. This is the biggest macro event of June for equities, crypto, and AUD.</li>
+      <li><strong>Iran invasion ↓15% floor (1.5pp away):</strong> Declining at ~1pp/24h. If MOU signed this weekend, likely triggers within 48 hours. Per trigger design: only include in report if oil flat/declining AND nuclear deal >60%. Both conditions currently met. Signal = peace dividend confirmed. Macro implication: QAN, WOW, COL, ASX materials sector positive; AUD strengthens on blockade-premium unwind expectations.</li>
+      <li><strong>Hormuz deep collapse sentinel (6.5pp away):</strong> Declining ~2–3pp/session. If MOU unsigned by next week, expect the ↓28% sentinel to fire. That is NOT a re-escalation signal — it means the market is giving up on July 31 as viable. Check nuclear deal simultaneously; only report as re-escalation if nuclear deal also falls below 60%.</li>
+    </ul>
+  </div>
+
+  <!-- Calendar -->
+  <h2>Calendar</h2>
+  <div class="calendar-block">
+    <div class="cal-item">
+      <span class="cal-date">Imminent</span>
+      <span class="cal-event"><strong>Trump MOU signature</strong> — 60-day US-Iran ceasefire extension. Stalled on "language points" per VP Vance. No fixed date. Watch for overnight announcement.</span>
+    </div>
+    <div class="cal-item">
+      <span class="cal-date">Sun 7 Jun</span>
+      <span class="cal-event"><strong>OPEC+ 41st Ministerial</strong> — Expected +188K bpd from June. Practically blunted by Hormuz. ASX impact delayed to Mon/Tue.</span>
+    </div>
+    <div class="cal-item">
+      <span class="cal-date">Mon 8 Jun</span>
+      <span class="cal-event"><strong>King's Birthday</strong> — ASX closed for NSW, VIC, SA. QLD and WA open. Thin-market risk if OPEC+ surprise overnight.</span>
+    </div>
+    <div class="cal-item">
+      <span class="cal-date">Tue–Thu 16–17 Jun</span>
+      <span class="cal-event"><strong>Warsh FOMC Meeting</strong> — Hold locked (99.6%). Press conference language on oil inflation is the real event. Warsh's first as US Fed chair.</span>
+    </div>
+    <div class="cal-item">
+      <span class="cal-date">Mid-Jul</span>
+      <span class="cal-event"><strong>US June CPI</strong> — Will capture current WTI ~$95–96/bbl run. Likely to show energy inflation persisting. Highest-probability catalyst for Kalshi ≥20% depression tail to approach ↑15% trigger.</span>
+    </div>
+  </div>
+
+  <!-- Trigger status table -->
+  <h2>All Active Triggers</h2>
+  <table class="xmkt-table">
+    <thead>
+      <tr><th>Trigger</th><th>Platform</th><th>Current</th><th>Threshold</th><th>Gap</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Iran invasion peace-dividend floor</td>
+        <td>Polymarket</td>
+        <td>16.5%</td>
+        <td>↓15%</td>
+        <td style="color:#fc8181; font-weight:700;">1.5pp above trigger</td>
+        <td class="verdict-warn">CRITICAL WATCH</td>
+      </tr>
+      <tr>
+        <td>Hormuz July 31 deep collapse sentinel</td>
+        <td>Polymarket</td>
+        <td>34.5%</td>
+        <td>↓28%</td>
+        <td style="color:#f6ad55;">6.5pp above trigger</td>
+        <td class="verdict-warn">ELEVATED</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥20% depression tail</td>
+        <td>Kalshi</td>
+        <td>10%</td>
+        <td>↑15%</td>
+        <td>5pp below trigger</td>
+        <td class="verdict-pass">Watching</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥10% unemployment</td>
+        <td>Kalshi</td>
+        <td>29%</td>
+        <td>↑45%</td>
+        <td>16pp below trigger</td>
+        <td class="verdict-pass">Watching</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥7% unemployment ceiling</td>
+        <td>Kalshi</td>
+        <td>65%</td>
+        <td>↑74%</td>
+        <td>9pp below trigger</td>
+        <td class="verdict-pass">Watching</td>
+      </tr>
+      <tr>
+        <td>Cuba US strike escalation</td>
+        <td>Polymarket</td>
+        <td>45.5%</td>
+        <td>↑60%</td>
+        <td>14.5pp below trigger</td>
+        <td class="verdict-pass">Watching</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal breakdown sentinel</td>
+        <td>Polymarket</td>
+        <td>67.0%</td>
+        <td>↓45%</td>
+        <td>22pp above sentinel</td>
+        <td class="verdict-pass">Stable</td>
+      </tr>
+      <tr>
+        <td>Iran invasion near-zero floor</td>
+        <td>Polymarket</td>
+        <td>16.5%</td>
+        <td>↓10%</td>
+        <td>6.5pp above trigger</td>
+        <td class="verdict-pass">Watching</td>
+      </tr>
+      <tr>
+        <td>Iran invasion escalation signal</td>
+        <td>Polymarket</td>
+        <td>16.5%</td>
+        <td>↑40%</td>
+        <td>23.5pp below trigger</td>
+        <td class="verdict-pass">Stable</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal approaching certainty</td>
+        <td>Polymarket</td>
+        <td>67.0%</td>
+        <td>↑85%</td>
+        <td>18pp below trigger</td>
+        <td class="verdict-pass">Stable</td>
+      </tr>
+      <tr>
+        <td>Hormuz July 31 de-escalation confirm</td>
+        <td>Polymarket</td>
+        <td>34.5%</td>
+        <td>↑85%</td>
+        <td>50.5pp below trigger</td>
+        <td class="verdict-pass">Stable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+  <div class="footer">
+    Generated 5 June 2026 · 7:00 AM AEST · Polymarket + Kalshi data · 43 Polymarket markets, 301 Kalshi markets · 11 triggers active, 0 fired
+    <br>Sources: Polymarket, Kalshi, Al Jazeera, Axios, Gulf News, Wikipedia (2026 Strait of Hormuz crisis)
+  </div>
+
+</div>
+</body>
+</html>
