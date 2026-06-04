@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 4 June 2026 5PM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+
+  /* Header */
+  .header { border-bottom: 2px solid #2d3748; padding-bottom: 24px; margin-bottom: 32px; }
+  .header-meta { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #718096; margin-bottom: 8px; }
+  h1 { font-size: 26px; font-weight: 700; color: #f7fafc; line-height: 1.3; margin-bottom: 8px; }
+  .subtitle { color: #a0aec0; font-size: 14px; }
+
+  /* Alert banner */
+  .alert-banner { background: #1a1a2e; border-left: 4px solid #f6ad55; border-radius: 4px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; }
+  .alert-banner.info { border-left-color: #63b3ed; }
+  .alert-banner.warning { border-left-color: #fc8181; }
+  .alert-banner strong { color: #f6ad55; }
+  .alert-banner.info strong { color: #63b3ed; }
+  .alert-banner.warning strong { color: #fc8181; }
+
+  /* Two-column section headers */
+  h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #718096; margin: 28px 0 14px; border-bottom: 1px solid #2d3748; padding-bottom: 6px; }
+  h3 { font-size: 15px; font-weight: 600; color: #e2e8f0; margin: 18px 0 8px; }
+
+  /* Market cards */
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+  .market-card { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 14px 16px; }
+  .market-card.highlight { border-color: #4a5568; background: #1e2533; }
+  .market-card.resolved { border-color: #276749; background: #1c3129; opacity: 0.85; }
+  .card-label { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .card-price { font-size: 26px; font-weight: 700; color: #f7fafc; }
+  .card-price.green { color: #68d391; }
+  .card-price.red { color: #fc8181; }
+  .card-price.amber { color: #f6ad55; }
+  .card-delta { font-size: 12px; margin-top: 2px; }
+  .card-delta.up { color: #68d391; }
+  .card-delta.down { color: #fc8181; }
+  .card-delta.flat { color: #718096; }
+  .card-note { font-size: 11px; color: #a0aec0; margin-top: 6px; line-height: 1.4; }
+  .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 3px; vertical-align: middle; margin-left: 5px; }
+  .badge-high { background: #276749; color: #9ae6b4; }
+  .badge-med { background: #744210; color: #fbd38d; }
+  .badge-low { background: #2d3748; color: #718096; }
+  .badge-fire { background: #c05621; color: #fbd38d; }
+  .badge-close { background: #553c2b; color: #fbd38d; }
+
+  /* Trigger proximity bar */
+  .trigger-bar { margin-top: 10px; }
+  .trigger-bar-track { background: #2d3748; border-radius: 3px; height: 6px; margin-top: 4px; }
+  .trigger-bar-fill { border-radius: 3px; height: 6px; }
+  .trigger-bar-fill.green { background: #48bb78; }
+  .trigger-bar-fill.amber { background: #f6ad55; }
+  .trigger-bar-fill.red { background: #fc8181; }
+  .trigger-label { font-size: 10px; color: #718096; margin-top: 3px; }
+
+  /* Story sections */
+  .story-box { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .story-box.primary { border-color: #4a5568; }
+  .story-title { font-size: 15px; font-weight: 700; color: #f7fafc; margin-bottom: 10px; }
+  .story-body { font-size: 13.5px; color: #cbd5e0; line-height: 1.65; }
+  .story-body p { margin-bottom: 8px; }
+  ul.bullets { padding-left: 18px; margin: 8px 0; }
+  ul.bullets li { margin-bottom: 5px; font-size: 13.5px; color: #cbd5e0; }
+
+  /* Trigger table */
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { text-align: left; padding: 8px 10px; background: #1a202c; color: #718096; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #2d3748; }
+  .trigger-table td { padding: 9px 10px; border-bottom: 1px solid #1a202c; vertical-align: middle; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .trigger-table .price-col { font-weight: 600; font-size: 14px; }
+  .trigger-table .gap-amber { color: #f6ad55; }
+  .trigger-table .gap-green { color: #68d391; }
+  .trigger-table .gap-safe { color: #718096; }
+
+  /* Forward view */
+  .forward-box { background: #141a26; border: 1px solid #2a3654; border-radius: 8px; padding: 20px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .forward-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .forward-text { font-size: 13.5px; color: #cbd5e0; line-height: 1.55; }
+  .forward-text strong { color: #e2e8f0; }
+
+  /* Cross-market validation */
+  .validation-row { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #1a202c; font-size: 13px; }
+  .validation-row:last-child { border-bottom: none; }
+  .val-icon { font-size: 16px; flex-shrink: 0; }
+  .val-text { color: #cbd5e0; }
+  .val-text strong { color: #e2e8f0; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #2d3748; font-size: 11px; color: #4a5568; text-align: center; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-meta">Polymarket Financial Intelligence · Thursday 4 June 2026 · 5:00 PM AEST</div>
+    <h1>BTC Crashes on Fed Rate Shock; Oil War Premium Stripped; Iran Invasion 1.5pp from Peace Dividend Trigger</h1>
+    <div class="subtitle">Two separate macro stories: a Fed-driven crypto deleveraging and a multi-week oil war-premium unwind. The 92nd+ consecutive Iran bifurcation ends — oil is finally pricing de-escalation.</div>
+  </div>
+
+  <!-- Alert banners -->
+  <div class="alert-banner warning">
+    <strong>⚡ BTC Rate Shock:</strong> Bitcoin down ~14-16% from May peak (~$74.5K → ~$62-64K). Primary catalyst: Fed rate repricing — hawkish language shift removed "progress toward 2% inflation" language; 2 voting members signal cuts pushed to 2027; 10Y Treasury yield +18bps to 4.82%. $3.4B ETF outflows (largest-ever weekly). ~$1.5B in leveraged longs liquidated.
+  </div>
+  <div class="alert-banner info">
+    <strong>📉 Oil War Premium Strip Confirmed:</strong> Polymarket "CL LOW $85 by end of June" resolved 100% (+20pp today), confirming WTI touched ~$83-85 during the May 29 trough — 20% below the $104 peak. Current bounce to ~$95-96/bbl on inventory drawdown. Catalyst: Iran 60-day ceasefire extension MOU reportedly agreed (Trump signature pending); OPEC+ June 7 meeting expected to add 188K bpd supply.
+  </div>
+  <div class="alert-banner">
+    <strong>⚠️ Iran Invasion 1.5pp from ↓15% Peace Dividend Trigger:</strong> Fell from 17.5% (7AM) to 16.5% (5PM). One more de-escalation catalyst (e.g., Trump MOU signature) likely pushes it through. Do NOT act standalone — cross-market confirmation required.
+  </div>
+
+  <!-- ===== TWO STORIES ===== -->
+  <h2>The Two Macro Stories</h2>
+
+  <div class="story-box primary">
+    <div class="story-title">Story 1: Bitcoin &amp; Risk Assets — Fed Rate Shock</div>
+    <div class="story-body">
+      <p>The June 4 crypto selloff is <strong>monetary, not geopolitical</strong>. After Bitcoin's 34% rally to ~$74,500 in late May, a cluster of Fed signals triggered a forced deleveraging cascade:</p>
+      <ul class="bullets">
+        <li><strong>Fed language shift:</strong> FOMC statement removed language about "progress toward the 2% inflation target" — hawkish signal that prior cut bets were premature.</li>
+        <li><strong>Two voting members:</strong> Signalled rate cuts likely pushed to 2027, directly contradicting market expectations of a 2026 easing cycle.</li>
+        <li><strong>US 10Y Treasury yield:</strong> +18bps to 4.82% in one session — risk-free rate repricing that pressures all long-duration risk assets.</li>
+        <li><strong>ETF outflows:</strong> $3.4B net outflow this week from US spot BTC ETFs — the largest-ever weekly withdrawal, as institutional carry trades unwound.</li>
+        <li><strong>Strategy (MicroStrategy):</strong> Sold BTC for the first time in ~4 years (32 BTC to cover dividends). Symbolic, but confirmed institutional cracks in the "permanent HODL" narrative.</li>
+      </ul>
+      <p>BTC has now confirmed it touched $62.5K as a low in June (100% resolved). The $60K level is now a coin-flip (60.5%). Ethereum hit $1,800 low (100% resolved). This is a deleveraging, not a structural bear market event — but the 10Y at 4.82% is the key macro headwind for equities, AUD, and rate-sensitive sectors (REITs, growth tech).</p>
+    </div>
+  </div>
+
+  <div class="story-box">
+    <div class="story-title">Story 2: Oil War Premium — The 92nd Bifurcation Pattern Has Ended</div>
+    <div class="story-body">
+      <p>Since tracking began in February 2026, WTI oil held stubbornly elevated despite every de-escalation signal (the "bifurcation" pattern). <strong>That pattern is over.</strong> WTI has fallen 20% from its $104 May peak, with the $83-85 trough confirmed by today's Polymarket resolution. The de-escalation trade is finally flowing through to physical oil pricing.</p>
+      <ul class="bullets">
+        <li><strong>WTI trough ~$83-85/bbl:</strong> Polymarket "CL LOW $85 by end of June" and "LOW $90 by end of June" both resolved at 100% today, confirming WTI crossed these levels during the May 29 decline. Current price ~$95-96 (3-session bounce on US inventory draw).</li>
+        <li><strong>Iran 60-day MOU:</strong> US and Iranian negotiators reportedly agreed a 60-day ceasefire extension MOU — pending Trump signature. This is the primary oil de-escalation catalyst. Brent dropped ~$20-25 from peak on this expectation.</li>
+        <li><strong>OPEC+ June 7:</strong> Meeting expected to ratify another ~188K bpd output increase — incremental bearish supply pressure coinciding with demand-risk easing.</li>
+        <li><strong>Australia fuel impact:</strong> WTI proxy for Brent. Blockade-peak A$2.30-2.45/L petrol is now structurally de-risked if the MOU is signed. A$2.10-2.25/L scenario opens on confirmed deal.</li>
+      </ul>
+      <p><strong>Key contradiction resolved:</strong> Oil declining while Iran invasion falls (16.5%) and nuclear deal holds (66.5%) is the <em>correct</em> cross-market signal — unlike April-May's persistent bifurcation. Oil is now validating the geopolitical read, not contradicting it.</p>
+    </div>
+  </div>
+
+  <!-- ===== KEY MARKETS ===== -->
+  <h2>Key Market Readings (5PM AEST)</h2>
+
+  <h3>Iran Complex</h3>
+  <div class="market-grid">
+    <div class="market-card highlight">
+      <div class="card-label">Iran Invasion 2027<span class="badge badge-low">LOW</span></div>
+      <div class="card-price amber">16.5%</div>
+      <div class="card-delta down">▼ fell from 17.5% at 7AM (-1pp)</div>
+      <div class="card-note">1.5pp above ↓15% peace-dividend trigger. 7th consecutive session decline. Do NOT act standalone — cross-market required.</div>
+      <div class="trigger-bar">
+        <div class="trigger-bar-track"><div class="trigger-bar-fill amber" style="width:33%"></div></div>
+        <div class="trigger-label">1.5pp above trigger (fires at ↓15%)</div>
+      </div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">US-Iran Nuclear Deal 2027<span class="badge badge-low">LOW</span></div>
+      <div class="card-price green">66.5%</div>
+      <div class="card-delta down">▼ fell from 67.5% at 7AM (-1pp); +1.5pp/24h</div>
+      <div class="card-note">Well above ↓45% breakdown sentinel. Deal framework intact despite June 7 deadline passing without announcement.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Hormuz Traffic Normal by July 31<span class="badge badge-med">MED</span></div>
+      <div class="card-price amber">34.5%</div>
+      <div class="card-delta down">▼ fell from 37% at 7AM (-2.5pp); -4pp/24h</div>
+      <div class="card-note">6.5pp above ↓28% deep collapse sentinel. Post-Rubio reversal overshoot continuing. Physical normalisation by July 31 priced at 34.5%.</div>
+      <div class="trigger-bar">
+        <div class="trigger-bar-track"><div class="trigger-bar-fill amber" style="width:56%"></div></div>
+        <div class="trigger-label">6.5pp above collapse sentinel (fires at ↓28%)</div>
+      </div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Iran Permanent Peace Deal — June 30<span class="badge badge-low">LOW</span></div>
+      <div class="card-price">25.5%</div>
+      <div class="card-delta up">▲ rose 2pp/24h</div>
+      <div class="card-note">Sibling: June 7 at 4.5% (pure time-decay, deadline in 3 days). June 30 uptick mildly positive. MOU pending Trump signature.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">US-Iran Ceasefire Extension — June 30<span class="badge badge-med">MED</span></div>
+      <div class="card-price">55.5%</div>
+      <div class="card-delta down">▼ fell 1pp/24h</div>
+      <div class="card-note">June 7 sibling: 11.5% (+1pp). Coin-flip on ANY new agreement by June 30. MOU framework pending Trump.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Iran Leadership Change by Dec 31<span class="badge badge-low">LOW</span></div>
+      <div class="card-price">27.5%</div>
+      <div class="card-delta down">▼ -1pp/24h</div>
+      <div class="card-note">32.5pp below ↑60% trigger. Mild de-escalation = domestic pressure easing slightly. Not threatening.</div>
+    </div>
+  </div>
+
+  <h3>Oil &amp; Commodities</h3>
+  <div class="market-grid">
+    <div class="market-card resolved">
+      <div class="card-label">WTI LOW $85 by End of June<span class="badge badge-high">HIGH</span> <span class="badge badge-fire">RESOLVED ✓</span></div>
+      <div class="card-price green">100%</div>
+      <div class="card-delta up">▲ +20pp/24h — just confirmed</div>
+      <div class="card-note">WTI traded at ~$83-85 during May 29 trough. 20% off $104 May peak. War premium is being stripped. Current ~$95-96 (bouncing).</div>
+    </div>
+    <div class="market-card resolved">
+      <div class="card-label">WTI LOW $90 by End of June<span class="badge badge-high">HIGH</span> <span class="badge badge-fire">RESOLVED ✓</span></div>
+      <div class="card-price green">100%</div>
+      <div class="card-delta up">▲ +12.4pp/24h — confirmed</div>
+      <div class="card-note">WTI also crossed $90 as a low during the de-escalation unwind. Consistent with $85-90 trough range.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">WTI HIGH $100 in June<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price">71.5%</div>
+      <div class="card-delta down">▼ -4pp/24h</div>
+      <div class="card-note">71.5% chance WTI bounces back to $100 before June 30. From $95-96 base, a $4-5 rise needed. Plausible if MOU fails or OPEC+ disappoints.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">WTI LOW $75 in June<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price red">14.5%</div>
+      <div class="card-delta down">▼ -2.5pp/24h</div>
+      <div class="card-note">Only 14.5% chance of a further collapse to $75. Oil floor holding at $83-85 range unless Iran deal collapses OR demand shocks compound.</div>
+    </div>
+  </div>
+
+  <h3>Crypto</h3>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="card-label">Bitcoin Above $62K on June 4<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price amber">86.5%</div>
+      <div class="card-delta down">▼ -12.1pp/24h</div>
+      <div class="card-note">BTC currently in ~$62-64K zone. 86.5% implies likely above $62K but conviction declining. Today's close confirms the Fed-shock selloff range.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Bitcoin Dips to $60K in June<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price amber">60.5%</div>
+      <div class="card-delta up">▲ +27pp/24h — massive move</div>
+      <div class="card-note">Coin-flip on $60K. If 10Y holds at 4.82% through Warsh FOMC (June 16-17), BTC downside pressure continues. Key support at $60K.</div>
+    </div>
+    <div class="market-card resolved">
+      <div class="card-label">Bitcoin Dips to $62.5K in June<span class="badge badge-high">HIGH</span> <span class="badge badge-fire">RESOLVED ✓</span></div>
+      <div class="card-price green">100%</div>
+      <div class="card-delta up">▲ +35.4pp/24h</div>
+      <div class="card-note">$62.5K confirmed hit. May peak was ~$74.5K — BTC now ~16% below May high.</div>
+    </div>
+    <div class="market-card resolved">
+      <div class="card-label">Ethereum Dips to $1,800 in June<span class="badge badge-high">HIGH</span> <span class="badge badge-fire">RESOLVED ✓</span></div>
+      <div class="card-price green">100%</div>
+      <div class="card-delta up">▲ +30.4pp/24h</div>
+      <div class="card-note">ETH hit $1,800 today. Confirms broad crypto deleveraging, not BTC-specific. Ethereum now ~$1,700-1,900 range.</div>
+    </div>
+  </div>
+
+  <h3>Rates &amp; Macro</h3>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="card-label">Fed June Rate — No Change<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price green">98.2%</div>
+      <div class="card-delta flat">— flat</div>
+      <div class="card-note">Warsh FOMC June 16-17 = hold locked. Rate language is the event, not the decision. 12 days out.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Zero US Fed Cuts in 2026<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price amber">68.8%</div>
+      <div class="card-delta up">▲ +0.1pp — inching up</div>
+      <div class="card-note">Fed hawkish repricing today confirms: 2026 rate cut expectations nearly dead. Cuts pushed to 2027 by 2 voting members. Higher-for-longer backdrop.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">US Fed July Rate — No Change<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price green">97.2%</div>
+      <div class="card-delta flat">— flat</div>
+      <div class="card-note">July cut: only 1.8%. Higher-for-longer confirmed through Q3. AUD/USD structurally pressured by rate differential.</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Cuba US Strike by Dec 31<span class="badge badge-low">LOW</span></div>
+      <div class="card-price amber">47.0%</div>
+      <div class="card-delta down">▼ -0.5pp/1h — minor</div>
+      <div class="card-note">13pp below ↑60% trigger. Blanche confirmed as AG (99.9%) — DOJ will have clearer mandate on Cuba policy. Watch for policy hardening signals.</div>
+    </div>
+  </div>
+
+  <h3>Geopolitical Noise (Dismissed)</h3>
+  <div class="market-grid">
+    <div class="market-card resolved">
+      <div class="card-label">Israel-Lebanon Ceasefire Extended by June 7<span class="badge badge-med">MED</span> <span class="badge badge-fire">RESOLVED ✓</span></div>
+      <div class="card-price green">99.9%</div>
+      <div class="card-delta up">▲ +75.8pp/24h</div>
+      <div class="card-note">Lebanon ceasefire confirmed extended. Positive for ME de-escalation narrative. Israel-Hezbollah front quiet. Reinforces Iran diplomatic pathway.</div>
+    </div>
+    <div class="market-card resolved">
+      <div class="card-label">Todd Blanche as Next US AG<span class="badge badge-med">MED</span> <span class="badge badge-fire">CONFIRMED</span></div>
+      <div class="card-price green">99.9%</div>
+      <div class="card-delta up">▲ +89.8pp/24h</div>
+      <div class="card-note">Blanche confirmed as Trump's next AG (per his "likely pick" statement June 3). Personnel; zero macro relevance. Dismissed.</div>
+    </div>
+  </div>
+
+  <!-- ===== ALL TRIGGERS ===== -->
+  <h2>Trigger Status — 11 Active (0 Fired This Session)</h2>
+  <table class="trigger-table">
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Market</th>
+        <th>Price</th>
+        <th>Gap to Trigger</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Iran invasion peace-dividend early warning</td>
+        <td>US invades Iran before 2027 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">16.5%</td>
+        <td class="gap-amber">1.5pp above ↓15%</td>
+        <td>⚠️ CLOSE</td>
+      </tr>
+      <tr>
+        <td>Hormuz deep collapse sentinel</td>
+        <td>Hormuz traffic normal by July 31 <span class="badge badge-med">MED</span></td>
+        <td class="price-col">34.5%</td>
+        <td class="gap-amber">6.5pp above ↓28%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Iran invasion near-zero floor</td>
+        <td>US invades Iran before 2027 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">16.5%</td>
+        <td class="gap-green">6.5pp above ↓10%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Kalshi ≥20% unemployment tail</td>
+        <td>US unemployment hits ≥20% before 2030 <span class="badge badge-high">HIGH</span></td>
+        <td class="price-col">10%</td>
+        <td class="gap-amber">5pp below ↑15%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Clarence Thomas resign</td>
+        <td>Will Clarence Thomas resign? <span class="badge badge-med">MED</span></td>
+        <td class="price-col">47%</td>
+        <td class="gap-amber">8pp below ↑55%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Cuba US strike escalation</td>
+        <td>US strike on Cuba by Dec 31 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">47%</td>
+        <td class="gap-green">13pp below ↑60%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Taiwan invasion</td>
+        <td>China invades Taiwan by end 2026 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">6.2%</td>
+        <td class="gap-green">8.8pp below ↑15%</td>
+        <td>Watching</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal breakdown sentinel</td>
+        <td>US-Iran nuclear deal before 2027 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">66.5%</td>
+        <td class="gap-safe">21.5pp above ↓45%</td>
+        <td>Safe</td>
+      </tr>
+      <tr>
+        <td>Iran invasion escalation signal</td>
+        <td>US invades Iran before 2027 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">16.5%</td>
+        <td class="gap-safe">23.5pp below ↑40%</td>
+        <td>Safe</td>
+      </tr>
+      <tr>
+        <td>Nuclear deal approaching certainty</td>
+        <td>US-Iran nuclear deal before 2027 <span class="badge badge-low">LOW</span></td>
+        <td class="price-col">66.5%</td>
+        <td class="gap-safe">18.5pp below ↑85%</td>
+        <td>Safe</td>
+      </tr>
+      <tr>
+        <td>Fed June hike probability</td>
+        <td>Fed increases rates June 2026 <span class="badge badge-high">HIGH</span></td>
+        <td class="price-col">0.4%</td>
+        <td class="gap-safe">4.6pp below ↑5%</td>
+        <td>Safe</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ===== KALSHI ===== -->
+  <h2>Kalshi Economic Signals</h2>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="card-label">US Unemployment ≥7% Before 2030<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price">65%</div>
+      <div class="card-delta flat">— flat (9pp below ↑74% trigger)</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">US Unemployment ≥10% Before 2030<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price">29%</div>
+      <div class="card-delta flat">— flat (16pp below ↑45% trigger)</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">US Unemployment ≥20% (Depression Tail)<span class="badge badge-high">HIGH</span></div>
+      <div class="card-price amber">10%</div>
+      <div class="card-delta flat">— flat (5pp below ↑15% trigger)</div>
+    </div>
+    <div class="market-card">
+      <div class="card-label">Trump Next AG (Kalshi)<span class="badge badge-med">MED</span></div>
+      <div class="card-price">69%</div>
+      <div class="card-delta up">▲ +1pp (Blanche; Polymarket confirms at 99.9%)</div>
+      <div class="card-note">Kalshi lagging Polymarket — Blanche effectively confirmed. Political noise, zero macro relevance.</div>
+    </div>
+  </div>
+
+  <!-- ===== CROSS-MARKET VALIDATION ===== -->
+  <h2>Cross-Market Validation</h2>
+  <div class="story-box">
+    <div class="story-body">
+      <div class="validation-row">
+        <div class="val-icon">✅</div>
+        <div class="val-text"><strong>Oil down + Iran invasion down + nuclear deal stable:</strong> Internally consistent de-escalation signal. Oil finally responding to geopolitics (bifurcation pattern ended). Ground truth: WTI $95-96 (down 8-9% from $104 peak) validates the diplomatic progress narrative.</div>
+      </div>
+      <div class="validation-row">
+        <div class="val-icon">✅</div>
+        <div class="val-text"><strong>BTC crash + 10Y yield +18bps + zero 2026 cuts at 68.8%:</strong> All point in the same direction — Fed hawkish repricing. These are INDEPENDENT of the Iran/oil story. No contradiction.</div>
+      </div>
+      <div class="validation-row">
+        <div class="val-icon">✅</div>
+        <div class="val-text"><strong>Israel-Lebanon ceasefire confirmed + Iran invasion declining:</strong> Regional de-escalation on two fronts simultaneously. Consistent. Lebanon ceasefire removes one of Iran's stated blocking conditions for nuclear talks.</div>
+      </div>
+      <div class="validation-row">
+        <div class="val-icon">⚠️</div>
+        <div class="val-text"><strong>Hormuz July 31 declining (34.5%) while oil bouncing ($95-96):</strong> Mild tension. Oil bounce is inventory-driven (short-term); Hormuz declining reflects elongated physical timeline. This is NOT a contradiction — it confirms the "deal eventually but not by July 31" thesis. Resolution quality [MED] for Hormuz; trust WTI [HIGH] as ground truth.</div>
+      </div>
+      <div class="validation-row">
+        <div class="val-icon">✅</div>
+        <div class="val-text"><strong>Kalshi unemployment flat (65%/29%/10%) despite BTC crash:</strong> No recession fear pricing. The Fed hawkish signal is being read as "inflation control" not "economy-crashing." Consistent with Warsh's hold-and-sweat posture.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FORWARD VIEW ===== -->
+  <h2>Forward View — Next 72 Hours</h2>
+  <div class="forward-box">
+    <div class="forward-item">
+      <div class="forward-icon">📋</div>
+      <div class="forward-text"><strong>Trump MOU signature (imminent watch):</strong> The reported 60-day Iran ceasefire extension MOU is the single highest-priority catalyst. If signed: Iran invasion ↓15% trigger fires (was 1.5pp away), ceasefire extension by June 7 surges from 11.5%, Hormuz July 31 bounces toward 45-50%, WTI resumes decline. If rejected/delayed: Hormuz collapses toward ↓28% sentinel, nuclear deal will reprice downward. This is a binary outcome event on a very short fuse.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">🛢️</div>
+      <div class="forward-text"><strong>OPEC+ June 7 (3 days):</strong> Expected to ratify ~188K bpd output increase. Independent of Iran — bearish supply signal regardless of deal outcome. If simultaneously Iran MOU is signed, WTI could gap down toward $88-90 (back toward the May trough). Australian petrol A$2.10-2.25/L scenario activates.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">🏦</div>
+      <div class="forward-text"><strong>Warsh FOMC June 16-17 (12 days):</strong> Hold is 98.2% locked. The event risk is in the statement language: (1) does Warsh retain "higher-for-longer" framing; (2) does the Fed acknowledge the BTC deleveraging as a financial stability concern; (3) any mention of 2027 cut timing. Language that explicitly pushes cuts to 2027 = another leg down for BTC and rate-sensitive equities. Press conference tone matters.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">₿</div>
+      <div class="forward-text"><strong>BTC $60K support test (active):</strong> 60.5% probability of touching $60K this month. The 10Y at 4.82% is the primary headwind — if it holds or rises into the FOMC, BTC deleveraging continues. If it reverses on MOU-driven de-escalation (lower inflation expectations from cheaper oil), BTC finds a floor at $60-62K. Watch 10Y yield direction as the leading indicator for crypto stabilisation.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">🇦🇺</div>
+      <div class="forward-text"><strong>Australia impact — two offsetting forces:</strong> (1) <em>Negative</em>: AUD/USD under pressure from higher-for-longer US rate differential + BTC/risk-off sentiment; (2) <em>Positive</em>: Oil war premium unwind = pump price relief (A$2.10-2.25/L scenario if MOU signed + OPEC+ supply added) + RBA rate path less constrained as energy inflation eases. Net: AUD likely range-bound 0.62-0.67, with direction determined by the MOU decision in coming days. ASX Monday June 8 — <strong>verify: King's Birthday holiday in some states</strong> (NSW/VIC/SA close; QLD/WA observe different dates).</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Generated by Polymarket Financial Analyst Agent · 4 June 2026 17:00 AEST<br>
+    Data: Polymarket (51 markets, 11 triggers), Kalshi (309 markets), spot WTI, web sources<br>
+    <em>Resolution quality: [HIGH] = objective data, [MED] = has criteria but interpretation surface, [LOW] = UMA-voted subjective</em>
+  </footer>
+
+</div>
+</body>
+</html>
