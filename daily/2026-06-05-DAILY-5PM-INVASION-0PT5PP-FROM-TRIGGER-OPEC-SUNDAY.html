@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 5 Jun 5PM AEST: Invasion 0.5pp from Trigger; OPEC+ Tomorrow</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #141824 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px 24px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .logo { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4a5568; }
+  .timestamp { font-size: 12px; color: #4a5568; }
+  h1 { font-size: 22px; font-weight: 700; color: #f7fafc; line-height: 1.3; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #a0aec0; }
+  .alert-banner { background: #1a2436; border-left: 4px solid #f6ad55; padding: 14px 20px; margin: 20px 32px; border-radius: 0 6px 6px 0; }
+  .alert-banner .alert-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #f6ad55; margin-bottom: 4px; }
+  .alert-banner p { font-size: 14px; color: #e2e8f0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 32px 40px; }
+  section { margin-bottom: 32px; }
+  h2 { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #4a5568; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e2533; }
+  h3 { font-size: 15px; font-weight: 600; color: #e2e8f0; margin-bottom: 8px; margin-top: 18px; }
+  p { font-size: 14px; color: #a0aec0; margin-bottom: 10px; }
+  strong { color: #e2e8f0; }
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { text-align: left; padding: 8px 10px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #4a5568; border-bottom: 1px solid #1e2533; }
+  .trigger-table td { padding: 10px 10px; border-bottom: 1px solid #1a2030; vertical-align: top; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .price { font-weight: 700; font-size: 15px; }
+  .price-up { color: #68d391; }
+  .price-down { color: #fc8181; }
+  .price-warn { color: #f6ad55; }
+  .price-neutral { color: #e2e8f0; }
+  .delta-pos { color: #68d391; font-size: 12px; }
+  .delta-neg { color: #fc8181; font-size: 12px; }
+  .delta-flat { color: #4a5568; font-size: 12px; }
+  .gap { font-size: 12px; color: #718096; }
+  .gap-warn { font-size: 12px; color: #f6ad55; font-weight: 600; }
+  .gap-critical { font-size: 12px; color: #fc8181; font-weight: 700; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+  .badge-high { background: #1a3a2a; color: #68d391; border: 1px solid #276749; }
+  .badge-med { background: #2d2a1a; color: #f6e05e; border: 1px solid #7b6914; }
+  .badge-low { background: #2d1a1a; color: #fc8181; border: 1px solid #7b2626; }
+  .story-card { background: #141824; border: 1px solid #1e2533; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .story-card.featured { border-color: #f6ad55; }
+  .story-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #4a5568; margin-bottom: 6px; }
+  .story-title { font-size: 16px; font-weight: 700; color: #e2e8f0; margin-bottom: 10px; }
+  .story-body { font-size: 14px; color: #a0aec0; line-height: 1.7; }
+  .story-body strong { color: #e2e8f0; }
+  .cross-market { background: #0d1a0d; border: 1px solid #1a3a1a; border-radius: 6px; padding: 12px 16px; margin-top: 10px; font-size: 13px; color: #68d391; }
+  .cross-market strong { color: #9ae6b4; }
+  .forward-card { background: #141824; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; }
+  .calendar-item { display: flex; gap: 14px; margin-bottom: 8px; align-items: flex-start; }
+  .cal-date { font-size: 12px; font-weight: 700; color: #f6ad55; min-width: 80px; }
+  .cal-event { font-size: 13px; color: #a0aec0; }
+  .bifurcation-banner { background: #0d1a0d; border: 1px solid #1a3a1a; border-radius: 6px; padding: 10px 14px; margin-top: 12px; font-size: 12px; color: #68d391; text-align: center; }
+  .action-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #a0aec0; }
+  .action-item::before { content: "→"; color: #4a5568; }
+  .footer { text-align: center; padding: 24px; border-top: 1px solid #1e2533; font-size: 11px; color: #2d3748; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo">Polymarket Analyst</div>
+    <div class="timestamp">Friday 5 June 2026 · 5:00 PM AEST</div>
+  </div>
+  <h1>Invasion 0.5pp from Peace Dividend Trigger<br>Nuclear Deal Holds 67%; OPEC+ Sunday</h1>
+  <div class="subtitle">Daily 5PM · 47 Polymarket markets · 11 triggers · Kalshi 309 markets · 95th consecutive bifurcation</div>
+</div>
+
+<div class="alert-banner">
+  <div class="alert-label">⚠ Watch: Iran Invasion 0.5pp from Trigger</div>
+  <p>Iran invasion before 2027 fell to <strong>15.5%</strong> — now just <strong>0.5pp above</strong> the ↓15% peace-dividend early warning trigger. Cross-market conditions both met for inclusion: WTI ~$95–96/bbl (flat), nuclear deal 67% (above 60%). No standalone alert warranted — MOU signature is the catalyst to watch.</p>
+</div>
+
+<div class="container">
+
+<!-- TRIGGER PROXIMITY TABLE -->
+<section>
+  <h2>Trigger Proximity — All 11 Active</h2>
+  <table class="trigger-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Quality</th>
+        <th>Price</th>
+        <th>24h Δ</th>
+        <th>Distance to Trigger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Iran invasion peace-dividend floor</strong><br><span class="gap">Fires at ↓15%</span></td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td><span class="price price-warn">15.5%</span></td>
+        <td><span class="delta-neg">−1.0pp</span></td>
+        <td><span class="gap-critical">⚡ 0.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hormuz July 31 collapse sentinel</strong><br><span class="gap">Fires at ↓28%</span></td>
+        <td><span class="badge badge-med">MED</span></td>
+        <td><span class="price price-warn">34.5%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap-warn">6.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kalshi ≥20% depression tail</strong><br><span class="gap">Fires at ↑15%</span></td>
+        <td>—</td>
+        <td><span class="price price-neutral">10.0%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap">5.0pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Iran invasion near-zero floor</strong><br><span class="gap">Fires at ↓10%</span></td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td><span class="price price-neutral">15.5%</span></td>
+        <td><span class="delta-neg">−1.0pp</span></td>
+        <td><span class="gap">5.5pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>China invades Taiwan by end 2026</strong><br><span class="gap">Fires at ↑15%</span></td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td><span class="price price-neutral">6.2%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap">8.8pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>US Fed June hike probability</strong><br><span class="gap">Fires at ↑5%</span></td>
+        <td><span class="badge badge-high">HIGH</span></td>
+        <td><span class="price price-neutral">0.4%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap">4.6pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>US strike on Cuba by Dec 31</strong><br><span class="gap">Fires at ↑60%</span></td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td><span class="price price-neutral">45.0%</span></td>
+        <td><span class="delta-neg">−1.5pp</span></td>
+        <td><span class="gap">15.0pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>US-Iran nuclear deal certainty</strong><br><span class="gap">Fires at ↑85%</span></td>
+        <td><span class="badge badge-high">HIGH</span></td>
+        <td><span class="price price-neutral">67.0%</span></td>
+        <td><span class="delta-pos">+1.5pp</span></td>
+        <td><span class="gap">18.0pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Nuclear deal breakdown sentinel</strong><br><span class="gap">Fires at ↓45%</span></td>
+        <td><span class="badge badge-high">HIGH</span></td>
+        <td><span class="price price-neutral">67.0%</span></td>
+        <td><span class="delta-pos">+1.5pp</span></td>
+        <td><span class="gap">22.0pp above trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Iran leadership change Dec 31</strong><br><span class="gap">Fires at ↑60%</span></td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td><span class="price price-neutral">25.0%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap">35.0pp below trigger</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hormuz July 31 certainty</strong><br><span class="gap">Fires at ↑85%</span></td>
+        <td><span class="badge badge-med">MED</span></td>
+        <td><span class="price price-neutral">34.5%</span></td>
+        <td><span class="delta-flat">0.0pp</span></td>
+        <td><span class="gap">50.5pp below trigger</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- KEY STORIES -->
+<section>
+  <h2>Key Stories</h2>
+
+  <div class="story-card featured">
+    <div class="story-num">Story 1 — Highest Priority</div>
+    <div class="story-title">⚡ Iran Invasion Falls to 15.5% — 0.5pp from Peace Dividend Trigger</div>
+    <div class="story-body">
+      <p><span class="badge badge-low">LOW</span> <strong>Iran invasion before 2027: fell from 16.5% to 15.5%</strong> (−1.0pp/24h, −1.0pp/1wk). Now just <strong>0.5pp above the ↓15% peace-dividend early warning trigger</strong>. Trajectory: 46.5% (Apr 12 dual-blockade peak) → 30.5% (Apr 18) → 20.5% (May 8 all-time low) → 15.5% (June 1, new low tied today) → 16.5% (June 3 bounce on Iran suspension) → 15.5% (June 5 5PM).</p>
+      <p>The ↓15% trigger fires on the next -0.5pp move. The trigger's email condition: <em>"Do NOT email standalone. Only escalate if: (1) oil also flat/declining AND (2) nuclear deal holding above 60%."</em> Both conditions currently met — WTI ~$95–96/bbl (flat), nuclear deal 67% (well above 60%). When it fires, this gets folded into the next scheduled report as "peace dividend confirmed," not a standalone alert.</p>
+      <p><strong>Catalyst:</strong> Continued grinding de-escalation. The VP Vance MOU ("a couple of language points" outstanding) is the imminent binary. If signed, invasion likely drops to 10–12% in a single session, clearing both the ↓15% early warning AND closing in on the ↓10% near-zero floor.</p>
+      <p><strong>Resolution quality [LOW]:</strong> The description requires "a military offensive intended to establish control over any portion of Iran" — a very high bar, distinct from the earlier "US forces enter Iran" market that resolved YES on a rescue/humanitarian operation. This 15.5% is genuine war-risk residual, not a procedural artefact.</p>
+      <div class="cross-market">
+        <strong>95th consecutive bifurcation — PASSED:</strong> Invasion at 15.5% (falling) + nuclear deal 67% (rising) + Hormuz timeline elongating + oil flat at blockade premium ($95–96/bbl) = internally coherent de-escalation thesis. No contradictions. Oil ground truth validates peace-dividend narrative.
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-num">Story 2</div>
+    <div class="story-title">Nuclear Deal 67% — Resilient Anchor, Resolution Quality Flagged HIGH</div>
+    <div class="story-body">
+      <p><span class="badge badge-high">HIGH</span> <strong>US-Iran nuclear deal before 2027: 67.0%</strong> (+1.5pp/24h, −10pp/1wk). Despite the week-long 10pp decline following the MOU language stall, today's session shows recovery. The descriptions cache flags resolution quality as <strong>HIGH</strong> — significant if accurate. Prior analysis treated this as [LOW] (UMA-determined "what constitutes a deal"). If HIGH, the 67% majority-yes reading is ground truth for deal probability, not subject to UMA vote manipulation.</p>
+      <p>At 67%, deal completion is still the base case. The 22pp gap above the ↓45% breakdown sentinel gives substantial buffer. The +1.5pp recovery today (despite unsigned MOU) suggests Rubio's June 2 Senate testimony ("Iran conceding on enrichment points") is anchoring the market against the language-stall anxiety. <strong>Watch for MOU signature as the immediate catalyst</strong> — would likely reprice deal probability toward 75–80%.</p>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-num">Story 3</div>
+    <div class="story-title">Hormuz Day 95 — 34.5%, Timeline Elongating, OPEC+ Tomorrow</div>
+    <div class="story-body">
+      <p><span class="badge badge-med">MED</span> <strong>Hormuz traffic normal by July 31: 34.5%</strong> (flat/24h, −25pp/1wk). The market has absorbed the 9.5pp Rubio spike (June 3) and its complete reversal (June 4 sentinel fire at 35.0%), now trading at a stable 34.5%. DHL projects 4–6 months minimum to normalize; Day 95 sees approximately 10 transits/day vs 95/day pre-crisis; 300 vessels idling at Gulf ports.</p>
+      <p>Physical Hormuz normalization by July 31 is now the low-probability tail — market pricing it as September/October at earliest. The deep collapse sentinel (↓28%) remains 6.5pp away. The OPEC+ June 7 meeting (tomorrow, Sunday) is expected to add 188K bpd output (Saudi 62K + Russia 62K + others 64K) — but this is largely <strong>symbolic given Hormuz closure</strong>. OPEC+ can produce more; the oil can't leave the Gulf. Real-world impact: producer confidence signal, confirms no panic production cut, marginal positive for eventual de-escalation pricing.</p>
+      <p><strong>Australian petrol:</strong> WTI ~$95–96/bbl (proxy for Brent ~$99–101/bbl) locks Australian petrol floor at <strong>A$2.20–2.40/L</strong> through July minimum. No relief pathway visible until physical Hormuz reopening confirmed.</p>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-num">Story 4</div>
+    <div class="story-title">MOU: The Unsigned Binary — Still the Most Important Near-Term Catalyst</div>
+    <div class="story-body">
+      <p>The Trump 60-day US-Iran ceasefire extension MOU remains unsigned as of 5PM AEST. VP Vance confirmed in overnight remarks: "agreed in principle but going back and forth on a couple of language points." Outstanding terms: Hormuz reopening (no tolls), Iran mine-clearing, US lifts port blockade, sanctions waivers, 60% enriched uranium stockpile addressed in follow-on talks.</p>
+      <p><strong>If signed:</strong> Iran invasion → likely 10–12% (both peace-dividend triggers fire); Hormuz July 31 → reprices from 34.5% toward 50–55%; nuclear deal → reprices toward 75–80%; WTI → drops $5–8 on de-escalation; AUD strengthens. Report warranted immediately.</p>
+      <p><strong>If stalled through weekend:</strong> No trigger changes. Monitor for Sunday news during OPEC+ meeting window. Next scheduled check 7AM Monday June 8 (noting ASX closed for King's Birthday in NSW/VIC/SA).</p>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-num">Story 5</div>
+    <div class="story-title">Cuba Drifting — 45.0%, Down -10pp This Week</div>
+    <div class="story-body">
+      <p><span class="badge badge-low">LOW</span> <strong>US strike on Cuba by Dec 31: 45.0%</strong> (−1.5pp/24h, −10pp/1wk). Steadily declining from the 49.5% peak at discovery. USS Nimitz remains in Caribbean; Raúl Castro DOJ indictment still live; Trump "looks like I'll be the one that does it" — but market momentum is fading. The ↑60% trigger is 15pp away. At this trajectory (−1.5pp/day), the market would need a new catalyst to reverse course.</p>
+      <p>Cuba is NOT macro-critical on its own — Venezuela secondary supply disruption risk (~850kb/d exports) is the channel. As long as Cuba stays below 50%, it's background noise vs the Iran/Hormuz primary narrative.</p>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-num">Story 6</div>
+    <div class="story-title">Kalshi Macro Complex — All Flat; Stagflation Tail Stable</div>
+    <div class="story-body">
+      <p>All Kalshi macro markets showed 0.0pp change for the 5PM session:</p>
+      <ul style="padding-left: 18px; margin: 8px 0; font-size: 13px; color: #a0aec0; line-height: 1.8;">
+        <li><strong>US unemployment ≥20% (depression tail):</strong> 10.0% — 5pp below ↑15% trigger; flat since May NFP beat</li>
+        <li><strong>US unemployment ≥10% (stagflation catastrophe):</strong> 29.0% — 16pp below ↑45% trigger; down from 38% in mid-May</li>
+        <li><strong>US unemployment ≥7%:</strong> 66.0% — 8pp below ↑74% ceiling trigger; slight improvement from 68% (May 16)</li>
+        <li><strong>Habeas corpus suspension:</strong> 18.0% — 12pp below ↑30% trigger</li>
+        <li><strong>Clarence Thomas resign:</strong> 31.0% — 24pp below ↑55% trigger</li>
+        <li><strong>US Fed June hike [HIGH]:</strong> 0.4% — effectively zero; Warsh FOMC hold locked at 99.6%</li>
+      </ul>
+      <p>The ≥10% stagflation tail declining from 38% to 29% since mid-May is quietly positive — the market is partially unwinding the worst-case stagflation scenario as Iran de-escalation reduces energy inflation tail. Warsh's first FOMC (June 16–17) is now 11 days away; hold remains fully priced.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORWARD VIEW -->
+<section>
+  <h2>Forward View</h2>
+  <div class="forward-card">
+    <h3 style="margin-top: 0; color: #f6ad55;">The 72-Hour Checklist</h3>
+
+    <div class="calendar-item" style="margin-top: 12px;">
+      <div class="cal-date">TONIGHT<br>Jun 5</div>
+      <div class="cal-event"><strong>MOU watch (any time):</strong> Trump/Vance signature on 60-day ceasefire extension. This is the highest-priority binary — it moves all major markets simultaneously. No fixed deadline.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">SUN Jun 7</div>
+      <div class="cal-event"><strong>OPEC+ ministerial meeting:</strong> Expected 188K bpd output increase from June. Primarily symbolic given Hormuz closure. Watch for any language on Iran timeline — if OPEC members explicitly factor in Hormuz reopening assumptions, that's a market signal.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">MON Jun 8</div>
+      <div class="cal-event"><strong>King's Birthday — ASX closed (NSW, VIC, SA).</strong> Queensland and WA trade normally. US markets open. Any OPEC+ follow-through in overnight US session won't hit ASX in NSW/VIC/SA until Tuesday June 9.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">TUE Jun 9</div>
+      <div class="cal-event"><strong>ASX reopens (NSW/VIC/SA):</strong> First opportunity to price OPEC+ outcome + any weekend MOU developments. Watch ASX energy sector (WDS, STO) and consumer discretionary (QAN, WOW, COL) for direction signal.</div>
+    </div>
+    <div class="calendar-item">
+      <div class="cal-date">Jun 16–17</div>
+      <div class="cal-event"><strong>Warsh FOMC (11 days):</strong> Hold locked (Fed June hike 0.4%). The event is <em>Warsh's press conference language</em>: does he frame oil-driven inflation as "structural" (hawkish, higher-for-longer AUD headwind) or "transitional" (dovish lean, AUD tailwind)? Watch 10Y yield reaction. Rate path implications for Australian mortgage holders via RBA shadow pricing.</div>
+    </div>
+
+    <h3 style="margin-top: 20px; color: #e2e8f0;">The Macro Call</h3>
+    <p style="font-size: 14px; color: #a0aec0;">The de-escalation thesis is grinding forward — <strong>95 consecutive sessions without invasion repricing</strong>, nuclear deal holding majority-yes, invasion within touching distance of a new all-time low. The MOU signature is the valve: when it releases, expect a synchronized move across Iran invasion (↓), nuclear deal (↑), Hormuz (↑), and WTI (↓). The question is when, not if, given both sides have confirmed "in principle" agreement.</p>
+    <p style="font-size: 14px; color: #a0aec0;">The OPEC+ meeting is the weekend wildcard. If OPEC+ surprises with a <em>larger</em> cut (defending price), that would temporarily push WTI back toward $100 and add noise to the de-escalation signal. Base case: 188K bpd increase as telegraphed, no macro surprise.</p>
+    <p style="font-size: 14px; color: #a0aec0;"><strong>For Australian investors:</strong> Petrol floor locked at A$2.20–2.40/L through July minimum. ASX petrol-sensitive names (WOW, COL, QAN) remain structurally pressured. AUD likely range-bound 0.62–0.68 USD until MOU signed and Hormuz physically reopens. The Warsh FOMC is a potential USD strengthener (hawkish language) — watch for AUD/USD downside pressure June 17.</p>
+
+    <div class="bifurcation-banner">
+      ✓ 95th Consecutive Bifurcation Confirmed — Escalation Theater Fully Absorbed
+    </div>
+  </div>
+</section>
+
+<!-- TRIGGER ACTIONS -->
+<section>
+  <h2>Trigger Actions This Run</h2>
+  <div class="action-item">No trigger fires this run. Iran invasion at 15.5% = 0.5pp above ↓15% threshold (did not cross).</div>
+  <div class="action-item">No new triggers added. Cuba declining trajectory (−10pp/wk) does not warrant threshold reduction — ↑60% remains appropriate escalation sentinel.</div>
+  <div class="action-item">No triggers removed. All 11 active triggers correctly calibrated for current market regime.</div>
+  <div class="action-item">Nuclear deal resolution quality flagged as HIGH in descriptions cache (prior analysis assumed LOW). To verify: check resolution criteria against UMA vs objective data standard. No trigger action until verified — note for next deep-dive session.</div>
+  <div class="action-item">Discovery: only crypto 5-minute up/down markets found (BTC/ETH/DOGE/SOL/XRP/HYPE). No macro-relevant new markets. No watchlist additions.</div>
+</section>
+
+</div>
+<div class="footer">Polymarket Analyst · 5 June 2026 17:00 AEST · Data: Polymarket API + Kalshi API · Report auto-generated by market-analyst agent</div>
+</body>
+</html>
