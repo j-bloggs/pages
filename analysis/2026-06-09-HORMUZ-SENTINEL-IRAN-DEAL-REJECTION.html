@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: Hormuz Sentinel Fires — Iran Rejects Nuclear Deal | 9 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* ALERT BANNER */
+  .alert-banner {
+    background: linear-gradient(135deg, #7f1d1d, #991b1b);
+    border: 1px solid #ef4444;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .alert-banner .badge {
+    background: #ef4444;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .alert-banner .text { font-size: 15px; color: #fecaca; font-weight: 500; }
+
+  /* HEADER */
+  .report-header { margin-bottom: 28px; }
+  .report-header .date-meta {
+    font-size: 12px;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .report-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f1f5f9;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .report-header .subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+  }
+
+  /* LEAD SUMMARY */
+  .lead {
+    background: #1e2433;
+    border-left: 4px solid #ef4444;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+
+  /* SECTION HEADERS */
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #1e2433;
+  }
+
+  /* TRIGGER CARD */
+  .trigger-card {
+    background: #1e2433;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .trigger-card.fired {
+    border: 1px solid #ef4444;
+    background: linear-gradient(135deg, #1e1a1a, #1e2433);
+  }
+  .trigger-card.watching {
+    border: 1px solid #334155;
+  }
+  .trigger-card .trigger-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 12px;
+  }
+  .trigger-card .trigger-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+  .trigger-card .trigger-price {
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .price-fired { color: #ef4444; }
+  .price-warning { color: #f59e0b; }
+  .price-ok { color: #22d3ee; }
+  .price-flat { color: #94a3b8; }
+  .trigger-card .trigger-meta {
+    font-size: 12px;
+    color: #64748b;
+  }
+  .trigger-card .trigger-note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  /* STATUS BADGE */
+  .status-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .badge-fired { background: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; }
+  .badge-watching { background: #1e2433; color: #64748b; border: 1px solid #334155; }
+  .badge-high { background: #064e3b; color: #6ee7b7; border: 1px solid #10b981; }
+  .badge-med { background: #78350f; color: #fcd34d; border: 1px solid #f59e0b; }
+  .badge-low { background: #312e81; color: #a5b4fc; border: 1px solid #6366f1; }
+
+  /* KEY MOVES TABLE */
+  .moves-grid { margin-bottom: 28px; }
+  .move-row {
+    background: #1e2433;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+  }
+  .move-row .move-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+  }
+  .move-row .move-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  .move-row .move-price {
+    text-align: right;
+  }
+  .move-row .move-price .current {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .move-row .move-price .delta {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .delta-down { color: #ef4444; }
+  .delta-up { color: #22c55e; }
+  .delta-flat { color: #64748b; }
+
+  /* MACRO SECTION */
+  .macro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr; } }
+  .macro-card {
+    background: #1e2433;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .macro-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .macro-card p {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  .macro-card .verdict {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+  }
+
+  /* FORWARD VIEW */
+  .forward-view {
+    background: #1e2433;
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .forward-view h2 { border-bottom-color: #292f40; }
+  .forward-view ul { list-style: none; padding: 0; }
+  .forward-view ul li {
+    font-size: 14px;
+    color: #cbd5e1;
+    padding: 6px 0 6px 18px;
+    border-bottom: 1px solid #292f40;
+    position: relative;
+    line-height: 1.6;
+  }
+  .forward-view ul li:last-child { border-bottom: none; }
+  .forward-view ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #f59e0b;
+    font-weight: 700;
+  }
+
+  /* FOOTNOTE */
+  .footnote {
+    font-size: 11px;
+    color: #475569;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1e2433;
+  }
+
+  /* SECTION SPACING */
+  section { margin-bottom: 32px; }
+
+  /* COHERENCE BOX */
+  .coherence-box {
+    background: #0f1f17;
+    border: 1px solid #166534;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+  }
+  .coherence-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 8px;
+  }
+  .coherence-box p {
+    font-size: 13px;
+    color: #86efac;
+    line-height: 1.6;
+  }
+
+  /* DISMISS BOX */
+  .dismiss-box {
+    background: #0f1117;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #475569;
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ALERT BANNER -->
+  <div class="alert-banner">
+    <span class="badge">⚡ TRIGGER FIRED</span>
+    <span class="text">Hormuz July 31 collapse sentinel breached — confirmed across 3 consecutive collection windows</span>
+  </div>
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <div class="date-meta">Alert Report · 9 June 2026, 15:31 AEST · Polymarket + Kalshi</div>
+    <h1>Hormuz Sentinel Fires Again: Iran Rejects Nuclear Deal, Vows to Expand Blockade</h1>
+    <div class="subtitle">Physical normalisation by July 31 priced below 28% — Australian petrol floor locked through Q3</div>
+  </div>
+
+  <!-- LEAD SUMMARY -->
+  <div class="lead">
+    Iran formally rejected the Trump administration's latest nuclear proposal on June 9, calling full enrichment dismantlement a "red line," and simultaneously vowed to "completely" block the Strait of Hormuz while activating the Bab al-Mandeb as a second chokepoint. Direct US-Iran message exchanges halted. The Polymarket market for Hormuz traffic returning to normal by July 31 has collapsed from ~47% a week ago to <b>27.5%</b> — below the ↓28% deep-collapse sentinel. This is the second firing of the sentinel (first was June 4 at 35%, threshold was then lowered). WTI crude jumped 4%+ to ~$94/barrel on June 8, validating the physical interpretation. The Iran invasion market at 17.5% (flat) and the nuclear deal at 66.5% (stable) confirm this is <b>timeline collapse, not re-escalation to full war</b> — the informal ceasefire holds, but the physical reopening pathway has been extinguished for the July 31 window.
+  </div>
+
+  <!-- FIRED TRIGGER -->
+  <section>
+    <h2>🚨 Fired Trigger</h2>
+
+    <div class="trigger-card fired">
+      <div class="trigger-header">
+        <div>
+          <span class="status-badge badge-fired">FIRED</span>
+          <span class="status-badge badge-med">MED quality</span>
+          <div class="trigger-label" style="margin-top:8px;">Hormuz traffic normal by July 31 — deep collapse sentinel (&lt;28%)</div>
+        </div>
+        <div class="trigger-price price-fired">27.5%</div>
+      </div>
+      <div class="trigger-meta">Slug: strait-of-hormuz-traffic-returns-to-normal-by-july-31 · Threshold: ↓28% · Confirmed: 3 consecutive windows (15:00, 15:15, 15:30 AEST)</div>
+      <div class="trigger-note">
+        <b>Resolution criteria [MED]:</b> YES if IMF Portwatch publishes a 7-day moving average of ≥60 Hormuz transit calls for any date by July 31, 2026. Normal traffic is ~100 ships/day; currently only ~7/day transiting. This is a physical metric, not a political announcement — makes it more objective than the blockade-lift market, but "normal" threshold still has interpretation surface.<br><br>
+        <b>1-week trajectory:</b> 47.5% (June 1) → 40.5% (June 2) → 48.0% (June 3 23:00, Rubio spike) → 35.0% (June 4, 1st fire) → 31.5% (June 8 7AM) → 30.5% (June 8 overnight low) → <b>27.5% (June 9, 2nd fire, confirmed stable)</b><br><br>
+        <b>Interpretation:</b> Even if Iran agreed to a deal today, the mechanical chain (deal signed → Iran orders IRGC to lift blockade → shipping remobilises 2–4 weeks → IMF Portwatch logs ≥60 transits → 7-day MA clears the bar → ALL by July 31) is no longer plausible. The market is pricing this correctly. With nuclear deal still above 55%, this fires the "petrol floor through Q3" interpretation — NOT a full re-escalation signal.
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCHING TRIGGERS -->
+  <section>
+    <h2>Watching Triggers</h2>
+
+    <div class="trigger-card watching">
+      <div class="trigger-header">
+        <div>
+          <span class="status-badge badge-watching">WATCHING</span>
+          <span class="status-badge badge-low">LOW quality</span>
+          <div class="trigger-label" style="margin-top:8px;">US-Iran nuclear deal before 2027 — early-warning erosion layer (&lt;60%)</div>
+        </div>
+        <div class="trigger-price price-warning">66.5%</div>
+      </div>
+      <div class="trigger-meta">Threshold: ↓60% · Gap: <b>6.5pp above trigger</b> · 24h: −0.5pp · 1w: −10pp (from 74% peak)</div>
+      <div class="trigger-note">Iran's June 9 rejection is a negative catalyst. If the −10pp/week erosion trend from June 1 continues, this early-warning fires by <b>Wednesday June 11</b>. Nuclear deal above 60% is the key signal that the US-Iran framework has not completely collapsed — watch closely over the next 48 hours.</div>
+    </div>
+
+    <div class="trigger-card watching">
+      <div class="trigger-header">
+        <div>
+          <span class="status-badge badge-watching">WATCHING</span>
+          <span class="status-badge badge-low">LOW quality</span>
+          <div class="trigger-label" style="margin-top:8px;">Iran invasion 2027 — peace-dividend floor (&lt;15%)</div>
+        </div>
+        <div class="trigger-price price-flat">17.5%</div>
+      </div>
+      <div class="trigger-meta">Threshold: ↓15% · Gap: <b>2.5pp above trigger</b> · 24h: +0.0pp · flat despite worst missile exchange in months</div>
+      <div class="trigger-note">Market correctly separating June 7-8 Iran-Israel missile exchange (tactical, under indefinite ceasefire framing) from a ground invasion scenario. Ceasefire framework has not formally expired. Invasion flat = the most important confirmatory signal that this is NOT re-escalation.</div>
+    </div>
+
+    <div class="trigger-card watching">
+      <div class="trigger-header">
+        <div>
+          <span class="status-badge badge-watching">WATCHING</span>
+          <span class="status-badge badge-low">LOW quality</span>
+          <div class="trigger-label" style="margin-top:8px;">US-Iran nuclear deal before 2027 — breakdown floor sentinel (&lt;45%)</div>
+        </div>
+        <div class="trigger-price price-ok">66.5%</div>
+      </div>
+      <div class="trigger-meta">Threshold: ↓45% · Gap: <b>21.5pp above trigger</b> · Current: deal majority-priced despite stalled MOU</div>
+    </div>
+  </section>
+
+  <!-- KEY MOVES -->
+  <section>
+    <h2>Key Market Moves (since last report — June 8 7AM AEST)</h2>
+    <div class="moves-grid">
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">Hormuz July 31 normalization <span class="status-badge badge-med">MED</span></div>
+          <div class="move-desc">Fell from 31.5% (June 8 7AM) to 27.5% now. 1-week collapse: −19pp from 47.5%. Catalyst: Iran June 9 deal rejection + vow to completely block Hormuz + activate Bab al-Mandeb as second chokepoint. Fitch: pre-July reopening "unlikely." Physical normalisation priced September/October at earliest.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-down">27.5%</div>
+          <div class="delta delta-down">−4pp (32h)</div>
+        </div>
+      </div>
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">WTI crude oil (proxy for Brent) <span class="status-badge badge-high">HIGH</span></div>
+          <div class="move-desc">Jumped 4%+ on June 8 to ~$94/barrel. Iran-Israel June 7-8 exchange + Hormuz collapse + Bab al-Mandeb threat = physical supply disruption premium. Australian petrol A$2.20–2.40+/L floor confirmed through September. Brent-WTI spread ~$3-4 typical; Brent likely ~$97-98.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-down">~$94</div>
+          <div class="delta delta-down">+4%+ (24h)</div>
+        </div>
+      </div>
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">US-Iran nuclear deal before 2027 <span class="status-badge badge-low">LOW</span></div>
+          <div class="move-desc">Oscillating 66.0–67.0% over 32 hours — essentially flat despite Iran's June 9 rejection. Deal framework still majority-priced. If −10pp/week erosion trend resumes after rejection, early-warning (↓60%) fires Wednesday June 11. The deal has not been called off — Iran submitted a counter-offer via Omani mediators.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-flat">66.5%</div>
+          <div class="delta delta-flat">−0.5pp (32h)</div>
+        </div>
+      </div>
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">Iran leadership change by Dec 31 <span class="status-badge badge-low">LOW</span></div>
+          <div class="move-desc">Jumped from ~24.5% to 29.5% (+5pp in 24h). Mojtaba Khamenei under escalating domestic pressure: economic isolation from blockade + sanctions, population bearing fuel/food inflation, IRGC overreach narrative growing. 30.5pp below ↑60% trigger. A regime change would be the primary catalyst for an eventual deal — watch this as a long-lead signal.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-down">29.5%</div>
+          <div class="delta delta-down">+5pp (24h)</div>
+        </div>
+      </div>
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">Iran invasion before 2027 <span class="status-badge badge-low">LOW</span></div>
+          <div class="move-desc">Flat at 17.5% despite June 7-8 Iran-Israel worst strikes in months. Market correctly frames tactical ballistic missile exchanges as within informal ceasefire framework — not ground invasion precursors. 7 Iranian ballistic missiles intercepted (6/7) near Kuwait/Bahrain; CENTCOM struck Qeshm Island. Zero invasion repricing = strong confirmation signal.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-flat">17.5%</div>
+          <div class="delta delta-flat">+0.0pp (32h)</div>
+        </div>
+      </div>
+
+      <div class="move-row">
+        <div>
+          <div class="move-label">US Fed June hike probability <span class="status-badge badge-high">HIGH</span></div>
+          <div class="move-desc">0.2% — hold locked 99.8%. Warsh FOMC June 16-17 in 7 days. The maiden Warsh press conference is the real event: how does the new chair frame oil-driven stagflation (WTI $94, PCE 4.5%, NFP +172K) with a frozen Iran deal? "Patient" language = market relief. Any hawkish tilt = equity re-pricing.</div>
+        </div>
+        <div class="move-price">
+          <div class="current delta-flat">0.2%</div>
+          <div class="delta delta-flat">flat</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CROSS-MARKET COHERENCE -->
+  <div class="coherence-box">
+    <h3>✓ Cross-Market Coherence Check — No Contradictions</h3>
+    <p>
+      <b>Hormuz 27.5%</b> (collapse) + <b>WTI $94</b> (elevated, +4%) + <b>Nuclear deal 66.5%</b> (deal framework holding) + <b>Invasion 17.5%</b> (flat) + <b>Iran leadership change +5pp</b> = internally consistent "extended blockade under informal ceasefire" scenario. The market complex reads: Iran is playing hardball on the nuclear deal to extract concessions, the blockade continues as leverage, but the informal ceasefire holds (no ground war). WTI at $94 — not $120+ — confirms the market does not see Bab al-Mandeb activation as imminent or confirmed. All signals agree. No re-escalation contradictions.
+    </p>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <section>
+    <h2>Macro Implications</h2>
+    <div class="macro-grid">
+
+      <div class="macro-card">
+        <h3>🛢️ Oil &amp; Australian Petrol</h3>
+        <div class="verdict">Bearish supply; A$2.20–2.40+/L through Q3</div>
+        <p>WTI (proxy for Brent) at ~$94/bbl. Hormuz closure Day 102+ extending well past July 31. Cape route premium (ships routing around Africa, +2 weeks transit, 15–20% higher freight) sustaining. Australian petrol floor A$2.20–2.40+/L through September confirmed. Risk of A$2.50+ if Iran activates Bab al-Mandeb (Red Sea second closure). Brent-WTI spread ~$3-4 typical; Brent ~$97-98. Note: WTI is used as proxy; Brent directly sets Australian import pricing.</p>
+      </div>
+
+      <div class="macro-card">
+        <h3>📈 Rates (US Fed / RBA)</h3>
+        <div class="verdict">Stagflation trap — Warsh FOMC June 16-17 critical</div>
+        <p>Hold locked 99.8% for June. US PCE 4.5%, NFP +172K, WTI $94 = stagflation data unchanged. Warsh maiden press conference language is the event: "patient" buys equities relief, any hawkish shift compresses multiples. RBA is in the same trap — Australian CPI still elevated, petrol floor through September removes the supply-side relief that was expected for Q3. Rate-cut timeline delayed further.</p>
+      </div>
+
+      <div class="macro-card">
+        <h3>📊 ASX &amp; Equities</h3>
+        <div class="verdict">Tuesday open absorbs 32+ hours of news</div>
+        <p>ASX reopens Tuesday June 10 (first trading day since June 6, per King's Birthday holiday). June 10 open must absorb: US NFP +172K (hawkish beat), Hormuz at 27.5% (new sentinel low), Iran-Israel worst strikes in months, WTI $94. Expect energy stocks (WDS, STO) outperform; airlines (QAN), logistics, consumer discretionary underperform. ASX overall mildly negative open expected — no panic signals, but headwinds concentrated.</p>
+      </div>
+
+      <div class="macro-card">
+        <h3>🚢 Shipping &amp; Supply Chains</h3>
+        <div class="verdict">Cape route premium sustained through Q3</div>
+        <p>Hormuz at 27.5% = September/October physical reopening is now the base case for prediction markets. Shipping rerouting around Africa (Cape of Good Hope) adds ~14 days per voyage, 15–20% freight premium, 3–4% additional bunker fuel. LNG spot pricing elevated in Europe/Asia (South Pars disruption ongoing). Container shipping: global supply chains absorbing; not acute but inflationary backdrop. Any Bab al-Mandeb activation = Red Sea route also closed → dual chokepoint crisis.</p>
+      </div>
+
+      <div class="macro-card">
+        <h3>₿ Crypto &amp; BTC</h3>
+        <div class="verdict">Risk-off pressure, but MicroStrategy floor</div>
+        <p>BTC at ~$61–65K range (recovering from June 3-4 crash). Escalation news is mild risk-off for BTC. However, MicroStrategy BTC June purchase market at 96.7% — Strategy will announce a BTC purchase in June, providing a demand floor. Warsh FOMC June 16-17 is the macro catalyst; if Warsh signals hawkishness, BTC resells; if patient language, BTC stabilises or bounces. No new crypto-specific signals today.</p>
+      </div>
+
+      <div class="macro-card">
+        <h3>💱 AUD / FX</h3>
+        <div class="verdict">Mild negative bias; energy complex mixed</div>
+        <p>AUD faces competing forces: risk-off (Iran escalation, global uncertainty) = negative; energy export premium (Australia is a net oil/LNG exporter) = positive. On balance, risk-off sentiment in global markets tends to dominate AUD short-term. USD strengthens in geopolitical uncertainty. Watch: if AUD/USD breaks below 0.63, it signals global risk-off is outweighing the commodity support. Not a primary macro driver today.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATALYST DETAIL -->
+  <section>
+    <h2>Catalyst Detail: What Drove the Hormuz Collapse</h2>
+    <div class="trigger-card watching" style="margin-bottom:10px;">
+      <div class="trigger-label" style="margin-bottom:8px;">Timeline of Events (June 7-9)</div>
+      <div class="trigger-note">
+        <b>June 7-8 (Iran-Israel worst strikes in months):</b> Iran launched 7 ballistic missiles toward US/allied bases in Kuwait and Bahrain; CENTCOM intercepted 6 of 7. CENTCOM simultaneously struck Iranian coastal radar sites on Qeshm Island and at Sirik. Described by CNN as "worst strikes in months" — yet Hormuz was only at 31.5% at June 8 7AM (invasion market flat). The market correctly read these as tactical exchanges, not war-escalation signals.<br><br>
+        <b>June 9 (deal collapse catalyst):</b> Iran formally rejected Trump's nuclear proposal, calling full enrichment dismantlement "unacceptable" as a red line. Iran also vowed to "completely" block Hormuz and simultaneously threatened Bab al-Mandeb activation. Iran stopped direct US message exchanges (communicating via Omani intermediaries only). Fitch issued public statement: Hormuz reopening before July is "unlikely."<br><br>
+        <b>WTI confirmation:</b> WTI jumped 4%+ to ~$94/bbl on June 8 — physically confirming the market's escalation reading. Oil is the ground truth for Middle East macro; it confirms this is NOT a paper move.
+      </div>
+    </div>
+  </section>
+
+  <!-- FORWARD VIEW -->
+  <div class="forward-view">
+    <h2>Forward View — What to Watch</h2>
+    <ul>
+      <li><b>Nuclear deal ↓60% early-warning (6.5pp away):</b> Iran's June 9 rejection could restart the −10pp/week erosion trend from June 1-7. If so, the ↓60% early-warning fires by <b>Wednesday June 11</b>. A deal below 60% paired with Hormuz at 27.5% is the threshold for a "re-escalation" report — currently nuclear deal is stable but watch for any acceleration lower.</li>
+      <li><b>Bab al-Mandeb activation threat:</b> Iran threatened Red Sea closure (Bab al-Mandeb) as a second front. If confirmed via shipping intelligence or AIS data, this is a tier-1 event — Red Sea was already disrupted by Houthi attacks in 2024-25; a formal IRGC closure would create a dual-chokepoint crisis. WTI would spike toward $110+; Australian petrol A$2.50–2.60+/L. Watch for CENTCOM press releases and shipping intelligence feeds.</li>
+      <li><b>ASX Tuesday June 10 open:</b> First ASX trading day since June 6. Needs to absorb: US NFP +172K (hawkish), WTI $94, Hormuz 27.5%, Iran-Israel worst strikes in months. Pre-open futures will set the tone. Energy (WDS, STO) should outperform; consumer discretionary, airlines, logistics will face headwinds. Not a crash scenario — no systemic panic signals — but a weak open for broad index.</li>
+      <li><b>Warsh FOMC June 16-17 (7 days):</b> The US Fed meeting is now deeply fraught — Warsh inherits: PCE 4.5%, NFP +172K, WTI $94, stagflation backdrop. Hold is locked (99.8%), but the press conference language is the event. Hawkish = equity compression; patient = relief rally. For Australian context: any US Fed hawkish tilt also constrains RBA, especially with Australian petrol floor maintained through September.</li>
+      <li><b>Iran counter-offer via Oman:</b> Iran said it would submit a counter-offer via Omani mediators. If received and non-trivial, the nuclear deal could stabilise or recover. This is the single most important potential positive catalyst. Watch for Omani foreign ministry statements and Trump social media response.</li>
+      <li><b>New deeper Hormuz sentinel added at ↓20%:</b> If Hormuz falls below 20%, that represents complete capitulation on any 2026 normalization window. Currently 7.5pp away. Fires only if Iran-Oman mediation track fully collapses AND Bab al-Mandeb activates.</li>
+    </ul>
+  </div>
+
+  <!-- DISMISSED -->
+  <section>
+    <h2>Dismissed (Noise)</h2>
+    <div class="dismiss-box">
+      <b>DISMISSED:</b> Kalshi — "Will Todd Blanche receive a presidential pardon?" +14pp to 15%. Todd Blanche is Trump's former personal attorney and current DOJ official. The pardon market move is political/entertainment noise with zero macro significance. Not covered further.
+    </div>
+  </section>
+
+  <!-- TRIGGER ACTIONS -->
+  <section>
+    <h2>Trigger Configuration Changes</h2>
+    <div class="trigger-card watching">
+      <div class="trigger-note">
+        <b>UPDATED:</b> <code>hormuz-traffic-july31-floor</code> — added 2nd fire note (June 9 15:00 AEST at 27.5%, confirmed 3 consecutive windows). Updated trajectory log. Interpretation note: nuclear deal above 55% = petrol floor through Q3, not re-escalation.<br><br>
+        <b>ADDED:</b> <code>hormuz-traffic-july31-deep</code> — new deeper sentinel at ↓20% (complete capitulation). Currently 7.5pp away. Fires only if deal track fully collapses + physical reopening priced as 2026 impossibility.<br><br>
+        <b>NO CHANGES:</b> All other triggers unchanged. Nuclear deal early-warning (↓60%) remains active watch at 6.5pp proximity.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTNOTE -->
+  <div class="footnote">
+    Polymarket Analyst · Alert Report · 9 June 2026 15:31 AEST · Data: Polymarket + Kalshi + WTI (TradingEconomics) · Oil note: WTI used as proxy for Brent in Australian fuel pricing context; Brent typically $3-4 higher. This report is generated from automated market monitoring and is for informational purposes only.
+  </div>
+
+</div>
+</body>
+</html>
