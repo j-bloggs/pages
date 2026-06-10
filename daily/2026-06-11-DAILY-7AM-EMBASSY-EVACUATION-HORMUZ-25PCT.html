@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 11 Jun 7AM AEST | Embassy Evacuations; Hormuz 25.5%; Deal Holds 65%</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e0e0e0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1218 100%); border-bottom: 2px solid #c0392b; padding: 28px 40px 20px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #fff; }
+  .header .meta { font-size: 0.8rem; color: #888; margin-top: 4px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-scheduled { background: #1d4e89; color: #93c0e8; }
+  .badge-alert { background: #7b1e1e; color: #f5a5a5; }
+  .badge-ok { background: #1a3a1a; color: #7dd87d; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+  .alert-box { background: #2a1215; border: 1.5px solid #c0392b; border-radius: 8px; padding: 18px 22px; margin-bottom: 28px; }
+  .alert-box h3 { color: #f08080; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .alert-box p { font-size: 0.92rem; color: #f5c6c6; line-height: 1.55; }
+
+  .info-box { background: #131d2a; border: 1px solid #2a4a6a; border-radius: 8px; padding: 16px 20px; margin-bottom: 28px; }
+  .info-box h3 { color: #7ab3d4; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .info-box p { font-size: 0.88rem; color: #a8c8df; line-height: 1.5; }
+
+  h2 { font-size: 1.0rem; font-weight: 700; color: #b0b8c8; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #2a3040; padding-bottom: 8px; margin: 32px 0 18px; }
+
+  .trigger-grid { display: grid; gap: 10px; }
+  .trigger-card { background: #161b26; border: 1px solid #252d3d; border-radius: 8px; padding: 14px 18px; display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: start; }
+  .trigger-card.fired { border-color: #c0392b; background: #1e1014; }
+  .trigger-card.past { border-color: #5a3200; background: #1a1510; }
+  .trigger-card.warning { border-color: #8a6500; background: #1a1700; }
+  .trigger-card.ok { border-color: #1d4030; background: #141e18; }
+
+  .tc-label { font-size: 0.82rem; color: #8898aa; grid-column: 1; }
+  .tc-price { font-size: 1.3rem; font-weight: 700; text-align: right; grid-row: 1; grid-column: 2; }
+  .tc-status { font-size: 0.75rem; color: #666; grid-column: 1; }
+  .tc-delta { font-size: 0.8rem; font-weight: 600; text-align: right; grid-row: 2; grid-column: 2; }
+  .price-red { color: #e05555; }
+  .price-green { color: #55c055; }
+  .price-yellow { color: #d4aa00; }
+  .price-blue { color: #5599ee; }
+  .price-white { color: #ddd; }
+  .delta-down { color: #e05555; }
+  .delta-up { color: #55c055; }
+  .delta-flat { color: #666; }
+
+  .market-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  .market-table th { background: #161b26; color: #8898aa; font-weight: 600; text-align: left; padding: 9px 12px; border-bottom: 1px solid #252d3d; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .market-table td { padding: 10px 12px; border-bottom: 1px solid #1a2030; vertical-align: top; }
+  .market-table tr:last-child td { border-bottom: none; }
+  .market-table tr:hover td { background: #1a1f2e; }
+
+  .rq { font-size: 0.68rem; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+  .rq-high { background: #1a3a1a; color: #7dd87d; }
+  .rq-med { background: #2a2a1a; color: #cccc7d; }
+  .rq-low { background: #1a1a2a; color: #8888cc; }
+
+  .section-summary { background: #13181f; border-left: 3px solid #4a6a8a; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 0.93rem; line-height: 1.65; color: #c8d8e8; }
+
+  .forward-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .forward-grid { grid-template-columns: 1fr; } }
+  .forward-item { background: #161b26; border: 1px solid #252d3d; border-radius: 8px; padding: 14px 18px; }
+  .forward-item h4 { font-size: 0.78rem; color: #8898aa; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; font-weight: 700; }
+  .forward-item p { font-size: 0.85rem; color: #b8c8d8; line-height: 1.5; }
+  .forward-item.priority { border-color: #8a5000; }
+  .forward-item.priority h4 { color: #d4883a; }
+
+  .coherence-check { background: #0e1a14; border: 1px solid #2a5a3a; border-radius: 8px; padding: 16px 20px; }
+  .coherence-check h4 { color: #6aaa7a; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
+  .coherence-check ul { list-style: none; padding: 0; }
+  .coherence-check li { font-size: 0.87rem; color: #a0c8a8; padding: 4px 0; border-bottom: 1px solid #1a3a22; }
+  .coherence-check li:last-child { border-bottom: none; }
+  .coherence-check .marker { font-size: 0.75rem; font-weight: 700; margin-right: 8px; }
+
+  .action-box { background: #1a1624; border: 1px solid #3a2a5a; border-radius: 8px; padding: 14px 18px; }
+  .action-box h4 { color: #9a7acc; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .action-box ul { list-style: none; padding: 0; }
+  .action-box li { font-size: 0.85rem; color: #b8a8d0; padding: 3px 0; }
+  .action-box li::before { content: "→ "; color: #7a5aaa; }
+
+  .footer { background: #0a0d12; border-top: 1px solid #1a2030; padding: 16px 40px; text-align: center; font-size: 0.75rem; color: #444; margin-top: 40px; }
+
+  .blockade-day { font-size: 0.8rem; color: #8898aa; background: #1a1f2e; border: 1px solid #252d3d; border-radius: 4px; padding: 2px 8px; display: inline-block; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header h1">Polymarket + Kalshi Daily Briefing</div>
+      <div class="meta">Thursday, 11 June 2026 · 07:15 AEST · <span class="blockade-day">Day 107 of Hormuz blockade</span></div>
+    </div>
+    <div>
+      <span class="badge badge-scheduled">7AM Scheduled</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Breaking Alert -->
+  <div class="alert-box">
+    <h3>⚠ Breaking — Embassy Evacuations Ordered (June 11)</h3>
+    <p>The US State Department has ordered partial evacuation of embassy staff from <strong>Iraq, Kuwait and Bahrain</strong> — Iranian Defence Minister General Nasirzadeh warned Tehran would target US bases in the region if nuclear talks break down or hostilities spike. Baghdad was already on limited staffing; Kuwait and Bahrain orders are new today. This is the first direct Iranian threat against Gulf-based US personnel since the April 21 ceasefire framework, and is the key new catalyst that requires monitoring against current market prices.</p>
+  </div>
+
+  <!-- Executive summary -->
+  <div class="section-summary">
+    Hormuz continued its overnight drift, settling into a new equilibrium range of <strong>25.5–26.5%</strong> — 2.5pp below the ↓28% sentinel (now permanently past) and 5.5pp above the ↓20% complete capitulation sentinel. Despite the embassy evacuation breaking news, the nuclear deal <em>recovered</em> overnight from 63.5% to <strong>65.0%</strong> and the invasion market edged back to <strong>18.5%</strong>. WTI crude (proxy for Brent) remains at <strong>~$89/bbl</strong> — the HIGH-quality ground truth confirms this is not yet a war-repricing event. The cross-market complex remains internally coherent: "extended blockade, deal alive but delayed, no war." The embassy evacuation is a genuine escalation signal that could break this coherence if Iran acts on its threat; the IAEA Board meeting (expected shortly) is the next scheduled binary. Warsh FOMC June 16–17 is 5 days away.
+  </div>
+
+  <!-- Trigger Status -->
+  <h2>Trigger Status — 13 Active, 0 Fired, 0 Changed</h2>
+  <div class="trigger-grid">
+
+    <div class="trigger-card past">
+      <div class="tc-label">Hormuz traffic normal by July 31 — secondary collapse sentinel [MED]</div>
+      <div class="tc-price price-red">25.5%</div>
+      <div class="tc-status">Threshold lowered ↓28%→↓23% today — settled into new equilibrium 25.5–26.5%; ↓23% trigger 2.5pp below</div>
+      <div class="tc-delta delta-down">−2pp vs last alert (27.5% at 21:16 AEST Jun 10)</div>
+    </div>
+
+    <div class="trigger-card warning">
+      <div class="tc-label">Hormuz traffic normal by July 31 — complete capitulation sentinel [MED]</div>
+      <div class="tc-price price-red">25.5%</div>
+      <div class="tc-status">↓20% — 5.5pp below current price (fires at 20%)</div>
+      <div class="tc-delta delta-flat">watching</div>
+    </div>
+
+    <div class="trigger-card warning">
+      <div class="tc-label">US-Iran nuclear deal before 2027 — early-warning erosion layer [LOW]</div>
+      <div class="tc-price price-yellow">65.0%</div>
+      <div class="tc-status">↓60% — 5pp above threshold (fires at 60%); recovered +1.5pp overnight from 63.5%</div>
+      <div class="tc-delta delta-up">+1.5pp vs last alert (21:21 AEST Jun 10)</div>
+    </div>
+
+    <div class="trigger-card warning">
+      <div class="tc-label">Iran invasion 2027 — peace-dividend early warning floor [LOW]</div>
+      <div class="tc-price price-yellow">18.5%</div>
+      <div class="tc-status">↓15% — 3.5pp above threshold (fires at 15%)</div>
+      <div class="tc-delta delta-up">+1pp vs last alert (17.5% at 21:21 AEST Jun 10)</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US Iran invasion 2027 — near-zero floor [LOW]</div>
+      <div class="tc-price price-blue">18.5%</div>
+      <div class="tc-status">↓10% — 8.5pp above threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US Iran invasion 2027 — escalation signal [LOW]</div>
+      <div class="tc-price price-blue">18.5%</div>
+      <div class="tc-status">↑40% — 21.5pp below threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US-Iran nuclear deal before 2027 — approaching certainty [LOW]</div>
+      <div class="tc-price price-blue">65.0%</div>
+      <div class="tc-status">↑85% — 20pp below threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US-Iran nuclear deal before 2027 — breakdown floor [LOW]</div>
+      <div class="tc-price price-blue">65.0%</div>
+      <div class="tc-status">↓45% — 20pp above threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">Hormuz traffic normal by July 31 — de-escalation confirmation [MED]</div>
+      <div class="tc-price price-blue">25.5%</div>
+      <div class="tc-status">↑85% — 59.5pp below threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">Iran leadership change by Dec 31 — regime pressure signal [LOW]</div>
+      <div class="tc-price price-blue">28.5%</div>
+      <div class="tc-status">↑60% — 31.5pp below threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">China invades Taiwan by end 2026 [HIGH]</div>
+      <div class="tc-price price-blue">6.6%</div>
+      <div class="tc-status">↑15% — 8.4pp below threshold</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US Fed June hike probability [HIGH]</div>
+      <div class="tc-price price-blue">0.4%</div>
+      <div class="tc-status">↑5% — 4.6pp below threshold; Warsh FOMC June 16–17 in 5 days</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+    <div class="trigger-card ok">
+      <div class="tc-label">US military strike on Cuba by Dec 31 [LOW]</div>
+      <div class="tc-price price-blue">39.5%</div>
+      <div class="tc-status">↑60% — 20.5pp below threshold (slow fade from 47.5% peak)</div>
+      <div class="tc-delta delta-flat">+0.0pp</div>
+    </div>
+
+  </div>
+
+  <!-- Key Moves -->
+  <h2>Key Moves Since Last Email (21:21 AEST Jun 10)</h2>
+  <table class="market-table">
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Then</th>
+        <th>Now</th>
+        <th>Δ</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hormuz July 31 normalisation</strong> <span class="rq rq-med">MED</span></td>
+        <td>27.5%</td>
+        <td style="color:#e05555"><strong>25.5%</strong></td>
+        <td style="color:#e05555">−2pp</td>
+        <td style="font-size:0.82rem">New equilibrium range 25.5–26.5% after overnight organic drift. ↓28% sentinel permanently past; ↓20% capitulation 5.5pp away. Day 107 of blockade; September/October base case for reopening.</td>
+      </tr>
+      <tr>
+        <td><strong>US-Iran nuclear deal 2027</strong> <span class="rq rq-low">LOW</span></td>
+        <td>63.5%</td>
+        <td style="color:#55c055"><strong>65.0%</strong></td>
+        <td style="color:#55c055">+1.5pp</td>
+        <td style="font-size:0.82rem">Recovered overnight despite embassy evacuations — framework is alive per this market. Still 5pp above ↓60% early-warning trigger. Oscillating 63.5–65% since June 9.</td>
+      </tr>
+      <tr>
+        <td><strong>Iran invasion 2027</strong> <span class="rq rq-low">LOW</span></td>
+        <td>17.5%</td>
+        <td style="color:#55c055"><strong>18.5%</strong></td>
+        <td style="color:#55c055">+1pp</td>
+        <td style="font-size:0.82rem">Slight overnight recovery. Peace-dividend floor (↓15%) now 3.5pp away. Iran invasion NOT spiking on embassy news → cross-market confirms defensive posturing reading, not war repricing.</td>
+      </tr>
+      <tr>
+        <td><strong>WTI crude (proxy for Brent)</strong> <span class="rq rq-high">HIGH</span></td>
+        <td>~$89/bbl</td>
+        <td style="color:#aaa"><strong>~$88–91/bbl</strong></td>
+        <td style="color:#aaa">flat</td>
+        <td style="font-size:0.82rem">Ground truth: oil NOT repricing the embassy evacuation yet. Range $88–91 since June 9. If Iran threatens to activate Bab al-Mandeb or strikes US bases, WTI should spike above $97 — absence of that move confirms the market reads today's embassy news as defensive not offensive.</td>
+      </tr>
+      <tr>
+        <td><strong>US Fed June hike</strong> <span class="rq rq-high">HIGH</span></td>
+        <td>0.7%</td>
+        <td style="color:#aaa"><strong>0.4%</strong></td>
+        <td style="color:#aaa">flat</td>
+        <td style="font-size:0.82rem">Hold locked 99.6%. Warsh FOMC June 16–17 in 5 days. The press conference language — not the decision — is the rate event. Stagflation backdrop (US CPI 3.8%, WTI $89) unchanged.</td>
+      </tr>
+      <tr>
+        <td><strong>Kalshi US unemployment ≥7%</strong> <span class="rq rq-high">HIGH</span></td>
+        <td>66%</td>
+        <td style="color:#aaa"><strong>66%</strong></td>
+        <td style="color:#aaa">+0.0pp</td>
+        <td style="font-size:0.82rem">Stagflation backdrop unchanged. Kalshi buckets: ≥7%=66%, ≥10%=30%, ≥17%=10%, ≥20%=2%. Depression tail minimal; structural long-run labor market risk elevated (66% chance US unemployment exceeds 7% before 2030).</td>
+      </tr>
+      <tr>
+        <td><strong>Cuba US strike</strong> <span class="rq rq-low">LOW</span></td>
+        <td>39.5%</td>
+        <td style="color:#aaa"><strong>39.5%</strong></td>
+        <td style="color:#aaa">+0.0pp</td>
+        <td style="font-size:0.82rem">Slow fade from 47.5% June peak. 20.5pp below ↑60% trigger. No macro impact today.</td>
+      </tr>
+      <tr>
+        <td><strong>China invades Taiwan 2026</strong> <span class="rq rq-high">HIGH</span></td>
+        <td>7.1%</td>
+        <td style="color:#aaa"><strong>6.6%</strong></td>
+        <td style="color:#aaa">−0.5pp</td>
+        <td style="font-size:0.82rem">Quiet drift lower. 8.4pp below ↑15% trigger. No news catalyst.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Cross-Market Coherence -->
+  <h2>Cross-Market Coherence Check</h2>
+  <div class="coherence-check">
+    <h4>✓ Internally Coherent — "Extended Blockade, Deal Alive, No War"</h4>
+    <ul>
+      <li><span class="marker" style="color:#7dd87d">HIGH</span> <strong>WTI ~$89/bbl (falling)</strong> — oil is not pricing re-escalation. US embassy evacuations not yet causing an oil spike. Ground truth: de-escalation trajectory intact.</li>
+      <li><span class="marker" style="color:#cccc7d">MED</span> <strong>Hormuz July 31: 25.5% (drifting lower)</strong> — September/October normalisation base case confirmed. Organic selling overnight = market settling into long-blockade consensus.</li>
+      <li><span class="marker" style="color:#8888cc">LOW</span> <strong>Nuclear deal: 65% (recovering)</strong> — counter-intuitive given embassy news; suggests market reads evacuations as defensive, not deal-ending.</li>
+      <li><span class="marker" style="color:#8888cc">LOW</span> <strong>Iran invasion: 18.5% (recovering)</strong> — critical ground truth for the embassy escalation reading. Invasion NOT spiking = Iran's threat is posturing within ceasefire framework, not prelude to war.</li>
+      <li><span class="marker" style="color:#f5a5a5">⚠ WATCH</span> <strong>Embassy evacuation vs. nuclear deal recovery DIVERGENCE</strong> — markets are shrugging off embassy news (deal recovering). This could be correct (defensive posture) OR could be a lag before the market digests the threat. If Iran carries through on its threat to strike US bases, this coherence breaks violently.</li>
+    </ul>
+  </div>
+
+  <!-- Catalyst ID -->
+  <h2>Breaking Catalyst: US Embassy Evacuations (June 11)</h2>
+  <div class="info-box">
+    <h3>4-Step Catalyst Identification</h3>
+    <p>
+      <strong>What:</strong> US State Department ordered partial evacuation of Baghdad, Kuwait City and Bahrain embassy personnel. Iranian Defence Minister General Nasirzadeh warned that Tehran would target US military bases in the region "if hostilities spike or nuclear negotiations break down."<br><br>
+      <strong>When:</strong> Breaking today, June 11 AEST (overnight US hours). Baghdad was already on skeleton staffing; Kuwait and Bahrain evacuation orders are new.<br><br>
+      <strong>Market read:</strong> Nuclear deal recovering (+1.5pp to 65%), invasion recovering (+1pp to 18.5%), WTI flat at $89. Markets reading this as defensive US posturing (protecting assets ahead of IAEA Board), NOT as Iran initiating new hostilities. The ceasefire framework is still operational.<br><br>
+      <strong>Risk:</strong> If Iran actually strikes US bases — even a single attack on a base in Kuwait or Bahrain — the invasion market would reprice to 25–35%, the nuclear deal could fall through 60% toward 50%, and WTI would spike toward $97–103. Absence of that Iranian action in the next 24–72 hours = threat was leverage in negotiations, not an action signal.
+    </p>
+  </div>
+
+  <!-- Upcoming Risk: IAEA -->
+  <div class="info-box" style="border-color:#5a3a00; background:#1a1500;">
+    <h3 style="color:#d4883a;">Upcoming Binary: IAEA Board Meeting (June 12)</h3>
+    <p style="color:#c8aa80;">
+      The IAEA Board of Governors is expected to act on Iran's nuclear compliance this week. Iran notified the Agency of a new enrichment facility (IFEP) in June 2025 but has refused inspection access. A formal non-compliance finding — the first in 20 years — would trigger: (1) automatic European sanctions referral, (2) political pressure on Iran to escalate or capitulate, (3) nuclear deal market likely falls 5–10pp (from 65% toward 55–60%). Cross-check: if IAEA breach declaration + Hormuz below 25% + nuclear deal below 60% hit simultaneously, re-escalation is confirmed — full alert warranted.<br><br>
+      <em>Note: IAEA breach declaration has not yet occurred as of this 7AM report.</em>
+    </p>
+  </div>
+
+  <!-- Australian Impact -->
+  <h2>Australian Market Impact</h2>
+  <table class="market-table">
+    <thead>
+      <tr><th>Sector</th><th>Current Read</th><th>Key Sensitivity</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Petrol (consumer)</strong></td>
+        <td>A$2.10–2.25/L floor</td>
+        <td style="font-size:0.82rem">Brent ~$92–93 (WTI proxy + Brent-WTI spread). Structural blockade premium locked until Hormuz physically reopens. Embassy evacuation adds upside tail risk; oil $89 confirms no spike yet.</td>
+      </tr>
+      <tr>
+        <td><strong>ASX today (Thursday)</strong></td>
+        <td>Normal trading day</td>
+        <td style="font-size:0.82rem">Embassy evacuation is breaking news but WTI not spiking → limited ASX energy outperformance today vs. yesterday. Energy (WDS, STO) hold blockade premium. QAN/logistics unchanged vs. yesterday's read.</td>
+      </tr>
+      <tr>
+        <td><strong>AUD/USD</strong></td>
+        <td>Stagflation-rate constrained</td>
+        <td style="font-size:0.82rem">Warsh FOMC June 16–17 in 5 days. US hold locked 99.6%. If Warsh's maiden press conference signals cuts to 2027 only (matching Kalshi 81.5% '0 cuts 2026'), AUD faces modest headwind from higher-for-longer US rates. China demand re-awakening (tariff truce) is the AUD tailwind offset.</td>
+      </tr>
+      <tr>
+        <td><strong>RBA rate path</strong></td>
+        <td>Constrained</td>
+        <td style="font-size:0.82rem">Oil blockade premium sustains AU petrol inflation. If IAEA breach + escalation adds 5pp to oil next week, RBA cut probability falls further. Stagflation trap: can't cut with persistent oil-driven CPI.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Forward View -->
+  <h2>Forward View — Next 5 Days</h2>
+  <div class="forward-grid">
+    <div class="forward-item priority">
+      <h4>🔴 Priority 1 — Iranian Base Attack Risk (24–72h)</h4>
+      <p>Iran's Defence Minister threatened US bases in Iraq, Kuwait, Bahrain. If Iran acts: invasion reprices to 25–35%, nuclear deal falls through 60%, WTI spikes to $97+. Watch for CENTCOM press releases, AIS Hormuz traffic changes, or WTI overnight spike above $97 as proxy signals.</p>
+    </div>
+    <div class="forward-item priority">
+      <h4>🟠 Priority 2 — IAEA Board (June 12)</h4>
+      <p>Non-compliance finding = nuclear deal falls 5–10pp toward 55–60%. At ↓60% early-warning (currently 5pp away), paired with Hormuz below 25%, re-escalation report required. IAEA breach has not occurred as of 7AM; watch for Board action today/tomorrow.</p>
+    </div>
+    <div class="forward-item">
+      <h4>Hormuz Sentinel Watch (5.5pp to ↓20%)</h4>
+      <p>Complete capitulation sentinel (↓20%) now 5.5pp below current. If IAEA breach + embassy news pushes Hormuz to 20%, Q4 normalisation priced in, Australian petrol A$2.50+ structural floor. Threshold lowered to ↓23% today (2.5pp away from current equilibrium).</p>
+    </div>
+    <div class="forward-item">
+      <h4>Warsh FOMC June 16–17 (5 days)</h4>
+      <p>Hold locked 99.6%. The maiden press conference language matters: 'supply-side/transitory oil' framing = dovish for AUD; 'structural vigilance' = higher-for-longer, AUD headwind. Kalshi prices 81.5% chance of zero US rate cuts in 2026. No playbook for Warsh's communication style yet.</p>
+    </div>
+    <div class="forward-item">
+      <h4>Nuclear Deal ↓60% Early-Warning (5pp away)</h4>
+      <p>The critical trip-wire between 'extended blockade' and 're-escalation confirmed.' Narrowed from 8pp (7AM Jun 10) to 5pp now, despite overnight recovery. If IAEA breach + embassy fears combine, it fires June 12–13. Paired with Hormuz below 25%: immediate full alert.</p>
+    </div>
+    <div class="forward-item">
+      <h4>Dual Proximity: Invasion ↓15% (3.5pp)</h4>
+      <p>Both Hormuz ↓23% (2.5pp away) and invasion ↓15% (3.5pp away) are simultaneously close to their respective thresholds. A signed MOU (if talks recover from embassy standoff) would fire invasion ↓15% first. Thin overnight liquidity remains a flash-fire risk for either trigger.</p>
+    </div>
+  </div>
+
+  <!-- Trigger Actions -->
+  <h2>Trigger Actions Taken This Run</h2>
+  <div class="action-box">
+    <ul>
+      <li>Hormuz ↓28% sentinel threshold lowered to ↓23% — market settled into new equilibrium range 25.5–26.5%; ↓28% is now inside the oscillation band and no longer provides signal. New threshold 23% fires on genuine further deterioration (2.5pp below current oscillation floor).</li>
+      <li>No new triggers added — embassy evacuation does not have a direct Polymarket market; monitoring via Iran invasion (18.5%), nuclear deal (65%), and WTI $89 as proxy cross-references.</li>
+      <li>Confirmed: discovery run found no new macro-relevant Polymarket markets (685 Polymarket, 447 Kalshi markets scanned; 0 new matches on watchlist keywords).</li>
+    </ul>
+  </div>
+
+</div>
+<div class="footer">
+  Polymarket Analyst · Daily 7AM Report · 11 Jun 2026 07:15 AEST · Data: Polymarket + Kalshi APIs · Analysis: Buy-side macro framework
+</div>
+</body>
+</html>
