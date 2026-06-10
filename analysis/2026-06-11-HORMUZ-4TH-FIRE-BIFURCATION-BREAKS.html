@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT — Hormuz 4th Fire; Bifurcation Breaks; Invasion +5pp | 11 Jun 2026 09:05 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f13; color: #e0e0e8; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a0a0a 0%, #2d0f0f 100%); border-bottom: 3px solid #c0392b; padding: 28px 32px; }
+  .header .alert-badge { display: inline-block; background: #c0392b; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; text-transform: uppercase; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+  .header .meta { font-size: 13px; color: #a0a0b0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 24px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8888aa; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2a2a3a; }
+  .callout { border-left: 4px solid #c0392b; background: #1a1020; padding: 16px 20px; border-radius: 0 6px 6px 0; margin-bottom: 16px; }
+  .callout.green { border-left-color: #27ae60; background: #0a1a12; }
+  .callout.amber { border-left-color: #e67e22; background: #1a1205; }
+  .callout.blue { border-left-color: #2980b9; background: #0a1220; }
+  .callout p { font-size: 14px; color: #d0d0e0; }
+  .callout strong { color: #fff; }
+  .market-grid { display: grid; gap: 12px; }
+  .market-card { background: #1a1a24; border: 1px solid #2a2a3a; border-radius: 8px; padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 8px; }
+  .market-card.fired { border-color: #c0392b; background: #1a0e0e; }
+  .market-card.warning { border-color: #e67e22; background: #1a1205; }
+  .market-card.positive { border-color: #27ae60; background: #0a1a12; }
+  .market-name { font-size: 14px; font-weight: 600; color: #c0c0d8; margin-bottom: 4px; }
+  .market-meta { font-size: 12px; color: #7070a0; }
+  .market-price { text-align: right; }
+  .market-price .price { font-size: 22px; font-weight: 700; color: #fff; }
+  .market-price .delta { font-size: 13px; font-weight: 600; margin-top: 2px; }
+  .delta-up { color: #e74c3c; }
+  .delta-down { color: #e74c3c; }
+  .delta-flat { color: #8888aa; }
+  .delta-good-down { color: #27ae60; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; letter-spacing: 0.5px; margin-left: 6px; vertical-align: middle; }
+  .q-high { background: #1a3a1a; color: #4caf50; border: 1px solid #2a5a2a; }
+  .q-med { background: #3a2a0a; color: #ff9800; border: 1px solid #5a4010; }
+  .q-low { background: #2a1a2a; color: #9c27b0; border: 1px solid #4a2a4a; }
+  .fired-badge { display: inline-block; background: #c0392b; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-left: 8px; letter-spacing: 1px; }
+  .proximity-bar { margin-top: 8px; }
+  .proximity-label { font-size: 11px; color: #7070a0; margin-bottom: 4px; }
+  .bar-track { background: #2a2a3a; border-radius: 4px; height: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+  .bar-red { background: #c0392b; }
+  .bar-amber { background: #e67e22; }
+  .bar-green { background: #27ae60; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.data th { background: #1a1a2a; color: #8888aa; font-weight: 600; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 2px solid #2a2a3a; }
+  table.data td { padding: 10px 14px; border-bottom: 1px solid #1e1e2e; color: #c0c0d0; vertical-align: top; }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data tr:hover td { background: #1e1e2e; }
+  .key-finding { background: #1a1a24; border: 1px solid #c0392b; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .key-finding h3 { font-size: 15px; font-weight: 700; color: #e74c3c; margin-bottom: 10px; }
+  .key-finding p { font-size: 14px; color: #c0c0d0; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .macro-card { background: #1a1a24; border: 1px solid #2a2a3a; border-radius: 8px; padding: 16px; }
+  .macro-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8888aa; margin-bottom: 10px; }
+  .macro-card p { font-size: 13px; color: #b0b0c8; }
+  ul.bullets { list-style: none; padding: 0; }
+  ul.bullets li { font-size: 14px; color: #c0c0d0; padding: 6px 0; border-bottom: 1px solid #1e1e2e; padding-left: 16px; position: relative; }
+  ul.bullets li::before { content: '→'; position: absolute; left: 0; color: #8888aa; }
+  ul.bullets li:last-child { border-bottom: none; }
+  .highlight { color: #e74c3c; font-weight: 700; }
+  .highlight-amber { color: #e67e22; font-weight: 700; }
+  .highlight-green { color: #27ae60; font-weight: 700; }
+  .footer { margin-top: 40px; padding: 20px 0; border-top: 1px solid #2a2a3a; font-size: 12px; color: #5a5a7a; text-align: center; }
+  @media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr; } .header { padding: 20px 16px; } .container { padding: 16px; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚠ Alert — 11 June 2026, 09:05 AEST</div>
+  <h1>Hormuz 4th Fire (21.5%) — Bifurcation Breaks<br>Invasion +5pp; WTI Rising to $92–93</h1>
+  <div class="meta">Day 107 blockade &nbsp;·&nbsp; Triggered by: Hormuz secondary collapse sentinel (&lt;23%) &nbsp;·&nbsp; 2 hours after 7AM daily</div>
+</div>
+
+<div class="container">
+
+  <!-- KEY FINDING -->
+  <div class="section">
+    <div class="key-finding">
+      <h3>⚡ Why This Alert Is Different From The Previous Three</h3>
+      <p>All three prior Hormuz sentinel fires (June 4, 9, 10) shared one feature: <strong>Iran invasion was flat</strong> and <strong>WTI was falling</strong>. Those moves were posturing within a diplomatic framework — bifurcation pattern intact.<br><br>
+      This fire is different. Invasion rose <strong>+5pp to 23.5%</strong> in the same 2-hour window. WTI rose <strong>+$3–4 to $92–93/bbl</strong> (was $89 at the 7AM daily). <strong>For the first time in 7 weeks, all three markers are moving in the same escalation direction simultaneously.</strong> The bifurcation pattern that held for 97 consecutive sessions has broken. This is a genuine re-escalation signal backed by the HIGH-quality oil ground truth.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <div class="section-title">Trigger Status — 09:00 AEST</div>
+    <div class="market-grid">
+
+      <div class="market-card fired">
+        <div>
+          <div class="market-name">Hormuz traffic normal by July 31 <span class="quality-badge q-med">MED</span><span class="fired-badge">4TH FIRE</span></div>
+          <div class="market-meta">Slug: strait-of-hormuz-traffic-returns-to-normal-by-july-31 &nbsp;·&nbsp; Secondary collapse (&lt;23%) fired</div>
+          <div class="market-meta" style="margin-top:6px; color:#e74c3c;">Complete capitulation (&lt;20%) now <strong style="color:#e74c3c;">1.5pp away</strong> — PRIMARY sentinel</div>
+          <div class="proximity-bar" style="margin-top:10px;">
+            <div class="proximity-label">Distance to ≤20% capitulation: 1.5pp</div>
+            <div class="bar-track"><div class="bar-fill bar-red" style="width:92%;"></div></div>
+          </div>
+        </div>
+        <div class="market-price">
+          <div class="price">21.5%</div>
+          <div class="delta delta-down">−4.0pp vs 7AM</div>
+        </div>
+      </div>
+
+      <div class="market-card warning">
+        <div>
+          <div class="market-name">US–Iran nuclear deal before 2027 <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-meta">Slug: us-iran-nuclear-deal-before-2027 &nbsp;·&nbsp; Early-warning layer (&lt;60%) <strong style="color:#e67e22;">2.5pp away</strong></div>
+          <div class="proximity-bar" style="margin-top:10px;">
+            <div class="proximity-label">Distance to ≤60% early-warning: 2.5pp</div>
+            <div class="bar-track"><div class="bar-fill bar-amber" style="width:88%;"></div></div>
+          </div>
+        </div>
+        <div class="market-price">
+          <div class="price">62.5%</div>
+          <div class="delta delta-down">−2.5pp vs 7AM</div>
+        </div>
+      </div>
+
+      <div class="market-card warning">
+        <div>
+          <div class="market-name">US invades Iran before 2027 <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-meta">Slug: will-the-us-invade-iran-before-2027 &nbsp;·&nbsp; NEW mid-level trigger ↑30% added (6.5pp away)</div>
+          <div class="market-meta" style="margin-top:4px; color:#e67e22;"><strong>CRITICAL: First sustained upward invasion repricing in 7 weeks</strong></div>
+        </div>
+        <div class="market-price">
+          <div class="price">23.5%</div>
+          <div class="delta delta-up">+5.0pp vs 7AM</div>
+        </div>
+      </div>
+
+      <div class="market-card fired">
+        <div>
+          <div class="market-name">WTI crude oil — spot price <span class="quality-badge q-high">HIGH</span></div>
+          <div class="market-meta">Yahoo Finance / Investing.com — ground truth confirmation</div>
+          <div class="market-meta" style="margin-top:4px; color:#e74c3c;"><strong>Rising with Hormuz falling — CONFIRMS re-escalation (NOT contradicting)</strong></div>
+        </div>
+        <div class="market-price">
+          <div class="price">$92–93</div>
+          <div class="delta delta-up">+$3–4 vs 7AM ($89)</div>
+        </div>
+      </div>
+
+      <div class="market-card" style="border-color:#555;">
+        <div>
+          <div class="market-name">Ceasefire extension (by June 30) <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-meta">US announces new Iran agreement/ceasefire extension by June 30 — any new MOU this month priced out</div>
+        </div>
+        <div class="market-price">
+          <div class="price">2.5%</div>
+          <div class="delta delta-down">−21pp/7d</div>
+        </div>
+      </div>
+
+      <div class="market-card" style="border-color:#555;">
+        <div>
+          <div class="market-name">US–Iran permanent peace deal <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-meta">Long-horizon deal resolution — all deal pathways now near-zero</div>
+        </div>
+        <div class="market-price">
+          <div class="price">2.1%</div>
+          <div class="delta delta-down">−11pp/7d</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- THE CATALYST -->
+  <div class="section">
+    <div class="section-title">The Catalyst — Live Combat Escalation (June 9–11)</div>
+    <div class="callout">
+      <p><strong>June 9:</strong> A US Apache helicopter was shot down in the Strait of Hormuz. The US launched "self-defence" strikes on multiple Iranian targets.</p>
+    </div>
+    <div class="callout">
+      <p><strong>June 10:</strong> Iran fired ballistic missiles at US military bases in Bahrain, Kuwait, and Jordan (images of killed commanders painted on missiles). US struck Bandar Abbas, Qeshm, and Hengam — the three main islands controlling Hormuz chokepoint access. Jordan intercepted Iranian missiles. India summoned the US envoy after an attack on a ship carrying Indian sailors off Oman.</p>
+    </div>
+    <div class="callout">
+      <p><strong>June 11 pre-dawn:</strong> US Defense Secretary Hegseth pledged strikes on "key facilities" in Iran. This statement, emerging 2 hours before this collection, appears to be the specific catalyst that pushed Hormuz through 23% and the invasion market to 23.5%.</p>
+    </div>
+    <div class="callout amber">
+      <p><strong>Significance:</strong> Unlike previous CENTCOM-Iran tactical exchanges (Qeshm strikes May 31, June 1; radar/drone site strikes June 5–6), this escalation involves <strong>ballistic missile strikes on US military bases in three sovereign GCC nations simultaneously</strong>, plus a US Sec Def threat against Iranian "key facilities." This is not skirmish-level; this is structured military escalation.</p>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET COHERENCE -->
+  <div class="section">
+    <div class="section-title">Cross-Market Coherence Check</div>
+    <table class="data">
+      <tr>
+        <th>Marker</th>
+        <th>Quality</th>
+        <th>Previous 3 Fires (Jun 4, 9, 10)</th>
+        <th>This Fire (Jun 11 09:00)</th>
+        <th>Interpretation</th>
+      </tr>
+      <tr>
+        <td>Hormuz July 31</td>
+        <td><span class="quality-badge q-med">MED</span></td>
+        <td>Fell sharply</td>
+        <td class="highlight">Fell −4pp to 21.5%</td>
+        <td>Consistent — blockade indefinite</td>
+      </tr>
+      <tr>
+        <td>Iran invasion</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td><strong>FLAT</strong> in all 3 fires</td>
+        <td class="highlight">+5pp to 23.5%</td>
+        <td><strong>KEY DIVERGENCE — now escalation signal</strong></td>
+      </tr>
+      <tr>
+        <td>WTI crude</td>
+        <td><span class="quality-badge q-high">HIGH</span></td>
+        <td>Falling or flat ($89–91)</td>
+        <td class="highlight">Rising to $92–93/bbl</td>
+        <td><strong>KEY DIVERGENCE — oil confirms escalation</strong></td>
+      </tr>
+      <tr>
+        <td>Nuclear deal</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>Mixed (bounced/fell)</td>
+        <td>−2.5pp to 62.5%</td>
+        <td>Consistent — framework under strain</td>
+      </tr>
+      <tr>
+        <td>Ceasefire ext (June 30)</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>Gradually eroding</td>
+        <td class="highlight">2.5% (near-zero)</td>
+        <td>MOU pathway effectively closed</td>
+      </tr>
+    </table>
+    <div class="callout amber" style="margin-top:16px;">
+      <p><strong>Verdict: NO CONTRADICTIONS.</strong> All five markers are coherent in the same escalation direction. The HIGH-quality WTI signal is rising with the LOW/MED-quality binary markets. This is the first time since April that the cross-market complex has shown coherent re-escalation without any contradicting signals. The bifurcation pattern (97+ sessions) has conclusively broken.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES TABLE -->
+  <div class="section">
+    <div class="section-title">Key Moves vs 7AM Daily (2 Hours Ago)</div>
+    <table class="data">
+      <tr>
+        <th>Market</th>
+        <th>Quality</th>
+        <th>7AM Price</th>
+        <th>Now</th>
+        <th>Change</th>
+        <th>Significance</th>
+      </tr>
+      <tr>
+        <td>Hormuz July 31</td>
+        <td><span class="quality-badge q-med">MED</span></td>
+        <td>25.5%</td>
+        <td class="highlight">21.5%</td>
+        <td class="highlight">−4.0pp</td>
+        <td>4th sentinel fire; ≤20% 1.5pp away</td>
+      </tr>
+      <tr>
+        <td>Iran invasion 2027</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>18.5%</td>
+        <td class="highlight">23.5%</td>
+        <td class="highlight">+5.0pp</td>
+        <td><strong>First sustained repricing upward in 7 weeks</strong></td>
+      </tr>
+      <tr>
+        <td>Nuclear deal 2027</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>65.0%</td>
+        <td class="highlight-amber">62.5%</td>
+        <td class="highlight-amber">−2.5pp</td>
+        <td>≤60% early-warning 2.5pp away</td>
+      </tr>
+      <tr>
+        <td>WTI crude (Brent proxy)</td>
+        <td><span class="quality-badge q-high">HIGH</span></td>
+        <td>~$89/bbl</td>
+        <td class="highlight">~$92–93/bbl</td>
+        <td class="highlight">+$3–4</td>
+        <td>Confirms escalation — NOT contradicting</td>
+      </tr>
+      <tr>
+        <td>Ceasefire ext (June 30)</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>~9.5%</td>
+        <td class="highlight">2.5%</td>
+        <td class="highlight">−7pp/24h<br>−21pp/7d</td>
+        <td>Any new MOU this month priced out</td>
+      </tr>
+      <tr>
+        <td>Permanent peace deal</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>~4.5%</td>
+        <td>2.1%</td>
+        <td>−11pp/7d</td>
+        <td>Long-horizon pathway collapsing</td>
+      </tr>
+      <tr>
+        <td>Iran leadership change</td>
+        <td><span class="quality-badge q-low">LOW</span></td>
+        <td>28.5%</td>
+        <td>29.5%</td>
+        <td>+1.0pp</td>
+        <td>Mild uptick on escalation; not signalling</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Macro Implications</div>
+    <div class="macro-grid">
+
+      <div class="macro-card">
+        <h4>🛢 Oil &amp; Australian Petrol</h4>
+        <p>WTI (proxy for Brent) at <strong>$92–93/bbl</strong> and rising. Brent spreads ~$3–4 above WTI → Brent ~$95–97/bbl. Australian petrol currently <strong>A$2.25–2.40/L</strong>.<br><br>
+        If Hormuz ≤20% fires: Q4 blockade confirmed → <strong>A$2.50+ structural floor</strong>. If WTI reaches $97 (Hegseth "key facility" escalation): petrol approaches A$2.60/L. Blockade Day 107 — no physical normalisation possible before August minimum even under best diplomatic scenario.</p>
+      </div>
+
+      <div class="macro-card">
+        <h4>📈 ASX Open (~10:00 AEST, 45 min)</h4>
+        <p>ASX trading today (Thursday June 11 — no public holiday). Energy sector outperformers: <strong>Woodside (WDS), Santos (STO)</strong> — oil +$3–4/bbl overnight. Airlines under pressure: <strong>Qantas (QAN)</strong> — jet fuel cost rising. <br><br>
+        Broader market: Iran escalation + WTI rising = stagflation concern reinforced. ASX 200 may open modestly lower on risk-off impulse ahead of <strong>Warsh FOMC June 16–17</strong> (5 days).</p>
+      </div>
+
+      <div class="macro-card">
+        <h4>💱 AUD/USD</h4>
+        <p>Dual pressure on AUD: (1) Iran blockade premium → higher oil import costs → stagflation → RBA constrained; (2) Risk-off impulse from military escalation → USD safe-haven demand. <br><br>
+        Warsh FOMC June 16–17 backdrop: US CPI at 3.8% YoY prevents cuts; Warsh first press conference language on oil-driven inflation will be closely watched. Higher-for-longer USD trajectory = AUD headwind through Q3.</p>
+      </div>
+
+      <div class="macro-card">
+        <h4>📊 US Rates / Global Bonds</h4>
+        <p>Stagflation vector intensifying: WTI rising → US CPI upside risk in June/July prints → Warsh can't cut even if growth slows. 10Y US yield pushed higher by oil surprise. <br><br>
+        If nuclear deal ≤60% fires simultaneously with WTI $97+: global risk-off event — Treasuries would rally (flight to safety) but front end stays pinned by inflation. <strong>Duration compression scenario.</strong></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHAT COULD RESOLVE THIS -->
+  <div class="section">
+    <div class="section-title">What Could Reverse the Move</div>
+    <ul class="bullets">
+      <li>Ceasefire announcement or joint US-Iran statement — would push Hormuz back toward 25%+ and collapse invasion; very low probability given ceasefire extension at 2.5%</li>
+      <li>Oman back-channel resumes (per June 10 counteroffer narrative) — positive surprise; would need credible reporting to shift markets</li>
+      <li>Iran "goodwill gesture" (partial Hormuz lift, inspection access) — unlikely given ballistic missile escalation from June 10</li>
+      <li>IAEA Board of Governors delays non-compliance vote — removes one negative catalyst; short-term bounce possible</li>
+    </ul>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View — Next 24–72 Hours</div>
+    <div class="callout" style="border-left-color:#e74c3c; margin-bottom:12px;">
+      <p><strong>1. HORMUZ ≤20% CAPITULATION (1.5pp away, PRIMARY SENTINEL)</strong><br>
+      At 21.5%, any further selling sends it through ≤20%. At that level, July 31 physical reopening is essentially priced as impossible (4-in-5 chance of NO). Australian petrol floor locks in at A$2.50+. Immediate email alert warranted.</p>
+    </div>
+    <div class="callout" style="border-left-color:#e67e22; margin-bottom:12px;">
+      <p><strong>2. NUCLEAR DEAL ≤60% EARLY-WARNING (2.5pp away)</strong><br>
+      Nuclear deal has been the key positive signal holding the entire de-escalation thesis together since May. If it falls through 60% for the first time, the framework has entered "serious doubt" territory — combined with Hormuz at 21.5%, this would be a major re-escalation confirmation. Standalone email warranted at that point even without a second trigger firing.</p>
+    </div>
+    <div class="callout" style="border-left-color:#e67e22; margin-bottom:12px;">
+      <p><strong>3. IRAN INVASION ↑30% (6.5pp away, NEW TRIGGER)</strong><br>
+      From 23.5% to 30% requires a major further escalation catalyst — likely a confirmed US "key facility" strike or Iranian strike on a US warship. If invasion crosses 30% while nuclear deal is simultaneously below 60%: worst-case dual-trigger scenario.</p>
+    </div>
+    <div class="callout blue" style="margin-bottom:12px;">
+      <p><strong>4. IAEA BOARD OF GOVERNORS VOTE (expected this week)</strong><br>
+      IAEA cannot verify Iran's enriched uranium stockpile after 107+ days of zero inspector access. A non-compliance finding (first in 20 years) would push nuclear deal toward 55–58% and potentially fire the ≤60% early-warning in the same session. Watch June 12 IAEA meeting closely.</p>
+    </div>
+    <div class="callout blue">
+      <p><strong>5. WARSH FOMC JUNE 16–17 (5 days)</strong><br>
+      Hold locked at 99.6%. But Warsh's maiden press conference language on oil-driven inflation (WTI now $92–93 vs ~$83–85 trough) sets the tone for 2026 rate path. Any "prepared to act on inflation" language = AUD pressure + ASX derating.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER ACTIONS -->
+  <div class="section">
+    <div class="section-title">Trigger Actions Taken</div>
+    <table class="data">
+      <tr>
+        <th>Action</th>
+        <th>Trigger</th>
+        <th>Change</th>
+      </tr>
+      <tr>
+        <td>Updated reason — 4th fire documented</td>
+        <td>hormuz-traffic-july31-floor (&lt;23%)</td>
+        <td>Reason updated with 4th fire + bifurcation-break context; threshold unchanged; superseded by ≤20% sentinel</td>
+      </tr>
+      <tr>
+        <td>Updated reason — now PRIMARY sentinel</td>
+        <td>hormuz-traffic-july31-deep (&lt;20%)</td>
+        <td>Reason updated to reflect 1.5pp proximity, active combat context, fire protocol</td>
+      </tr>
+      <tr>
+        <td><strong>NEW TRIGGER ADDED</strong></td>
+        <td>iran-invasion-2027-mid-escalation (↑30%)</td>
+        <td>Added: iran-invasion-2027-mid-escalation at ↑30% threshold (6.5pp from current 23.5%)</td>
+      </tr>
+      <tr>
+        <td>Updated reason — 2.5pp proximity</td>
+        <td>iran-nuclear-deal-early-warning (&lt;60%)</td>
+        <td>Reason updated: standalone email now warranted if ≤60% fires (upgraded from "include in scheduled report")</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst &nbsp;·&nbsp; 11 June 2026 09:05 AEST &nbsp;·&nbsp; Alert-triggered run &nbsp;·&nbsp; Day 107 Iran blockade
+</div>
+
+</body>
+</html>
