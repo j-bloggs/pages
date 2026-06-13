@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 14 Jun 7AM AEST: G7 MOU Window; Permanent Peace Deal 52%; Deal Confidence Highest Ever</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+  .header { background: linear-gradient(135deg, #1a2540, #0f3460); border-radius: 12px; padding: 28px; margin-bottom: 24px; border-left: 4px solid #3b82f6; }
+  .header h1 { font-size: 1.4rem; font-weight: 700; color: #f0f4ff; margin-bottom: 6px; }
+  .header .subtitle { color: #94a3b8; font-size: 0.85rem; }
+  .header .meta { color: #64748b; font-size: 0.78rem; margin-top: 4px; }
+  .section { background: #1a1f2e; border-radius: 10px; padding: 20px; margin-bottom: 18px; border: 1px solid #2d3748; }
+  .section h2 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 14px; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #2d3748; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-label { font-size: 0.84rem; color: #cbd5e1; flex: 1; }
+  .trigger-price { font-size: 0.9rem; font-weight: 600; min-width: 60px; text-align: right; }
+  .trigger-gap { font-size: 0.78rem; color: #64748b; min-width: 180px; text-align: right; }
+  .price-up { color: #4ade80; }
+  .price-down { color: #f87171; }
+  .price-neutral { color: #94a3b8; }
+  .price-hot { color: #fb923c; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-left: 6px; }
+  .badge-active { background: #1d4ed8; color: #bfdbfe; }
+  .badge-watch { background: #374151; color: #9ca3af; }
+  .badge-high { background: #065f46; color: #6ee7b7; }
+  .badge-med { background: #92400e; color: #fde68a; }
+  .badge-low { background: #4c1d95; color: #ddd6fe; }
+  .badge-fire { background: #7f1d1d; color: #fca5a5; }
+  .move-item { padding: 12px 0; border-bottom: 1px solid #2d3748; }
+  .move-item:last-child { border-bottom: none; }
+  .move-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .move-title { font-size: 0.88rem; font-weight: 600; color: #f0f4ff; }
+  .move-delta { font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+  .move-body { font-size: 0.82rem; color: #94a3b8; margin-top: 4px; line-height: 1.5; }
+  .narrative { font-size: 0.88rem; color: #cbd5e1; line-height: 1.7; }
+  .narrative p { margin-bottom: 12px; }
+  .narrative strong { color: #f0f4ff; }
+  .forward { background: #111827; border-radius: 8px; padding: 16px; border-left: 3px solid #3b82f6; }
+  .forward h3 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #3b82f6; margin-bottom: 10px; }
+  .forward-item { font-size: 0.83rem; color: #94a3b8; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .forward-item::before { content: "→"; position: absolute; left: 0; color: #3b82f6; }
+  .forward-item strong { color: #e2e8f0; }
+  .alert-box { background: #1c1917; border-radius: 8px; padding: 14px; border-left: 3px solid #f59e0b; margin-bottom: 14px; }
+  .alert-box.green { border-left-color: #4ade80; }
+  .alert-box.blue { border-left-color: #60a5fa; }
+  .alert-box.red { border-left-color: #f87171; }
+  .alert-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .alert-label.yellow { color: #f59e0b; }
+  .alert-label.green { color: #4ade80; }
+  .alert-label.blue { color: #60a5fa; }
+  .alert-label.red { color: #f87171; }
+  .alert-text { font-size: 0.83rem; color: #d1d5db; line-height: 1.5; }
+  .actions { font-size: 0.8rem; color: #64748b; }
+  .actions li { margin-bottom: 4px; }
+  .separator { border: none; border-top: 1px solid #2d3748; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  th { text-align: left; color: #64748b; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #2d3748; }
+  td { padding: 7px 8px; border-bottom: 1px solid #1a2540; }
+  .highlight-row td { background: #1a2540; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Polymarket Daily — 14 Jun 7AM AEST</h1>
+    <div class="subtitle">G7 Évian Window Opens; Permanent Peace Deal June 30 Crosses 52%; Deal Conviction at All-Time High</div>
+    <div class="meta">Generated 2026-06-14 07:01 AEST · 34 markets · 16 triggers · WTI last $84.88/bbl (Fri close; weekend)</div>
+  </div>
+
+  <!-- SITUATION SUMMARY -->
+  <div class="section">
+    <h2>Situation Summary</h2>
+    <div class="narrative">
+      <p>The Geneva signing window passed without ceremony overnight — Iran's Khamenei has not formally authorized the MOU text — but deal confidence has <strong>increased, not decreased</strong>. The market has re-priced the timeline from "tonight" to the <strong>G7 Évian summit window (June 15–17 AEST)</strong>, which serves as Trump's hard pre-summit deadline. Ceasefire extension markets confirm the shift: June 13–14 deadlines collapsed to near-zero, while June 16–19 deadlines all surged +11–17pp overnight.</p>
+      <p>The most significant development is not the timing slip but the <strong>permanent peace deal by June 30 crossing 52.5%</strong> (+11pp/24h, $307M total volume). The market is leapfrogging the procedural MOU to price a full comprehensive agreement — JCPOA-level — within 16 days. Nuclear deal by June 30 simultaneously jumped to 63.5% (+13pp/24h). The market is telling you the MOU is treated as a done deal, and the question has shifted to how fast the full architecture follows.</p>
+      <p>Hormuz July 31 hit a new all-time high of 55.5% this morning, up from 54.5% at the midnight alert. Iran invasion remains flat at 16.5% (1.5pp from the ↓15% peace-floor trigger), holding steady through the signing slip. WTI closed Friday at $84.88/bbl — oil markets are closed through the weekend; Monday Asia open is the first real-time price signal post-G7.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <h2>Trigger Status — 16 Watching</h2>
+
+    <div class="alert-box green">
+      <div class="alert-label green">NEAREST TRIGGER — 1.5pp AWAY</div>
+      <div class="alert-text"><strong>Iran invasion ↓15% peace-floor</strong> — currently 16.5%. Flat through overnight signing slip. Protocol: email immediately if fires with nuclear deal ≥76% (currently 80%). Fires on MOU signature.</div>
+    </div>
+
+    <div class="alert-box blue">
+      <div class="alert-label blue">SECOND NEAREST — 3.0pp AWAY</div>
+      <div class="alert-text"><strong>Nuclear deal ↑83% post-MOU momentum</strong> — currently 80.0%. Has been the floor for 6+ hours. G7 signing announcement = likely catalyst to cross 83%. At ↑83%: deal materially de-risked on timing. Email immediately.</div>
+    </div>
+
+    <table style="margin-top:12px;">
+      <thead>
+        <tr><th>Trigger</th><th>Price</th><th>Gap to threshold</th><th>Quality</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>Iran invasion ↓15% peace-floor</td>
+          <td class="price-down">16.5%</td>
+          <td>1.5pp above threshold (fires at ↓15%)</td>
+          <td><span class="badge badge-low">LOW</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Nuclear deal ↑83% post-MOU momentum</td>
+          <td class="price-up">80.0%</td>
+          <td>3.0pp below trigger (fires at ↑83%)</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Nuclear deal ↑85% approaching certainty</td>
+          <td class="price-up">80.0%</td>
+          <td>5.0pp below trigger (fires at ↑85%)</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 ↑85% de-escalation confirmed</td>
+          <td class="price-neutral">55.5%</td>
+          <td>29.5pp below trigger (fires at ↑85%)</td>
+          <td><span class="badge badge-med">MED</span></td>
+        </tr>
+        <tr>
+          <td>Cuba US strike ↑60%</td>
+          <td class="price-neutral">42.5%</td>
+          <td>17.5pp below trigger (fires at ↑60%)</td>
+          <td><span class="badge badge-low">LOW</span></td>
+        </tr>
+        <tr>
+          <td>Iran leadership change ↑60%</td>
+          <td class="price-neutral">20.5%</td>
+          <td>39.5pp below trigger (fires at ↑60%)</td>
+          <td><span class="badge badge-low">LOW</span></td>
+        </tr>
+        <tr>
+          <td>Iran invasion ↑30% re-escalation</td>
+          <td class="price-neutral">16.5%</td>
+          <td>13.5pp below trigger (fires at ↑30%)</td>
+          <td><span class="badge badge-low">LOW</span></td>
+        </tr>
+        <tr>
+          <td>Taiwan invasion ↑15%</td>
+          <td class="price-neutral">6.4%</td>
+          <td>8.6pp below trigger (fires at ↑15%)</td>
+          <td><span class="badge badge-low">LOW</span></td>
+        </tr>
+        <tr>
+          <td>Fed June hike ↑5%</td>
+          <td class="price-neutral">0.2%</td>
+          <td>4.8pp below trigger (fires at ↑5%)</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Hormuz ↓23% secondary collapse</td>
+          <td class="price-up">55.5%</td>
+          <td>32.5pp above threshold (fires at ↓23%)</td>
+          <td><span class="badge badge-med">MED</span></td>
+        </tr>
+        <tr>
+          <td>Nuclear deal ↓60% early-warning</td>
+          <td class="price-up">80.0%</td>
+          <td>20.0pp above threshold (fires at ↓60%)</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <h2>Key Moves — Since 5PM Daily Jun 13 (Last Comprehensive Report)</h2>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[HIGH] US-Iran nuclear deal before 2027</span>
+        <span class="move-delta price-up">80.0% (+8.5pp/24h, +14.5pp/wk)</span>
+      </div>
+      <div class="move-body">
+        Rose from 71.5% (5PM daily Jun 13) to 80.0% (7AM daily Jun 14). ↑75% trigger fired 4th time at 21:15 AEST Jun 13; ↑80% trigger fired at 00:37 AEST Jun 14. Now flat at 80.0% — MOU not signed but market is treating the text as agreed. Pakistani mediator publicly confirmed "final text reached" (Times of Israel). Horizontal movement through signing slip is the signal: this is not a breakdown pause, it's a logistics delay. ↑83% trigger is 3.0pp away. Resolution quality: HIGH (publicly announced mutual agreement criterion).
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[MED] Hormuz traffic normal by July 31</span>
+        <span class="move-delta price-up">55.5% (+8.0pp/24h, +14.0pp/wk)</span>
+      </div>
+      <div class="move-body">
+        New all-time high for this contract. Was 47.5% at the 5PM Jun 13 daily, 54.5% at the midnight alert, 55.5% now (+1.0pp in the last 6.5h). Slowly grinding higher even through the Geneva slip. Market correctly interpreting: MOU signing timeline → 30-day mine-clearing → physical Hormuz reopening in late July. Resolution condition: IMF Portwatch 7-day MA ≥60 transit calls by July 31. Current: ~10 transits/day vs 95 normal. Even with immediate post-G7 signing, July 31 is tight — market at 55.5% is pricing a fast-track implementation scenario. Collapse sentinels (↓23%, ↓20%) are 32–36pp away.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[LOW] US-Iran permanent peace deal by June 30</span>
+        <span class="move-delta price-up">52.5% (+11.0pp/24h, $307M total volume)</span>
+      </div>
+      <div class="move-body">
+        <strong>The headline development of the 7AM daily.</strong> Crossed 50% for only the second time (first was brief, intraday Jun 13). The market is pricing the full comprehensive JCPOA-equivalent deal — not just the 60-day MOU procedural step — as majority-probable within 16 days. This is an extraordinary leap. Siblings: June 15 at 26.2% (+11.2pp), July 31 at 60.5% (+8.0pp). Resolution quality: [LOW] — "permanent peace deal" criteria will be UMA-determined. Treat as a directional signal only; do NOT anchor macro calls on this alone. Cross-validate with nuclear deal [HIGH] at 80% (coherent, but 80% ≠ 100%) and Hormuz [MED] at 55.5% (coherent — prices rapid implementation). The $307M total volume gives this weight despite LOW quality.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[LOW] US-Iran nuclear deal by June 30</span>
+        <span class="move-delta price-up">63.5% (+13.0pp/24h)</span>
+      </div>
+      <div class="move-body">
+        A separate market from the "before 2027" contract — this resolves specifically by June 30. Up from ~50% yesterday to 63.5% today, implying the market prices a 63% chance of a full announced agreement (beyond MOU) in 16 days. This is the sister market to permanent peace deal June 30, and they're converging around 52–63% range. Both are [LOW] quality. The coherence between them is the signal, not either one alone.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[LOW] Ceasefire extension deadline shift: June 13-14 → June 16-19</span>
+        <span class="move-delta price-neutral">Redistribution</span>
+      </div>
+      <div class="move-body">
+        "US announces new Iran agreement by June 13": 7.5% (−11.5pp/24h, effectively NO). "By June 14": 28.5% (−2.0pp, fading). "By June 16": 56.5% (+16.0pp). "By June 17": 62.5% (+11.0pp). "By June 18": 68.0% (+17.5pp). "By June 19": 71.5% (+16.5pp). This cluster unmistakably prices G7 Évian (June 15-17) as the signing window. The G7 schedule gives Trump a hard deadline — he cannot arrive at the French Alps without a deal announcement. The +17.5pp jump on June 18 may price a 1-day buffer for implementation paperwork.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[MED] Vance at next US-Iran diplomatic meeting</span>
+        <span class="move-delta price-down">33.5% (−3.9pp/24h)</span>
+      </div>
+      <div class="move-body">
+        Fell from ~47% peak (Jun 13 peak) to 33.5%. This is a format signal, not a deal signal. Both delegations will likely be in the G7 proximity, but the meeting structure appears to be shifting to indirect/proximity format (separate rooms, Qatar/Oman brokered), which may not qualify under Polymarket's "diplomatic meeting" criteria. Nuclear deal [HIGH] at 80.0% (NOT falling) and Hormuz [MED] at 55.5% (NOT falling) confirm this is logistics, not breakdown.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[LOW] Next meeting venue: Pakistan</span>
+        <span class="move-delta price-up">35.9% (+27.4pp/24h)</span>
+      </div>
+      <div class="move-body">
+        Pakistan as the next US-Iran meeting venue surged 27.4pp overnight. Pakistan's PM earlier confirmed "final text reached" (acting as mediator). This surge may price: (a) the post-MOU 60-day negotiation period being headquartered in Islamabad, or (b) a late venue shift for the MOU signing itself (though Geneva/France remains the named venue). Low resolution quality — venue determination will be UMA subjective. Switzerland as venue fell from ~26% to ~16.7% (−9.2pp). "Another European country" rose +10.7pp to 15.2%. Market is distributing probability widely — no clear consensus venue.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[LOW] Iran invasion before 2027</span>
+        <span class="move-delta price-neutral">16.5% (flat)</span>
+      </div>
+      <div class="move-body">
+        Unchanged at 16.5% — 1.5pp above the ↓15% peace-floor trigger. The stability through the signing slip is the signal: no re-escalation fear being priced. If Khamenei had been reported as refusing the deal, invasion would be above 20% by now. Instead it's flat. Protocol active: if ↓15% fires with nuclear deal ≥76%, email immediately — this is the MOU confirmation signal.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[HIGH] WTI crude oil (proxy for Brent)</span>
+        <span class="move-delta price-neutral">$84.88/bbl (Friday close; weekend)</span>
+      </div>
+      <div class="move-body">
+        No new print — oil markets are closed on weekends. WTI closed Friday at $84.88/bbl (−4% on the week). Brent proxy ~$87–89/bbl. Australian petrol at A$2.05–2.20/L reflecting the ongoing Hormuz blockade premium. Monday Asia open (CME futures ~8AM AEST) is the first real-time signal after G7 developments this weekend. If MOU signed at G7: expect WTI to gap to $80–82/bbl at Asia open. If no signing by G7 close: expect WTI to retrace to $87–89/bbl. Current level at $84.88 reflects the market already pricing ~76-80% deal probability — not much further to fall on signature, but meaningful reversal on failure.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[HIGH] US Fed June hold (Warsh FOMC)</span>
+        <span class="move-delta price-neutral">99.5% (locked)</span>
+      </div>
+      <div class="move-body">
+        Hold probability ticked up marginally to 99.5% (+0.3pp/24h). Fed decision in 3 days (AEST June 17–18). The decision itself is irrelevant — no hike, no cut. Warsh's maiden press conference is the real event. With US CPI at 3.8% (highest since May 2023), NFP at +172K (May), and WTI at $85, Warsh faces the stagflation dilemma. Hawkish CPI language = AUD headwind, 10Y to 5.0–5.1%. Dovish growth-risk framing = AUD tailwind. This timing is critical for Australia: an oil-de-escalation tailwind (MOU signed) may overlap with a Fed-hawkish headwind (Warsh press conference June 17 AEST). Fed July hold at 92.5% — market not pricing cuts anytime soon.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[HIGH] Kalshi: US unemployment suite</span>
+        <span class="move-delta price-neutral">All flat</span>
+      </div>
+      <div class="move-body">
+        ≥7% = 66% (flat, 8pp below ↑74% trigger). ≥10% = 31–32% (flat, 13pp below ↑45% trigger). ≥20% = 2% (flat, 13pp below ↑15% trigger). No stagflation deterioration since the Jun 9 NFP beat (+172K). Kalshi unemployment backdrop: stagflation is structural but not accelerating. FOMC is not under pressure to hike into a labor market that's still expanding.
+      </div>
+    </div>
+
+    <div class="move-item">
+      <div class="move-header">
+        <span class="move-title">[HIGH] Fed July hold</span>
+        <span class="move-delta price-neutral">92.5% (flat)</span>
+      </div>
+      <div class="move-body">
+        July hold at 92.5% (hike probability 4.0%). Market is not pricing cuts until late 2026 at the earliest. JPMorgan projects hold through 2026. The AUD faces a structural US rate headwind throughout the second half.
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET COHERENCE CHECK -->
+  <div class="section">
+    <h2>Cross-Market Coherence</h2>
+    <div class="narrative">
+      <p><strong>Pass.</strong> All signals are internally consistent. Nuclear deal [HIGH] at 80%, Hormuz [MED] at all-time high 55.5%, invasion [LOW] flat at 16.5%, WTI [HIGH] at $84.88 (8-week lows) — no contradictions across the complex. The signing slip would normally pressure nuclear deal lower; instead it's flat or rising. This is the strongest de-escalation coherence signal since June 12.</p>
+      <p><strong>One divergence to note:</strong> Pakistan venue surging (+27.4pp to 35.9%) while Switzerland falling (−9.2pp) creates venue uncertainty. If venue uncertainty delays the signing past G7 (June 17), nuclear deal could retreat 3–5pp and ceasefire extension markets would redistribute further out the curve. Watch IRNA/Fars News Agency for Khamenei authorization — that is the single unresolved variable.</p>
+      <p><strong>Oil as ground truth:</strong> WTI at $84.88 is the definitive de-escalation signal. The Friday close was already pricing ~76–80% deal probability. If the signing happens over the weekend/G7, the incremental WTI move on Monday open is likely only $3–5 (to $80–82). The big oil-relief trade already happened over the past 2 weeks (WTI was $95+ on June 9). Australian petrol relief (toward A$1.90–2.10/L) remains a July–August story even in the best case — mine-clearing takes 30 days minimum after signature.</p>
+    </div>
+  </div>
+
+  <!-- MACRO IMPLICATIONS -->
+  <div class="section">
+    <h2>Macro Implications for Australia</h2>
+
+    <div class="alert-box green">
+      <div class="alert-label green">OIL / PETROL</div>
+      <div class="alert-text">
+        WTI (proxy for Brent) at $84.88/bbl. Brent estimated ~$87–89/bbl. Australian petrol currently A$2.05–2.20/L, reflecting the ongoing Hormuz blockade premium. Even with MOU signature at G7: mine-clearing takes 30 days minimum, shipping lanes resume after that, and Australian fuel prices reflect Brent with a 4–6 week lag. Best-case petrol relief to A$1.90–2.10/L lands in August. Structural petrol A$2.00+/L floor persists through July regardless of this week's outcome.
+      </div>
+    </div>
+
+    <div class="alert-box blue">
+      <div class="alert-label blue">RATES / AUD</div>
+      <div class="alert-text">
+        Two forces hit AUD simultaneously this week: (1) Oil de-escalation tailwind from MOU — if signed, WTI gaps lower, Australian inflation outlook improves, RBA rate path softens → AUD +0.3–0.8 USD. (2) Warsh hawkish Fed press conference (June 17–18 AEST) — if he emphasises US CPI 3.8% + labor market resilience, USD strengthens, AUD gives back Iran-deal gains. Direction depends on Warsh's tone. Dovish + signed MOU = AUD 0.64–0.65 USD scenario. Hawkish + unsigned MOU = AUD 0.62–0.63 USD scenario.
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-label yellow">ASX / EQUITIES</div>
+      <div class="alert-text">
+        ASX Monday June 15 is a normal trading day. If MOU is signed over the G7 weekend: energy stocks de-rate (Woodside, Santos −3–5%), airlines and logistics recover (Qantas, Alliance Aviation +2–4%). Broader market tailwind: risk-on from Iran resolution + SpaceX risk appetite (IPO'd at $161/share, $2.1T market cap). FOMC pin-risk keeps the rally capped through Wednesday June 17.
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View</h2>
+    <div class="forward">
+      <h3>Primary Binary</h3>
+      <div class="forward-item"><strong>G7 Évian MOU signing (June 15–17 AEST, this weekend into Monday).</strong> Trump's hard deadline. Ceasefire extension market pricing peak probability on June 18–19 suggests Sunday/Monday signing window. Catalysts to watch: IRNA/Mehr News Agency for Khamenei authorization, Trump Truth Social for announcement. If signed: nuclear deal → 83%+ (trigger fires), invasion → below 15% (trigger fires), Hormuz accelerates toward 60–65%, WTI gaps $80–82/bbl at Monday Asia open.</div>
+      <div class="forward-item"><strong>If not signed by G7 close:</strong> nuclear deal retreats to 72–75%, invasion retests 19–22%, WTI rebounds to $88–92. Ceasefire extension markets redistribute to late June. Permanent peace deal June 30 falls from 52.5% toward 38–42%. Next signing window: late June (Witkoff/Kushner bilateral format).</div>
+
+      <h3 style="margin-top:14px;">Secondary Events This Week</h3>
+      <div class="forward-item"><strong>Warsh FOMC press conference — June 17–18 AEST (Wednesday)</strong>. Hold locked 99.5% — the decision is noise. The press conference language on US CPI 3.8% vs slowing growth is the AUD event. Hawkish = AUD headwind; dovish = AUD tailwind. If simultaneously MOU signed + Warsh dovish: AUD rally. If MOU unsigned + Warsh hawkish: AUD under pressure from two sides.</div>
+      <div class="forward-item"><strong>Iran invasion ↓15% trigger</strong> — 1.5pp away. Fires on MOU signature. Protocol: email immediately if fires with nuclear deal ≥76% (currently 80%). This is the clearest single binary to watch intraday at G7.</div>
+      <div class="forward-item"><strong>Nuclear deal ↑83% trigger</strong> — 3.0pp away. Likely to fire simultaneously with or shortly after MOU signing. Next threshold after ↑83% is ↑85% (approaching certainty). Both could fire in the same G7 session.</div>
+      <div class="forward-item"><strong>ASX Monday June 15</strong> — normal trading day. Energy sector direction determined entirely by G7 outcome. If MOU unsigned as of Monday 10AM AEST: energy opens defensively, airlines lag, WTI is the tell.</div>
+    </div>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="section">
+    <h2>Actions Taken This Session</h2>
+    <ul class="actions">
+      <li>Updated <code>iran-nuclear-deal-post-mou-momentum</code> trigger reason: G7 Évian timing shift, permanent peace deal crossing 52.5%, ceasefire extension cluster Jun 16-19</li>
+      <li>Updated <code>iran-invasion-2027-early-warning</code> trigger reason: flat through Geneva slip (1.5pp from trigger), G7 protocol unchanged — email immediately if fires</li>
+      <li>Updated Vance watchlist entry: 33.5% (down from 47% peak), indirect format pricing, not deal collapse</li>
+      <li>No new triggers added — permanent peace deal June 30 slug not confirmed via Gamma API; will add as active trigger once slug confirmed at next discovery run</li>
+      <li>Daily report: <code>reports/daily/2026-06-14-DAILY-7AM-G7-MOU-WINDOW.html</code></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
