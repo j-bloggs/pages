@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuclear Deal 80% — Pakistan Confirms Final MOU Text</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 780px; margin: 0 auto; padding: 32px 24px; }
+
+  /* Header */
+  .alert-banner { background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 100%); border-left: 4px solid #3b82f6; border-radius: 8px; padding: 24px 28px; margin-bottom: 28px; }
+  .alert-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #60a5fa; text-transform: uppercase; margin-bottom: 8px; }
+  .alert-title { font-size: 26px; font-weight: 700; color: #f1f5f9; line-height: 1.25; margin-bottom: 6px; }
+  .alert-subtitle { font-size: 14px; color: #94a3b8; }
+
+  /* Timestamp */
+  .timestamp { font-size: 12px; color: #64748b; margin-bottom: 28px; }
+
+  /* Situation box */
+  .situation { background: #1e2330; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; border: 1px solid #2d3748; }
+  .situation h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #60a5fa; margin-bottom: 12px; }
+  .situation p { font-size: 15px; color: #cbd5e1; margin-bottom: 10px; }
+  .situation p:last-child { margin-bottom: 0; }
+
+  /* Key Moves */
+  .moves-section { margin-bottom: 24px; }
+  .moves-section h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #94a3b8; margin-bottom: 14px; }
+  .move-card { background: #1e2330; border-radius: 8px; padding: 16px 20px; margin-bottom: 10px; border: 1px solid #2d3748; display: flex; gap: 16px; align-items: flex-start; }
+  .move-card.fired { border-left: 3px solid #3b82f6; }
+  .move-card.bullish { border-left: 3px solid #10b981; }
+  .move-card.watch { border-left: 3px solid #f59e0b; }
+  .move-card.neutral { border-left: 3px solid #6366f1; }
+  .move-price { min-width: 68px; text-align: right; }
+  .move-price .current { font-size: 22px; font-weight: 700; color: #f1f5f9; line-height: 1; }
+  .move-price .delta { font-size: 12px; font-weight: 600; color: #10b981; margin-top: 3px; }
+  .move-price .delta.neg { color: #f87171; }
+  .move-price .delta.neutral-d { color: #94a3b8; }
+  .move-body { flex: 1; }
+  .move-label { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+  .move-label .quality { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 1px 5px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+  .quality.high { background: #064e3b; color: #34d399; }
+  .quality.med { background: #451a03; color: #fb923c; }
+  .quality.low { background: #3b1c1c; color: #f87171; }
+  .move-desc { font-size: 13px; color: #94a3b8; }
+
+  /* Catalyst box */
+  .catalyst-box { background: #0d2137; border: 1px solid #1d4ed8; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; }
+  .catalyst-box h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #60a5fa; margin-bottom: 12px; }
+  .catalyst-box p { font-size: 14px; color: #bfdbfe; margin-bottom: 8px; }
+  .catalyst-box p:last-child { margin-bottom: 0; }
+  .catalyst-box strong { color: #93c5fd; }
+
+  /* Triggers panel */
+  .triggers-panel { background: #1e2330; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; border: 1px solid #2d3748; }
+  .triggers-panel h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #94a3b8; margin-bottom: 14px; }
+  .trigger-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #2d3748; font-size: 13px; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-name { color: #cbd5e1; }
+  .trigger-status { font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; }
+  .trigger-status.fired { background: #1e3a8a; color: #93c5fd; }
+  .trigger-status.close { background: #3b2802; color: #fbbf24; }
+  .trigger-status.watching { background: #1a2035; color: #64748b; }
+  .trigger-status.past { background: #14532d; color: #86efac; }
+
+  /* Forward view */
+  .forward-box { background: #1a2035; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; border: 1px solid #2d3748; }
+  .forward-box h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #94a3b8; margin-bottom: 12px; }
+  .forward-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #94a3b8; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-icon { min-width: 20px; font-size: 14px; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 11px; color: #475569; padding-top: 24px; border-top: 1px solid #1e2a3a; }
+  .footer a { color: #3b82f6; text-decoration: none; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="alert-banner">
+    <div class="alert-label">🔵 Trigger Alert — Sunday 00:30 AEST</div>
+    <div class="alert-title">Nuclear Deal 80% — Pakistan Confirms Final MOU Text</div>
+    <div class="alert-subtitle">↑80% post-MOU momentum trigger fires for the first time ever. Catalyst: Pakistani mediator publicly confirms deal text reached; Iran in "final deliberations."</div>
+  </div>
+
+  <div class="timestamp">Generated 2026-06-14 00:38 AEST &nbsp;|&nbsp; Data: 00:30 collection</div>
+
+  <div class="situation">
+    <h2>What Happened</h2>
+    <p>Since the 21:22 AEST alert (nuclear deal at 76%), the story has materially shifted. Iran's denial earlier tonight via Fars News Agency — "completely baseless," Khamenei reportedly yet to authorize — has been overtaken by Pakistan's public confirmation that <strong>the final MOU text has been agreed</strong> (Times of Israel, NBC News, CBS News). Iran is now described as holding "final internal deliberations," not rejecting the deal.</p>
+    <p>The nuclear deal responded immediately: from 76.0% at 21:22 → 79.0% at 23:45 → 80.0% at 00:30. The ↑80% "post-MOU momentum" trigger fires for the first time in monitoring history. Hormuz moved in sync: 47.5% (21:22 alert) → 54.5% now (+7pp). Oil markets are closed on the weekend; last WTI print was $84.88/bbl Friday — coherent with de-escalation pricing.</p>
+  </div>
+
+  <div class="catalyst-box">
+    <h2>🔍 Catalyst (Step C — Identified)</h2>
+    <p><strong>Pakistani mediator publicly confirmed "final text of US-Iran MOU reached"</strong> — Times of Israel liveblog (June 12-13 US time). CBSNews and NBCNews separately citing Pakistan: "deal could be finalized within 24 hours."</p>
+    <p>Iran FM clarified that nuclear talks with the US will only take place <em>after</em> MOU is signed — confirming the MOU itself is the immediate binary, not a broader nuclear agreement. The 60-day MOU (Islamabad Agreement) would open Hormuz, suspend mine deployments, begin HEU talks.</p>
+    <p><strong>Narrative shift:</strong> Iran's "denial" earlier tonight (Fars News) was about the specific Geneva June 14 signing venue/timing, not the deal itself. Pakistan's confirmation that the text is agreed means the Iran denial was pre-signing positioning, exactly as markets priced (deal rose through it).</p>
+    <p><strong>Cross-market check [Step D]:</strong> WTI $84.88/bbl flat (markets closed), Hormuz +7pp, invasion flat at 16.5%. No contradictions. All coherent with imminent-deal pricing.</p>
+  </div>
+
+  <div class="moves-section">
+    <h2>Key Moves (since 21:22 AEST alert, 3h ago)</h2>
+
+    <div class="move-card fired">
+      <div class="move-price">
+        <div class="current">80.0%</div>
+        <div class="delta">+4.0pp</div>
+      </div>
+      <div class="move-body">
+        <div class="move-label"><span class="quality high">HIGH</span> US-Iran nuclear deal before 2027 — ↑80% TRIGGER FIRES (1st ever)</div>
+        <div class="move-desc">Rose from 76.0% (21:22 alert) to 80.0% now. Pakistan mediator publicly confirmed final MOU text reached; Iran in "final deliberations." ↑75% has now fired 5 times. Next trigger: ↑85% approaching-certainty (5pp away).</div>
+      </div>
+    </div>
+
+    <div class="move-card bullish">
+      <div class="move-price">
+        <div class="current">54.5%</div>
+        <div class="delta">+7.0pp</div>
+      </div>
+      <div class="move-body">
+        <div class="move-label"><span class="quality med">MED</span> Hormuz traffic normal by July 31</div>
+        <div class="move-desc">Rose from 47.5% (21:22 alert) to 54.5% now (+7pp in 3h). Approaching all-time high (52.0% was the overnight high at 02:53 June 13). De-escalation confirmation trigger (↑85%) remains 30.5pp away — market still pricing Hormuz opening lag (mine-clearing 30 days post-MOU).</div>
+      </div>
+    </div>
+
+    <div class="move-card watch">
+      <div class="move-price">
+        <div class="current">16.5%</div>
+        <div class="delta neutral-d">flat</div>
+      </div>
+      <div class="move-body">
+        <div class="move-label"><span class="quality low">LOW</span> US-Iran invasion before 2027 — 1.5pp from ↓15% peace-floor trigger</div>
+        <div class="move-desc">Flat at 16.5%. Peace-floor trigger (↓15%) is just 1.5pp away — unchanged from the 21:22 alert. Expected to fire simultaneously with MOU signature. Protocol: if ↓15% fires while nuclear deal ≥76%, email immediately (MOU signature confirmation signal).</div>
+      </div>
+    </div>
+
+    <div class="move-card neutral">
+      <div class="move-price">
+        <div class="current">$84.88</div>
+        <div class="delta neutral-d">closed</div>
+      </div>
+      <div class="move-body">
+        <div class="move-label"><span class="quality high">HIGH</span> WTI crude oil (proxy for Brent) — weekend close</div>
+        <div class="move-desc">Friday close $84.88/bbl (8-week lows). Oil markets closed Saturday–Sunday. Coherent with deal-optimism pricing. Brent proxy ~$87–89/bbl. If MOU signed before Monday open, expect WTI to gap toward $80–82 at Monday Asia open. Australian petrol still ~A$2.05–2.20/L on Hormuz mine-clearing lag; could move toward A$1.90–2.10/L by July if Hormuz physically opens.</div>
+      </div>
+    </div>
+
+    <div class="move-card neutral">
+      <div class="move-price">
+        <div class="current">99.8%</div>
+        <div class="delta neutral-d">flat</div>
+      </div>
+      <div class="move-body">
+        <div class="move-label"><span class="quality high">HIGH</span> US Fed June hold (FOMC June 16–17 US = June 17–18 AEST)</div>
+        <div class="move-desc">Locked at 99.8%. Rate decision irrelevant; Warsh maiden press conference on US CPI 3.8% stagflation is the AUD event in 3 days. If MOU fires before FOMC, AUD faces simultaneous tailwinds (oil de-escalation) and headwinds (Warsh hawkish language) — amplified directional uncertainty. Watch the combination, not each in isolation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="triggers-panel">
+    <h2>All Nuclear-Deal / Iran Triggers — Status</h2>
+    <div class="trigger-row">
+      <span class="trigger-name">Nuclear deal ↑80% post-MOU momentum</span>
+      <span class="trigger-status fired">⚡ FIRED — 80.0%</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Nuclear deal ↑75% MOU imminent (fired ×5)</span>
+      <span class="trigger-status past">✓ PAST — 80.0%</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Nuclear deal ↑85% approaching certainty</span>
+      <span class="trigger-status watching">5.0pp below (80% → 85%)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Iran invasion ↓15% peace-floor</span>
+      <span class="trigger-status close">⚠ 1.5pp above (16.5%)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Hormuz ↑85% de-escalation confirm</span>
+      <span class="trigger-status watching">30.5pp below (54.5%)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Hormuz ↓23% / ↓20% collapse sentinels</span>
+      <span class="trigger-status watching">31.5pp / 34.5pp above</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Nuclear deal ↓60% early-warning</span>
+      <span class="trigger-status watching">20.0pp above (80.0%)</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-name">Nuclear deal ↓45% breakdown floor</span>
+      <span class="trigger-status watching">35.0pp above (80.0%)</span>
+    </div>
+  </div>
+
+  <div class="forward-box">
+    <h2>What to Watch</h2>
+    <div class="forward-item">
+      <div class="forward-icon">🇵🇰</div>
+      <div><strong>Khamenei formal authorization</strong> — Pakistan confirmed the text is agreed, but Iran's Supreme Leader needs to sign off. This is the last gate before a signing ceremony. Watch Iran state media (IRNA, Mehr News Agency) for Khamenei statement. A formal authorization announcement would push the nuclear deal toward ↑85%.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">🤝</div>
+      <div><strong>MOU signing ceremony</strong> — "Islamabad Agreement" with Vance delegation. G7 opens Monday in Évian (Évian-les-Bains, France, June 15 AEST) — Trump's stated pre-G7 deadline. A signed MOU would likely push invasion below ↓15% (1.5pp away) and nuclear deal toward 85%. WTI would gap lower on Monday Asia open.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">⚡</div>
+      <div><strong>If invasion crosses ↓15%</strong> — EMAIL IMMEDIATELY regardless of time. Protocol: ↓15% + nuclear deal ≥76% = MOU signature confirmation. Do not wait for next scheduled run.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">📅</div>
+      <div><strong>FOMC June 17–18 AEST</strong> (3 days) — Warsh maiden press conference. With US CPI at 3.8% and NFP +172K (May), Warsh is expected to sound hawkish on rates. AUD faces a dual event this week: oil de-escalation tailwind (if MOU) vs US rate-higher-for-longer headwind (FOMC). The combination creates amplified AUD volatility. ASX energy sector would de-rate on oil; AUD/USD direction unclear until both signals land.</div>
+    </div>
+    <div class="forward-item">
+      <div class="forward-icon">🛢️</div>
+      <div><strong>Australian petrol lag</strong> — WTI $84.88/bbl Friday (Brent ~$87–89/bbl proxy). Petrol currently A$2.05–2.20/L. Even with a signed MOU, Hormuz mine-clearing takes ~30 days and shipping traffic normalisation 4–6 weeks. Structural petrol premium persists regardless of signing timing. Price relief visible at the pump by mid-to-late July at earliest. Watch Hormuz physical transit counts (currently 10/day vs 95/day normal) as the leading indicator of price recovery.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Polymarket Analyst &nbsp;·&nbsp; Alert report generated 2026-06-14 00:38 AEST &nbsp;·&nbsp; Next scheduled: 7AM daily 14 Jun (G7 open)</p>
+    <p style="margin-top:6px;">Sources: <a href="https://www.timesofisrael.com/liveblog-june-12-2026/">Times of Israel (Pakistan mediator)</a> &nbsp;·&nbsp; <a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-peace-deal-agreement/">CBS News live updates</a> &nbsp;·&nbsp; <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-us-iran-drones-trump-deal-war-hormuz-tehran-rcna349750">NBC News live blog</a></p>
+  </div>
+
+</div>
+</body>
+</html>
