@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal 83.5% All-Time High — G7 Countdown 11h</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f35 0%, #0d1526 100%); border-bottom: 2px solid #3b82f6; padding: 28px 32px; }
+  .header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .badge { background: #3b82f6; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge.fired { background: #7c3aed; }
+  .badge.alltime { background: #059669; }
+  h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; line-height: 1.3; }
+  .meta { font-size: 12px; color: #64748b; margin-top: 6px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 24px 32px; }
+  .context-bar { background: #1e2535; border: 1px solid #334155; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; font-size: 13px; color: #94a3b8; }
+  .context-bar strong { color: #c4b5fd; }
+  .summary { background: #1a2332; border-radius: 10px; padding: 20px 22px; margin-bottom: 20px; }
+  .summary p { color: #cbd5e1; font-size: 14px; line-height: 1.7; }
+  .summary p + p { margin-top: 10px; }
+  .section-title { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+  .market-grid { display: grid; gap: 10px; margin-bottom: 20px; }
+  .market-card { background: #1a2332; border: 1px solid #334155; border-radius: 8px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .market-card.fired { border-left: 4px solid #7c3aed; background: #1c1730; }
+  .market-card.alltime { border-left: 4px solid #059669; background: #0f1d1a; }
+  .market-card.positive { border-left: 4px solid #22c55e; }
+  .market-card.neutral { border-left: 4px solid #64748b; }
+  .market-left { flex: 1; }
+  .market-name { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+  .market-qual { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; }
+  .qual-high { background: #064e3b; color: #6ee7b7; }
+  .qual-med { background: #1e3a5f; color: #93c5fd; }
+  .qual-low { background: #4c1d1d; color: #fca5a5; }
+  .market-sub { font-size: 12px; color: #64748b; margin-top: 3px; }
+  .market-right { text-align: right; flex-shrink: 0; padding-left: 16px; }
+  .market-price { font-size: 22px; font-weight: 700; }
+  .price-purple { color: #c4b5fd; }
+  .price-green { color: #4ade80; }
+  .price-blue { color: #60a5fa; }
+  .price-gray { color: #94a3b8; }
+  .market-delta { font-size: 12px; margin-top: 2px; }
+  .delta-up { color: #4ade80; }
+  .delta-flat { color: #64748b; }
+  .threshold-bar { background: #0f1117; border-radius: 6px; overflow: hidden; height: 6px; margin-top: 8px; width: 200px; }
+  .threshold-fill { height: 100%; border-radius: 6px; transition: width 0.3s; }
+  .threshold-label { font-size: 11px; color: #64748b; margin-top: 3px; }
+  .insight-box { background: #1a2332; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+  .insight-box.key { border-left: 4px solid #f59e0b; background: #1c1a0f; }
+  .insight-title { font-size: 12px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .insight-text { font-size: 13px; color: #cbd5e1; line-height: 1.7; }
+  .insight-text strong { color: #fbbf24; }
+  .watchlist { background: #1a2332; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+  .watch-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e293b; }
+  .watch-item:last-child { border-bottom: none; }
+  .watch-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .dot-purple { background: #7c3aed; }
+  .dot-green { background: #22c55e; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-gray { background: #64748b; }
+  .watch-text { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+  .watch-text strong { color: #e2e8f0; }
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+  .trigger-table th { text-align: left; color: #64748b; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #334155; }
+  .trigger-table td { padding: 8px 8px; border-bottom: 1px solid #1e293b; color: #94a3b8; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .fired-row td { color: #c4b5fd; background: #1c1730; }
+  .past-row td { color: #6ee7b7; }
+  .action-box { background: #0f1a2e; border: 1px solid #1e3a5f; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; }
+  .action-title { font-size: 11px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .action-item { font-size: 12px; color: #94a3b8; padding: 3px 0; }
+  .action-item::before { content: "▸ "; color: #3b82f6; }
+  .footer { text-align: center; padding: 20px; color: #334155; font-size: 11px; border-top: 1px solid #1e293b; margin-top: 10px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="badge fired">TRIGGER FIRED</span>
+    <span class="badge alltime">ALL-TIME HIGH</span>
+    <span class="badge">Nuclear Deal</span>
+  </div>
+  <h1>Nuclear Deal 83.5% — ↑83% Threshold Crossed for First Time; G7 Countdown 11h</h1>
+  <div class="meta">2026-06-14 20:35 AEST &nbsp;·&nbsp; Polymarket ALERT &nbsp;·&nbsp; 3rd alert today (2.5h since last email)</div>
+</div>
+
+<div class="container">
+
+  <!-- Context bar -->
+  <div class="context-bar">
+    <strong>Context since last email (18:05 AEST, 2.5h ago):</strong> Iran invasion alert sent at ↓15% (14.5%). Nuclear deal was 81.0% then. It has since risen to 83.5% (+2.5pp) — <strong>all-time high</strong>. MOU not signed. G7 Évian opens Monday AEST in ~11 hours.
+  </div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <p>The US-Iran nuclear deal market has quietly drifted to 83.5% — an all-time high and the first-ever crossing of the ↑83% threshold set to capture "post-MOU deal momentum." No MOU has been signed. Iran's Foreign Ministry reiterated June 14 signing "will not happen" (same pre-signing posture observed each prior day). Markets are pricing through the denial.</p>
+    <p>The move is steady and organic (+2.5pp over 2.5 hours, not a step-function jump), consistent with pre-G7 positioning rather than a confirmed catalyst. G7 Évian opens Monday morning AEST — approximately 11 hours from now. The next named threshold, ↑85% ("approaching certainty"), is only <strong>1.5pp away</strong> and will likely fire before or at the G7 signing ceremony.</p>
+  </div>
+
+  <!-- Key markets -->
+  <div class="section-title">Key Markets — 20:30 AEST</div>
+  <div class="market-grid">
+
+    <div class="market-card fired">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-high">HIGH</span>
+          US-Iran nuclear deal before 2027
+        </div>
+        <div class="market-sub">↑83% FIRED — first time ever &nbsp;·&nbsp; ↑85% next tier 1.5pp away &nbsp;·&nbsp; Resolves on publicly announced agreement</div>
+        <div class="threshold-bar" style="margin-top:8px;">
+          <div class="threshold-fill" style="width:83.5%; background: linear-gradient(90deg,#7c3aed,#a78bfa);"></div>
+        </div>
+        <div class="threshold-label">83.5% → ↑85% at 1.5pp &nbsp;·&nbsp; ↑87% next alert tier</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-purple">83.5%</div>
+        <div class="market-delta delta-up">+2.5pp since 18:05 email</div>
+        <div class="market-delta delta-up">+1.0pp this run</div>
+      </div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-low">LOW</span>
+          Iran invasion before 2027
+        </div>
+        <div class="market-sub">↓15% threshold breached 2.5h ago — holding below. ↓10% near-zero tier 4.5pp away.</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-green">14.5%</div>
+        <div class="market-delta delta-flat">flat since 18:05</div>
+      </div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-med">MED</span>
+          Hormuz traffic normal by July 31
+        </div>
+        <div class="market-sub">Holding near June 14 highs. All collapse sentinels 34–37pp away.</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-blue">57.5%</div>
+        <div class="market-delta delta-flat">flat this run</div>
+      </div>
+    </div>
+
+    <div class="market-card positive">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-low">LOW</span>
+          US-Iran permanent peace deal (all brackets)
+        </div>
+        <div class="market-sub">Market leapfrogging MOU to price final settlement. +11.5pp/24h, +20pp/7d — accelerating pre-G7.</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-green">26.6%</div>
+        <div class="market-delta delta-up">+11.5pp/24h</div>
+      </div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-high">HIGH</span>
+          WTI crude oil (proxy Brent) — weekend
+        </div>
+        <div class="market-sub">Markets closed. Friday close ~$84–87/bbl. No new price signal. Brent ~$87–90/bbl. Australian petrol A$2.05–2.20/L structural floor persists.</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-gray">~$86</div>
+        <div class="market-delta delta-flat">flat (mkts closed)</div>
+      </div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="market-left">
+        <div class="market-name">
+          <span class="market-qual qual-high">HIGH</span>
+          US Fed June hike (Warsh FOMC June 16–17 AEST)
+        </div>
+        <div class="market-sub">Hold locked. FOMC June 17 AEST press conference is the event — Iran de-escalation tailwind for Warsh's language on disinflation trajectory.</div>
+      </div>
+      <div class="market-right">
+        <div class="market-price price-gray">0.1%</div>
+        <div class="market-delta delta-flat">flat</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- All trigger status -->
+  <div class="section-title">All Trigger Status</div>
+  <div class="insight-box" style="padding:0; overflow:hidden; border-radius:8px;">
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>Trigger</th>
+          <th>Current</th>
+          <th>vs Threshold</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fired-row">
+          <td>[HIGH] Nuclear deal ↑83% (post-MOU momentum)</td>
+          <td>83.5%</td>
+          <td>0.5pp above ↑83%</td>
+          <td>⚡ FIRED</td>
+        </tr>
+        <tr class="past-row">
+          <td>[HIGH] Nuclear deal ↑75% (MOU imminent)</td>
+          <td>83.5%</td>
+          <td>8.5pp past ↑75%</td>
+          <td>✓ PAST</td>
+        </tr>
+        <tr class="past-row">
+          <td>[LOW] Iran invasion ↓15% (peace floor)</td>
+          <td>14.5%</td>
+          <td>0.5pp past ↓15%</td>
+          <td>✓ PAST (18:05)</td>
+        </tr>
+        <tr>
+          <td>[HIGH] Nuclear deal ↑85% (approaching certainty)</td>
+          <td>83.5%</td>
+          <td>1.5pp below ↑85%</td>
+          <td>⏳ NEXT FIRE</td>
+        </tr>
+        <tr>
+          <td>[MED] Hormuz ↑85% (de-escalation confirmation)</td>
+          <td>57.5%</td>
+          <td>27.5pp below ↑85%</td>
+          <td>watching</td>
+        </tr>
+        <tr>
+          <td>[LOW] Iran invasion ↓10% (near-zero floor)</td>
+          <td>14.5%</td>
+          <td>4.5pp above ↓10%</td>
+          <td>watching</td>
+        </tr>
+        <tr>
+          <td>[LOW] Cuba strike ↑60%</td>
+          <td>42.5%</td>
+          <td>17.5pp below ↑60%</td>
+          <td>watching</td>
+        </tr>
+        <tr>
+          <td>[HIGH] Fed June hike ↑5%</td>
+          <td>0.1%</td>
+          <td>4.9pp below ↑5%</td>
+          <td>hold locked</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key insight -->
+  <div class="insight-box key" style="margin-top:20px;">
+    <div class="insight-title">⚡ The Trade-Off: Pre-Signing High vs Post-Signing Reality</div>
+    <div class="insight-text">
+      At 83.5%, the nuclear deal is 16.5pp higher than it was just 3 days ago (60.5% June 11 crisis low). The market is pricing near-certainty of a deal this year. <strong>What happens next depends entirely on G7 execution.</strong>
+      <br><br>
+      <strong>If MOU signed at G7 (June 15–17 AEST):</strong> Nuclear deal gaps toward 90%+, invasion falls toward 10% or below, Hormuz July 31 reprices from 57.5% toward 65–70% as 30-day mine-clearing clock starts. Oil (WTI, proxy Brent) opens Asia Monday with downward gap risk of $4–6/bbl. ASX energy stocks (STO/WDS) sell off; airlines (QAN) and retailers (WOW/COL) gap up. Australian petrol A$2.05–2.20/L structural floor begins descent toward A$1.90–2.00/L over 6–8 weeks post-mine-clearing. Warsh FOMC June 17 gains explicit disinflationary tailwind.
+      <br><br>
+      <strong>If G7 passes unsigned (Iran final stalling):</strong> Nuclear deal pulls back to 79–81% (where it sat Friday), ↑85% trigger does not fire, invasion retraces to 15.5–16.5%, Hormuz slips 2–3pp. WTI actually <em>gaps up</em> on Monday disappointment. This is the only bearish scenario currently visible — and markets are not pricing it (only ~16.5% residual probability in the nuclear deal implies ~83.5% confidence of signing by year-end, not just at G7).
+      <br><br>
+      <strong>The permanent peace deal at 26.6% (+11.5pp/24h)</strong> is the most striking signal: markets aren't just pricing the MOU, they're already leapfrogging to price a full comprehensive settlement. This is the most aggressive forward-looking pricing we've seen in this cycle.
+    </div>
+  </div>
+
+  <!-- What to watch -->
+  <div class="section-title">What to Watch — Next 24 Hours</div>
+  <div class="watchlist">
+    <div class="watch-item">
+      <div class="watch-dot dot-purple"></div>
+      <div class="watch-text"><strong>G7 Évian opens Monday AEST (~07:00–09:00 AEST June 15).</strong> Trump needs this signed before or at the summit. Any Khamenei IRNA statement = MOU confirmed. Watch for ↑85% trigger fire as the signing-ceremony signal.</div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-dot dot-purple"></div>
+      <div class="watch-text"><strong>Nuclear deal ↑85%</strong> is now 1.5pp away — it fires <em>before</em> the next ↑87% alert tier. Expect this at or near actual signing. If fires with invasion simultaneously at or below 10%, email immediately (full peace dividend confirmed).</div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-dot dot-yellow"></div>
+      <div class="watch-text"><strong>WTI Asia open Monday (~09:00–10:00 AEST).</strong> If deal signed overnight Sunday US time, expect gap down $4–8. If unsigned, expect gap up $2–5 on disappointment. WTI is the ground-truth cross-market validator — direction on Monday open tells you what actually happened at G7 before any news hits.</div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-dot dot-yellow"></div>
+      <div class="watch-text"><strong>Warsh FOMC June 16–17 AEST.</strong> Hold is locked (99.9%). The press conference language on June 17 is the real event — specifically whether Warsh uses "disinflation progress" or "energy price tailwind" language linked to Iran. That sets the rate-cut narrative for H2 2026.</div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-dot dot-green"></div>
+      <div class="watch-text"><strong>Invasion ↓10% near-zero floor</strong> is 4.5pp away. If MOU signed and markets price out residual war risk, this fires in the same session as ↑85%. Combined fire = maximum de-escalation confirmation for Australian macro (ASX gap up, AUD strengthens, petrol trajectory resets).</div>
+    </div>
+    <div class="watch-item">
+      <div class="watch-dot dot-gray"></div>
+      <div class="watch-text"><strong>7AM AEST daily June 15</strong> (~11h away) will be the first scheduled collection after G7 opens. If anything fires overnight, alert will interrupt. Otherwise, daily will capture the full G7 picture.</div>
+    </div>
+  </div>
+
+  <!-- Actions taken -->
+  <div class="action-box">
+    <div class="action-title">Actions Taken</div>
+    <div class="action-item">Raised <code>iran-nuclear-deal-post-mou-momentum</code> threshold from ↑83% → ↑87% (avoids clash with existing ↑85% "approaching certainty" tier)</div>
+    <div class="action-item">Appended entry to <code>reports/analyst_notes.md</code></div>
+    <div class="action-item">Alert report saved: <code>reports/analysis/2026-06-14-NUCLEAR-DEAL-83PCT-G7-COUNTDOWN.html</code></div>
+    <div class="action-item">Alert email sent with full Key Moves digest</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst · 2026-06-14 20:35 AEST · Data: Polymarket / Kalshi · Report: reports/analysis/2026-06-14-NUCLEAR-DEAL-83PCT-G7-COUNTDOWN.html
+</div>
+
+</body>
+</html>
