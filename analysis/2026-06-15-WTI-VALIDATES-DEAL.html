@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALERT: WTI $81.23 — Oil Validates Iran Deal at Monday Asia Open | 15 Jun 09:20 AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 2px solid #22c55e; padding: 28px 32px; }
+  .alert-badge { display: inline-block; background: #22c55e; color: #000; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #f8fafc; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; color: #94a3b8; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 32px; }
+  .lede { background: #1e2330; border-left: 4px solid #22c55e; border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px; font-size: 15px; color: #cbd5e1; line-height: 1.7; }
+  .lede strong { color: #22c55e; }
+  .section { margin-bottom: 32px; }
+  .section h2 { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #1e2330; padding-bottom: 8px; margin-bottom: 16px; }
+  .market-card { background: #1a1f2e; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 16px; }
+  .market-card.highlight { border: 1px solid #22c55e; background: #0f1a0f; }
+  .market-card.warn { border-left: 3px solid #f59e0b; }
+  .price-block { min-width: 80px; text-align: right; }
+  .price-block .price { font-size: 22px; font-weight: 800; color: #f8fafc; }
+  .price-block .price.green { color: #22c55e; }
+  .price-block .price.red { color: #ef4444; }
+  .price-block .price.amber { color: #f59e0b; }
+  .price-block .delta { font-size: 12px; font-weight: 600; margin-top: 2px; }
+  .delta.down { color: #ef4444; }
+  .delta.up { color: #22c55e; }
+  .delta.flat { color: #64748b; }
+  .market-info { flex: 1; }
+  .market-info .label { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+  .market-info .quality { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; padding: 1px 6px; border-radius: 3px; display: inline-block; margin-bottom: 6px; }
+  .quality.high { background: #14532d; color: #4ade80; }
+  .quality.med { background: #451a03; color: #fbbf24; }
+  .quality.low { background: #1c1917; color: #a8a29e; }
+  .market-info .commentary { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .validation-box { background: #0a1a0a; border: 2px solid #22c55e; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+  .validation-box h3 { font-size: 14px; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .validation-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1a2a1a; }
+  .validation-row:last-child { border-bottom: none; }
+  .validation-label { font-size: 13px; color: #94a3b8; }
+  .validation-value { font-size: 13px; font-weight: 700; }
+  .validation-value.pass { color: #22c55e; }
+  .validation-value.pending { color: #f59e0b; }
+  .validation-value.fail { color: #ef4444; }
+  .narrative-box { background: #1a1f2e; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; font-size: 14px; color: #cbd5e1; line-height: 1.7; }
+  .narrative-box h3 { font-size: 13px; font-weight: 700; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+  .forward-box { background: #0f1117; border: 1px solid #334155; border-radius: 8px; padding: 20px 24px; }
+  .forward-box h3 { font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 14px; }
+  .forward-item .icon { font-size: 16px; min-width: 22px; }
+  .forward-item .text { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .forward-item .text strong { color: #e2e8f0; }
+  .big-number { font-size: 42px; font-weight: 900; color: #22c55e; line-height: 1; }
+  .big-number-label { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px; }
+  .metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .metric-card { background: #1a1f2e; border-radius: 8px; padding: 16px 18px; text-align: center; }
+  .metric-card.green { border-top: 3px solid #22c55e; }
+  .metric-card.amber { border-top: 3px solid #f59e0b; }
+  .metric-card.blue { border-top: 3px solid #3b82f6; }
+  .metric-card .val { font-size: 28px; font-weight: 800; color: #f8fafc; }
+  .metric-card .sub { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .au-box { background: #1a1a0a; border: 1px solid #ca8a04; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .au-box h3 { font-size: 12px; font-weight: 700; color: #ca8a04; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .au-box p { font-size: 13px; color: #a3a380; line-height: 1.6; }
+  .footnote { font-size: 11px; color: #475569; text-align: center; padding: 20px 0; border-top: 1px solid #1e2330; margin-top: 32px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⛽ WTI Validation Alert</div>
+  <h1>WTI $81.23 — Oil Confirms Iran Deal at Monday Asia Open</h1>
+  <div class="meta">Monday 15 June 2026 · 09:20 AEST &nbsp;·&nbsp; Alert-triggered run &nbsp;·&nbsp; ↑85% nuclear deal trigger fired + WTI validation signal confirmed</div>
+</div>
+
+<div class="container">
+
+  <div class="lede">
+    In the 08:09 AEST alert (71 minutes ago), you were told: <strong>"WTI gap-down to &lt;$82 confirms MOU is binding."</strong> That signal has now fired. WTI opened at <strong>$81.23/bbl</strong> at Monday Asia open — down 4.3% ($3.65) from Friday's $84.88 close — validating the Iran deal is real, not just a Trump announcement. The nuclear deal has pulled back from its 94.5% spike to <strong>87%</strong> on Iran's standard pre-signing hedge ("not yet final"), but the oil market — the ground-truth validator — is calling the deal done.
+  </div>
+
+  <!-- Validation Protocol Status -->
+  <div class="validation-box">
+    <h3>✅ 08:09 Signing-Confirmation Protocol — Status</h3>
+    <div class="validation-row">
+      <span class="validation-label">Signal 1: WTI gaps down &lt;$82 at Monday Asia open</span>
+      <span class="validation-value pass">✅ FIRED — $81.23 (-4.3%)</span>
+    </div>
+    <div class="validation-row">
+      <span class="validation-label">Signal 2: Iran invasion drops below 12%</span>
+      <span class="validation-value pass">✅ FIRED — 10.5% (was 11.5% at 08:09)</span>
+    </div>
+    <div class="validation-row">
+      <span class="validation-label">Signal 3: IRNA/Mehr News — Khamenei authorization statement</span>
+      <span class="validation-value pending">⏳ PENDING — no public appearance since war began</span>
+    </div>
+    <div class="validation-row">
+      <span class="validation-label">Verdict: "If any two of three confirm, deal is signed"</span>
+      <span class="validation-value pass">✅ 2 OF 3 CONFIRMED — DEAL VALIDATED</span>
+    </div>
+  </div>
+
+  <!-- Metrics summary -->
+  <div class="metrics-row">
+    <div class="metric-card green">
+      <div class="val">$81.23</div>
+      <div class="sub">WTI (proxy Brent) · -4.3% · <strong>below $82 gate</strong></div>
+    </div>
+    <div class="metric-card amber">
+      <div class="val">87.0%</div>
+      <div class="sub">Nuclear deal · pulled back from 94.5% peak · ↑85% fired</div>
+    </div>
+    <div class="metric-card green">
+      <div class="val">10.5%</div>
+      <div class="sub">Iran invasion · at ↓10% near-zero floor · all-time low range</div>
+    </div>
+  </div>
+
+  <!-- Market by Market -->
+  <div class="section">
+    <h2>Key Markets</h2>
+
+    <div class="market-card highlight">
+      <div class="price-block">
+        <div class="price green">$81.23</div>
+        <div class="delta down">−$3.65 (−4.3%)</div>
+      </div>
+      <div class="market-info">
+        <div class="label">WTI Crude Oil (proxy for Brent) — Monday Asia Open</div>
+        <span class="quality high">HIGH</span>
+        <div class="commentary">The ground-truth validator has spoken. $81.23 breaks decisively below the $82 threshold you were told would confirm the MOU is binding. This is not a news-driven trading desk buying on optimism — this is the physical crude market pricing a real reduction in Hormuz supply risk. Brent: ~$83.98/bbl (−3.84%). Note: Brent is the correct Australian petrol benchmark; WTI used as proxy. Australian petrol floor of A$2.05–2.20/L remains locked in until Hormuz mine-clearing is complete (~30 days from formal signing).</div>
+      </div>
+    </div>
+
+    <div class="market-card highlight">
+      <div class="price-block">
+        <div class="price amber">87.0%</div>
+        <div class="delta up">+3.5pp from 83.5%</div>
+      </div>
+      <div class="market-info">
+        <div class="label">US-Iran Nuclear Deal Before 2027</div>
+        <span class="quality high">HIGH</span>
+        <div class="commentary">Pulled back from 94.5% peak (07:39 alert) to a trough of 83.5% at 09:00 AEST as Iran's foreign ministry issued its standard pre-signing hedge: FM Araghchi says text "not yet finalized and could still change." This is the same language used every time for the past week. The 87% current print (+3.5pp bounce from trough) is the market re-anchoring after the Iran noise — with oil confirming, 87% is the correct equilibrium read. Next tier: ↑95% (8pp away); raise the ↑85% trigger threshold to ↑92% (done this run). Resolution quality: <a href="https://polymarket.com" style="color: #64748b">HIGH</a> — resolves on official US/Iran announcement.</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="price-block">
+        <div class="price green">10.5%</div>
+        <div class="delta down">from 9.5% (09:00 trough)</div>
+      </div>
+      <div class="market-info">
+        <div class="label">US Invades Iran Before 2027</div>
+        <span class="quality low">LOW</span>
+        <div class="commentary">At 10.5%, essentially in the near-zero floor range. Bounced from 9.5% all-time low (08:31 run, dismissed as expected follow-through). The slight bounce to 10.5% tracks the same Iran-hedge uncertainty that pulled the nuclear deal from 94.5% to 87%. Cross-market coherent: oil at $81.23 confirms this is correct de-escalation pricing. ↓7% deep-floor trigger is 3.5pp further down.</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="price-block">
+        <div class="price green">62.0%</div>
+        <div class="delta down">−5.5pp from 67.5% ATH</div>
+      </div>
+      <div class="market-info">
+        <div class="label">Hormuz Traffic Normal by July 31</div>
+        <span class="quality med">MED</span>
+        <div class="commentary">Pulled back from the 67.5% all-time high (08:09 alert) to 62.0% — same Iran-hedge noise driving the nuclear deal pullback. Still +24.5pp above the secondary collapse sentinel (↓23% at 38.5pp away) and well above the pre-announcement baseline of 29.5–31.5%. The 62% reading is the market correctly incorporating the Hormuz physical timeline: even with MOU signed today, mine-clearing takes 30–45 days. Physical reopening is July, not June. ↑85% trigger for Hormuz remains 23pp away.</div>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="price-block">
+        <div class="price green">75.5%</div>
+        <div class="delta up">+14pp/24h</div>
+      </div>
+      <div class="market-info">
+        <div class="label">US-Iran Nuclear Deal by June 30?</div>
+        <span class="quality low">LOW</span>
+        <div class="commentary">Market is pricing 3-in-4 chance of a formal nuclear agreement by end of June — only 15 days away. This is the market leapfrogging the 60-day ceasefire MOU to price a comprehensive deal. High conviction that Khamenei HEU approval will be bundled with MOU signature rather than protracted separately. [LOW] quality — treat as sentiment, not fact. The main "before 2027" market [HIGH] at 87% is the credible read.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- The Iran Hedge — What It Means -->
+  <div class="section">
+    <div class="narrative-box">
+      <h3>Iran's "Not Final" Statement — Why It Doesn't Override the Oil Signal</h3>
+      <p>Iranian FM Araghchi stated the MOU text is "not yet finalized and could still change," and Iran's foreign ministry said "no final decision has been made." This is identical language to every previous pre-signing phase this cycle — June 13, June 12, June 11. Iran has used this hedge consistently while negotiations advanced. Critically, <strong>the oil market treats Iran's denials as noise</strong>: WTI dropped 4.3% at Asia open, not the 0.5–1% you'd see from a deal-optimism drift. A 4.3% gap-down on $80+ oil represents billions of dollars of traded positions moving on the same interpretation: the deal is real.</p>
+      <p style="margin-top: 12px;">The alternative interpretation — that Iran genuinely rejected the deal and the 4.3% oil drop is coincidental — is contradicted by the scale of the oil move. A coincidental drop of this magnitude would require a separate catalyst (demand destruction, inventory surprise, OPEC+ output increase). None of those are present. The oil market has spoken.</p>
+    </div>
+  </div>
+
+  <!-- Australian Impact -->
+  <div class="au-box">
+    <h3>🇦🇺 Australian Petrol Outlook</h3>
+    <p>Brent at ~$83.98 (proxy: WTI $81.23 + ~$2.75 spread) is now in the $82–86 range that signals structural petrol relief approaching. <strong>However, the pump price timeline remains unchanged:</strong> Hormuz mine-clearing takes 30–45 days from formal signing. If MOU is signed today (June 15), physical tanker traffic normalisation begins mid-July at earliest. Australian petrol at A$2.05–2.20/L floor persists through at least late July. Best-case A$1.90–2.10/L arrives in August. The oil price is doing the right thing — it's the physical pipeline that has a lag. No pump relief this week.</p>
+  </div>
+
+  <!-- What to Watch -->
+  <div class="section">
+    <div class="forward-box">
+      <h3>What to Watch Next</h3>
+
+      <div class="forward-item">
+        <span class="icon">📡</span>
+        <span class="text"><strong>Khamenei on IRNA (any moment):</strong> Mojtaba Khamenei (the new Supreme Leader, son of Ali who was assassinated at the war's opening) has not appeared publicly since the conflict began. His formal public authorization is Iran's legal gate. Any IRNA or Mehr News Agency statement with his name = signing imminent. This is the remaining piece of the three-signal protocol.</span>
+      </div>
+
+      <div class="forward-item">
+        <span class="icon">📈</span>
+        <span class="text"><strong>Nuclear deal ↑95% (8pp away):</strong> If 87% surges to 95%+ in a single session, that's the "resolution certainty" tier — deal effectively confirmed. Email immediately. Expect this to fire simultaneously with Khamenei authorization on IRNA.</span>
+      </div>
+
+      <div class="forward-item">
+        <span class="icon">🏦</span>
+        <span class="text"><strong>Warsh FOMC — Thursday 4:30AM AEST (June 18):</strong> Hold at 99.8% — the decision is noise. Warsh's maiden press conference language is the event. If MOU signed before Thursday, watch for any "Hormuz disinflation" framing in the dot-plot commentary — that would shift the rate path language from hawkish to neutral, AUD tailwind. US CPI 3.8% vs Hormuz tailwind = Warsh's impossible framing problem.</span>
+      </div>
+
+      <div class="forward-item">
+        <span class="icon">⚠️</span>
+        <span class="text"><strong>G7 Évian closes Wednesday AEST:</strong> If MOU is NOT signed by G7 close, expect nuclear deal to retrace 78–82%, invasion to bounce 13–16%, Hormuz to pull back 50–55%, WTI to rebound $85–89. That would be a clear signal the deal is deeper in trouble than Iran's standard hedging. Oil would be the tell: any WTI recovery above $85 at that point = signing has stalled, not completed.</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footnote">
+    Polymarket Analyst · Alert report generated 15 Jun 2026 09:20 AEST · Trigger: ↑85% nuclear deal fired + WTI $81.23 Asia open validation · Trigger threshold raised to ↑92% (logged) · Resolution quality: [HIGH] = Polymarket/NYMEX/FOMC sources; [MED] = criteria-based subjective; [LOW] = UMA vote-decided
+  </div>
+
+</div>
+</body>
+</html>
