@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Cuba Repricing — Structural Move, 7AM Correction | 16 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #252b3b 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px; }
+  .header-meta { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f8fafc; line-height: 1.3; }
+  .header h1 em { color: #f59e0b; font-style: normal; }
+  .header .subtitle { font-size: 13px; color: #94a3b8; margin-top: 6px; }
+  .container { max-width: 760px; margin: 0 auto; padding: 24px 32px; }
+  .correction-box { background: #2d1b0e; border: 2px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .correction-box h3 { color: #f59e0b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .correction-box p { font-size: 14px; color: #fcd34d; line-height: 1.6; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .intro { font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 24px; }
+  .intro strong { color: #f8fafc; }
+  .market-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .market-card.fired { border-color: #f59e0b; background: #1c1810; }
+  .market-card.low { border-left: 3px solid #6b7280; }
+  .market-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .market-label { font-size: 13px; font-weight: 600; color: #f8fafc; }
+  .quality-badge { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; background: #374151; color: #9ca3af; }
+  .quality-badge.low { background: #1f2937; color: #6b7280; }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .price { font-size: 26px; font-weight: 700; color: #f8fafc; }
+  .delta.up { color: #10b981; font-size: 14px; font-weight: 600; }
+  .delta.down { color: #ef4444; font-size: 14px; font-weight: 600; }
+  .delta.neutral { color: #64748b; font-size: 14px; }
+  .market-note { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .market-note strong { color: #e2e8f0; }
+  .timeline { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+  .timeline h3 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .tl-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 7px; font-size: 13px; }
+  .tl-time { color: #64748b; font-size: 12px; min-width: 90px; font-family: monospace; }
+  .tl-price { color: #f8fafc; font-weight: 600; min-width: 50px; }
+  .tl-note { color: #94a3b8; }
+  .tl-note.fired { color: #f59e0b; font-weight: 600; }
+  .tl-note.wrong { color: #ef4444; }
+  .catalyst-box { background: #0f1f0f; border: 1px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .catalyst-box h3 { color: #4ade80; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .catalyst-box p { font-size: 14px; color: #86efac; line-height: 1.6; }
+  .catalyst-box .quote { font-style: italic; color: #4ade80; margin-top: 8px; border-left: 3px solid #16a34a; padding-left: 12px; }
+  .cross-market { background: #111827; border: 1px solid #374151; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+  .cross-market h3 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .cm-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid #1e293b; font-size: 13px; }
+  .cm-row:last-child { border-bottom: none; }
+  .cm-label { color: #94a3b8; }
+  .cm-value { color: #e2e8f0; font-weight: 600; }
+  .cm-note { color: #64748b; font-size: 12px; }
+  .forward { background: #0f1117; border: 1px solid #1e293b; border-radius: 8px; padding: 16px 20px; }
+  .forward h3 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .forward ul { list-style: none; padding: 0; }
+  .forward ul li { font-size: 13px; color: #94a3b8; padding: 5px 0 5px 18px; position: relative; line-height: 1.5; }
+  .forward ul li::before { content: "→"; position: absolute; left: 0; color: #475569; }
+  .forward ul li strong { color: #e2e8f0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-right: 4px; text-transform: uppercase; }
+  .tag-low { background: #1f2937; color: #6b7280; }
+  .tag-med { background: #1e2a1a; color: #4ade80; }
+  .tag-high { background: #0c1a2e; color: #60a5fa; }
+  .footnote { margin-top: 28px; font-size: 11px; color: #374151; border-top: 1px solid #1e293b; padding-top: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Alert · 16 June 2026, 09:45 AEST · Alert-triggered run</div>
+  <h1>Cuba Structural Reprice — <em>7AM Correction</em></h1>
+  <div class="subtitle">Cuba US strike (Dec 31): peaked 62.5% at 05:15 AEST, now 57.0% · Iran deal completion = Cuba is "next" per Trump June 4</div>
+</div>
+
+<div class="container">
+
+  <div class="correction-box">
+    <h3>⚠ Correction to 7AM Daily</h3>
+    <p>The 07:07 AEST daily reported Cuba "reverted from 54.5% spike to 43.5% — thin-book confirmed." <strong>This was incorrect.</strong> The market never reverted to 43.5%. Market log shows Cuba trading 50–62.5% continuously since 04:45 AEST. The move is structurally motivated and was at 53.5% when the daily was published.</p>
+  </div>
+
+  <p class="intro">
+    The Cuba prediction market spiked structurally overnight — not a thin-book artifact. The catalyst is Trump's June 4 statement that Cuba is "next" after Iran, and with the Iran deal formally announced June 15 and signing confirmed for June 19 in Switzerland, bettors are activating that sequence. The trigger briefly fired at <strong>62.5%</strong> (05:15 AEST) and held above 60% for 30 minutes before drifting to the current <strong>57%</strong>. This is a geopolitical narrative shift — not a direct oil or rates event — but the "Trump doctrine rotation" from Iran to Cuba is a real signal for USD, LatAm assets, and risk appetite.
+  </p>
+
+  <div class="section">
+    <h2>Key Market</h2>
+
+    <div class="market-card fired low">
+      <div class="market-top">
+        <span class="market-label">US military strike on Cuba by Dec 31?</span>
+        <span class="quality-badge low">LOW quality</span>
+      </div>
+      <div class="price-row">
+        <span class="price">57.0%</span>
+        <span class="delta up">+13.5pp from 43.5% baseline</span>
+      </div>
+      <div class="market-note">
+        <strong>Trigger: ↑60% (3.0pp away).</strong> Briefly fired at 05:15 AEST (62.5%), held above 60% for 30 min, now fading but still elevated. Resolution: US drone/missile/air strike physically impacts Cuban soil by Dec 31 — "consensus of credible reporting." UMA vote-decided. <strong>LOW quality</strong> = 57% here is directionally meaningful but weaker conviction than a HIGH-quality market at the same price.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Price Timeline Today</h2>
+    <div class="timeline">
+      <div class="tl-row"><span class="tl-time">00:00–04:30</span><span class="tl-price">43.5%</span><span class="tl-note">Flat overnight — stable baseline</span></div>
+      <div class="tl-row"><span class="tl-time">04:45 AEST</span><span class="tl-price">54.5%</span><span class="tl-note">+11pp spike — first move; 4:53 email flagged as possible thin-book</span></div>
+      <div class="tl-row"><span class="tl-time">05:00</span><span class="tl-price">56.0%</span><span class="tl-note">Continued build — not a spike reversion</span></div>
+      <div class="tl-row"><span class="tl-time">05:15</span><span class="tl-price">62.5%</span><span class="tl-note fired">⚡ TRIGGER FIRED — crossed ↑60%</span></div>
+      <div class="tl-row"><span class="tl-time">05:30–05:45</span><span class="tl-price">61.5%</span><span class="tl-note">Still above 60% for 30 minutes</span></div>
+      <div class="tl-row"><span class="tl-time">06:00</span><span class="tl-price">55.5%</span><span class="tl-note">Fell back below 60% — but NOT to 43.5%</span></div>
+      <div class="tl-row"><span class="tl-time">07:00</span><span class="tl-price">53.5%</span><span class="tl-note wrong">7AM daily incorrectly reported "reverted to 43.5%"</span></div>
+      <div class="tl-row"><span class="tl-time">08:00</span><span class="tl-price">50.5%</span><span class="tl-note">Session low — buyers returned quickly</span></div>
+      <div class="tl-row"><span class="tl-time">09:30</span><span class="tl-price">57.0%</span><span class="tl-note">+4.5pp recovery — structural bid confirmed</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Catalyst</h2>
+    <div class="catalyst-box">
+      <h3>✓ Catalyst Identified — Iran Completion → Cuba Sequence</h3>
+      <p>Trump explicitly sequenced Cuba as his next target after Iran:</p>
+      <p class="quote">"I like to tackle one issue at a time. We'll handle the Islamic Republic of Iran and, once that's resolved, we'll make a brief stop on our way back. We'll take care of that."<br><em>— Trump, Oval Office, June 4, 2026</em></p>
+      <p style="margin-top:10px">With the Iran deal formally announced June 15 and Swiss signing ceremony confirmed for <strong>June 19</strong>, Trump's "job" in the Middle East is done. The Cuba market is repricing that next step. Background pressure campaign already in place: USS Nimitz carrier strike group in Caribbean, DOJ indictment of Raúl Castro (May 22), energy blockade since February, P-8A and MQ-4C surveillance flights around the island.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cross-Market Validation</h2>
+    <div class="cross-market">
+      <div class="cm-row">
+        <span class="cm-label"><span class="tag tag-high">HIGH</span> WTI crude (proxy Brent)</span>
+        <span class="cm-value">$81.06/bbl</span>
+        <span class="cm-note">Flat — Cuba NOT oil-relevant ✓</span>
+      </div>
+      <div class="cm-row">
+        <span class="cm-label"><span class="tag tag-med">MED</span> Hormuz traffic by July 31</span>
+        <span class="cm-value">63.5%</span>
+        <span class="cm-note">Stable — Iran de-escalation intact ✓</span>
+      </div>
+      <div class="cm-row">
+        <span class="cm-label"><span class="tag tag-low">LOW</span> Iran invasion before 2027</span>
+        <span class="cm-value">~11.5%</span>
+        <span class="cm-note">Near floor — no Middle East re-escalation ✓</span>
+      </div>
+      <div class="cm-row">
+        <span class="cm-label"><span class="tag tag-high">HIGH</span> Warsh FOMC June hold</span>
+        <span class="cm-value">99.8%</span>
+        <span class="cm-note">Cuba irrelevant to US rates ✓</span>
+      </div>
+      <div class="cm-row">
+        <span class="cm-label"><span class="tag tag-high">HIGH</span> Australian petrol floor</span>
+        <span class="cm-value">A$2.05–2.15/L</span>
+        <span class="cm-note">Cuba has no Hormuz equivalent — no supply chain impact ✓</span>
+      </div>
+    </div>
+    <p style="font-size:13px; color:#64748b; margin-top:10px; line-height:1.5">Cross-market check is clean: WTI flat means this is not an oil story. The Cuba repricing is purely geopolitical — a "Trump doctrine rotation" from the Middle East to the Caribbean. Unlike Iran/Hormuz, Cuba has no strategic shipping lanes, no meaningful oil production (~50kb/d), and no nuclear dimension. Venezuela (Cuba's patron) produces ~850kb/d but market is not pricing Venezuela supply risk yet.</p>
+  </div>
+
+  <div class="section">
+    <h2>Macro Implications</h2>
+
+    <div class="market-card low">
+      <div class="market-label">USD</div>
+      <div class="market-note" style="margin-top:6px">Mildly bullish. Trump military action → USD safe-haven bid. DXY could tick up 0.2–0.4% on Cuba escalation. AUD faces mild headwind if Cuba escalation dominates headlines, partially offset by WTI softness.</div>
+    </div>
+
+    <div class="market-card low" style="margin-top:10px">
+      <div class="market-label">LatAm equities / EWZ</div>
+      <div class="market-note" style="margin-top:6px">Risk-off for Latin America on Caribbean military action. Brazil (EWZ) would face contagion selling. Colombia, Mexico face secondary pressure (both featured in Trump's "next targets" framing). Cuba itself has no listed equities but Venezuelan sovereign debt (already junk) would widen further.</div>
+    </div>
+
+    <div class="market-card low" style="margin-top:10px">
+      <div class="market-label">Australian markets (ASX) — Tuesday 17 June open</div>
+      <div class="market-note" style="margin-top:6px">Cuba is low-priority for ASX. No direct supply chain exposure. AUD may face mild USD headwind. The main ASX event this week remains Warsh FOMC press conference Thursday 4:30AM AEST — that dwarfs Cuba's macro footprint. Do NOT position into ASX open specifically on Cuba.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What to Watch</h2>
+    <div class="forward">
+      <ul>
+        <li><strong>Cuba sustained above 55%?</strong> If Cuba holds 55–60% through Wednesday without a specific Trump announcement, the market may be overpriced on forward-looking speculation. Reversion to 45–48% would confirm "thin narrative, not imminent action." If Cuba rises toward 65%+, look for a specific Trump statement or military order as the catalyst.</li>
+        <li><strong>June 19 Swiss signing ceremony:</strong> After the MOU is formally signed, Trump's "next target" framing may intensify. Watch for Truth Social Cuba posts immediately post-signing. That is the likely catalyst for Cuba to re-test 62.5%+ and possibly sustain above trigger.</li>
+        <li><strong>Venezuela secondary signal:</strong> If Venezuela supply risk markets appear on Polymarket, that would upgrade Cuba from "geopolitical noise" to "commodity supply risk." No Venezuela market exists currently.</li>
+        <li><strong>FOMC Thursday 4:30AM AEST:</strong> Warsh maiden press conference is this week's primary event. If he acknowledges Hormuz disinflation as a WTI tailwind (oil −5% from pre-deal levels), AUD could get oil + rate double tailwind. Cuba is a sideshow to this event.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Generated by Polymarket Analyst · 16 June 2026 09:45 AEST · Alert-triggered run (Cuba strike ↑trigger) · Data: Polymarket/Kalshi via collection scripts · Cross-market validation: WTI $81.06 flat confirms Cuba ≠ supply shock · Resolution quality: Cuba [LOW] — UMA optimistic oracle; subjective "consensus of credible reporting" criteria · This report corrects an error in the 07:07 AEST 16 Jun daily which stated Cuba reverted to 43.5% (market was at 53.5% and has since recovered to 57.0%)
+  </div>
+
+</div>
+</body>
+</html>
