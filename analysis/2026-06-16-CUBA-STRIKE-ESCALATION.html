@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Cuba Strike Market Spikes — New Geopolitical Front | 16 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px 24px; }
+  .alert-badge { display: inline-block; background: #f59e0b; color: #000; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .header .subtitle { color: #94a3b8; font-size: 14px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 28px 24px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #64748b; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .market-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 18px; margin-bottom: 14px; }
+  .market-card.alert { border-left: 4px solid #f59e0b; }
+  .market-card.watch { border-left: 4px solid #3b82f6; }
+  .market-card.stable { border-left: 4px solid #475569; }
+  .market-card.new { border-left: 4px solid #10b981; }
+  .market-name { font-size: 15px; font-weight: 600; color: #e2e8f0; margin-bottom: 6px; }
+  .market-price { font-size: 28px; font-weight: 700; color: #f59e0b; }
+  .market-price.stable { color: #94a3b8; }
+  .market-price.green { color: #10b981; }
+  .market-delta { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 10px; vertical-align: middle; }
+  .delta-up { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .delta-stable { background: rgba(100,116,139,0.15); color: #64748b; }
+  .delta-green { background: rgba(16,185,129,0.15); color: #10b981; }
+  .market-meta { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .market-analysis { font-size: 14px; color: #cbd5e1; margin-top: 10px; line-height: 1.6; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .quality-low { background: rgba(239,68,68,0.15); color: #f87171; }
+  .quality-med { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .quality-high { background: rgba(16,185,129,0.15); color: #34d399; }
+  .callout { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 14px 16px; margin: 14px 0; }
+  .callout.warning { border-color: #f59e0b; background: rgba(245,158,11,0.05); }
+  .callout.info { border-color: #3b82f6; background: rgba(59,130,246,0.05); }
+  .callout-title { font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px; }
+  .callout.warning .callout-title { color: #f59e0b; }
+  .callout.info .callout-title { color: #60a5fa; }
+  .callout p { font-size: 13px; color: #94a3b8; }
+  .timeline { list-style: none; padding: 0; }
+  .timeline li { padding: 8px 0 8px 20px; border-left: 2px solid #2d3748; margin-left: 8px; position: relative; font-size: 14px; color: #cbd5e1; }
+  .timeline li::before { content: ''; position: absolute; left: -5px; top: 14px; width: 8px; height: 8px; background: #475569; border-radius: 50%; }
+  .timeline li.recent::before { background: #f59e0b; }
+  .timeline li strong { color: #e2e8f0; }
+  .macro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .macro-item { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 14px; }
+  .macro-item h4 { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .macro-item p { font-size: 13px; color: #cbd5e1; }
+  .footer { background: #0d1117; border-top: 1px solid #1e293b; padding: 20px 32px; margin-top: 32px; text-align: center; }
+  .footer p { font-size: 12px; color: #475569; }
+  .trigger-bar { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 12px 16px; margin: 10px 0; display: flex; align-items: center; gap: 12px; }
+  .trigger-fill { height: 8px; border-radius: 4px; background: #334155; flex: 1; overflow: hidden; }
+  .trigger-fill-inner { height: 100%; border-radius: 4px; background: #f59e0b; }
+  .trigger-label { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+  @media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr; } .header { padding: 20px; } .content { padding: 20px 16px; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="alert-badge">⚠ ALERT — 04:55 AEST 16 JUN 2026</div>
+  <h1>Cuba Strike Market Spikes to 54.5%<br>— New Geopolitical Front You Haven't Seen Yet</h1>
+  <p class="subtitle">Polymarket alert | Triggered at 04:45 AEST | 2026 Cuban Crisis briefing + Iran deal operational update</p>
+</div>
+
+<div class="content">
+
+  <!-- WHAT FIRED -->
+  <div class="section">
+    <div class="section-title">What Triggered This Alert</div>
+
+    <div class="market-card alert">
+      <div class="market-name">US military strike on Cuba by Dec 31 <span class="quality-badge quality-low">LOW</span></div>
+      <div>
+        <span class="market-price">54.5%</span>
+        <span class="market-delta delta-up">+11.0pp at 04:45 AEST</span>
+      </div>
+      <div class="market-meta">Polymarket · slug: us-strike-on-cuba-by-december-31 · Trigger threshold: ↑60% (5.5pp away)</div>
+      <div class="market-analysis">
+        The market was flat at 43.5% for 20 consecutive 15-minute collections all night (9:30PM–4:30AM AEST), then jumped +11pp in a single collection cycle. The description cache shows <strong>one-day change of only +1pp</strong> — a strong signal that this is a <strong>thin-book spike that may already be reverting toward 43–45%</strong>. Do not anchor to 54.5% as a steady-state price.
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠ Thin-Book Spike — But Real Crisis Backdrop</div>
+      <p>The +11pp move is almost certainly a thin-book artifact from a single large order. <strong>The Cuba crisis itself is real and escalating</strong> — you have not been briefed on it before. The market's true equilibrium appears to be 43–55%, making it a genuine geopolitical tail risk worth monitoring. This report is primarily a Cuba crisis briefing, not a signal that a strike is imminent today.</p>
+    </div>
+
+    <div class="trigger-bar">
+      <div class="trigger-label">43.5% prior</div>
+      <div class="trigger-fill"><div class="trigger-fill-inner" style="width: 91%"></div></div>
+      <div class="trigger-label">↑60% fires (5.5pp away)</div>
+    </div>
+  </div>
+
+  <!-- CUBA CRISIS BACKGROUND -->
+  <div class="section">
+    <div class="section-title">The 2026 Cuban Crisis — Full Context</div>
+
+    <div class="callout info">
+      <div class="callout-title">First Briefing on This Situation</div>
+      <p>All previous reports this year focused on the Iran/Hormuz narrative. Cuba has been escalating in parallel since January 2026. Here is the full backstory.</p>
+    </div>
+
+    <ul class="timeline">
+      <li><strong>January 3, 2026:</strong> US military intervention removes Maduro from power in Venezuela. Cuba — which relied on Venezuelan oil — loses its primary fuel supply overnight.</li>
+      <li><strong>January 29:</strong> Trump signs Executive Order 14380 — national emergency, threatening tariffs on any country supplying oil to Cuba. Oil blockade formally begins.</li>
+      <li><strong>February 2026:</strong> Cuba fuel blockade tightens. Airlines suspend flights due to fuel shortages. Infant mortality rises. Food and medicine production slashed 60–70%.</li>
+      <li><strong>February 13:</strong> Fire at Havana's Nico López refinery worsens the crisis.</li>
+      <li><strong>March 13:</strong> Díaz-Canel confirms diplomatic talks with US; Cuba releases 51 political prisoners.</li>
+      <li><strong>March 18:</strong> Trump: <em>"We'll be doing something with Cuba very soon."</em></li>
+      <li><strong>March 27:</strong> Trump at Miami summit: <em>"Cuba's next."</em> Raises "friendly takeover" possibility.</li>
+      <li><strong>March 30:</strong> Russian oil tanker (100,000 tonnes crude) arrives Havana — partial relief.</li>
+      <li><strong>April 3:</strong> Cuba releases over 2,000 political prisoners under US pressure.</li>
+      <li><strong>May 14:</strong> Cuba energy minister: island has "run out of oil and diesel."</li>
+      <li><strong>May 20:</strong> USS Nimitz carrier strike group enters Caribbean Sea. Carrier Air Wing 17 (F/A-18E/F Super Hornets), USS Gridley (Arleigh Burke destroyer, Tomahawk-capable), P-8A Poseidon surveillance.</li>
+      <li><strong>May 22:</strong> DOJ indicts former Cuban leader Raúl Castro over 1996 downing of Brothers to the Rescue Cessna 337s.</li>
+      <li><strong>June 9:</strong> Humanitarian crisis severe — infant mortality 9.9%, childhood cancer mortality 35%.</li>
+      <li><strong>June 11:</strong> US sanctions Cuba's national oil company (CUPET) — Rubio: "tool of the repressive security apparatus."</li>
+      <li class="recent"><strong>June 15 (catalyst for today's spike):</strong> Trump blocks 250,000 barrel private-sector / humanitarian fuel delivery to Cuba. Florida company had arranged the delivery for Cuba's private sector and religious organisations; Trump administration intervened saying proper approval was not obtained. UN warns restrictions are "directly harming Cubans, especially the most vulnerable."</li>
+    </ul>
+  </div>
+
+  <!-- CROSS-MARKET VALIDATION -->
+  <div class="section">
+    <div class="section-title">Cross-Market Validation</div>
+
+    <div class="callout info">
+      <div class="callout-title">No Oil Signal — Cuba Is Not an Oil Producer</div>
+      <p>Unlike the Iran/Hormuz complex where WTI was the ground-truth validator, Cuba has no direct oil market. There is no clean cross-market contradiction to check here. The macro channels are different: USD strength on military action, defense equities, Venezuela secondary supply risk (Cuba's closest ally), Caribbean EM spreads.</p>
+    </div>
+
+    <div class="macro-grid">
+      <div class="macro-item">
+        <h4>Defense Stocks</h4>
+        <p>LMT, RTX, NOC are the direct beneficiaries of a Cuba strike scenario. If Cuba market approaches 65–70%, defense sector re-rating would be warranted.</p>
+      </div>
+      <div class="macro-item">
+        <h4>Venezuela Supply</h4>
+        <p>Venezuela (~850kb/d exports, Cuba's primary backer) is the oil linkage. A US-Cuba military conflict could destabilise Venezuela further — secondary WTI upside risk.</p>
+      </div>
+      <div class="macro-item">
+        <h4>USD / Safe Havens</h4>
+        <p>US military action strengthens USD. Gold would be bid. AUD would weaken on risk-off. At current 43–55% equilibrium, no significant FX impact yet priced.</p>
+      </div>
+      <div class="macro-item">
+        <h4>ASX Exposure</h4>
+        <p>Limited direct exposure. No major ASX company has Caribbean operations. Indirect: AUD weakness, gold (NCM, EVN), defence-adjacent (no pure-play AU). Watch BHP/RIO if Venezuela supply concern escalates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENT MARKET CONTEXT -->
+  <div class="section">
+    <div class="section-title">Current Market Backdrop (Other Triggers)</div>
+
+    <div class="market-card stable">
+      <div class="market-name">Iran invasion by end 2026 <span class="quality-badge quality-low">LOW</span></div>
+      <div>
+        <span class="market-price stable">11.5%</span>
+        <span class="market-delta delta-stable">+0.0pp</span>
+      </div>
+      <div class="market-analysis">Flat and at post-deal low. No re-escalation signal. Iran nuclear deal signing June 19 in Switzerland. 1.5pp above ↓10% peace-dividend floor sentinel.</div>
+    </div>
+
+    <div class="market-card stable">
+      <div class="market-name">Hormuz traffic normal by July 31 <span class="quality-badge quality-med">MED</span></div>
+      <div>
+        <span class="market-price stable">64.5%</span>
+        <span class="market-delta delta-stable">+0.5pp</span>
+      </div>
+      <div class="market-analysis">Creeping higher; ↑85% trigger 20.5pp away. Expect push toward 70% on June 19 signing ceremony confirmation. Steady — no contra-signal to Cuba.</div>
+    </div>
+
+    <div class="market-card new">
+      <div class="market-name">Iran oil sanction relief by June 30 <span class="quality-badge quality-med">MED</span> — NEW</div>
+      <div>
+        <span class="market-price green">91.5%</span>
+        <span class="market-delta delta-green">newly discovered</span>
+      </div>
+      <div class="market-analysis">$362K volume, created May 21, ends June 30. At 91.5%, this is the market's verdict that sanctions relief is near-certain — consistent with the June 19 Switzerland signing and the broader nuclear deal cascade. If this drops below 70%, deal implementation is at risk. Added to watchlist.</div>
+    </div>
+
+    <div class="market-card new">
+      <div class="market-name">US troops withdraw from Iranian region by June 30 <span class="quality-badge quality-med">MED</span> — NEW</div>
+      <div>
+        <span class="market-price stable">35.5%</span>
+        <span class="market-delta delta-stable">newly discovered</span>
+      </div>
+      <div class="market-analysis">$278K volume. Only 35.5% vs 91.5% on sanctions relief — market sees a clear asymmetry: sanctions removal is near-certain by June 30, but full military departure from the region is much less so. Phased withdrawal likely extending past June 30. Added to watchlist.</div>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+    <div class="callout">
+      <div class="callout-title" style="color: #e2e8f0;">Cuba Escalation Ladder</div>
+      <p style="color: #cbd5e1;">
+        <strong>↑60% (5.5pp away at spike high, ~16pp in steady-state equilibrium):</strong> Market pricing 3-in-5 chance of a strike — full Cuba alert report warranted. Check for: USS Nimitz orders, Trump executive order authorising military action, evacuation of US nationals from Cuba, or a Cuban military incident against US assets.<br><br>
+        <strong>Watch for confirming signals:</strong> If the Cuba market sustains above 50% over multiple collections (not a spike), that is a genuine repricing. Today's move appears to have been a single thin-book order — validate at the 7AM daily whether the market has reverted to 43–46%.<br><br>
+        <strong>Key near-term Cuba catalysts:</strong> (1) Any Trump statement about Cuba in the context of the Iran deal "closing" the Middle East front; (2) Russian military shipment to Cuba; (3) Cuba shooting at US surveillance aircraft; (4) US evacuation of nationals from Havana; (5) Venezuela-Cuba military cooperation announcement.
+      </p>
+    </div>
+    <div class="callout">
+      <div class="callout-title" style="color: #e2e8f0;">Iran Deal — Operational Phase</div>
+      <p style="color: #cbd5e1;">
+        Signing ceremony: <strong>Friday June 19, Switzerland</strong>. Two things to watch post-signing: (1) Iran oil sanction relief market [91.5%] — if implementation stalls, this will drop; (2) Hormuz physical traffic data — physical shipping should begin normalising in the week post-signing. The 60-day nuclear negotiation window (HEU stockpile, enrichment ceiling, IAEA access) starts June 19; any collapse in that window would be the next Iran escalation signal.<br><br>
+        <strong>FOMC Thursday June 18 (4:30AM AEST):</strong> Warsh maiden press conference. Hormuz disinflation vs CPI 3.8% will be the key language event. This is the primary macro event between now and next week's daily.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Polymarket Analyst · Alert report · Generated 04:55 AEST Tuesday 16 June 2026<br>
+  Cuba: <a href="https://polymarket.com/event/us-strike-on-cuba-by" style="color: #64748b;">polymarket.com/event/us-strike-on-cuba-by</a> ·
+  Iran sanctions: <a href="https://polymarket.com/event/will-trump-agree-to-iranian-oil-sanction-relief-by-june-30" style="color: #64748b;">polymarket.com</a><br>
+  Sources: <a href="https://en.wikipedia.org/wiki/2026_Cuban_crisis" style="color: #64748b;">Wikipedia: 2026 Cuban crisis</a> ·
+  <a href="https://www.csis.org/analysis/next-caribbean-crisis-assessing-us-military-options-toward-cuba" style="color: #64748b;">CSIS analysis</a> ·
+  <a href="https://aljazeera.com/news/2026/6/11/trump-administration-sanctions-cubas-national-oil-company-blasts-castros" style="color: #64748b;">Al Jazeera: CUPET sanctions</a>
+  </p>
+</div>
+
+</body>
+</html>
