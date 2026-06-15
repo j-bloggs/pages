@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Nuclear Deal 92.5% — Trump Claims Khamenei Approved | 15 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 2px solid #f59e0b; padding: 28px 32px 22px; }
+  .alert-badge { display: inline-block; background: #f59e0b; color: #000; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f8fafc; line-height: 1.3; margin-bottom: 6px; }
+  .header .subtitle { font-size: 13px; color: #94a3b8; }
+  .container { max-width: 780px; margin: 0 auto; padding: 28px 32px; }
+  .signal-box { background: #1e2433; border: 1px solid #f59e0b; border-radius: 8px; padding: 18px 22px; margin-bottom: 22px; }
+  .signal-box.green { border-color: #22c55e; }
+  .signal-box.blue { border-color: #3b82f6; }
+  .signal-box.dim { border-color: #475569; }
+  .signal-box h3 { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; }
+  .big-number { font-size: 48px; font-weight: 800; line-height: 1; }
+  .big-number.amber { color: #f59e0b; }
+  .big-number.green { color: #22c55e; }
+  .big-number.red { color: #ef4444; }
+  .big-number.blue { color: #60a5fa; }
+  .delta { font-size: 16px; font-weight: 600; color: #94a3b8; margin-top: 4px; }
+  .delta .pos { color: #22c55e; }
+  .delta .neg { color: #ef4444; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+  .metric { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 18px; }
+  .metric .label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .metric .value { font-size: 26px; font-weight: 700; }
+  .metric .value.amber { color: #f59e0b; }
+  .metric .value.green { color: #22c55e; }
+  .metric .value.red { color: #ef4444; }
+  .metric .value.blue { color: #60a5fa; }
+  .metric .value.white { color: #f8fafc; }
+  .metric .change { font-size: 12px; margin-top: 3px; }
+  .metric .change .pos { color: #22c55e; }
+  .metric .change .neg { color: #ef4444; }
+  .metric .change .flat { color: #64748b; }
+  section { margin-bottom: 28px; }
+  section h2 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #1e2433; padding-bottom: 8px; margin-bottom: 14px; }
+  p { color: #cbd5e1; font-size: 14px; margin-bottom: 10px; }
+  ul { padding-left: 20px; }
+  ul li { color: #cbd5e1; font-size: 14px; margin-bottom: 7px; }
+  .quality { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; vertical-align: middle; margin-right: 4px; }
+  .quality.high { background: #166534; color: #86efac; }
+  .quality.med { background: #713f12; color: #fde68a; }
+  .quality.low { background: #3b1b1b; color: #fca5a5; }
+  .pending-badge { display: inline-block; background: #1e3a5f; color: #60a5fa; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+  .confirmed-badge { display: inline-block; background: #14532d; color: #86efac; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+  .signals-table { width: 100%; border-collapse: collapse; }
+  .signals-table td { padding: 8px 10px; font-size: 13px; border-bottom: 1px solid #1e2433; }
+  .signals-table tr:last-child td { border-bottom: none; }
+  .signals-table td:first-child { color: #94a3b8; width: 45%; }
+  .signals-table td:last-child { text-align: right; font-weight: 700; }
+  .forward-box { background: #1a1f2e; border-left: 3px solid #3b82f6; padding: 16px 20px; border-radius: 0 6px 6px 0; }
+  .forward-box p { margin-bottom: 6px; }
+  .ts { font-size: 12px; color: #475569; margin-top: 16px; text-align: center; }
+  .trigger-fired { background: #2d1a00; border: 1px solid #f59e0b; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; color: #fde68a; font-weight: 600; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="alert-badge">⚡ Alert — ↑92% Trigger Fired</div>
+  <h1>Nuclear Deal 92.5% — Trump Claims Khamenei Approved</h1>
+  <div class="subtitle">Monday 15 June 2026, 11:20 AEST &nbsp;·&nbsp; G7 Évian Day 1 &nbsp;·&nbsp; 4th alert this session</div>
+</div>
+
+<div class="container">
+
+  <div class="trigger-fired">
+    🔔 TRIGGER FIRED: US-Iran nuclear deal before 2027 — approaching certainty (↑92%) at <strong>92.5%</strong>
+  </div>
+
+  <div class="signal-box">
+    <h3>US-Iran Nuclear Deal Before 2027 <span class="quality high">HIGH</span></h3>
+    <div class="big-number amber">92.5%</div>
+    <div class="delta"><span class="pos">+5.5pp</span> since 09:23 AEST alert (was 87%) &nbsp;·&nbsp; ↑95% certainty tier now <strong>2.5pp away</strong></div>
+  </div>
+
+  <div class="grid-3">
+    <div class="metric">
+      <div class="label">WTI Crude <span class="quality high">HIGH</span></div>
+      <div class="value blue">$80.67</div>
+      <div class="change"><span class="neg">−4.96%</span> from Fri $84.88</div>
+    </div>
+    <div class="metric">
+      <div class="label">Iran Invasion <span class="quality low">LOW</span></div>
+      <div class="value green">11.5%</div>
+      <div class="change"><span class="flat">flat</span> since 08:09 cascade</div>
+    </div>
+    <div class="metric">
+      <div class="label">Hormuz Jul 31 <span class="quality med">MED</span></div>
+      <div class="value amber">62.5%</div>
+      <div class="change"><span class="flat">flat</span> since 08:09 ATH 67.5%</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What Happened Since the Last Alert (09:23 AEST)</h2>
+    <p>The nuclear deal bounced from <strong>87%</strong> (the Iran-FM-"not yet final" trough) back to <strong>92.5%</strong>. The catalyst is Trump's first explicit claim of Khamenei personal sign-off: <em>"I understand the answer is yes,"</em> when asked whether Mojtaba Khamenei has personally approved the deal. That phrasing is qualified, not definitive — but the market is buying it as directionally correct.</p>
+    <p>Oil confirms the interpretation. WTI extended its decline to <strong>$80.67</strong> (−4.96% from Friday's $84.88 close), moving further through the $82 ground-truth gate identified in the 09:23 email. Two of the three signing-confirmation signals are now met and strengthening.</p>
+  </section>
+
+  <section>
+    <h2>3-Signal Signing Protocol — Status Update</h2>
+    <table class="signals-table">
+      <tr>
+        <td>① WTI below $82 at Monday Asia open</td>
+        <td><span class="confirmed-badge">✅ CONFIRMED</span> $80.67</td>
+      </tr>
+      <tr>
+        <td>② Iran invasion below 12%</td>
+        <td><span class="confirmed-badge">✅ CONFIRMED</span> 11.5%</td>
+      </tr>
+      <tr>
+        <td>③ Khamenei IRNA/Mehr News statement</td>
+        <td><span class="pending-badge">⏳ PENDING</span> Trump qualified claim only</td>
+      </tr>
+    </table>
+    <p style="margin-top:12px;">Note: Trump's statement is <em>not</em> the same as an IRNA confirmation. Tehran's pattern throughout this process has been to deny finality in the hours before each major milestone. Treat Signal ③ as pending until state media publishes.</p>
+  </section>
+
+  <section>
+    <h2>Cross-Market Coherence Check</h2>
+    <ul>
+      <li><span class="quality high">HIGH</span> <strong>Nuclear deal [92.5%]</strong> and <strong>WTI [$80.67]</strong> are fully consistent — oil is the ground truth and it keeps falling. No contradiction.</li>
+      <li><span class="quality low">LOW</span> <strong>Iran invasion [11.5%]</strong> is flat, not falling further — consistent with "MOU framework priced in, but physical signing not yet confirmed." A confirmed Khamenei statement would push this below 9% toward the ↓7% deep-floor sentinel.</li>
+      <li><span class="quality med">MED</span> <strong>Hormuz [62.5%]</strong> is flat since the 08:09 ATH (67.5%) — 30-45 day mine-clearing lag fully baked in. Physical reopening remains July/August regardless of when MOU signs today.</li>
+      <li>No contradiction anywhere in the complex. All markets are coherent on a de-escalation / near-signed MOU reading.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Macro Implications — What's Priced and What Isn't</h2>
+    <ul>
+      <li><strong>Oil already pricing the deal, not the Khamenei statement:</strong> WTI at $80.67 is pricing 2 of 3 signals confirmed. A formal IRNA statement from Khamenei would likely push WTI another $2–4 lower toward $76–79 range (Brent ~$79–82/bbl).</li>
+      <li><strong>Australian petrol floor unchanged until mine-clearing starts:</strong> Brent ~$83/bbl. The 30–45 day Hormuz mine-clearance lag means petrol A$2.05–2.20/L floor persists through mid-July even if MOU signs today. Don't expect pump relief before August.</li>
+      <li><strong>Warsh FOMC Thursday 4:30AM AEST:</strong> With WTI at $80.67 and falling, Warsh now has a disinflation tailwind to acknowledge. Watch the dot-plot revisions and whether he cites Hormuz explicitly. A "lower-for-longer" lean on US CPI would amplify AUD strength on de-escalation — concurrent tailwinds for the Australian consumer.</li>
+      <li><strong>ASX positioning:</strong> QAN and logistics names (WOW, COL, TLS distribution cost structures) continue to benefit. Energy sector (WDS, STO) enters further headwind. Not a new call — confirmation of the June 12 peace-dividend trade.</li>
+      <li><strong>↑95% resolution certainty tier:</strong> Now only 2.5pp away. When it fires (expected: Khamenei IRNA statement or WTI breach below $79), that is the "deal is done" signal. Email immediately, regardless of time.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Trigger Update</h2>
+    <ul>
+      <li><strong>↑92% tier raised → ↑97%</strong> (final resolution confirmation): the ↑92% threshold has served its purpose. Next alert tier is now ↑97% ("deal essentially locked"). ↑95% tier unchanged at 0.95.</li>
+      <li>No other trigger changes this session.</li>
+    </ul>
+  </section>
+
+  <div class="forward-box">
+    <h2 style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#64748b;margin-bottom:10px;">What to Watch</h2>
+    <p><strong>Primary signal — Khamenei IRNA statement:</strong> The Iranian state media (IRNA, Mehr News Agency) is the remaining legal gate. When published, nuclear deal will gap rapidly through ↑95% and likely ↑97%, invasion will fall toward ↓7% deep floor, WTI will drop another $2–4. Email immediately on confirmation.</p>
+    <p><strong>Secondary — WTI below $79:</strong> If oil breaks through $79 before an IRNA statement, that is the market front-running the final confirmation. Treat as effectively signed.</p>
+    <p><strong>Warsh FOMC Thursday 4:30AM AEST:</strong> The most important scheduled event between now and next week. Disinflation language + Hormuz mention = AUD bullish, rate-cut forward pricing firms. Dot-plot revision is the watch.</p>
+    <p><strong>Downside risk:</strong> If WTI reverses above $83 without news explanation, check whether Tehran issued a harder-than-usual denial — deal could be stalling on Khamenei's HEU stockpile modality. Invasion would bounce toward 14–15% in that scenario.</p>
+  </div>
+
+  <p class="ts">Generated 2026-06-15 11:20 AEST · Polymarket Analyst · Data: Polymarket + Kalshi + WTI spot</p>
+</div>
+</body>
+</html>
