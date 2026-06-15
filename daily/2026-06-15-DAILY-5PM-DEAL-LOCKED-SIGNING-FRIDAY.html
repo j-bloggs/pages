@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily 5PM — 15 June 2026 — Deal Locked, Signing Friday</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #162032 100%); border-bottom: 2px solid #2d4a6e; padding: 28px 32px 24px; }
+  .header-meta { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #94a3b8; }
+  .main { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+  .alert-banner { background: #0f2d1a; border: 1px solid #22c55e; border-left: 4px solid #22c55e; border-radius: 6px; padding: 14px 18px; margin-bottom: 24px; }
+  .alert-banner .alert-title { font-size: 13px; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .alert-banner p { font-size: 13px; color: #86efac; }
+  .risk-banner { background: #1f1208; border: 1px solid #f59e0b; border-left: 4px solid #f59e0b; border-radius: 6px; padding: 14px 18px; margin-bottom: 24px; }
+  .risk-banner .risk-title { font-size: 13px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .risk-banner p { font-size: 13px; color: #fcd34d; }
+  section { margin-bottom: 28px; }
+  h2 { font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+  .triggers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .trigger-card { background: #141821; border: 1px solid #1e293b; border-radius: 6px; padding: 12px 14px; }
+  .trigger-card.resolved { border-color: #22c55e; background: #0d1f12; opacity: 0.75; }
+  .trigger-card.warning { border-color: #f59e0b; background: #1a1408; }
+  .trigger-label { font-size: 11px; color: #64748b; margin-bottom: 4px; }
+  .trigger-price { font-size: 18px; font-weight: 700; }
+  .trigger-price.green { color: #22c55e; }
+  .trigger-price.amber { color: #f59e0b; }
+  .trigger-price.neutral { color: #94a3b8; }
+  .trigger-gap { font-size: 11px; color: #64748b; margin-top: 3px; }
+  .trigger-resolved-badge { font-size: 10px; background: #14532d; color: #4ade80; padding: 2px 6px; border-radius: 3px; display: inline-block; margin-top: 4px; }
+  .moves-table { width: 100%; border-collapse: collapse; }
+  .moves-table thead tr { border-bottom: 1px solid #1e293b; }
+  .moves-table th { text-align: left; font-size: 11px; color: #64748b; font-weight: 600; padding: 6px 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .moves-table td { padding: 11px 10px; font-size: 13px; border-bottom: 1px solid #141821; vertical-align: top; }
+  .moves-table tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-right: 5px; }
+  .badge.high { background: #1e3a5f; color: #60a5fa; }
+  .badge.med { background: #2d2816; color: #fbbf24; }
+  .badge.low { background: #2d1b2d; color: #c084fc; }
+  .badge.resolved { background: #14532d; color: #4ade80; }
+  .price-cell { font-weight: 600; color: #e2e8f0; }
+  .delta-cell.up { color: #22c55e; }
+  .delta-cell.down { color: #ef4444; }
+  .delta-cell.flat { color: #64748b; }
+  .interp-cell { color: #94a3b8; font-size: 12px; line-height: 1.5; }
+  .summary-box { background: #141821; border: 1px solid #1e293b; border-radius: 6px; padding: 16px 18px; font-size: 14px; color: #cbd5e1; line-height: 1.7; }
+  .summary-box strong { color: #f1f5f9; }
+  .forward-box { background: #141821; border: 1px solid #1e293b; border-radius: 8px; padding: 18px 20px; }
+  .forward-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1a2236; }
+  .forward-item:last-child { border-bottom: none; }
+  .forward-num { font-size: 11px; font-weight: 700; color: #3b82f6; background: #1e3a5f; padding: 2px 7px; border-radius: 12px; flex-shrink: 0; margin-top: 1px; }
+  .forward-text { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+  .forward-text strong { color: #e2e8f0; }
+  .action-log { background: #0d1117; border: 1px solid #1e293b; border-radius: 6px; padding: 14px 16px; }
+  .action-item { font-size: 12px; color: #64748b; padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .action-item::before { content: "→"; color: #3b82f6; flex-shrink: 0; }
+  .petrol-box { background: #1a1230; border: 1px solid #6d28d9; border-radius: 6px; padding: 14px 18px; font-size: 13px; color: #c4b5fd; line-height: 1.7; }
+  .petrol-box strong { color: #e2e8f0; }
+  .section-label { font-size: 11px; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; }
+  .fomc-box { background: #0f1d2e; border: 1px solid #1e4976; border-radius: 6px; padding: 14px 18px; font-size: 13px; color: #93c5fd; line-height: 1.7; }
+  .fomc-box strong { color: #f1f5f9; }
+  .footer { text-align: center; font-size: 11px; color: #475569; padding: 24px; border-top: 1px solid #1e293b; margin-top: 32px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Daily · 15 June 2026 · 17:00 AEST · Scheduled 5PM Run</div>
+  <h1>Deal Locked — Signing Friday, Netanyahu Risk, FOMC Thursday</h1>
+  <div class="subtitle">Nuclear deal market resolved YES on Polymarket · WTI stable at $81/bbl · Markets in consolidation</div>
+</div>
+
+<div class="main">
+
+  <div class="alert-banner">
+    <div class="alert-title">✓ Nuclear Deal Market Resolved</div>
+    <p>The <code>us-iran-nuclear-deal-before-2027</code> slug is no longer accessible via the Polymarket API as of 17:00 AEST — consistent with YES resolution. Last confirmed price: 95.0% (12:09 AEST email). Deal announced June 15 by Trump + confirmed by PBS/NBC/CNBC. Formal MOU signing ceremony: <strong>Friday 19 June, Switzerland.</strong></p>
+  </div>
+
+  <div class="risk-banner">
+    <div class="risk-title">⚠ New Risk: Netanyahu Not Party to Deal</div>
+    <p>Trump called Netanyahu "a very difficult guy" (Times of Israel, June 15). Netanyahu says Israel is not party to the US-Iran deal and does not consider the IDF constrained by it. Israel struck Hezbollah targets in Beirut today. Unilateral Israeli action between now and June 19 could destabilise the Swiss ceremony. Watch IRNA/IDF for any escalation into signing week.</p>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <section>
+    <h2>Trigger Status — 17:00 AEST</h2>
+    <div class="triggers-grid">
+
+      <div class="trigger-card resolved">
+        <div class="trigger-label">US-Iran Nuclear Deal [HIGH]</div>
+        <div class="trigger-price green">RESOLVED</div>
+        <div class="trigger-resolved-badge">✓ YES — Market Delisted</div>
+        <div class="trigger-gap">Last price 95.0% · 12:09 AEST · All 6 deal triggers inactive</div>
+      </div>
+
+      <div class="trigger-card warning">
+        <div class="trigger-label">Kalshi ≥10% Unemployment [HIGH]</div>
+        <div class="trigger-price amber">42%</div>
+        <div class="trigger-gap">3pp below ↑45% trigger — CLOSEST ACTIVE (was 2pp this morning)</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">Hormuz July 31 [MED] · ↑85% trigger</div>
+        <div class="trigger-price neutral">63.5%</div>
+        <div class="trigger-gap">21.5pp below trigger (fires at ↑85%) · flat since 12:09</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">Iran Invasion [LOW] · ↓7% deep-floor</div>
+        <div class="trigger-price neutral">11.5%</div>
+        <div class="trigger-gap">4.5pp above trigger (fires at ↓7%) · flat since 12:09</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">Kalshi ≥7% Unemployment [HIGH]</div>
+        <div class="trigger-price neutral">67%</div>
+        <div class="trigger-gap">7pp below ↑74% trigger (+1pp since 7AM daily)</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">US Fed June Hike [HIGH]</div>
+        <div class="trigger-price neutral">0.1%</div>
+        <div class="trigger-gap">4.9pp below ↑5% trigger — locked; FOMC Thu 4:30AM AEST</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">Cuba Strike Dec 31 [LOW]</div>
+        <div class="trigger-price neutral">42.5%</div>
+        <div class="trigger-gap">17.5pp below ↑60% trigger · flat</div>
+      </div>
+
+      <div class="trigger-card">
+        <div class="trigger-label">China-Taiwan Invasion [LOW]</div>
+        <div class="trigger-price neutral">6.2%</div>
+        <div class="trigger-gap">8.8pp below ↑15% trigger · flat</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section>
+    <h2>Summary</h2>
+    <div class="summary-box">
+      <p>The morning's historic cascade — nuclear deal to 95%, invasion to 9.5%, WTI −5% — has given way to <strong>consolidation</strong>. All prediction markets are flat since the 12:09 AEST alert. The nuclear deal market has been pulled from the Polymarket API, consistent with YES resolution, and the formal signing ceremony is confirmed for <strong>Friday 19 June in Switzerland</strong>. WTI (proxy for Brent) is stable at <strong>$81.06/bbl</strong>, 4.9% below Friday's close — the oil market is holding its deal-confirmed level.</p>
+      <br>
+      <p>The headline risk into Friday is <strong>Netanyahu</strong>: Israel is not party to the deal, does not consider itself bound by it, and struck Hezbollah targets in Beirut today. Any unilateral IDF action against Iran or Iranian proxies before June 19 could disrupt the signing ceremony. Separately, <strong>US Fed Chair Warsh delivers his maiden FOMC press conference Thursday 4:30AM AEST</strong> — with WTI at $81/bbl (vs $84.88 Friday), he has a genuine disinflationary argument, which markets haven't fully priced into the rate-cut timeline.</p>
+    </div>
+  </section>
+
+  <!-- KEY MOVES -->
+  <section>
+    <h2>Key Moves Since 12:09 AEST Alert</h2>
+    <table class="moves-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge high">HIGH</span> US-Iran nuclear deal</td>
+          <td class="price-cell">RESOLVED ✓</td>
+          <td class="delta-cell up">95% → delisted</td>
+          <td class="interp-cell">Slug not found on Polymarket API as of 17:00 AEST — YES resolution. Deal officially announced June 15. Signing June 19 Switzerland.</td>
+        </tr>
+        <tr>
+          <td><span class="badge high">HIGH</span> WTI crude (proxy Brent)</td>
+          <td class="price-cell">$81.06/bbl</td>
+          <td class="delta-cell flat">flat (+$0.39 from $80.67 Asia open)</td>
+          <td class="interp-cell">Stable at deal-confirmed level, −4.9% from Friday $84.88. Brent ~$83.8/bbl. Ground truth: deal is priced in and holding.</td>
+        </tr>
+        <tr>
+          <td><span class="badge low">LOW</span> Iran invasion before 2027</td>
+          <td class="price-cell">11.5%</td>
+          <td class="delta-cell flat">flat since 08:09 alert</td>
+          <td class="interp-cell">Near all-time low. 4.5pp above ↓7% deep-floor sentinel. Netanyahu friction is the one scenario that could push this back up — if IDF action restarts US-Iran hostilities. Monitor IDF/IRNA this week.</td>
+        </tr>
+        <tr>
+          <td><span class="badge med">MED</span> Hormuz traffic by July 31</td>
+          <td class="price-cell">63.5%</td>
+          <td class="delta-cell flat">flat since 12:09 alert</td>
+          <td class="interp-cell">+37pp from June 11 crisis low (26.5%). Stable in all-time-high range. Signing June 19 would accelerate mine-clearing announcement; expect move toward 70% on ceremony confirmation.</td>
+        </tr>
+        <tr>
+          <td><span class="badge high">HIGH</span> Kalshi ≥10% unemployment</td>
+          <td class="price-cell">42%</td>
+          <td class="delta-cell down">−1pp from 43% at 7AM</td>
+          <td class="interp-cell">Slightly better since morning — now 3pp below ↑45% stagflation catastrophe trigger (was 2pp). Oil de-escalation is mildly disinflationary tailwind. FOMC Thursday is next catalyst. Not firing today.</td>
+        </tr>
+        <tr>
+          <td><span class="badge high">HIGH</span> Kalshi ≥7% unemployment</td>
+          <td class="price-cell">67%</td>
+          <td class="delta-cell up">+1pp from 66% at 7AM</td>
+          <td class="interp-cell">Now 7pp below ↑74% trigger. Minor +1pp move is noise in context of deal-day. Watch Warsh Thursday for any language on labour market outlook — this bucket most sensitive to Fed guidance shift.</td>
+        </tr>
+        <tr>
+          <td><span class="badge high">HIGH</span> Warsh FOMC June hold</td>
+          <td class="price-cell">99.8%</td>
+          <td class="delta-cell flat">flat</td>
+          <td class="interp-cell">Hold locked. Press conference Thursday 4:30AM AEST is the real event. Warsh needs to address WTI −5% as disinflationary signal vs CPI still 3.8% YoY. If he signals 2027 cut window, AUD gets oil tailwind + rate tailwind simultaneously.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SPECIAL FOCUS: NETANYAHU RISK -->
+  <section>
+    <h2>Netanyahu Spoiler Risk — The Key Variable Into Friday</h2>
+    <div class="risk-banner" style="margin-bottom: 0;">
+      <div class="risk-title">Why This Matters</div>
+      <p>Netanyahu has explicitly said Israel is <em>not party to the US-Iran deal</em> and praised Trump's "commitment to thwarting nukes" — which is code for: if Iran's nuclear modalities aren't resolved in the 60-day window, Israel reserves the right to act. Trump's "very difficult guy" language signals the relationship is strained but intact.<br><br>
+      <strong>The specific risk:</strong> Israel strikes an Iranian proxy target (Hezbollah in Lebanon or Syria, IRGC assets in Iraq) between now and June 19 that Iran labels a ceasefire violation. Iran uses it as pretext to walk out of Switzerland. Nuclear deal pricing (while delisted on Polymarket) would need to reopen at a much lower level. WTI rebounds $4–8 to $85–89.<br><br>
+      <strong>Probability assessment:</strong> Low but non-zero. Netanyahu has incentive to act before the deal locks in (reducing his future leverage). The IDF's Hezbollah strike today (June 15) is within normal pattern, not a spoiler shot — yet.<br><br>
+      <strong>Watch for:</strong> Any IDF strike in Iranian territory or direct Iranian military assets. IRNA issuing ceasefire violation statement. Trump emergency statement before June 19.</p>
+    </div>
+  </section>
+
+  <!-- FOMC PREVIEW -->
+  <section>
+    <h2>FOMC Preview — Warsh Thursday 4:30AM AEST (Wednesday 2:30PM ET)</h2>
+    <div class="fomc-box">
+      <p><strong>Hold locked at 99.8%.</strong> The decision is irrelevant — the press conference is the event.</p>
+      <br>
+      <p><strong>What Warsh needs to address:</strong> CPI April +3.8% YoY (sticky, above 2% target) vs WTI now at $81/bbl (−5% from pre-deal $84.88, vs $94+ four weeks ago). The Hormuz de-escalation is a real disinflationary supply-side tailwind. Warsh must decide whether to:</p>
+      <br>
+      <p style="padding-left: 12px;">→ <strong>Cite Hormuz as disinflationary:</strong> Signal earlier-than-expected cut window (2027 moves to 2026H2 possibility) → AUD strengthens; equities rally; bonds bid<br>
+      → <strong>Dismiss Hormuz as "too early":</strong> Remain hawkish on 3.8% CPI; maintain "higher for longer" framing → AUD headwind; long end steady<br>
+      → <strong>Balanced/neutral:</strong> Note tailwind but wait for sustained data; no new signal</p>
+      <br>
+      <p><strong>Australian angle:</strong> If Warsh is dovish and WTI is at $81 simultaneously, AUD faces a rare double tailwind (oil benefit + rate convergence signal). This would be the strongest AUD environment since pre-war. Watch for AUD/USD move at 4:30AM AEST Thursday.</p>
+    </div>
+  </section>
+
+  <!-- AUSTRALIAN PETROL -->
+  <section>
+    <h2>Australian Petrol Outlook</h2>
+    <div class="petrol-box">
+      <p><strong>Current:</strong> Brent ~$83.8/bbl (WTI $81.06 + ~$2.7 spread). Australian petrol: <strong>A$2.05–2.20/L floor</strong> remains intact.</p>
+      <br>
+      <p><strong>Why no relief yet:</strong> Mine-clearing in Hormuz takes 30–45 days post-signing. If MOU signed June 19, mine-clearance completes approximately mid-July to early August. Physical tanker traffic normalisation would follow within days. Wholesale fuel prices move 2–3 weeks after physical normalisation. <strong>First meaningful petrol relief: late July to mid-August at the earliest.</strong></p>
+      <br>
+      <p><strong>Scenarios:</strong><br>
+      → Signing proceeds June 19 + rapid mine-clearing: A$1.90–2.10/L by August (Hormuz market would surge from 63.5% toward 80%+)<br>
+      → Signing delayed (Netanyahu spoiler / Khamenei walkback): WTI rebounds to $85–90; petrol floor rises to A$2.20–2.40/L<br>
+      → Full deal collapses: WTI to $92–97; petrol back to A$2.40–2.60/L</p>
+      <br>
+      <p style="font-size: 12px; color: #8b5cf6;">Note: WTI used as proxy for Brent given no Brent market on Polymarket/Kalshi. The Brent-WTI spread is typically $2–4/bbl but can widen during Middle East events. Current spread ~$2.7/bbl.</p>
+    </div>
+  </section>
+
+  <!-- FORWARD VIEW -->
+  <section>
+    <h2>Forward View</h2>
+    <div class="forward-box">
+      <div class="forward-item">
+        <div class="forward-num">1</div>
+        <div class="forward-text"><strong>June 19 — Switzerland Signing Ceremony:</strong> The primary binary. If signed: Hormuz surges toward 70–75%, invasion falls toward ↓7% deep-floor sentinel, WTI drops another $2–4 toward $77–79. If disrupted by Netanyahu/Iran walkback: WTI rebounds $5–8, nuclear deal pricing (if new market emerges) crashes 20–30pp. Watch IRNA, IDF feeds, and AP/AFP from Geneva all week.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">2</div>
+        <div class="forward-text"><strong>Thursday 4:30AM AEST — Warsh Maiden FOMC Press Conference:</strong> Most important macro event of the week for AUD. Hold is locked (99.8%). Warsh's language on Hormuz/oil disinflation vs sticky CPI (3.8%) will determine whether the market front-runs a 2026H2 cut. Any dovish surprise = AUD tailwind compounding oil benefit. Any hawkish surprise = rate headwind offsetting oil tailwind.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">3</div>
+        <div class="forward-text"><strong>Kalshi ≥10% Unemployment at 42% (↑45% Trigger 3pp Away):</strong> Moved from 2pp to 3pp away from the stagflation catastrophe threshold — slightly less scary than this morning, but still the closest active trigger in the system. FOMC Thursday and June NFP (not yet released) are the catalysts. If Warsh signals concern about unemployment trajectory, this bucket firms back toward 43–44%.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">4</div>
+        <div class="forward-text"><strong>60-Day Nuclear Negotiation Window Begins:</strong> The MOU opens 60 days of formal nuclear talks on HEU stockpile, enrichment ceiling, and IAEA access. No Polymarket market exists yet for this next phase — watch for new market creation (will add to triggers immediately). Iran's IAEA defiance remains technically unresolved (IR-6 upgrades, new enrichment site). If nuclear talks collapse within 60 days, Trump warned attacks resume. This is the medium-term geopolitical tail risk.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">5</div>
+        <div class="forward-text"><strong>New Market Watch:</strong> Looking for post-deal markets: (a) nuclear talks success by August 2026, (b) Hormuz physical traffic counts above 60% of normal, (c) Iran sanctions relief by September. Any new Polymarket/Kalshi market in these categories will be immediately added to triggers. Current Hormuz ↑85% trigger at 63.5% (21.5pp away) is the best proxy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIONS TAKEN -->
+  <section>
+    <h2>Actions Taken</h2>
+    <div class="action-log">
+      <div class="action-item">All 6 nuclear deal triggers (iran-nuclear-deal-2026, near-certainty, mou-imminent, post-mou-momentum, breakdown, early-warning) updated to [RESOLVED — INACTIVE] status. Slug us-iran-nuclear-deal-before-2027 confirmed NOT FOUND on Polymarket gamma API at 17:00 AEST June 15.</div>
+      <div class="action-item">Nuclear deal main trigger reason updated to note YES resolution, signing June 19, 60-day nuclear window.</div>
+      <div class="action-item">No new triggers added — existing Hormuz ↑85%, invasion ↓7%, and Kalshi ≥10% remain correctly positioned to capture any deal disruption or economic deterioration.</div>
+      <div class="action-item">Post-deal nuclear negotiation market search to be added to watchlist — will add when slug confirmed via discovery script.</div>
+      <div class="action-item">Confirmed: Kalshi ≥10% at 42% (−1pp from morning); ≥7% at 67% (+1pp). Kalshi trigger `current` fields to be updated on next scheduled run.</div>
+      <div class="action-item">Verified: ASX open Tuesday June 16 (no public holiday; Queen's Birthday for most Australian states was June 8, 2026). Markets trade normally.</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Polymarket Analyst · Scheduled 5PM Run · 15 June 2026 17:00 AEST<br>
+    Cross-platform: Polymarket (10 active markets) + Kalshi (11 active triggers)<br>
+    Sources: <a href="https://www.timesofisrael.com/liveblog-june-15-2026/" style="color:#3b82f6;">Times of Israel</a> · <a href="https://www.cnbc.com/amp/2026/06/15/europe-japan-countries-welcome-us-iran-deal-strait-of-hormuz-reopening.html" style="color:#3b82f6;">CNBC</a> · <a href="https://www.axios.com/2026/06/14/us-iran-ceasefire-extended-hormuz-reopen-trump" style="color:#3b82f6;">Axios</a> · <a href="https://www.nbcnews.com/news/us-news/deal-reached-united-states-iran-war-rcna350039" style="color:#3b82f6;">NBC News</a>
+  </div>
+
+</div>
+</body>
+</html>
