@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warsh Debuts Hawkish — Easing Bias Gone, Dot Implies Hike | 18 Jun 2026 5:50AM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #7c3aed 0%, #dc2626 100%);
+    padding: 32px 24px 28px;
+    border-bottom: 3px solid #991b1b;
+  }
+  .header .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header .meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 28px 20px 48px; }
+  .alert-banner {
+    background: linear-gradient(90deg, #7c3aed22, #dc262622);
+    border: 1px solid #7c3aed66;
+    border-left: 4px solid #7c3aed;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .alert-banner .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .alert-banner p { font-size: 14px; color: #c4b5fd; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #1e2535;
+  }
+  .summary-box {
+    background: #161b2e;
+    border: 1px solid #1e2535;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #cbd5e1;
+  }
+  .summary-box strong { color: #e2e8f0; }
+  .market-card {
+    background: #161b2e;
+    border: 1px solid #1e2535;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .market-card.highlight {
+    border-color: #7c3aed44;
+    background: linear-gradient(135deg, #1e1040 0%, #161b2e 100%);
+  }
+  .market-card.hawkish {
+    border-color: #dc262644;
+    background: linear-gradient(135deg, #1c0a0a 0%, #161b2e 100%);
+  }
+  .market-card.neutral {
+    border-color: #1e2535;
+  }
+  .market-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 12px;
+  }
+  .market-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    flex: 1;
+  }
+  .price-badge {
+    font-size: 18px;
+    font-weight: 800;
+    color: #e2e8f0;
+    white-space: nowrap;
+  }
+  .price-badge.up { color: #34d399; }
+  .price-badge.down { color: #f87171; }
+  .delta {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 2px;
+  }
+  .delta.up { background: #064e3b; color: #34d399; }
+  .delta.down { background: #450a0a; color: #f87171; }
+  .delta.flat { background: #1e2535; color: #94a3b8; }
+  .quality-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  .q-high { background: #064e3b; color: #34d399; }
+  .q-med { background: #3b2000; color: #fbbf24; }
+  .q-low { background: #1e2535; color: #94a3b8; }
+  .market-body { font-size: 13px; color: #94a3b8; line-height: 1.55; margin-top: 6px; }
+  .market-body strong { color: #cbd5e1; }
+  .fomc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .fomc-stat {
+    background: #161b2e;
+    border: 1px solid #1e2535;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .fomc-stat.hawkish { border-color: #dc262644; background: #1c0a0a; }
+  .fomc-stat .stat-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .fomc-stat .stat-value { font-size: 22px; font-weight: 800; color: #f87171; }
+  .fomc-stat .stat-prior { font-size: 12px; color: #64748b; margin-top: 2px; }
+  .fomc-stat.neutral .stat-value { color: #94a3b8; }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .impact-item {
+    background: #161b2e;
+    border: 1px solid #1e2535;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .impact-item .asset { font-size: 12px; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .impact-item .direction { font-size: 14px; font-weight: 600; }
+  .impact-item .direction.negative { color: #f87171; }
+  .impact-item .direction.positive { color: #34d399; }
+  .impact-item .direction.mixed { color: #fbbf24; }
+  .impact-item .detail { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .watch-list {
+    background: #0d1117;
+    border: 1px solid #1e2535;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .watch-list ul { list-style: none; }
+  .watch-list ul li {
+    padding: 9px 0;
+    border-bottom: 1px solid #1a2030;
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .watch-list ul li:last-child { border-bottom: none; }
+  .watch-list ul li::before { content: '→'; color: #7c3aed; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .watch-list ul li strong { color: #e2e8f0; }
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #1e2535;
+    font-size: 12px;
+    color: #475569;
+    text-align: center;
+  }
+  .troops-trajectory {
+    background: #0d1117;
+    border: 1px solid #1e2535;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #64748b;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+  }
+  .troops-trajectory span.hi { color: #fbbf24; font-weight: 700; }
+  .troops-trajectory span.lo { color: #f87171; font-weight: 700; }
+  .troops-trajectory span.cur { color: #94a3b8; font-weight: 700; }
+  @media (max-width: 600px) {
+    .fomc-grid, .impact-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+    .price-badge { font-size: 16px; }
+  }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Polymarket Alert · 18 Jun 2026 · 5:50AM AEST</div>
+  <h1>Warsh Debuts Hawkish: Easing Bias Gone, Dot Implies 2026 Hike</h1>
+  <div class="meta">Warsh's maiden FOMC press conference · PCE revised 2.7% → 3.6% · Nearly half of board backs hike</div>
+</div>
+
+<div class="container">
+
+  <div class="alert-banner">
+    <div class="badge">⚡ Alert fired</div>
+    <p>Trigger: <strong>US troops withdraw from Iranian region by June 30 [LOW]</strong> dropped from 74.5% → 57.5% (−17pp). Real story: <strong>Warsh FOMC press conference confirmed hawkish</strong> — easing bias removed, dot plot implies 2026 hike, PCE forecast +90bp. This is the event flagged in both your 7AM and 5PM briefings.</p>
+  </div>
+
+  <div class="summary-box">
+    Kevin Warsh delivered his maiden FOMC press conference at 4:30AM AEST — and it landed on the hawkish side of expectations. The easing bias that has been in every Fed statement since 2024 is <strong>gone</strong>. PCE inflation has been revised sharply higher to <strong>3.6% by year-end</strong> (from 2.7% in March). The dot plot now implies a 25bp hike this year, with <strong>nearly half of FOMC members</strong> supporting one. The US dollar is strengthening; AUD/USD faces headwind. Meanwhile, the WTI crash to $75 creates a genuine macro paradox — energy disinflation running hot while services PCE stays sticky above 4%.
+  </div>
+
+  <!-- FOMC STATS -->
+  <div class="section">
+    <div class="section-title">Warsh FOMC — Key Numbers</div>
+
+    <div class="fomc-grid">
+      <div class="fomc-stat hawkish">
+        <div class="stat-label">PCE Forecast (Year-End)</div>
+        <div class="stat-value">3.6%</div>
+        <div class="stat-prior">Prior (March): 2.7% — +90bp revision</div>
+      </div>
+      <div class="fomc-stat hawkish">
+        <div class="stat-label">Dot Plot End-Year Rate</div>
+        <div class="stat-value">3.8%</div>
+        <div class="stat-prior">Prior (March): 3.4% — implies 25bp hike</div>
+      </div>
+      <div class="fomc-stat hawkish">
+        <div class="stat-label">FOMC Members Back Hike</div>
+        <div class="stat-value">~50%</div>
+        <div class="stat-prior">Nearly half of 12 voting members</div>
+      </div>
+      <div class="fomc-stat neutral">
+        <div class="stat-label">Easing Bias in Statement</div>
+        <div class="stat-value" style="color:#f87171">REMOVED</div>
+        <div class="stat-prior">Policy rate held 3.50–3.75%</div>
+      </div>
+    </div>
+
+    <div class="market-card hawkish">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge q-high">HIGH</span>
+          US Fed June Hold — Warsh's First Meeting
+        </div>
+        <div>
+          <div class="price-badge">Hold ✓</div>
+          <div class="delta flat">3.50–3.75% unchanged</div>
+        </div>
+      </div>
+      <div class="market-body">
+        Rate decision was expected (99.7% priced). The surprises were in the statement and projections. <strong>Easing bias removed</strong> — no longer signals rates are leaning lower. <strong>New 5 task forces</strong> announced to review Fed communications, inflation methodology, balance sheet, and productivity. Warsh reportedly did not submit his own dot (strategic ambiguity — his personal view would reveal he's not as dovish as Trump would prefer). This is significant: the dot plot tilts hawkish even without Warsh's contribution.
+      </div>
+    </div>
+
+    <div class="market-card hawkish">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge q-high">HIGH proxy</span>
+          WTI Crude Oil (proxy Brent)
+        </div>
+        <div>
+          <div class="price-badge down">~$75/bbl</div>
+          <div class="delta down">↓ from $80 at 7AM Jun 17</div>
+        </div>
+      </div>
+      <div class="market-body">
+        The macro paradox: WTI at $75 (Brent ~$78) is a powerful disinflationary signal — Hormuz de-escalation is pulling energy costs down. But Warsh chose to revise PCE <em>up</em> to 3.6%, not down. This tells us he's reading energy as transitory and services inflation as the persistent driver. Australian petrol prices won't reflect the oil crash until physical Hormuz clearance (late July earliest). <strong>Brent–WTI spread ~$3/bbl.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKET IMPACT -->
+  <div class="section">
+    <div class="section-title">Cross-Asset Implications</div>
+
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="asset">AUD/USD</div>
+        <div class="direction negative">↓ Headwind</div>
+        <div class="detail">Hawkish Fed narrows RBA–Fed rate differential. AUD faces USD strength and potential carry-trade unwind pressure.</div>
+      </div>
+      <div class="impact-item">
+        <div class="asset">ASX Rate-Sensitive</div>
+        <div class="direction negative">↓ Under Pressure</div>
+        <div class="detail">REITs, banks, growth stocks face higher-for-longer repricing. Australia's own rate path uncertain as US tightens.</div>
+      </div>
+      <div class="impact-item">
+        <div class="asset">US 10Y Yields</div>
+        <div class="direction negative">↑ Rise Expected</div>
+        <div class="detail">Dot at 3.8% with 50% of FOMC backing a hike → front-end pressure and duration selloff. Australian bond market follows.</div>
+      </div>
+      <div class="impact-item">
+        <div class="asset">AUD/JPY</div>
+        <div class="direction mixed">⚡ Mixed</div>
+        <div class="detail">BoJ at 1.00% unchanged. USD strengthens vs both currencies. AUD/JPY carry trade complicated by USD rally.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TROOPS MARKET (secondary) -->
+  <div class="section">
+    <div class="section-title">Troops Withdrawal Market [LOW] — The Alert Trigger</div>
+
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name">
+          <span class="quality-badge q-low">LOW</span>
+          Will Trump agree to withdraw US troops from the Iranian region by June 30?
+        </div>
+        <div>
+          <div class="price-badge down">57.5%</div>
+          <div class="delta down">↓ from 73.5% (5PM Jun 17)</div>
+        </div>
+      </div>
+      <div class="market-body">
+        <strong>The drop is logical, not alarming.</strong> The Syria withdrawal announcement (1,000 troops, 2-month timeline) drove the surge to 74.5% yesterday morning. But traders appear to have realised the fundamental problem: a 2-month withdrawal timeline starting mid-June won't be complete by the June 30 deadline (12 days away). UMA voters may well rule that an "announcement" qualifies even without completion — hence why 57.5% is still elevated. But 79.5% → 57.5% in 30 minutes at 05:00–05:30 AEST reflects thin Asian session repricing, not new real-world news. Cross-market check: Hormuz 54.5%, invasion 12%, WTI $75 — all coherent; no contradiction.
+        <br><br>
+        <strong>Quality note:</strong> [LOW] — this market resolves via UMA's optimistic oracle (subjective vote). 57.5% means 57.5% chance UMA voters decide the Syria withdrawal announcement qualifies. It does NOT mean 57.5% chance of actual full withdrawal by June 30.
+      </div>
+      <div class="troops-trajectory">
+        35.5% (7AM Jun 16) → 28.5% (trough Jun 16) → 30.0% (5PM Jun 16) → 43.5% (2:53AM Jun 17 alert) → <span class="hi">74.5%</span> (7AM Jun 17, Syria announcement) → 73.5% (5PM Jun 17 email) → <span class="hi">79.5%</span> (peak 05:00 AEST Jun 18) → <span class="cur">57.5%</span> (05:30 AEST Jun 18, current)
+      </div>
+    </div>
+  </div>
+
+  <!-- GEO COMPLEX -->
+  <div class="section">
+    <div class="section-title">Geopolitical Complex — All Coherent</div>
+
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name"><span class="quality-badge q-med">MED</span>Hormuz Traffic Normal by July 31</div>
+        <div>
+          <div class="price-badge">54.5%</div>
+          <div class="delta down">↓ −1.0pp</div>
+        </div>
+      </div>
+      <div class="market-body">Minor consolidation. Naval blockade removed, mine clearance clock starts at Burgenstock June 19. Physical reopening late July at earliest. <strong>↑70% mine-clearance trigger is 15.5pp away.</strong></div>
+    </div>
+
+    <div class="market-card neutral">
+      <div class="market-header">
+        <div class="market-name"><span class="quality-badge q-low">LOW</span>Iran Invasion Before 2027</div>
+        <div>
+          <div class="price-badge">12.0%</div>
+          <div class="delta flat">flat</div>
+        </div>
+      </div>
+      <div class="market-body">Post-deal floor. No re-escalation signal. Burgenstock ceremony June 19 may push this toward 9–10% if HEU destruction schedule is published. <strong>↓7% deep-floor sentinel is 5pp away.</strong></div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+    <div class="watch-list">
+      <ul>
+        <li><strong>AUD/USD overnight:</strong> Warsh's hawkish outcome was the AUD event of the week. Watch the currency reaction in early Sydney trading — a USD rally is the base case. Any RBA commentary in response would be significant.</li>
+        <li><strong>US rate hike pricing (CME FedWatch):</strong> September is the next live meeting. With 50% of FOMC supporting a hike and dot at 3.8%, September hike probability should rise from ~42% (pre-conference) toward 50%+. Monitor for repricing.</li>
+        <li><strong>WTI vs services PCE paradox:</strong> Warsh revised PCE UP despite oil crash. If WTI holds $70–75 into July, there will be enormous pressure on the data — Hormuz physical clearance could provide the disinflationary print that gives him room to hold (not hike) in September. Watch June CPI (early July) as the key gate.</li>
+        <li><strong>Burgenstock June 19 (TOMORROW):</strong> Ceremonial signing. Watch: (a) HEU destruction schedule → could push invasion market toward ↓7% sentinel; (b) OFAC/Treasury formal sanctions waiver → fires ↑97% trigger; (c) withdrawal language specificity → could reprice troops market up/down depending on wording.</li>
+        <li><strong>Cuba [LOW] 53.5%:</strong> Structural bid. ↑60% trigger is 6.5pp away. One news catalyst (USS Nimitz movement, Trump statement) could fire it. Monitor but no immediate catalyst today.</li>
+        <li><strong>Warsh task forces:</strong> Five new review groups on Fed communications, inflation, balance sheet, productivity. Medium-term signal: Warsh wants to change how the Fed measures and communicates inflation. This matters for long-term rate trajectory assessment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated 2026-06-18 05:50 AEST · Polymarket Analyst · Triggered by troops withdrawal alert<br>
+    Data: Polymarket + Kalshi · Warsh FOMC details via CBS News, Yahoo Finance, InvestingLive<br>
+    Quality: [HIGH] = objective resolution · [MED] = some interpretation · [LOW] = UMA vote-decided
+  </div>
+
+</div>
+</body>
+</html>
