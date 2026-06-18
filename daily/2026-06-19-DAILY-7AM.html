@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 19 Jun 7AM AEST | Post-Deal Consolidation; Fed July Hike 24%; NYSE Closed</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%); border-bottom: 2px solid #2d3748; padding: 28px 32px; }
+  .header-meta { font-size: 12px; color: #718096; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f7fafc; line-height: 1.3; }
+  .header .subtitle { margin-top: 8px; font-size: 14px; color: #a0aec0; }
+  .status-bar { background: #1a202c; border-bottom: 1px solid #2d3748; padding: 10px 32px; display: flex; gap: 24px; flex-wrap: wrap; }
+  .status-item { font-size: 12px; color: #718096; }
+  .status-item span { color: #68d391; font-weight: 600; }
+  .status-item.warn span { color: #fbd38d; }
+  .status-item.alert span { color: #fc8181; }
+  .status-item.neutral span { color: #63b3ed; }
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 32px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #718096; border-bottom: 1px solid #2d3748; padding-bottom: 8px; margin-bottom: 16px; }
+  .alert-box { background: #1a202c; border-left: 4px solid #68d391; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+  .alert-box.yellow { border-left-color: #f6ad55; }
+  .alert-box.red { border-left-color: #fc8181; }
+  .alert-box.blue { border-left-color: #63b3ed; }
+  .alert-box.purple { border-left-color: #b794f4; }
+  .alert-box.gray { border-left-color: #4a5568; }
+  .alert-title { font-size: 14px; font-weight: 700; color: #f7fafc; margin-bottom: 6px; }
+  .alert-body { font-size: 13px; color: #a0aec0; }
+  .alert-body p { margin-bottom: 6px; }
+  .alert-body p:last-child { margin-bottom: 0; }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+  .price-now { font-size: 22px; font-weight: 700; color: #f7fafc; }
+  .price-delta { font-size: 13px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+  .price-delta.up { background: rgba(104,211,145,0.15); color: #68d391; }
+  .price-delta.down { background: rgba(252,129,129,0.15); color: #fc8181; }
+  .price-delta.flat { background: rgba(113,128,150,0.15); color: #718096; }
+  .trigger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 600px) { .trigger-grid { grid-template-columns: 1fr; } }
+  .trigger-card { background: #1a202c; border: 1px solid #2d3748; border-radius: 6px; padding: 12px 14px; }
+  .trigger-label { font-size: 11px; color: #718096; margin-bottom: 4px; }
+  .trigger-price { font-size: 18px; font-weight: 700; color: #f7fafc; }
+  .trigger-gap { font-size: 11px; color: #718096; margin-top: 2px; }
+  .trigger-gap .green { color: #68d391; }
+  .trigger-gap .yellow { color: #f6ad55; }
+  .trigger-gap .red { color: #fc8181; }
+  .market-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #2d3748; }
+  .market-row:last-child { border-bottom: none; }
+  .market-name { font-size: 13px; color: #e2e8f0; flex: 1; }
+  .market-badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+  .badge-high { background: rgba(104,211,145,0.2); color: #68d391; border: 1px solid rgba(104,211,145,0.3); }
+  .badge-med { background: rgba(246,173,85,0.2); color: #f6ad55; border: 1px solid rgba(246,173,85,0.3); }
+  .badge-low { background: rgba(113,128,150,0.2); color: #718096; border: 1px solid rgba(113,128,150,0.3); }
+  .market-price { font-size: 15px; font-weight: 700; color: #f7fafc; min-width: 60px; text-align: right; }
+  .market-delta { font-size: 12px; min-width: 60px; text-align: right; }
+  .delta-up { color: #68d391; }
+  .delta-down { color: #fc8181; }
+  .delta-flat { color: #718096; }
+  .narrative { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px 24px; }
+  .narrative p { font-size: 14px; color: #a0aec0; margin-bottom: 12px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative strong { color: #e2e8f0; }
+  .forward-box { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px 24px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .forward-text { font-size: 13px; color: #a0aec0; }
+  .forward-text strong { color: #e2e8f0; }
+  .closed-notice { background: rgba(246,173,85,0.08); border: 1px solid rgba(246,173,85,0.25); border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .closed-notice-icon { font-size: 18px; }
+  .closed-notice-text { font-size: 13px; color: #f6ad55; }
+  .table { width: 100%; border-collapse: collapse; }
+  .table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: #718096; text-align: left; padding: 8px 10px; border-bottom: 2px solid #2d3748; }
+  .table td { font-size: 13px; color: #a0aec0; padding: 10px 10px; border-bottom: 1px solid #1e2332; vertical-align: top; }
+  .table tr:last-child td { border-bottom: none; }
+  .table td strong { color: #e2e8f0; }
+  .footnote { font-size: 11px; color: #4a5568; margin-top: 20px; text-align: center; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+  .tag-new { background: rgba(183,148,244,0.2); color: #b794f4; }
+  .tag-watch { background: rgba(99,179,237,0.2); color: #63b3ed; }
+  .heading-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Daily · Friday 19 June 2026 · 07:00 AEST</div>
+  <h1>Post-Deal Consolidation — Fed July Hike Drifts to 24%; Mine Clock Running; NYSE Closed</h1>
+  <div class="subtitle">Burgenstock ceremony confirmed ceremonial (MOU signed June 17); Warsh hawkishness still propagating overnight; Cuba 8.5pp from trigger; ASX open, NYSE closed (Juneteenth)</div>
+</div>
+
+<div class="status-bar">
+  <div class="status-item">Triggers: <span>0 / 13 fired</span></div>
+  <div class="status-item warn">Cuba: <span>51.5% · 8.5pp to ↑60%</span></div>
+  <div class="status-item warn">Fed July Hike: <span>24.1% · 10.9pp to ↑35%</span></div>
+  <div class="status-item">Iran Invasion: <span>12.5% · 5.5pp above ↓7%</span></div>
+  <div class="status-item">Hormuz July 31: <span>56.5% · 13.5pp to ↑70%</span></div>
+  <div class="status-item neutral">NYSE: <span>CLOSED (Juneteenth)</span></div>
+  <div class="status-item">ASX: <span>OPEN</span></div>
+</div>
+
+<div class="container">
+
+  <!-- HOLIDAY NOTICE -->
+  <div class="closed-notice">
+    <div class="closed-notice-icon">🇺🇸</div>
+    <div class="closed-notice-text"><strong>NYSE &amp; Nasdaq closed today — Juneteenth (US federal holiday, 19 June).</strong> US equity markets reopen Monday 22 June at 9:30 AM ET. ASX open for normal trading. No US session reaction to overnight moves today.</div>
+  </div>
+
+  <!-- HEADLINE NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Headline · What Changed Overnight</div>
+    <div class="narrative">
+      <p>The overnight session delivered exactly what post-deal consolidation looks like: quiet markets, no triggers, and one notable repricing that had no fresh catalyst. The US Fed July hike contract rose from <strong>19.6% → 24.1% (+4.5pp)</strong> since your 5PM email — pure Warsh propagation, no new data. Markets are still digesting the June 18 FOMC hawkish shock (easing bias removed, PCE revised 2.7%→3.6%, dot implies 3.8% year-end) and will continue to do so until the <strong>July 14 US CPI print</strong> gives a definitive signal on the September decision.</p>
+      <p>The <strong>Burgenstock ceremony</strong> (today, Switzerland) is now confirmed ceremonial. Web searches reveal the MOU was actually signed two days early — <strong>Trump and Pezeshkian signed directly on June 17</strong>, putting the deal into immediate effect. Vance attended the Burgenstock formality as scheduled, but the binding signature already happened. Iranian oil exports began immediately under the sanctions relief clause. The 60-day HEU negotiation clock started June 17.</p>
+      <p>WTI extended its slide to ~<strong>$74.69/bbl</strong> (from $75.47 at 5PM), now in its sixth consecutive down session as Hormuz de-escalation pricing continues. Brent ~$77–78/bbl. Cuban market dipped slightly to <strong>51.5%</strong> after Trump explicitly told reporters on June 17: "No, there won't be escalation. I don't think there needs to be." USS Nimitz remains in the Caribbean, but the verbal de-escalation signal is real.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER DASHBOARD -->
+  <div class="section">
+    <div class="section-title">Active Triggers · 0 of 13 Fired</div>
+    <div class="trigger-grid">
+      <div class="trigger-card">
+        <div class="trigger-label">Cuba strike by Dec 31 ↑60% trigger</div>
+        <div class="trigger-price">51.5%</div>
+        <div class="trigger-gap"><span class="yellow">8.5pp below trigger (fires at ↑60%)</span> — fell 1pp since 5PM; Trump "no escalation"</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-label">Fed hikes 25bp July ↑35% trigger</div>
+        <div class="trigger-price">24.1%</div>
+        <div class="trigger-gap"><span class="yellow">10.9pp below trigger (fires at ↑35%)</span> — +4.5pp overnight, no new catalyst</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-label">Hormuz July 31 mine-clearance ↑70% trigger</div>
+        <div class="trigger-price">56.5%</div>
+        <div class="trigger-gap"><span class="green">13.5pp below trigger (fires at ↑70%)</span> — +2pp overnight, mine clock running</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-label">Iran invasion deep-floor ↓7% trigger</div>
+        <div class="trigger-price">12.5%</div>
+        <div class="trigger-gap"><span class="green">5.5pp above trigger (fires at ↓7%)</span> — flat at post-deal floor</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-label">Fed holds July ↓60% coin-flip trigger</div>
+        <div class="trigger-price">74.5%</div>
+        <div class="trigger-gap"><span class="green">14.5pp above trigger (fires at ↓60%)</span> — fell 5pp overnight</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-label">Kalshi unemployment ≥10% ↑45% trigger</div>
+        <div class="trigger-price">29.0%</div>
+        <div class="trigger-gap"><span class="green">16.0pp below trigger (fires at ↑45%)</span> — flat; Warsh backdrop</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY MOVES TABLE -->
+  <div class="section">
+    <div class="section-title">Key Markets · vs June 18 5PM Email</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Now</th>
+          <th>5PM Ref</th>
+          <th>Move</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="market-badge badge-high">HIGH</span><strong>Fed July hike 25bp</strong></td>
+          <td><strong>24.1%</strong></td>
+          <td>19.6%</td>
+          <td><span class="delta-up">+4.5pp</span></td>
+          <td>Warsh PCE shock still propagating. No new data. July 14 CPI is the next catalyst. 10.9pp from ↑35% trigger.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-high">HIGH</span><strong>Fed holds in July</strong></td>
+          <td><strong>74.5%</strong></td>
+          <td>79.5%</td>
+          <td><span class="delta-down">−5.0pp</span></td>
+          <td>Companion to above. July is a tail risk, not base case, but September pricing tightening. 14.5pp above ↓60% trigger.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-high">HIGH proxy</span><strong>WTI crude (proxy Brent)</strong></td>
+          <td><strong>~$74.69</strong></td>
+          <td>$75.47</td>
+          <td><span class="delta-down">−$0.78</span></td>
+          <td>Sixth consecutive down session. Brent ~$77–78/bbl. Pre-crisis floor $68–72 is 3–10% away. Hormuz physical clearance (late July) is the remaining catalyst. Australian petrol floor A$2.00–2.10/L unchanged until mine clearance completes.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-med">MED</span><strong>Hormuz traffic by July 31</strong></td>
+          <td><strong>56.5%</strong></td>
+          <td>54.5%</td>
+          <td><span class="delta-up">+2.0pp</span></td>
+          <td>Mine clearance clock formally started June 17 with MOU. Iranian oil loading under immediate sanctions relief. Physical reopening still late July — 30–45 day clearance process. 13.5pp below ↑70% mine-clearance progress trigger.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-low">LOW</span><strong>Cuba US military strike</strong></td>
+          <td><strong>51.5%</strong></td>
+          <td>52.5%</td>
+          <td><span class="delta-down">−1.0pp</span></td>
+          <td>Trump: "No escalation, I don't think there needs to be" (June 17). USS Nimitz still in Caribbean; structural bid holds but verbal de-escalation signal real. 8.5pp from ↑60% trigger.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-low">LOW</span><strong>Iran invasion before 2027</strong></td>
+          <td><strong>12.5%</strong></td>
+          <td>12.5%</td>
+          <td><span class="delta-flat">0.0pp</span></td>
+          <td>Flat at post-deal equilibrium floor. 5.5pp above ↓7% deep-floor sentinel. Represents residual tail risk: Netanyahu defiance, HEU scope disagreement.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-low">LOW</span><strong>Iran oil sanctions relief by June 30</strong></td>
+          <td><strong>~94%</strong></td>
+          <td>94.0%</td>
+          <td><span class="delta-flat">~flat</span></td>
+          <td>Sanctions relief already in effect per MOU immediate-effect clause. 3pp from ↑97% watchlist trigger. May resolve YES in coming days as OFAC/Treasury formally issues waivers.</td>
+        </tr>
+        <tr>
+          <td><span class="market-badge badge-low">LOW</span><strong>Kalshi Taiwan L4 Warning (2029)</strong></td>
+          <td><strong>37.0%</strong></td>
+          <td>~36%</td>
+          <td><span class="delta-up">+1.0pp</span></td>
+          <td>Minor tick on Kalshi's 2029 tier. Watch: as Iran deal frees up US strategic attention, Taiwan becomes the next potential flashpoint. Not yet a trigger concern.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CROSS-MARKET COHERENCE -->
+  <div class="section">
+    <div class="section-title">Cross-Market Coherence · Post-Deal Complex</div>
+    <div class="alert-box blue">
+      <div class="alert-title">✅ All Markets Coherent — Post-Deal Consolidation Pattern</div>
+      <div class="alert-body">
+        <p>No contradictions in the current market complex. The post-deal narrative holds across all vectors: Iran invasion 12.5% (floor) ✓ · Hormuz 56.5% (clearance lag priced) ✓ · WTI declining ($74.69) ✓ · Sanctions relief 94% (near-resolution) ✓ · Cuba 51.5% (verbal de-escalation dip) ✓ · Fed hiking on services PCE 4.5% despite WTI disinflation ✓.</p>
+        <p>The Warsh paradox remains the key macro tension: WTI is <em>falling</em> (disinflationary) while the US Fed is <em>preparing to hike</em> (services PCE sticky). This is coherent — Warsh explicitly framed energy deflation as transitory and services as the persistent problem. The IEA supply glut forecast (+8mb/d supply by 2027 vs +2mb/d demand) provides structural downward WTI pressure, but doesn't help Warsh on non-energy services CPI. Expect this divergence to be the defining macro theme for Q3.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IRAN DEAL STATUS -->
+  <div class="section">
+    <div class="section-title">Iran Deal Implementation Tracker</div>
+    <div class="alert-box">
+      <div class="alert-title">MOU Signed June 17 · Immediate Effect · Burgenstock Ceremonial</div>
+      <div class="alert-body">
+        <p><strong>What happened:</strong> Trump and Pezeshkian signed the MOU directly on June 17 (two days ahead of the planned Burgenstock date). Deal took immediate effect on signature per <a href="https://www.timesofisrael.com/us-iran-sign-war-ending-deal-which-enters-into-effect-2-days-earlier-than-planned/" style="color:#63b3ed;">Times of Israel</a> and <a href="https://thehill.com/policy/international/5929680-us-iran-mou-signed/" style="color:#63b3ed;">The Hill</a>. Vance attending Burgenstock today is confirmatory/diplomatic protocol.</p>
+        <p><strong>Oil sanctions relief:</strong> Active from June 17. Iranian oil loading already underway. OFAC/Treasury formal waivers pending (watchlist trigger ↑97%, currently ~94%).</p>
+        <p><strong>HEU disposal:</strong> Agreed "in principle" — 60-day negotiation window on modality begins June 17. The technical disagreement on whether stockpile is diluted, transferred, or destroyed is the remaining gate to a full permanent settlement.</p>
+        <p><strong>Hormuz mine clearance:</strong> Iran responsible for clearing its own mines. 30–45 day process from June 17 → physical reopening late July at earliest. During this period: US-supervised naval transit, limited capacity. Australian petrol floor A$2.00–2.10/L persists until clearance completes.</p>
+        <p><strong>Military posture:</strong> ~50,000 US troops remaining in Gulf during 60-day window. 1,000 Syria troops withdrawing over 2 months (symbolic). The deal is an economic agreement, not a military exit.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FED WATCH -->
+  <div class="section">
+    <div class="section-title">US Fed Watch · Warsh Post-FOMC Propagation</div>
+    <div class="alert-box yellow">
+      <div class="alert-title">Fed July Hike at 24.1% — Still Repricing Warsh Shock; CPI July 14 is the Pivot</div>
+      <div class="alert-body">
+        <p>The 4.5pp overnight move in the July hike contract (19.6% → 24.1%) is continuation of the Warsh FOMC hawkish shock from June 18 morning — no new data overnight. This is typical: markets need 24–48 hours after a hawkish surprise to fully reprice the short end. With NYSE closed today, the US equity market doesn't absorb this move until Monday June 22.</p>
+        <p><strong>Key catalyst: July 14 US CPI (June data).</strong> This is the print that lands between the June and July FOMC meetings and will determine whether July is merely a "live tail" (current 24%) or a genuine coin-flip (35%+ trigger). Context: CPI 3.8% (May), PPI 6.0% YoY (April, highest since Dec 2022). If June CPI prints ≥4.0%: July hike trigger fires. If June CPI softens toward 3.4–3.6%: trigger retreats, September becomes the primary event.</p>
+        <p><strong>AUD/USD implication:</strong> USD is strengthening on Warsh hawkishness, narrowing the RBA–Fed rate differential. AUD is caught between two opposing forces: oil disinflation (positive for current account) and Fed hawkishness (USD strengthening). RBA is watching. Monday ASX open will be the first US equity reaction session to the 24.1% July hike pricing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUBA WATCH -->
+  <div class="section">
+    <div class="section-title">Cuba Watch · 8.5pp from ↑60% Trigger</div>
+    <div class="alert-box gray">
+      <div class="alert-title">[LOW] Cuba 51.5% — Trump "No Escalation" Gives 1pp Dip; Structural Bid Intact</div>
+      <div class="alert-body">
+        <p>Trump explicitly told reporters on June 17: <em>"No, there won't be escalation. I don't think there needs to be"</em> — the first explicit verbal de-escalation signal on Cuba since the USS Nimitz deployment. The market dipped from 52.5% → 51.5%. However, the structural bid (USS Nimitz in Caribbean, Raúl Castro indicted, 300+ Russian/Iranian drones in Cuba, humanitarian crisis deepening) means the floor holds above 50%.</p>
+        <p>Per WSWS reporting confirmed in the June 17 5PM analyst note: Trump's sequencing doctrine ("Iran deal → Cuba next") remains the stated framework. Trump's verbal statement may be tactical — moderating tone while maintaining military pressure. The 51.5% reading reflects that tension: market believes military action is possible but Trump is verbally managing expectations.</p>
+        <p><strong>Trigger: 8.5pp away at ↑60%.</strong> A single catalytic event (naval incident, new drone discovery, DOJ action against Castro family) could close this gap in hours. Monitor USS Nimitz movements and any Cuba-Venezuela link activation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+    <div class="forward-box">
+      <div class="forward-item">
+        <div class="forward-icon">📅</div>
+        <div class="forward-text"><strong>July 14 — US CPI (June data):</strong> The single most important macro event in the next 4 weeks. A print at ≥4.0% fires the Fed July hike trigger (↑35% is 10.9pp away). A soft 3.4–3.6% print gives Warsh room to hold in July and puts September as the pivot. CPI lands between June and July FOMC — Warsh won't have a press conference to walk back any surprises.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-icon">🌊</div>
+        <div class="forward-text"><strong>Hormuz Mine Clearance Progress (Late July):</strong> Iran began clearing mines June 17. Track: if Hormuz July 31 market breaks above 65–67%, it signals mine clearance is on schedule. At ↑70% the trigger fires. Physical reopening would collapse WTI toward $68–72 pre-crisis floor (-7% from current $74.69), resetting Australian petrol toward A$1.90–2.00/L for the first time since February.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-icon">🇨🇺</div>
+        <div class="forward-text"><strong>Cuba — Any Incident Near USS Nimitz:</strong> Trump's "no escalation" is verbal; the naval posture hasn't changed. Cuba remains 8.5pp from the ↑60% trigger. A single escalatory event (Cuban drone intercept, minor naval confrontation, new intelligence disclosure) could fire the trigger within hours. Monitor Havana and Caribbean theatre.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-icon">🛢️</div>
+        <div class="forward-text"><strong>WTI approaching pre-crisis floor ($68–72):</strong> If WTI breaks below $72, it's pricing Hormuz physical reopening before mine clearance is confirmed — a potential signal of optimistic over-pricing or a new supply catalyst (IEA glut, OPEC+ response). Watch for a WTI bounce off $72 as mine-clearance-uncertainty repricing.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-icon">🇮🇷</div>
+        <div class="forward-text"><strong>HEU 60-Day Window (ends ~Aug 17):</strong> The critical unresolved item. Khamenei has not yet publicly committed to a specific HEU disposition modality. If the 60-day window approaches without agreement, markets will start pricing re-escalation risk. Watch: Iran invasion above 15% + Hormuz below 50% simultaneously = breakdown signal.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-icon">🇺🇸</div>
+        <div class="forward-text"><strong>Monday June 22 — NYSE Reopens:</strong> First US equity session to digest the Warsh hawkish FOMC (June 18), the 24.1% July hike pricing, and WTI's continued decline. Expect tech/growth headwind (higher-for-longer discount rate) and energy sector pressure (WTI slide). ASX Monday open will be the first read on Asia's reaction to all of this.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Polymarket Daily · 19 June 2026 07:00 AEST · Scheduled morning run · Data: Polymarket + Kalshi collection 07:00 AEST<br>
+    WTI = proxy for Brent crude in Australian fuel pricing context. Brent–WTI spread ~$3–4/bbl. Resolution quality: [HIGH]=objective criteria, [MED]=some interpretation, [LOW]=UMA-voted.<br>
+    NYSE closed today (Juneteenth US federal holiday). ASX open for normal trading. US markets reopen Monday 22 June.
+  </div>
+
+</div>
+</body>
+</html>
