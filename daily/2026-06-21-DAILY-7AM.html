@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 21 Jun 7AM AEST | Warsh +20pp Hike Repricing; Burnham Wins Makerfield</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
+  .header { border-bottom: 2px solid #2d3748; padding-bottom: 20px; margin-bottom: 28px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f7fafc; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; color: #718096; }
+  .section { margin-bottom: 32px; }
+  .section h2 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #a0aec0; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2d3748; }
+  .alert-banner { background: #1a2744; border-left: 4px solid #4299e8; padding: 14px 16px; border-radius: 4px; margin-bottom: 20px; }
+  .alert-banner.yellow { background: #1e1a0f; border-color: #d69e2e; }
+  .alert-banner.green { background: #0f1e17; border-color: #48bb78; }
+  .alert-banner.red { background: #1a0f0f; border-color: #fc8181; }
+  .alert-banner.grey { background: #1a1a2e; border-color: #4a5568; }
+  .alert-banner p { font-size: 14px; margin-top: 4px; color: #cbd5e0; }
+  .alert-banner strong { color: #f7fafc; font-size: 15px; }
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .market-grid { grid-template-columns: 1fr; } }
+  .market-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 14px; }
+  .market-card.highlight { border-color: #4299e8; }
+  .market-card.rising { border-left: 3px solid #68d391; }
+  .market-card.falling { border-left: 3px solid #fc8181; }
+  .market-card.flat { border-left: 3px solid #4a5568; }
+  .market-card.critical { border-left: 3px solid #f6ad55; }
+  .market-card h3 { font-size: 12px; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .market-card .price { font-size: 26px; font-weight: 700; color: #f7fafc; }
+  .market-card .delta-row { display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+  .delta { font-size: 12px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+  .delta.up { background: #1c3a2a; color: #68d391; }
+  .delta.down { background: #3a1c1c; color: #fc8181; }
+  .delta.neutral { background: #2d3748; color: #a0aec0; }
+  .delta.warn { background: #3a2a0f; color: #f6ad55; }
+  .market-card .context { font-size: 12px; color: #718096; margin-top: 8px; line-height: 1.5; }
+  .market-card .trigger-bar { margin-top: 8px; }
+  .market-card .trigger-bar .label { font-size: 11px; color: #718096; margin-bottom: 3px; }
+  .trigger-track { background: #2d3748; border-radius: 3px; height: 5px; }
+  .trigger-fill { height: 5px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { text-align: left; color: #718096; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 10px; border-bottom: 1px solid #2d3748; }
+  tbody td { padding: 9px 10px; border-bottom: 1px solid #1a2030; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #1e2535; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
+  .badge.high { background: #1a3a1a; color: #68d391; }
+  .badge.med { background: #1a2a3a; color: #63b3ed; }
+  .badge.low { background: #2a2a1a; color: #d69e2e; }
+  .badge.fired { background: #3a1a1a; color: #fc8181; }
+  .summary-box { background: #141920; border: 1px solid #2d3748; border-radius: 8px; padding: 18px; margin-bottom: 24px; }
+  .summary-box p { font-size: 14px; color: #cbd5e0; margin-bottom: 10px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  .forward-box { background: #0f1e17; border: 1px solid #276749; border-radius: 8px; padding: 18px; }
+  .forward-box h3 { color: #68d391; font-size: 14px; margin-bottom: 10px; }
+  .forward-box ul { list-style: none; padding: 0; }
+  .forward-box ul li { font-size: 13px; color: #a0aec0; padding: 5px 0; padding-left: 16px; position: relative; }
+  .forward-box ul li::before { content: "→"; position: absolute; left: 0; color: #48bb78; font-size: 12px; }
+  .dismiss-box { background: #1a1a1a; border: 1px solid #2d3748; border-radius: 6px; padding: 12px 14px; margin-top: 16px; }
+  .dismiss-box p { font-size: 12px; color: #4a5568; }
+  .dismiss-box strong { color: #718096; }
+  .footnote { font-size: 11px; color: #4a5568; margin-top: 6px; }
+  .section-intro { font-size: 13px; color: #718096; margin-bottom: 14px; line-height: 1.5; }
+  .kalshi-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .kalshi-chip { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 4px; padding: 8px 12px; font-size: 12px; }
+  .kalshi-chip .label { color: #718096; margin-bottom: 2px; }
+  .kalshi-chip .val { color: #f7fafc; font-weight: 700; font-size: 15px; }
+  .kalshi-chip .gap { color: #4a5568; font-size: 11px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📊 Polymarket Daily — Sunday 21 Jun 2026, 7:00 AM AEST</h1>
+    <div class="meta">0 triggers fired · 13 Polymarket triggers watching · 6 Kalshi triggers watching · WTI ~$76.51/bbl · Next ASX open: Monday 22 Jun</div>
+  </div>
+
+  <!-- LEAD ALERT -->
+  <div class="alert-banner yellow">
+    <strong>⚡ WEEK'S DOMINANT STORY: Warsh Hawkish Repricing — Fed July Hike Now 25% (+20pp/7d)</strong>
+    <p>The US Fed July meeting has gone from a non-event (≤5% hike probability last week) to a live risk (25.15%). Warsh's June 18 FOMC debut removed the easing bias, revised PCE to 3.6%, and published a dot plot where 9 of 17 members project at least one 2026 hike. The July hike trigger (↑35%) is now only <strong>9.85pp away</strong>. July 14 US CPI is the pivot. For Australian investors: USD strength headwinds on AUD, ASX rate-sensitives under pressure Monday, RBA-Fed rate gap narrowing.</p>
+  </div>
+
+  <div class="alert-banner green">
+    <strong>✅ UK: Burnham Wins Makerfield — Starmer Exit Near-Certain (96.6%)</strong>
+    <p>Andy Burnham won the Makerfield by-election June 19, entering Parliament and setting up a Labour leadership challenge. Polymarket prices 96.6% chance Starmer is replaced in 2026 (+36pp/7d); Burnham at 76.7% as next PM. Labour-to-Labour transition means moderate GBP disruption — fiscal policy broadly stable but spending profile shifts left. Mildly GBP-bearish at the margin.</p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <h2>Summary</h2>
+    <div class="summary-box">
+      <p>Sunday edition — post-Burgenstock digestion continues. The geopolitical complex is quiet: Iran invasion drifted to 13.5% (−1pp), Hormuz edged to 44.5% (−2pp), Cuba slipped back to 47.5% (−3pp, below 50%). No triggers fired. The mine-clearance clock is on Day 2; the first IMF Portwatch data update is due Monday–Wednesday (June 22–24).</p>
+      <p>The macro story this week is entirely in monetary policy. Warsh's maiden FOMC press conference repriced July from ~5% to 25% hike probability over six sessions — the single largest macro repricing in this monitoring period outside of the Iran war itself. With 9.85pp left to the ↑35% "live meeting" trigger, July 14 US CPI is now the most important upcoming event on the watchlist.</p>
+      <p>UK politics: Burnham's Makerfield by-election win June 19 crystallised what prediction markets had been pricing for weeks — Starmer's tenure is effectively over. A Burnham Labour government would inherit the same fiscal framework but with a more interventionist domestic agenda. Low direct macro relevance for Australia; GBP mildly affected.</p>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS TABLE -->
+  <div class="section">
+    <h2>Trigger Status — All 13 Watching</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Quality</th>
+          <th>Price</th>
+          <th>24h</th>
+          <th>7d</th>
+          <th>Trigger</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fed July hike</strong> 🔥</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>25.2%</td>
+          <td><span class="delta neutral">flat</span></td>
+          <td><span class="delta warn">+20.6pp</span></td>
+          <td>↑35%</td>
+          <td style="color:#f6ad55;"><strong>9.8pp below</strong></td>
+        </tr>
+        <tr>
+          <td>Fed July hold</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>72.5%</td>
+          <td><span class="delta neutral">flat</span></td>
+          <td><span class="delta down">−20pp</span></td>
+          <td>↓60%</td>
+          <td>12.5pp above</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 — mine clearance (↑70%)</td>
+          <td><span class="badge med">MED</span></td>
+          <td>44.5%</td>
+          <td><span class="delta down">−2pp</span></td>
+          <td>—</td>
+          <td>↑70%</td>
+          <td>25.5pp below</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 — de-escalation confirm (↑85%)</td>
+          <td><span class="badge med">MED</span></td>
+          <td>44.5%</td>
+          <td><span class="delta down">−2pp</span></td>
+          <td>—</td>
+          <td>↑85%</td>
+          <td>40.5pp below</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 — secondary collapse (↓23%)</td>
+          <td><span class="badge med">MED</span></td>
+          <td>44.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↓23%</td>
+          <td>21.5pp above</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 — capitulation (↓20%)</td>
+          <td><span class="badge med">MED</span></td>
+          <td>44.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↓20%</td>
+          <td>24.5pp above</td>
+        </tr>
+        <tr>
+          <td>Iran invasion — near-zero floor (↓10%)</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>13.5%</td>
+          <td><span class="delta down">−1pp</span></td>
+          <td>—</td>
+          <td>↓10%</td>
+          <td>3.5pp above</td>
+        </tr>
+        <tr>
+          <td>Iran invasion — deep floor (↓7%)</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>13.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↓7%</td>
+          <td>6.5pp above</td>
+        </tr>
+        <tr>
+          <td>Iran invasion — mid escalation (↑30%)</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>13.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↑30%</td>
+          <td>16.5pp below</td>
+        </tr>
+        <tr>
+          <td>Iran invasion — escalation signal (↑40%)</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>13.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↑40%</td>
+          <td>26.5pp below</td>
+        </tr>
+        <tr>
+          <td>Cuba strike Dec 31</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>47.5%</td>
+          <td><span class="delta down">−3pp</span></td>
+          <td>—</td>
+          <td>↑60%</td>
+          <td>12.5pp below</td>
+        </tr>
+        <tr>
+          <td>Iran leadership change Dec 31</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>15.5%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↑60%</td>
+          <td>44.5pp below</td>
+        </tr>
+        <tr>
+          <td>China invades Taiwan 2026</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>6.3%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>↑15%</td>
+          <td>8.7pp below</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KEY MOVES SINCE LAST EMAIL -->
+  <div class="section">
+    <h2>Key Moves Since 5PM Jun 20 Email</h2>
+    <div class="market-grid">
+
+      <div class="market-card critical">
+        <h3>Fed July Hike <span class="badge high">HIGH</span></h3>
+        <div class="price">25.2%</div>
+        <div class="delta-row">
+          <span class="delta neutral">flat 24h</span>
+          <span class="delta warn">+20.6pp/7d</span>
+        </div>
+        <div class="context">Warsh's dot plot (9/17 FOMC members projecting ≥1 hike in 2026) continuing to be priced in. Now <strong style="color:#f6ad55;">9.8pp from ↑35% trigger</strong>. Flat 24h — weekend sessions thin; the repricing happened over 3 sessions post-June 18 press conference. Trigger fires at 35% = "live meeting" tier for ASX/AUD.</div>
+        <div class="trigger-bar">
+          <div class="label" style="color:#a0aec0;font-size:11px;">25.2% of 35% trigger</div>
+          <div class="trigger-track"><div class="trigger-fill" style="width:72%;background:#f6ad55;"></div></div>
+        </div>
+      </div>
+
+      <div class="market-card falling">
+        <h3>Fed July Hold <span class="badge high">HIGH</span></h3>
+        <div class="price">72.5%</div>
+        <div class="delta-row">
+          <span class="delta neutral">flat 24h</span>
+          <span class="delta down">−20pp/7d</span>
+        </div>
+        <div class="context">Companion to hike market. Hold probability collapsed from ~92.5% (pre-Warsh) to 72.5% over the week. <strong style="color:#fc8181;">12.5pp above ↓60% trigger</strong>. If CPI prints hot on July 14, this could reach 60% quickly — at that point July is essentially a coin-flip on hiking. AUD/USD, REITs, and utilities would face a significant de-rating.</div>
+      </div>
+
+      <div class="market-card falling">
+        <h3>Hormuz July 31 <span class="badge med">MED</span></h3>
+        <div class="price">44.5%</div>
+        <div class="delta-row">
+          <span class="delta down">−2pp 24h</span>
+          <span class="delta down">−2pp vs 5PM</span>
+        </div>
+        <div class="context">Quiet drift lower from 46.5% (5PM Jun 20). Day 2 of 40-day mine clearance started June 19. Calendar math: 40 days from June 19 = July 29, 2-day margin. Market still prices 55.5% chance of NO by July 31. First IMF Portwatch data due June 22–24 — first real-world progress signal. Australian petrol floor A$2.00–2.10/L persists.</div>
+      </div>
+
+      <div class="market-card falling">
+        <h3>Iran Invasion <span class="badge low">LOW</span></h3>
+        <div class="price">13.5%</div>
+        <div class="delta-row">
+          <span class="delta down">−1pp 24h</span>
+        </div>
+        <div class="context">Continued slow tail-risk deleverage. 3.5pp above ↓10% deep-floor sentinel; 6.5pp above ↓7% target. HEU negotiations in 60-day window (started June 19). No new catalyst. Cross-market fully coherent: WTI $76.51 confirms no re-escalation pricing. Mojtaba Khamenei still recovering from wounds — low public profile, Iranian Parliament Speaker Ghalibaf running day-to-day.</div>
+      </div>
+
+      <div class="market-card falling">
+        <h3>Cuba Strike Dec 31 <span class="badge low">LOW</span></h3>
+        <div class="price">47.5%</div>
+        <div class="delta-row">
+          <span class="delta down">−3pp 24h</span>
+        </div>
+        <div class="context">Slipped back below 50% (was 50.5% at 5PM Jun 20). Trump's June 17 "no escalation for now" comment fading at the 4-day mark. USS Nimitz position unchanged in Caribbean. No new military intelligence. 12.5pp from ↑60% trigger. Cuba remains a coin-flip — not a base case but a real tail.</div>
+      </div>
+
+      <div class="market-card rising">
+        <h3>UK Next PM 2026 <span class="badge med">MED</span></h3>
+        <div class="price">96.6%</div>
+        <div class="delta-row">
+          <span class="delta up">+3.5pp 24h</span>
+          <span class="delta warn">+36pp/7d</span>
+        </div>
+        <div class="context">Burnham won Makerfield by-election June 19 — route to Parliament and Labour leadership open. 97 Labour MPs had called for Starmer to go (May). Burnham at 76.7% as next PM; Angela Rayner second. Labour-to-Labour = fiscal continuity, mildly more left on domestic policy. GBP impact: moderate uncertainty during contest, then relief rally if Burnham wins cleanly.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WATCH ITEMS (NON-TRIGGERS) -->
+  <div class="section">
+    <h2>Watch Items &amp; Contextual Markets</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Quality</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>WTI crude (proxy for Brent)</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>~$76.51/bbl</td>
+          <td>−$0.50 vs Jun 19</td>
+          <td>Day 6 post-deal. Pre-crisis floor $68–72 in sight. Brent ~$79/bbl. AUS petrol A$2.00–2.10/L floor until Hormuz clears.</td>
+        </tr>
+        <tr>
+          <td>Israel x Hezbollah permanent peace</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>26.5%</td>
+          <td>+26pp vs prior (slug refresh)</td>
+          <td>Late-June US-mediated trilateral talks scheduled. Hezbollah rejected June framework. Persistent gaps on Litani zone. This is a separate market from the resolved ceasefire markets — pricing formal permanent agreement, not just halt in fighting.</td>
+        </tr>
+        <tr>
+          <td>Mojtaba Khamenei public appearance</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>25.5%</td>
+          <td>+1pp 24h</td>
+          <td>Khamenei took power March 8 after father killed in US-Israeli strikes. US says he's "wounded and likely disfigured." Russian ambassador: "in Iran but avoiding public appearances for understandable reasons." Made partial appearance June 8 at Tehran rally. Formal address still absent. Relevant for HEU negotiation credibility — if Khamenei can't publicly own the deal, domestic enforcement risk rises.</td>
+        </tr>
+        <tr>
+          <td>Vance at next US-Iran meeting</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>91.5%</td>
+          <td>+53pp 24h</td>
+          <td><em>RETIRING from active tracking.</em> Converging to YES resolution (UMA mechanics, 18th oscillation, highest level in series). All siblings near-certainty YES: Trump 99.6%, Rubio 97%, Witkoff 95%. Meeting happened at Burgenstock June 19 — UMA vote on Vance's qualifying "active negotiator" role. ZERO macro implications confirmed by flat cross-market.</td>
+        </tr>
+        <tr>
+          <td>US troops withdrawal by Jun 30</td>
+          <td><span class="badge low">LOW</span></td>
+          <td>100%</td>
+          <td>—</td>
+          <td><em>RESOLVED YES.</em> Burgenstock MOU clause satisfied criteria. Retiring from active monitoring. No macro implications (WTI, invasion, Hormuz all flat at resolution).</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥10% unemployment (before 2030)</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>29%</td>
+          <td>flat</td>
+          <td>16pp below ↑45% trigger. Stagflation tail risks stable. No movement this session.</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥7% unemployment (before 2030)</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>66%</td>
+          <td>flat</td>
+          <td>8pp below ↑74% ceiling trigger. Stable. No catalyst.</td>
+        </tr>
+        <tr>
+          <td>Kalshi ≥20% depression tail</td>
+          <td><span class="badge high">HIGH</span></td>
+          <td>2%</td>
+          <td>flat</td>
+          <td>13pp below ↑15% trigger. Near-zero probability of 1930s-scale unemployment. De-escalation supporting benign tail outlook.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MACRO CROSS-MARKET ANALYSIS -->
+  <div class="section">
+    <h2>Cross-Market Analysis</h2>
+
+    <div class="alert-banner" style="background:#1a1f2e;border-color:#4a5568;margin-bottom:14px;">
+      <strong style="color:#e2e8f0;">Monetary Policy Narrative (the week's key story)</strong>
+      <p>Warsh has fundamentally changed the US monetary policy landscape in one week. The Fed is no longer "on hold indefinitely" — it is a hawkish pause with a trigger. The dot plot tells you what the trigger is: sustained PCE above 3.5% combined with labour market resilience. With PCE currently at 3.6% (revised), the Fed has its excuse. July 14 US CPI is the market-moving event. If CPI prints ≥4.0%, the July hike probability likely crosses 35% immediately — firing the trigger, weakening AUD, repricing ASX rate-sensitives, and closing the RBA-Fed divergence trade that has been the dominant AUD carry since Q1.</p>
+    </div>
+
+    <div class="alert-banner green">
+      <strong>Oil: Structural Decline Intact, Calendar-Constrained Floor</strong>
+      <p>WTI at $76.51/bbl is down from $84.88 one week ago (−$8.37, −9.9%). The war risk premium is largely gone. Pre-crisis floor was $68–72; Hormuz mine clearance (40 days from June 19 = ~July 29) is the remaining structural barrier. Until physical traffic normalises, Saudi Arabia cannot ship crude through Hormuz — that's the supply floor for oil. For Australian petrol: Brent-proxy WTI at $76.51 → Brent ~$79/bbl → Australian retail ~A$2.00–2.10/L floor persists through July at minimum. Post-clearance, structural A$1.90–2.00/L becomes credible. First real-world Portwatch data: June 22–24.</p>
+    </div>
+
+    <div class="alert-banner grey">
+      <strong>Iran Geopolitics: Managed De-Escalation, HEU Clock Running</strong>
+      <p>All four key Iran markets are fully coherent and in managed decline: invasion 13.5%, Hormuz 44.5% (calendar friction), WTI $76.51, permanent deal 99.5% (priced as done). The 60-day HEU negotiation window runs June 19 – August 18. Khamenei's absence from public life (wounded, ~4 public appearances since March) is a soft risk — if Iran's domestic politics destabilise, the HEU signing authority chain is unclear. For now: treat this as background noise, not an active macro risk. Trump's warning — "attacks resume if no final deal in 60 days" — is the backstop enforcement mechanism that keeps deal probability elevated.</p>
+    </div>
+  </div>
+
+  <!-- AUSTRALIAN INVESTOR IMPLICATIONS -->
+  <div class="section">
+    <h2>Australian Investor Implications</h2>
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>AUD/USD</h3>
+        <div class="context" style="font-size:13px;line-height:1.6;">
+          <strong style="color:#fc8181;">Headwind.</strong> Warsh hawkish repricing (+20pp hike probability in one week) = USD structural strengthening. RBA-Fed rate differential trade is narrowing. If July hike triggers ↑35%, AUD/USD faces pressure toward 0.60–0.62 support. Oil decline (Brent ~$79) is partly offsetting via Australia's LNG/commodity export revenue — but monetary policy dominates FX at these timescales.
+        </div>
+      </div>
+      <div class="market-card">
+        <h3>ASX Monday Open (22 Jun)</h3>
+        <div class="context" style="font-size:13px;line-height:1.6;">
+          <strong style="color:#f6ad55;">Mixed.</strong> Fed repricing creates headwinds for rate-sensitives (REITs A-REIT, utilities, tech). Energy stocks (WDS, STO) face ongoing oil price drift (-9.9%/wk). Resources broadly neutral (China demand stable, no new tariff escalation). Weekend data: no major surprises in Asia. Consumer staples (WOW, COL) mildly positive on lower fuel input costs. Banks: watch for re-rating of margin assumptions if Warsh signals September acceleration.
+        </div>
+      </div>
+      <div class="market-card">
+        <h3>Australian Petrol</h3>
+        <div class="context" style="font-size:13px;line-height:1.6;">
+          <strong style="color:#68d391;">Improving slowly.</strong> WTI (proxy for Brent) at $76.51 → Brent ~$79/bbl. Structural floor A$2.00–2.10/L. Mine clearance progress data due June 22–24. If first Portwatch reading shows transit improvement, market may reprice Hormuz above 50% — oil floor then shifts toward $73–76, Australian petrol toward A$1.95–2.05/L range. Meaningful consumer relief requires clearance completion (~July 29 earliest).
+        </div>
+      </div>
+      <div class="market-card">
+        <h3>RBA / Rate Markets</h3>
+        <div class="context" style="font-size:13px;line-height:1.6;">
+          <strong style="color:#f6ad55;">Watch.</strong> RBA was pricing a mid-2026 easing cycle on the back of oil disinflation. Warsh's hawkish pivot complicates: if US Fed hikes in July, RBA cannot ease without triggering AUD depreciation and imported inflation. The structural read: Australian CPI gets relief from Hormuz (petrol ~A$0.10/L lower by August), partially offset by USD strength (import price inflation). Net: RBA likely on hold through Q3. Next RBA meeting context: watch July 14 US CPI as the global rate anchor.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <h2>Forward View</h2>
+    <div class="forward-box">
+      <h3>What to Watch</h3>
+      <ul>
+        <li><strong>July 14 US CPI [CRITICAL]:</strong> Single most important event on the watchlist. A hot print (≥4.0%) likely drives Fed July hike probability through 35%, firing the trigger. A cool print (≤3.5%) would partially restore the hold narrative and relieve AUD pressure. Monitor Fed hike at 25.2% — currently 9.8pp from trigger.</li>
+        <li><strong>June 22–24 IMF Portwatch data:</strong> First Hormuz mine-clearance progress signal. If transit volumes ticking up, Hormuz market could recover toward 50–55%; if flat, drift toward 40% continues. Key for Australian petrol pricing timeline.</li>
+        <li><strong>UK Labour leadership contest timeline:</strong> Burnham confirmed candidate. Rules and contest schedule to be set in coming days. Contest itself likely September–October. GBP: moderate uncertainty until winner declared.</li>
+        <li><strong>Iran HEU negotiations:</strong> 60-day window runs June 19 – August 18. No visible progress timeline yet. Khamenei public appearance (market: 25.5%) would signal domestic legitimacy consolidation — bullish for deal completion probability.</li>
+        <li><strong>Cuba (47.5%):</strong> Below 50% again, but 12.5pp from ↑60% trigger. USS Nimitz unchanged. Any new Trump statement or intelligence report on Cuba military readiness could reprice quickly. Background watch.</li>
+        <li><strong>Warsh's next communication:</strong> No scheduled FOMC meeting until July 29–30. But FOMC minutes (released ~3 weeks post-meeting = ~July 8) and Warsh speaking engagements could accelerate July hike repricing before CPI.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DISMISSED -->
+  <div class="dismiss-box">
+    <strong>Dismissed this session:</strong>
+    <p>Vance at next US-Iran meeting (91.5%, +53pp): 18th oscillation in this series — new all-time high reflects UMA YES voters winning resolution vote post-Burgenstock. All sibling attendees at 95–99% YES. UMA mechanics, no macro implications. Market retiring from active tracking. | Troops withdrawal (100%): resolved YES (Burgenstock MOU clause). | IEM Cologne CS:GO: sports. | "What Iranian demands will Trump agree to by June 30?" (100%): resolved. | "Where will the next US-Iran diplomatic meeting happen?" (3%): sibling location market collapsing as Burgenstock resolved.</p>
+  </div>
+
+  <!-- ACTIONS TAKEN -->
+  <div class="section" style="margin-top:24px;">
+    <h2>Actions Taken</h2>
+    <table>
+      <thead><tr><th>Action</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Trigger updated</td><td>Fed July hike (↑35%): updated label noting 25.15% current price (9.85pp from trigger), +20.55pp/7d trajectory, July 14 CPI as pivot catalyst</td></tr>
+        <tr><td>Trigger updated</td><td>Fed July hold (↓60%): updated label noting 72.5% current price (12.5pp from trigger), −20pp/7d trajectory</td></tr>
+        <tr><td>Watchlist updated</td><td>Vance at next US-Iran meeting: flagged for retirement (converging to YES, no macro implications, 18th and final oscillation series)</td></tr>
+        <tr><td>Watchlist updated</td><td>US troops withdrawal by June 30: marked as RESOLVED YES at 100% (Burgenstock MOU clause)</td></tr>
+        <tr><td>No new triggers added</td><td>UK PM market (96.6%) noted in report — limited direct Australian macro relevance; no trigger threshold warranted at this time</td></tr>
+        <tr><td>No new markets discovered</td><td>Discovery run: 598 Polymarket, 443 Kalshi; 0 new markets matching macro keywords</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footnote" style="margin-top:24px;text-align:center;">
+    Generated 2026-06-21 07:00 AEST · Polymarket + Kalshi cross-reference · Oil prices: NYMEX WTI spot (proxy for Brent; Brent-WTI spread ~$2.50–3/bbl)
+  </div>
+
+</div>
+</body>
+</html>
