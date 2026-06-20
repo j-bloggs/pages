@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 20 Jun 5PM AEST</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 28px 40px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .title-block h1 { font-size: 1.5rem; font-weight: 700; color: #f7fafc; }
+  .title-block .subtitle { font-size: 0.85rem; color: #718096; margin-top: 4px; }
+  .status-badge { background: #276749; color: #9ae6b4; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 40px; }
+  .alert-bar { background: #1a2a1a; border: 1px solid #276749; border-radius: 8px; padding: 14px 20px; margin-bottom: 28px; color: #9ae6b4; font-size: 0.9rem; }
+  .alert-bar strong { color: #68d391; }
+  section { margin-bottom: 36px; }
+  h2 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #718096; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #2d3748; }
+  .summary-box { background: #1a202c; border-radius: 8px; padding: 18px 20px; font-size: 0.9rem; color: #cbd5e0; line-height: 1.7; }
+  .market-table { width: 100%; border-collapse: collapse; }
+  .market-table th { text-align: left; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5568; padding: 8px 12px; border-bottom: 1px solid #2d3748; }
+  .market-table td { padding: 11px 12px; border-bottom: 1px solid #1a202c; font-size: 0.85rem; vertical-align: top; }
+  .market-table tr:hover td { background: #1a202c; }
+  .price { font-weight: 700; font-size: 0.95rem; }
+  .delta-flat { color: #718096; }
+  .delta-up { color: #68d391; }
+  .delta-dn { color: #fc8181; }
+  .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; margin-right: 4px; }
+  .badge-high { background: #1a365d; color: #63b3ed; }
+  .badge-med { background: #2d2d00; color: #f6e05e; }
+  .badge-low { background: #2a1515; color: #fc8181; }
+  .interp { color: #a0aec0; font-size: 0.8rem; margin-top: 3px; }
+  .trigger-gap { font-size: 0.75rem; color: #718096; margin-top: 2px; }
+  .trigger-gap.near { color: #f6ad55; }
+  .section-note { background: #171e2e; border-left: 3px solid #4a5568; border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 0.82rem; color: #a0aec0; margin-top: 12px; }
+  .forward-block { background: #1a1f30; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; }
+  .forward-block p { font-size: 0.88rem; color: #cbd5e0; margin-bottom: 10px; }
+  .forward-block p:last-child { margin-bottom: 0; }
+  .forward-block strong { color: #f7fafc; }
+  .dismissed-list { list-style: none; }
+  .dismissed-list li { font-size: 0.8rem; color: #718096; padding: 4px 0; border-bottom: 1px solid #1a202c; }
+  .dismissed-list li:last-child { border-bottom: none; }
+  .footer { border-top: 1px solid #2d3748; padding: 20px 40px; text-align: center; font-size: 0.75rem; color: #4a5568; }
+  .crossmarket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .crossmarket-item { background: #1a202c; border-radius: 6px; padding: 12px 14px; }
+  .crossmarket-item .label { font-size: 0.7rem; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .crossmarket-item .value { font-size: 1.1rem; font-weight: 700; color: #f7fafc; }
+  .crossmarket-item .note { font-size: 0.75rem; color: #a0aec0; margin-top: 2px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="title-block">
+      <h1>Polymarket Daily — Saturday 20 June 5PM AEST</h1>
+      <div class="subtitle">Polymarket + Kalshi cross-platform analysis · Post-Burgenstock consolidation · Weekend session</div>
+    </div>
+    <span class="status-badge">✓ ALL QUIET</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="alert-bar">
+    <strong>Triggers: 13 watching · 0 fired</strong> — Weekend session. No new macro markets. All triggers stable. Nearest: Cuba 9.5pp from ↑60%; Invasion 3.5pp from ↓10%; Fed hike 10.0pp from ↑35%.
+  </div>
+
+  <!-- SUMMARY -->
+  <section>
+    <h2>Summary</h2>
+    <div class="summary-box">
+      Weekend quiet — pure post-Burgenstock digestion with no new catalysts. The US–Iran MOU (signed June 17, cemented June 19) is now in effect and the 60-day HEU negotiation window is running; the market complex is entirely coherent and static. The one directional observation since this morning: Hormuz continues a slow recovery from the 42.5% overnight trough (reaching 46.5%, up 4pp), but remains firmly below 50% — the calendar math (40 days from June 19 = July 29, 2-day margin to July 31 deadline) has not changed. Cuba crossed back above 50% for the first time since this morning (+1.5pp to 50.5%), but remains 9.5pp from the trigger and consistent with the structural bid from USS Nimitz deployment context. ASX and NYSE both closed (weekend). No data releases scheduled until July 14 US CPI.
+    </div>
+  </section>
+
+  <!-- CROSS-MARKET SNAPSHOT -->
+  <section>
+    <h2>Cross-Market Snapshot</h2>
+    <div class="crossmarket-grid">
+      <div class="crossmarket-item">
+        <div class="label">Iran Invasion 2027</div>
+        <div class="value" style="color:#68d391">13.5%</div>
+        <div class="note">−1pp since 7AM · post-deal floor · 3.5pp above ↓10% sentinel</div>
+      </div>
+      <div class="crossmarket-item">
+        <div class="label">Hormuz Normal by Jul 31</div>
+        <div class="value" style="color:#f6ad55">46.5%</div>
+        <div class="note">+1pp since 7AM · +4pp from 42.5% overnight low · 53.5% NO</div>
+      </div>
+      <div class="crossmarket-item">
+        <div class="label">WTI Crude (proxy Brent)</div>
+        <div class="value" style="color:#a0aec0">~$74–75/bbl</div>
+        <div class="note">Weekend session; Brent ~$77–78/bbl; A$2.00–2.10/L floor persists</div>
+      </div>
+      <div class="crossmarket-item">
+        <div class="label">US Fed July 25bp Hike</div>
+        <div class="value" style="color:#f6ad55">25.0%</div>
+        <div class="note">−0.1pp since 7AM · flat · 10.0pp from ↑35% trigger · Jul 14 CPI pivot</div>
+      </div>
+      <div class="crossmarket-item">
+        <div class="label">Cuba Strike Dec 31</div>
+        <div class="value" style="color:#f6ad55">50.5%</div>
+        <div class="note">+1.5pp since 7AM · crossed above 50% · 9.5pp from ↑60% trigger</div>
+      </div>
+      <div class="crossmarket-item">
+        <div class="label">Kalshi Unemployment ≥10%</div>
+        <div class="value" style="color:#68d391">29%</div>
+        <div class="note">Flat · 16pp from ↑45% trigger · no stagflation signal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY MOVES TABLE -->
+  <section>
+    <h2>Key Moves — vs 7AM Email Baseline</h2>
+    <table class="market-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Price</th>
+          <th>Since 7AM</th>
+          <th>Trigger Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>
+            <span class="badge badge-med">MED</span> Hormuz traffic normal by Jul 31
+            <div class="interp">Slow recovery from 42.5% overnight low; still below 50%; 40-day clock started June 19 = July 29 physical earliest. First mine-clearance update expected in 2–3 days (IMF Portwatch lag from Thursday start).</div>
+          </td>
+          <td class="price" style="color:#f6ad55">46.5%</td>
+          <td class="delta-up">+1.0pp</td>
+          <td>
+            <div class="trigger-gap">23.5pp below ↑70% mine-progress trigger</div>
+            <div class="trigger-gap">23.5pp above ↓23% collapse sentinel</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-low">LOW</span> Iran invasion before 2027
+            <div class="interp">Drifted 1pp lower to post-deal floor. MOU in effect; 60-day HEU window running. No new catalyst — systematic deleverage of residual tail risk.</div>
+          </td>
+          <td class="price" style="color:#68d391">13.5%</td>
+          <td class="delta-up">−1.0pp</td>
+          <td>
+            <div class="trigger-gap">3.5pp above ↓10% deep-floor sentinel</div>
+            <div class="trigger-gap">16.5pp below ↑30% escalation signal</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-high">HIGH</span> US Fed hikes 25bp July 2026
+            <div class="interp">Flat through weekend. Warsh PCE revision (2.7%→3.6%) fully digested; no new data until July 14 US CPI. July is a tail risk, not a base case.</div>
+          </td>
+          <td class="price" style="color:#f6ad55">25.0%</td>
+          <td class="delta-flat">−0.1pp</td>
+          <td>
+            <div class="trigger-gap">10.0pp below ↑35% live-meeting trigger</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-high">HIGH</span> US Fed holds in July 2026
+            <div class="interp">Minor bounce — companion to Fed hike flatness. Hold is still base case but no longer priced as near-certainty (was 93.5% pre-Warsh, now 73.5%).</div>
+          </td>
+          <td class="price" style="color:#68d391">73.5%</td>
+          <td class="delta-up">+1.0pp</td>
+          <td>
+            <div class="trigger-gap">13.5pp above ↓60% "hike becomes base case" sentinel</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-low">LOW</span> US military strike on Cuba by Dec 31
+            <div class="interp">Crossed back above 50% — small move but notable. Trump's June 17 "no escalation" statement appears to be fading slightly (3 days on). USS Nimitz remains in Caribbean. Structural bid from Cuba's energy crisis (oil embargo, diesel shortage since May 14) supports this level. No new catalyst identified — weekend noise more likely.</div>
+          </td>
+          <td class="price" style="color:#f6ad55">50.5%</td>
+          <td class="delta-up">+1.5pp</td>
+          <td>
+            <div class="trigger-gap near">9.5pp below ↑60% escalation trigger</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-high">HIGH</span> Kalshi US unemployment ≥10% (max, 2030)
+            <div class="interp">Flat. Stagflation scenario pricing unchanged since June 12. No new data catalyst.</div>
+          </td>
+          <td class="price" style="color:#68d391">29%</td>
+          <td class="delta-flat">+0.0pp</td>
+          <td>
+            <div class="trigger-gap">16pp below ↑45% catastrophe trigger</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="badge badge-high">HIGH</span> Kalshi US unemployment ≥7% (max, 2030)
+            <div class="interp">Flat. Below both the ↑74% and ↓58% sentinels.</div>
+          </td>
+          <td class="price" style="color:#68d391">66%</td>
+          <td class="delta-flat">+0.0pp</td>
+          <td>
+            <div class="trigger-gap">8pp below ↑74% trigger · 8pp above ↓58% trigger</div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="section-note">
+      <strong>Cross-platform coherence check:</strong> Polymarket (Iran invasion 13.5% ✓, Hormuz recovering ✓) and Kalshi (unemployment flat ✓) are fully aligned. No Polymarket/Kalshi divergence on any tracked theme. Discovery scan returned 0 new macro-relevant markets — all new listings are crypto 5-min up/down slots (BTC, ETH, SOL, XRP, Hyperliquid), FIFA World Cup individual player stats, and MLB strikeout over/unders. All filtered.
+    </div>
+  </section>
+
+  <!-- DISMISSED -->
+  <section>
+    <h2>Dismissed Since Last Email</h2>
+    <ul class="dismissed-list">
+      <li>🚫 [MED] Vance at next Iran diplomatic meeting — 22.4% and falling; 15th dismissal; continuing descent to NO resolution post-Burgenstock; UMA resolution pending. Zero macro implications.</li>
+      <li>🚫 [MED] Kalshi GDP 2028/2029/2030 bucket redistribution — minor noise in thin long-dated markets; no trigger attached; no macro signal.</li>
+    </ul>
+  </section>
+
+  <!-- FORWARD VIEW -->
+  <section>
+    <h2>Forward View</h2>
+    <div class="forward-block">
+      <p><strong>July 14 US CPI — the single pivot event.</strong> All macro roads lead to this print. Fed July hike is at 25% (10pp from the ↑35% trigger). A print at or above 4.2% (services + shelter driven) closes that gap fast and makes the July 30 FOMC a live meeting. A soft 3.4–3.6% print defers the decision to September and could pull the July hike back below 15%. AUD is most directly exposed — both via US rate-differential narrowing pressure and via any Hormuz petrol-price tailwind from mine clearance.</p>
+      <p><strong>Hormuz mine clearance — first update window.</strong> IMF Portwatch weekly transit data has a 2–3 day lag. The clearance clock started June 19; the first meaningful progress signal should appear in data around June 22–24. Pentagon private track: full clearance up to 6 months. Western maritime minimum: 40 days. The 46.5% price says markets are pricing roughly even odds given the 2-day July 31 margin — any operational delay pushes directly toward the ↓23% secondary collapse sentinel (23.5pp away).</p>
+      <p><strong>Cuba — monitoring threshold creep.</strong> 50.5%, 9.5pp from trigger. Trump's "no escalation" statement is now 3 days old. USS Nimitz position unchanged. Cuba's fuel/electricity crisis (zero domestic oil production, full reliance on Venezuelan/Chinese imports) is structural. If Nimitz moves or any US military communication changes, this could close the trigger gap fast.</p>
+      <p><strong>HEU 60-day window.</strong> The 60-day clock started June 17. Full HEU destruction modality must be negotiated by ~August 16. Any breakdown language → invasion reprices off 13.5% floor immediately. Any acceleration (early Khamenei formal approval) → invasion could test ↓10% sentinel (3.5pp away).</p>
+    </div>
+  </section>
+
+  <!-- TRIGGER REGISTER -->
+  <section>
+    <h2>Full Trigger Register — 13 Active</h2>
+    <table class="market-table">
+      <thead>
+        <tr><th>Trigger</th><th>Current</th><th>Fires at</th><th>Gap</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[LOW] Iran invasion ↓10% deep-floor</td><td class="price">13.5%</td><td>↓10%</td><td class="trigger-gap near">3.5pp above</td></tr>
+        <tr><td>[LOW] Iran invasion ↓7% ultra-floor</td><td class="price">13.5%</td><td>↓7%</td><td class="trigger-gap">6.5pp above</td></tr>
+        <tr><td>[LOW] Iran invasion ↑30% escalation</td><td class="price">13.5%</td><td>↑30%</td><td class="trigger-gap">16.5pp below</td></tr>
+        <tr><td>[LOW] Iran invasion ↑40% high escalation</td><td class="price">13.5%</td><td>↑40%</td><td class="trigger-gap">26.5pp below</td></tr>
+        <tr><td>[MED] Hormuz ↑70% mine-clearance progress</td><td class="price">46.5%</td><td>↑70%</td><td class="trigger-gap">23.5pp below</td></tr>
+        <tr><td>[MED] Hormuz ↑85% full recovery</td><td class="price">46.5%</td><td>↑85%</td><td class="trigger-gap">38.5pp below</td></tr>
+        <tr><td>[MED] Hormuz ↓23% secondary collapse</td><td class="price">46.5%</td><td>↓23%</td><td class="trigger-gap">23.5pp above</td></tr>
+        <tr><td>[MED] Hormuz ↓20% full capitulation</td><td class="price">46.5%</td><td>↓20%</td><td class="trigger-gap">26.5pp above</td></tr>
+        <tr><td>[LOW] Cuba strike ↑60% escalation</td><td class="price">50.5%</td><td>↑60%</td><td class="trigger-gap near">9.5pp below</td></tr>
+        <tr><td>[HIGH] US Fed July hike ↑35% live meeting</td><td class="price">25.0%</td><td>↑35%</td><td class="trigger-gap">10.0pp below</td></tr>
+        <tr><td>[HIGH] US Fed July hold ↓60% hike base case</td><td class="price">73.5%</td><td>↓60%</td><td class="trigger-gap">13.5pp above</td></tr>
+        <tr><td>[HIGH] Kalshi US unemployment ≥10% ↑45%</td><td class="price">29%</td><td>↑45%</td><td class="trigger-gap">16pp below</td></tr>
+        <tr><td>[LOW] China Taiwan invasion ↑15%</td><td class="price">6.5%</td><td>↑15%</td><td class="trigger-gap">8.5pp below</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<div class="footer">
+  Generated 2026-06-20 17:05 AEST · Polymarket + Kalshi · Australian macro focus · Next scheduled: 2026-06-21 07:00 AEST
+</div>
+
+</body>
+</html>
