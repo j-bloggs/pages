@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 22 Jun 7AM: Lebanon Disrupts HEU Talks; Hormuz −9pp; Fed Hike Fading</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; padding: 24px 16px; }
+  .container { max-width: 820px; margin: 0 auto; }
+  .header { border-bottom: 2px solid #2d3748; padding-bottom: 20px; margin-bottom: 28px; }
+  .header .date { font-size: 13px; color: #718096; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f7fafc; line-height: 1.3; }
+  .header .subtitle { font-size: 15px; color: #a0aec0; margin-top: 6px; }
+  .alert-bar { background: linear-gradient(135deg, #744210 0%, #92400e 100%); border: 1px solid #b45309; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; font-size: 14px; color: #fef3c7; }
+  .alert-bar strong { color: #fcd34d; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #718096; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2d3748; }
+  .narrative { font-size: 15px; color: #cbd5e0; line-height: 1.8; margin-bottom: 12px; }
+  .narrative p { margin-bottom: 10px; }
+  .market-grid { display: grid; gap: 10px; }
+  .market-card { background: #1a202c; border: 1px solid #2d3748; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; }
+  .market-card.down { border-left: 3px solid #fc8181; }
+  .market-card.up { border-left: 3px solid #68d391; }
+  .market-card.flat { border-left: 3px solid #718096; }
+  .market-card.warn { border-left: 3px solid #f6ad55; }
+  .price-block { text-align: center; min-width: 70px; }
+  .price-now { font-size: 22px; font-weight: 800; line-height: 1; }
+  .price-now.red { color: #fc8181; }
+  .price-now.green { color: #68d391; }
+  .price-now.neutral { color: #a0aec0; }
+  .price-now.amber { color: #f6ad55; }
+  .price-delta { font-size: 12px; margin-top: 3px; font-weight: 600; }
+  .delta-down { color: #fc8181; }
+  .delta-up { color: #68d391; }
+  .delta-flat { color: #718096; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 13px; font-weight: 700; color: #f7fafc; margin-bottom: 4px; }
+  .quality-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+  .q-high { background: #276749; color: #9ae6b4; }
+  .q-med { background: #744210; color: #fbd38d; }
+  .q-low { background: #44337a; color: #d6bcfa; }
+  .market-note { font-size: 13px; color: #a0aec0; line-height: 1.5; }
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { text-align: left; color: #718096; font-weight: 600; padding: 6px 10px; border-bottom: 1px solid #2d3748; }
+  .trigger-table td { padding: 8px 10px; border-bottom: 1px solid #1a202c; color: #a0aec0; vertical-align: top; }
+  .trigger-table tr:hover td { background: #1a202c; }
+  .trigger-table .label { color: #e2e8f0; font-weight: 500; }
+  .gap-safe { color: #68d391; }
+  .gap-watch { color: #f6ad55; }
+  .gap-close { color: #fc8181; }
+  .callout { background: #1a202c; border: 1px solid #2d3748; border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+  .callout.risk { border-color: #744210; background: #1c1208; }
+  .callout-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #718096; margin-bottom: 8px; }
+  .callout.risk .callout-title { color: #f6ad55; }
+  .callout ul { list-style: none; padding: 0; }
+  .callout ul li { font-size: 13px; color: #a0aec0; padding: 3px 0 3px 16px; position: relative; line-height: 1.5; }
+  .callout ul li::before { content: "→"; position: absolute; left: 0; color: #4a5568; }
+  .forward-section { background: #1a202c; border: 1px solid #2d3748; border-radius: 10px; padding: 18px 20px; }
+  .forward-item { display: flex; gap: 12px; margin-bottom: 10px; font-size: 14px; align-items: flex-start; }
+  .forward-item:last-child { margin-bottom: 0; }
+  .forward-num { min-width: 22px; height: 22px; background: #2d3748; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #a0aec0; margin-top: 1px; }
+  .forward-text { color: #a0aec0; line-height: 1.6; flex: 1; }
+  .forward-text strong { color: #e2e8f0; }
+  .aus-box { background: #0d1f2d; border: 1px solid #2c5282; border-radius: 10px; padding: 16px 18px; }
+  .aus-box .callout-title { color: #63b3ed; }
+  .aus-box ul li { color: #90cdf4; }
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #2d3748; font-size: 12px; color: #4a5568; }
+  @media (max-width: 600px) { .market-card { flex-direction: column; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="date">Monday 22 June 2026 — 7:00 AM AEST · Daily Briefing</div>
+    <h1>Lebanon Disrupts HEU Talks; Hormuz −9pp; Fed Hike Fading</h1>
+    <div class="subtitle">Hormuz fell from 49.5% to 40.5% overnight as Iran formally re-declared closure citing IDF violations. HEU talks suspended, then resumed. July hike now just 17.4% — fading fast without new CPI data.</div>
+  </div>
+
+  <div class="alert-bar">
+    <strong>No triggers fired.</strong> 13 triggers watching. Hormuz secondary collapse sentinel (↓23%) is now 17.5pp away — closer than it was yesterday (was 26.5pp). Lebanon ceasefire integrity is the single most important variable for Hormuz for the next 72 hours.
+  </div>
+
+  <!-- NARRATIVE -->
+  <div class="section">
+    <div class="section-title">Overnight Narrative</div>
+    <div class="narrative">
+      <p>The Lebanon-Hezbollah-Israel fault line, flagged as the key Hormuz risk pathway in yesterday's report, activated overnight. Iran formally re-declared the Strait of Hormuz closed on June 20 (Saturday), citing IDF attacks on Hezbollah as a violation of the MOU. Switzerland's first HEU implementation session was subsequently suspended — Iran refused to travel without Lebanon fighting stopped first. After intense back-channel pressure, Israel and Hezbollah renewed their ceasefire, and talks resumed June 21: VP Vance, Witkoff, and Kushner physically met Araghchi and Ghalibaf in Switzerland for the first direct senior-level HEU session under the 60-day window.</p>
+      <p>Markets processed this sequence poorly and correctly at the same time. Hormuz bounced +5pp to 49.5% yesterday when talks resumed — then fell 9pp overnight back to 40.5% as the market absorbed the full picture: talks may be back on, but the underlying Lebanon trigger mechanism is unresolved, mine clearance has not meaningfully begun, and the calendar math to July 31 is tight (39 days; mine clearance takes 30-45 days). The US Fed is a separate story — the Warsh PCE shock from last week continues to fade without reinforcement, with the July hike market dropping from 22.25% to 17.4% as the October window increasingly becomes the market's base case for any action.</p>
+      <p>Cross-market coherence is full. WTI (proxy for Brent) is approximately $73-75 — not spiking, which correctly interprets Iran's Hormuz closure as legal-diplomatic pressure within MOU terms, not a physical naval re-blockade. Iran invasion at 13.5% is flat, confirming the MOU framework is intact. US-Iran nuclear deal before 2027 nudged to 82% (+2pp/24h), accumulating as HEU talks proceed. No contradictions anywhere in the complex.</p>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <div class="section-title">Key Market Moves Since Yesterday 5PM</div>
+    <div class="market-grid">
+
+      <div class="market-card down">
+        <div class="price-block">
+          <div class="price-now red">40.5%</div>
+          <div class="price-delta delta-down">▼ −9.0pp</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">Hormuz traffic normal by July 31 <span class="quality-badge q-med">MED</span></div>
+          <div class="market-note">Fell from 49.5% (5PM yesterday). <strong>Catalyst:</strong> Iran formally re-declared Hormuz closed June 20 citing IDF-Hezbollah ceasefire violations; Switzerland HEU talks suspended then resumed June 21. WTI not spiking (~$73-75) validates this as MOU-legal diplomatic pressure, not physical re-blockade. Key constraint: IMF PortWatch still shows near-zero transits; mine clearance hasn't started in earnest; 39 days to July 31 resolution with 30-45 days needed for clearance. Secondary collapse sentinel (↓23%) now 17.5pp away. <strong>Watch: Lebanon ceasefire integrity in the next 72h.</strong></div>
+        </div>
+      </div>
+
+      <div class="market-card down">
+        <div class="price-block">
+          <div class="price-now amber">17.4%</div>
+          <div class="price-delta delta-down">▼ −4.85pp</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US Fed hikes 25bp in July 2026 <span class="quality-badge q-high">HIGH</span></div>
+          <div class="market-note">Fell from 22.25% (5PM yesterday). Post-Warsh shock continuing to revert without new inflationary data. Peak was 27% on June 19; now 17.4%, 17.6pp below the ↑35% trigger. Companion hold market rose from 76.5% → 78.5%. Without a hot July 14 US CPI print, July is a hold. October has effectively become the market's base case for any move. <strong>No catalyst change overnight — pure Warsh-shock decay.</strong></div>
+        </div>
+      </div>
+
+      <div class="market-card down">
+        <div class="price-block">
+          <div class="price-now amber">47.5%</div>
+          <div class="price-delta delta-down">▼ −3.0pp</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US military strike on Cuba by Dec 31 <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-note">Fell from 50.5% (5PM yesterday), back below 50%. 12.5pp below ↑60% trigger. No new Cuba catalyst overnight — this is noise oscillation within the 45-52% band. USS Nimitz remains in Caribbean. DOJ indictment of Raul Castro still background context. Not macro-relevant at current level.</div>
+        </div>
+      </div>
+
+      <div class="market-card up">
+        <div class="price-block">
+          <div class="price-now green">82%</div>
+          <div class="price-delta delta-up">▲ +2.0pp/24h</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US-Iran nuclear deal before 2027 <span class="quality-badge q-high">HIGH</span></div>
+          <div class="market-note">Rose from ~80% to 82% over the past 24 hours (+16pp/7d). Gradual accumulation as HEU 60-day window is active. Market is pricing the deal framework surviving Lebanon turbulence — VP Vance physically met Araghchi June 21 (unprecedented). This is the most credible ground-truth signal: 82% on a HIGH-quality market says the deal survives despite noise.</div>
+        </div>
+      </div>
+
+      <div class="market-card flat">
+        <div class="price-block">
+          <div class="price-now neutral">13.5%</div>
+          <div class="price-delta delta-flat">→ 0.0pp</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">US invades Iran before 2027 <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-note">Flat at post-deal floor. 3.5pp above ↓10% deep-floor sentinel; 16.5pp below ↑30% re-escalation trigger. Zero reaction to Lebanon complications — market correctly distinguishes Lebanon ceasefire integrity noise from full MOU collapse. Iran invasion doesn't move until the framework genuinely fractures.</div>
+        </div>
+      </div>
+
+      <div class="market-card flat">
+        <div class="price-block">
+          <div class="price-now neutral">6.3%</div>
+          <div class="price-delta delta-flat">→ 0.0pp</div>
+        </div>
+        <div class="market-info">
+          <div class="market-label">China invades Taiwan before 2027 <span class="quality-badge q-low">LOW</span></div>
+          <div class="market-note">Flat. 8.7pp below ↑15% trigger. No catalyst. Taiwan risk remains background tail — PLA activity unchanged during US-Iran deal implementation phase.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <div class="section-title">Trigger Status — All 13 Watching, 0 Fired</div>
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Now</th>
+          <th>Threshold</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Fed July 25bp hike (fires ↑35%)</td>
+          <td>17.4%</td>
+          <td>35%</td>
+          <td class="gap-safe">17.6pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Fed July hold (fires ↓60%)</td>
+          <td>78.5%</td>
+          <td>60%</td>
+          <td class="gap-safe">18.5pp above trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Hormuz July 31 — mine clearance (fires ↑70%)</td>
+          <td>40.5%</td>
+          <td>70%</td>
+          <td class="gap-safe">29.5pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Hormuz July 31 — confirmation (fires ↑85%)</td>
+          <td>40.5%</td>
+          <td>85%</td>
+          <td class="gap-safe">44.5pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Hormuz July 31 — secondary collapse (fires ↓23%)</td>
+          <td>40.5%</td>
+          <td>23%</td>
+          <td class="gap-watch">17.5pp above trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Hormuz July 31 — complete capitulation (fires ↓20%)</td>
+          <td>40.5%</td>
+          <td>20%</td>
+          <td class="gap-watch">20.5pp above trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Iran invasion — near-zero floor (fires ↓10%)</td>
+          <td>13.5%</td>
+          <td>10%</td>
+          <td class="gap-safe">3.5pp above trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Iran invasion — deep floor (fires ↓7%)</td>
+          <td>13.5%</td>
+          <td>7%</td>
+          <td class="gap-safe">6.5pp above trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Iran invasion — re-escalation (fires ↑30%)</td>
+          <td>13.5%</td>
+          <td>30%</td>
+          <td class="gap-safe">16.5pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Iran invasion — full escalation (fires ↑40%)</td>
+          <td>13.5%</td>
+          <td>40%</td>
+          <td class="gap-safe">26.5pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Cuba strike (fires ↑60%)</td>
+          <td>47.5%</td>
+          <td>60%</td>
+          <td class="gap-safe">12.5pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Taiwan invasion (fires ↑15%)</td>
+          <td>6.3%</td>
+          <td>15%</td>
+          <td class="gap-safe">8.7pp below trigger</td>
+        </tr>
+        <tr>
+          <td class="label">Iran leadership change (fires ↑60%)</td>
+          <td>15.5%</td>
+          <td>60%</td>
+          <td class="gap-safe">44.5pp below trigger</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KEY RISK -->
+  <div class="section">
+    <div class="section-title">The Lebanon Risk Pathway — Key Structural Issue</div>
+    <div class="callout risk">
+      <div class="callout-title">⚠ Lebanon Ceasefire Integrity = Hormuz Gating Condition</div>
+      <ul>
+        <li>Iran has established a <strong>precedent</strong>: when IDF attacks Hezbollah, Iran declares Hormuz closed and suspends nuclear talks. This is now a documented MOU-grounded playbook — not a bluff, a legal mechanism.</li>
+        <li>Every Lebanon ceasefire violation by IDF (even minor) = risk of Switzerland HEU session cancellation + Hormuz closure declaration.</li>
+        <li>WTI at ~$73-75 shows markets interpret Iran's June 20 closure as <strong>diplomatic pressure</strong>, not physical re-blockade. This interpretation is correct while CENTCOM confirms transits (55 ships Saturday). But if Iran activates IRGC to physically enforce closure, WTI would spike $8-12 within hours.</li>
+        <li>The mine clearance clock (started June 19 at Burgenstock) is vulnerable to being <strong>paused</strong> every time Lebanon flares. With 39 days to July 31, every week of pause reduces the probability of Hormuz hitting 60+ ships/day MA before resolution.</li>
+        <li>At Hormuz 40.5% + WTI $73-75: market is pricing Lebanon as a nuisance factor, not a deal-breaker. Correct interpretation unless Lebanon fighting escalates significantly (IDF ground operation, mass casualties). Monitor daily CENTCOM ship transit counts.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET COHERENCE -->
+  <div class="section">
+    <div class="section-title">Cross-Market Coherence Check</div>
+    <div class="callout">
+      <div class="callout-title">All Markets Coherent — No Contradictions</div>
+      <ul>
+        <li>Iran invasion 13.5% (flat) ✓ — if MOU was genuinely fracturing, invasion would spike. It hasn't.</li>
+        <li>Hormuz 40.5% (−9pp) ✓ — correctly prices calendar tightness + Lebanon uncertainty, not physical re-closure.</li>
+        <li>WTI (proxy Brent) ~$73-75 ✓ — not spiking validates Hormuz closure is legal/diplomatic, not naval.</li>
+        <li>US-Iran nuclear deal before 2027 at 82% [HIGH] ✓ — the most trustworthy signal. Framework survives Lebanon noise.</li>
+        <li>US Fed July hold 78.5% [HIGH] ✓ — Warsh shock fading cleanly. October hike more probable than July.</li>
+        <li>Cuba 47.5% [LOW] ✓ — independent noise, back below 50%.</li>
+        <li><strong>Interpretation:</strong> The market is pricing "Lebanon is a speed bump for Hormuz, not a deal-breaker." Nuclear deal at 82% [HIGH] is the ground truth — trust that over Lebanon headline noise.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AUSTRALIAN IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Market Implications</div>
+    <div class="aus-box">
+      <div class="callout-title">🇦🇺 Impact for Australian Investors</div>
+      <ul>
+        <li><strong>ASX open today (Monday June 22):</strong> Regular trading day. Energy sector (WDS, STO) will track WTI direction — $73-75 is consistent with post-deal equilibrium. No overnight catalyst to spike or crash energy stocks.</li>
+        <li><strong>Australian petrol prices:</strong> Brent/WTI (proxy) at $73-75 = structural improvement from $84-88 of early June. Pump price relief is arriving but slowly (3-4 week lag). The A$2.00-2.15/L pump price floor persists until mine clearance produces IMF PortWatch transit improvement — earliest signal 10-14 days from June 19 start.</li>
+        <li><strong>AUD/USD:</strong> Mild tailwind. Fed hike at 17.4% and falling = US rate-differential pressure easing. Oil ~$74 = terms-of-trade neutral for Australia (major LNG exporter benefits from high prices; consumers benefit from lower fuel). RBA path unchanged — watch for any August guidance shift if July 14 US CPI is hot.</li>
+        <li><strong>Rate-sensitive ASX stocks (REITs, banks, utilities):</strong> US Fed July hike at 17.4% and declining — the 5PM daily's sharp Warsh-shock reversal continues. Rate-sensitive stocks face less US rate headwind than feared last week. RBA independent from US Fed at this point — Australia's easing path is determined by local inflation, not Warsh.</li>
+        <li><strong>QAN, COL, WOW (petrol/logistics):</strong> Gradual fuel cost improvement as Hormuz mine clearance proceeds. No sudden relief — timeline 6-8 weeks minimum. Lebanon uncertainty means structural premium of A$0.15-0.25/L persists vs pre-crisis levels.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View — What to Watch</div>
+    <div class="forward-section">
+      <div class="forward-item">
+        <div class="forward-num">1</div>
+        <div class="forward-text"><strong>Switzerland HEU talks outcome (next 48-72h):</strong> Day 2-3 of the first formal HEU implementation session under the 60-day window. This is the hardest conversation — HEU stockpile methodology (destruction vs. transfer vs. dilution). Any agreement on methodology = Hormuz bounces to 50-55%. Breakdown = Hormuz tests 35-38%, Lebanon risk premium spikes.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">2</div>
+        <div class="forward-text"><strong>Lebanon ceasefire integrity (daily):</strong> Monitor IDF-Hezbollah activity. A renewed violation will trigger Iran to suspend talks and formally re-close Hormuz (the precedent is set). CENTCOM daily ship transit counts are the ground-truth signal — 55 ships Saturday despite Iran's closure claim. If that number falls to zero, the closure is physical, not legal.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">3</div>
+        <div class="forward-text"><strong>IMF PortWatch transit data (10-14 day horizon from June 19):</strong> First mine clearance progress signals expected late June/early July. A 7-day moving average reaching 20-30 ships/day would send Hormuz above 60% immediately. Currently at essentially zero transits; that needs to start moving within the next 2 weeks for July 31 resolution to be viable.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">4</div>
+        <div class="forward-text"><strong>July 14 US CPI (3 weeks):</strong> The Fed hike gating event. If June CPI prints above 4.2%, July hike probability could spike back to 25-30%, approaching the ↑35% trigger. If CPI prints at or below 3.8%, July hike collapses to 10% and September becomes base case.</div>
+      </div>
+      <div class="forward-item">
+        <div class="forward-num">5</div>
+        <div class="forward-text"><strong>July 4 US Independence Day weekend (12 days):</strong> Historical pattern: Trump uses major US holidays for geopolitical announcements. Cuba, Iran HEU framework progress, or broader deal announcements plausible. Monitor closely starting July 3.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="section">
+    <div class="section-title">Actions Taken This Session</div>
+    <div class="callout">
+      <div class="callout-title">Trigger &amp; Config Updates</div>
+      <ul>
+        <li>Updated <strong>fed-july-hike-live</strong>: price now 17.4% (was 22.25%), 17.6pp below trigger, trajectory documented.</li>
+        <li>Updated <strong>fed-july-hold-floor</strong>: price now 78.5% (was 76.5%), 18.5pp above trigger, trajectory documented.</li>
+        <li>Updated <strong>hormuz-traffic-july31-floor</strong> (secondary collapse sentinel ↓23%): documented Iran's formal June 20 Hormuz re-closure, Switzerland talks suspension/resumption, collapse sentinel now 17.5pp away (was 26.5pp). Updated calendar math (39 days remaining) and CENTCOM cross-check protocol.</li>
+        <li>No new triggers added. No triggers removed. All 13 correctly calibrated for current environment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated 2026-06-22 07:00 AEST · Polymarket Macro Analyst · Data: Polymarket, Kalshi, IMF PortWatch, CENTCOM, CNBC, Al Jazeera, PBS, CBS News
+  </div>
+
+</div>
+</body>
+</html>
