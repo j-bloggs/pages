@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 24 Jun 7AM AEST | Chip Selloff; PCE Eve; Hormuz Calendar Tightening</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; padding: 24px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 700; color: #f0f6ff; margin-bottom: 4px; }
+  .subtitle { color: #7dd3fc; font-size: 0.9rem; margin-bottom: 28px; font-weight: 500; }
+  h2 { font-size: 1.05rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; margin: 28px 0 12px; border-bottom: 1px solid #1e293b; padding-bottom: 6px; }
+  h3 { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; margin: 16px 0 8px; }
+  p { margin-bottom: 12px; color: #cbd5e1; font-size: 0.92rem; }
+  .alert-box { background: #1e1a2e; border-left: 4px solid #f59e0b; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+  .alert-box.green { border-color: #10b981; background: #0a1f1a; }
+  .alert-box.red { border-color: #ef4444; background: #1f0a0a; }
+  .alert-box.blue { border-color: #3b82f6; background: #0a1020; }
+  .alert-box.amber { border-color: #f59e0b; background: #1a140a; }
+  .alert-box .label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 6px; }
+  .alert-box .label.yellow { color: #f59e0b; }
+  .alert-box .label.green { color: #10b981; }
+  .alert-box .label.red { color: #ef4444; }
+  .alert-box .label.blue { color: #3b82f6; }
+  .market-row { display: flex; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #1e293b; gap: 14px; }
+  .market-row:last-child { border-bottom: none; }
+  .price-badge { background: #1e293b; border-radius: 6px; padding: 6px 10px; text-align: center; min-width: 62px; flex-shrink: 0; }
+  .price-badge .price { font-size: 1.1rem; font-weight: 700; color: #f0f6ff; }
+  .price-badge .delta { font-size: 0.7rem; color: #64748b; margin-top: 1px; }
+  .price-badge .delta.up { color: #10b981; }
+  .price-badge .delta.down { color: #ef4444; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 0.88rem; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
+  .market-quality { display: inline-block; font-size: 0.65rem; font-weight: 700; border-radius: 3px; padding: 1px 5px; margin-right: 6px; vertical-align: middle; }
+  .q-high { background: #064e3b; color: #6ee7b7; }
+  .q-med { background: #1c3158; color: #93c5fd; }
+  .q-low { background: #2d1f0a; color: #fcd34d; }
+  .market-note { font-size: 0.82rem; color: #94a3b8; }
+  .trigger-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 0.85rem; }
+  .trigger-row:last-child { border-bottom: none; }
+  .trigger-price { font-weight: 700; color: #f0f6ff; min-width: 48px; }
+  .trigger-gap { color: #64748b; min-width: 140px; }
+  .trigger-gap.close { color: #f59e0b; }
+  .trigger-label { color: #94a3b8; flex: 1; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0; }
+  th { background: #1e293b; color: #94a3b8; padding: 8px 12px; text-align: left; font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 8px 12px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+  tr:last-child td { border-bottom: none; }
+  .footnote { font-size: 0.78rem; color: #475569; margin-top: 6px; }
+  .pill { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600; }
+  .pill-flat { background: #1e293b; color: #64748b; }
+  .pill-up { background: #064e3b; color: #6ee7b7; }
+  .pill-down { background: #450a0a; color: #fca5a5; }
+  .divider { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  .two-story { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .two-story { grid-template-columns: 1fr; } }
+  .story-box { background: #0a1020; border: 1px solid #1e293b; border-radius: 8px; padding: 14px 16px; }
+  .story-box h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .story-box h4.tech { color: #f59e0b; }
+  .story-box h4.geo { color: #10b981; }
+  .story-box p { font-size: 0.82rem; }
+  .coherence { background: #064e3b; border-radius: 6px; padding: 10px 14px; font-size: 0.84rem; color: #6ee7b7; margin: 14px 0; }
+  .footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid #1e293b; color: #475569; font-size: 0.75rem; }
+  .section-intro { background: #131921; border-radius: 8px; padding: 14px 18px; margin: 0 0 20px; font-size: 0.88rem; color: #94a3b8; }
+  strong { color: #e2e8f0; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Polymarket Daily — Wed 24 Jun 2026 · 7:00 AM AEST</h1>
+  <div class="subtitle">Chip Selloff &amp; PCE Eve | Hormuz Calendar Tightening | Two Independent Stories</div>
+
+  <!-- TRIGGERS STATUS -->
+  <h2>Trigger Status</h2>
+  <div class="section-intro">
+    13 triggers active · <strong>0 fired</strong> · No threshold breaches. Most notable proximity: Cuba 46.5% (13.5pp below ↑60% trigger) and Fed July hike 24.6% (10.4pp below ↑35% trigger). PCE tomorrow is the Fed gate.
+  </div>
+  <div style="background:#0d1b0d; border-radius:8px; padding:4px 0;">
+    <div class="trigger-row">
+      <span class="trigger-price">24.6%</span>
+      <span class="trigger-gap close">10.4pp below ↑35%</span>
+      <span class="trigger-label">US Fed July 25bp hike — live meeting signal</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">73.5%</span>
+      <span class="trigger-gap">13.5pp above ↓60%</span>
+      <span class="trigger-label">US Fed July hold — hold-floor sentinel</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">45.5%</span>
+      <span class="trigger-gap">22.5pp above ↓23%</span>
+      <span class="trigger-label">Hormuz July 31 — secondary collapse sentinel</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">46.5%</span>
+      <span class="trigger-gap close">13.5pp below ↑60%</span>
+      <span class="trigger-label">Cuba US strike Dec 31 — escalation signal</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">13.5%</span>
+      <span class="trigger-gap">6.5pp above ↓7%</span>
+      <span class="trigger-label">Iran invasion 2027 — deep-floor sentinel</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">13.5%</span>
+      <span class="trigger-gap">16.5pp below ↑30%</span>
+      <span class="trigger-label">Iran invasion 2027 — mid-level escalation warning</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">16.5%</span>
+      <span class="trigger-gap">43.5pp below ↑60%</span>
+      <span class="trigger-label">Iran leadership change Dec 31 — regime pressure</span>
+    </div>
+    <div class="trigger-row">
+      <span class="trigger-price">6.3%</span>
+      <span class="trigger-gap">8.7pp below ↑15%</span>
+      <span class="trigger-label">China invades Taiwan by end 2026</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TWO-STORY NARRATIVE -->
+  <h2>The Two-Story Market</h2>
+  <div class="two-story">
+    <div class="story-box">
+      <h4 class="tech">⚡ Story 1: Tech/Chip Selloff</h4>
+      <p>Completely independent from Iran/oil. Tuesday's US session saw the Nasdaq fall −2.1%, S&amp;P 500 −1.3%, and South Korea's KOSPI collapse −9.99% — its steepest drop in 3+ months. <strong>Micron −12%, SanDisk −13%.</strong> Bank of America published a hawkish rate note pre-PCE. 10-year US Treasury yield briefly hit <strong>4.5%</strong> (highest since June 12). ASX Wednesday open likely opens lower on this backdrop. Driver: AI capex spending scrutiny + Warsh FOMC hawkishness being repriced into real-money bond markets.</p>
+    </div>
+    <div class="story-box">
+      <h4 class="geo">🕊️ Story 2: Iran De-escalation</h4>
+      <p>Slow, steady, on track. Washington Lebanon talks (June 23–25): VP Vance reports "great progress in just a few hours." De-confliction cell agreed for Lebanon. <strong>Hormuz hotline established</strong> (24-hour telephone line to prevent misunderstandings with transiting ships). 24+ commercial ships transited the Strait in the past 24 hours. WTI at <strong>~$73/bbl</strong> — no physical re-closure signal. US-Iran nuclear deal [HIGH] holding at 95%.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- KEY MOVES -->
+  <h2>Key Moves (Since 5PM Jun 23)</h2>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">45.5%</div>
+      <div class="delta down">−3pp overnight</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-med">MED</span>Hormuz traffic normal by July 31</div>
+      <div class="market-note">Fell from 48.5% (5PM Jun 23) → 45.5%. Calendar math tightening: 37 days to deadline, mine clearance needs 30–45 days (Day 5 of process). Paradox: positive Lebanon news (hotline, de-confliction cell) but market still drifted lower. Interpretation: market correctly prices "hotline ≠ mine clearance" — physical mines in water regardless of diplomatic progress. Lebanon "cannot be implemented without end of war" clause adds residual friction. 22.5pp above ↓23% collapse sentinel. WTI $73 cross-validates no physical re-closure.</div>
+    </div>
+  </div>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">24.6%</div>
+      <div class="delta">flat</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-high">HIGH</span>US Fed July 25bp hike</div>
+      <div class="market-note">Polymarket flat at 24.6% (10.4pp below ↑35% trigger). But real-money markets moved sharply: BofA hawkish note + 10Y UST 4.5% + KOSPI −10% chip selloff. Polymarket bettors haven't repriced yet — watch for US session catch-up today. PCE tomorrow (Jun 25) remains the binary gate: hot print (≥4.1% YoY) → hike surges to 28–30% (within 5–7pp of ↑35% trigger → AUD/ASX rate-sensitives hit). Cool print (≤3.8%) → retreats to 20–22%.</div>
+    </div>
+  </div>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">73.5%</div>
+      <div class="delta">flat</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-high">HIGH</span>US Fed July hold</div>
+      <div class="market-note">Flat at 73.5% (13.5pp above ↓60% trigger). Mirror of hike being flat. Hold remains base case. If PCE hot: hold drops to 68–70% (approaching 60% trigger). July 14 CPI is the next hard gate after PCE.</div>
+    </div>
+  </div>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">95.0%</div>
+      <div class="delta">flat</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-high">HIGH</span>US-Iran nuclear deal before 2027</div>
+      <div class="market-note">Stable at 95%. This is the ground truth anchor for the de-escalation narrative. MOU signed June 17 (Burgenstock ceremony June 19). 60-day HEU negotiation window active. No deterioration despite Lebanon friction.</div>
+    </div>
+  </div>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">13.5%</div>
+      <div class="delta">flat</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-low">LOW</span>US invades Iran before 2027</div>
+      <div class="market-note">Unchanged at 13.5% for 5+ sessions. Post-deal floor. Zero reaction to Lebanon friction or chip selloff. 6.5pp above ↓7% deep-floor sentinel. Nuclear deal [HIGH] at 95% is the overriding signal.</div>
+    </div>
+  </div>
+
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">46.5%</div>
+      <div class="delta">flat</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label"><span class="market-quality q-low">LOW</span>US military strike on Cuba by Dec 31</div>
+      <div class="market-note">Flat at 46.5%, 13.5pp below ↑60% trigger. No new catalyst. USS Nimitz Caribbean position unchanged. Not a near-term concern.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- KALSHI CROSS-REFERENCE -->
+  <h2>Kalshi Cross-Reference</h2>
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Price</th><th>Δ/24h</th><th>Trigger Gap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>US unemployment ≥10% before 2030</td><td>28%</td><td>flat</td><td>17pp below ↑45% stagflation trigger</td></tr>
+      <tr><td>US unemployment ≥7% before 2030</td><td>66%</td><td>flat</td><td>8pp below ↑74% ceiling trigger</td></tr>
+      <tr><td>US unemployment ≥20% before 2030</td><td>2%</td><td>flat</td><td>13pp below ↑15% depression sentinel</td></tr>
+      <tr><td>Trump resign</td><td>21%</td><td>+1pp</td><td>4pp below ↑25% trigger; 6pp above ↓15% floor</td></tr>
+    </tbody>
+  </table>
+  <p class="footnote">All Kalshi markets flat or noise-level. No stagflation repricing from tech selloff — labour markets still pricing slow-burn risk, not acute crisis.</p>
+
+  <hr class="divider">
+
+  <!-- OIL / AUSTRALIAN PETROL -->
+  <h2>Oil &amp; Australian Petrol</h2>
+  <div class="market-row">
+    <div class="price-badge">
+      <div class="price">~$73</div>
+      <div class="delta down">3-mth low</div>
+    </div>
+    <div class="market-info">
+      <div class="market-label">WTI (proxy for Brent) — Jun 23 close</div>
+      <div class="market-note">WTI traded $72.50–$74.44 on June 23, closing near $73 — a 3-month low. Dual drivers: Iran 60-day oil sales licence (granted under MOU sanctions-relief clause) adding ~200–300kb/d to supply expectations, and confirmed Hormuz commercial transits continuing (~24+ ships/day, vs 95/day pre-crisis). Brent is the correct benchmark for Australian fuel (WTI here is a proxy; Brent typically $2–3 premium). Implied Australian petrol: ~A$1.88–1.98/L at current Brent. The A$2.00+/L structural floor from peak-crisis is now decisively broken. Floor shifts to ~A$1.85–1.95/L unless Lebanon creates a new disruption spike.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CROSS-MARKET COHERENCE -->
+  <h2>Cross-Market Coherence</h2>
+  <div class="coherence">
+    ✅ Full coherence — no contradictions. Iran invasion 13.5% [LOW] + nuclear deal 95% [HIGH] (ground truth) + WTI $73 (no spike = no physical closure) + Hormuz hotline established + 24+ ships transiting + US Lebanon talks "great progress." All consistent with: MOU intact, slow mine clearance progress, Lebanon as residual friction. Tech selloff is an independent monetary story — KOSPI −10% and Micron −12% reflect AI capex scrutiny + Warsh hawkishness, <strong>not</strong> Iran/oil risk.
+  </div>
+
+  <hr class="divider">
+
+  <!-- FORWARD VIEW -->
+  <h2>Forward View</h2>
+  <div class="alert-box amber">
+    <div class="label yellow">⚠️ Critical event tomorrow</div>
+    <p><strong>Thursday June 25 — US May PCE (8:30 PM AEST):</strong> The single most important data point this week. Wells Fargo forecast: +0.5% MoM, 4.1% YoY. <strong>Hot print (≥4.1%)</strong>: Fed July hike surges to 28–30%, within 5–7pp of the ↑35% trigger — AUD/USD faces headwinds as US-Australia yield differential widens, ASX rate-sensitives sell off. <strong>Cool print (≤3.8%)</strong>: hike recedes to 20–22%, tech bounce, hold recovers 75–77%. The bond market is already positioned hawkishly (10Y UST at 4.5%); Polymarket at 24.6% looks cheap on a hot PCE scenario.</p>
+  </div>
+
+  <div class="alert-box blue">
+    <div class="label blue">🌊 Hormuz calendar — tightening</div>
+    <p><strong>37 days to July 31 deadline. Mine clearance Day 5 of 30–45 day process.</strong> To hit IMF Portwatch "normal traffic" threshold (60+ ship 7-day MA) by July 31, mines must be cleared by ~July 19. Washington Lebanon talks (Jun 23–25) produced a Hormuz hotline and de-confliction cell — positive but not accelerating mine clearance. Watch for IMF Portwatch data update (expected Jun 24–27) for first independent mine-clearance progress signal. If Portwatch shows traffic at 30+ ships/day by end of week, Hormuz recovers above 55%. If below 15 ships/day, market prices increasing NO probability.</p>
+  </div>
+
+  <div class="alert-box green">
+    <div class="label green">🕊️ Lebanon talks — monitor</div>
+    <p>Washington June 23–25 talks: de-confliction cell agreed, Hormuz hotline operational. Vance "great progress." But Iran's deputy foreign minister stated publicly: "the peace agreement cannot be implemented unless the war in Lebanon ends." This remains the single most important gating condition for Hormuz mine clearance to proceed on schedule. Any breakthrough in Lebanon ceasefire at these talks → Hormuz recovers 50–55%. Any new IDF-Hezbollah incident → Hormuz drifts further toward 40%.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- AUSTRALIAN MARKET IMPACT -->
+  <h2>Australian Market Implications</h2>
+  <table>
+    <thead>
+      <tr><th>Asset/Sector</th><th>Direction</th><th>Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ASX tech/growth (XRO, etc.)</td><td>↓ Headwind</td><td>Nasdaq −2.1%, KOSPI −9.99% — contagion risk at Wednesday open</td></tr>
+      <tr><td>ASX rate-sensitives (REITs, utilities)</td><td>↓ Headwind</td><td>10Y UST 4.5% + BofA hike note = higher-for-longer repricing</td></tr>
+      <tr><td>QAN / logistics / retailers</td><td>✅ Tailwind</td><td>WTI $73 → fuel cost relief continuing; petrol A$1.88–1.95/L floor</td></tr>
+      <tr><td>AUD/USD</td><td>↓ Mild headwind</td><td>US-AU yield differential widening if US 10Y holds 4.5%; PCE tomorrow the gate</td></tr>
+      <tr><td>Energy (WDS, STO)</td><td>→ Neutral</td><td>Oil declining (de-escalation premium unwinding) but production levels intact</td></tr>
+      <tr><td>Australian petrol consumers</td><td>✅ Positive</td><td>A$1.88–1.95/L floor is ~20–25c/L below peak-crisis level; sustained if Lebanon holds</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+
+  <h2>Actions Taken</h2>
+  <ul style="color:#94a3b8; font-size:0.88rem; padding-left:20px; line-height:2;">
+    <li>Trigger updates: Fed July hike (BofA note + 10Y 4.5% noted; PCE gate confirmed), Fed July hold (mirror), Hormuz collapse sentinel (−3pp overnight, calendar math updated, Lebanon hotline context added)</li>
+    <li>No threshold changes required — 0 triggers fired</li>
+    <li>New markets discovered: MrBeast subscriber markets, FIFA World Cup shirt brand — all dismissed as entertainment</li>
+    <li>Daily report written: <code>reports/daily/2026-06-24-DAILY-7AM-CHIP-SELLOFF-PCE-EVE-HORMUZ-DRIFT.html</code></li>
+  </ul>
+
+  <div class="footer">
+    <p>Generated 2026-06-24 07:05 AEST · Data sources: Polymarket (13 triggers, 177 tracked markets), Kalshi (315 markets, 52 events), web news (TheStreet, CNN, Reuters via WebSearch). Oil price: WTI (proxy for Brent — correct benchmark for Australian fuel). Report references: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-23-2026" style="color:#3b82f6;">TheStreet June 23</a> · <a href="https://money.usnews.com/investing/news/articles/2026-06-23/nasdaq-futures-fall-2-on-tech-worries-fed-hike-bets" style="color:#3b82f6;">USNews Tech Selloff</a> · <a href="https://www.cnn.com/2026/06/23/world/live-news/iran-war-trump-lebanon-israel" style="color:#3b82f6;">CNN Live: Lebanon/Iran June 23</a></p>
+  </div>
+
+</div>
+</body>
+</html>
