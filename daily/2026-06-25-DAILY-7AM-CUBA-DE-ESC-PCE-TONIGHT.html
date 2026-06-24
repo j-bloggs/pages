@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 25 Jun 7AM AEST | Cuba −7pp; PCE Tonight</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px 22px; }
+  .header-meta { font-size: 11px; color: #718096; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f7fafc; margin-bottom: 6px; }
+  .header .subtitle { font-size: 14px; color: #a0aec0; }
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 32px; }
+  .summary-box { background: #1a1f2e; border: 1px solid #2d3748; border-left: 4px solid #4299e1; border-radius: 6px; padding: 18px 20px; margin-bottom: 24px; }
+  .summary-box p { font-size: 14px; color: #cbd5e0; line-height: 1.7; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #718096; margin: 28px 0 12px; border-bottom: 1px solid #2d3748; padding-bottom: 6px; }
+  .trigger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .trigger-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 14px 16px; }
+  .trigger-card.ok { border-left: 3px solid #2f855a; }
+  .trigger-card .label { font-size: 11px; color: #a0aec0; margin-bottom: 4px; }
+  .trigger-card .price { font-size: 20px; font-weight: 700; color: #f7fafc; }
+  .trigger-card .delta { font-size: 12px; margin-top: 2px; }
+  .trigger-card .gap { font-size: 11px; color: #718096; margin-top: 3px; }
+  .delta-pos { color: #68d391; }
+  .delta-neg { color: #fc8181; }
+  .delta-flat { color: #718096; }
+  .story { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 6px; padding: 18px 20px; margin-bottom: 12px; }
+  .story-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .story-num { background: #2d3748; color: #a0aec0; font-size: 11px; font-weight: 700; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .story-title { font-size: 15px; font-weight: 600; color: #f7fafc; }
+  .story-body { font-size: 13px; color: #cbd5e0; line-height: 1.7; }
+  .story-body p + p { margin-top: 8px; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
+  .badge-high { background: #276749; color: #9ae6b4; }
+  .badge-med { background: #744210; color: #fbd38d; }
+  .badge-low { background: #44337a; color: #d6bcfa; }
+  .key-move { border-left: 3px solid #4299e1; padding: 10px 14px; margin: 6px 0; background: #171c2a; border-radius: 0 4px 4px 0; font-size: 13px; color: #cbd5e0; line-height: 1.6; }
+  .key-move strong { color: #f7fafc; }
+  .xmkt { background: #1a2535; border: 1px solid #2d4a6e; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; }
+  .xmkt-title { font-size: 11px; font-weight: 700; color: #63b3ed; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .xmkt ul { list-style: none; padding: 0; }
+  .xmkt ul li { font-size: 13px; color: #a0aec0; padding: 2px 0; }
+  .xmkt ul li::before { content: "→ "; color: #4299e1; }
+  .forward { background: #1a2535; border: 1px solid #2d4a6e; border-radius: 6px; padding: 18px 20px; }
+  .forward-title { font-size: 11px; font-weight: 700; color: #63b3ed; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .forward ul { list-style: none; padding: 0; }
+  .forward ul li { font-size: 13px; color: #cbd5e0; padding: 4px 0 4px 16px; position: relative; }
+  .forward ul li::before { content: "▶"; font-size: 9px; color: #4299e1; position: absolute; left: 0; top: 6px; }
+  .footer { text-align: center; font-size: 11px; color: #4a5568; padding: 24px 0 32px; border-top: 1px solid #2d3748; margin-top: 32px; }
+  .pce-banner { background: linear-gradient(135deg, #1a2535, #1a1f2e); border: 1px solid #4299e1; border-radius: 6px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .pce-icon { font-size: 22px; }
+  .pce-text { font-size: 13px; color: #a0aec0; }
+  .pce-text strong { color: #63b3ed; }
+  @media (max-width: 600px) { .trigger-grid { grid-template-columns: 1fr; } .container { padding: 16px; } }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Macro Briefing &nbsp;·&nbsp; Thursday 25 June 2026 &nbsp;·&nbsp; 07:00 AEST</div>
+  <h1>Cuba −7pp De-escalation; PCE Tonight at 10:30PM</h1>
+  <div class="subtitle">13 triggers watching · 0 fired · Iran complex stable · All-clear pre-print</div>
+</div>
+
+<div class="container">
+
+  <div class="pce-banner">
+    <div class="pce-icon">⏳</div>
+    <div class="pce-text">
+      <strong>US May PCE releases TONIGHT 10:30PM AEST (8:30AM EDT)</strong> — the week's only hard catalyst. April core PCE was 3.3% YoY. Fed July hike at 23.1% (11.9pp below ↑35% trigger) going into the print.
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <p>Cuba's military-strike market fell from 46.5% to 39.5% (−7pp) during the US session yesterday — the most significant overnight move — with no single catalyst identified. The likely driver is the ongoing compression of "Trump military action" risk premia as the Iran deal framework beds in: when the dominant geopolitical risk unwinds, satellite risk markets deflate alongside it. The Iran complex itself is stable: invasion at 13.5%, nuclear deal [HIGH] at 82%, WTI at ~$72-73/bbl. The Fed hike market drifted slightly lower pre-PCE (23.1%, −1.5pp from yesterday). PCE hasn't been released yet — it comes out tonight — so this drift is positioning noise, not a data reaction. Hormuz added +1pp to 46.5% overnight (noise), while calendar pressure (36 days to July 31, mine clearance Day 6) and IAEA/Lebanon friction remain structural.</p>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section-title">Trigger Status — 13 Watching, 0 Fired</div>
+
+  <div class="trigger-grid">
+    <div class="trigger-card ok">
+      <div class="label">[LOW] Iran Invasion 2027</div>
+      <div class="price">13.5%</div>
+      <div class="delta delta-flat">Flat 5+ sessions</div>
+      <div class="gap">3.5pp above ↓10% deep-floor sentinel</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">[MED] Hormuz July 31</div>
+      <div class="price">46.5%</div>
+      <div class="delta delta-pos">+1pp overnight</div>
+      <div class="gap">23.5pp above ↓23% collapse sentinel</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">[HIGH] Fed July Hike 25bp</div>
+      <div class="price">23.1%</div>
+      <div class="delta delta-neg">−1.5pp/24h (pre-PCE drift)</div>
+      <div class="gap">11.9pp below ↑35% live-meeting trigger</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">[HIGH] Fed July Hold</div>
+      <div class="price">75.5%</div>
+      <div class="delta delta-flat">Flat</div>
+      <div class="gap">15.5pp above ↓60% trigger</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">[LOW] Cuba Strike Dec 31</div>
+      <div class="price">39.5%</div>
+      <div class="delta delta-neg">−7pp since Jun 23</div>
+      <div class="gap">20.5pp below ↑60% trigger</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">China Invades Taiwan 2026</div>
+      <div class="price">5.9%</div>
+      <div class="delta delta-flat">Flat</div>
+      <div class="gap">9.2pp below ↑15% trigger</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">Kalshi: US ≥10% Unemployment</div>
+      <div class="price">28%</div>
+      <div class="delta delta-flat">Flat</div>
+      <div class="gap">17pp below ↑45% stagflation trigger</div>
+    </div>
+    <div class="trigger-card ok">
+      <div class="label">Kalshi: US ≥7% Unemployment</div>
+      <div class="price">66%</div>
+      <div class="delta delta-flat">Flat</div>
+      <div class="gap">8pp below ↑74% ceiling trigger</div>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section-title">Key Moves Since Last Report</div>
+
+  <div class="key-move">
+    <strong><span class="badge badge-low">LOW</span> Cuba Military Strike Dec 31: fell from 46.5% → 39.5% (−7pp since Jun 23)</strong><br>
+    Gradual decline during US session Jun 24 (−3.5pp spike at ~08:45AM EDT, then continued drift). No single catalyst. Consistent with "Trump military action" risk premium compression as Iran deal framework normalises. Cuba bilateral talks ongoing since March (CIA Dir Ratcliffe visited Havana May 2026; Díaz-Canel confirmed talks publicly). 20.5pp below ↑60% trigger. Cross-market: no commodity or FX reaction to confirm escalation concern.
+  </div>
+
+  <div class="key-move">
+    <strong><span class="badge badge-high">HIGH</span> US Fed July Hike: fell from ~24.4% → 23.1% (−1.5pp pre-PCE drift)</strong><br>
+    No data reaction — PCE not released yet. Pre-print positioning or light profit-taking from the BofA-driven spike. Bond market remains hawkish (10Y UST ~4.5%), but Polymarket bettors have not caught up. The print tonight will resolve this tension. April core PCE: 3.3% YoY. Wells Fargo pre-PCE forecast: hot (+0.5% MoM, 4.1% YoY annualised from April). 11.9pp below ↑35% trigger.
+  </div>
+
+  <div class="key-move">
+    <strong><span class="badge badge-med">MED</span> Hormuz July 31: rose from 45.5% → 46.5% (+1pp overnight)</strong><br>
+    Noise-level recovery. Positive signal: Hormuz de-confliction hotline (24h phone line) established in Washington talks; 24+ ships transited past 24h per Vance. Negative structural: mines still in the water (hotline ≠ mine clearance), Lebanon ceasefire breach (Jun 24, 2 killed), IAEA inspection dispute ongoing. Calendar: 36 days to July 31, mine clearance Day 6 of 30-45 day process — window tight but technically open if Lebanon stabilises within a week.
+  </div>
+
+  <div class="key-move">
+    <strong><span class="badge badge-high">HIGH</span> US-Iran Nuclear Deal before 2027: 82% (stable)</strong><br>
+    The ground truth anchor of the entire macro complex. Flat to slightly positive despite IAEA dispute. Market treating the inspection-access disagreement as sequencing friction, not framework collapse. Invasion [LOW] 13.5% flat, WTI ~$72-73 (no spike) confirms no re-escalation. Cross-market coherence: full.
+  </div>
+
+  <!-- STORIES -->
+  <div class="section-title">Main Stories</div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-num">1</div>
+      <div class="story-title">Cuba De-escalation: The Iran Deal's Long Shadow</div>
+    </div>
+    <div class="story-body">
+      <p>The Cuba military-strike market's −7pp decline to 39.5% is the most notable overnight development, but it tells a broader story: the Iran deal framework is suppressing geopolitical risk premia across the entire complex, not just in the Middle East. When Iran (the anchor risk) prices near-zero invasion probability (13.5%), satellite confrontation markets — Cuba, Taiwan — naturally reprice lower as bettors reduce their aggregate "Trump starts another war" exposure.</p>
+      <p>Cuba's underlying fundamentals haven't changed meaningfully since last week. The USS Nimitz remains in the Caribbean, the DOJ Cuba-related indictments stand, and Cuba's economic crisis deepens (OHCHR reporting infant mortality up, food production down 60%). But the bilateral US-Cuba diplomatic track — confirmed meetings in March and the CIA Director's May visit to Havana — provides a de-escalation narrative that limits upside for the strike market.</p>
+      <p>At [LOW] resolution quality, this market resolves on "credibly reported" drone/missile/air strikes on Cuban soil. UMA token holders decide what counts. The current 39.5% is a risk premium, not a probability forecast in any rigorous sense. Still 20.5pp below our ↑60% escalation trigger. Watch if it stabilises near 40% or continues drifting toward 35% — the latter would signal the Iran de-escalation spillover is now fully absorbed.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-num">2</div>
+      <div class="story-title">PCE Tonight: The Week's Only Hard Catalyst</div>
+    </div>
+    <div class="story-body">
+      <p>US May PCE data releases at 10:30PM AEST tonight (8:30AM EDT, 25 June). This is the Fed's preferred inflation gauge. April core PCE was 3.3% YoY — still well above the 2% target, keeping the US Fed in its stagflation bind (can't cut with inflation this high, economy hasn't definitively slowed enough to force cuts either).</p>
+      <p>The Fed July hike market at 23.1% pre-print is 11.9pp below our ↑35% trigger. Three scenarios for tonight:</p>
+      <p><strong>Hot (≥3.5% core):</strong> Hike surges to 27-30%. Now within 5-8pp of ↑35% trigger. Warsh's hawkish dot-plot credibility reinforced. AUD/USD under pressure, ASX rate-sensitives sell off. If it reaches 3.6%+ (Warsh's revised target), trigger could fire within next 24-48h of continued market repricing.</p>
+      <p><strong>In-line (3.2-3.4%):</strong> Minimal repricing. Markets likely treat as status quo — hike stays 22-24%, trigger gap holds at 11-13pp. This is the base case given April's 3.3% and no obvious shock to May price data.</p>
+      <p><strong>Cool (≤3.1%):</strong> Hike falls to 20-22%. AUD relief rally, ASX rate-sensitives recover. This outcome would require notable deceleration in services inflation and is not the consensus expectation.</p>
+      <p>The bond market's hawkishness (10Y UST 4.5%) vs. Polymarket's more moderate pricing (23.1%) suggests real-money traders are positioned more hawkishly than prediction market bettors. A hot PCE print could see the markets converge sharply upward, potentially threatening the ↑35% trigger.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-num">3</div>
+      <div class="story-title">Hormuz: Calendar Math Tightening, But Framework Intact</div>
+    </div>
+    <div class="story-body">
+      <p>Hormuz sits at 46.5% — a market pricing just under 50/50 odds that the Strait returns to normal traffic by July 31. The +1pp overnight is noise. The structural story hasn't changed: 36 days to the resolution date, mine clearance Day 6 of a 30-45 day process, and Lebanon ceasefire breach creating implementation friction.</p>
+      <p>The IAEA inspection dispute adds a new layer: Iran rejected Vance's claim that Tehran agreed to UN inspector visits to bombed nuclear sites. Trump's response — "I will cut off talks if Iran doesn't agree to inspections" then "no rush on timing" — shows the negotiating posture is still relatively flexible. Market not re-escalating: nuclear deal [HIGH] 82% stable, WTI $72-73 (no spike).</p>
+      <p>The Hormuz paradox: positive diplomatic news (hotline, 24+ ships transiting, Washington talks) but the market at 46.5% reflects calendar reality. Even with perfect diplomatic alignment today, the physical mine-clearance process needs another 24-39 days minimum. Lebanon must also stabilise enough for implementation to begin — Iran's stated prerequisite. The market is correctly pricing the gap between diplomatic intent and physical reality.</p>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET -->
+  <div class="section-title">Cross-Market Coherence Check</div>
+
+  <div class="xmkt">
+    <div class="xmkt-title">De-escalation Narrative — Full Coherence</div>
+    <ul>
+      <li><strong>[LOW] Iran invasion 13.5%</strong> (flat) + <strong>[HIGH] nuclear deal 82%</strong> (stable) = ground truth: deal framework intact</li>
+      <li><strong>WTI ~$72-73/bbl</strong> (3-month low, no spike) = no physical disruption signal. Brent proxy ~$75-76/bbl → Australian petrol ~A$1.88-1.95/L</li>
+      <li><strong>Cuba −7pp</strong> = geopolitical risk premium compression, consistent with Iran de-escalation spillover</li>
+      <li><strong>Hormuz +1pp</strong> = noise, calendar constraint unchanged, Lebanon remains the critical path</li>
+      <li><strong>Fed hike 23.1%</strong> (pre-PCE drift) = monetary story completely independent of geopolitics; bond market more hawkish than Polymarket</li>
+      <li><strong>Kalshi unemployment buckets flat</strong> = no stagflation escalation beyond existing backdrop</li>
+    </ul>
+  </div>
+
+  <div class="xmkt" style="border-color: #2d4a6e; background: #141a27;">
+    <div class="xmkt-title" style="color: #a0aec0;">Australian Implications — Thursday 25 Jun</div>
+    <ul>
+      <li>ASX Thursday: regular trading day. Carries over global tech weakness from Tue/Wed (Nasdaq −2.1%), partially offset by stable commodities</li>
+      <li>Energy/resources: WTI $72-73 stable → QAN, WOW, COL, transport names benefit from sustained petrol relief (A$1.88-1.95/L vs. A$2.00+ crisis peak)</li>
+      <li>Rate-sensitives: pre-PCE caution. BofA hawkish note + 10Y UST 4.5% headwind → REITs, utilities face pressure until tonight's print</li>
+      <li>AUD/USD: mild headwind from US-AU yield differential; PCE tonight is the swing factor. Hot print → AUD/USD pressure; cool print → potential relief</li>
+      <li>Brent note: WTI is a proxy for Brent; Brent-WTI spread ~$3-4/bbl in current conditions. Australian wholesale fuel pricing tracks Brent</li>
+    </ul>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section-title">Forward View</div>
+
+  <div class="forward">
+    <div class="forward-title">What to Watch</div>
+    <ul>
+      <li><strong>TONIGHT 10:30PM AEST — US May PCE (THE event):</strong> Hot (≥3.5% core) → Fed hike surges toward 30%, potentially approaching ↑35% trigger within 1-2 days of further repricing. In-line (3.3%) → status quo. Cool (≤3.1%) → relief, AUD/ASX rate-sensitive recovery. This print sets the tone for the next 2 weeks of Warsh/Fed communications.</li>
+      <li><strong>Lebanon stabilisation timeline:</strong> Washington talks (Jun 23-25) concluded. Vance's "great progress" claim needs to be tested by whether the Lebanese ceasefire breach (Jun 24) was a one-off or a pattern. Lebanon is the gating condition for Hormuz mine-clearance implementation — every day of active violation extends the July 31 timeline.</li>
+      <li><strong>IMF Portwatch Hormuz traffic data:</strong> Expected Jun 24-27. First quantitative read on actual ship transits (vs. anecdotal "24+ ships"). If Portwatch shows ≥30 ships/day (vs 95 normal), Hormuz can recover above 50-55%. If it shows ≤15, calendar concerns accelerate.</li>
+      <li><strong>IAEA inspection sequencing:</strong> Trump's "no rush" suggests flexibility, but Iran's continued rejection of inspector access to bombed sites remains a technical blocker for the full nuclear deal. Watch for any announcement of an agreed inspection protocol — would send nuclear deal [HIGH] from 82% toward 87-90%.</li>
+      <li><strong>Cuba:</strong> Monitor whether the −7pp drift continues or stabilises near 37-38%. Further decline toward 35% = de-escalation narrative fully absorbed. Any re-escalation above 44-45% = new Cuba-specific catalyst warranting investigation.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Generated 25 Jun 2026 07:00 AEST &nbsp;·&nbsp; Polymarket Macro Analyst &nbsp;·&nbsp; Data: Polymarket + Kalshi
+  </div>
+
+</div>
+</body>
+</html>
