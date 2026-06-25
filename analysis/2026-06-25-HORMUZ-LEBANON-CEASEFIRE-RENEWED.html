@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket ALERT: Hormuz +10pp — Lebanon Ceasefire Renewed | 25 Jun 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 820px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a2a1a 0%, #1a1f2e 100%);
+    border: 1px solid #2d7a2d;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .alert-badge {
+    display: inline-block;
+    background: #2d7a2d;
+    color: #90ee90;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #90ee90;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .timestamp {
+    color: #64748b;
+    font-size: 13px;
+  }
+  .summary-box {
+    background: #1a2a1a;
+    border: 1px solid #2d7a2d;
+    border-left: 4px solid #4ade80;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .summary-box p {
+    color: #a7f3d0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .section {
+    background: #161b27;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2d3748;
+  }
+  .market-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #1e2535;
+  }
+  .market-row:last-child { border-bottom: none; }
+  .badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .badge-high { background: #1a3a1a; color: #4ade80; border: 1px solid #2d6a2d; }
+  .badge-med  { background: #2a2a1a; color: #fbbf24; border: 1px solid #5a4a10; }
+  .badge-low  { background: #2a1a1a; color: #f87171; border: 1px solid #6a2a2a; }
+  .market-info { flex: 1; }
+  .market-label { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
+  .market-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #4ade80;
+    line-height: 1.2;
+  }
+  .market-price.down { color: #f87171; }
+  .market-price.neutral { color: #94a3b8; }
+  .market-delta { font-size: 13px; color: #64748b; margin-top: 2px; }
+  .market-delta .up { color: #4ade80; font-weight: 600; }
+  .market-delta .dn { color: #f87171; font-weight: 600; }
+  .market-interp { font-size: 13px; color: #94a3b8; margin-top: 5px; line-height: 1.5; }
+  .catalyst-box {
+    background: #0f2010;
+    border: 1px solid #2d6a2d;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .catalyst-box h3 { font-size: 13px; font-weight: 700; color: #4ade80; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .catalyst-box p, .catalyst-box li { font-size: 14px; color: #a7f3d0; line-height: 1.6; margin-bottom: 6px; }
+  .catalyst-box ul { padding-left: 18px; }
+  .step-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a3520;
+  }
+  .step-row:last-child { border-bottom: none; }
+  .step-label {
+    flex-shrink: 0;
+    width: 64px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4ade80;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-top: 2px;
+  }
+  .step-content { font-size: 13px; color: #a7f3d0; line-height: 1.5; }
+  .warning-box {
+    background: #1a1a0f;
+    border: 1px solid #5a5a20;
+    border-left: 4px solid #fbbf24;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+  .warning-box p { font-size: 13px; color: #fde68a; }
+  .forward-box {
+    background: #141e2e;
+    border: 1px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .forward-box h3 { font-size: 13px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .forward-box li { font-size: 14px; color: #bfdbfe; line-height: 1.7; margin-bottom: 4px; padding-left: 4px; }
+  .forward-box ul { padding-left: 18px; }
+  .price-chart {
+    background: #0f1117;
+    border: 1px solid #2d3748;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #64748b;
+  }
+  .price-chart .val { color: #4ade80; font-weight: 700; }
+  .price-chart .old { color: #64748b; }
+  .triggers-table { width: 100%; border-collapse: collapse; }
+  .triggers-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4a5568;
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid #2d3748;
+  }
+  .triggers-table td {
+    font-size: 13px;
+    padding: 8px 8px;
+    border-bottom: 1px solid #1e2535;
+    color: #94a3b8;
+  }
+  .triggers-table td:first-child { color: #e2e8f0; font-weight: 500; }
+  .status-watching { color: #fbbf24; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #374151;
+    font-size: 12px;
+  }
+  .aus-box {
+    background: #1a1f2e;
+    border: 1px solid #2d3a5a;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .aus-box h3 { font-size: 13px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .aus-box li { font-size: 13px; color: #a5b4fc; line-height: 1.6; margin-bottom: 3px; }
+  .aus-box ul { padding-left: 18px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="alert-badge">🟢 De-escalation Alert</div>
+    <h1>Hormuz +10pp: Lebanon Ceasefire Renewed,<br>US-Iran Switzerland Talks Resume</h1>
+    <div class="timestamp">Thursday 25 June 2026 · 21:30 AEST · Alert-triggered run</div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <p>Israel and Hezbollah renewed their ceasefire on June 25 after the June 24 flare-up (Israeli strikes killed two in southern Lebanon). Iran had explicitly declared Hormuz "closed" on June 20, citing Lebanon fighting as its gating condition — with that fighting now paused, Iran's stated pretext collapses. US-Iran Switzerland talks, which were suspended during the Lebanon flare-up, have resumed. Hormuz surged from 48.5% at 5PM to 58.5% now (+10pp in ~4 hours), the largest single-session gain since the June 15 MOU cascade. PCE has not yet printed (due 22:30 AEST) — the rates picture is unresolved, but the geopolitical backdrop just turned materially more positive.</p>
+  </div>
+
+  <!-- Catalyst identification -->
+  <div class="catalyst-box">
+    <h3>🔍 Catalyst Identification (4-Step Protocol)</h3>
+    <div class="step-row">
+      <div class="step-label">Step A</div>
+      <div class="step-content"><strong>Resolution criteria:</strong> IMF Portwatch 7-day moving average of transit calls ≥ 60 by July 31. Quality: <strong>[HIGH]</strong> — specific quantitative IMF data threshold; not a UMA vote. Current Portwatch MA: ~5/day (June 21). CENTCOM reports ~55/day (includes military + commercial). Gap will close as AIS broadcasting normalises under ceasefire + deal framework.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-label">Step B</div>
+      <div class="step-content"><strong>Timing:</strong> Move was instantaneous and bracketed precisely. Portwatch data at 20:30 AEST: 49.5% (flat). At 20:45 AEST: 54.0% (+4.5pp). Then continued: 56.5% at 21:00, 58.5% at 21:15. Total: +9pp in 45 minutes. This is 1h45m before PCE (22:30 AEST) — not a rate move, entirely geopolitical.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-label">Step C</div>
+      <div class="step-content"><strong>Real-world catalyst (confirmed):</strong> Israel-Hezbollah <strong>renewed ceasefire June 25</strong> — 5th round of Lebanon talks (June 23-25) produced a renewed truce after June 24 flare-up. PBS NewsHour: "Israel and Hezbollah renew ceasefire after U.S. and Iran call off talks over fighting in Lebanon." Iran explicitly linked Hormuz closure to Lebanon fighting on June 20 — with ceasefire restored, Iran's stated condition is met. US-Iran Switzerland talks have now resumed.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-label">Step D</div>
+      <div class="step-content"><strong>Cross-market validation:</strong> WTI already broke below $70 (5PM: $69.13, −4.5%). A Hormuz improvement story is consistent with further oil supply normalisation. No contradiction. Iran invasion [LOW] at 13.5% (flat) — no escalation signal. Coherent complex: Lebanon ceasefire → Iran gating condition removed → Hormuz +10pp → oil supply premium further compressed.</div>
+    </div>
+  </div>
+
+  <!-- Price history box -->
+  <div class="price-chart">
+    Hormuz July 31 — intraday price ladder (AEST)<br><br>
+    <span class="old">20:15  49.5%  (+0.0pp)</span><br>
+    <span class="old">20:30  49.5%  (+0.0pp)  ← 5PM email price: 48.5%</span><br>
+    <span class="val">20:45  54.0%  (+4.5pp)  ← MOVE STARTS: Lebanon ceasefire renewed</span><br>
+    <span class="val">21:00  56.5%  (+2.5pp)</span><br>
+    <span class="val">21:15  58.5%  (+2.0pp)  ← current</span><br><br>
+    PCE due at 22:30 AEST — NOT YET RELEASED
+  </div>
+
+  <!-- Key Moves -->
+  <div class="section">
+    <h2>Key Market Moves</h2>
+
+    <div class="market-row">
+      <span class="badge badge-high">HIGH</span>
+      <div class="market-info">
+        <div class="market-label">Hormuz traffic normal by July 31</div>
+        <div class="market-price">58.5%</div>
+        <div class="market-delta">rose from <span class="dn">48.5%</span> (5PM) → <span class="up">58.5%</span> now &nbsp;(<span class="up">+10.0pp</span> in ~4h)</div>
+        <div class="market-interp">Lebanon ceasefire renewed; Iran's stated gating condition removed; US-Iran Switzerland talks resumed. 11.5pp below ↑70% mine-clearance trigger. Physical clearance timeline: 40-50 days optimistic (BIMCO), calendar crunch to July 31 remains. But probabilistic market (+10pp) reflects removal of the political blocker that was depressing the market this week from ~60% to ~45%.</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="badge badge-med">OIL</span>
+      <div class="market-info">
+        <div class="market-label">WTI crude (proxy Brent for Australia)</div>
+        <div class="market-price down">~$69.13/bbl</div>
+        <div class="market-delta">fell from <span class="dn">$72.35</span> (yesterday) → <span class="dn">$69.13</span> (5PM, −$3.22) — lowest since late Feb</div>
+        <div class="market-interp">Hormuz improvement adds further supply-normalisation pressure on oil. Brent proxy ~$71-73/bbl. Australian petrol floor: A$1.80–1.88/L — meaningfully below A$2.00–2.15/L blockade peak. WDS/STO headwind; QAN/logistics tailwind sustained.</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="badge badge-high">HIGH</span>
+      <div class="market-info">
+        <div class="market-label">US Fed July 25bp hike</div>
+        <div class="market-price neutral">23.2%</div>
+        <div class="market-delta">essentially flat all day (pre-PCE stasis) — <span style="color:#fbbf24">PCE due 22:30 AEST TONIGHT</span></div>
+        <div class="market-interp">PCE is the separate story — prediction markets imply 0.2% MoM core (benign). This report covers the geopolitical move; the rate story resolves in ~70 minutes. 11.8pp below ↑35% live-meeting trigger.</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="badge badge-low">LOW</span>
+      <div class="market-info">
+        <div class="market-label">US invades Iran before 2027</div>
+        <div class="market-price neutral">13.5%</div>
+        <div class="market-delta">flat — 5+ sessions unchanged — post-deal floor</div>
+        <div class="market-interp">No escalation signal whatsoever. Fully coherent with Lebanon ceasefire renewal and Hormuz recovery. The 13.5% tail reflects residual Netanyahu defiance risk and 60-day MOU execution risk only.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warning: PCE pending -->
+  <div class="warning-box">
+    <p>⏳ <strong>PCE not yet released.</strong> US May core PCE is due at 22:30 AEST (8:30 AM EDT). Prediction markets imply 0.2% MoM (benign vs April's 0.4%). A cool print would push the Fed July hike further from 23.2% and give AUD/USD a second tailwind alongside tonight's Hormuz improvement. A hot print (≥0.3% MoM) would partially offset the positive geopolitical read. Monitor separately — this alert covers the geopolitical catalyst only.</p>
+  </div>
+
+  <!-- Structural context -->
+  <div class="section">
+    <h2>Structural Context: What Needs to Happen for July 31 to Resolve YES</h2>
+    <p style="font-size:14px; color:#94a3b8; line-height:1.7; margin-bottom:12px;">
+      IMF Portwatch currently shows <strong>~5 commercial transits/day</strong> (June 21 data). For the 7-day MA to hit ≥60 by July 31, transits need to surge roughly 12× from today's commercial baseline. That sounds extreme — but:
+    </p>
+    <ul style="padding-left:20px; margin-bottom:0;">
+      <li style="font-size:13px; color:#94a3b8; line-height:1.7; margin-bottom:5px;"><strong>CENTCOM reports ~55/day</strong> (includes military escorts + commercial, but commercial is picking up). Bloomberg June 23: "Hormuz Traffic Picks Up as More Tankers Broadcast Crossings" — AIS broadcasting is the variable. Ships that were going dark are starting to signal.</li>
+      <li style="font-size:13px; color:#94a3b8; line-height:1.7; margin-bottom:5px;"><strong>Mine clearance Day ~9 of 40-50</strong>. Lebanon ceasefire renewal removes the political blocker that was preventing Iran from cooperating on mine removal. If Iran now engages with CENTCOM on clearing coordinates, timeline could compress.</li>
+      <li style="font-size:13px; color:#94a3b8; line-height:1.7; margin-bottom:5px;"><strong>Key risk:</strong> Iran's dual transit regime (northern IRGC corridor vs US southern route) still contested. War-risk insurance at 1.2% premium. BIMCO says strait remains "highly risky."</li>
+      <li style="font-size:13px; color:#94a3b8; line-height:1.7;">Market at 58.5% = ~59% probability the MA hits 60 by July 31. Tonight's +10pp reflects Lebanon gating-condition removal, not mine clearance completion. The physical constraint is unchanged — only the political constraint relaxed.</li>
+    </ul>
+  </div>
+
+  <!-- Triggers status -->
+  <div class="section">
+    <h2>Active Triggers — Status</h2>
+    <table class="triggers-table">
+      <tr>
+        <th>Trigger</th>
+        <th>Current</th>
+        <th>Threshold</th>
+        <th>Gap</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>Hormuz — mine clearance progress (↑70%)</td>
+        <td>58.5%</td>
+        <td>fires at ↑70%</td>
+        <td>11.5pp below trigger</td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Hormuz — de-escalation confirmation (↑85%)</td>
+        <td>58.5%</td>
+        <td>fires at ↑85%</td>
+        <td>26.5pp below trigger</td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Hormuz — secondary collapse (↓23%)</td>
+        <td>58.5%</td>
+        <td>fires at ↓23%</td>
+        <td>35.5pp above trigger</td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Iran invasion floor (↓10%)</td>
+        <td>13.5%</td>
+        <td>fires at ↓10%</td>
+        <td>3.5pp above trigger</td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+      <tr>
+        <td>US Fed July hike (↑35%)</td>
+        <td>23.2%</td>
+        <td>fires at ↑35%</td>
+        <td>11.8pp below trigger — <strong>PCE TONIGHT</strong></td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+      <tr>
+        <td>Cuba military strike (↑60%)</td>
+        <td>39.5%</td>
+        <td>fires at ↑60%</td>
+        <td>20.5pp below trigger</td>
+        <td><span class="status-watching">Watching</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Australian implications -->
+  <div class="aus-box" style="margin-bottom:20px;">
+    <h3>🇦🇺 Australian Market Implications</h3>
+    <ul>
+      <li><strong>Petrol prices:</strong> WTI ~$69/bbl (Brent proxy ~$71-73/bbl) → A$1.80–1.88/L bowser estimate. Continued improvement vs blockade peak of A$2.00–2.15/L. Costco/Coles/Woolworths cycle prices likely reflecting this by mid-July.</li>
+      <li><strong>ASX Friday (Jun 27 — confirm trading day):</strong> Energy names (WDS, STO, Beach) face mild oil headwinds; consumer discretionary and airlines (QAN, REX) benefit from lower fuel costs. Rate-sensitives depend on PCE print tonight.</li>
+      <li><strong>AUD/USD dual tailwind scenario:</strong> Lebanon ceasefire + Hormuz improvement → risk-on. Cool PCE → Fed hike pressure eases. Both together = AUD positive. Hot PCE = rate headwind offsets geopolitical tailwind.</li>
+      <li><strong>WTI uses Brent as the correct Australian benchmark</strong> (Brent-WTI spread typically $2-4/bbl). WTI at $69.13 implies Brent ~$71.5-73. All Australian petrol estimates use this proxy.</li>
+    </ul>
+  </div>
+
+  <!-- Forward view -->
+  <div class="forward-box">
+    <h3>📡 What to Watch</h3>
+    <ul>
+      <li><strong>Tonight 22:30 AEST — US May PCE:</strong> Separate story from this alert. Prediction markets: 0.2% MoM core (benign). Cool print = dual tailwind (Hormuz + rates). Hot print = partial offset. Will dominate tomorrow morning.</li>
+      <li><strong>Lebanon ceasefire durability:</strong> This is the hinge. If Israel-Hezbollah fighting restarts, Iran reinstates Hormuz gating condition immediately. Watch IDF statements on southern Lebanon buffer zone — that's the flashpoint.</li>
+      <li><strong>IMF Portwatch June 24-25 data:</strong> Expected to update by June 27. First quantitative read on whether AIS broadcasting is recovering. If the 7-day MA crosses 20+, July 31 market could surge toward 70-75%.</li>
+      <li><strong>US-Iran Switzerland talks:</strong> Now resumed. Watch for: IAEA inspection agreement (unlocks full deal framework), HEU stockpile modality progress, and mine-clearance cooperation communiqué.</li>
+      <li><strong>Hormuz ↑70% trigger (11.5pp away):</strong> A second leg of recovery would put this at risk. Monitor mine-clearance reports and Portwatch data closely next 48-72h.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Polymarket Analyst · Alert Report · 25 Jun 2026 21:30 AEST<br>
+    Sources: <a href="https://www.pbs.org/newshour/world/israel-and-hezbollah-renew-ceasefire-after-u-s-and-iran-call-off-talks-over-fighting-in-lebanon" style="color:#4a5568;">PBS NewsHour</a> ·
+    <a href="https://www.timesofisrael.com/israel-and-hezbollah-renew-ceasefire-after-flare-up-but-idf-to-stay-in-southern-lebanon/" style="color:#4a5568;">Times of Israel</a> ·
+    <a href="https://www.bloomberg.com/news/articles/2026-06-23/hormuz-traffic-picks-up-as-more-tankers-cross-with-open-signals" style="color:#4a5568;">Bloomberg</a> ·
+    <a href="https://portwatch.imf.org/pages/chokepoint6" style="color:#4a5568;">IMF PortWatch</a>
+  </div>
+
+</div>
+</body>
+</html>
