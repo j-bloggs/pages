@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily: 26 Jun 7AM — Hormuz Coin-Flip; PCE Done; IRGC Route Authority</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 28px 32px 24px; }
+  .header-meta { font-size: 12px; color: #718096; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f7fafc; margin-bottom: 10px; }
+  .header .subtitle { font-size: 14px; color: #a0aec0; max-width: 760px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 32px 48px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #718096; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2d3748; }
+  .trigger-grid { display: grid; gap: 8px; }
+  .trigger-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .trigger-card.ok { border-left: 3px solid #38a169; }
+  .trigger-card.watch { border-left: 3px solid #d69e2e; }
+  .trigger-card.fired { border-left: 3px solid #e53e3e; }
+  .trigger-card.calm { border-left: 3px solid #3182ce; }
+  .tc-main { flex: 1; }
+  .tc-label { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+  .tc-detail { font-size: 12px; color: #a0aec0; margin-top: 3px; }
+  .tc-price { font-size: 18px; font-weight: 700; color: #f7fafc; text-align: right; min-width: 64px; }
+  .tc-gap { font-size: 11px; color: #718096; text-align: right; margin-top: 3px; }
+  .move-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 18px; margin-bottom: 10px; }
+  .move-card.primary { border-color: #4a5568; }
+  .move-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .move-title { font-size: 14px; font-weight: 600; color: #f7fafc; flex: 1; }
+  .move-price { font-size: 20px; font-weight: 700; }
+  .move-delta { font-size: 13px; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+  .delta-down { color: #fc8181; background: rgba(252,129,129,0.12); }
+  .delta-up { color: #68d391; background: rgba(104,211,145,0.12); }
+  .delta-flat { color: #a0aec0; background: rgba(160,174,192,0.10); }
+  .move-body { font-size: 13px; color: #a0aec0; }
+  .move-body strong { color: #cbd5e0; }
+  .quality-badge { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-high { background: #22543d; color: #9ae6b4; }
+  .q-med { background: #744210; color: #f6e05e; }
+  .q-low { background: #2a4365; color: #90cdf4; }
+  .insight-box { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+  .insight-box.highlight { border-color: #4a5568; background: #1c2035; }
+  .insight-title { font-size: 12px; font-weight: 700; color: #a0aec0; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .insight-body { font-size: 13px; color: #a0aec0; }
+  .insight-body strong { color: #e2e8f0; }
+  .forward-list { list-style: none; padding: 0; }
+  .forward-list li { font-size: 13px; color: #a0aec0; padding: 8px 0; border-bottom: 1px solid #1a2030; display: flex; gap: 10px; align-items: flex-start; }
+  .forward-list li:last-child { border-bottom: none; }
+  .forward-list li::before { content: '→'; color: #4a5568; flex-shrink: 0; margin-top: 1px; }
+  .forward-list li strong { color: #e2e8f0; }
+  .coin-flip-banner { background: linear-gradient(135deg, #2d1f00, #1a1000); border: 1px solid #744210; border-radius: 10px; padding: 20px 22px; margin-bottom: 24px; }
+  .coin-flip-banner h2 { font-size: 16px; font-weight: 700; color: #f6e05e; margin-bottom: 10px; }
+  .coin-flip-banner p { font-size: 13px; color: #c8a96e; line-height: 1.7; }
+  .coin-flip-banner p strong { color: #f6e05e; }
+  .cf-meter { display: flex; align-items: center; gap: 8px; margin: 14px 0; }
+  .cf-bar { flex: 1; height: 12px; background: #1a1000; border-radius: 6px; overflow: hidden; }
+  .cf-fill { height: 100%; background: linear-gradient(90deg, #e53e3e, #d69e2e); border-radius: 6px; width: 51.5%; }
+  .cf-labels { display: flex; justify-content: space-between; font-size: 11px; color: #a0aec0; }
+  .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .stat-pill { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 20px; padding: 6px 14px; font-size: 12px; color: #a0aec0; }
+  .stat-pill strong { color: #e2e8f0; }
+  footer { text-align: center; font-size: 11px; color: #4a5568; padding: 24px 32px; border-top: 1px solid #1a2030; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Polymarket Daily Briefing · Friday 26 June 2026 · 07:00 AEST</div>
+  <h1>Hormuz at the Coin-Flip · PCE Done · IRGC Route Authority</h1>
+  <div class="subtitle">The Lebanon ceasefire bounce has been fully erased. Hormuz sits at 51.5% —
+  effectively a market that can no longer decide. PCE came in benign, the Fed hike is drifting lower,
+  and Switzerland technical talks are set to resume Tuesday. The question is whether Ghalibaf's
+  "Hormuz will never return" changes the fundamental bet.</div>
+</div>
+
+<div class="container">
+
+  <!-- HEADLINE BANNER -->
+  <div class="coin-flip-banner">
+    <h2>⚖ Hormuz July 31: 51.5% — the market can't decide</h2>
+    <p>
+      In the 24 hours since last night's Hormuz alert (+10pp on Lebanon ceasefire), the market has
+      round-tripped and then some. The Oman-IMO corridor announcement briefly pushed to <strong>69.5%</strong>
+      before the IRGC killed it — "unacceptable and dangerous." By this morning the bounce has
+      been completely erased. We're now 7pp below the <strong>58.5%</strong> in last night's email.<br><br>
+      More significantly, Iran's chief negotiator Ghalibaf has confirmed what the IRGC veto implies:
+      <strong>"Hormuz will never return to its pre-war status."</strong> Iran will "fully comply with
+      international law" — but it intends to administer the strait differently. The 60-day fee waiver
+      during talks signals what comes after: Iranian-controlled toll regime. This is a structural
+      re-framing, not just a navigation dispute.
+    </p>
+    <div class="cf-meter">
+      <span style="font-size:12px;color:#a0aec0;">NO (48.5%)</span>
+      <div class="cf-bar"><div class="cf-fill"></div></div>
+      <span style="font-size:12px;color:#a0aec0;">YES (51.5%)</span>
+    </div>
+    <div class="cf-labels">
+      <span>Mines not cleared / route dispute / July 31 miss</span>
+      <span>Clearance on track + Switzerland deal</span>
+    </div>
+  </div>
+
+  <!-- TRIGGER STATUS -->
+  <div class="section">
+    <div class="section-title">Trigger Status — 13 Watching, 0 Fired</div>
+    <div class="trigger-grid">
+      <div class="trigger-card watch">
+        <div class="tc-main">
+          <div class="tc-label">🌊 Hormuz July 31 — Mine-Clearance Progress (↑70%)</div>
+          <div class="tc-detail">IRGC route authority dispute adds structural layer beyond physical clearance</div>
+        </div>
+        <div>
+          <div class="tc-price" style="color:#d69e2e;">51.5%</div>
+          <div class="tc-gap">18.5pp below trigger</div>
+        </div>
+      </div>
+      <div class="trigger-card ok">
+        <div class="tc-main">
+          <div class="tc-label">💣 Iran Invasion 2027 — Near-Zero Floor (↓10%)</div>
+          <div class="tc-detail">Flat for 7 consecutive sessions; WTI $69 validates no re-escalation</div>
+        </div>
+        <div>
+          <div class="tc-price" style="color:#68d391;">13.5%</div>
+          <div class="tc-gap">3.5pp above threshold</div>
+        </div>
+      </div>
+      <div class="trigger-card calm">
+        <div class="tc-main">
+          <div class="tc-label">📈 US Fed July Hike (↑35% = meeting becomes live)</div>
+          <div class="tc-detail">Post-PCE normalization complete; hike odds continue deflating</div>
+        </div>
+        <div>
+          <div class="tc-price" style="color:#90cdf4;">17.4%</div>
+          <div class="tc-gap">17.6pp below trigger</div>
+        </div>
+      </div>
+      <div class="trigger-card calm">
+        <div class="tc-main">
+          <div class="tc-label">🏦 US Fed July Hold (↓60% = hold collapses)</div>
+          <div class="tc-detail">PCE in-line; hold firmly base case at 79.5%</div>
+        </div>
+        <div>
+          <div class="tc-price" style="color:#90cdf4;">79.5%</div>
+          <div class="tc-gap">19.5pp above threshold</div>
+        </div>
+      </div>
+      <div class="trigger-card ok">
+        <div class="tc-main">
+          <div class="tc-label">🇨🇺 Cuba Military Strike (↑60%)</div>
+          <div class="tc-detail">Geopolitical risk premium compression trend intact</div>
+        </div>
+        <div>
+          <div class="tc-price" style="color:#68d391;">39.5%</div>
+          <div class="tc-gap">20.5pp below trigger</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY MOVES -->
+  <div class="section">
+    <div class="section-title">Key Moves Since Last Report (01:22 AEST)</div>
+
+    <div class="move-card primary">
+      <div class="move-header">
+        <span class="quality-badge q-high">HIGH</span>
+        <div class="move-title">Hormuz Traffic by July 31</div>
+        <div class="move-price" style="color:#d69e2e;">51.5%</div>
+        <div class="move-delta delta-down">−7pp</div>
+      </div>
+      <div class="move-body">
+        Fell from <strong>58.5%</strong> (last email 01:22 AEST) → <strong>51.5%</strong> as the Lebanon
+        ceasefire bounce was erased by two developments. First, the IRGC veto of the Oman-IMO corridor
+        (reported in last night's alert) continued to weigh — market was still absorbing this at 01:22.
+        Second, Iran chief negotiator Ghalibaf confirmed: <strong>"the administration of the Strait will
+        never return to the way it was before the war."</strong> Iran will comply with international law
+        but intends to exercise exclusive route authority and eventually levy transit fees (waived for
+        60 days during talks). The market resolves on <strong>IMF Portwatch 7-day MA ≥ 60 transit
+        calls/day</strong>. Pre-crisis normal was ~93/day; current estimate ~15-25/day (CENTCOM says
+        55+/day but this includes all vessel types; Portwatch tracks commercial AIS only). IRGC route
+        authority dispute means even if mines clear by ~July 19, insurers may not certify routes without
+        IRGC sign-off. The coin-flip pricing is appropriate. Positive offset: Switzerland technical
+        talks concluded successfully June 23 with "agreement on arrangements for future negotiations" —
+        route authority is now a Switzerland agenda item, not just IRGC rhetoric.
+      </div>
+    </div>
+
+    <div class="move-card">
+      <div class="move-header">
+        <span class="quality-badge q-high">HIGH</span>
+        <div class="move-title">US Fed July 25bp Hike</div>
+        <div class="move-price" style="color:#90cdf4;">17.4%</div>
+        <div class="move-delta delta-down">−2.8pp</div>
+      </div>
+      <div class="move-body">
+        Fell from <strong>20.2%</strong> (01:22 AEST post-PCE) → <strong>17.4%</strong> now, continuing
+        the post-data normalization. The week's awaited US May PCE confirmed at-consensus: core
+        <strong>+0.3% MoM, 3.4% YoY</strong> (below the 3.5% escalation threshold). Since the print
+        (10:30PM AEST Jun 25), the hike market has shed a cumulative 5.8pp from yesterday's 5PM level
+        of 23.2%. We are now 17.6pp below the ↑35% "meeting becomes live" trigger.
+        Hold probability at <strong>79.5%</strong> is the clear base case. Next US rates catalyst:
+        ISM Manufacturing (Jul 1), NFP (Jul 2), then FOMC Jul 28-29. For the next 4 weeks, rates
+        are background noise.
+      </div>
+    </div>
+
+    <div class="move-card">
+      <div class="move-header">
+        <span class="quality-badge q-high">HIGH</span>
+        <div class="move-title">US-Iran Nuclear Deal (before 2027)</div>
+        <div class="move-price" style="color:#68d391;">~95%</div>
+        <div class="move-delta delta-flat">flat</div>
+      </div>
+      <div class="move-body">
+        Unchanged, confirming the <strong>long-dated deal framework is intact</strong> despite IRGC
+        route friction and IAEA inspection disputes. This is the ground-truth signal: if the deal
+        framework were genuinely threatened, this market would reprice. It hasn't. The IRGC route-veto
+        and Ghalibaf's statement are being read as implementation-phase negotiating positions, not
+        framework collapse. Cross-check: WTI at $69/bbl (no spike) independently confirms.
+      </div>
+    </div>
+
+    <div class="move-card">
+      <div class="move-header">
+        <span class="quality-badge q-low">LOW</span>
+        <div class="move-title">US-Iran Final Nuclear Deal (shorter date)</div>
+        <div class="move-price" style="color:#68d391;">25.5%</div>
+        <div class="move-delta delta-up">+2pp/24h</div>
+      </div>
+      <div class="move-body">
+        Minor positive move (+2pp/24h) in the shorter-dated final deal market. Consistent with
+        Switzerland talks June 23 "concluded successfully" — market pricing slightly better odds
+        that the full HEU stockpile resolution and inspection framework can be agreed before a
+        near-term deadline. Not a trigger-level move but directionally coherent with the
+        deal-implementation phase.
+      </div>
+    </div>
+
+    <div class="move-card">
+      <div class="move-header">
+        <span class="quality-badge q-low">LOW</span>
+        <div class="move-title">Iran Leadership Change by Dec 31</div>
+        <div class="move-price" style="color:#a0aec0;">17.0%</div>
+        <div class="move-delta delta-up">+0.5pp/24h</div>
+      </div>
+      <div class="move-body">
+        Minor tick higher. IRGC asserting route authority and Ghalibaf making structural statements
+        may be reflecting internal Iranian political positioning ahead of the next phase of Switzerland
+        talks. 43pp below the ↑60% escalation trigger. Background noise at current levels.
+      </div>
+    </div>
+
+    <div class="move-card">
+      <div class="move-header">
+        <span class="quality-badge q-low">LOW</span>
+        <div class="move-title">Iran Invasion 2027</div>
+        <div class="move-price" style="color:#68d391;">13.5%</div>
+        <div class="move-delta delta-flat">flat</div>
+      </div>
+      <div class="move-body">
+        Unchanged for 7 consecutive sessions. This is the single most important confirmation
+        in the complex: despite IRGC route-veto, Ghalibaf structural statements, and IAEA inspection
+        disputes, the invasion market refuses to move. <strong>The market is not pricing re-escalation.
+        WTI at $69 agrees.</strong> These are implementation-phase frictions, not deal-breakers.
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS-MARKET ANALYSIS -->
+  <div class="section">
+    <div class="section-title">Cross-Market Analysis</div>
+
+    <div class="insight-box highlight">
+      <div class="insight-title">🔑 The New Structural Story: Iran-Managed Hormuz</div>
+      <div class="insight-body">
+        Ghalibaf's statement crystallises what the IRGC veto implied: <strong>Iran is not reopening
+        Hormuz — Iran is reorganising Hormuz under Iranian management.</strong> The difference matters
+        for markets:<br><br>
+        • <strong>Pre-crisis assumption:</strong> Hormuz reopening = free-transit regime returns, WTI
+        normalises toward $65-68 (supply glut + de-escalation premium removed).<br>
+        • <strong>Post-Ghalibaf reality:</strong> Hormuz reopening = Iranian route authority + transit
+        fees (post-60-day waiver) + exclusive corridor assignment. Insurance War Risk premiums may
+        remain elevated even after physical mine clearance completes, because route authority isn't
+        settled by clearing mines.<br><br>
+        This implies a <strong>higher structural floor for WTI/Brent</strong> than the pre-crisis
+        baseline. Even in a "successful" July 31 resolution scenario, the post-war Hormuz is not the
+        pre-war Hormuz. The pre-crisis WTI of $73-75 may now represent the new "fully reopened"
+        equilibrium (vs $65-68 if straight return to pre-war). For Australian petrol: A$1.90-2.00/L
+        may be the structural floor in the resolution scenario, not A$1.75-1.80/L.
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-title">Switzerland Talks: Better Than "Paused" Framing</div>
+      <div class="insight-body">
+        Last night's email described talks as "paused." The fuller picture: Round 1 technical talks
+        concluded <strong>successfully on June 23</strong> ("agreement on arrangements for future
+        negotiations, including working groups and implementation mechanisms" — Al Jazeera confirmed).
+        VP Vance called it a "good foundation." The IRGC-Oman corridor dispute on June 25 disrupted
+        the scheduling of Round 2 — Pakistan says technical level resumes <strong>Tuesday June 30</strong>.
+        This is "Round 2 briefly delayed," not "talks collapsed." The route authority dispute is
+        <em>part of</em> the Switzerland agenda, not a reason to abandon it.
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-title">Rates: Clean Picture Post-PCE</div>
+      <div class="insight-body">
+        US May PCE at 3.4% YoY core — exactly in-line, confirms the inflation
+        deceleration trend is intact. The US Fed July hike has now repriced from 24.4% (Jun 24)
+        → 17.4% (today), a 7pp compression in 48 hours. Bond market (10Y UST 4.5%) was more
+        hawkish than Polymarket pre-print; they're now converging. <strong>For Australian markets:
+        the PCE-driven rate shock scenario is off the table for the next 4 weeks.</strong> ASX
+        rate-sensitives (REITs, utilities, growth tech) should have reduced tail risk from today's
+        open. RBA July meeting (from prior context) will focus more on domestic CPI path than
+        US rates spillover.
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-title">Kalshi Unemployment: No Stagflation Escalation</div>
+      <div class="insight-body">
+        All Kalshi unemployment buckets flat: ≥10% at 28%, ≥7% at 66%, ≥20% at 2%. No stagflation
+        scenario building. The PCE in-line result reduces the "hot inflation + unemployment rising"
+        tail risk scenario. 13pp below the ↑45% Kalshi unemployment trigger. Background concern
+        only.
+      </div>
+    </div>
+  </div>
+
+  <!-- AUSTRALIAN IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Market Implications (Friday 26 June, ASX Open 10:00 AEST)</div>
+
+    <div class="stat-row">
+      <div class="stat-pill">WTI (Brent proxy): <strong>~$69/bbl</strong></div>
+      <div class="stat-pill">Brent est.: <strong>~$71-73/bbl</strong></div>
+      <div class="stat-pill">Petrol floor: <strong>A$1.80-1.90/L</strong></div>
+      <div class="stat-pill">ASX open: <strong>Normal</strong></div>
+    </div>
+
+    <div class="insight-body" style="font-size:13px;color:#a0aec0;">
+      <strong style="color:#e2e8f0;">Energy (WDS, STO):</strong> Neutral. WTI at $69/bbl (3-month low)
+      is stable overnight. No spike from IRGC rhetoric; market pricing through it. Slight structural
+      upward Brent floor from Iran-managed-Hormuz thesis — energy names aren't about to collapse
+      further from here.<br><br>
+      <strong style="color:#e2e8f0;">Consumer/Logistics (QAN, WOW, COL, Toll):</strong> Modestly positive.
+      Australian petrol at A$1.80-1.90/L is ~20-30¢/L below the A$2.00+ blockade peak. Sustained
+      relief (not a single-day spike) supports consumer spending and transport cost normalisation.
+      QAN benefits directly from jet fuel linked to Brent.<br><br>
+      <strong style="color:#e2e8f0;">Rate-Sensitives (REITs, utilities, growth tech):</strong> Mildly
+      positive. PCE in-line removes US rate shock risk. Reduced US rate pressure = AUD/USD support,
+      which reduces imported inflation pressure on RBA.<br><br>
+      <strong style="color:#e2e8f0;">AUD/USD:</strong> Mild positive bias. PCE benign + Hormuz supply
+      normalisation thesis intact + Iran invasion at floor. Risk-on backdrop for the commodity-linked AUD.
+      Watch: if Lebanon ceasefire holds through the weekend, Monday risk-on continuation likely.
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">Forward View — What to Watch</div>
+    <ul class="forward-list">
+      <li>
+        <strong>Switzerland Round 2 resumes Tuesday June 30</strong> — IRGC route authority and IAEA
+        inspection sequencing are the key agenda items. A successful round would push Hormuz back
+        above 55-58% and narrow the coin-flip. A second disruption → below 45%.
+      </li>
+      <li>
+        <strong>IMF Portwatch transit data (expected June 26-28)</strong> — First hard quantitative
+        read on whether commercial shipping is actually transiting. If 7-day MA is tracking toward
+        15-20/day, Hormuz July 31 faces headwinds. If 30+/day, coin-flip shifts YES. Watch
+        <a href="https://portwatch.imf.org" style="color:#63b3ed;">portwatch.imf.org</a> directly.
+      </li>
+      <li>
+        <strong>Lebanon ceasefire durability (weekend)</strong> — This remains the IRGC's stated
+        gating condition for mine clearance cooperation. A clean weekend (no IDF incidents in
+        southern Lebanon) = mine clearance Day 9-11 undisrupted = calendar pressure eases slightly.
+      </li>
+      <li>
+        <strong>Iran transit fee framework clarification</strong> — Watch for any statement from
+        either US or Iran on the post-60-day-waiver fee regime. If the US signals it will not
+        accept fees, this is the next binary escalation. If both parties accept a nominal fee
+        framework (precedented in some straits), Hormuz returns above 60%.
+      </li>
+      <li>
+        <strong>US ISM Manufacturing (Jul 1) + NFP (Jul 2)</strong> — Next major rate catalysts.
+        With PCE in-line, these are the data that set the July FOMC tone. Soft ISM/soft NFP
+        = hike odds fall further toward 10-12%; strong = hike odds recover to 22-25%.
+      </li>
+    </ul>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="section">
+    <div class="section-title">Actions Taken</div>
+    <div class="insight-box">
+      <div class="insight-body">
+        Trigger updates: Hormuz secondary collapse sentinel updated (51.5% coin-flip, IRGC route authority
+        structural element added, trajectory updated); Hormuz mine-clearance progress sentinel updated
+        (IRGC route authority as new complexity layer added); Fed July hike updated (post-PCE: 17.4%,
+        17.6pp below trigger); Fed July hold updated (79.5%, 19.5pp above threshold). No new triggers
+        added; no thresholds changed; 0 fires this session.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Polymarket Analyst · 26 June 2026 07:00 AEST ·
+  Sources: <a href="https://www.aljazeera.com/news/2026/6/25/irgc-warns-against-new-hormuz-route-for-ships-what-we-know" style="color:#4a5568;">Al Jazeera IRGC route warning</a> ·
+  <a href="https://www.aljazeera.com/news/2026/6/23/iran-says-technical-talks-with-us-in-switzerland-conclude-successfully" style="color:#4a5568;">Al Jazeera Switzerland talks June 23</a> ·
+  <a href="https://www.nbcnews.com/world/iran/us-iran-talks-war-vance-trump-hormuz-lebanon-switzerland-foundation-rcna351112" style="color:#4a5568;">NBC Vance good foundation</a> ·
+  <a href="https://fortune.com/2026/06/20/shipping-companies-insurance-strait-of-hormuz-traffic-us-iran-deal/" style="color:#4a5568;">Fortune shipping companies / insurance</a>
+</footer>
+
+</body>
+</html>
