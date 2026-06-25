@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Daily — 25 Jun 5PM AEST: WTI Breaks $70; PCE in 90 Minutes</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border-bottom: 2px solid #2d3748; padding: 28px 32px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #f7fafc; letter-spacing: -0.02em; }
+  .header .meta { font-size: 0.82rem; color: #718096; margin-top: 6px; }
+  .header .meta span { color: #90cdf4; }
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+
+  .alert-box { background: #1a2234; border: 1px solid #f6ad55; border-left: 4px solid #f6ad55; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .alert-box .alert-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #f6ad55; margin-bottom: 6px; }
+  .alert-box .alert-text { font-size: 0.97rem; color: #fef3c7; }
+  .alert-box .alert-text strong { color: #fbbf24; }
+
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #718096; padding-bottom: 8px; border-bottom: 1px solid #2d3748; margin-bottom: 14px; }
+
+  .market-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid #1a2234; }
+  .market-row:last-child { border-bottom: none; }
+  .market-badge { flex-shrink: 0; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .badge-high { background: #1a4040; color: #68d391; border: 1px solid #276749; }
+  .badge-med { background: #322e1a; color: #f6e05e; border: 1px solid #744210; }
+  .badge-low { background: #2d1a1a; color: #fc8181; border: 1px solid #742a2a; }
+  .market-content { flex: 1; }
+  .market-name { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+  .market-price { display: inline-block; font-size: 1.05rem; font-weight: 700; margin: 3px 0; }
+  .price-neutral { color: #90cdf4; }
+  .price-up { color: #68d391; }
+  .price-down { color: #fc8181; }
+  .price-delta-up { font-size: 0.8rem; color: #68d391; margin-left: 8px; }
+  .price-delta-down { font-size: 0.8rem; color: #fc8181; margin-left: 8px; }
+  .price-delta-flat { font-size: 0.8rem; color: #718096; margin-left: 8px; }
+  .market-interp { font-size: 0.84rem; color: #a0aec0; margin-top: 4px; }
+  .trigger-gap { font-size: 0.78rem; color: #718096; margin-top: 3px; font-style: italic; }
+
+  .story-box { background: #131926; border: 1px solid #2d3748; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+  .story-box h3 { font-size: 0.95rem; font-weight: 700; color: #f7fafc; margin-bottom: 8px; }
+  .story-box p { font-size: 0.88rem; color: #a0aec0; line-height: 1.65; }
+  .story-box p + p { margin-top: 8px; }
+  .story-box strong { color: #e2e8f0; }
+
+  .forward-box { background: #0d1a26; border: 1px solid #2b6cb0; border-left: 4px solid #3182ce; border-radius: 8px; padding: 18px 20px; }
+  .forward-box h3 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #63b3ed; margin-bottom: 10px; }
+  .forward-box ul { list-style: none; padding: 0; }
+  .forward-box ul li { font-size: 0.88rem; color: #bee3f8; padding: 5px 0 5px 16px; position: relative; }
+  .forward-box ul li::before { content: "▸"; position: absolute; left: 0; color: #3182ce; }
+
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .trigger-table th { text-align: left; padding: 8px 10px; color: #718096; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #2d3748; }
+  .trigger-table td { padding: 9px 10px; border-bottom: 1px solid #1a2234; color: #a0aec0; }
+  .trigger-table td.watching { color: #68d391; }
+  .trigger-table td.price-col { color: #90cdf4; font-weight: 600; }
+  .trigger-table td.gap-col { color: #718096; font-size: 0.82rem; }
+
+  .aus-box { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px; padding: 16px 20px; }
+  .aus-box h3 { font-size: 0.85rem; font-weight: 700; color: #90cdf4; margin-bottom: 10px; }
+  .aus-box ul { list-style: none; padding: 0; }
+  .aus-box ul li { font-size: 0.86rem; color: #a0aec0; padding: 4px 0 4px 14px; position: relative; }
+  .aus-box ul li::before { content: "•"; position: absolute; left: 0; color: #4299e1; }
+
+  .footer { text-align: center; padding: 20px; font-size: 0.75rem; color: #4a5568; border-top: 1px solid #1a2234; margin-top: 12px; }
+</style>
+<style>
+  /* GitHub Pages responsive overrides */
+  body { max-width: 1200px; padding: 2rem 3rem; }
+  @media (min-width: 1400px) { body { max-width: 1400px; } }
+  @media (max-width: 768px) { body { padding: 1rem; } }
+  table { width: 100%; }
+  .card, .market-card, section { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Polymarket Daily — 25 Jun 5PM AEST</h1>
+  <div class="meta">WTI Breaks $70 | PCE in 90 Minutes | <span>13 triggers watching, 0 fired</span></div>
+</div>
+
+<div class="container">
+
+  <!-- HEADLINE ALERT -->
+  <div class="alert-box">
+    <div class="alert-label">⚡ Session Headline</div>
+    <div class="alert-text"><strong>WTI crude breaks below $70 for first time since late February</strong> — fell from $72.35 (yesterday) to $69.13 today (−4.5%), driven by increasing tanker traffic through Hormuz and fading supply fears under the MOU framework. This is the market saying the IRGC's June 20 re-declaration of closure is not credible. Australian Brent proxy now implies petrol approaching <strong>A$1.80–1.88/L</strong> (from A$1.88–1.95/L this morning). PCE releases tonight at <strong>10:30PM AEST</strong> — prediction markets imply a benign 0.2% MoM print.</div>
+  </div>
+
+  <!-- MAIN STORIES -->
+  <div class="section">
+    <div class="section-title">Key Stories</div>
+
+    <div class="story-box">
+      <h3>🛢️ Story 1 — WTI Below $70: Market Pricing Through IRGC Rhetoric</h3>
+      <p>WTI crude dropped to <strong>$69.13/bbl</strong> today, down $3.22 (−4.5%) from yesterday's $72.35 — the lowest level since late February and the largest single-session decline in weeks. The stated catalyst: increasing tanker traffic through the Strait of Hormuz and continued progress in US-Iran peace framework implementation.</p>
+      <p>The critical cross-market read: on June 20, Iran's IRGC re-declared the strait closed and warned vessels not to approach, citing Israeli Lebanon strikes as a ceasefire violation. Yet WTI is <em>falling</em>. Markets are pricing through the IRGC rhetoric — the MOU framework (signed June 15-17 at G7/Versailles) provides legal cover for US-supervised transit, and CENTCOM confirmed 25 vessels transited on June 23, 55 on June 21. When oil falls alongside an IRGC closure declaration, the declaration is not credible. <strong>WTI below $70 is the ground truth: physical supply is normalising.</strong></p>
+      <p>Note: WTI (proxy for Brent) for Australian fuel pricing. Brent typically trades $2–4/bbl above WTI, so Brent ~$71–73/bbl. At these levels, Australian petrol floor moves toward <strong>A$1.80–1.88/L</strong> — a decisive break from the A$2.00+ crisis peak and a further decline from this morning's A$1.88–1.95/L estimate.</p>
+    </div>
+
+    <div class="story-box">
+      <h3>📊 Story 2 — PCE Tonight 10:30PM AEST: Prediction Markets Say Benign</h3>
+      <p>US May PCE releases at 8:30AM EDT (10:30PM AEST tonight) — the week's only hard macro catalyst. April core PCE was 3.3% YoY (0.27% MoM). Robinhood prediction markets are pricing: 94% chance above 0.2% MoM, only 39% chance above 0.3% MoM, 11% above 0.4% MoM. The modal outcome is a clean 0.2% MoM print — <strong>in-line to slightly cool relative to April</strong>.</p>
+      <p>If confirmed: US Fed July hike stays around 22–24% (no trigger pressure), hold holds at 74–76%, AUD/USD neutral. The bond market (10Y UST 4.5%) remains more hawkish than Polymarket (23.2% hike). A 0.2% MoM core print would partly resolve that divergence toward Polymarket being right. Only a hot print (≥0.3% MoM, ~3.5%+ YoY) would push hike to 27–30% and begin threatening the ↑35% trigger (11.8pp away). CME FedWatch independently shows 19.4% hike — Polymarket and CME converged at ~20-23%, prediction markets implying no movement tonight.</p>
+    </div>
+
+    <div class="story-box">
+      <h3>🌊 Story 3 — Hormuz +2pp and IRGC Bluff Called</h3>
+      <p>Hormuz July 31 recovered from 46.5% (7AM) to <strong>48.5%</strong> (+2pp) — a modest confirmation that the June 20 IRGC re-declaration has been absorbed without panic. The resolution criteria requires IMF Portwatch to publish a 7-day moving average of transit calls ≥60 ships for any date before July 31. Current transit rate: 25 ships/June 23 (5-10% of normal 100+ pre-crisis). Mine clearance is Day 7 of a 30-45 day process with 35 days remaining. The calendar is tight: full physical clearance would need to complete by late July to allow the 7-day MA to build to 60 before the deadline. Odds at 48.5% [MED quality] fairly reflect the race against the calendar.</p>
+    </div>
+  </div>
+
+  <!-- KEY MARKET MOVES -->
+  <div class="section">
+    <div class="section-title">Key Market Moves</div>
+
+    <div class="market-row">
+      <span class="market-badge badge-low">LOW</span>
+      <div class="market-content">
+        <div class="market-name">WTI crude oil (proxy Brent for Australia)</div>
+        <span class="market-price price-down">$69.13/bbl</span>
+        <span class="price-delta-down">−$3.22 (−4.5% intraday; −26% over past month)</span>
+        <div class="market-interp">Lowest since late February. IRGC June 20 closure re-declaration being ignored by market — physical tanker traffic flowing, supply expectations normalising. Australian petrol floor moving to A$1.80–1.88/L (Brent ~$71–73/bbl).</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-med">MED</span>
+      <div class="market-content">
+        <div class="market-name">Hormuz traffic normal by July 31</div>
+        <span class="market-price price-up">48.5%</span>
+        <span class="price-delta-up">+2pp from 7AM (46.5%); flat vs yesterday 5PM</span>
+        <div class="market-interp">Consistent with WTI falling — markets pricing incremental supply normalisation. IMF Portwatch ≥60 ships/7d MA required; currently ~25 ships/day (Days 7 of 30-45 day mine-clearance window, 35 days to deadline).</div>
+        <div class="trigger-gap">25.5pp above ↓23% secondary collapse sentinel; 21.5pp below ↑70% mine-clearance progress sentinel</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-high">HIGH</span>
+      <div class="market-content">
+        <div class="market-name">US Fed July 25bp hike</div>
+        <span class="market-price price-neutral">23.2%</span>
+        <span class="price-delta-flat">+0.1pp (flat); PCE tonight is the gate</span>
+        <div class="market-interp">Benign PCE expected (0.2% MoM per Robinhood prediction market). CME FedWatch at 19.4% — converging on "no July move" base case. Warsh dot-plot hawkishness already priced; only a hot surprise changes this.</div>
+        <div class="trigger-gap">11.8pp below ↑35% live-meeting trigger</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-high">HIGH</span>
+      <div class="market-content">
+        <div class="market-name">US Fed July hold (no change)</div>
+        <span class="market-price price-neutral">75.5%</span>
+        <span class="price-delta-flat">flat; hold base case</span>
+        <div class="market-interp">Hold probability stable all day, consistent with PCE-in-line expectation. WTI falling actually <em>supports</em> the hold — lower oil = lower near-term inflation reading coming, reduces urgency to hike.</div>
+        <div class="trigger-gap">15.5pp above ↓60% collapse trigger</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-high">HIGH</span>
+      <div class="market-content">
+        <div class="market-name">US-Iran nuclear deal before 2027</div>
+        <span class="market-price price-neutral">82%</span>
+        <span class="price-delta-flat">stable (flat from 7AM)</span>
+        <div class="market-interp">Ground truth anchor. IAEA inspection dispute treated as sequencing friction. WTI at $69 independently confirms the deal framework is holding — markets wouldn't price $69 oil if they thought the Iran confrontation was live.</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-low">LOW</span>
+      <div class="market-content">
+        <div class="market-name">US invasion of Iran before 2027</div>
+        <span class="market-price price-neutral">13.5%</span>
+        <span class="price-delta-flat">flat for 6+ consecutive sessions</span>
+        <div class="market-interp">Post-deal floor. Six sessions without movement. WTI at $69 validates this as a true floor, not stale pricing. Structural tail risk only (~1.3pp war premium at 13.5% post-MOU).</div>
+        <div class="trigger-gap">3.5pp above ↓10% near-zero trigger; 6.5pp above ↓7% deep-floor sentinel</div>
+      </div>
+    </div>
+
+    <div class="market-row">
+      <span class="market-badge badge-low">LOW</span>
+      <div class="market-content">
+        <div class="market-name">US military strike on Cuba by Dec 31</div>
+        <span class="market-price price-neutral">40.5%</span>
+        <span class="price-delta-flat">+1pp noise from 7AM (39.5%); −6pp trend since Jun 23</span>
+        <div class="market-interp">Sharing the broader "Trump military action risk" de-escalation compression alongside Iran. WTI at $69 = commodities markets not pricing a new military confrontation. 19.5pp below ↑60% trigger.</div>
+        <div class="trigger-gap">19.5pp below ↑60% escalation signal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TRIGGERS STATUS TABLE -->
+  <div class="section">
+    <div class="section-title">All Triggers — Status</div>
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Price</th>
+          <th>Trigger</th>
+          <th>Gap</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Iran invasion ↓10% near-zero floor</td>
+          <td class="price-col">13.5%</td>
+          <td>&lt;10%</td>
+          <td class="gap-col">3.5pp above trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Iran invasion ↑30% mid-escalation</td>
+          <td class="price-col">13.5%</td>
+          <td>&gt;30%</td>
+          <td class="gap-col">16.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Iran invasion ↑40% escalation signal</td>
+          <td class="price-col">13.5%</td>
+          <td>&gt;40%</td>
+          <td class="gap-col">26.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Iran invasion ↓7% deep-floor sentinel</td>
+          <td class="price-col">13.5%</td>
+          <td>&lt;7%</td>
+          <td class="gap-col">6.5pp above trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>China invades Taiwan ↑15%</td>
+          <td class="price-col">5.8%</td>
+          <td>&gt;15%</td>
+          <td class="gap-col">9.2pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 ↑70% (mine clearance progress)</td>
+          <td class="price-col">48.5%</td>
+          <td>&gt;70%</td>
+          <td class="gap-col">21.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 ↑85% (full confirmation)</td>
+          <td class="price-col">48.5%</td>
+          <td>&gt;85%</td>
+          <td class="gap-col">36.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 ↓23% (secondary collapse)</td>
+          <td class="price-col">48.5%</td>
+          <td>&lt;23%</td>
+          <td class="gap-col">25.5pp above trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Hormuz July 31 ↓20% (complete capitulation)</td>
+          <td class="price-col">48.5%</td>
+          <td>&lt;20%</td>
+          <td class="gap-col">28.5pp above trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Cuba strike ↑60% (escalation)</td>
+          <td class="price-col">40.5%</td>
+          <td>&gt;60%</td>
+          <td class="gap-col">19.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Fed July hike ↑35% (live meeting)</td>
+          <td class="price-col">23.2%</td>
+          <td>&gt;35%</td>
+          <td class="gap-col">11.8pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Fed July hold ↓60% (collapse)</td>
+          <td class="price-col">75.5%</td>
+          <td>&lt;60%</td>
+          <td class="gap-col">15.5pp above trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+        <tr>
+          <td>Iran leadership change ↑60%</td>
+          <td class="price-col">16.5%</td>
+          <td>&gt;60%</td>
+          <td class="gap-col">43.5pp below trigger</td>
+          <td class="watching">watching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AUSTRALIAN IMPLICATIONS -->
+  <div class="section">
+    <div class="section-title">Australian Market Implications</div>
+    <div class="aus-box">
+      <h3>🇦🇺 ASX Friday 26 June — Regular Trading Day</h3>
+      <ul>
+        <li><strong>Petrol floor further relief:</strong> WTI $69.13 (proxy Brent ~$71–73/bbl) → A$1.80–1.88/L estimated floor, down from A$1.88–1.95/L this morning and well below A$2.00+ crisis peak. QAN, logistics, and discretionary retail benefit directly from margin relief.</li>
+        <li><strong>Energy/resources mixed:</strong> WDS and STO face earnings headwinds from oil at $69 vs >$80 post-MOU peak. Resources ex-energy broadly neutral — oil fall is de-escalation, not demand collapse.</li>
+        <li><strong>Rate-sensitives pre-PCE:</strong> If PCE tonight is benign (0.2% MoM), ASX rate-sensitives (REITs, growth names) get mild relief — US Fed July hike stays priced at 23%, not threatening. Hot print scenario (>0.3% MoM) would pressure at next open.</li>
+        <li><strong>AUD/USD:</strong> WTI falling $69 removes the oil-shock risk premium that was supporting AUD. But benign PCE removes rate-differential headwind simultaneously. Net: AUD roughly neutral on balanced tailwinds and headwinds.</li>
+        <li><strong>PCE result will be known before ASX Friday open</strong> (10:30PM AEST tonight, ASX opens 10:00AM AEST Friday). Full repricing baked in at Friday open.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FORWARD VIEW -->
+  <div class="section">
+    <div class="section-title">What to Watch</div>
+    <div class="forward-box">
+      <h3>Forward View</h3>
+      <ul>
+        <li><strong>TONIGHT 10:30PM AEST — US May PCE:</strong> Prediction markets say 0.2% MoM core. Confirm in-line = ASX Friday rate-sensitives relief; hot ≥0.3% = Fed hike surges to 27–29% (first approach toward ↑35% trigger in days). This data will be known before ASX Friday open.</li>
+        <li><strong>WTI $69 floor test:</strong> $70 was a key psychological level. A clean break below signals supply expectations are running ahead of physical transit recovery. If WTI continues toward $65–67 range, that's a new narrative: "oil is overshooting de-escalation" — watch for production-cut response from Saudi/OPEC+.</li>
+        <li><strong>Lebanon stabilisation (ongoing):</strong> Iran has stated the deal "cannot be implemented until Lebanon war ends." Every week Lebanon continues = one more week of mine-clearance calendar risk for Hormuz July 31 resolution. Washington talks concluded; watch for formal Lebanon ceasefire announcement as the next gating condition.</li>
+        <li><strong>IMF Portwatch data (expected Jun 24–27):</strong> First quantitative Hormuz transit read post-MOU. If 7-day MA is building toward 20–30 ships (from near-zero), Hormuz can recover toward 55–60%. If data shows &lt;10 ships/day average, July 31 resolution comes under serious calendar pressure.</li>
+        <li><strong>IAEA inspection sequencing:</strong> Trump said "no rush" on timing, Iran rejected Vance's claim of agreement. If Iran formally refuses inspections: nuclear deal [HIGH] 82% would pull back toward 75%; watch for any repricing above -3pp on that market.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Polymarket Analyst — 25 Jun 2026 17:00 AEST | All prediction market prices are probabilistic estimates, not investment advice
+</div>
+</body>
+</html>
